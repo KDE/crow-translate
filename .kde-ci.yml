@@ -1,0 +1,12 @@
+Dependencies:
+- 'on': ['@all']
+  'require':
+    'frameworks/extra-cmake-modules': '@stable'
+    'plasma/kwayland': '@stable'
+
+Options:
+  cmake-options: '-D WITH_PORTABLE_MODE=ON'
+  run-tests: False
+  setup-x-environment: False
+  setup-dbus-session: False
+  run-gcovr: False
