@@ -30,7 +30,7 @@ public:
     explicit LanguagesDialog(const QVector<QOnlineTranslator::Language> &currentLang, QWidget *parent = nullptr);
     ~LanguagesDialog() override;
 
-    QVector<QOnlineTranslator::Language> languages() const;
+    const QVector<QOnlineTranslator::Language> &languages() const;
 
 public slots:
     void accept() override;

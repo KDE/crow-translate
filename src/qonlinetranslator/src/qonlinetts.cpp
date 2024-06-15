@@ -132,12 +132,12 @@ void QOnlineTts::generateUrls(const QString &text, QOnlineTranslator::Engine eng
     }
 }
 
-QList<QMediaContent> QOnlineTts::media() const
+const QList<QMediaContent> &QOnlineTts::media() const
 {
     return m_media;
 }
 
-QString QOnlineTts::errorString() const
+const QString &QOnlineTts::errorString() const
 {
     return m_errorString;
 }

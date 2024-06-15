@@ -16,10 +16,10 @@ class QJsonObject;
 class QGitAsset
 {
 public:
-    QGitAsset(const QJsonObject &asset);
+    explicit QGitAsset(const QJsonObject &asset);
 
-    QString name() const;
-    QString contentType() const;
+    const QString &name() const;
+    const QString &contentType() const;
     QUrl url() const;
 
     QDateTime createdAt() const;

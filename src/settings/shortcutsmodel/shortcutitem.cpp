@@ -59,7 +59,7 @@ ShortcutItem *ShortcutItem::parentItem()
     return m_parentItem;
 }
 
-QString ShortcutItem::description() const
+const QString &ShortcutItem::description() const
 {
     return m_description;
 }

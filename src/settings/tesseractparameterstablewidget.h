@@ -15,7 +15,7 @@ class TesseractParametersTableWidget : public QTableWidget
     Q_OBJECT
 
 public:
-    TesseractParametersTableWidget(QWidget *parent = nullptr);
+    explicit TesseractParametersTableWidget(QWidget *parent = nullptr);
 
     void setParameters(const QMap<QString, QVariant> &parameters);
     QMap<QString, QVariant> parameters() const;

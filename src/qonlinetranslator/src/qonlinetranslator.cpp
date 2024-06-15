@@ -321,17 +321,17 @@ QJsonDocument QOnlineTranslator::toJson() const
     return QJsonDocument(object);
 }
 
-QString QOnlineTranslator::source() const
+const QString &QOnlineTranslator::source() const
 {
     return m_source;
 }
 
-QString QOnlineTranslator::sourceTranslit() const
+const QString &QOnlineTranslator::sourceTranslit() const
 {
     return m_sourceTranslit;
 }
 
-QString QOnlineTranslator::sourceTranscription() const
+const QString &QOnlineTranslator::sourceTranscription() const
 {
     return m_sourceTranscription;
 }
@@ -346,12 +346,12 @@ QOnlineTranslator::Language QOnlineTranslator::sourceLanguage() const
     return m_sourceLang;
 }
 
-QString QOnlineTranslator::translation() const
+const QString &QOnlineTranslator::translation() const
 {
     return m_translation;
 }
 
-QString QOnlineTranslator::translationTranslit() const
+const QString &QOnlineTranslator::translationTranslit() const
 {
     return m_translationTranslit;
 }
@@ -366,12 +366,12 @@ QOnlineTranslator::Language QOnlineTranslator::translationLanguage() const
     return m_translationLang;
 }
 
-QMap<QString, QVector<QOption>> QOnlineTranslator::translationOptions() const
+const QMap<QString, QVector<QOption>> &QOnlineTranslator::translationOptions() const
 {
     return m_translationOptions;
 }
 
-QMap<QString, QVector<QExample>> QOnlineTranslator::examples() const
+const QMap<QString, QVector<QExample>> &QOnlineTranslator::examples() const
 {
     return m_examples;
 }
@@ -381,7 +381,7 @@ QOnlineTranslator::TranslationError QOnlineTranslator::error() const
     return m_error;
 }
 
-QString QOnlineTranslator::errorString() const
+const QString &QOnlineTranslator::errorString() const
 {
     return m_errorString;
 }

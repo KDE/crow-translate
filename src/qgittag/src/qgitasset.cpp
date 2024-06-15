@@ -21,12 +21,12 @@ QGitAsset::QGitAsset(const QJsonObject &asset)
 {
 }
 
-QString QGitAsset::name() const
+const QString &QGitAsset::name() const
 {
     return m_contentType;
 }
 
-QString QGitAsset::contentType() const
+const QString &QGitAsset::contentType() const
 {
     return m_type;
 }

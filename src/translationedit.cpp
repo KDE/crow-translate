@@ -42,10 +42,14 @@ bool TranslationEdit::parseTranslationData(QOnlineTranslator *translator)
     setHtml(m_translation.toHtmlEscaped().replace(QStringLiteral("\n"), QStringLiteral("<br>")));
 
     // Translit
-    if (!translator->translationTranslit().isEmpty())
-        append(QStringLiteral("<font color=\"grey\"><i>/%1/</i></font>").arg(translator->translationTranslit().replace(QStringLiteral("\n"), QStringLiteral("/<br>/"))));
-    if (!translator->sourceTranslit().isEmpty())
-        append(QStringLiteral("<font color=\"grey\"><i><b>(%1)</b></i></font>").arg(translator->sourceTranslit().replace(QStringLiteral("\n"), QStringLiteral("/<br>/"))));
+    if (!translator->translationTranslit().isEmpty()) {
+        QString translit = translator->translationTranslit();
+        append(QStringLiteral("<font color=\"grey\"><i>/%1/</i></font>").arg(translit.replace(QStringLiteral("\n"), QStringLiteral("/<br>/"))));
+    }
+    if (!translator->sourceTranslit().isEmpty()) {
+        QString translit = translator->sourceTranslit();
+        append(QStringLiteral("<font color=\"grey\"><i><b>(%1)</b></i></font>").arg(translit.replace(QStringLiteral("\n"), QStringLiteral("/<br>/"))));
+    }
 
     // Transcription
     if (!translator->sourceTranscription().isEmpty())
@@ -114,7 +118,7 @@ bool TranslationEdit::parseTranslationData(QOnlineTranslator *translator)
     return true;
 }
 
-QString TranslationEdit::translation() const
+const QString &TranslationEdit::translation() const
 {
     return m_translation;
 }

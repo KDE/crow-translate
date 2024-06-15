@@ -24,8 +24,8 @@ public:
     template<class TextEdit>
     ContextMenu(TextEdit *edit, const QContextMenuEvent *event)
         : QObject(edit)
+        , m_text(edit->textCursor().selectedText())
     {
-        m_text = edit->textCursor().selectedText();
         if (m_text.isEmpty()) {
             if constexpr (std::is_same_v<TextEdit, TranslationEdit>)
                 m_text = edit->translation();

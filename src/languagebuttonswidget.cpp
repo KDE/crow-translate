@@ -40,7 +40,7 @@ LanguageButtonsWidget::~LanguageButtonsWidget()
     delete ui;
 }
 
-QVector<QOnlineTranslator::Language> LanguageButtonsWidget::languages() const
+const QVector<QOnlineTranslator::Language> &LanguageButtonsWidget::languages() const
 {
     return m_languages;
 }

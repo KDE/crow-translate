@@ -28,7 +28,7 @@ public:
     explicit LanguageButtonsWidget(QWidget *parent = nullptr);
     ~LanguageButtonsWidget() override;
 
-    QVector<QOnlineTranslator::Language> languages() const;
+    const QVector<QOnlineTranslator::Language> &languages() const;
     void setLanguages(const QVector<QOnlineTranslator::Language> &languages);
 
     QOnlineTranslator::Language checkedLanguage() const;

@@ -21,7 +21,7 @@ public:
     explicit TranslationEdit(QWidget *parent = nullptr);
 
     bool parseTranslationData(QOnlineTranslator *translator);
-    QString translation() const;
+    const QString &translation() const;
     QOnlineTranslator::Language translationLanguage();
     void clearTranslation();
 

@@ -46,7 +46,7 @@ LanguagesDialog::~LanguagesDialog()
     delete ui;
 }
 
-QVector<QOnlineTranslator::Language> LanguagesDialog::languages() const
+const QVector<QOnlineTranslator::Language> &LanguagesDialog::languages() const
 {
     return m_languages;
 }

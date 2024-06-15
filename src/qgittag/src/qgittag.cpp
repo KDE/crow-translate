@@ -38,17 +38,17 @@ void QGitTag::get(const QString &repoId, int number)
     QObject::connect(m_network, &QNetworkAccessManager::finished, this, &QGitTag::parseReply);
 }
 
-QString QGitTag::name() const
+const QString &QGitTag::name() const
 {
     return m_name;
 }
 
-QString QGitTag::tagName() const
+const QString &QGitTag::tagName() const
 {
     return m_tagName;
 }
 
-QString QGitTag::body() const
+const QString &QGitTag::body() const
 {
     return m_body;
 }
@@ -68,7 +68,7 @@ QUrl QGitTag::zipUrl() const
     return m_zipUrl;
 }
 
-QList<QGitAsset> QGitTag::assets() const
+const QList<QGitAsset> &QGitTag::assets() const
 {
     return m_assets;
 }
@@ -118,7 +118,7 @@ QGitTag::RequestError QGitTag::error() const
     return m_error;
 }
 
-QString QGitTag::errorString() const
+const QString &QGitTag::errorString() const
 {
     return m_errorString;
 }

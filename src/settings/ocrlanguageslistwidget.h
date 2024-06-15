@@ -13,7 +13,7 @@
 class OcrLanguagesListWidget : public QListWidget
 {
 public:
-    OcrLanguagesListWidget(QWidget *parent = nullptr);
+    explicit OcrLanguagesListWidget(QWidget *parent = nullptr);
 
     void addLanguages(const QStringList &labels);
     void setCheckedLanguages(const QByteArray &languagesString);

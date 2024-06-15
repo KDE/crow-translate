@@ -28,7 +28,7 @@ public:
     int row() const;
     ShortcutItem *parentItem();
 
-    QString description() const;
+    const QString &description() const;
     QIcon icon() const;
 
     QKeySequence defaultShortcut() const;

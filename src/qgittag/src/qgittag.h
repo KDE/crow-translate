@@ -26,18 +26,18 @@ public:
         NoRelease
     };
 
-    QGitTag(QObject *parent = nullptr, const QString &privateKey = QString());
+    explicit QGitTag(QObject *parent = nullptr, const QString &privateKey = QString());
     void get(const QString &repoId, int number = 0);
 
-    QString name() const;
-    QString tagName() const;
-    QString body() const;
+    const QString &name() const;
+    const QString &tagName() const;
+    const QString &body() const;
 
     QUrl url() const;
     QUrl tarUrl() const;
     QUrl zipUrl() const;
 
-    QList<QGitAsset> assets() const;
+    const QList<QGitAsset> &assets() const;
     int assetId(const QString &str) const;
 
     QDateTime createdAt() const;
@@ -49,7 +49,7 @@ public:
     bool prerelease() const;
 
     RequestError error() const;
-    QString errorString() const;
+    const QString &errorString() const;
 
 signals:
     void finished();

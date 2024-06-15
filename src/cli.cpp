@@ -192,8 +192,10 @@ void Cli::printTranslation()
     // Show source text and its transliteration only once
     if (!m_sourcePrinted) {
         m_stdout << m_translator->source() << '\n';
-        if (!m_translator->sourceTranslit().isEmpty())
-            m_stdout << '(' << m_translator->sourceTranslit().replace('\n', QStringLiteral(")\n(")) << ")\n";
+        if (!m_translator->sourceTranslit().isEmpty()) {
+            QString translit = m_translator->sourceTranslit();
+            m_stdout << '(' << translit.replace('\n', QStringLiteral(")\n(")) << ")\n";
+        }
         m_sourcePrinted = true;
     }
     m_stdout << '\n';
@@ -205,8 +207,10 @@ void Cli::printTranslation()
     // Translation and its transliteration
     if (!m_translator->translation().isEmpty()) {
         m_stdout << m_translator->translation() << '\n';
-        if (!m_translator->translationTranslit().isEmpty())
-            m_stdout << '/' << m_translator->translationTranslit().replace('\n', QStringLiteral("/\n/")) << "/\n";
+        if (!m_translator->translationTranslit().isEmpty()) {
+            QString translit = m_translator->translationTranslit();
+            m_stdout << '/' << translit.replace('\n', QStringLiteral("/\n/")) << "/\n";
+        }
         m_stdout << '\n';
     }
 

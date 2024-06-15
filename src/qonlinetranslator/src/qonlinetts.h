@@ -113,7 +113,7 @@ public:
      *
      * @return List of generated URLs
      */
-    QList<QMediaContent> media() const;
+    const QList<QMediaContent> &media() const;
 
     /**
      * @brief Last error
@@ -133,7 +133,7 @@ public:
      *
      * @return last error string
      */
-    QString errorString() const;
+    const QString &errorString() const;
 
     /**
      * @brief Code of the voice

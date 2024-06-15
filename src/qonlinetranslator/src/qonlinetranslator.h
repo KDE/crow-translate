@@ -247,21 +247,21 @@ public:
      *
      * @return source text
      */
-    QString source() const;
+    const QString &source() const;
 
     /**
      * @brief Source transliteration
      *
      * @return transliteration of the source text
      */
-    QString sourceTranslit() const;
+    const QString &sourceTranslit() const;
 
     /**
      * @brief Source transcription
      *
      * @return transcription of the source text
      */
-    QString sourceTranscription() const;
+    const QString &sourceTranscription() const;
 
     /**
      * @brief Source language name
@@ -282,14 +282,14 @@ public:
      *
      * @return translated text.
      */
-    QString translation() const;
+    const QString &translation() const;
 
     /**
      * @brief Translation transliteration
      *
      * @return transliteration of the translated text
      */
-    QString translationTranslit() const;
+    const QString &translationTranslit() const;
 
     /**
      * @brief Translation language name
@@ -311,7 +311,7 @@ public:
      * @return QMap whose key represents the type of speech, and the value is a QVector of translation options
      * @sa QOption
      */
-    QMap<QString, QVector<QOption>> translationOptions() const;
+    const QMap<QString, QVector<QOption>> &translationOptions() const;
 
     /**
      * @brief Translation examples
@@ -319,7 +319,7 @@ public:
      * @return QMap whose key represents the type of speech, and the value is a QVector of translation examples
      * @sa QExample
      */
-    QMap<QString, QVector<QExample>> examples() const;
+    const QMap<QString, QVector<QExample>> &examples() const;
 
     /**
      * @brief Last error
@@ -339,7 +339,7 @@ public:
      *
      * @return last error string
      */
-    QString errorString() const;
+    const QString &errorString() const;
 
     /**
      * @brief Check if source transliteration is enabled

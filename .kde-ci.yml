@@ -12,6 +12,8 @@ Dependencies:
 
 Options:
   cmake-options: '-D WITH_PORTABLE_MODE=ON'
+  cppcheck-arguments: '--enable=warning,style,performance,--suppress=shadowVariable'
+  cppcheck-ignore-files: ['src/3rdparty']
   run-tests: False
   setup-x-environment: False
   setup-dbus-session: False
