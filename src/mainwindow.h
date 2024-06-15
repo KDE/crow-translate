@@ -37,7 +37,6 @@ class SpeakButtons;
 class TranslationEdit;
 class TrayIcon;
 class QHotkey;
-class QTaskbarControl;
 class QComboBox;
 class QShortcut;
 class QToolButton;
@@ -131,7 +130,6 @@ private slots:
     void markContentAsChanged();
     void setListenForContentChanges(bool listen);
     void resetAutoSourceButtonText();
-    void setTaskbarState(QMediaPlayer::State state);
 
     // Other
     void setOrientation(Qt::ScreenOrientation orientation);
@@ -188,7 +186,6 @@ private:
     QStateMachine *m_stateMachine;
     QOnlineTranslator *m_translator;
     TrayIcon *m_trayIcon;
-    QTaskbarControl *m_taskbar;
     Ocr *m_ocr;
     QTimer *m_screenCaptureTimer;
     ScreenWatcher *m_orientationWatcher;

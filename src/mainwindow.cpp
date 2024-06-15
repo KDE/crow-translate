@@ -23,7 +23,6 @@
 
 #include "popupwindow.h"
 #include "qhotkey.h"
-#include "qtaskbarcontrol.h"
 #include "screenwatcher.h"
 #include "selection.h"
 #include "singleapplication.h"
@@ -75,7 +74,6 @@ MainWindow::MainWindow(QWidget *parent)
     , m_stateMachine(new QStateMachine(this))
     , m_translator(new QOnlineTranslator(this))
     , m_trayIcon(new TrayIcon(this))
-    , m_taskbar(new QTaskbarControl(this))
     , m_ocr(new Ocr(this))
     , m_screenCaptureTimer(new QTimer(this))
     , m_orientationWatcher(new ScreenWatcher(this))
@@ -92,12 +90,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Selection requests
     connect(&Selection::instance(), &Selection::requestedSelectionAvailable, ui->sourceEdit, &SourceTextEdit::replaceText);
-
-    // Taskbar progress for text speaking
-    connect(ui->sourceSpeakButtons, &SpeakButtons::stateChanged, this, &MainWindow::setTaskbarState);
-    connect(ui->translationSpeakButtons, &SpeakButtons::stateChanged, this, &MainWindow::setTaskbarState);
-    connect(ui->sourceSpeakButtons, &SpeakButtons::positionChanged, m_taskbar, &QTaskbarControl::setProgress);
-    connect(ui->translationSpeakButtons, &SpeakButtons::positionChanged, m_taskbar, &QTaskbarControl::setProgress);
 
     // Shortcuts
     connect(m_closeWindowsShortcut, &QShortcut::activated, this, &MainWindow::close);
@@ -123,11 +115,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_snippingArea, &SnippingArea::snipped, m_ocr, &Ocr::recognize);
     connect(m_ocr, &Ocr::recognized, ui->sourceEdit, &SourceTextEdit::replaceText);
     m_screenCaptureTimer->setSingleShot(true);
-
-#if defined(Q_OS_WIN)
-    // Windows must have a widget be set to display a playback progress
-    m_taskbar->setWidget(this);
-#endif
 
     // Setup players for speak buttons
     ui->sourceSpeakButtons->setMediaPlayer(new QMediaPlayer);
@@ -512,29 +499,6 @@ void MainWindow::setListenForContentChanges(bool listen)
 void MainWindow::resetAutoSourceButtonText()
 {
     ui->sourceLanguagesWidget->setAutoLanguage(QOnlineTranslator::Auto);
-}
-
-void MainWindow::setTaskbarState(QMediaPlayer::State state)
-{
-    switch (state) {
-    case QMediaPlayer::PlayingState:
-        m_taskbar->setProgressVisible(true);
-#if defined(Q_OS_WIN)
-        m_taskbar->setWindowsProgressState(QTaskbarControl::Running);
-#endif
-        break;
-    case QMediaPlayer::PausedState:
-#if defined(Q_OS_WIN)
-        m_taskbar->setWindowsProgressState(QTaskbarControl::Paused);
-#endif
-        break;
-    case QMediaPlayer::StoppedState:
-        m_taskbar->setProgressVisible(false);
-#if defined(Q_OS_WIN)
-        m_taskbar->setWindowsProgressState(QTaskbarControl::Stopped);
-#endif
-        break;
-    }
 }
 
 void MainWindow::setOrientation(Qt::ScreenOrientation orientation)

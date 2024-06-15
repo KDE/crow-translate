@@ -68,7 +68,6 @@ option(QHOTKEY_INSTALL OFF)
 
 add_subdirectory(src/3rdparty/singleapplication)
 add_subdirectory(src/3rdparty/qhotkey)
-add_subdirectory(src/3rdparty/qtaskbarcontrol)
 add_subdirectory(src/qonlinetranslator)
 if(WIN32)
     add_subdirectory(src/qgittag)
@@ -234,7 +233,6 @@ set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${EXECUTABLE_NAME})
 target_link_libraries(${PROJECT_NAME} PRIVATE
     SingleApplication::SingleApplication
     QHotkey::QHotkey
-    QTaskbarControl::QTaskbarControl
     QOnlineTranslator::QOnlineTranslator
     Qt5::Concurrent
     Tesseract::Tesseract
