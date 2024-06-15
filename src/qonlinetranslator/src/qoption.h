@@ -56,7 +56,7 @@
  * //  aussprechen: express, pronounce, say, speak, voice, enunciate
  * //  vorbringen: make, put forward, raise, say, put, bring forward
  * //  aufsagen: recite, say, speak
- * 
+ *
  * // noun:
  * //  Sagen: say
  * //  Mitspracherecht: say

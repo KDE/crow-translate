@@ -19,15 +19,15 @@
  *
  */
 
-#include <QNetworkReply>
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QJsonObject>
-
 #include "qgittag.h"
 
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QNetworkReply>
+
 QGitTag::QGitTag(QObject *parent, const QString &privateKey)
-    : QObject (parent)
+    : QObject(parent)
     , m_network(new QNetworkAccessManager(this))
     , m_privateKey(privateKey)
 {

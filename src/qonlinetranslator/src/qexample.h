@@ -31,7 +31,7 @@
  * @code
  * QOnlineTranslator translator;
  * // Obtain translation
- * 
+ *
  * QTextStream out(stdout);
  * for (auto it = translator.examples().cbegin(); it != translator.examples().cend(); ++it) {
  *     out << it.key() << ":" << endl; // Output the type of speech with a colon
@@ -49,11 +49,11 @@
  * // noun:
  * //   an opportunity for stating one's opinion or feelings.
  * //   the voters are entitled to have their say on the treaty
- * 
+ *
  * // verb:
  * //   utter words so as to convey information, an opinion, a feeling or intention, or an instruction.
  * //   "Thank you," he said
- * 
+ *
  * // exclamation:
  * //   used to express surprise or to draw attention to a remark or question.
  * //   say, did you notice any blood?

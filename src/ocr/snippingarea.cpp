@@ -229,11 +229,11 @@ void SnippingArea::mousePressEvent(QMouseEvent *event)
 
     if (event->button() & Qt::LeftButton) {
         /*
-        * NOTE Workaround for https://bugs.kde.org/show_bug.cgi?id=407843
-        * If we show the selection Widget when a right click menu is open we lose focus on X.
-        * When the user clicks we get the mouse back. We can only grab the keyboard if we already
-        * have mouse focus. So just grab it undconditionally here.
-        */
+         * NOTE Workaround for https://bugs.kde.org/show_bug.cgi?id=407843
+         * If we show the selection Widget when a right click menu is open we lose focus on X.
+         * When the user clicks we get the mouse back. We can only grab the keyboard if we already
+         * have mouse focus. So just grab it undconditionally here.
+         */
         grabKeyboard();
         m_mousePos = event->pos();
         m_magnifierAllowed = true;
