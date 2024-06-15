@@ -4,7 +4,6 @@
 [![Crowdin](https://badges.crowdin.net/crow-translate/localized.svg)](https://crowdin.com/project/crow-translate)
 
 **Crow Translate** is a simple and lightweight translator written in **C++ / Qt** that allows you to translate and speak text using Google, Yandex, Bing, LibreTranslate and Lingva translate API.
-You may also be interested in my library [QOnlineTranslator](https://github.com/crow-translate/QOnlineTranslator "A library for Qt5 that provides free usage of Google, Yandex, Bing, LibreTranslate and Lingva translate API.") used in this project.
 
 ## Content
 
@@ -183,8 +182,6 @@ You can set a hotkey for this command in GNOME system settings.
 
 This project uses the following external libraries, which included as git submodules:
 
-- [QOnlineTranslator](https://github.com/crow-translate/QOnlineTranslator) - provides free usage of Google, Yandex and Bing translate API.
-- [QGitTag](https://github.com/crow-translate/QGitTag) - uses the GitHub API to provide information about releases.
 - [QHotkey](https://github.com/Skycoder42/QHotkey) - provides global shortcuts for desktop platforms.
 - [QTaskbarControl](https://github.com/Skycoder42/QTaskbarControl) - to create a taskbar/launcher progress for all desktop platforms.
 - [SingleApplication](https://github.com/itay-grudev/SingleApplication) - prevents launch of multiple application instances.
