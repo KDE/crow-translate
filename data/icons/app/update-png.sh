@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-FileCopyrightText: none
+# SPDX-License-Identifier: CC0-1.0
 
 for i in 16 22 32 44 48 64 128 150 256 310 512
 do

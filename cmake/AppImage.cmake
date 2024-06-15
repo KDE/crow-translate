@@ -1,3 +1,10 @@
+#
+# SPDX-FileCopyrightText: 2018 Hennadii Chernyshchyk <genaloner@gmail.com>
+# SPDX-FileCopyrightText: 2022 Volk Milit <javirrdar@gmail.com>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
 find_program(LINUXDEPLOY_EXECUTABLE
   NAMES linuxdeploy linuxdeploy-x86_64.AppImage
   HINTS ${CPACK_PACKAGE_DIRECTORY} ${CPACK_LINUXDEPLOY_ROOT}

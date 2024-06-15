@@ -1,3 +1,10 @@
+#
+# SPDX-FileCopyrightText: 2018 Hennadii Chernyshchyk <genaloner@gmail.com>
+# SPDX-FileCopyrightText: 2022 Volk Milit <javirrdar@gmail.com>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
 cmake_minimum_required(VERSION 3.16.0)
 
 project(crow-translate
@@ -19,7 +26,7 @@ set(CPACK_PACKAGE_VENDOR ${APPLICATION_NAME})
 set(CPACK_PACKAGE_EXECUTABLES ${EXECUTABLE_NAME} ${APPLICATION_NAME})
 set(CPACK_PACKAGE_INSTALL_DIRECTORY ${APPLICATION_NAME})
 set(CPACK_PACKAGE_CONTACT genaloner@gmail.com)
-set(CPACK_RESOURCE_FILE_LICENSE ${CMAKE_CURRENT_SOURCE_DIR}/COPYING)
+set(CPACK_RESOURCE_FILE_LICENSE ${CMAKE_CURRENT_SOURCE_DIR}/LICENSES/GPL-3.0-or-later.txt)
 set(CPACK_PROJECT_CONFIG_FILE ${CMAKE_CURRENT_SOURCE_DIR}/cmake/CPackProjectConfig.cmake)
 
 set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)

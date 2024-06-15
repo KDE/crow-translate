@@ -1,8 +1,12 @@
+# SPDX-FileCopyrightText: none
+# SPDX-License-Identifier: CC0-1.0
+
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
 include:
   - project: sysadmin/ci-utilities
     file:
+      - /gitlab-templates/reuse-lint.yml
       - /gitlab-templates/clang-format.yml
       - /gitlab-templates/linux.yml
       - /gitlab-templates/freebsd.yml

@@ -1,3 +1,10 @@
+#
+# SPDX-FileCopyrightText: 2018 Hennadii Chernyshchyk <genaloner@gmail.com>
+# SPDX-FileCopyrightText: 2022 Volk Milit <javirrdar@gmail.com>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
 # Leptonica is currently placing CMake Config files in the wrong directory
 # Dependency for Tesseract
 
