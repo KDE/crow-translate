@@ -66,9 +66,9 @@ list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cma
 set(QAPPLICATION_CLASS QApplication)
 option(QHOTKEY_INSTALL OFF)
 
-add_subdirectory(src/third-party/singleapplication)
-add_subdirectory(src/third-party/qhotkey)
-add_subdirectory(src/third-party/qtaskbarcontrol)
+add_subdirectory(src/3rdparty/singleapplication)
+add_subdirectory(src/3rdparty/qhotkey)
+add_subdirectory(src/3rdparty/qtaskbarcontrol)
 add_subdirectory(src/qonlinetranslator)
 if(WIN32)
     add_subdirectory(src/qgittag)
