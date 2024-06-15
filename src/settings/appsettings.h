@@ -67,7 +67,7 @@ public:
     Q_ENUM(Interval)
 #endif
 
-    AppSettings(QObject *parent = nullptr);
+    explicit AppSettings(QObject *parent = nullptr);
 
     // General settings
     void setupLocalization() const;

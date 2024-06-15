@@ -36,7 +36,7 @@ protected:
 
     static QMap<const QScreen *, QImage> splitScreenImages(const QPixmap &pixmap);
 
-    QDBusPendingCallWatcher *m_callWatcher;
+    QDBusPendingCallWatcher *m_callWatcher{nullptr};
 };
 
 #endif // DBUSSCREENGRABBER_H
