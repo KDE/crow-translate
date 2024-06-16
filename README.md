@@ -190,7 +190,7 @@ This project uses the following external libraries, which included as git submod
 
 ## Icons
 
-[Fluent](https://github.com/vinceliuice/Fluent-icon-theme) icon theme is bundled to provide icons on Windows and fallback icons on Linux.
+[Breeze](https://invent.kde.org/frameworks/breeze-icons) icon theme is bundled to provide icons on Windows and fallback icons on Linux.
 
 [circle-flags](https://github.com/HatScripts/circle-flags "A collection of 300+ minimal circular SVG country flags") icons are used for flags.
 

@@ -127,7 +127,7 @@ SettingsDialog::SettingsDialog(MainWindow *parent)
     iconsTitleLabel->setText(tr("Icons:"));
 
     auto *iconsLabel = new QLabel(this);
-    iconsLabel->setText("<a href=\"https://github.com/vinceliuice/Fluent-icon-theme\">Fluent</a>");
+    iconsLabel->setText("<a href=\"https://invent.kde.org/frameworks/breeze-icons\">Breeze</a>");
     iconsLabel->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
     iconsLabel->setOpenExternalLinks(true);
 
