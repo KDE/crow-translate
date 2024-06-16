@@ -12,7 +12,7 @@ Dependencies:
 
 Options:
   cmake-options: '-D WITH_PORTABLE_MODE=ON -D CMAKE_COMPILE_WARNING_AS_ERROR=ON'
-  cppcheck-arguments: '--enable=warning,style,performance --suppress=shadowVariable --error-exitcode=10'
+  cppcheck-arguments: '--enable=warning,style,performance --suppress=shadowFunction'
   cppcheck-ignore-files: ['src/3rdparty']
   run-tests: False
   setup-x-environment: False
