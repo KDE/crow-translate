@@ -186,7 +186,6 @@ You can set a hotkey for this command in GNOME system settings.
 This project uses the following external libraries, which included as git submodules:
 
 - [QHotkey](https://github.com/Skycoder42/QHotkey) - provides global shortcuts for desktop platforms.
-- [QTaskbarControl](https://github.com/Skycoder42/QTaskbarControl) - to create a taskbar/launcher progress for all desktop platforms.
 - [SingleApplication](https://github.com/itay-grudev/SingleApplication) - prevents launch of multiple application instances.
 
 ## Icons
