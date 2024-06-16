@@ -69,20 +69,20 @@ QKeySequence SpeakButtons::speakShortcut() const
     return ui->playPauseButton->shortcut();
 }
 
-QOnlineTts::Voice SpeakButtons::voice(QOnlineTranslator::Engine engine) const
+OnlineTts::Voice SpeakButtons::voice(OnlineTranslator::Engine engine) const
 {
     switch (engine) {
-    case QOnlineTranslator::Yandex:
+    case OnlineTranslator::Yandex:
         return m_yandexVoice;
     default:
-        return QOnlineTts::NoVoice;
+        return OnlineTts::NoVoice;
     }
 }
 
-void SpeakButtons::setVoice(QOnlineTranslator::Engine engine, QOnlineTts::Voice voice)
+void SpeakButtons::setVoice(OnlineTranslator::Engine engine, OnlineTts::Voice voice)
 {
     switch (engine) {
-    case QOnlineTranslator::Yandex:
+    case OnlineTranslator::Yandex:
         m_yandexVoice = voice;
         break;
     default:
@@ -90,20 +90,20 @@ void SpeakButtons::setVoice(QOnlineTranslator::Engine engine, QOnlineTts::Voice 
     }
 }
 
-QOnlineTts::Emotion SpeakButtons::emotion(QOnlineTranslator::Engine engine) const
+OnlineTts::Emotion SpeakButtons::emotion(OnlineTranslator::Engine engine) const
 {
     switch (engine) {
-    case QOnlineTranslator::Yandex:
+    case OnlineTranslator::Yandex:
         return m_yandexEmotion;
     default:
-        return QOnlineTts::NoEmotion;
+        return OnlineTts::NoEmotion;
     }
 }
 
-void SpeakButtons::setEmotion(QOnlineTranslator::Engine engine, QOnlineTts::Emotion emotion)
+void SpeakButtons::setEmotion(OnlineTranslator::Engine engine, OnlineTts::Emotion emotion)
 {
     switch (engine) {
-    case QOnlineTranslator::Yandex:
+    case OnlineTranslator::Yandex:
         m_yandexEmotion = emotion;
         break;
     default:
@@ -111,20 +111,20 @@ void SpeakButtons::setEmotion(QOnlineTranslator::Engine engine, QOnlineTts::Emot
     }
 }
 
-QMap<QOnlineTranslator::Language, QLocale::Country> SpeakButtons::regions(QOnlineTranslator::Engine engine) const
+QMap<OnlineTranslator::Language, QLocale::Country> SpeakButtons::regions(OnlineTranslator::Engine engine) const
 {
     switch (engine) {
-    case QOnlineTranslator::Google:
+    case OnlineTranslator::Google:
         return m_googleRegions;
     default:
         return {};
     }
 }
 
-void SpeakButtons::setRegions(QOnlineTranslator::Engine engine, QMap<QOnlineTranslator::Language, QLocale::Country> regions)
+void SpeakButtons::setRegions(OnlineTranslator::Engine engine, QMap<OnlineTranslator::Language, QLocale::Country> regions)
 {
     switch (engine) {
-    case QOnlineTranslator::Google:
+    case OnlineTranslator::Google:
         m_googleRegions = std::move(regions);
         break;
     default:
@@ -132,18 +132,18 @@ void SpeakButtons::setRegions(QOnlineTranslator::Engine engine, QMap<QOnlineTran
     }
 }
 
-void SpeakButtons::speak(const QString &text, QOnlineTranslator::Language lang, QOnlineTranslator::Engine engine)
+void SpeakButtons::speak(const QString &text, OnlineTranslator::Language lang, OnlineTranslator::Engine engine)
 {
     if (text.isEmpty()) {
         QMessageBox::information(this, tr("No text specified"), tr("Playback text is empty"));
         return;
     }
 
-    QOnlineTts onlineTts;
+    OnlineTts onlineTts;
     onlineTts.setRegions(m_googleRegions);
 
     onlineTts.generateUrls(text, engine, lang, voice(engine), emotion(engine));
-    if (onlineTts.error() != QOnlineTts::NoError) {
+    if (onlineTts.error() != OnlineTts::NoError) {
         QMessageBox::critical(this, tr("Unable to generate URLs for TTS"), onlineTts.errorString());
         return;
     }

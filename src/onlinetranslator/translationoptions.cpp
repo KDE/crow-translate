@@ -5,12 +5,12 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "qoption.h"
+#include "translationoptions.h"
 
 #include <QJsonArray>
 #include <QJsonObject>
 
-QJsonObject QOption::toJson() const
+QJsonObject TranslationOptions::toJson() const
 {
     QJsonObject object{
         {"gender", gender},

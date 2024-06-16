@@ -7,9 +7,9 @@
 
 #include "translatorerrortransition.h"
 
-#include "qonlinetranslator.h"
+#include "onlinetranslator/onlinetranslator.h"
 
-TranslatorErrorTransition::TranslatorErrorTransition(QOnlineTranslator *translator, QState *sourceState)
+TranslatorErrorTransition::TranslatorErrorTransition(OnlineTranslator *translator, QState *sourceState)
     : QAbstractTransition(sourceState)
     , m_translator(translator)
 {
@@ -17,7 +17,7 @@ TranslatorErrorTransition::TranslatorErrorTransition(QOnlineTranslator *translat
 
 bool TranslatorErrorTransition::eventTest(QEvent *)
 {
-    return m_translator->error() != QOnlineTranslator::NoError;
+    return m_translator->error() != OnlineTranslator::NoError;
 }
 
 void TranslatorErrorTransition::onTransition(QEvent *)

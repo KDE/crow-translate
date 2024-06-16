@@ -8,7 +8,7 @@
 #ifndef TRANSLATIONEDIT_H
 #define TRANSLATIONEDIT_H
 
-#include "qonlinetranslator.h"
+#include "onlinetranslator/onlinetranslator.h"
 
 #include <QTextEdit>
 
@@ -20,9 +20,9 @@ class TranslationEdit : public QTextEdit
 public:
     explicit TranslationEdit(QWidget *parent = nullptr);
 
-    bool parseTranslationData(QOnlineTranslator *translator);
+    bool parseTranslationData(OnlineTranslator *translator);
     const QString &translation() const;
-    QOnlineTranslator::Language translationLanguage();
+    OnlineTranslator::Language translationLanguage();
     void clearTranslation();
 
 signals:
@@ -34,7 +34,7 @@ protected:
 
 private:
     QString m_translation;
-    QOnlineTranslator::Language m_lang = QOnlineTranslator::NoLanguage;
+    OnlineTranslator::Language m_lang = OnlineTranslator::NoLanguage;
 };
 
 #endif // TRANSLATIONEDIT_H

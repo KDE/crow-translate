@@ -10,18 +10,18 @@
 
 #include <QSignalTransition>
 
-class QOnlineTranslator;
+class OnlineTranslator;
 
 class TranslatorAbortedTransition : public QSignalTransition
 {
 public:
-    explicit TranslatorAbortedTransition(QOnlineTranslator *translator, QState *sourceState = nullptr);
+    explicit TranslatorAbortedTransition(OnlineTranslator *translator, QState *sourceState = nullptr);
 
 protected:
     bool eventTest(QEvent *event) override;
 
 private:
-    QOnlineTranslator *m_translator;
+    OnlineTranslator *m_translator;
 };
 
 #endif // TRANSLATORABORTEDTRANSITION_H

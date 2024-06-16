@@ -8,9 +8,9 @@
 #include "retranslationtransition.h"
 
 #include "languagebuttonswidget.h"
-#include "qonlinetranslator.h"
+#include "onlinetranslator/onlinetranslator.h"
 
-RetranslationTransition::RetranslationTransition(QOnlineTranslator *translator, LanguageButtonsWidget *buttons, QState *sourceState)
+RetranslationTransition::RetranslationTransition(OnlineTranslator *translator, LanguageButtonsWidget *buttons, QState *sourceState)
     : QAbstractTransition(sourceState)
     , m_translator(translator)
     , m_langButtons(buttons)
@@ -19,7 +19,7 @@ RetranslationTransition::RetranslationTransition(QOnlineTranslator *translator, 
 
 bool RetranslationTransition::eventTest(QEvent *)
 {
-    return m_translator->error() == QOnlineTranslator::NoError
+    return m_translator->error() == OnlineTranslator::NoError
         && m_langButtons->isAutoButtonChecked()
         && m_translator->sourceLanguage() == m_translator->translationLanguage();
 }

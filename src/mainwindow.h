@@ -9,7 +9,7 @@
 #define MAINWINDOW_H
 
 #include "cmake.h"
-#include "qonlinetranslator.h"
+#include "onlinetranslator/onlinetranslator.h"
 #include "settings/appsettings.h"
 
 #include <QMainWindow>
@@ -152,8 +152,8 @@ private:
     void loadAppSettings();
     void checkLanguageButton(int checkedId);
 
-    QOnlineTranslator::Language preferredTranslationLanguage(QOnlineTranslator::Language sourceLang) const;
-    QOnlineTranslator::Engine currentEngine() const;
+    OnlineTranslator::Language preferredTranslationLanguage(OnlineTranslator::Language sourceLang) const;
+    OnlineTranslator::Engine currentEngine() const;
 
     Ui::MainWindow *ui;
 
@@ -171,7 +171,7 @@ private:
     QShortcut *m_closeWindowsShortcut;
 
     QStateMachine *m_stateMachine;
-    QOnlineTranslator *m_translator;
+    OnlineTranslator *m_translator;
     TrayIcon *m_trayIcon;
     Ocr *m_ocr;
     QTimer *m_screenCaptureTimer;
@@ -179,8 +179,8 @@ private:
     AbstractScreenGrabber *m_screenGrabber;
     SnippingArea *m_snippingArea;
 
-    QOnlineTranslator::Language m_primaryLanguage;
-    QOnlineTranslator::Language m_secondaryLanguage;
+    OnlineTranslator::Language m_primaryLanguage;
+    OnlineTranslator::Language m_secondaryLanguage;
 
     AppSettings::WindowMode m_windowMode;
 

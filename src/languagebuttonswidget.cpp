@@ -25,7 +25,7 @@ LanguageButtonsWidget::LanguageButtonsWidget(QWidget *parent)
     , m_buttonGroup(new QButtonGroup)
 {
     ui->setupUi(this);
-    addButton(QOnlineTranslator::Auto);
+    addButton(OnlineTranslator::Auto);
     m_buttonGroup->button(s_autoButtonId)->setChecked(true);
     setWindowWidthCheckEnabled(true);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
@@ -40,12 +40,12 @@ LanguageButtonsWidget::~LanguageButtonsWidget()
     delete ui;
 }
 
-const QVector<QOnlineTranslator::Language> &LanguageButtonsWidget::languages() const
+const QVector<OnlineTranslator::Language> &LanguageButtonsWidget::languages() const
 {
     return m_languages;
 }
 
-void LanguageButtonsWidget::setLanguages(const QVector<QOnlineTranslator::Language> &languages)
+void LanguageButtonsWidget::setLanguages(const QVector<OnlineTranslator::Language> &languages)
 {
     if (m_languages == languages)
         return;
@@ -73,17 +73,17 @@ void LanguageButtonsWidget::setLanguages(const QVector<QOnlineTranslator::Langua
     emit languagesChanged(m_languages);
 }
 
-QOnlineTranslator::Language LanguageButtonsWidget::checkedLanguage() const
+OnlineTranslator::Language LanguageButtonsWidget::checkedLanguage() const
 {
     return language(m_buttonGroup->checkedId());
 }
 
-QOnlineTranslator::Language LanguageButtonsWidget::previousCheckedLanguage() const
+OnlineTranslator::Language LanguageButtonsWidget::previousCheckedLanguage() const
 {
     return language(m_previousCheckedId);
 }
 
-QOnlineTranslator::Language LanguageButtonsWidget::language(int id) const
+OnlineTranslator::Language LanguageButtonsWidget::language(int id) const
 {
     if (id == s_autoButtonId)
         return m_autoLang;
@@ -91,10 +91,10 @@ QOnlineTranslator::Language LanguageButtonsWidget::language(int id) const
     return m_languages[id];
 }
 
-bool LanguageButtonsWidget::checkLanguage(QOnlineTranslator::Language lang)
+bool LanguageButtonsWidget::checkLanguage(OnlineTranslator::Language lang)
 {
     // Select auto button
-    if (lang == QOnlineTranslator::Auto) {
+    if (lang == OnlineTranslator::Auto) {
         checkAutoButton();
         return true;
     }
@@ -136,231 +136,231 @@ void LanguageButtonsWidget::retranslate()
     setButtonLanguage(m_buttonGroup->button(s_autoButtonId), m_autoLang);
 }
 
-QIcon LanguageButtonsWidget::countryIcon(QOnlineTranslator::Language lang)
+QIcon LanguageButtonsWidget::countryIcon(OnlineTranslator::Language lang)
 {
     switch (lang) {
-    case QOnlineTranslator::Afrikaans:
-    case QOnlineTranslator::Xhosa:
-    case QOnlineTranslator::Zulu:
+    case OnlineTranslator::Afrikaans:
+    case OnlineTranslator::Xhosa:
+    case OnlineTranslator::Zulu:
         return QIcon(":/icons/flags/za.svg");
-    case QOnlineTranslator::Albanian:
+    case OnlineTranslator::Albanian:
         return QIcon(":/icons/flags/al.svg");
-    case QOnlineTranslator::Amharic:
+    case OnlineTranslator::Amharic:
         return QIcon(":/icons/flags/et.svg");
-    case QOnlineTranslator::Arabic:
-    case QOnlineTranslator::LevantineArabic:
+    case OnlineTranslator::Arabic:
+    case OnlineTranslator::LevantineArabic:
         return QIcon(":/icons/flags/eg.svg");
-    case QOnlineTranslator::Armenian:
+    case OnlineTranslator::Armenian:
         return QIcon(":/icons/flags/am.svg");
-    case QOnlineTranslator::Azerbaijani:
+    case OnlineTranslator::Azerbaijani:
         return QIcon(":/icons/flags/az.svg");
-    case QOnlineTranslator::Basque:
+    case OnlineTranslator::Basque:
         return QIcon(":/icons/flags/es-pv.svg");
-    case QOnlineTranslator::Belarusian:
+    case OnlineTranslator::Belarusian:
         return QIcon(":/icons/flags/by.svg");
-    case QOnlineTranslator::Bengali:
+    case OnlineTranslator::Bengali:
         return QIcon(":/icons/flags/bd.svg");
-    case QOnlineTranslator::Bosnian:
-    case QOnlineTranslator::Yiddish:
+    case OnlineTranslator::Bosnian:
+    case OnlineTranslator::Yiddish:
         return QIcon(":/icons/flags/ba.svg");
-    case QOnlineTranslator::Bulgarian:
+    case OnlineTranslator::Bulgarian:
         return QIcon(":/icons/flags/bg.svg");
-    case QOnlineTranslator::Catalan:
+    case OnlineTranslator::Catalan:
         return QIcon(":/icons/flags/ad.svg");
-    case QOnlineTranslator::Cantonese:
+    case OnlineTranslator::Cantonese:
         return QIcon(":/icons/flags/hk.svg");
-    case QOnlineTranslator::Hmong:
-    case QOnlineTranslator::SimplifiedChinese:
+    case OnlineTranslator::Hmong:
+    case OnlineTranslator::SimplifiedChinese:
         return QIcon(":/icons/flags/cn.svg");
-    case QOnlineTranslator::TraditionalChinese:
+    case OnlineTranslator::TraditionalChinese:
         return QIcon(":/icons/flags/tw.svg");
-    case QOnlineTranslator::Uighur:
+    case OnlineTranslator::Uighur:
         return QIcon(":/icons/flags/cn-xj.svg");
-    case QOnlineTranslator::Croatian:
+    case OnlineTranslator::Croatian:
         return QIcon(":/icons/flags/hr.svg");
-    case QOnlineTranslator::Czech:
+    case OnlineTranslator::Czech:
         return QIcon(":/icons/flags/cz.svg");
-    case QOnlineTranslator::Danish:
+    case OnlineTranslator::Danish:
         return QIcon(":/icons/flags/dk.svg");
-    case QOnlineTranslator::Dutch:
-    case QOnlineTranslator::Frisian:
+    case OnlineTranslator::Dutch:
+    case OnlineTranslator::Frisian:
         return QIcon(":/icons/flags/nl.svg");
-    case QOnlineTranslator::English:
+    case OnlineTranslator::English:
         return QIcon(":/icons/flags/gb.svg");
-    case QOnlineTranslator::Esperanto:
+    case OnlineTranslator::Esperanto:
         return QIcon(":/icons/flags/eo.svg");
-    case QOnlineTranslator::Estonian:
+    case OnlineTranslator::Estonian:
         return QIcon(":/icons/flags/ee.svg");
-    case QOnlineTranslator::Fijian:
+    case OnlineTranslator::Fijian:
         return QIcon(":/icons/flags/fj.svg");
-    case QOnlineTranslator::Filipino:
-    case QOnlineTranslator::Cebuano:
-    case QOnlineTranslator::Tagalog:
+    case OnlineTranslator::Filipino:
+    case OnlineTranslator::Cebuano:
+    case OnlineTranslator::Tagalog:
         return QIcon(":/icons/flags/ph.svg");
-    case QOnlineTranslator::Finnish:
+    case OnlineTranslator::Finnish:
         return QIcon(":/icons/flags/fi.svg");
-    case QOnlineTranslator::French:
-    case QOnlineTranslator::Corsican:
+    case OnlineTranslator::French:
+    case OnlineTranslator::Corsican:
         return QIcon(":/icons/flags/fr.svg");
-    case QOnlineTranslator::Galician:
+    case OnlineTranslator::Galician:
         return QIcon(":/icons/flags/es-ga.svg");
-    case QOnlineTranslator::Georgian:
+    case OnlineTranslator::Georgian:
         return QIcon(":/icons/flags/ge.svg");
-    case QOnlineTranslator::German:
+    case OnlineTranslator::German:
         return QIcon(":/icons/flags/de.svg");
-    case QOnlineTranslator::Greek:
+    case OnlineTranslator::Greek:
         return QIcon(":/icons/flags/gr.svg");
-    case QOnlineTranslator::HaitianCreole:
+    case OnlineTranslator::HaitianCreole:
         return QIcon(":/icons/flags/ht.svg");
-    case QOnlineTranslator::Hausa:
+    case OnlineTranslator::Hausa:
         return QIcon(":/icons/flags/ne.svg");
-    case QOnlineTranslator::Hawaiian:
+    case OnlineTranslator::Hawaiian:
         return QIcon(":/icons/flags/us.svg");
-    case QOnlineTranslator::Hebrew:
+    case OnlineTranslator::Hebrew:
         return QIcon(":/icons/flags/il.svg");
-    case QOnlineTranslator::Gujarati:
-    case QOnlineTranslator::Hindi:
-    case QOnlineTranslator::Kannada:
-    case QOnlineTranslator::Malayalam:
-    case QOnlineTranslator::Marathi:
-    case QOnlineTranslator::Oriya:
-    case QOnlineTranslator::Punjabi:
-    case QOnlineTranslator::Telugu:
+    case OnlineTranslator::Gujarati:
+    case OnlineTranslator::Hindi:
+    case OnlineTranslator::Kannada:
+    case OnlineTranslator::Malayalam:
+    case OnlineTranslator::Marathi:
+    case OnlineTranslator::Oriya:
+    case OnlineTranslator::Punjabi:
+    case OnlineTranslator::Telugu:
         return QIcon(":/icons/flags/in.svg");
-    case QOnlineTranslator::Hungarian:
+    case OnlineTranslator::Hungarian:
         return QIcon(":/icons/flags/hu.svg");
-    case QOnlineTranslator::Icelandic:
+    case OnlineTranslator::Icelandic:
         return QIcon(":/icons/flags/is.svg");
-    case QOnlineTranslator::Igbo:
-    case QOnlineTranslator::Yoruba:
+    case OnlineTranslator::Igbo:
+    case OnlineTranslator::Yoruba:
         return QIcon(":/icons/flags/ng.svg");
-    case QOnlineTranslator::Indonesian:
-    case QOnlineTranslator::Javanese:
+    case OnlineTranslator::Indonesian:
+    case OnlineTranslator::Javanese:
         return QIcon(":/icons/flags/id.svg");
-    case QOnlineTranslator::Irish:
+    case OnlineTranslator::Irish:
         return QIcon(":/icons/flags/ie.svg");
-    case QOnlineTranslator::Italian:
+    case OnlineTranslator::Italian:
         return QIcon(":/icons/flags/it.svg");
-    case QOnlineTranslator::Japanese:
+    case OnlineTranslator::Japanese:
         return QIcon(":/icons/flags/jp.svg");
-    case QOnlineTranslator::Sundanese:
+    case OnlineTranslator::Sundanese:
         return QIcon(":/icons/flags/sd.svg");
-    case QOnlineTranslator::Kazakh:
+    case OnlineTranslator::Kazakh:
         return QIcon(":/icons/flags/kz.svg");
-    case QOnlineTranslator::Khmer:
+    case OnlineTranslator::Khmer:
         return QIcon(":/icons/flags/kh.svg");
-    case QOnlineTranslator::Kinyarwanda:
+    case OnlineTranslator::Kinyarwanda:
         return QIcon(":/icons/flags/rw.svg");
-    case QOnlineTranslator::Klingon:
-    case QOnlineTranslator::KlingonPlqaD:
+    case OnlineTranslator::Klingon:
+    case OnlineTranslator::KlingonPlqaD:
         return QIcon(":/icons/flags/fictional/klingon.svg");
-    case QOnlineTranslator::Korean:
+    case OnlineTranslator::Korean:
         return QIcon(":/icons/flags/kr.svg");
-    case QOnlineTranslator::Kurdish:
+    case OnlineTranslator::Kurdish:
         return QIcon(":/icons/flags/iq.svg");
-    case QOnlineTranslator::Kyrgyz:
+    case OnlineTranslator::Kyrgyz:
         return QIcon(":/icons/flags/kg.svg");
-    case QOnlineTranslator::Lao:
+    case OnlineTranslator::Lao:
         return QIcon(":/icons/flags/la.svg");
-    case QOnlineTranslator::Latin:
+    case OnlineTranslator::Latin:
         return QIcon(":/icons/flags/va.svg");
-    case QOnlineTranslator::Latvian:
+    case OnlineTranslator::Latvian:
         return QIcon(":/icons/flags/lv.svg");
-    case QOnlineTranslator::Lithuanian:
+    case OnlineTranslator::Lithuanian:
         return QIcon(":/icons/flags/lt.svg");
-    case QOnlineTranslator::Luxembourgish:
+    case OnlineTranslator::Luxembourgish:
         return QIcon(":/icons/flags/lu.svg");
-    case QOnlineTranslator::Macedonian:
+    case OnlineTranslator::Macedonian:
         return QIcon(":/icons/flags/mk.svg");
-    case QOnlineTranslator::Malagasy:
+    case OnlineTranslator::Malagasy:
         return QIcon(":/icons/flags/mg.svg");
-    case QOnlineTranslator::Malay:
+    case OnlineTranslator::Malay:
         return QIcon(":/icons/flags/my.svg");
-    case QOnlineTranslator::Maltese:
+    case OnlineTranslator::Maltese:
         return QIcon(":/icons/flags/mt.svg");
-    case QOnlineTranslator::Maori:
+    case OnlineTranslator::Maori:
         return QIcon(":/icons/flags/nz.svg");
-    case QOnlineTranslator::Mongolian:
+    case OnlineTranslator::Mongolian:
         return QIcon(":/icons/flags/mn.svg");
-    case QOnlineTranslator::Myanmar:
+    case OnlineTranslator::Myanmar:
         return QIcon(":/icons/flags/mm.svg");
-    case QOnlineTranslator::Nepali:
+    case OnlineTranslator::Nepali:
         return QIcon(":/icons/flags/np.svg");
-    case QOnlineTranslator::Norwegian:
+    case OnlineTranslator::Norwegian:
         return QIcon(":/icons/flags/no.svg");
-    case QOnlineTranslator::Chichewa:
+    case OnlineTranslator::Chichewa:
         return QIcon(":/icons/flags/mw.svg");
-    case QOnlineTranslator::Papiamento:
+    case OnlineTranslator::Papiamento:
         return QIcon(":/icons/flags/aw.svg");
-    case QOnlineTranslator::Pashto:
+    case OnlineTranslator::Pashto:
         return QIcon(":/icons/flags/af.svg");
-    case QOnlineTranslator::Persian:
+    case OnlineTranslator::Persian:
         return QIcon(":/icons/flags/ir.svg");
-    case QOnlineTranslator::Polish:
+    case OnlineTranslator::Polish:
         return QIcon(":/icons/flags/pl.svg");
-    case QOnlineTranslator::Portuguese:
+    case OnlineTranslator::Portuguese:
         return QIcon(":/icons/flags/pt.svg");
-    case QOnlineTranslator::QueretaroOtomi:
-    case QOnlineTranslator::YucatecMaya:
+    case OnlineTranslator::QueretaroOtomi:
+    case OnlineTranslator::YucatecMaya:
         return QIcon(":/icons/flags/mx.svg");
-    case QOnlineTranslator::Romanian:
+    case OnlineTranslator::Romanian:
         return QIcon(":/icons/flags/ro.svg");
-    case QOnlineTranslator::Russian:
-    case QOnlineTranslator::Bashkir:
-    case QOnlineTranslator::HillMari:
-    case QOnlineTranslator::Mari:
-    case QOnlineTranslator::Tatar:
-    case QOnlineTranslator::Udmurt:
+    case OnlineTranslator::Russian:
+    case OnlineTranslator::Bashkir:
+    case OnlineTranslator::HillMari:
+    case OnlineTranslator::Mari:
+    case OnlineTranslator::Tatar:
+    case OnlineTranslator::Udmurt:
         return QIcon(":/icons/flags/ru.svg");
-    case QOnlineTranslator::Samoan:
+    case OnlineTranslator::Samoan:
         return QIcon(":/icons/flags/ws.svg");
-    case QOnlineTranslator::ScotsGaelic:
+    case OnlineTranslator::ScotsGaelic:
         return QIcon(":/icons/flags/gb-sct.svg");
-    case QOnlineTranslator::SerbianCyrillic:
-    case QOnlineTranslator::SerbianLatin:
+    case OnlineTranslator::SerbianCyrillic:
+    case OnlineTranslator::SerbianLatin:
         return QIcon(":/icons/flags/rs.svg");
-    case QOnlineTranslator::Sesotho:
+    case OnlineTranslator::Sesotho:
         return QIcon(":/icons/flags/ls.svg");
-    case QOnlineTranslator::Shona:
+    case OnlineTranslator::Shona:
         return QIcon(":/icons/flags/zw.svg");
-    case QOnlineTranslator::Sindhi:
-    case QOnlineTranslator::Urdu:
+    case OnlineTranslator::Sindhi:
+    case OnlineTranslator::Urdu:
         return QIcon(":/icons/flags/pk.svg");
-    case QOnlineTranslator::Sinhala:
+    case OnlineTranslator::Sinhala:
         return QIcon(":/icons/flags/lk.svg");
-    case QOnlineTranslator::Slovak:
+    case OnlineTranslator::Slovak:
         return QIcon(":/icons/flags/sk.svg");
-    case QOnlineTranslator::Slovenian:
+    case OnlineTranslator::Slovenian:
         return QIcon(":/icons/flags/si.svg");
-    case QOnlineTranslator::Somali:
+    case OnlineTranslator::Somali:
         return QIcon(":/icons/flags/so.svg");
-    case QOnlineTranslator::Spanish:
+    case OnlineTranslator::Spanish:
         return QIcon(":/icons/flags/es.svg");
-    case QOnlineTranslator::Swahili:
+    case OnlineTranslator::Swahili:
         return QIcon(":/icons/flags/ke.svg");
-    case QOnlineTranslator::Swedish:
+    case OnlineTranslator::Swedish:
         return QIcon(":/icons/flags/se.svg");
-    case QOnlineTranslator::Tahitian:
+    case OnlineTranslator::Tahitian:
         return QIcon(":/icons/flags/pf.svg");
-    case QOnlineTranslator::Tajik:
+    case OnlineTranslator::Tajik:
         return QIcon(":/icons/flags/tj.svg");
-    case QOnlineTranslator::Tamil:
+    case OnlineTranslator::Tamil:
         return QIcon(":/icons/flags/tk.svg");
-    case QOnlineTranslator::Thai:
+    case OnlineTranslator::Thai:
         return QIcon(":/icons/flags/th.svg");
-    case QOnlineTranslator::Tongan:
+    case OnlineTranslator::Tongan:
         return QIcon(":/icons/flags/to.svg");
-    case QOnlineTranslator::Turkish:
+    case OnlineTranslator::Turkish:
         return QIcon(":/icons/flags/tr.svg");
-    case QOnlineTranslator::Turkmen:
+    case OnlineTranslator::Turkmen:
         return QIcon(":/icons/flags/tm.svg");
-    case QOnlineTranslator::Ukrainian:
+    case OnlineTranslator::Ukrainian:
         return QIcon(":/icons/flags/ua.svg");
-    case QOnlineTranslator::Uzbek:
+    case OnlineTranslator::Uzbek:
         return QIcon(":/icons/flags/uz.svg");
-    case QOnlineTranslator::Vietnamese:
+    case OnlineTranslator::Vietnamese:
         return QIcon(":/icons/flags/vn.svg");
-    case QOnlineTranslator::Welsh:
+    case OnlineTranslator::Welsh:
         return QIcon(":/icons/flags/gb-wls.svg");
     default:
         return {};
@@ -370,7 +370,7 @@ QIcon LanguageButtonsWidget::countryIcon(QOnlineTranslator::Language lang)
 void LanguageButtonsWidget::swapCurrentLanguages(LanguageButtonsWidget *first, LanguageButtonsWidget *second)
 {
     // Backup first widget buttons properties
-    const QOnlineTranslator::Language sourceLang = first->checkedLanguage();
+    const OnlineTranslator::Language sourceLang = first->checkedLanguage();
     const bool isSourceAutoButtonChecked = first->isAutoButtonChecked();
 
     // Insert current translation language to the first widget
@@ -400,7 +400,7 @@ void LanguageButtonsWidget::checkButton(int id)
         m_buttonGroup->button(s_autoButtonId)->setChecked(true);
 }
 
-void LanguageButtonsWidget::addLanguage(QOnlineTranslator::Language lang)
+void LanguageButtonsWidget::addLanguage(OnlineTranslator::Language lang)
 {
     Q_ASSERT_X(!m_languages.contains(lang), "addLanguage", "Language already exists");
 
@@ -409,7 +409,7 @@ void LanguageButtonsWidget::addLanguage(QOnlineTranslator::Language lang)
     emit languageAdded(lang);
 }
 
-void LanguageButtonsWidget::setAutoLanguage(QOnlineTranslator::Language lang)
+void LanguageButtonsWidget::setAutoLanguage(OnlineTranslator::Language lang)
 {
     if (m_autoLang == lang)
         return;
@@ -495,7 +495,7 @@ void LanguageButtonsWidget::setWindowWidthCheckEnabled(bool enable) const
         disconnect(this, &LanguageButtonsWidget::languagesChanged, this, &LanguageButtonsWidget::checkAvailableScreenWidth);
 }
 
-void LanguageButtonsWidget::addOrCheckLanguage(QOnlineTranslator::Language lang)
+void LanguageButtonsWidget::addOrCheckLanguage(OnlineTranslator::Language lang)
 {
     if (checkLanguage(lang))
         return;
@@ -504,7 +504,7 @@ void LanguageButtonsWidget::addOrCheckLanguage(QOnlineTranslator::Language lang)
     m_buttonGroup->buttons().constLast()->setChecked(true);
 }
 
-void LanguageButtonsWidget::addButton(QOnlineTranslator::Language lang)
+void LanguageButtonsWidget::addButton(OnlineTranslator::Language lang)
 {
     auto *button = new QToolButton;
     button->setCheckable(true);
@@ -512,7 +512,7 @@ void LanguageButtonsWidget::addButton(QOnlineTranslator::Language lang)
     button->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred); // To make the same size for all buttons (without it "Auto" button can look different)
 
     // Use special id for "Auto" button to count all other languages from 0
-    m_buttonGroup->addButton(button, lang == QOnlineTranslator::Auto ? s_autoButtonId : m_buttonGroup->buttons().size() - 1);
+    m_buttonGroup->addButton(button, lang == OnlineTranslator::Auto ? s_autoButtonId : m_buttonGroup->buttons().size() - 1);
 
     setButtonLanguage(button, lang);
 
@@ -520,11 +520,11 @@ void LanguageButtonsWidget::addButton(QOnlineTranslator::Language lang)
     ui->languagesLayout->insertWidget(ui->languagesLayout->count() - 1, button);
 }
 
-void LanguageButtonsWidget::setButtonLanguage(QAbstractButton *button, QOnlineTranslator::Language lang)
+void LanguageButtonsWidget::setButtonLanguage(QAbstractButton *button, OnlineTranslator::Language lang)
 {
     const QString langName = languageString(lang);
     if (button == m_buttonGroup->button(s_autoButtonId)) {
-        if (lang == QOnlineTranslator::Auto)
+        if (lang == OnlineTranslator::Auto)
             button->setText(tr("Auto"));
         else
             button->setText(tr("Auto") + " (" + langName + ")");
@@ -533,16 +533,16 @@ void LanguageButtonsWidget::setButtonLanguage(QAbstractButton *button, QOnlineTr
         button->setIcon(countryIcon(lang));
     }
 
-    button->setToolTip(QOnlineTranslator::languageName(lang));
+    button->setToolTip(OnlineTranslator::languageName(lang));
 }
 
-QString LanguageButtonsWidget::languageString(QOnlineTranslator::Language lang)
+QString LanguageButtonsWidget::languageString(OnlineTranslator::Language lang)
 {
     switch (m_languageFormat) {
     case AppSettings::FullName:
-        return QOnlineTranslator::languageName(lang);
+        return OnlineTranslator::languageName(lang);
     case AppSettings::IsoCode:
-        return QOnlineTranslator::languageCode(lang);
+        return OnlineTranslator::languageCode(lang);
     default:
         Q_UNREACHABLE();
     }

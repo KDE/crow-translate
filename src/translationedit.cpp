@@ -14,10 +14,10 @@ TranslationEdit::TranslationEdit(QWidget *parent)
 {
 }
 
-bool TranslationEdit::parseTranslationData(QOnlineTranslator *translator)
+bool TranslationEdit::parseTranslationData(OnlineTranslator *translator)
 {
     // Check for error
-    if (translator->error() != QOnlineTranslator::NoError) {
+    if (translator->error() != OnlineTranslator::NoError) {
         clearTranslation();
         setHtml(translator->errorString());
         emit translationDataParsed(translator->errorString());
@@ -62,7 +62,7 @@ bool TranslationEdit::parseTranslationData(QOnlineTranslator *translator)
         append(QStringLiteral("<font color=\"grey\"><i>%1</i> - %2</font>").arg(translator->source(), tr("translation options:")));
 
         // Print words for each type of speech
-        const QMap<QString, QVector<QOption>> translationOptions = translator->translationOptions();
+        const QMap<QString, QVector<TranslationOptions>> translationOptions = translator->translationOptions();
         for (auto it = translationOptions.cbegin(); it != translationOptions.cend(); ++it) {
             append(QStringLiteral("<b>%1</b>").arg(it.key()));
             QTextBlockFormat indent;
@@ -95,7 +95,7 @@ bool TranslationEdit::parseTranslationData(QOnlineTranslator *translator)
     // Examples
     if (!translator->examples().isEmpty()) {
         append(QStringLiteral("<font color=\"grey\"><i>%1</i> - %2</font>").arg(translator->source(), tr("examples:")));
-        const QMap<QString, QVector<QExample>> examples = translator->examples();
+        const QMap<QString, QVector<TranslationExample>> examples = translator->examples();
         for (auto it = examples.cbegin(); it != examples.cend(); ++it) {
             append(QStringLiteral("<b>%1</b>").arg(it.key()));
             QTextBlockFormat indent;
@@ -123,7 +123,7 @@ const QString &TranslationEdit::translation() const
     return m_translation;
 }
 
-QOnlineTranslator::Language TranslationEdit::translationLanguage()
+OnlineTranslator::Language TranslationEdit::translationLanguage()
 {
     return m_lang;
 }
@@ -132,7 +132,7 @@ void TranslationEdit::clearTranslation()
 {
     if (!m_translation.isEmpty()) {
         m_translation.clear();
-        m_lang = QOnlineTranslator::NoLanguage;
+        m_lang = OnlineTranslator::NoLanguage;
         emit translationEmpty(true);
     }
     clear();

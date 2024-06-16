@@ -8,7 +8,7 @@
 #ifndef CLI_H
 #define CLI_H
 
-#include "qonlinetranslator.h"
+#include "onlinetranslator/onlinetranslator.h"
 
 #include <QObject>
 #include <QTextStream>
@@ -48,7 +48,7 @@ private:
     void buildTranslationStateMachine();
 
     // Helpers
-    void speak(const QString &text, QOnlineTranslator::Language lang);
+    void speak(const QString &text, OnlineTranslator::Language lang);
     static void checkIncompatibleOptions(QCommandLineParser &parser, const QCommandLineOption &option1, const QCommandLineOption &option2);
 
     static QByteArray readFilesFromStdin();
@@ -57,15 +57,15 @@ private:
     static constexpr char s_langProperty[] = "Language";
 
     QMediaPlayer *m_player;
-    QOnlineTranslator *m_translator;
+    OnlineTranslator *m_translator;
     QStateMachine *m_stateMachine;
     QTextStream m_stdout{stdout};
 
     QString m_sourceText;
-    QVector<QOnlineTranslator::Language> m_translationLanguages;
-    QOnlineTranslator::Engine m_engine = QOnlineTranslator::Google;
-    QOnlineTranslator::Language m_sourceLang = QOnlineTranslator::NoLanguage;
-    QOnlineTranslator::Language m_uiLang = QOnlineTranslator::NoLanguage;
+    QVector<OnlineTranslator::Language> m_translationLanguages;
+    OnlineTranslator::Engine m_engine = OnlineTranslator::Google;
+    OnlineTranslator::Language m_sourceLang = OnlineTranslator::NoLanguage;
+    OnlineTranslator::Language m_uiLang = OnlineTranslator::NoLanguage;
     bool m_speakSource = false;
     bool m_speakTranslation = false;
     bool m_sourcePrinted = false;

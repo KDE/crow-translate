@@ -5,8 +5,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef QOPTION_H
-#define QOPTION_H
+#ifndef TRANSLATIONOPTIONS_H
+#define TRANSLATIONOPTIONS_H
 
 #include <QJsonObject>
 #include <QStringList>
@@ -14,11 +14,11 @@
 /**
  * @brief Contains translation options for a single word
  *
- * Can be obtained from the QOnlineTranslator object.
+ * Can be obtained from the OnlineTranslator object.
  *
  * Example:
  * @code
- * QOnlineTranslator translator;
+ * OnlineTranslator translator;
  * // Obtain translation
  *
  * QTextStream out(stdout);
@@ -50,7 +50,7 @@
  * //  Mitspracherecht: say
  * @endcode
  */
-struct QOption {
+struct TranslationOptions {
     /**
      * @brief Word that specified for translation options.
      */
@@ -74,4 +74,4 @@ struct QOption {
     QJsonObject toJson() const;
 };
 
-#endif // QOPTION_H
+#endif // TRANSLATIONOPTIONS_H

@@ -59,7 +59,7 @@ MainWindow::MainWindow(QWidget *parent)
     , m_delayedTranslateScreenAreaHotkey(new QHotkey(this))
     , m_closeWindowsShortcut(new QShortcut(this))
     , m_stateMachine(new QStateMachine(this))
-    , m_translator(new QOnlineTranslator(this))
+    , m_translator(new OnlineTranslator(this))
     , m_trayIcon(new TrayIcon(this))
     , m_ocr(new Ocr(this))
     , m_screenCaptureTimer(new QTimer(this))
@@ -328,7 +328,7 @@ void MainWindow::quit()
 
 void MainWindow::requestTranslation()
 {
-    QOnlineTranslator::Language translationLang;
+    OnlineTranslator::Language translationLang;
     if (ui->translationLanguagesWidget->isAutoButtonChecked())
         translationLang = preferredTranslationLanguage(ui->sourceLanguagesWidget->checkedLanguage());
     else
@@ -340,7 +340,7 @@ void MainWindow::requestTranslation()
 // Re-translate to a secondary or a primary language if the autodetected source language and the translation language are the same
 void MainWindow::requestRetranslation()
 {
-    const QOnlineTranslator::Language translationLang = preferredTranslationLanguage(m_translator->sourceLanguage());
+    const OnlineTranslator::Language translationLang = preferredTranslationLanguage(m_translator->sourceLanguage());
 
     m_translator->translate(ui->sourceEdit->toSourceText(), currentEngine(), translationLang, m_translator->sourceLanguage());
 }
@@ -349,7 +349,7 @@ void MainWindow::displayTranslation()
 {
     if (!ui->translationEdit->parseTranslationData(m_translator)) {
         // Reset language on translation "Auto" button
-        ui->translationLanguagesWidget->setAutoLanguage(QOnlineTranslator::Auto);
+        ui->translationLanguagesWidget->setAutoLanguage(OnlineTranslator::Auto);
         return;
     }
 
@@ -360,7 +360,7 @@ void MainWindow::displayTranslation()
     if (ui->translationLanguagesWidget->isAutoButtonChecked())
         ui->translationLanguagesWidget->setAutoLanguage(m_translator->translationLanguage());
     else
-        ui->translationLanguagesWidget->setAutoLanguage(QOnlineTranslator::Auto);
+        ui->translationLanguagesWidget->setAutoLanguage(OnlineTranslator::Auto);
 
     // If window mode is notification, send a notification including the translation result
     if (this->isHidden() && m_windowMode == AppSettings::Notification)
@@ -370,7 +370,7 @@ void MainWindow::displayTranslation()
 void MainWindow::clearTranslation()
 {
     ui->translationEdit->clearTranslation();
-    ui->translationLanguagesWidget->setAutoLanguage(QOnlineTranslator::Auto);
+    ui->translationLanguagesWidget->setAutoLanguage(OnlineTranslator::Auto);
 }
 
 void MainWindow::requestSourceLanguage()
@@ -380,7 +380,7 @@ void MainWindow::requestSourceLanguage()
 
 void MainWindow::parseSourceLanguage()
 {
-    if (m_translator->error() != QOnlineTranslator::NoError) {
+    if (m_translator->error() != OnlineTranslator::NoError) {
         QMessageBox::critical(this, tr("Unable to detect language"), m_translator->errorString());
         return;
     }
@@ -432,7 +432,7 @@ void MainWindow::showTranslationWindow()
 
 void MainWindow::copyTranslationToClipboard()
 {
-    if (m_translator->error() != QOnlineTranslator::NoError) {
+    if (m_translator->error() != OnlineTranslator::NoError) {
         QMessageBox::critical(this, tr("Unable to translate text"), m_translator->errorString());
         return;
     }
@@ -485,7 +485,7 @@ void MainWindow::setListenForContentChanges(bool listen)
 
 void MainWindow::resetAutoSourceButtonText()
 {
-    ui->sourceLanguagesWidget->setAutoLanguage(QOnlineTranslator::Auto);
+    ui->sourceLanguagesWidget->setAutoLanguage(OnlineTranslator::Auto);
 }
 
 void MainWindow::setOrientation(Qt::ScreenOrientation orientation)
@@ -626,7 +626,7 @@ void MainWindow::buildTranslationState(QState *state) const
     auto *parseState = new QFinalState(state);
     state->setInitialState(abortPreviousState);
 
-    connect(abortPreviousState, &QState::entered, m_translator, &QOnlineTranslator::abort);
+    connect(abortPreviousState, &QState::entered, m_translator, &OnlineTranslator::abort);
     connect(abortPreviousState, &QState::entered, ui->translationSpeakButtons, &SpeakButtons::stopSpeaking); // Stop translation speaking
     connect(requestState, &QState::entered, this, &MainWindow::requestTranslation);
     connect(requestInOtherLangState, &QState::entered, this, &MainWindow::requestRetranslation);
@@ -644,9 +644,9 @@ void MainWindow::buildTranslationState(QState *state) const
     auto *otherLangTransition = new RetranslationTransition(m_translator, ui->translationLanguagesWidget, checkLanguagesState);
     otherLangTransition->setTargetState(requestInOtherLangState);
 
-    requestState->addTransition(m_translator, &QOnlineTranslator::finished, checkLanguagesState);
+    requestState->addTransition(m_translator, &OnlineTranslator::finished, checkLanguagesState);
     checkLanguagesState->addTransition(parseState);
-    requestInOtherLangState->addTransition(m_translator, &QOnlineTranslator::finished, parseState);
+    requestInOtherLangState->addTransition(m_translator, &OnlineTranslator::finished, parseState);
 }
 
 void MainWindow::buildSpeakSourceState(QState *state) const
@@ -658,7 +658,7 @@ void MainWindow::buildSpeakSourceState(QState *state) const
     auto *speakTextState = new QFinalState(state);
     state->setInitialState(initialState);
 
-    connect(abortPreviousState, &QState::entered, m_translator, &QOnlineTranslator::abort);
+    connect(abortPreviousState, &QState::entered, m_translator, &OnlineTranslator::abort);
     connect(requestLangState, &QState::entered, this, &MainWindow::requestSourceLanguage);
     connect(parseLangState, &QState::entered, this, &MainWindow::parseSourceLanguage);
     connect(speakTextState, &QState::entered, this, &MainWindow::speakSource);
@@ -674,7 +674,7 @@ void MainWindow::buildSpeakSourceState(QState *state) const
     errorTransition->setTargetState(m_stateMachine->initialState());
 
     initialState->addTransition(abortPreviousState);
-    requestLangState->addTransition(m_translator, &QOnlineTranslator::finished, parseLangState);
+    requestLangState->addTransition(m_translator, &OnlineTranslator::finished, parseLangState);
     parseLangState->addTransition(speakTextState);
 }
 
@@ -936,9 +936,9 @@ void MainWindow::loadAppSettings()
     m_forceTranslationAutodetect = settings.isForceTranslationAutodetect();
 
     // Engine settings
-    m_translator->setEngineUrl(QOnlineTranslator::LibreTranslate, settings.engineUrl(QOnlineTranslator::LibreTranslate));
-    m_translator->setEngineApiKey(QOnlineTranslator::LibreTranslate, settings.engineApiKey(QOnlineTranslator::LibreTranslate));
-    m_translator->setEngineUrl(QOnlineTranslator::Lingva, settings.engineUrl(QOnlineTranslator::Lingva));
+    m_translator->setEngineUrl(OnlineTranslator::LibreTranslate, settings.engineUrl(OnlineTranslator::LibreTranslate));
+    m_translator->setEngineApiKey(OnlineTranslator::LibreTranslate, settings.engineApiKey(OnlineTranslator::LibreTranslate));
+    m_translator->setEngineUrl(OnlineTranslator::Lingva, settings.engineUrl(OnlineTranslator::Lingva));
 
     // OCR settings
     if (const QByteArray languages = settings.ocrLanguagesString(), path = settings.ocrLanguagesPath(); !m_ocr->init(languages, path, settings.tesseractParameters())) {
@@ -959,12 +959,12 @@ void MainWindow::loadAppSettings()
     m_snippingArea->setApplyLightMask(settings.isApplyLightMask());
 
     // TTS
-    ui->sourceSpeakButtons->setVoice(QOnlineTranslator::Yandex, settings.voice(QOnlineTranslator::Yandex));
-    ui->sourceSpeakButtons->setEmotion(QOnlineTranslator::Yandex, settings.emotion(QOnlineTranslator::Yandex));
-    ui->sourceSpeakButtons->setRegions(QOnlineTranslator::Google, settings.regions(QOnlineTranslator::Google));
-    ui->translationSpeakButtons->setVoice(QOnlineTranslator::Yandex, settings.voice(QOnlineTranslator::Yandex));
-    ui->translationSpeakButtons->setEmotion(QOnlineTranslator::Yandex, settings.emotion(QOnlineTranslator::Yandex));
-    ui->translationSpeakButtons->setRegions(QOnlineTranslator::Google, settings.regions(QOnlineTranslator::Google));
+    ui->sourceSpeakButtons->setVoice(OnlineTranslator::Yandex, settings.voice(OnlineTranslator::Yandex));
+    ui->sourceSpeakButtons->setEmotion(OnlineTranslator::Yandex, settings.emotion(OnlineTranslator::Yandex));
+    ui->sourceSpeakButtons->setRegions(OnlineTranslator::Google, settings.regions(OnlineTranslator::Google));
+    ui->translationSpeakButtons->setVoice(OnlineTranslator::Yandex, settings.voice(OnlineTranslator::Yandex));
+    ui->translationSpeakButtons->setEmotion(OnlineTranslator::Yandex, settings.emotion(OnlineTranslator::Yandex));
+    ui->translationSpeakButtons->setRegions(OnlineTranslator::Google, settings.regions(OnlineTranslator::Google));
 
     // Connection
     if (const QNetworkProxy::ProxyType proxyType = settings.proxyType(); proxyType == QNetworkProxy::DefaultProxy) {
@@ -1033,7 +1033,7 @@ void MainWindow::checkLanguageButton(int checkedId)
 
     /* If the target and source languages are the same and they are not autodetect buttons,
      * then select previous checked language from just checked language group to another group */
-    const QOnlineTranslator::Language checkedLang = checkedGroup->language(checkedId);
+    const OnlineTranslator::Language checkedLang = checkedGroup->language(checkedId);
     if (checkedLang == anotherGroup->checkedLanguage() && !checkedGroup->isAutoButtonChecked() && !anotherGroup->isAutoButtonChecked()) {
         if (!anotherGroup->checkLanguage(checkedGroup->previousCheckedLanguage()))
             anotherGroup->checkAutoButton(); // Select "Auto" button if group do not have such language
@@ -1041,9 +1041,9 @@ void MainWindow::checkLanguageButton(int checkedId)
     }
 
     // Check if selected language is supported by engine
-    if (!QOnlineTranslator::isSupportTranslation(currentEngine(), checkedLang)) {
+    if (!OnlineTranslator::isSupportTranslation(currentEngine(), checkedLang)) {
         for (int i = 0; i < ui->engineComboBox->count(); ++i) {
-            if (QOnlineTranslator::isSupportTranslation(static_cast<QOnlineTranslator::Engine>(i), checkedLang)) {
+            if (OnlineTranslator::isSupportTranslation(static_cast<OnlineTranslator::Engine>(i), checkedLang)) {
                 ui->engineComboBox->setCurrentIndex(i); // Check first supported language
                 break;
             }
@@ -1055,11 +1055,11 @@ void MainWindow::checkLanguageButton(int checkedId)
 }
 
 // Selected primary or secondary language depends on sourceLang
-QOnlineTranslator::Language MainWindow::preferredTranslationLanguage(QOnlineTranslator::Language sourceLang) const
+OnlineTranslator::Language MainWindow::preferredTranslationLanguage(OnlineTranslator::Language sourceLang) const
 {
-    QOnlineTranslator::Language translationLang = m_primaryLanguage;
-    if (translationLang == QOnlineTranslator::Auto)
-        translationLang = QOnlineTranslator::language(QLocale());
+    OnlineTranslator::Language translationLang = m_primaryLanguage;
+    if (translationLang == OnlineTranslator::Auto)
+        translationLang = OnlineTranslator::language(QLocale());
 
     if (translationLang != sourceLang)
         return translationLang;
@@ -1067,7 +1067,7 @@ QOnlineTranslator::Language MainWindow::preferredTranslationLanguage(QOnlineTran
     return m_secondaryLanguage;
 }
 
-QOnlineTranslator::Engine MainWindow::currentEngine() const
+OnlineTranslator::Engine MainWindow::currentEngine() const
 {
-    return static_cast<QOnlineTranslator::Engine>(ui->engineComboBox->currentIndex());
+    return static_cast<OnlineTranslator::Engine>(ui->engineComboBox->currentIndex());
 }

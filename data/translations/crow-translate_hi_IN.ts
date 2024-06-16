@@ -374,7 +374,7 @@
     </message>
 </context>
 <context>
-    <name>QOnlineTranslator</name>
+    <name>OnlineTranslator</name>
     <message>
         <location filename="../../build/_deps/qonlinetranslator-src/src/qonlinetranslator.cpp" line="203"/>
         <source>Selected source language %1 is not supported for %2</source>
@@ -1061,7 +1061,7 @@
     </message>
 </context>
 <context>
-    <name>QOnlineTts</name>
+    <name>OnlineTts</name>
     <message>
         <location filename="../../build/_deps/qonlinetranslator-src/src/qonlinetts.cpp" line="53"/>
         <source>Selected engine %1 does not support voice settings</source>

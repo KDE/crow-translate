@@ -446,34 +446,34 @@ bool AppSettings::defaultSimplifySource()
     return false;
 }
 
-QOnlineTranslator::Language AppSettings::primaryLanguage() const
+OnlineTranslator::Language AppSettings::primaryLanguage() const
 {
-    return m_settings->value(QStringLiteral("Translation/PrimaryLanguage"), defaultPrimaryLanguage()).value<QOnlineTranslator::Language>();
+    return m_settings->value(QStringLiteral("Translation/PrimaryLanguage"), defaultPrimaryLanguage()).value<OnlineTranslator::Language>();
 }
 
-void AppSettings::setPrimaryLanguage(QOnlineTranslator::Language lang)
+void AppSettings::setPrimaryLanguage(OnlineTranslator::Language lang)
 {
     m_settings->setValue(QStringLiteral("Translation/PrimaryLanguage"), lang);
 }
 
-QOnlineTranslator::Language AppSettings::defaultPrimaryLanguage()
+OnlineTranslator::Language AppSettings::defaultPrimaryLanguage()
 {
-    return QOnlineTranslator::Auto;
+    return OnlineTranslator::Auto;
 }
 
-QOnlineTranslator::Language AppSettings::secondaryLanguage() const
+OnlineTranslator::Language AppSettings::secondaryLanguage() const
 {
-    return m_settings->value(QStringLiteral("Translation/SecondaryLanguage"), defaultSecondaryLanguage()).value<QOnlineTranslator::Language>();
+    return m_settings->value(QStringLiteral("Translation/SecondaryLanguage"), defaultSecondaryLanguage()).value<OnlineTranslator::Language>();
 }
 
-void AppSettings::setSecondaryLanguage(QOnlineTranslator::Language lang)
+void AppSettings::setSecondaryLanguage(OnlineTranslator::Language lang)
 {
     m_settings->setValue(QStringLiteral("Translation/SecondaryLanguage"), lang);
 }
 
-QOnlineTranslator::Language AppSettings::defaultSecondaryLanguage()
+OnlineTranslator::Language AppSettings::defaultSecondaryLanguage()
 {
-    return QOnlineTranslator::English;
+    return OnlineTranslator::English;
 }
 
 bool AppSettings::isForceSourceAutodetect() const
@@ -506,25 +506,25 @@ bool AppSettings::defaultForceTranslationAutodetect()
     return true;
 }
 
-QString AppSettings::engineUrl(QOnlineTranslator::Engine engine) const
+QString AppSettings::engineUrl(OnlineTranslator::Engine engine) const
 {
     switch (engine) {
-    case QOnlineTranslator::LibreTranslate:
+    case OnlineTranslator::LibreTranslate:
         return m_settings->value(QStringLiteral("Translation/LibreTranslateUrl"), defaultEngineUrl(engine)).toString();
-    case QOnlineTranslator::Lingva:
+    case OnlineTranslator::Lingva:
         return m_settings->value(QStringLiteral("Translation/LingvaUrl"), defaultEngineUrl(engine)).toString();
     default:
         Q_UNREACHABLE();
     }
 }
 
-void AppSettings::setEngineUrl(QOnlineTranslator::Engine engine, const QString &url)
+void AppSettings::setEngineUrl(OnlineTranslator::Engine engine, const QString &url)
 {
     switch (engine) {
-    case QOnlineTranslator::LibreTranslate:
+    case OnlineTranslator::LibreTranslate:
         m_settings->setValue(QStringLiteral("Translation/LibreTranslateUrl"), url);
         break;
-    case QOnlineTranslator::Lingva:
+    case OnlineTranslator::Lingva:
         m_settings->setValue(QStringLiteral("Translation/LingvaUrl"), url);
         break;
     default:
@@ -532,32 +532,32 @@ void AppSettings::setEngineUrl(QOnlineTranslator::Engine engine, const QString &
     }
 }
 
-QString AppSettings::defaultEngineUrl(QOnlineTranslator::Engine engine)
+QString AppSettings::defaultEngineUrl(OnlineTranslator::Engine engine)
 {
     switch (engine) {
-    case QOnlineTranslator::LibreTranslate:
+    case OnlineTranslator::LibreTranslate:
         return QStringLiteral("https://translate.argosopentech.com");
-    case QOnlineTranslator::Lingva:
+    case OnlineTranslator::Lingva:
         return QStringLiteral("https://lingva.garudalinux.org");
     default:
         Q_UNREACHABLE();
     }
 }
 
-QByteArray AppSettings::engineApiKey(QOnlineTranslator::Engine engine) const
+QByteArray AppSettings::engineApiKey(OnlineTranslator::Engine engine) const
 {
     switch (engine) {
-    case QOnlineTranslator::LibreTranslate:
+    case OnlineTranslator::LibreTranslate:
         return m_settings->value(QStringLiteral("Translation/LibreTranslateApiKey"), defaultEngineApiKey(engine)).toByteArray();
     default:
         Q_UNREACHABLE();
     }
 }
 
-void AppSettings::setEngineApiKey(QOnlineTranslator::Engine engine, const QByteArray &apiKey)
+void AppSettings::setEngineApiKey(OnlineTranslator::Engine engine, const QByteArray &apiKey)
 {
     switch (engine) {
-    case QOnlineTranslator::LibreTranslate:
+    case OnlineTranslator::LibreTranslate:
         m_settings->setValue(QStringLiteral("Translation/LibreTranslateApiKey"), apiKey);
         break;
     default:
@@ -565,35 +565,35 @@ void AppSettings::setEngineApiKey(QOnlineTranslator::Engine engine, const QByteA
     }
 }
 
-QByteArray AppSettings::defaultEngineApiKey(QOnlineTranslator::Engine engine)
+QByteArray AppSettings::defaultEngineApiKey(OnlineTranslator::Engine engine)
 {
     switch (engine) {
-    case QOnlineTranslator::LibreTranslate:
+    case OnlineTranslator::LibreTranslate:
         return {};
     default:
         Q_UNREACHABLE();
     }
 }
 
-QOnlineTts::Voice AppSettings::voice(QOnlineTranslator::Engine engine) const
+OnlineTts::Voice AppSettings::voice(OnlineTranslator::Engine engine) const
 {
     switch (engine) {
-    case QOnlineTranslator::Google:
-    case QOnlineTranslator::Bing:
-    case QOnlineTranslator::LibreTranslate:
-    case QOnlineTranslator::Lingva:
-        return QOnlineTts::NoVoice;
-    case QOnlineTranslator::Yandex:
-        return m_settings->value(QStringLiteral("TTS/YandexVoice"), defaultVoice(engine)).value<QOnlineTts::Voice>();
+    case OnlineTranslator::Google:
+    case OnlineTranslator::Bing:
+    case OnlineTranslator::LibreTranslate:
+    case OnlineTranslator::Lingva:
+        return OnlineTts::NoVoice;
+    case OnlineTranslator::Yandex:
+        return m_settings->value(QStringLiteral("TTS/YandexVoice"), defaultVoice(engine)).value<OnlineTts::Voice>();
     default:
         Q_UNREACHABLE();
     }
 }
 
-void AppSettings::setVoice(QOnlineTranslator::Engine engine, QOnlineTts::Voice voice)
+void AppSettings::setVoice(OnlineTranslator::Engine engine, OnlineTts::Voice voice)
 {
     switch (engine) {
-    case QOnlineTranslator::Yandex:
+    case OnlineTranslator::Yandex:
         m_settings->setValue(QStringLiteral("TTS/YandexVoice"), voice);
         return;
     default:
@@ -602,40 +602,40 @@ void AppSettings::setVoice(QOnlineTranslator::Engine engine, QOnlineTts::Voice v
     }
 }
 
-QOnlineTts::Voice AppSettings::defaultVoice(QOnlineTranslator::Engine engine)
+OnlineTts::Voice AppSettings::defaultVoice(OnlineTranslator::Engine engine)
 {
     switch (engine) {
-    case QOnlineTranslator::Google:
-    case QOnlineTranslator::Bing:
-    case QOnlineTranslator::LibreTranslate:
-    case QOnlineTranslator::Lingva:
-        return QOnlineTts::NoVoice;
-    case QOnlineTranslator::Yandex:
-        return QOnlineTts::Zahar;
+    case OnlineTranslator::Google:
+    case OnlineTranslator::Bing:
+    case OnlineTranslator::LibreTranslate:
+    case OnlineTranslator::Lingva:
+        return OnlineTts::NoVoice;
+    case OnlineTranslator::Yandex:
+        return OnlineTts::Zahar;
     default:
         Q_UNREACHABLE();
     }
 }
 
-QOnlineTts::Emotion AppSettings::emotion(QOnlineTranslator::Engine engine) const
+OnlineTts::Emotion AppSettings::emotion(OnlineTranslator::Engine engine) const
 {
     switch (engine) {
-    case QOnlineTranslator::Google:
-    case QOnlineTranslator::Bing:
-    case QOnlineTranslator::LibreTranslate:
-    case QOnlineTranslator::Lingva:
-        return QOnlineTts::NoEmotion;
-    case QOnlineTranslator::Yandex:
-        return m_settings->value(QStringLiteral("TTS/YandexEmotion"), defaultEmotion(engine)).value<QOnlineTts::Emotion>();
+    case OnlineTranslator::Google:
+    case OnlineTranslator::Bing:
+    case OnlineTranslator::LibreTranslate:
+    case OnlineTranslator::Lingva:
+        return OnlineTts::NoEmotion;
+    case OnlineTranslator::Yandex:
+        return m_settings->value(QStringLiteral("TTS/YandexEmotion"), defaultEmotion(engine)).value<OnlineTts::Emotion>();
     default:
         Q_UNREACHABLE();
     }
 }
 
-void AppSettings::setEmotion(QOnlineTranslator::Engine engine, QOnlineTts::Emotion emotion)
+void AppSettings::setEmotion(OnlineTranslator::Engine engine, OnlineTts::Emotion emotion)
 {
     switch (engine) {
-    case QOnlineTranslator::Yandex:
+    case OnlineTranslator::Yandex:
         m_settings->setValue(QStringLiteral("TTS/YandexEmotion"), emotion);
         return;
     default:
@@ -644,48 +644,48 @@ void AppSettings::setEmotion(QOnlineTranslator::Engine engine, QOnlineTts::Emoti
     }
 }
 
-QOnlineTts::Emotion AppSettings::defaultEmotion(QOnlineTranslator::Engine engine)
+OnlineTts::Emotion AppSettings::defaultEmotion(OnlineTranslator::Engine engine)
 {
     switch (engine) {
-    case QOnlineTranslator::Google:
-    case QOnlineTranslator::Bing:
-    case QOnlineTranslator::LibreTranslate:
-    case QOnlineTranslator::Lingva:
-        return QOnlineTts::NoEmotion;
-    case QOnlineTranslator::Yandex:
-        return QOnlineTts::Neutral;
+    case OnlineTranslator::Google:
+    case OnlineTranslator::Bing:
+    case OnlineTranslator::LibreTranslate:
+    case OnlineTranslator::Lingva:
+        return OnlineTts::NoEmotion;
+    case OnlineTranslator::Yandex:
+        return OnlineTts::Neutral;
     default:
         Q_UNREACHABLE();
     }
 }
 
-QMap<QOnlineTranslator::Language, QLocale::Country> AppSettings::regions(QOnlineTranslator::Engine engine) const
+QMap<OnlineTranslator::Language, QLocale::Country> AppSettings::regions(OnlineTranslator::Engine engine) const
 {
     switch (engine) {
-    case QOnlineTranslator::Google: {
+    case OnlineTranslator::Google: {
         const auto regionSettings(m_settings->value(QStringLiteral("TTS/GoogleRegions")).value<QMap<QString, QVariant>>());
-        QMap<QOnlineTranslator::Language, QLocale::Country> regions;
-        for (const QOnlineTranslator::Language lang : QOnlineTts::validRegions().keys())
-            regions[lang] = regionSettings.value(QOnlineTranslator::languageName(lang)).value<QLocale::Country>();
+        QMap<OnlineTranslator::Language, QLocale::Country> regions;
+        for (const OnlineTranslator::Language lang : OnlineTts::validRegions().keys())
+            regions[lang] = regionSettings.value(OnlineTranslator::languageName(lang)).value<QLocale::Country>();
         return regions;
     }
-    case QOnlineTranslator::Bing:
-    case QOnlineTranslator::Yandex:
-    case QOnlineTranslator::LibreTranslate:
-    case QOnlineTranslator::Lingva:
+    case OnlineTranslator::Bing:
+    case OnlineTranslator::Yandex:
+    case OnlineTranslator::LibreTranslate:
+    case OnlineTranslator::Lingva:
         return {};
     default:
         Q_UNREACHABLE();
     }
 }
 
-void AppSettings::setRegions(QOnlineTranslator::Engine engine, const QMap<QOnlineTranslator::Language, QLocale::Country> &regions)
+void AppSettings::setRegions(OnlineTranslator::Engine engine, const QMap<OnlineTranslator::Language, QLocale::Country> &regions)
 {
     switch (engine) {
-    case QOnlineTranslator::Google: {
+    case OnlineTranslator::Google: {
         QMap<QString, QVariant> regionSettings;
         for (auto it = regions.cbegin(); it != regions.cend(); ++it)
-            regionSettings[QOnlineTranslator::languageName(it.key())] = it.value();
+            regionSettings[OnlineTranslator::languageName(it.key())] = it.value();
 
         m_settings->setValue(QStringLiteral("TTS/GoogleRegions"), regionSettings);
         return;
@@ -695,14 +695,14 @@ void AppSettings::setRegions(QOnlineTranslator::Engine engine, const QMap<QOnlin
     }
 }
 
-QMap<QOnlineTranslator::Language, QLocale::Country> AppSettings::defaultRegions(QOnlineTranslator::Engine engine)
+QMap<OnlineTranslator::Language, QLocale::Country> AppSettings::defaultRegions(OnlineTranslator::Engine engine)
 {
     switch (engine) {
-    case QOnlineTranslator::Google:
-    case QOnlineTranslator::Bing:
-    case QOnlineTranslator::Yandex:
-    case QOnlineTranslator::LibreTranslate:
-    case QOnlineTranslator::Lingva:
+    case OnlineTranslator::Google:
+    case OnlineTranslator::Bing:
+    case OnlineTranslator::Yandex:
+    case OnlineTranslator::LibreTranslate:
+    case OnlineTranslator::Lingva:
         return {};
     default:
         Q_UNREACHABLE();
@@ -1225,16 +1225,16 @@ void AppSettings::setCropRegion(QRect rect)
     m_settings->setValue(QStringLiteral("OCR/CropRegion"), rect);
 }
 
-QVector<QOnlineTranslator::Language> AppSettings::languages(LanguageButtonsType type) const
+QVector<OnlineTranslator::Language> AppSettings::languages(LanguageButtonsType type) const
 {
     const auto typeEnum = QMetaEnum::fromType<LanguageButtonsType>();
     const QStringList languageCodes = m_settings->value(QStringLiteral("Buttons/%1").arg(typeEnum.valueToKey(type))).toStringList();
 
-    QVector<QOnlineTranslator::Language> languages;
+    QVector<OnlineTranslator::Language> languages;
     languages.reserve(languageCodes.size());
     for (const QString &langCode : languageCodes) {
-        QOnlineTranslator::Language lang = QOnlineTranslator::language(langCode);
-        if (lang != QOnlineTranslator::NoLanguage && lang != QOnlineTranslator::Auto)
+        OnlineTranslator::Language lang = OnlineTranslator::language(langCode);
+        if (lang != OnlineTranslator::NoLanguage && lang != OnlineTranslator::Auto)
             languages.append(lang);
         else
             qWarning() << tr("Unknown language code: %1").arg(langCode);
@@ -1243,12 +1243,12 @@ QVector<QOnlineTranslator::Language> AppSettings::languages(LanguageButtonsType 
     return languages;
 }
 
-void AppSettings::setLanguages(LanguageButtonsType type, const QVector<QOnlineTranslator::Language> &languages)
+void AppSettings::setLanguages(LanguageButtonsType type, const QVector<OnlineTranslator::Language> &languages)
 {
     QStringList langCodes;
     langCodes.reserve(languages.size());
-    for (QOnlineTranslator::Language lang : languages)
-        langCodes.append(QOnlineTranslator::languageCode(lang));
+    for (OnlineTranslator::Language lang : languages)
+        langCodes.append(OnlineTranslator::languageCode(lang));
 
     const auto typeEnum = QMetaEnum::fromType<LanguageButtonsType>();
     m_settings->setValue(QStringLiteral("Buttons/%1").arg(typeEnum.valueToKey(type)), langCodes);
@@ -1288,12 +1288,12 @@ void AppSettings::setAutoTranslateEnabled(bool enable)
     m_settings->setValue(QStringLiteral("MainWindow/AutoTranslate"), enable);
 }
 
-QOnlineTranslator::Engine AppSettings::currentEngine() const
+OnlineTranslator::Engine AppSettings::currentEngine() const
 {
-    return m_settings->value(QStringLiteral("MainWindow/CurrentEngine"), QOnlineTranslator::Google).value<QOnlineTranslator::Engine>();
+    return m_settings->value(QStringLiteral("MainWindow/CurrentEngine"), OnlineTranslator::Google).value<OnlineTranslator::Engine>();
 }
 
-void AppSettings::setCurrentEngine(QOnlineTranslator::Engine currentEngine)
+void AppSettings::setCurrentEngine(OnlineTranslator::Engine currentEngine)
 {
     m_settings->setValue(QStringLiteral("MainWindow/CurrentEngine"), currentEngine);
 }

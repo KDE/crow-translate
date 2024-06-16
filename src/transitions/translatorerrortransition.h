@@ -10,19 +10,19 @@
 
 #include <QAbstractTransition>
 
-class QOnlineTranslator;
+class OnlineTranslator;
 
 class TranslatorErrorTransition : public QAbstractTransition
 {
 public:
-    explicit TranslatorErrorTransition(QOnlineTranslator *translator, QState *sourceState = nullptr);
+    explicit TranslatorErrorTransition(OnlineTranslator *translator, QState *sourceState = nullptr);
 
 protected:
     bool eventTest(QEvent *) override;
     void onTransition(QEvent *) override;
 
 private:
-    QOnlineTranslator *m_translator;
+    OnlineTranslator *m_translator;
 };
 
 #endif // TRANSLATORERRORTRANSITION_H

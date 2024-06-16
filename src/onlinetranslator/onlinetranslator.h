@@ -5,11 +5,11 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef QONLINETRANSLATOR_H
-#define QONLINETRANSLATOR_H
+#ifndef ONLINETRANSLATOR_H
+#define ONLINETRANSLATOR_H
 
-#include "qexample.h"
-#include "qoption.h"
+#include "translationexample.h"
+#include "translationoptions.h"
 
 #include <QMap>
 #include <QPointer>
@@ -24,12 +24,12 @@ class QNetworkReply;
 /**
  * @brief Provides translation data
  */
-class QOnlineTranslator : public QObject
+class OnlineTranslator : public QObject
 {
     Q_OBJECT
-    Q_DISABLE_COPY(QOnlineTranslator)
+    Q_DISABLE_COPY(OnlineTranslator)
 
-    friend class QOnlineTts;
+    friend class OnlineTts;
 
 public:
     /**
@@ -202,7 +202,7 @@ public:
      *
      * @param parent parent object
      */
-    explicit QOnlineTranslator(QObject *parent = nullptr);
+    explicit OnlineTranslator(QObject *parent = nullptr);
 
     /**
      * @brief Translate text
@@ -309,23 +309,23 @@ public:
      * @brief Translation options
      *
      * @return QMap whose key represents the type of speech, and the value is a QVector of translation options
-     * @sa QOption
+     * @sa TranslationOptions
      */
-    const QMap<QString, QVector<QOption>> &translationOptions() const;
+    const QMap<QString, QVector<TranslationOptions>> &translationOptions() const;
 
     /**
      * @brief Translation examples
      *
      * @return QMap whose key represents the type of speech, and the value is a QVector of translation examples
-     * @sa QExample
+     * @sa TranslationExample
      */
-    const QMap<QString, QVector<QExample>> &examples() const;
+    const QMap<QString, QVector<TranslationExample>> &examples() const;
 
     /**
      * @brief Last error
      *
      * Error that was found during the processing of the last translation.
-     * If no error was found, returns QOnlineTranslator::NoError.
+     * If no error was found, returns OnlineTranslator::NoError.
      * The text of the error can be obtained by errorString().
      *
      * @return last error
@@ -387,7 +387,7 @@ public:
      * @brief Check if translation options are enabled
      *
      * @return `true` if translation options are enabled
-     * @sa QOption
+     * @sa TranslationOptions
      */
     bool isTranslationOptionsEnabled() const;
 
@@ -395,7 +395,7 @@ public:
      * @brief Enable or disable translation options
      *
      * @param enable whether to enable translation options
-     * @sa QOption
+     * @sa TranslationOptions
      */
     void setTranslationOptionsEnabled(bool enable);
 
@@ -403,7 +403,7 @@ public:
      * @brief Check if translation examples are enabled
      *
      * @return `true` if translation examples are enabled
-     * @sa QExample
+     * @sa TranslationExample
      */
     bool isExamplesEnabled() const;
 
@@ -411,7 +411,7 @@ public:
      * @brief Enable or disable translation examples
      *
      * @param enable whether to enable translation examples
-     * @sa QExample
+     * @sa TranslationExample
      */
     void setExamplesEnabled(bool enable);
 
@@ -547,8 +547,8 @@ private:
     void buildLingvaDetectStateMachine();
 
     // Helper functions to build nested states
-    void buildSplitNetworkRequest(QState *parent, void (QOnlineTranslator::*requestMethod)(), void (QOnlineTranslator::*parseMethod)(), const QString &text, int textLimit);
-    void buildNetworkRequestState(QState *parent, void (QOnlineTranslator::*requestMethod)(), void (QOnlineTranslator::*parseMethod)(), const QString &text = {});
+    void buildSplitNetworkRequest(QState *parent, void (OnlineTranslator::*requestMethod)(), void (OnlineTranslator::*parseMethod)(), const QString &text, int textLimit);
+    void buildNetworkRequestState(QState *parent, void (OnlineTranslator::*requestMethod)(), void (OnlineTranslator::*parseMethod)(), const QString &text = {});
 
     // Helper functions for transliteration
     void requestYandexTranslit(Language language);
@@ -616,8 +616,8 @@ private:
     QString m_libreUrl;
     QString m_lingvaUrl;
 
-    QMap<QString, QVector<QOption>> m_translationOptions;
-    QMap<QString, QVector<QExample>> m_examples;
+    QMap<QString, QVector<TranslationOptions>> m_translationOptions;
+    QMap<QString, QVector<TranslationExample>> m_examples;
 
     bool m_sourceTranslitEnabled = true;
     bool m_translationTranslitEnabled = true;
@@ -628,4 +628,4 @@ private:
     bool m_onlyDetectLanguage = false;
 };
 
-#endif // QONLINETRANSLATOR_H
+#endif // ONLINETRANSLATOR_H

@@ -8,7 +8,7 @@
 #ifndef APPSETTINGS_H
 #define APPSETTINGS_H
 
-#include "qonlinetts.h"
+#include "onlinetranslator/onlinetts.h"
 
 #include <QCoreApplication>
 #include <QLocale>
@@ -177,13 +177,13 @@ public:
     void setSimplifySource(bool simplify);
     static bool defaultSimplifySource();
 
-    QOnlineTranslator::Language primaryLanguage() const;
-    void setPrimaryLanguage(QOnlineTranslator::Language lang);
-    static QOnlineTranslator::Language defaultPrimaryLanguage();
+    OnlineTranslator::Language primaryLanguage() const;
+    void setPrimaryLanguage(OnlineTranslator::Language lang);
+    static OnlineTranslator::Language defaultPrimaryLanguage();
 
-    QOnlineTranslator::Language secondaryLanguage() const;
-    void setSecondaryLanguage(QOnlineTranslator::Language lang);
-    static QOnlineTranslator::Language defaultSecondaryLanguage();
+    OnlineTranslator::Language secondaryLanguage() const;
+    void setSecondaryLanguage(OnlineTranslator::Language lang);
+    static OnlineTranslator::Language defaultSecondaryLanguage();
 
     bool isForceSourceAutodetect() const;
     void setForceSourceAutodetect(bool force);
@@ -193,26 +193,26 @@ public:
     void setForceTranslationAutodetect(bool force);
     static bool defaultForceTranslationAutodetect();
 
-    QString engineUrl(QOnlineTranslator::Engine engine) const;
-    void setEngineUrl(QOnlineTranslator::Engine engine, const QString &url);
-    static QString defaultEngineUrl(QOnlineTranslator::Engine engine);
+    QString engineUrl(OnlineTranslator::Engine engine) const;
+    void setEngineUrl(OnlineTranslator::Engine engine, const QString &url);
+    static QString defaultEngineUrl(OnlineTranslator::Engine engine);
 
-    QByteArray engineApiKey(QOnlineTranslator::Engine engine) const;
-    void setEngineApiKey(QOnlineTranslator::Engine engine, const QByteArray &apiKey);
-    static QByteArray defaultEngineApiKey(QOnlineTranslator::Engine engine);
+    QByteArray engineApiKey(OnlineTranslator::Engine engine) const;
+    void setEngineApiKey(OnlineTranslator::Engine engine, const QByteArray &apiKey);
+    static QByteArray defaultEngineApiKey(OnlineTranslator::Engine engine);
 
     // Speech synthesis settings
-    QOnlineTts::Voice voice(QOnlineTranslator::Engine engine) const;
-    void setVoice(QOnlineTranslator::Engine engine, QOnlineTts::Voice voice);
-    static QOnlineTts::Voice defaultVoice(QOnlineTranslator::Engine engine);
+    OnlineTts::Voice voice(OnlineTranslator::Engine engine) const;
+    void setVoice(OnlineTranslator::Engine engine, OnlineTts::Voice voice);
+    static OnlineTts::Voice defaultVoice(OnlineTranslator::Engine engine);
 
-    QOnlineTts::Emotion emotion(QOnlineTranslator::Engine engine) const;
-    void setEmotion(QOnlineTranslator::Engine engine, QOnlineTts::Emotion emotion);
-    static QOnlineTts::Emotion defaultEmotion(QOnlineTranslator::Engine engine);
+    OnlineTts::Emotion emotion(OnlineTranslator::Engine engine) const;
+    void setEmotion(OnlineTranslator::Engine engine, OnlineTts::Emotion emotion);
+    static OnlineTts::Emotion defaultEmotion(OnlineTranslator::Engine engine);
 
-    QMap<QOnlineTranslator::Language, QLocale::Country> regions(QOnlineTranslator::Engine engine) const;
-    void setRegions(QOnlineTranslator::Engine engine, const QMap<QOnlineTranslator::Language, QLocale::Country> &regions);
-    static QMap<QOnlineTranslator::Language, QLocale::Country> defaultRegions(QOnlineTranslator::Engine engine);
+    QMap<OnlineTranslator::Language, QLocale::Country> regions(OnlineTranslator::Engine engine) const;
+    void setRegions(OnlineTranslator::Engine engine, const QMap<OnlineTranslator::Language, QLocale::Country> &regions);
+    static QMap<OnlineTranslator::Language, QLocale::Country> defaultRegions(OnlineTranslator::Engine engine);
 
     // Connection settings
     QNetworkProxy::ProxyType proxyType() const;
@@ -354,8 +354,8 @@ public:
     void setCropRegion(QRect rect);
 
     // Buttons
-    QVector<QOnlineTranslator::Language> languages(LanguageButtonsType type) const;
-    void setLanguages(LanguageButtonsType type, const QVector<QOnlineTranslator::Language> &languages);
+    QVector<OnlineTranslator::Language> languages(LanguageButtonsType type) const;
+    void setLanguages(LanguageButtonsType type, const QVector<OnlineTranslator::Language> &languages);
 
     int checkedButton(LanguageButtonsType type) const;
     void setCheckedButton(LanguageButtonsType type, int id);
@@ -367,8 +367,8 @@ public:
     bool isAutoTranslateEnabled() const;
     void setAutoTranslateEnabled(bool enable);
 
-    QOnlineTranslator::Engine currentEngine() const;
-    void setCurrentEngine(QOnlineTranslator::Engine currentEngine);
+    OnlineTranslator::Engine currentEngine() const;
+    void setCurrentEngine(OnlineTranslator::Engine currentEngine);
 
 private:
     static QTranslator s_appTranslator;

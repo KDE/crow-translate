@@ -8,8 +8,8 @@
 #ifndef PLAYERBUTTONS_H
 #define PLAYERBUTTONS_H
 
-#include "qonlinetranslator.h"
-#include "qonlinetts.h"
+#include "onlinetranslator/onlinetranslator.h"
+#include "onlinetranslator/onlinetts.h"
 
 #include <QMediaPlayer>
 #include <QWidget>
@@ -37,16 +37,16 @@ public:
     void setSpeakShortcut(const QKeySequence &shortcut);
     QKeySequence speakShortcut() const;
 
-    QOnlineTts::Voice voice(QOnlineTranslator::Engine engine) const;
-    void setVoice(QOnlineTranslator::Engine engine, QOnlineTts::Voice voice);
+    OnlineTts::Voice voice(OnlineTranslator::Engine engine) const;
+    void setVoice(OnlineTranslator::Engine engine, OnlineTts::Voice voice);
 
-    QOnlineTts::Emotion emotion(QOnlineTranslator::Engine engine) const;
-    void setEmotion(QOnlineTranslator::Engine engine, QOnlineTts::Emotion emotion);
+    OnlineTts::Emotion emotion(OnlineTranslator::Engine engine) const;
+    void setEmotion(OnlineTranslator::Engine engine, OnlineTts::Emotion emotion);
 
-    QMap<QOnlineTranslator::Language, QLocale::Country> regions(QOnlineTranslator::Engine engine) const;
-    void setRegions(QOnlineTranslator::Engine engine, QMap<QOnlineTranslator::Language, QLocale::Country> regions);
+    QMap<OnlineTranslator::Language, QLocale::Country> regions(OnlineTranslator::Engine engine) const;
+    void setRegions(OnlineTranslator::Engine engine, QMap<OnlineTranslator::Language, QLocale::Country> regions);
 
-    void speak(const QString &text, QOnlineTranslator::Language lang, QOnlineTranslator::Engine engine);
+    void speak(const QString &text, OnlineTranslator::Language lang, OnlineTranslator::Engine engine);
     void pauseSpeaking();
     void playPauseSpeaking();
 
@@ -68,9 +68,9 @@ private:
 
     Ui::SpeakButtons *ui;
     QMediaPlayer *m_mediaPlayer = nullptr;
-    QOnlineTts::Voice m_yandexVoice = QOnlineTts::NoVoice;
-    QOnlineTts::Emotion m_yandexEmotion = QOnlineTts::NoEmotion;
-    QMap<QOnlineTranslator::Language, QLocale::Country> m_googleRegions;
+    OnlineTts::Voice m_yandexVoice = OnlineTts::NoVoice;
+    OnlineTts::Emotion m_yandexEmotion = OnlineTts::NoEmotion;
+    QMap<OnlineTranslator::Language, QLocale::Country> m_googleRegions;
 };
 
 #endif // PLAYERBUTTONS_H

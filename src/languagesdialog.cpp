@@ -13,7 +13,7 @@
 #include <QPushButton>
 #include <QShortcut>
 
-LanguagesDialog::LanguagesDialog(const QVector<QOnlineTranslator::Language> &currentLang, QWidget *parent)
+LanguagesDialog::LanguagesDialog(const QVector<OnlineTranslator::Language> &currentLang, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::LanguagesDialog)
     , m_searchShortcut(new QShortcut(QStringLiteral("Ctrl+F"), this))
@@ -25,14 +25,14 @@ LanguagesDialog::LanguagesDialog(const QVector<QOnlineTranslator::Language> &cur
     connect(m_acceptShortcut, &QShortcut::activated, this, &LanguagesDialog::accept);
 
     // Load languages
-    for (int i = 1; i <= QOnlineTranslator::Zulu; ++i) {
-        const auto lang = static_cast<QOnlineTranslator::Language>(i);
+    for (int i = 1; i <= OnlineTranslator::Zulu; ++i) {
+        const auto lang = static_cast<OnlineTranslator::Language>(i);
         if (!currentLang.contains(lang))
             addLanguage(ui->availableLanguagesListWidget, lang);
     }
     ui->availableLanguagesListWidget->setCurrentRow(0);
 
-    for (QOnlineTranslator::Language lang : currentLang)
+    for (OnlineTranslator::Language lang : currentLang)
         addLanguage(ui->currentLanguagesListWidget, lang);
 
     if (ui->currentLanguagesListWidget->count() != 0) {
@@ -46,7 +46,7 @@ LanguagesDialog::~LanguagesDialog()
     delete ui;
 }
 
-const QVector<QOnlineTranslator::Language> &LanguagesDialog::languages() const
+const QVector<OnlineTranslator::Language> &LanguagesDialog::languages() const
 {
     return m_languages;
 }
@@ -58,7 +58,7 @@ void LanguagesDialog::accept()
     m_languages.reserve(ui->currentLanguagesListWidget->count());
     for (int i = 0; i < ui->currentLanguagesListWidget->count(); ++i) {
         QListWidgetItem *item = ui->currentLanguagesListWidget->item(i);
-        m_languages.append(item->data(Qt::UserRole).value<QOnlineTranslator::Language>());
+        m_languages.append(item->data(Qt::UserRole).value<OnlineTranslator::Language>());
     }
 }
 
@@ -120,10 +120,10 @@ void LanguagesDialog::checkVerticalMovement(int row)
     ui->moveDownButton->setEnabled(row != ui->currentLanguagesListWidget->count() - 1);
 }
 
-void LanguagesDialog::addLanguage(QListWidget *widget, QOnlineTranslator::Language lang)
+void LanguagesDialog::addLanguage(QListWidget *widget, OnlineTranslator::Language lang)
 {
     auto *item = new QListWidgetItem;
-    item->setText(QOnlineTranslator::languageName(lang));
+    item->setText(OnlineTranslator::languageName(lang));
     item->setIcon(LanguageButtonsWidget::countryIcon(lang));
     item->setData(Qt::UserRole, lang);
     widget->addItem(item);

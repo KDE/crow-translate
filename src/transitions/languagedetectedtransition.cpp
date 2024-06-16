@@ -17,7 +17,7 @@ LanguageDetectedTransition::LanguageDetectedTransition(LanguageButtonsWidget *bu
 
 bool LanguageDetectedTransition::eventTest(QEvent *)
 {
-    return m_langButtons->checkedLanguage() != QOnlineTranslator::Auto;
+    return m_langButtons->checkedLanguage() != OnlineTranslator::Auto;
 }
 
 void LanguageDetectedTransition::onTransition(QEvent *)

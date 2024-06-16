@@ -7,7 +7,7 @@
 
 #include "cli.h"
 
-#include "qonlinetts.h"
+#include "onlinetranslator/onlinetts.h"
 #include "settings/appsettings.h"
 #include "transitions/playerstoppedtransition.h"
 
@@ -23,7 +23,7 @@
 Cli::Cli(QObject *parent)
     : QObject(parent)
     , m_player(new QMediaPlayer(this))
-    , m_translator(new QOnlineTranslator(this))
+    , m_translator(new OnlineTranslator(this))
     , m_stateMachine(new QStateMachine(this))
 {
     m_player->setPlaylist(new QMediaPlaylist);
@@ -87,10 +87,10 @@ void Cli::process(const QCoreApplication &app)
     }
 
     // Translation languages
-    m_sourceLang = QOnlineTranslator::language(parser.value(source));
-    m_uiLang = QOnlineTranslator::language(parser.value(locale));
+    m_sourceLang = OnlineTranslator::language(parser.value(source));
+    m_uiLang = OnlineTranslator::language(parser.value(locale));
     for (const QString &langCode : parser.value(translation).split('+'))
-        m_translationLanguages << QOnlineTranslator::language(langCode);
+        m_translationLanguages << OnlineTranslator::language(langCode);
 
     // Source text
     if (parser.isSet(file)) {
@@ -115,17 +115,17 @@ void Cli::process(const QCoreApplication &app)
 
     // Engine
     if (parser.value(engine) == QLatin1String("google")) {
-        m_engine = QOnlineTranslator::Google;
+        m_engine = OnlineTranslator::Google;
     } else if (parser.value(engine) == QLatin1String("yandex")) {
-        m_engine = QOnlineTranslator::Yandex;
+        m_engine = OnlineTranslator::Yandex;
     } else if (parser.value(engine) == QLatin1String("bing")) {
-        m_engine = QOnlineTranslator::Bing;
+        m_engine = OnlineTranslator::Bing;
     } else if (parser.value(engine) == QLatin1String("libretranslate")) {
-        m_engine = QOnlineTranslator::LibreTranslate;
-        m_translator->setEngineUrl(QOnlineTranslator::Engine::LibreTranslate, AppSettings().engineUrl(QOnlineTranslator::Engine::LibreTranslate));
+        m_engine = OnlineTranslator::LibreTranslate;
+        m_translator->setEngineUrl(OnlineTranslator::Engine::LibreTranslate, AppSettings().engineUrl(OnlineTranslator::Engine::LibreTranslate));
     } else if (parser.value(engine) == QLatin1String("lingva")) {
-        m_engine = QOnlineTranslator::Lingva;
-        m_translator->setEngineUrl(QOnlineTranslator::Engine::Lingva, AppSettings().engineUrl(QOnlineTranslator::Engine::Lingva));
+        m_engine = OnlineTranslator::Lingva;
+        m_translator->setEngineUrl(OnlineTranslator::Engine::Lingva, AppSettings().engineUrl(OnlineTranslator::Engine::Lingva));
     } else {
         qCritical() << tr("Error: Unknown engine") << '\n';
         parser.showHelp();
@@ -154,20 +154,20 @@ void Cli::process(const QCoreApplication &app)
 void Cli::requestTranslation()
 {
     auto *state = qobject_cast<QState *>(sender());
-    auto translationLang = state->property(s_langProperty).value<QOnlineTranslator::Language>();
+    auto translationLang = state->property(s_langProperty).value<OnlineTranslator::Language>();
 
     m_translator->translate(m_sourceText, m_engine, translationLang, m_sourceLang, m_uiLang);
 }
 
 void Cli::parseTranslation()
 {
-    if (m_translator->error() != QOnlineTranslator::NoError) {
+    if (m_translator->error() != OnlineTranslator::NoError) {
         qCritical() << tr("Error: %1").arg(m_translator->errorString());
         m_stateMachine->stop();
         return;
     }
 
-    if (m_sourceLang == QOnlineTranslator::Auto)
+    if (m_sourceLang == OnlineTranslator::Auto)
         m_sourceLang = m_translator->sourceLanguage();
 }
 
@@ -217,7 +217,7 @@ void Cli::printTranslation()
     // Translation options
     if (!m_translator->translationOptions().isEmpty()) {
         m_stdout << tr("%1 - translation options:").arg(m_translator->source()) << '\n';
-        const QMap<QString, QVector<QOption>> translationOptions = m_translator->translationOptions();
+        const QMap<QString, QVector<TranslationOptions>> translationOptions = m_translator->translationOptions();
         for (auto it = translationOptions.cbegin(); it != translationOptions.cend(); ++it) {
             m_stdout << it.key() << '\n';
             for (const auto &[word, gender, translations] : it.value()) {
@@ -234,7 +234,7 @@ void Cli::printTranslation()
     // Examples
     if (!m_translator->examples().isEmpty()) {
         m_stdout << tr("%1 - examples:").arg(m_translator->source()) << '\n';
-        const QMap<QString, QVector<QExample>> examples = m_translator->examples();
+        const QMap<QString, QVector<TranslationExample>> examples = m_translator->examples();
         for (auto it = examples.cbegin(); it != examples.cend(); ++it) {
             m_stdout << it.key() << '\n';
             for (const auto &[example, description] : it.value()) {
@@ -254,7 +254,7 @@ void Cli::requestLanguage()
 
 void Cli::parseLanguage()
 {
-    if (m_translator->error() != QOnlineTranslator::NoError) {
+    if (m_translator->error() != OnlineTranslator::NoError) {
         qCritical() << tr("Error: %1").arg(m_translator->errorString());
         m_stateMachine->stop();
         return;
@@ -265,9 +265,9 @@ void Cli::parseLanguage()
 
 void Cli::printLangCodes()
 {
-    for (int langIndex = QOnlineTranslator::Auto; langIndex != QOnlineTranslator::Zulu; ++langIndex) {
-        const auto lang = static_cast<QOnlineTranslator::Language>(langIndex);
-        m_stdout << QOnlineTranslator::languageName(lang) << " - " << QOnlineTranslator::languageCode(lang) << '\n';
+    for (int langIndex = OnlineTranslator::Auto; langIndex != OnlineTranslator::Zulu; ++langIndex) {
+        const auto lang = static_cast<OnlineTranslator::Language>(langIndex);
+        m_stdout << OnlineTranslator::languageName(lang) << " - " << OnlineTranslator::languageCode(lang) << '\n';
     }
 }
 
@@ -295,14 +295,14 @@ void Cli::buildTranslationStateMachine()
     auto *nextTranslationState = new QState(m_stateMachine);
     m_stateMachine->setInitialState(nextTranslationState);
 
-    for (QOnlineTranslator::Language lang : qAsConst(m_translationLanguages)) {
+    for (OnlineTranslator::Language lang : qAsConst(m_translationLanguages)) {
         auto *requestTranslationState = nextTranslationState;
         auto *parseDataState = new QState(m_stateMachine);
         auto *speakSourceText = new QState(m_stateMachine);
         auto *speakTranslation = new QState(m_stateMachine);
         nextTranslationState = new QState(m_stateMachine);
 
-        if (m_audioOnly && m_speakSource && !m_speakTranslation && m_sourceLang == QOnlineTranslator::Auto) {
+        if (m_audioOnly && m_speakSource && !m_speakTranslation && m_sourceLang == OnlineTranslator::Auto) {
             connect(requestTranslationState, &QState::entered, this, &Cli::requestLanguage);
             connect(parseDataState, &QState::entered, this, &Cli::parseLanguage);
         } else {
@@ -314,7 +314,7 @@ void Cli::buildTranslationStateMachine()
             requestTranslationState->setProperty(s_langProperty, lang);
         }
 
-        requestTranslationState->addTransition(m_translator, &QOnlineTranslator::finished, parseDataState);
+        requestTranslationState->addTransition(m_translator, &OnlineTranslator::finished, parseDataState);
         parseDataState->addTransition(speakSourceText);
 
         if (m_speakSource) {
@@ -339,11 +339,11 @@ void Cli::buildTranslationStateMachine()
     nextTranslationState->addTransition(new QFinalState(m_stateMachine));
 }
 
-void Cli::speak(const QString &text, QOnlineTranslator::Language lang)
+void Cli::speak(const QString &text, OnlineTranslator::Language lang)
 {
-    QOnlineTts tts;
+    OnlineTts tts;
     tts.generateUrls(text, m_engine, lang);
-    if (tts.error() != QOnlineTts::NoError) {
+    if (tts.error() != OnlineTts::NoError) {
         qCritical() << tr("Error: %1").arg(tts.errorString());
         m_stateMachine->stop();
         return;

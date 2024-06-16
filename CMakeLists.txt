@@ -75,12 +75,11 @@ option(QHOTKEY_INSTALL OFF)
 
 add_subdirectory(src/3rdparty/singleapplication)
 add_subdirectory(src/3rdparty/qhotkey)
-add_subdirectory(src/qonlinetranslator)
 if(WIN32)
     add_subdirectory(src/qgittag)
 endif()
 
-find_package(Qt5 REQUIRED COMPONENTS Widgets LinguistTools Concurrent)
+find_package(Qt5 REQUIRED COMPONENTS Widgets Multimedia Network LinguistTools Concurrent)
 find_package(Tesseract REQUIRED)
 if(UNIX)
     find_package(Qt5 REQUIRED COMPONENTS DBus)
@@ -171,6 +170,10 @@ add_executable(${PROJECT_NAME}
     src/ocr/screengrabbers/abstractscreengrabber.cpp
     src/ocr/screengrabbers/genericscreengrabber.cpp
     src/ocr/snippingarea.cpp
+    src/onlinetranslator/onlinetranslator.cpp
+    src/onlinetranslator/onlinetts.cpp
+    src/onlinetranslator/translationexample.cpp
+    src/onlinetranslator/translationoptions.cpp
     src/popupwindow.cpp
     src/popupwindow.ui
     src/screenwatcher.cpp
@@ -237,10 +240,12 @@ endif()
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${EXECUTABLE_NAME})
 
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 target_link_libraries(${PROJECT_NAME} PRIVATE
+    Qt5::Network
+    Qt5::Multimedia
     SingleApplication::SingleApplication
     QHotkey::QHotkey
-    QOnlineTranslator::QOnlineTranslator
     Qt5::Concurrent
     Tesseract::Tesseract
 )

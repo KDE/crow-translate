@@ -5,10 +5,10 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef QONLINETTS_H
-#define QONLINETTS_H
+#ifndef ONLINETTS_H
+#define ONLINETTS_H
 
-#include "qonlinetranslator.h"
+#include "onlinetranslator.h"
 
 #include <QLocale>
 #include <QMediaContent>
@@ -20,18 +20,18 @@
  * @code
  * QMediaPlayer *player = new QMediaPlayer(this);
  * QMediaPlaylist *playlist = new QMediaPlaylist(player);
- * QOnlineTts tts;
+ * OnlineTts tts;
  *
- * playlist->addMedia(tts.generateUrls("Hello World!", QOnlineTranslator::Google););
+ * playlist->addMedia(tts.generateUrls("Hello World!", OnlineTranslator::Google));
  * player->setPlaylist(playlist);
  *
  * player->play(); // Plays "Hello World!"
  * @endcode
  */
-class QOnlineTts : public QObject
+class OnlineTts : public QObject
 {
     Q_OBJECT
-    Q_DISABLE_COPY(QOnlineTts)
+    Q_DISABLE_COPY(OnlineTts)
 
 public:
     /**
@@ -93,7 +93,7 @@ public:
      *
      * @param parent parent object
      */
-    explicit QOnlineTts(QObject *parent = nullptr);
+    explicit OnlineTts(QObject *parent = nullptr);
 
     /**
      * @brief Create TTS urls
@@ -106,7 +106,7 @@ public:
      * @param voice voice to use (used only by Yandex)
      * @param emotion emotion to use (used only by Yandex)
      */
-    void generateUrls(const QString &text, QOnlineTranslator::Engine engine, QOnlineTranslator::Language lang, Voice voice = NoVoice, Emotion emotion = NoEmotion);
+    void generateUrls(const QString &text, OnlineTranslator::Engine engine, OnlineTranslator::Language lang, Voice voice = NoVoice, Emotion emotion = NoEmotion);
 
     /**
      * @brief Generated media
@@ -162,7 +162,7 @@ public:
      * @param region region
      * @return code for language in region, or a region-neutral language code if region is not supported
      */
-    static QString regionCode(QOnlineTranslator::Language language, QLocale::Country region);
+    static QString regionCode(OnlineTranslator::Language language, QLocale::Country region);
 
     /**
      * @brief Emotion from code
@@ -192,39 +192,39 @@ public:
      * @param regionCode region code
      * @return corresponding region code
      */
-    static QPair<QOnlineTranslator::Language, QLocale::Country> region(const QString &regionCode);
+    static QPair<OnlineTranslator::Language, QLocale::Country> region(const QString &regionCode);
 
     /**
      * @brief valid and supported regions for languages
      * @return a map, with key being language enum and value a list of valid regions enum
      */
-    static const QMap<QOnlineTranslator::Language, QList<QLocale::Country>> &validRegions();
+    static const QMap<OnlineTranslator::Language, QList<QLocale::Country>> &validRegions();
 
     /**
      * @brief region preferences
      * @return region preferences
      */
-    const QMap<QOnlineTranslator::Language, QLocale::Country> &regions() const;
+    const QMap<OnlineTranslator::Language, QLocale::Country> &regions() const;
 
     /**
      * @brief set region preferences
      * @param newRegionPreferences new region preferences
      */
-    void setRegions(const QMap<QOnlineTranslator::Language, QLocale::Country> &newRegionPreferences);
+    void setRegions(const QMap<OnlineTranslator::Language, QLocale::Country> &newRegionPreferences);
 
 private:
     void setError(TtsError error, const QString &errorString);
 
-    QString languageApiCode(QOnlineTranslator::Engine engine, QOnlineTranslator::Language lang);
-    QString voiceApiCode(QOnlineTranslator::Engine engine, Voice voice);
-    QString emotionApiCode(QOnlineTranslator::Engine engine, Emotion emotion);
+    QString languageApiCode(OnlineTranslator::Engine engine, OnlineTranslator::Language lang);
+    QString voiceApiCode(OnlineTranslator::Engine engine, Voice voice);
+    QString emotionApiCode(OnlineTranslator::Engine engine, Emotion emotion);
 
     static const QMap<Emotion, QString> s_emotionCodes;
     static const QMap<Voice, QString> s_voiceCodes;
-    static const QMap<QPair<QOnlineTranslator::Language, QLocale::Country>, QString> s_regionCodes;
-    static const QMap<QOnlineTranslator::Language, QList<QLocale::Country>> s_validRegions;
+    static const QMap<QPair<OnlineTranslator::Language, QLocale::Country>, QString> s_regionCodes;
+    static const QMap<OnlineTranslator::Language, QList<QLocale::Country>> s_validRegions;
 
-    QMap<QOnlineTranslator::Language, QLocale::Country> m_regionPreferences;
+    QMap<OnlineTranslator::Language, QLocale::Country> m_regionPreferences;
 
     static constexpr int s_googleTtsLimit = 200;
     static constexpr int s_yandexTtsLimit = 1400;
@@ -234,4 +234,4 @@ private:
     TtsError m_error = NoError;
 };
 
-#endif // QONLINETTS_H
+#endif // ONLINETTS_H

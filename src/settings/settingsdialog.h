@@ -8,13 +8,13 @@
 #ifndef SETTINGSDIALOG_H
 #define SETTINGSDIALOG_H
 
-#include "qonlinetts.h"
+#include "onlinetranslator/onlinetts.h"
 
 #include <QDialog>
 
 class MainWindow;
 class AbstractAutostartManager;
-class QOnlineTranslator;
+class OnlineTranslator;
 class QMediaPlayer;
 class QMediaPlaylist;
 class ShortcutItem;
@@ -86,8 +86,8 @@ private:
     void activateCompactMode();
     void loadSettings();
 
-    void detectTestTextLanguage(QOnlineTranslator &translator, QOnlineTranslator::Engine engine);
-    void speakTestText(QOnlineTranslator &translator, QOnlineTranslator::Engine engine);
+    void detectTestTextLanguage(OnlineTranslator &translator, OnlineTranslator::Engine engine);
+    void speakTestText(OnlineTranslator &translator, OnlineTranslator::Engine engine);
 
     Ui::SettingsDialog *ui;
 
@@ -95,8 +95,8 @@ private:
     AbstractAutostartManager *m_autostartManager;
 
     // Test voice
-    QOnlineTranslator *m_yandexTranslator;
-    QOnlineTranslator *m_googleTranslator;
+    OnlineTranslator *m_yandexTranslator;
+    OnlineTranslator *m_googleTranslator;
 
 #ifdef WITH_PORTABLE_MODE
     QCheckBox *m_portableCheckbox;

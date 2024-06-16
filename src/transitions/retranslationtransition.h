@@ -10,20 +10,20 @@
 
 #include <QAbstractTransition>
 
-class QOnlineTranslator;
+class OnlineTranslator;
 class LanguageButtonsWidget;
 
 class RetranslationTransition : public QAbstractTransition
 {
 public:
-    RetranslationTransition(QOnlineTranslator *translator, LanguageButtonsWidget *buttons, QState *sourceState = nullptr);
+    RetranslationTransition(OnlineTranslator *translator, LanguageButtonsWidget *buttons, QState *sourceState = nullptr);
 
 protected:
     bool eventTest(QEvent *) override;
     void onTransition(QEvent *) override;
 
 private:
-    QOnlineTranslator *m_translator;
+    OnlineTranslator *m_translator;
     LanguageButtonsWidget *m_langButtons;
 };
 

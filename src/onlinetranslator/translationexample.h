@@ -5,19 +5,19 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef QEXAMPLE_H
-#define QEXAMPLE_H
+#ifndef TRANSLATIONEXAMPLE_H
+#define TRANSLATIONEXAMPLE_H
 
 #include <QJsonObject>
 
 /**
  * @brief Provides storage for example usage examples for a single type of speech
  *
- * Can be obtained from the QOnlineTranslator object, which contains translation example.
+ * Can be obtained from the OnlineTranslator object, which contains translation example.
  *
  * Example:
  * @code
- * QOnlineTranslator translator;
+ * OnlineTranslator translator;
  * // Obtain translation
  *
  * QTextStream out(stdout);
@@ -47,7 +47,7 @@
  * //   say, did you notice any blood?
  * @endcode
  */
-struct QExample {
+struct TranslationExample {
     /**
      * @brief Example sentense
      */
@@ -66,4 +66,4 @@ struct QExample {
     QJsonObject toJson() const;
 };
 
-#endif // QEXAMPLE_H
+#endif // TRANSLATIONEXAMPLE_H

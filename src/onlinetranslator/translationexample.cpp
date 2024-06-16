@@ -5,11 +5,11 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "qexample.h"
+#include "translationexample.h"
 
 #include <QJsonObject>
 
-QJsonObject QExample::toJson() const
+QJsonObject TranslationExample::toJson() const
 {
     QJsonObject object{
         {"description", description},

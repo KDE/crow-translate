@@ -5,9 +5,9 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "qonlinetranslator.h"
+#include "onlinetranslator.h"
 
-#include "qonlinetts.h"
+#include "onlinetts.h"
 
 #include <QCoreApplication>
 #include <QFinalState>
@@ -18,7 +18,7 @@
 #include <QNetworkReply>
 #include <QStateMachine>
 
-const QMap<QOnlineTranslator::Language, QString> QOnlineTranslator::s_genericLanguageCodes = {
+const QMap<OnlineTranslator::Language, QString> OnlineTranslator::s_genericLanguageCodes = {
     {Auto, QStringLiteral("auto")},
     {Afrikaans, QStringLiteral("af")},
     {Albanian, QStringLiteral("sq")},
@@ -146,14 +146,14 @@ const QMap<QOnlineTranslator::Language, QString> QOnlineTranslator::s_genericLan
     {YucatecMaya, QStringLiteral("yua")},
     {Zulu, QStringLiteral("zu")}};
 
-const QMap<QOnlineTranslator::Language, QString> QOnlineTranslator::s_googleLanguageCodes = {
+const QMap<OnlineTranslator::Language, QString> OnlineTranslator::s_googleLanguageCodes = {
     {Hebrew, QStringLiteral("iw")}};
 
-const QMap<QOnlineTranslator::Language, QString> QOnlineTranslator::s_yandexLanguageCodes = {
+const QMap<OnlineTranslator::Language, QString> OnlineTranslator::s_yandexLanguageCodes = {
     {SimplifiedChinese, QStringLiteral("zn")},
     {Javanese, QStringLiteral("jv")}};
 
-const QMap<QOnlineTranslator::Language, QString> QOnlineTranslator::s_bingLanguageCodes = {
+const QMap<OnlineTranslator::Language, QString> OnlineTranslator::s_bingLanguageCodes = {
     {Auto, QStringLiteral("auto-detect")},
     {Bosnian, QStringLiteral("bs-Latn")},
     {SerbianCyrillic, QStringLiteral("sr-Cyrl")},
@@ -161,20 +161,20 @@ const QMap<QOnlineTranslator::Language, QString> QOnlineTranslator::s_bingLangua
     {TraditionalChinese, QStringLiteral("zh-Hant")},
     {Hmong, QStringLiteral("mww")}};
 
-const QMap<QOnlineTranslator::Language, QString> QOnlineTranslator::s_lingvaLanguageCodes = {
+const QMap<OnlineTranslator::Language, QString> OnlineTranslator::s_lingvaLanguageCodes = {
     {SimplifiedChinese, QStringLiteral("zh")},
     {TraditionalChinese, QStringLiteral("zh_HANT")}};
 
-QOnlineTranslator::QOnlineTranslator(QObject *parent)
+OnlineTranslator::OnlineTranslator(QObject *parent)
     : QObject(parent)
     , m_stateMachine(new QStateMachine(this))
     , m_networkManager(new QNetworkAccessManager(this))
 {
-    connect(m_stateMachine, &QStateMachine::finished, this, &QOnlineTranslator::finished);
-    connect(m_stateMachine, &QStateMachine::stopped, this, &QOnlineTranslator::finished);
+    connect(m_stateMachine, &QStateMachine::finished, this, &OnlineTranslator::finished);
+    connect(m_stateMachine, &QStateMachine::stopped, this, &OnlineTranslator::finished);
 }
 
-void QOnlineTranslator::translate(const QString &text, Engine engine, Language translationLang, Language sourceLang, Language uiLang)
+void OnlineTranslator::translate(const QString &text, Engine engine, Language translationLang, Language sourceLang, Language uiLang)
 {
     abort();
     resetData();
@@ -235,7 +235,7 @@ void QOnlineTranslator::translate(const QString &text, Engine engine, Language t
     m_stateMachine->start();
 }
 
-void QOnlineTranslator::detectLanguage(const QString &text, Engine engine)
+void OnlineTranslator::detectLanguage(const QString &text, Engine engine)
 {
     abort();
     resetData();
@@ -279,23 +279,23 @@ void QOnlineTranslator::detectLanguage(const QString &text, Engine engine)
     m_stateMachine->start();
 }
 
-void QOnlineTranslator::abort()
+void OnlineTranslator::abort()
 {
     if (m_currentReply != nullptr)
         m_currentReply->abort();
 }
 
-bool QOnlineTranslator::isRunning() const
+bool OnlineTranslator::isRunning() const
 {
     return m_stateMachine->isRunning();
 }
 
-QJsonDocument QOnlineTranslator::toJson() const
+QJsonDocument OnlineTranslator::toJson() const
 {
     QJsonObject translationOptions;
     for (auto it = m_translationOptions.cbegin(); it != m_translationOptions.cend(); ++it) {
         QJsonArray arr;
-        for (const QOption &option : it.value())
+        for (const TranslationOptions &option : it.value())
             arr.append(option.toJson());
         translationOptions.insert(it.key(), arr);
     }
@@ -303,7 +303,7 @@ QJsonDocument QOnlineTranslator::toJson() const
     QJsonObject examples;
     for (auto it = m_examples.cbegin(); it != m_examples.cend(); ++it) {
         QJsonArray arr;
-        for (const QExample &example : it.value())
+        for (const TranslationExample &example : it.value())
             arr.append(example.toJson());
         examples.insert(it.key(), arr);
     }
@@ -321,122 +321,122 @@ QJsonDocument QOnlineTranslator::toJson() const
     return QJsonDocument(object);
 }
 
-const QString &QOnlineTranslator::source() const
+const QString &OnlineTranslator::source() const
 {
     return m_source;
 }
 
-const QString &QOnlineTranslator::sourceTranslit() const
+const QString &OnlineTranslator::sourceTranslit() const
 {
     return m_sourceTranslit;
 }
 
-const QString &QOnlineTranslator::sourceTranscription() const
+const QString &OnlineTranslator::sourceTranscription() const
 {
     return m_sourceTranscription;
 }
 
-QString QOnlineTranslator::sourceLanguageName() const
+QString OnlineTranslator::sourceLanguageName() const
 {
     return languageName(m_sourceLang);
 }
 
-QOnlineTranslator::Language QOnlineTranslator::sourceLanguage() const
+OnlineTranslator::Language OnlineTranslator::sourceLanguage() const
 {
     return m_sourceLang;
 }
 
-const QString &QOnlineTranslator::translation() const
+const QString &OnlineTranslator::translation() const
 {
     return m_translation;
 }
 
-const QString &QOnlineTranslator::translationTranslit() const
+const QString &OnlineTranslator::translationTranslit() const
 {
     return m_translationTranslit;
 }
 
-QString QOnlineTranslator::translationLanguageName() const
+QString OnlineTranslator::translationLanguageName() const
 {
     return languageName(m_translationLang);
 }
 
-QOnlineTranslator::Language QOnlineTranslator::translationLanguage() const
+OnlineTranslator::Language OnlineTranslator::translationLanguage() const
 {
     return m_translationLang;
 }
 
-const QMap<QString, QVector<QOption>> &QOnlineTranslator::translationOptions() const
+const QMap<QString, QVector<TranslationOptions>> &OnlineTranslator::translationOptions() const
 {
     return m_translationOptions;
 }
 
-const QMap<QString, QVector<QExample>> &QOnlineTranslator::examples() const
+const QMap<QString, QVector<TranslationExample>> &OnlineTranslator::examples() const
 {
     return m_examples;
 }
 
-QOnlineTranslator::TranslationError QOnlineTranslator::error() const
+OnlineTranslator::TranslationError OnlineTranslator::error() const
 {
     return m_error;
 }
 
-const QString &QOnlineTranslator::errorString() const
+const QString &OnlineTranslator::errorString() const
 {
     return m_errorString;
 }
 
-bool QOnlineTranslator::isSourceTranslitEnabled() const
+bool OnlineTranslator::isSourceTranslitEnabled() const
 {
     return m_sourceTranslitEnabled;
 }
 
-void QOnlineTranslator::setSourceTranslitEnabled(bool enable)
+void OnlineTranslator::setSourceTranslitEnabled(bool enable)
 {
     m_sourceTranslitEnabled = enable;
 }
 
-bool QOnlineTranslator::isTranslationTranslitEnabled() const
+bool OnlineTranslator::isTranslationTranslitEnabled() const
 {
     return m_translationTranslitEnabled;
 }
 
-void QOnlineTranslator::setTranslationTranslitEnabled(bool enable)
+void OnlineTranslator::setTranslationTranslitEnabled(bool enable)
 {
     m_translationTranslitEnabled = enable;
 }
 
-bool QOnlineTranslator::isSourceTranscriptionEnabled() const
+bool OnlineTranslator::isSourceTranscriptionEnabled() const
 {
     return m_sourceTranscriptionEnabled;
 }
 
-void QOnlineTranslator::setSourceTranscriptionEnabled(bool enable)
+void OnlineTranslator::setSourceTranscriptionEnabled(bool enable)
 {
     m_sourceTranscriptionEnabled = enable;
 }
 
-bool QOnlineTranslator::isTranslationOptionsEnabled() const
+bool OnlineTranslator::isTranslationOptionsEnabled() const
 {
     return m_translationOptionsEnabled;
 }
 
-void QOnlineTranslator::setTranslationOptionsEnabled(bool enable)
+void OnlineTranslator::setTranslationOptionsEnabled(bool enable)
 {
     m_translationOptionsEnabled = enable;
 }
 
-bool QOnlineTranslator::isExamplesEnabled() const
+bool OnlineTranslator::isExamplesEnabled() const
 {
     return m_examplesEnabled;
 }
 
-void QOnlineTranslator::setExamplesEnabled(bool enable)
+void OnlineTranslator::setExamplesEnabled(bool enable)
 {
     m_examplesEnabled = enable;
 }
 
-void QOnlineTranslator::setEngineUrl(Engine engine, QString url)
+void OnlineTranslator::setEngineUrl(Engine engine, QString url)
 {
     switch (engine) {
     case LibreTranslate:
@@ -450,7 +450,7 @@ void QOnlineTranslator::setEngineUrl(Engine engine, QString url)
     }
 }
 
-void QOnlineTranslator::setEngineApiKey(Engine engine, QByteArray apiKey)
+void OnlineTranslator::setEngineApiKey(Engine engine, QByteArray apiKey)
 {
     switch (engine) {
     case LibreTranslate:
@@ -461,7 +461,7 @@ void QOnlineTranslator::setEngineApiKey(Engine engine, QByteArray apiKey)
     }
 }
 
-QString QOnlineTranslator::languageName(Language lang)
+QString OnlineTranslator::languageName(Language lang)
 {
     switch (lang) {
     case Auto:
@@ -721,12 +721,12 @@ QString QOnlineTranslator::languageName(Language lang)
     }
 }
 
-QString QOnlineTranslator::languageCode(Language lang)
+QString OnlineTranslator::languageCode(Language lang)
 {
     return s_genericLanguageCodes.value(lang);
 }
 
-QOnlineTranslator::Language QOnlineTranslator::language(const QLocale &locale)
+OnlineTranslator::Language OnlineTranslator::language(const QLocale &locale)
 {
     switch (locale.language()) {
     case QLocale::Afrikaans:
@@ -939,12 +939,12 @@ QOnlineTranslator::Language QOnlineTranslator::language(const QLocale &locale)
 }
 
 // Returns general language code
-QOnlineTranslator::Language QOnlineTranslator::language(const QString &langCode)
+OnlineTranslator::Language OnlineTranslator::language(const QString &langCode)
 {
     return s_genericLanguageCodes.key(langCode, NoLanguage);
 }
 
-bool QOnlineTranslator::isSupportTranslation(Engine engine, Language lang)
+bool OnlineTranslator::isSupportTranslation(Engine engine, Language lang)
 {
     bool isSupported = false;
 
@@ -1184,12 +1184,12 @@ bool QOnlineTranslator::isSupportTranslation(Engine engine, Language lang)
     return isSupported;
 }
 
-void QOnlineTranslator::skipGarbageText()
+void OnlineTranslator::skipGarbageText()
 {
     m_translation.append(sender()->property(s_textProperty).toString());
 }
 
-void QOnlineTranslator::requestGoogleTranslate()
+void OnlineTranslator::requestGoogleTranslate()
 {
     const QString sourceText = sender()->property(s_textProperty).toString();
 
@@ -1201,7 +1201,7 @@ void QOnlineTranslator::requestGoogleTranslate()
     m_currentReply = m_networkManager->get(QNetworkRequest(url));
 }
 
-void QOnlineTranslator::parseGoogleTranslate()
+void OnlineTranslator::parseGoogleTranslate()
 {
     m_currentReply->deleteLater();
 
@@ -1287,7 +1287,7 @@ void QOnlineTranslator::parseGoogleTranslate()
     }
 }
 
-void QOnlineTranslator::requestYandexTranslate()
+void OnlineTranslator::requestYandexTranslate()
 {
     const QString sourceText = sender()->property(s_textProperty).toString();
 
@@ -1311,7 +1311,7 @@ void QOnlineTranslator::requestYandexTranslate()
     m_currentReply = m_networkManager->post(request, QByteArray());
 }
 
-void QOnlineTranslator::parseYandexTranslate()
+void OnlineTranslator::parseYandexTranslate()
 {
     m_currentReply->deleteLater();
 
@@ -1351,27 +1351,27 @@ void QOnlineTranslator::parseYandexTranslate()
     m_translation += jsonData.value(QStringLiteral("text")).toArray().at(0).toString();
 }
 
-void QOnlineTranslator::requestYandexSourceTranslit()
+void OnlineTranslator::requestYandexSourceTranslit()
 {
     requestYandexTranslit(m_sourceLang);
 }
 
-void QOnlineTranslator::parseYandexSourceTranslit()
+void OnlineTranslator::parseYandexSourceTranslit()
 {
     parseYandexTranslit(m_sourceTranslit);
 }
 
-void QOnlineTranslator::requestYandexTranslationTranslit()
+void OnlineTranslator::requestYandexTranslationTranslit()
 {
     requestYandexTranslit(m_translationLang);
 }
 
-void QOnlineTranslator::parseYandexTranslationTranslit()
+void OnlineTranslator::parseYandexTranslationTranslit()
 {
     parseYandexTranslit(m_translationTranslit);
 }
 
-void QOnlineTranslator::requestYandexDictionary()
+void OnlineTranslator::requestYandexDictionary()
 {
     // Check if language is supported (need to check here because language may be autodetected)
     if (!isSupportDictionary(Yandex, m_sourceLang, m_translationLang) && !m_source.contains(' ')) {
@@ -1389,7 +1389,7 @@ void QOnlineTranslator::requestYandexDictionary()
     m_currentReply = m_networkManager->get(QNetworkRequest(url));
 }
 
-void QOnlineTranslator::parseYandexDictionary()
+void OnlineTranslator::parseYandexDictionary()
 {
     m_currentReply->deleteLater();
 
@@ -1435,13 +1435,13 @@ void QOnlineTranslator::parseYandexDictionary()
     }
 }
 
-void QOnlineTranslator::requestBingCredentials()
+void OnlineTranslator::requestBingCredentials()
 {
     const QUrl url(QStringLiteral("https://www.bing.com/translator"));
     m_currentReply = m_networkManager->get(QNetworkRequest(url));
 }
 
-void QOnlineTranslator::parseBingCredentials()
+void OnlineTranslator::parseBingCredentials()
 {
     m_currentReply->deleteLater();
 
@@ -1498,7 +1498,7 @@ void QOnlineTranslator::parseBingCredentials()
     s_bingIid = webSiteData.mid(iidBeginPos + iidString.size(), iidEndPos - (iidBeginPos + iidString.size()));
 }
 
-void QOnlineTranslator::requestBingTranslate()
+void OnlineTranslator::requestBingTranslate()
 {
     const QString sourceText = sender()->property(s_textProperty).toString();
 
@@ -1522,7 +1522,7 @@ void QOnlineTranslator::requestBingTranslate()
     m_currentReply = m_networkManager->post(request, postData);
 }
 
-void QOnlineTranslator::parseBingTranslate()
+void OnlineTranslator::parseBingTranslate()
 {
     m_currentReply->deleteLater();
 
@@ -1562,7 +1562,7 @@ void QOnlineTranslator::parseBingTranslate()
     m_translationTranslit += translationsObject.value(QStringLiteral("transliteration")).toObject().value(QStringLiteral("text")).toString();
 }
 
-void QOnlineTranslator::requestBingDictionary()
+void OnlineTranslator::requestBingDictionary()
 {
     // Check if language is supported (need to check here because language may be autodetected)
     if (!isSupportDictionary(Bing, m_sourceLang, m_translationLang) && !m_source.contains(' ')) {
@@ -1583,7 +1583,7 @@ void QOnlineTranslator::requestBingDictionary()
     m_currentReply = m_networkManager->post(request, postData);
 }
 
-void QOnlineTranslator::parseBingDictionary()
+void OnlineTranslator::parseBingDictionary()
 {
     m_currentReply->deleteLater();
 
@@ -1610,7 +1610,7 @@ void QOnlineTranslator::parseBingDictionary()
     }
 }
 
-void QOnlineTranslator::requestLibreLangDetection()
+void OnlineTranslator::requestLibreLangDetection()
 {
     const QString sourceText = sender()->property(s_textProperty).toString();
 
@@ -1627,7 +1627,7 @@ void QOnlineTranslator::requestLibreLangDetection()
     m_currentReply = m_networkManager->post(request, postData);
 }
 
-void QOnlineTranslator::parseLibreLangDetection()
+void OnlineTranslator::parseLibreLangDetection()
 {
     m_currentReply->deleteLater();
 
@@ -1649,7 +1649,7 @@ void QOnlineTranslator::parseLibreLangDetection()
     }
 }
 
-void QOnlineTranslator::requestLibreTranslate()
+void OnlineTranslator::requestLibreTranslate()
 {
     const QString sourceText = sender()->property(s_textProperty).toString();
 
@@ -1668,7 +1668,7 @@ void QOnlineTranslator::requestLibreTranslate()
     m_currentReply = m_networkManager->post(request, postData);
 }
 
-void QOnlineTranslator::parseLibreTranslate()
+void OnlineTranslator::parseLibreTranslate()
 {
     m_currentReply->deleteLater();
 
@@ -1684,7 +1684,7 @@ void QOnlineTranslator::parseLibreTranslate()
     m_translation += responseObject.value(QStringLiteral("translatedText")).toString();
 }
 
-void QOnlineTranslator::requestLingvaTranslate()
+void OnlineTranslator::requestLingvaTranslate()
 {
     const QString sourceText = sender()->property(s_textProperty).toString();
 
@@ -1697,7 +1697,7 @@ void QOnlineTranslator::requestLingvaTranslate()
     m_currentReply = m_networkManager->get(QNetworkRequest(url));
 }
 
-void QOnlineTranslator::parseLingvaTranslate()
+void OnlineTranslator::parseLingvaTranslate()
 {
     m_currentReply->deleteLater();
 
@@ -1758,7 +1758,7 @@ void QOnlineTranslator::parseLingvaTranslate()
     }
 }
 
-void QOnlineTranslator::buildGoogleStateMachine()
+void OnlineTranslator::buildGoogleStateMachine()
 {
     // States (Google sends translation, translit and dictionary in one request, that will be splitted into several by the translation limit)
     auto *translationState = new QState(m_stateMachine);
@@ -1768,10 +1768,10 @@ void QOnlineTranslator::buildGoogleStateMachine()
     translationState->addTransition(translationState, &QState::finished, finalState);
 
     // Setup translation state
-    buildSplitNetworkRequest(translationState, &QOnlineTranslator::requestGoogleTranslate, &QOnlineTranslator::parseGoogleTranslate, m_source, s_googleTranslateLimit);
+    buildSplitNetworkRequest(translationState, &OnlineTranslator::requestGoogleTranslate, &OnlineTranslator::parseGoogleTranslate, m_source, s_googleTranslateLimit);
 }
 
-void QOnlineTranslator::buildGoogleDetectStateMachine()
+void OnlineTranslator::buildGoogleDetectStateMachine()
 {
     // States
     auto *detectState = new QState(m_stateMachine);
@@ -1782,10 +1782,10 @@ void QOnlineTranslator::buildGoogleDetectStateMachine()
 
     // Setup detect state
     const QString text = m_source.left(getSplitIndex(m_source, s_googleTranslateLimit));
-    buildNetworkRequestState(detectState, &QOnlineTranslator::requestGoogleTranslate, &QOnlineTranslator::parseGoogleTranslate, text);
+    buildNetworkRequestState(detectState, &OnlineTranslator::requestGoogleTranslate, &OnlineTranslator::parseGoogleTranslate, text);
 }
 
-void QOnlineTranslator::buildYandexStateMachine()
+void OnlineTranslator::buildYandexStateMachine()
 {
     // States
     auto *translationState = new QState(m_stateMachine);
@@ -1802,28 +1802,28 @@ void QOnlineTranslator::buildYandexStateMachine()
     dictionaryState->addTransition(dictionaryState, &QState::finished, finalState);
 
     // Setup translation state
-    buildSplitNetworkRequest(translationState, &QOnlineTranslator::requestYandexTranslate, &QOnlineTranslator::parseYandexTranslate, m_source, s_yandexTranslateLimit);
+    buildSplitNetworkRequest(translationState, &OnlineTranslator::requestYandexTranslate, &OnlineTranslator::parseYandexTranslate, m_source, s_yandexTranslateLimit);
 
     // Setup source translit state
     if (m_sourceTranslitEnabled)
-        buildSplitNetworkRequest(sourceTranslitState, &QOnlineTranslator::requestYandexSourceTranslit, &QOnlineTranslator::parseYandexSourceTranslit, m_source, s_yandexTranslitLimit);
+        buildSplitNetworkRequest(sourceTranslitState, &OnlineTranslator::requestYandexSourceTranslit, &OnlineTranslator::parseYandexSourceTranslit, m_source, s_yandexTranslitLimit);
     else
         sourceTranslitState->setInitialState(new QFinalState(sourceTranslitState));
 
     // Setup translation translit state
     if (m_translationTranslitEnabled)
-        buildSplitNetworkRequest(translationTranslitState, &QOnlineTranslator::requestYandexTranslationTranslit, &QOnlineTranslator::parseYandexTranslationTranslit, m_translation, s_yandexTranslitLimit);
+        buildSplitNetworkRequest(translationTranslitState, &OnlineTranslator::requestYandexTranslationTranslit, &OnlineTranslator::parseYandexTranslationTranslit, m_translation, s_yandexTranslitLimit);
     else
         translationTranslitState->setInitialState(new QFinalState(translationTranslitState));
 
     // Setup dictionary state
     if (m_translationOptionsEnabled && !isContainsSpace(m_source))
-        buildNetworkRequestState(dictionaryState, &QOnlineTranslator::requestYandexDictionary, &QOnlineTranslator::parseYandexDictionary, m_source);
+        buildNetworkRequestState(dictionaryState, &OnlineTranslator::requestYandexDictionary, &OnlineTranslator::parseYandexDictionary, m_source);
     else
         dictionaryState->setInitialState(new QFinalState(dictionaryState));
 }
 
-void QOnlineTranslator::buildYandexDetectStateMachine()
+void OnlineTranslator::buildYandexDetectStateMachine()
 {
     // States
     auto *detectState = new QState(m_stateMachine);
@@ -1835,10 +1835,10 @@ void QOnlineTranslator::buildYandexDetectStateMachine()
 
     // Setup detect state
     const QString text = m_source.left(getSplitIndex(m_source, s_yandexTranslateLimit));
-    buildNetworkRequestState(detectState, &QOnlineTranslator::requestYandexTranslate, &QOnlineTranslator::parseYandexTranslate, text);
+    buildNetworkRequestState(detectState, &OnlineTranslator::requestYandexTranslate, &OnlineTranslator::parseYandexTranslate, text);
 }
 
-void QOnlineTranslator::buildBingStateMachine()
+void OnlineTranslator::buildBingStateMachine()
 {
     // States
     auto *credentialsState = new QState(m_stateMachine); // Generate credentials from web version first to access API
@@ -1854,21 +1854,21 @@ void QOnlineTranslator::buildBingStateMachine()
 
     // Setup credentials state
     if (s_bingKey.isEmpty() || s_bingToken.isEmpty())
-        buildNetworkRequestState(credentialsState, &QOnlineTranslator::requestBingCredentials, &QOnlineTranslator::parseBingCredentials);
+        buildNetworkRequestState(credentialsState, &OnlineTranslator::requestBingCredentials, &OnlineTranslator::parseBingCredentials);
     else
         credentialsState->setInitialState(new QFinalState(credentialsState));
 
     // Setup translation state
-    buildSplitNetworkRequest(translationState, &QOnlineTranslator::requestBingTranslate, &QOnlineTranslator::parseBingTranslate, m_source, s_bingTranslateLimit);
+    buildSplitNetworkRequest(translationState, &OnlineTranslator::requestBingTranslate, &OnlineTranslator::parseBingTranslate, m_source, s_bingTranslateLimit);
 
     // Setup dictionary state
     if (m_translationOptionsEnabled && !isContainsSpace(m_source))
-        buildNetworkRequestState(dictionaryState, &QOnlineTranslator::requestBingDictionary, &QOnlineTranslator::parseBingDictionary, m_source);
+        buildNetworkRequestState(dictionaryState, &OnlineTranslator::requestBingDictionary, &OnlineTranslator::parseBingDictionary, m_source);
     else
         dictionaryState->setInitialState(new QFinalState(dictionaryState));
 }
 
-void QOnlineTranslator::buildBingDetectStateMachine()
+void OnlineTranslator::buildBingDetectStateMachine()
 {
     // States
     auto *detectState = new QState(m_stateMachine);
@@ -1879,10 +1879,10 @@ void QOnlineTranslator::buildBingDetectStateMachine()
 
     // Setup translation state
     const QString text = m_source.left(getSplitIndex(m_source, s_bingTranslateLimit));
-    buildNetworkRequestState(detectState, &QOnlineTranslator::requestBingTranslate, &QOnlineTranslator::parseBingTranslate, text);
+    buildNetworkRequestState(detectState, &OnlineTranslator::requestBingTranslate, &OnlineTranslator::parseBingTranslate, text);
 }
 
-void QOnlineTranslator::buildLibreStateMachine()
+void OnlineTranslator::buildLibreStateMachine()
 {
     // States
     auto *languageDetectionState = new QState(m_stateMachine);
@@ -1895,13 +1895,13 @@ void QOnlineTranslator::buildLibreStateMachine()
     translationState->addTransition(translationState, &QState::finished, finalState);
 
     // Setup LibreTranslate lang code detection
-    buildNetworkRequestState(languageDetectionState, &QOnlineTranslator::requestLibreLangDetection, &QOnlineTranslator::parseLibreLangDetection, m_source);
+    buildNetworkRequestState(languageDetectionState, &OnlineTranslator::requestLibreLangDetection, &OnlineTranslator::parseLibreLangDetection, m_source);
 
     // Setup translation state
-    buildSplitNetworkRequest(translationState, &QOnlineTranslator::requestLibreTranslate, &QOnlineTranslator::parseLibreTranslate, m_source, s_libreTranslateLimit);
+    buildSplitNetworkRequest(translationState, &OnlineTranslator::requestLibreTranslate, &OnlineTranslator::parseLibreTranslate, m_source, s_libreTranslateLimit);
 }
 
-void QOnlineTranslator::buildLibreDetectStateMachine()
+void OnlineTranslator::buildLibreDetectStateMachine()
 {
     // States
     auto *detectState = new QState(m_stateMachine);
@@ -1912,10 +1912,10 @@ void QOnlineTranslator::buildLibreDetectStateMachine()
 
     // Setup lang detection state
     const QString text = m_source.left(getSplitIndex(m_source, s_libreTranslateLimit));
-    buildNetworkRequestState(detectState, &QOnlineTranslator::requestLibreLangDetection, &QOnlineTranslator::parseLibreLangDetection, text);
+    buildNetworkRequestState(detectState, &OnlineTranslator::requestLibreLangDetection, &OnlineTranslator::parseLibreLangDetection, text);
 }
 
-void QOnlineTranslator::buildLingvaStateMachine()
+void OnlineTranslator::buildLingvaStateMachine()
 {
     // States
     auto *translationState = new QState(m_stateMachine);
@@ -1926,10 +1926,10 @@ void QOnlineTranslator::buildLingvaStateMachine()
     translationState->addTransition(translationState, &QState::finished, finalState);
 
     // Setup translation state
-    buildSplitNetworkRequest(translationState, &QOnlineTranslator::requestLingvaTranslate, &QOnlineTranslator::parseLingvaTranslate, m_source, s_googleTranslateLimit);
+    buildSplitNetworkRequest(translationState, &OnlineTranslator::requestLingvaTranslate, &OnlineTranslator::parseLingvaTranslate, m_source, s_googleTranslateLimit);
 }
 
-void QOnlineTranslator::buildLingvaDetectStateMachine()
+void OnlineTranslator::buildLingvaDetectStateMachine()
 {
     // States
     auto *detectState = new QState(m_stateMachine);
@@ -1940,10 +1940,10 @@ void QOnlineTranslator::buildLingvaDetectStateMachine()
 
     // Setup lang detection state
     const QString text = m_source.left(getSplitIndex(m_source, s_googleTranslateLimit));
-    buildNetworkRequestState(detectState, &QOnlineTranslator::requestLingvaTranslate, &QOnlineTranslator::parseLingvaTranslate, text);
+    buildNetworkRequestState(detectState, &OnlineTranslator::requestLingvaTranslate, &OnlineTranslator::parseLingvaTranslate, text);
 }
 
-void QOnlineTranslator::buildSplitNetworkRequest(QState *parent, void (QOnlineTranslator::*requestMethod)(), void (QOnlineTranslator::*parseMethod)(), const QString &text, int textLimit)
+void OnlineTranslator::buildSplitNetworkRequest(QState *parent, void (OnlineTranslator::*requestMethod)(), void (OnlineTranslator::*parseMethod)(), const QString &text, int textLimit)
 {
     QString unsendedText = text;
     auto *nextTranslationState = new QState(parent);
@@ -1958,7 +1958,7 @@ void QOnlineTranslator::buildSplitNetworkRequest(QState *parent, void (QOnlineTr
         if (splitIndex == -1) {
             currentTranslationState->setProperty(s_textProperty, unsendedText.left(textLimit));
             currentTranslationState->addTransition(nextTranslationState);
-            connect(currentTranslationState, &QState::entered, this, &QOnlineTranslator::skipGarbageText);
+            connect(currentTranslationState, &QState::entered, this, &OnlineTranslator::skipGarbageText);
 
             // Remove the parsed part from the next parsing
             unsendedText = unsendedText.mid(textLimit);
@@ -1974,7 +1974,7 @@ void QOnlineTranslator::buildSplitNetworkRequest(QState *parent, void (QOnlineTr
     nextTranslationState->addTransition(new QFinalState(parent));
 }
 
-void QOnlineTranslator::buildNetworkRequestState(QState *parent, void (QOnlineTranslator::*requestMethod)(), void (QOnlineTranslator::*parseMethod)(), const QString &text)
+void OnlineTranslator::buildNetworkRequestState(QState *parent, void (OnlineTranslator::*requestMethod)(), void (OnlineTranslator::*parseMethod)(), const QString &text)
 {
     // Network substates
     auto *requestingState = new QState(parent);
@@ -1994,7 +1994,7 @@ void QOnlineTranslator::buildNetworkRequestState(QState *parent, void (QOnlineTr
     connect(parsingState, &QState::entered, this, parseMethod);
 }
 
-void QOnlineTranslator::requestYandexTranslit(Language language)
+void OnlineTranslator::requestYandexTranslit(Language language)
 {
     // Check if language is supported (need to check here because language may be autodetected)
     if (!isSupportTranslit(Yandex, language)) {
@@ -2013,7 +2013,7 @@ void QOnlineTranslator::requestYandexTranslit(Language language)
     m_currentReply = m_networkManager->get(QNetworkRequest(url));
 }
 
-void QOnlineTranslator::parseYandexTranslit(QString &text)
+void OnlineTranslator::parseYandexTranslit(QString &text)
 {
     m_currentReply->deleteLater();
 
@@ -2032,7 +2032,7 @@ void QOnlineTranslator::parseYandexTranslit(QString &text)
 #endif
 }
 
-void QOnlineTranslator::resetData(TranslationError error, const QString &errorString)
+void OnlineTranslator::resetData(TranslationError error, const QString &errorString)
 {
     m_error = error;
     m_errorString = errorString;
@@ -2050,7 +2050,7 @@ void QOnlineTranslator::resetData(TranslationError error, const QString &errorSt
     }
 }
 
-bool QOnlineTranslator::isSupportTranslit(Engine engine, Language lang)
+bool OnlineTranslator::isSupportTranslit(Engine engine, Language lang)
 {
     switch (engine) {
     case Google:
@@ -2115,7 +2115,7 @@ bool QOnlineTranslator::isSupportTranslit(Engine engine, Language lang)
     return false;
 }
 
-bool QOnlineTranslator::isSupportDictionary(Engine engine, Language sourceLang, Language translationLang)
+bool OnlineTranslator::isSupportDictionary(Engine engine, Language sourceLang, Language translationLang)
 {
     switch (engine) {
     case Google:
@@ -2379,7 +2379,7 @@ bool QOnlineTranslator::isSupportDictionary(Engine engine, Language sourceLang, 
 }
 
 // Returns engine-specific language code for translation
-QString QOnlineTranslator::languageApiCode(Engine engine, Language lang)
+QString OnlineTranslator::languageApiCode(Engine engine, Language lang)
 {
     if (!isSupportTranslation(engine, lang))
         return {};
@@ -2401,7 +2401,7 @@ QString QOnlineTranslator::languageApiCode(Engine engine, Language lang)
 }
 
 // Parse language from response language code
-QOnlineTranslator::Language QOnlineTranslator::language(Engine engine, const QString &langCode)
+OnlineTranslator::Language OnlineTranslator::language(Engine engine, const QString &langCode)
 {
     // Engine exceptions
     switch (engine) {
@@ -2421,7 +2421,7 @@ QOnlineTranslator::Language QOnlineTranslator::language(Engine engine, const QSt
 }
 
 // Get split index of the text according to the limit
-int QOnlineTranslator::getSplitIndex(const QString &untranslatedText, int limit)
+int OnlineTranslator::getSplitIndex(const QString &untranslatedText, int limit)
 {
     if (untranslatedText.size() < limit)
         return limit;
@@ -2447,14 +2447,14 @@ int QOnlineTranslator::getSplitIndex(const QString &untranslatedText, int limit)
     return limit;
 }
 
-bool QOnlineTranslator::isContainsSpace(const QString &text)
+bool OnlineTranslator::isContainsSpace(const QString &text)
 {
     return std::any_of(text.cbegin(), text.cend(), [](QChar symbol) {
         return symbol.isSpace();
     });
 }
 
-void QOnlineTranslator::addSpaceBetweenParts(QString &text)
+void OnlineTranslator::addSpaceBetweenParts(QString &text)
 {
     if (text.isEmpty())
         return;
