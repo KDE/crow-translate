@@ -128,14 +128,17 @@ qt5_add_translation(QM_FILES
     data/translations/${PROJECT_NAME}_de_DE.ts
     data/translations/${PROJECT_NAME}_el_GR.ts
     data/translations/${PROJECT_NAME}_es_ES.ts
+    data/translations/${PROJECT_NAME}_et_EE.ts
     data/translations/${PROJECT_NAME}_eu_ES.ts
     data/translations/${PROJECT_NAME}_fi_FI.ts
     data/translations/${PROJECT_NAME}_fr_FR.ts
     data/translations/${PROJECT_NAME}_hi_IN.ts
+    data/translations/${PROJECT_NAME}_hr_HR.ts
     data/translations/${PROJECT_NAME}_hu_HU.ts
     data/translations/${PROJECT_NAME}_id_ID.ts
     data/translations/${PROJECT_NAME}_it_IT.ts
     data/translations/${PROJECT_NAME}_ko_KR.ts
+    data/translations/${PROJECT_NAME}_lv_LV.ts
     data/translations/${PROJECT_NAME}_ms_MY.ts
     data/translations/${PROJECT_NAME}_nl_NL.ts
     data/translations/${PROJECT_NAME}_pl_PL.ts

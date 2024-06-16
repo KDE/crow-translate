@@ -67,8 +67,10 @@ SettingsDialog::SettingsDialog(MainWindow *parent)
     addLocale({QLocale::Basque, QLocale::Spain});
     addLocale({QLocale::Chinese, QLocale::China});
     addLocale({QLocale::Chinese, QLocale::Taiwan});
+    addLocale({QLocale::Croatian, QLocale::Croatia});
     addLocale({QLocale::Dutch, QLocale::Netherlands});
     addLocale({QLocale::English, QLocale::UnitedStates});
+    addLocale({QLocale::Estonian, QLocale::Estonia});
     addLocale({QLocale::Finnish, QLocale::Finland});
     addLocale({QLocale::French, QLocale::France});
     addLocale({QLocale::German, QLocale::Germany});
@@ -78,6 +80,7 @@ SettingsDialog::SettingsDialog(MainWindow *parent)
     addLocale({QLocale::Indonesian, QLocale::Indonesia});
     addLocale({QLocale::Italian, QLocale::Italy});
     addLocale({QLocale::Korean, QLocale::SouthKorea});
+    addLocale({QLocale::Latvian, QLocale::Latvia});
     addLocale({QLocale::Malay, QLocale::Malaysia});
     addLocale({QLocale::Polish, QLocale::Poland});
     addLocale({QLocale::Portuguese, QLocale::Brazil});
