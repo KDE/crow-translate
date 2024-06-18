@@ -67,7 +67,7 @@ endif()
 option(WITH_PORTABLE_MODE "Enable portable functionality" OFF)
 option(WITH_KWAYLAND "Use KWayland for better Wayland integration" ON)
 
-find_package(ECM REQUIRED NO_MODULE)
+find_package(ECM 5.83 REQUIRED NO_MODULE)
 list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 set(QAPPLICATION_CLASS QApplication)
@@ -94,6 +94,7 @@ endif()
 
 include(GNUInstallDirs)
 include(CPack)
+include(ECMPoQmTools)
 if(UNIX)
     include(ECMInstallIcons)
 endif()
@@ -122,42 +123,10 @@ if(WIN32)
     )
 endif()
 
-qt5_add_translation(QM_FILES
-    data/translations/${PROJECT_NAME}_ar_SA.ts
-    data/translations/${PROJECT_NAME}_az_AZ.ts
-    data/translations/${PROJECT_NAME}_de_DE.ts
-    data/translations/${PROJECT_NAME}_el_GR.ts
-    data/translations/${PROJECT_NAME}_es_ES.ts
-    data/translations/${PROJECT_NAME}_et_EE.ts
-    data/translations/${PROJECT_NAME}_eu_ES.ts
-    data/translations/${PROJECT_NAME}_fi_FI.ts
-    data/translations/${PROJECT_NAME}_fr_FR.ts
-    data/translations/${PROJECT_NAME}_hi_IN.ts
-    data/translations/${PROJECT_NAME}_hr_HR.ts
-    data/translations/${PROJECT_NAME}_hu_HU.ts
-    data/translations/${PROJECT_NAME}_id_ID.ts
-    data/translations/${PROJECT_NAME}_it_IT.ts
-    data/translations/${PROJECT_NAME}_ko_KR.ts
-    data/translations/${PROJECT_NAME}_lv_LV.ts
-    data/translations/${PROJECT_NAME}_ms_MY.ts
-    data/translations/${PROJECT_NAME}_nl_NL.ts
-    data/translations/${PROJECT_NAME}_pl_PL.ts
-    data/translations/${PROJECT_NAME}_pt_BR.ts
-    data/translations/${PROJECT_NAME}_pt_PT.ts
-    data/translations/${PROJECT_NAME}_ru_RU.ts
-    data/translations/${PROJECT_NAME}_sq_AL.ts
-    data/translations/${PROJECT_NAME}_tr_TR.ts
-    data/translations/${PROJECT_NAME}_ug_CN.ts
-    data/translations/${PROJECT_NAME}_uk_UA.ts
-    data/translations/${PROJECT_NAME}_zh_CN.ts
-    data/translations/${PROJECT_NAME}_zh_TW.ts
-)
-
 configure_file(src/cmake.h.in cmake.h)
 
 add_executable(${PROJECT_NAME}
     data/icons/flags.qrc
-    ${QM_FILES}
     data/icons/icon-theme.qrc
     data/icons/engines/engines.qrc
     src/languagesdialog.cpp
@@ -273,6 +242,7 @@ if(WITH_PORTABLE_MODE)
     target_compile_definitions(${PROJECT_NAME} PRIVATE WITH_PORTABLE_MODE)
 endif()
 
+ecm_install_po_files_as_qm(poqm)
 if(UNIX AND NOT APPLE)
     # -DQT_BIN_DIR=/path/to/qt/executables can be passed to CMake directly
     if(NOT DEFINED QT_BIN_DIR)
@@ -288,7 +258,6 @@ if(UNIX AND NOT APPLE)
     configure_file(data/${DESKTOP_FILE}.in ${CMAKE_CURRENT_BINARY_DIR}/data/${DESKTOP_FILE} @ONLY)
 
     install(TARGETS ${PROJECT_NAME})
-    install(FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/${PROJECT_NAME}/translations)
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/data/${DESKTOP_FILE} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
     install(FILES data/${METAINFO_FILE} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/metainfo)
 
@@ -312,11 +281,9 @@ elseif(APPLE)
         MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
         MACOSX_BUNDLE_GUI_IDENTIFIER ${APPLICATION_ID}
         MACOSX_BUNDLE_INFO_STRING ${PROJECT_DESCRIPTION}
-        RESOURCE "${QM_FILES}"
     )
 elseif(WIN32)
     install(TARGETS ${PROJECT_NAME} DESTINATION .)
-    install(FILES ${QM_FILES} DESTINATION translations)
 
     # Bundle Qt dependencies
     find_program(WINDEPLOYQT windeployqt PATH_SUFFIXES tools/qt5/bin)

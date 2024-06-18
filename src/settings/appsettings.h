@@ -74,6 +74,7 @@ public:
     QLocale locale() const;
     void setLocale(const QLocale &locale);
     static void applyLocale(const QLocale &locale);
+    static bool loadLocale(const QString &localeDirName);
     static QLocale defaultLocale();
 
     Qt::ScreenOrientation mainWindowOrientation() const;

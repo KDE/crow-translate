@@ -59,15 +59,36 @@ void AppSettings::setLocale(const QLocale &locale)
 
 void AppSettings::applyLocale(const QLocale &locale)
 {
-#ifdef Q_OS_DARWIN
-    const QString i18nDir = QStringLiteral(".");
-#else
-    const QString i18nDir = QStringLiteral("translations");
-#endif
     const QLocale newLocale = locale == defaultLocale() ? QLocale::system() : locale;
     QLocale::setDefault(newLocale);
-    s_appTranslator.load(newLocale, QStringLiteral(PROJECT_NAME), QStringLiteral("_"), QStandardPaths::locate(QStandardPaths::AppDataLocation, i18nDir, QStandardPaths::LocateDirectory));
+    if (!loadLocale(locale.name())) {
+        if (!loadLocale(locale.bcp47Name())) {
+            const int index = locale.name().indexOf(QLatin1Char('_'));
+            if (index > 0) {
+                loadLocale(locale.name().left(index));
+            }
+        }
+    }
+
     s_qtTranslator.load(newLocale, QStringLiteral("qt"), QStringLiteral("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+}
+
+// Code adapted from ECM QM loader.
+// We use our own implementation instead of automatic loading to let users set locale inside the application.
+bool AppSettings::loadLocale(const QString &localeDirName)
+{
+    const QString subPath = QStringLiteral("locale/%1/LC_MESSAGES/%2_qt.qm").arg(localeDirName).arg(PROJECT_NAME);
+
+    const QString fullPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, subPath);
+    if (fullPath.isEmpty()) {
+        return false;
+    }
+
+    if (!s_appTranslator.load(fullPath)) {
+        return false;
+    }
+
+    return true;
 }
 
 QLocale AppSettings::defaultLocale()
