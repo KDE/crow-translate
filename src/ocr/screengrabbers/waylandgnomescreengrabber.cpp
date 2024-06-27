@@ -16,7 +16,7 @@
 
 const QString WaylandGnomeScreenGrabber::s_fileName = QDir::temp().filePath(QStringLiteral("ocr-screenshot.png"));
 
-// https://github.com/GNOME/gnome-shell/blob/7a57528bd7940e68c404d15d398f88730821cec9/data/dbus-interfaces/org.gnome.Shell.Screenshot.xml
+// https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/data/dbus-interfaces/org.gnome.Shell.Screenshot.xml
 QDBusInterface WaylandGnomeScreenGrabber::s_interface(QStringLiteral("org.gnome.Shell"),
                                                       QStringLiteral("/org/gnome/Shell/Screenshot"),
                                                       QStringLiteral("org.gnome.Shell.Screenshot"));

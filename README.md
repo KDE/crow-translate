@@ -3,10 +3,7 @@
 
 # ![Crow Translate logo](data/icons/app/48-apps-crow-translate.png) Crow Translate
 
-[![GitHub (pre-)release](https://img.shields.io/github/release/crow-translate/crow-translate/all.svg)](https://github.com/crow-translate/crow-translate/releases)
-[![Crowdin](https://badges.crowdin.net/crow-translate/localized.svg)](https://crowdin.com/project/crow-translate)
-
-**Crow Translate** is a simple and lightweight translator written in **C++ / Qt** that allows you to translate and speak text using Google, Yandex, Bing, LibreTranslate and Lingva translate API.
+**Crow Translate** is a simple and lightweight translator written in **C++ / Qt** that allows you to translate and speak text.
 
 ## Content
 
@@ -27,30 +24,30 @@
 **Plasma**
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/crow-translate/crow-translate.github.io/master/static/screenshots/plasma/main.png" alt="Main"/>
+  <img src="https://invent.kde.org/websites/product-screenshots/-/raw/master/crow-translate/main.png" alt="Main"/>
 </p>
 
 **Plasma Mobile**
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/crow-translate/crow-translate.github.io/master/static/screenshots/plasma-mobile/main-landscape.png"alt="Main"/>
+  <img src="https://invent.kde.org/websites/product-screenshots/-/raw/master/crow-translate/main-mobile-landscape.png"alt="Main"/>
 </p>
 
 **Windows 10**
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/crow-translate/crow-translate.github.io/master/static/screenshots/windows/main.png" alt="Main"/>
+  <img src="https://invent.kde.org/websites/product-screenshots/-/raw/master/crow-translate/main-windows.png" alt="Main"/>
 </p>
 
 ## Features
 
-- Translate and speak text from screen or selection
+- Translate and speak text from screen or selection Google, Yandex, Bing, LibreTranslate and Lingva translate API
 - Support 125 different languages
 - Low memory consumption (~20MB)
 - Highly customizable shortcuts
 - Command-line interface with rich options
 - D-Bus API
-- Available for Linux and Windows
+- Cross-platform
 
 ## Default keyboard shortcuts
 
@@ -108,45 +105,45 @@ The program also has a console interface.
 
 ## D-Bus API
 
-    io.crow_translate.CrowTranslate
-    ├── /io/crow_translate/CrowTranslate/Ocr
-    |   └── method void io.crow_translate.CrowTranslate.Ocr.setParameters(QVariantMap parameters);
-    └── /io/crow_translate/CrowTranslate/MainWindow
+    org.kde.CrowTranslate
+    ├── /org/kde/CrowTranslate/Ocr
+    |   └── method void org.kde.CrowTranslate.Ocr.setParameters(QVariantMap parameters);
+    └── /org/kde/CrowTranslate/MainWindow
         |   # Global shortcuts
-        ├── method void io.crow_translate.CrowTranslate.MainWindow.translateSelection();
-        ├── method void io.crow_translate.CrowTranslate.MainWindow.speakSelection();
-        ├── method void io.crow_translate.CrowTranslate.MainWindow.speakTranslatedSelection();
-        ├── method void io.crow_translate.CrowTranslate.MainWindow.playPauseSpeaking();
-        ├── method void io.crow_translate.CrowTranslate.MainWindow.stopSpeaking();
-        ├── method void io.crow_translate.CrowTranslate.MainWindow.open();
-        ├── method void io.crow_translate.CrowTranslate.MainWindow.copyTranslatedSelection();
-        ├── method void io.crow_translate.CrowTranslate.MainWindow.recognizeScreenArea();
-        ├── method void io.crow_translate.CrowTranslate.MainWindow.translateScreenArea();
-        ├── method void io.crow_translate.CrowTranslate.MainWindow.delayedRecognizeScreenArea();
-        ├── method void io.crow_translate.CrowTranslate.MainWindow.delayedTranslateScreenArea();
+        ├── method void org.kde.CrowTranslate.MainWindow.translateSelection();
+        ├── method void org.kde.CrowTranslate.MainWindow.speakSelection();
+        ├── method void org.kde.CrowTranslate.MainWindow.speakTranslatedSelection();
+        ├── method void org.kde.CrowTranslate.MainWindow.playPauseSpeaking();
+        ├── method void org.kde.CrowTranslate.MainWindow.stopSpeaking();
+        ├── method void org.kde.CrowTranslate.MainWindow.open();
+        ├── method void org.kde.CrowTranslate.MainWindow.copyTranslatedSelection();
+        ├── method void org.kde.CrowTranslate.MainWindow.recognizeScreenArea();
+        ├── method void org.kde.CrowTranslate.MainWindow.translateScreenArea();
+        ├── method void org.kde.CrowTranslate.MainWindow.delayedRecognizeScreenArea();
+        ├── method void org.kde.CrowTranslate.MainWindow.delayedTranslateScreenArea();
         |   # Main window shortcuts
-        ├── method void io.crow_translate.CrowTranslate.MainWindow.clearText();
-        ├── method void io.crow_translate.CrowTranslate.MainWindow.cancelOperation();
-        ├── method void io.crow_translate.CrowTranslate.MainWindow.swapLanguages();
-        ├── method void io.crow_translate.CrowTranslate.MainWindow.openSettings();
-        ├── method void io.crow_translate.CrowTranslate.MainWindow.setAutoTranslateEnabled(bool enabled);
-        ├── method void io.crow_translate.CrowTranslate.MainWindow.copySourceText();
-        ├── method void io.crow_translate.CrowTranslate.MainWindow.copyTranslation();
-        ├── method void io.crow_translate.CrowTranslate.MainWindow.copyAllTranslationInfo();
-        └── method void io.crow_translate.CrowTranslate.MainWindow.quit();
+        ├── method void org.kde.CrowTranslate.MainWindow.clearText();
+        ├── method void org.kde.CrowTranslate.MainWindow.cancelOperation();
+        ├── method void org.kde.CrowTranslate.MainWindow.swapLanguages();
+        ├── method void org.kde.CrowTranslate.MainWindow.openSettings();
+        ├── method void org.kde.CrowTranslate.MainWindow.setAutoTranslateEnabled(bool enabled);
+        ├── method void org.kde.CrowTranslate.MainWindow.copySourceText();
+        ├── method void org.kde.CrowTranslate.MainWindow.copyTranslation();
+        ├── method void org.kde.CrowTranslate.MainWindow.copyAllTranslationInfo();
+        └── method void org.kde.CrowTranslate.MainWindow.quit();
 
 For example, you can show main window using `dbus-send`:
 
 ```bash
-dbus-send --type=method_call --dest=io.crow_translate.CrowTranslate /io/crow_translate/CrowTranslate/MainWindow io.crow_translate.CrowTranslate.MainWindow.open
+dbus-send --type=method_call --dest=org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow org.kde.CrowTranslate.MainWindow.open
 ```
 
 Or via `qdbus`:
 
 ```bash
-qdbus io.crow_translate.CrowTranslate /io/crow_translate/CrowTranslate/MainWindow io.crow_translate.CrowTranslate.MainWindow.open
+qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow org.kde.CrowTranslate.MainWindow.open
 # or shorter
-qdbus io.crow_translate.CrowTranslate /io/crow_translate/CrowTranslate/MainWindow open
+qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow open
 ```
 
 ## Global shortcuts in wayland
@@ -162,7 +159,7 @@ KDE have a convenient feature to define shortcuts in .desktop file and import th
 For GNOME you need to manually set D-Bus commands as global shortcuts. For example, to translate selected text use the following:
 
 ```bash
-qdbus io.crow_translate.CrowTranslate /io/crow_translate/CrowTranslate/MainWindow translateSelection
+qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow translateSelection
 ```
 
 You can set a hotkey for this command in GNOME system settings.
@@ -196,7 +193,7 @@ This project uses the following external libraries, which included as git submod
 
 ## Installation
 
-Downloads are available on the [Releases](https://github.com/crow-translate/crow-translate/releases/latest) page. Also check out the [website](https://crow-translate.github.io/#installation) for other installation methods.
+Downloads are available on the [KDE downloads](https://download.kde.org/stable/crow-translate) page. Also check out the [webpage](https://apps.kde.org/crow-translate) for other installation methods.
 
 **Note:** On Linux to make the application look native on a non-KDE desktop environment, you need to configure Qt applications styling. This can be done by using [qt5ct](https://github.com/RomanVolak/qt5ct) or [adwaita-qt5](https://github.com/FedoraQt/adwaita-qt) or [qtstyleplugins](https://github.com/qt/qtstyleplugins). Please check the appropriate installation guide for your distribution.
 
@@ -239,7 +236,11 @@ cmake .. # Or `cmake -D CMAKE_BUILD_TYPE=Release ..` for single-configuration ge
 cpack -G DEB # Or `cpack -G DEB -C Release` for multi-config generators such as Visual Studio Generators or Xcode
 ```
 
-On Windows you need [VCPKG](https://github.com/microsoft/vcpkg) to bundle all necessary DLLs.
+You can also compile it using [Craft](https://community.kde.org/Craft):
+
+```bash
+craft crow-translate
+```
 
 ### Build parameters
 

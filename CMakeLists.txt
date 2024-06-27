@@ -10,12 +10,12 @@ cmake_minimum_required(VERSION 3.16.0)
 project(crow-translate
     VERSION 2.11.1
     DESCRIPTION "A simple and lightweight translator that allows to translate and speak text using Google, Yandex, Bing, LibreTranslate and Lingva"
-    HOMEPAGE_URL crow-translate.github.io
+    HOMEPAGE_URL https://apps.kde.org/crow-translate
     LANGUAGES CXX
 )
 
 set(APPLICATION_NAME "Crow Translate")
-set(APPLICATION_ID "io.crow_translate.CrowTranslate")
+set(APPLICATION_ID "org.kde.CrowTranslate")
 set(EXECUTABLE_NAME crow)
 if(UNIX)
     set(DESKTOP_FILE ${APPLICATION_ID}.desktop)
