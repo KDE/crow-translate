@@ -26,8 +26,8 @@
 #include "transitions/translatorabortedtransition.h"
 #include "transitions/translatorerrortransition.h"
 #ifdef Q_OS_WIN
-#include "qgittag.h"
 #include "updaterdialog.h"
+#include "qgittag/qgittag.h"
 #endif
 
 #include <QClipboard>

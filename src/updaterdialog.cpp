@@ -8,7 +8,7 @@
 #include "updaterdialog.h"
 #include "ui_updaterdialog.h"
 
-#include "qgittag.h"
+#include "qgittag/qgittag.h"
 
 #include <QDir>
 #include <QFile>

@@ -72,12 +72,9 @@ list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cma
 
 set(QAPPLICATION_CLASS QApplication)
 option(QHOTKEY_INSTALL OFF)
-
+set(BUILD_SHARED_LIBS OFF)
 add_subdirectory(src/3rdparty/singleapplication)
 add_subdirectory(src/3rdparty/qhotkey)
-if(WIN32)
-    add_subdirectory(src/qgittag)
-endif()
 
 find_package(Qt5 REQUIRED COMPONENTS Widgets Multimedia Network LinguistTools Concurrent)
 find_package(Tesseract REQUIRED)
@@ -205,6 +202,8 @@ elseif(WIN32)
         data/icons/app/app.qrc
         src/updaterdialog.cpp
         src/updaterdialog.ui
+        src/qgittag/qgittag.cpp
+        src/qgittag/qgitasset.cpp
         src/settings/autostartmanager/windowsautostartmanager.cpp
     )
 endif()
@@ -234,8 +233,6 @@ if(UNIX)
             target_compile_definitions(${PROJECT_NAME} PRIVATE WITH_KWAYLAND)
         endif()
     endif()
-elseif(WIN32)
-    target_link_libraries(${PROJECT_NAME} PRIVATE QGitTag::QGitTag)
 endif()
 
 if(WITH_PORTABLE_MODE)
@@ -283,36 +280,5 @@ elseif(APPLE)
         MACOSX_BUNDLE_INFO_STRING ${PROJECT_DESCRIPTION}
     )
 elseif(WIN32)
-    install(TARGETS ${PROJECT_NAME} DESTINATION .)
-
-    # Bundle Qt dependencies
-    find_program(WINDEPLOYQT windeployqt PATH_SUFFIXES tools/qt5/bin)
-    install(CODE "execute_process(COMMAND ${WINDEPLOYQT} --no-compiler-runtime --no-angle \${CMAKE_INSTALL_PREFIX}/$<TARGET_FILE_NAME:${PROJECT_NAME}>)")
-
-    # Bundle OpenSLL libraries that required for Qt networking manually because it not handled by windeployqt
-    find_file(SLL_DLL NAMES libssl-1_1-x64.dll libssl-1_1.dll libssl.dll PATH_SUFFIXES tools/qt5/bin)
-    find_file(CRYPTO_DLL NAMES libcrypto-1_1-x64.dll libcrypto-1_1.dll libcrypto.dll PATH_SUFFIXES tools/qt5/bin)
-    install(FILES ${SLL_DLL} ${CRYPTO_DLL} DESTINATION .)
-
-    # Install other non-Qt runtime depenencies
-    install(CODE [[
-        file(GET_RUNTIME_DEPENDENCIES
-            EXECUTABLES $<TARGET_FILE:crow-translate>
-            PRE_EXCLUDE_REGEXES api-ms qt5
-            POST_EXCLUDE_REGEXES C:[/\\]Windows[/\\]
-            RESOLVED_DEPENDENCIES_VAR RESOLVED_DEPENDENCIES
-            UNRESOLVED_DEPENDENCIES_VAR UNRESOLVED_DEPENDENCIES
-        )
-        foreach(DEPENDENCY ${UNRESOLVED_DEPENDENCIES})
-            message(WARNING "Unable to resolve dependency ${DEPENDENCY}")
-        endforeach()
-        foreach(DEPENDENCY ${RESOLVED_DEPENDENCIES})
-            message("Copying ${DEPENDENCY}")
-            file(INSTALL
-                DESTINATION "${CMAKE_INSTALL_PREFIX}"
-                FILES "${DEPENDENCY}"
-            )
-        endforeach()
-        file(WRITE ${CMAKE_INSTALL_PREFIX}/qt.conf "[Paths]") # Setup Qt libraries paths
-    ]])
+    install(TARGETS ${PROJECT_NAME})
 endif()

@@ -10,14 +10,14 @@
 #include <QJsonObject>
 
 QGitAsset::QGitAsset(const QJsonObject &asset)
-    : m_contentType(asset[QStringLiteral("name")].toString())
-    , m_type(asset[QStringLiteral("content_type")].toString())
-    , m_url(asset[QStringLiteral("browser_download_url")].toString())
-    , m_createdAt(QDateTime::fromString(asset[QStringLiteral("created_at")].toString(), Qt::ISODate))
-    , m_publishedAt(QDateTime::fromString(asset[QStringLiteral("published_at")].toString(), Qt::ISODate))
-    , m_id(asset[QStringLiteral("id")].toInt())
-    , m_size(asset[QStringLiteral("size")].toInt())
-    , m_downloadCount(asset[QStringLiteral("download_count")].toInt())
+    : m_contentType(asset[QLatin1String("name")].toString())
+    , m_type(asset[QLatin1String("content_type")].toString())
+    , m_url(asset[QLatin1String("browser_download_url")].toString())
+    , m_createdAt(QDateTime::fromString(asset[QLatin1String("created_at")].toString(), Qt::ISODate))
+    , m_publishedAt(QDateTime::fromString(asset[QLatin1String("published_at")].toString(), Qt::ISODate))
+    , m_id(asset[QLatin1String("id")].toInt())
+    , m_size(asset[QLatin1String("size")].toInt())
+    , m_downloadCount(asset[QLatin1String("download_count")].toInt())
 {
 }
 
