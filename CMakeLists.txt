@@ -89,7 +89,7 @@ if(UNIX)
     endif()
 endif()
 
-include(GNUInstallDirs)
+include(KDEInstallDirs)
 include(CPack)
 include(ECMPoQmTools)
 if(UNIX)
@@ -254,9 +254,9 @@ if(UNIX AND NOT APPLE)
 
     configure_file(data/${DESKTOP_FILE}.in ${CMAKE_CURRENT_BINARY_DIR}/data/${DESKTOP_FILE} @ONLY)
 
-    install(TARGETS ${PROJECT_NAME})
-    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/data/${DESKTOP_FILE} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
-    install(FILES data/${METAINFO_FILE} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/metainfo)
+    install(TARGETS ${PROJECT_NAME} ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/data/${DESKTOP_FILE} DESTINATION ${KDE_INSTALL_APPDIR})
+    install(FILES data/${METAINFO_FILE} DESTINATION ${KDE_INSTALL_METAINFODIR})
 
     ecm_install_icons(ICONS
         ${APP_ICONS}
@@ -269,7 +269,7 @@ if(UNIX AND NOT APPLE)
         data/icons/app/24-status-crow-translate-tray-light.png
         data/icons/app/sc-status-crow-translate-tray-dark.svg
         data/icons/app/sc-status-crow-translate-tray-light.svg
-        DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/icons
+        DESTINATION ${KDE_INSTALL_ICONDIR}
     )
 elseif(APPLE)
     set_target_properties(${PROJECT_NAME} PROPERTIES
@@ -280,5 +280,5 @@ elseif(APPLE)
         MACOSX_BUNDLE_INFO_STRING ${PROJECT_DESCRIPTION}
     )
 elseif(WIN32)
-    install(TARGETS ${PROJECT_NAME})
+    install(TARGETS ${PROJECT_NAME} ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 endif()
