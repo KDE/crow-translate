@@ -200,10 +200,6 @@ elseif(WIN32)
     target_sources(${PROJECT_NAME} PRIVATE
         ${WINDOWS_ICON}
         data/icons/app/app.qrc
-        src/updaterdialog.cpp
-        src/updaterdialog.ui
-        src/qgittag/qgittag.cpp
-        src/qgittag/qgitasset.cpp
         src/settings/autostartmanager/windowsautostartmanager.cpp
     )
 endif()

@@ -235,33 +235,6 @@ QString AppSettings::portableConfigName()
 }
 #endif
 
-#ifdef Q_OS_WIN
-AppSettings::Interval AppSettings::checkForUpdatesInterval() const
-{
-    return m_settings->value(QStringLiteral("CheckForUpdatesInterval"), defaultCheckForUpdatesInterval()).value<Interval>();
-}
-
-void AppSettings::setCheckForUpdatesInterval(AppSettings::Interval interval)
-{
-    m_settings->setValue(QStringLiteral("CheckForUpdatesInterval"), interval);
-}
-
-AppSettings::Interval AppSettings::defaultCheckForUpdatesInterval()
-{
-    return Month;
-}
-
-QDate AppSettings::lastUpdateCheckDate() const
-{
-    return m_settings->value(QStringLiteral("LastUpdateCheckDate"), QDate::currentDate()).toDate();
-}
-
-void AppSettings::setLastUpdateCheckDate(const QDate &date)
-{
-    m_settings->setValue(QStringLiteral("LastUpdateCheckDate"), date);
-}
-#endif
-
 QFont AppSettings::font() const
 {
     return m_settings->value(QStringLiteral("Interface/Font"), QGuiApplication::font()).value<QFont>();

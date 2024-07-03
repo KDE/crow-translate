@@ -120,9 +120,6 @@ private slots:
 
     // Other
     void setOrientation(Qt::ScreenOrientation orientation);
-#ifdef Q_OS_WIN
-    void checkForUpdates();
-#endif
 
 private:
     void changeEvent(QEvent *event) override;

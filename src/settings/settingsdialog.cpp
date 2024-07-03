@@ -17,10 +17,6 @@
 #include "ocr/ocr.h"
 #include "shortcutsmodel/shortcutitem.h"
 #include "shortcutsmodel/shortcutsmodel.h"
-#ifdef Q_OS_WIN
-#include "updaterdialog.h"
-#include "qgittag/qgittag.h"
-#endif
 
 #include <QDate>
 #include <QFileDialog>
@@ -135,35 +131,6 @@ SettingsDialog::SettingsDialog(MainWindow *parent)
     iconsLabel->setOpenExternalLinks(true);
 
     qobject_cast<QFormLayout *>(ui->aboutGroupBox->layout())->addRow(iconsTitleLabel, iconsLabel);
-
-    // Add updater options
-    auto *updatesGroupBox = new QGroupBox(tr("Updates"));
-    qobject_cast<QVBoxLayout *>(ui->generalPage->layout())->insertWidget(1, updatesGroupBox);
-
-    auto *updatesLayout = new QHBoxLayout;
-    updatesGroupBox->setLayout(updatesLayout);
-
-    auto *checkForUpdatesLabel = new QLabel;
-    checkForUpdatesLabel->setText(tr("Check for updates:"));
-    updatesLayout->addWidget(checkForUpdatesLabel);
-
-    m_checkForUpdatesComboBox = new QComboBox;
-    m_checkForUpdatesComboBox->addItem(tr("Every day"));
-    m_checkForUpdatesComboBox->addItem(tr("Every week"));
-    m_checkForUpdatesComboBox->addItem(tr("Every month"));
-    m_checkForUpdatesComboBox->addItem(tr("Never"));
-    updatesLayout->addWidget(m_checkForUpdatesComboBox);
-
-    m_checkForUpdatesButton = new QPushButton;
-    m_checkForUpdatesButton->setText(tr("Check now"));
-    m_checkForUpdatesButton->setToolTip(tr("Check for updates now"));
-    connect(m_checkForUpdatesButton, &QPushButton::clicked, this, &SettingsDialog::downloadUpdatesInfo);
-    updatesLayout->addWidget(m_checkForUpdatesButton);
-
-    m_checkForUpdatesStatusLabel = new QLabel;
-    updatesLayout->addWidget(m_checkForUpdatesStatusLabel);
-
-    updatesLayout->addStretch();
 #endif
 
     // Check current date
@@ -210,9 +177,6 @@ void SettingsDialog::accept()
     settings.setShowTrayIcon(ui->showTrayIconCheckBox->isChecked());
     settings.setStartMinimized(ui->startMinimizedCheckBox->isChecked());
     m_autostartManager->setAutostartEnabled(ui->autostartCheckBox->isChecked());
-#ifdef Q_OS_WIN
-    settings.setCheckForUpdatesInterval(static_cast<AppSettings::Interval>(m_checkForUpdatesComboBox->currentIndex()));
-#endif
 
     // Interface settings
     QFont font = ui->fontNameComboBox->currentFont();
@@ -470,46 +434,6 @@ void SettingsDialog::resetAllShortcuts()
     ui->shortcutsTreeView->model()->resetAllShortcuts();
 }
 
-#ifdef Q_OS_WIN
-void SettingsDialog::downloadUpdatesInfo()
-{
-    m_checkForUpdatesButton->setEnabled(false);
-    m_checkForUpdatesStatusLabel->setText(tr("Checking for updates..."));
-
-    // Get update information
-    auto *release = new QGitTag(this);
-    connect(release, &QGitTag::finished, this, &SettingsDialog::checkForUpdates);
-    release->get("crow-translate", "crow-translate");
-}
-
-void SettingsDialog::checkForUpdates()
-{
-    auto *release = qobject_cast<QGitTag *>(sender());
-    release->deleteLater();
-    m_checkForUpdatesButton->setEnabled(true);
-
-    if (release->error()) {
-        m_checkForUpdatesStatusLabel->setStyleSheet("color: red");
-        m_checkForUpdatesStatusLabel->setText(release->errorString());
-        return;
-    }
-
-    if (const int installer = release->assetId(".exe"); QCoreApplication::applicationVersion() < release->tagName() && installer != -1) {
-        m_checkForUpdatesStatusLabel->setStyleSheet("color: green");
-        m_checkForUpdatesStatusLabel->setText(tr("Update available!"));
-        auto *updaterDialog = new UpdaterDialog(release, installer, this);
-        updaterDialog->setAttribute(Qt::WA_DeleteOnClose);
-        updaterDialog->open();
-    } else {
-        m_checkForUpdatesStatusLabel->setStyleSheet("");
-        m_checkForUpdatesStatusLabel->setText(tr("No updates available."));
-    }
-
-    AppSettings settings;
-    settings.setLastUpdateCheckDate(QDate::currentDate());
-}
-#endif
-
 void SettingsDialog::restoreDefaults()
 {
     // General settings
@@ -521,9 +445,6 @@ void SettingsDialog::restoreDefaults()
     ui->showTrayIconCheckBox->setChecked(AppSettings::defaultShowTrayIcon());
     ui->startMinimizedCheckBox->setChecked(AppSettings::defaultStartMinimized());
     ui->autostartCheckBox->setChecked(AppSettings::defaultAutostartEnabled());
-#ifdef Q_OS_WIN
-    m_checkForUpdatesComboBox->setCurrentIndex(AppSettings::defaultCheckForUpdatesInterval());
-#endif
 
     // Interface settings
     const QFont defaultFont = QApplication::font();
@@ -631,9 +552,6 @@ void SettingsDialog::loadSettings()
     ui->autostartCheckBox->setChecked(m_autostartManager->isAutostartEnabled());
 #ifdef WITH_PORTABLE_MODE
     m_portableCheckbox->setChecked(settings.isPortableModeEnabled());
-#endif
-#ifdef Q_OS_WIN
-    m_checkForUpdatesComboBox->setCurrentIndex(settings.checkForUpdatesInterval());
 #endif
 
     // Interface settings

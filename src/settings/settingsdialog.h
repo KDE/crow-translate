@@ -21,11 +21,6 @@ class ShortcutItem;
 #ifdef WITH_PORTABLE_MODE
 class QCheckBox;
 #endif
-#ifdef Q_OS_WIN
-class QComboBox;
-class QPushButton;
-class QLabel;
-#endif
 
 namespace Ui
 {
@@ -75,10 +70,6 @@ private slots:
     void resetCurrentShortcut();
     void resetAllShortcuts();
 
-#ifdef Q_OS_WIN
-    void downloadUpdatesInfo();
-    void checkForUpdates();
-#endif
     void restoreDefaults();
 
 private:
@@ -100,13 +91,6 @@ private:
 
 #ifdef WITH_PORTABLE_MODE
     QCheckBox *m_portableCheckbox;
-#endif
-
-#ifdef Q_OS_WIN
-    // Check for updates box stuff
-    QComboBox *m_checkForUpdatesComboBox;
-    QPushButton *m_checkForUpdatesButton;
-    QLabel *m_checkForUpdatesStatusLabel;
 #endif
 };
 

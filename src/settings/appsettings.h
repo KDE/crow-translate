@@ -57,16 +57,6 @@ public:
     };
     Q_ENUM(IconType)
 
-#ifdef Q_OS_WIN
-    enum Interval {
-        Day,
-        Week,
-        Month,
-        Never
-    };
-    Q_ENUM(Interval)
-#endif
-
     explicit AppSettings(QObject *parent = nullptr);
 
     // General settings
@@ -110,15 +100,6 @@ public:
     bool isPortableModeEnabled() const;
     static void setPortableModeEnabled(bool enabled);
     static QString portableConfigName();
-#endif
-
-#ifdef Q_OS_WIN
-    Interval checkForUpdatesInterval() const;
-    void setCheckForUpdatesInterval(Interval interval);
-    static Interval defaultCheckForUpdatesInterval();
-
-    QDate lastUpdateCheckDate() const;
-    void setLastUpdateCheckDate(const QDate &date);
 #endif
 
     // Interface settings

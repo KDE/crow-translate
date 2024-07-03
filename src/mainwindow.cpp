@@ -25,10 +25,6 @@
 #include "transitions/textemptytransition.h"
 #include "transitions/translatorabortedtransition.h"
 #include "transitions/translatorerrortransition.h"
-#ifdef Q_OS_WIN
-#include "updaterdialog.h"
-#include "qgittag/qgittag.h"
-#endif
 
 #include <QClipboard>
 #include <QFinalState>
@@ -519,26 +515,6 @@ void MainWindow::setOrientation(Qt::ScreenOrientation orientation)
     }
 }
 
-#ifdef Q_OS_WIN
-void MainWindow::checkForUpdates()
-{
-    auto *release = qobject_cast<QGitTag *>(sender());
-    release->deleteLater();
-    if (release->error())
-        return;
-
-    const int installer = release->assetId(".exe");
-    if (installer != -1 && QCoreApplication::applicationVersion() < release->tagName()) {
-        auto *updater = new UpdaterDialog(release, installer, this);
-        updater->setAttribute(Qt::WA_DeleteOnClose);
-        updater->open();
-    }
-
-    AppSettings settings;
-    settings.setLastUpdateCheckDate(QDate::currentDate());
-}
-#endif
-
 void MainWindow::changeEvent(QEvent *event)
 {
     switch (event->type()) {
@@ -866,31 +842,6 @@ void MainWindow::loadMainWindowSettings()
         show();
         ui->sourceEdit->setFocus();
     }
-
-#ifdef Q_OS_WIN
-    // Check date for updates
-    const AppSettings::Interval updateInterval = settings.checkForUpdatesInterval();
-    QDate checkDate = settings.lastUpdateCheckDate();
-    switch (updateInterval) {
-    case AppSettings::Day:
-        checkDate = checkDate.addDays(1);
-        break;
-    case AppSettings::Week:
-        checkDate = checkDate.addDays(7);
-        break;
-    case AppSettings::Month:
-        checkDate = checkDate.addMonths(1);
-        break;
-    case AppSettings::Never:
-        return;
-    }
-
-    if (QDate::currentDate() >= checkDate) {
-        auto *release = new QGitTag(this);
-        connect(release, &QGitTag::finished, this, &MainWindow::checkForUpdates);
-        release->get(QStringLiteral("crow-translate"), QStringLiteral("crow-translate"));
-    }
-#endif
 }
 
 void MainWindow::loadAppSettings()
