@@ -1,0 +1,2612 @@
+# SPDX-FileCopyrightText: 2024 jerry
+# SPDX-License-Identifier: GPL-3.0-or-later
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Language: zh-TW\n"
+"X-Source-Language: en\n"
+"X-Qt-Contexts: true\n"
+
+#: src/cli.cpp:41
+msgctxt "Cli|"
+msgid "Display all language codes."
+msgstr "顯示所有語言代碼"
+
+#: src/cli.cpp:42
+msgctxt "Cli|"
+msgid ""
+"Specify the source language (by default, engine will try to determine the "
+"language on its own)."
+msgstr "指定來源語言(預設：引擎將嘗試自行決定語言)"
+
+#: src/cli.cpp:43
+msgctxt "Cli|"
+msgid ""
+"Specify the translation language(s), splitted by '+' (by default, the system "
+"language is used)."
+msgstr "指定翻譯語言，以 '+' 分隔(預設：系統語言將被使用)"
+
+#: src/cli.cpp:44
+msgctxt "Cli|"
+msgid ""
+"Specify the translator language (by default, the system language is used)."
+msgstr "指定翻譯語言 (預設使用系統語言)"
+
+#: src/cli.cpp:45
+msgctxt "Cli|"
+msgid ""
+"Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
+"or 'lingva'), Google is used by default."
+msgstr ""
+"指定翻譯引擎 ('google', 'yandex', 'bing', 'libretranslate' 或 'lingva'), 預設"
+"使用Google"
+
+#: src/cli.cpp:46
+msgctxt "Cli|"
+msgid "Speak the translation."
+msgstr "朗讀翻譯"
+
+#: src/cli.cpp:47
+msgctxt "Cli|"
+msgid "Speak the source."
+msgstr "朗讀源文"
+
+#: src/cli.cpp:48
+msgctxt "Cli|"
+msgid ""
+"Read source text from files. Arguments will be interpreted as file paths."
+msgstr "從檔案讀取來源文字。參數將被解釋為檔案路徑。"
+
+#: src/cli.cpp:49
+msgctxt "Cli|"
+msgid "Add stdin data to source text."
+msgstr "在來源文字中添加標準輸入資料"
+
+#: src/cli.cpp:50
+#, qt-format
+msgctxt "Cli|"
+msgid "Do not print any text when using --%1 or --%2."
+msgstr "當使用 --%1 或 --%2 時不輸出任何文字"
+
+#: src/cli.cpp:51
+msgctxt "Cli|"
+msgid "Print only translations."
+msgstr "只輸出翻譯"
+
+#: src/cli.cpp:52
+msgctxt "Cli|"
+msgid "Print output formatted as JSON."
+msgstr "將輸出結果列印為 JSON 格式。"
+
+#: src/cli.cpp:55
+msgctxt "Cli|"
+msgid ""
+"A simple and lightweight translator that allows to translate and speak text "
+"using Google, Yandex, Bing, LibreTranslate and Lingva"
+msgstr ""
+"一個簡單輕量的翻譯器，可使用 Google, Yandex, Bing, LibreTranslate 和 Lingva "
+"來翻譯和朗讀文字"
+
+#: src/cli.cpp:56
+msgctxt "Cli|"
+msgid ""
+"Text to translate. By default, the translation will be done to the system "
+"language."
+msgstr "輸入要翻譯的文字。預設將翻譯為系統語言。"
+
+#: src/cli.cpp:78
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
+msgstr "錯誤： 必須為 --%1 指定 --%2 和/或--%3 選項"
+
+#: src/cli.cpp:112
+msgctxt "Cli|"
+msgid "Error: There is no text for translation"
+msgstr "錯誤：沒有要翻譯的文字"
+
+#: src/cli.cpp:130
+msgctxt "Cli|"
+msgid "Error: Unknown engine"
+msgstr "錯誤：未知引擎"
+
+#: src/cli.cpp:165 src/cli.cpp:258 src/cli.cpp:347
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: %1"
+msgstr "錯誤：%1"
+
+#: src/cli.cpp:219
+#, qt-format
+msgctxt "Cli|"
+msgid "%1 - translation options:"
+msgstr "%1 - 翻譯選項："
+
+#: src/cli.cpp:236
+#, qt-format
+msgctxt "Cli|"
+msgid "%1 - examples:"
+msgstr "%1 - 範例："
+
+#: src/cli.cpp:360
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: You can't use --%1 with --%2"
+msgstr "錯誤：在有 --%2 時不可使用 --%1"
+
+#: src/cli.cpp:376 src/cli.cpp:397
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: File does not exist: %1"
+msgstr "錯誤：檔案不存在： %1"
+
+#: src/cli.cpp:381 src/cli.cpp:402
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: Unable to open file: %1"
+msgstr "錯誤：無法開啟檔案： %1"
+
+#: src/contextmenu.h:39
+msgctxt "ContextMenu|"
+msgid "Search on Forvo.com"
+msgstr "在 Forvo.com 上搜尋"
+
+#: src/languagebuttonswidget.cpp:451
+msgctxt "LanguageButtonsWidget|"
+msgid "Window width is larger than screen due to the languages on the panel."
+msgstr "面板上的語言使得視窗寬度大於了螢幕寬度。"
+
+#: src/languagebuttonswidget.cpp:452
+msgctxt "LanguageButtonsWidget|"
+msgid "Please reduce added languages."
+msgstr "請減少已添加的語言"
+
+#: src/languagebuttonswidget.cpp:528 src/languagebuttonswidget.cpp:530
+msgctxt "LanguageButtonsWidget|"
+msgid "Auto"
+msgstr "自動"
+
+#: src/languagebuttonswidget.ui:32
+#, fuzzy
+#| msgctxt "LanguagesDialog|"
+#| msgid "Add language"
+msgctxt "LanguageButtonsWidget|"
+msgid "Edit languages"
+msgstr "添加語言"
+
+#: src/languagesdialog.cpp:23
+#, qt-format
+msgctxt "LanguagesDialog|"
+msgid "Filter (%1)"
+msgstr "過濾器 (%1)"
+
+#: src/languagesdialog.ui:14
+#, fuzzy
+#| msgctxt "LanguagesDialog|"
+#| msgid "Add language"
+msgctxt "LanguagesDialog|"
+msgid "Edit languages"
+msgstr "添加語言"
+
+#: src/languagesdialog.ui:91
+msgctxt "LanguagesDialog|"
+msgid "Available languages:"
+msgstr "可用語言："
+
+#: src/languagesdialog.ui:104
+msgctxt "LanguagesDialog|"
+msgid "Current languages:"
+msgstr "當前語言："
+
+#: src/main.cpp:65
+#, qt-format
+msgctxt "D-Bus|"
+msgid "D-Bus service %1 is already registered by another application"
+msgstr "D-Bus 服務 %1 已經被另一個應用程式註冊"
+
+#: src/main.cpp:90
+#, qt-format
+msgctxt "D-Bus|"
+msgid "Unable to register D-Bus object for %1"
+msgstr "無法為 %1 註冊 D-Bus 物件"
+
+#: src/mainwindow.cpp:384
+msgctxt "MainWindow|"
+msgid "Unable to detect language"
+msgstr "無法偵測語言"
+
+#: src/mainwindow.cpp:436
+msgctxt "MainWindow|"
+msgid "Unable to translate text"
+msgstr "無法翻譯文字"
+
+#: src/mainwindow.cpp:916
+msgctxt "TrayIcon|"
+msgid "Invalid tray icon"
+msgstr "無效的系統匣圖示"
+
+#: src/mainwindow.cpp:916
+#, qt-format
+msgctxt "TrayIcon|"
+msgid "The specified icon '%1' is invalid. The default icon will be used."
+msgstr "指定的圖示 '%1' 無效。將使用預設圖示。"
+
+#: src/mainwindow.cpp:947
+msgctxt "Ocr|"
+msgid "Unable to set OCR languages"
+msgstr "無法設定 OCR 語言"
+
+#: src/mainwindow.cpp:947
+#, qt-format
+msgctxt "Ocr|"
+msgid "Unable to initialize Tesseract with %1"
+msgstr "無法以 %1 起始 Tesseract"
+
+#: src/mainwindow.ui:36
+msgctxt "MainWindow|"
+msgid "Copy source text to the clipboard"
+msgstr "複製原文到剪貼簿"
+
+#: src/mainwindow.ui:47
+msgctxt "MainWindow|"
+msgid "Recognize screen area with delay"
+msgstr "延遲辨識螢幕區域"
+
+#. The text should be short to fit in portrait orientation on phones.
+#: src/mainwindow.ui:70
+msgctxt "MainWindow|"
+msgid "Auto-translation"
+msgstr "自動翻譯"
+
+#: src/mainwindow.ui:82
+msgctxt "MainWindow|"
+msgid "Cancel"
+msgstr "取消"
+
+#: src/mainwindow.ui:93
+msgctxt "MainWindow|"
+msgid "Swap languages"
+msgstr "交換語言"
+
+#: src/mainwindow.ui:117
+msgctxt "MainWindow|"
+msgid "Source"
+msgstr "原文"
+
+#: src/mainwindow.ui:124
+msgctxt "MainWindow|"
+msgid "Clear"
+msgstr "清除"
+
+#: src/mainwindow.ui:141
+msgctxt "MainWindow|"
+msgid "Translate"
+msgstr "翻譯"
+
+#: src/mainwindow.ui:169
+msgctxt "MainWindow|"
+msgid "Translation"
+msgstr "譯文"
+
+#: src/mainwindow.ui:253
+msgctxt "MainWindow|"
+msgid "Copy translation to the clipboard"
+msgstr "複製譯文到剪貼簿"
+
+#: src/mainwindow.ui:264
+msgctxt "MainWindow|"
+msgid "Copy all translation data to the clipboard"
+msgstr "複製全部翻譯到剪貼簿"
+
+#: src/mainwindow.ui:275
+msgctxt "MainWindow|"
+msgid "Translate screen area with delay"
+msgstr "延遲翻譯螢幕區域"
+
+#: src/mainwindow.ui:286
+msgctxt "MainWindow|"
+msgid "Application settings"
+msgstr "應用設定"
+
+#: src/ocr/ocr.cpp:136
+#, qt-format
+msgctxt "Ocr|"
+msgid "%1 is not a valid Tesseract parameter name."
+msgstr "%1 不是一個有效的 Tesseract 參數名稱。"
+
+#: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
+msgctxt "AbstractScreenGrabber|"
+msgid "Unable to grab screen"
+msgstr "無法螢幕截圖"
+
+#: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:47
+msgctxt "WaylandGnomeScreenGrabber|"
+msgid "GNOME failed to take screenshot."
+msgstr "GNOME 螢幕截圖失敗。"
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:43
+#, qt-format
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to create pipe: %1."
+msgstr "無法建立管道： %1"
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:87
+#, qt-format
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to wait for socket readiness: %1."
+msgstr "無法等待傳輸就緒： %1"
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:92
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Timeout reading from pipe."
+msgstr "從管道讀取逾時。"
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:98
+#, qt-format
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to read data from socket: %1."
+msgstr "無法從傳輸讀取資料: %1"
+
+#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:56
+msgctxt "WaylandPortalScreenGrabber|"
+msgid "Unable to subscribe to response from xdg-desktop-portal."
+msgstr "無法從 xdg-desktop-portal 訂閱回應。"
+
+#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:76
+msgctxt "WaylandPortalScreenGrabber|"
+msgid "Received an empty path from xdg-desktop-portal."
+msgstr "從 xdg-desktop-portal 接收到了一個空路徑。"
+
+#: src/ocr/snippingarea.cpp:73
+msgctxt "SnippingArea|"
+msgid "Unable to snip screen area"
+msgstr "無法螢幕區域截圖"
+
+#: src/ocr/snippingarea.cpp:74
+#, qt-format
+msgctxt "SnippingArea|"
+msgid "Received an invalid image of screen %1."
+msgstr "接收到一個螢幕 %1 的無效影象。"
+
+#: src/ocr/snippingarea.cpp:626
+msgctxt "SnippingArea|"
+msgid ""
+"Click and drag to draw a selection rectangle,\n"
+"or press Esc to quit"
+msgstr ""
+"點擊並拖拉以繪製一個矩形選取區域，\n"
+"或按 Esc 鍵退出"
+
+#: src/ocr/snippingarea.cpp:832
+msgctxt "SnippingArea|"
+msgid "Confirm:"
+msgstr "確認："
+
+#: src/ocr/snippingarea.cpp:834
+msgctxt "SnippingArea|"
+msgid "Release left-click"
+msgstr "鬆開滑鼠左鍵"
+
+#: src/ocr/snippingarea.cpp:834 src/ocr/snippingarea.cpp:836
+msgctxt "SnippingArea|"
+msgid "Enter"
+msgstr "Enter"
+
+#: src/ocr/snippingarea.cpp:836
+msgctxt "SnippingArea|"
+msgid "Double-click"
+msgstr "雙擊"
+
+#: src/ocr/snippingarea.cpp:838
+msgctxt "SnippingArea|"
+msgid "Create new selection rectangle:"
+msgstr "新建矩形選取區域："
+
+#: src/ocr/snippingarea.cpp:839
+msgctxt "SnippingArea|"
+msgid "Drag outside selection rectangle"
+msgstr "在矩形選取區域外部拖拉"
+
+#: src/ocr/snippingarea.cpp:839
+msgctxt "SnippingArea|"
+msgid "+ Shift: Magnifier"
+msgstr "+ Shift：放大鏡"
+
+#: src/ocr/snippingarea.cpp:842
+msgctxt "SnippingArea|"
+msgid "Move selection rectangle:"
+msgstr "移動矩形選取區域："
+
+#: src/ocr/snippingarea.cpp:843
+msgctxt "SnippingArea|"
+msgid "Drag inside selection rectangle"
+msgstr "在矩形選取區域內部拖拉"
+
+#: src/ocr/snippingarea.cpp:843
+msgctxt "SnippingArea|"
+msgid "Arrow keys"
+msgstr "方向鍵"
+
+#: src/ocr/snippingarea.cpp:843
+msgctxt "SnippingArea|"
+msgid "+ Shift: Move in 1 pixel steps"
+msgstr "+ Shift：以 1 像素移動選取"
+
+#: src/ocr/snippingarea.cpp:845
+msgctxt "SnippingArea|"
+msgid "Resize selection rectangle:"
+msgstr "調整矩形選取區域大小："
+
+#: src/ocr/snippingarea.cpp:846
+msgctxt "SnippingArea|"
+msgid "Drag handles"
+msgstr "拖拉處理"
+
+#: src/ocr/snippingarea.cpp:846
+msgctxt "SnippingArea|"
+msgid "Arrow keys + Alt"
+msgstr "方向鍵 + Alt"
+
+#: src/ocr/snippingarea.cpp:846
+msgctxt "SnippingArea|"
+msgid "+ Shift: Resize in 1 pixel steps"
+msgstr "+ Shift：以 1 像素調整選取區域大小"
+
+#: src/ocr/snippingarea.cpp:848
+msgctxt "SnippingArea|"
+msgid "Reset selection:"
+msgstr "重置選取區域："
+
+#: src/ocr/snippingarea.cpp:849
+msgctxt "SnippingArea|"
+msgid "Right-click"
+msgstr "右鍵點擊"
+
+#: src/ocr/snippingarea.cpp:852
+msgctxt "SnippingArea|"
+msgid "Cancel:"
+msgstr "取消："
+
+#: src/ocr/snippingarea.cpp:853
+msgctxt "SnippingArea|"
+msgid "Esc key"
+msgstr "Esc 鍵"
+
+#: src/onlinetranslator/onlinetranslator.cpp:190
+#, qt-format
+msgctxt "OnlineTranslator|"
+msgid "Selected source language %1 is not supported for %2"
+msgstr "選定的來源語言 %1 不支援 %2"
+
+#: src/onlinetranslator/onlinetranslator.cpp:195
+#, qt-format
+msgctxt "OnlineTranslator|"
+msgid "Selected translation language %1 is not supported for %2"
+msgstr "選定的翻譯語言 %1 不支援 %2"
+
+#: src/onlinetranslator/onlinetranslator.cpp:200
+#, qt-format
+msgctxt "OnlineTranslator|"
+msgid "Selected ui language %1 is not supported for %2"
+msgstr "選定的使用介面語言 %1 不支援 %2"
+
+#: src/onlinetranslator/onlinetranslator.cpp:217
+#: src/onlinetranslator/onlinetranslator.cpp:226
+#: src/onlinetranslator/onlinetranslator.cpp:261
+#: src/onlinetranslator/onlinetranslator.cpp:270
+#, qt-format
+msgctxt "OnlineTranslator|"
+msgid "%1 URL can't be empty."
+msgstr "%1 URL 不能空白."
+
+#: src/onlinetranslator/onlinetranslator.cpp:468
+msgctxt "OnlineTranslator|"
+msgid "Automatically detect"
+msgstr "自動偵測"
+
+#: src/onlinetranslator/onlinetranslator.cpp:470
+msgctxt "OnlineTranslator|"
+msgid "Afrikaans"
+msgstr "南非荷蘭語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:472
+msgctxt "OnlineTranslator|"
+msgid "Albanian"
+msgstr "阿爾巴尼亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:474
+msgctxt "OnlineTranslator|"
+msgid "Amharic"
+msgstr "阿姆哈拉語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:476
+msgctxt "OnlineTranslator|"
+msgid "Arabic"
+msgstr "阿拉伯語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:478
+msgctxt "OnlineTranslator|"
+msgid "Armenian"
+msgstr "亞美尼亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:480
+msgctxt "OnlineTranslator|"
+msgid "Azeerbaijani"
+msgstr "亞塞拜然語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:482
+msgctxt "OnlineTranslator|"
+msgid "Basque"
+msgstr "巴斯克語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:484
+msgctxt "OnlineTranslator|"
+msgid "Bashkir"
+msgstr "巴什基爾語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:486
+msgctxt "OnlineTranslator|"
+msgid "Belarusian"
+msgstr "白俄羅斯語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:488
+msgctxt "OnlineTranslator|"
+msgid "Bengali"
+msgstr "孟加拉語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:490
+msgctxt "OnlineTranslator|"
+msgid "Bosnian"
+msgstr "波斯尼亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:492
+msgctxt "OnlineTranslator|"
+msgid "Bulgarian"
+msgstr "保加利亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:494
+msgctxt "OnlineTranslator|"
+msgid "Catalan"
+msgstr "加泰羅尼亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:496
+msgctxt "OnlineTranslator|"
+msgid "Cantonese"
+msgstr "粵語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:498
+msgctxt "OnlineTranslator|"
+msgid "Cebuano"
+msgstr "宿務語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:500
+msgctxt "OnlineTranslator|"
+msgid "Chinese (Simplified)"
+msgstr "簡體中文"
+
+#: src/onlinetranslator/onlinetranslator.cpp:502
+msgctxt "OnlineTranslator|"
+msgid "Chinese (Traditional)"
+msgstr "繁體中文"
+
+#: src/onlinetranslator/onlinetranslator.cpp:504
+msgctxt "OnlineTranslator|"
+msgid "Corsican"
+msgstr "科西嘉語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:506
+msgctxt "OnlineTranslator|"
+msgid "Croatian"
+msgstr "克羅埃西亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:508
+msgctxt "OnlineTranslator|"
+msgid "Czech"
+msgstr "捷克語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:510
+msgctxt "OnlineTranslator|"
+msgid "Danish"
+msgstr "丹麥語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:512
+msgctxt "OnlineTranslator|"
+msgid "Dutch"
+msgstr "荷蘭語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:514
+msgctxt "OnlineTranslator|"
+msgid "English"
+msgstr "英語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:516
+msgctxt "OnlineTranslator|"
+msgid "Esperanto"
+msgstr "世界語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:518
+msgctxt "OnlineTranslator|"
+msgid "Estonian"
+msgstr "愛沙尼亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:520
+msgctxt "OnlineTranslator|"
+msgid "Fijian"
+msgstr "斐濟語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:522
+msgctxt "OnlineTranslator|"
+msgid "Filipino"
+msgstr "菲律賓語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:524
+msgctxt "OnlineTranslator|"
+msgid "Finnish"
+msgstr "芬蘭語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:526
+msgctxt "OnlineTranslator|"
+msgid "French"
+msgstr "法語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:528
+msgctxt "OnlineTranslator|"
+msgid "Frisian"
+msgstr "弗里斯蘭語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:530
+msgctxt "OnlineTranslator|"
+msgid "Galician"
+msgstr "加利西亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:532
+msgctxt "OnlineTranslator|"
+msgid "Georgian"
+msgstr "喬治亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:534
+msgctxt "OnlineTranslator|"
+msgid "German"
+msgstr "德語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:536
+msgctxt "OnlineTranslator|"
+msgid "Greek"
+msgstr "希臘語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:538
+msgctxt "OnlineTranslator|"
+msgid "Gujarati"
+msgstr "古吉拉特語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:540
+msgctxt "OnlineTranslator|"
+msgid "Haitian Creole"
+msgstr "海地克里奧爾語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:542
+msgctxt "OnlineTranslator|"
+msgid "Hausa"
+msgstr "豪薩語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:544
+msgctxt "OnlineTranslator|"
+msgid "Hawaiian"
+msgstr "夏威夷語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:546
+msgctxt "OnlineTranslator|"
+msgid "Hebrew"
+msgstr "希伯來語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:548
+msgctxt "OnlineTranslator|"
+msgid "Hill Mari"
+msgstr "希爾馬里語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:550
+msgctxt "OnlineTranslator|"
+msgid "Hindi"
+msgstr "印地語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:552
+msgctxt "OnlineTranslator|"
+msgid "Hmong"
+msgstr "苗族語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:554
+msgctxt "OnlineTranslator|"
+msgid "Hungarian"
+msgstr "匈牙利語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:556
+msgctxt "OnlineTranslator|"
+msgid "Icelandic"
+msgstr "冰島語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:558
+msgctxt "OnlineTranslator|"
+msgid "Igbo"
+msgstr "伊博語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:560
+msgctxt "OnlineTranslator|"
+msgid "Indonesian"
+msgstr "印度尼西亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:562
+msgctxt "OnlineTranslator|"
+msgid "Irish"
+msgstr "愛爾蘭語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:564
+msgctxt "OnlineTranslator|"
+msgid "Italian"
+msgstr "義大利語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:566
+msgctxt "OnlineTranslator|"
+msgid "Japanese"
+msgstr "日語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:568
+msgctxt "OnlineTranslator|"
+msgid "Javanese"
+msgstr "爪哇語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:570
+msgctxt "OnlineTranslator|"
+msgid "Kannada"
+msgstr "卡納達語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:572
+msgctxt "OnlineTranslator|"
+msgid "Kazakh"
+msgstr "哈薩克語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:574
+msgctxt "OnlineTranslator|"
+msgid "Khmer"
+msgstr "高棉語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:576
+msgctxt "OnlineTranslator|"
+msgid "Kinyarwanda"
+msgstr "盧安達語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:578
+msgctxt "OnlineTranslator|"
+msgid "Klingon"
+msgstr "克林貢語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:580
+msgctxt "OnlineTranslator|"
+msgid "Klingon (PlqaD)"
+msgstr "克林貢語 (PlqaD)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:582
+msgctxt "OnlineTranslator|"
+msgid "Korean"
+msgstr "韓語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:584
+msgctxt "OnlineTranslator|"
+msgid "Kurdish"
+msgstr "庫爾德語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:586
+msgctxt "OnlineTranslator|"
+msgid "Kyrgyz"
+msgstr "吉爾吉斯語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:588
+msgctxt "OnlineTranslator|"
+msgid "Lao"
+msgstr "寮國語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:590
+msgctxt "OnlineTranslator|"
+msgid "Latin"
+msgstr "拉丁語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:592
+msgctxt "OnlineTranslator|"
+msgid "Latvian"
+msgstr "拉脫維亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:594
+msgctxt "OnlineTranslator|"
+msgid "Levantine Arabic"
+msgstr "黎凡特阿拉伯語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:596
+msgctxt "OnlineTranslator|"
+msgid "Lithuanian"
+msgstr "立陶宛語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:598
+msgctxt "OnlineTranslator|"
+msgid "Luxembourgish"
+msgstr "盧森堡語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:600
+msgctxt "OnlineTranslator|"
+msgid "Macedonian"
+msgstr "馬其頓語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:602
+msgctxt "OnlineTranslator|"
+msgid "Malagasy"
+msgstr "馬爾加什語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:604
+msgctxt "OnlineTranslator|"
+msgid "Malay"
+msgstr "馬來語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:606
+msgctxt "OnlineTranslator|"
+msgid "Malayalam"
+msgstr "馬拉雅拉姆語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:608
+msgctxt "OnlineTranslator|"
+msgid "Maltese"
+msgstr "馬耳他語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:610
+msgctxt "OnlineTranslator|"
+msgid "Maori"
+msgstr "毛利語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:612
+msgctxt "OnlineTranslator|"
+msgid "Marathi"
+msgstr "馬拉語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:614
+msgctxt "OnlineTranslator|"
+msgid "Mari"
+msgstr "馬里語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:616
+msgctxt "OnlineTranslator|"
+msgid "Mongolian"
+msgstr "蒙古語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:618
+msgctxt "OnlineTranslator|"
+msgid "Myanmar"
+msgstr "緬甸語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:620
+msgctxt "OnlineTranslator|"
+msgid "Nepali"
+msgstr "尼泊爾語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:622
+msgctxt "OnlineTranslator|"
+msgid "Norwegian"
+msgstr "挪威語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:624
+msgctxt "OnlineTranslator|"
+msgid "Oriya"
+msgstr "奧里亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:626
+msgctxt "OnlineTranslator|"
+msgid "Chichewa"
+msgstr "奇切瓦語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:628
+msgctxt "OnlineTranslator|"
+msgid "Papiamento"
+msgstr "帕皮阿門託語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:630
+msgctxt "OnlineTranslator|"
+msgid "Pashto"
+msgstr "普什圖語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:632
+msgctxt "OnlineTranslator|"
+msgid "Persian"
+msgstr "波斯語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:634
+msgctxt "OnlineTranslator|"
+msgid "Polish"
+msgstr "波蘭語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:636
+msgctxt "OnlineTranslator|"
+msgid "Portuguese"
+msgstr "葡萄牙語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:638
+msgctxt "OnlineTranslator|"
+msgid "Punjabi"
+msgstr "旁遮普語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:640
+msgctxt "OnlineTranslator|"
+msgid "Queretaro Otomi"
+msgstr "克雷塔羅奧托米"
+
+#: src/onlinetranslator/onlinetranslator.cpp:642
+msgctxt "OnlineTranslator|"
+msgid "Romanian"
+msgstr "羅馬尼亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:644
+msgctxt "OnlineTranslator|"
+msgid "Russian"
+msgstr "俄語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:646
+msgctxt "OnlineTranslator|"
+msgid "Samoan"
+msgstr "薩摩亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:648
+msgctxt "OnlineTranslator|"
+msgid "Scots Gaelic"
+msgstr "蘇格蘭蓋爾語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:650
+msgctxt "OnlineTranslator|"
+msgid "Serbian (Cyrillic)"
+msgstr "塞爾維亞語（西里爾語）"
+
+#: src/onlinetranslator/onlinetranslator.cpp:652
+msgctxt "OnlineTranslator|"
+msgid "Serbian (Latin)"
+msgstr "塞爾維亞語（拉丁語）"
+
+#: src/onlinetranslator/onlinetranslator.cpp:654
+msgctxt "OnlineTranslator|"
+msgid "Sesotho"
+msgstr "塞索托語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:656
+msgctxt "OnlineTranslator|"
+msgid "Shona"
+msgstr "紹納語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:658
+msgctxt "OnlineTranslator|"
+msgid "Sindhi"
+msgstr "信德語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:660
+msgctxt "OnlineTranslator|"
+msgid "Sinhala"
+msgstr "僧伽羅語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:662
+msgctxt "OnlineTranslator|"
+msgid "Slovak"
+msgstr "斯洛伐克語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:664
+msgctxt "OnlineTranslator|"
+msgid "Slovenian"
+msgstr "斯洛維尼亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:666
+msgctxt "OnlineTranslator|"
+msgid "Somali"
+msgstr "索馬利亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:668
+msgctxt "OnlineTranslator|"
+msgid "Spanish"
+msgstr "西班牙語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:670
+msgctxt "OnlineTranslator|"
+msgid "Sundanese"
+msgstr "蘇丹語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:672
+msgctxt "OnlineTranslator|"
+msgid "Swahili"
+msgstr "斯瓦希里語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:674
+msgctxt "OnlineTranslator|"
+msgid "Swedish"
+msgstr "瑞典語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:676
+msgctxt "OnlineTranslator|"
+msgid "Tagalog"
+msgstr "他加祿語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:678
+msgctxt "OnlineTranslator|"
+msgid "Tahitian"
+msgstr "大溪地語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:680
+msgctxt "OnlineTranslator|"
+msgid "Tajik"
+msgstr "塔吉克語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:682
+msgctxt "OnlineTranslator|"
+msgid "Tamil"
+msgstr "泰米爾語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:684
+msgctxt "OnlineTranslator|"
+msgid "Tatar"
+msgstr "韃靼語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:686
+msgctxt "OnlineTranslator|"
+msgid "Telugu"
+msgstr "泰盧固語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:688
+msgctxt "OnlineTranslator|"
+msgid "Thai"
+msgstr "泰語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:690
+msgctxt "OnlineTranslator|"
+msgid "Tongan"
+msgstr "湯加語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:692
+msgctxt "OnlineTranslator|"
+msgid "Turkish"
+msgstr "土耳其語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:694
+msgctxt "OnlineTranslator|"
+msgid "Turkmen"
+msgstr "土庫曼語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:696
+msgctxt "OnlineTranslator|"
+msgid "Udmurt"
+msgstr "烏德穆爾特語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:698
+msgctxt "OnlineTranslator|"
+msgid "Uighur"
+msgstr "維吾爾語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:700
+msgctxt "OnlineTranslator|"
+msgid "Ukrainian"
+msgstr "烏克蘭語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:702
+msgctxt "OnlineTranslator|"
+msgid "Urdu"
+msgstr "烏爾都語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:704
+msgctxt "OnlineTranslator|"
+msgid "Uzbek"
+msgstr "烏茲別克語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:706
+msgctxt "OnlineTranslator|"
+msgid "Vietnamese"
+msgstr "越南語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:708
+msgctxt "OnlineTranslator|"
+msgid "Welsh"
+msgstr "威爾士語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:710
+msgctxt "OnlineTranslator|"
+msgid "Xhosa"
+msgstr "科薩語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:712
+msgctxt "OnlineTranslator|"
+msgid "Yiddish"
+msgstr "意第緒語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:714
+msgctxt "OnlineTranslator|"
+msgid "Yoruba"
+msgstr "約魯巴語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:716
+msgctxt "OnlineTranslator|"
+msgid "Yucatec Maya"
+msgstr "瑪雅語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:718
+msgctxt "OnlineTranslator|"
+msgid "Zulu"
+msgstr "祖魯語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:1211
+#: src/onlinetranslator/onlinetranslator.cpp:1220
+msgctxt "OnlineTranslator|"
+msgid ""
+"Error: Engine systems have detected suspicious traffic from your computer "
+"network. Please try your request again later."
+msgstr "錯誤：引擎從你的電腦網路偵測到可疑的流量，請稍後重試。"
+
+#: src/onlinetranslator/onlinetranslator.cpp:1232
+#: src/onlinetranslator/onlinetranslator.cpp:1343
+#: src/onlinetranslator/onlinetranslator.cpp:1553
+#: src/onlinetranslator/onlinetranslator.cpp:1647
+msgctxt "OnlineTranslator|"
+msgid "Error: Unable to parse autodetected language"
+msgstr "錯誤：無法解析自動偵測到的語言"
+
+#: src/onlinetranslator/onlinetranslator.cpp:1459
+msgctxt "OnlineTranslator|"
+msgid "Error: Unable to find Bing credentials in web version."
+msgstr "錯誤：無法在網頁版本中找到 Bing 憑證。"
+
+#: src/onlinetranslator/onlinetranslator.cpp:1466
+msgctxt "OnlineTranslator|"
+msgid "Error: Unable to extract Bing key from web version."
+msgstr "錯誤：無法從 web 版本擷取Bing 金鑰。"
+
+#: src/onlinetranslator/onlinetranslator.cpp:1474
+msgctxt "OnlineTranslator|"
+msgid "Error: Unable to extract Bing token from web version."
+msgstr "錯誤：無法從網頁版本擷取Bing 權杖。"
+
+#: src/onlinetranslator/onlinetranslator.cpp:1486
+#: src/onlinetranslator/onlinetranslator.cpp:1495
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Error: Unable to extract Bing token from web version."
+msgctxt "OnlineTranslator|"
+msgid "Error: Unable to extract additional Bing information from web version."
+msgstr "錯誤：無法從網頁版本擷取Bing 權杖。"
+
+#: src/onlinetranslator/onlinetranslator.cpp:1545
+msgctxt "OnlineTranslator|"
+msgid "Error: Bing return unhandled network error"
+msgstr ""
+
+#: src/onlinetranslator/onlinetts.cpp:64
+#, qt-format
+msgctxt "OnlineTts|"
+msgid "Selected engine %1 does not support voice settings"
+msgstr "選定的引擎 %1 不支援語音設定"
+
+#: src/onlinetranslator/onlinetts.cpp:69
+#, qt-format
+msgctxt "OnlineTts|"
+msgid "Selected engine %1 does not support emotion settings"
+msgstr "選定的引擎 %1 不支援情緒色彩設定"
+
+#: src/onlinetranslator/onlinetts.cpp:130
+#, qt-format
+msgctxt "OnlineTts|"
+msgid "%1 engine does not support TTS"
+msgstr "%1 引擎不支援 TTS"
+
+#: src/onlinetranslator/onlinetts.cpp:216
+#, qt-format
+msgctxt "OnlineTts|"
+msgid "Selected language %1 is not supported for %2"
+msgstr "選定的語言 %1 不支援 %2"
+
+#: src/onlinetranslator/onlinetts.cpp:228
+#, qt-format
+msgctxt "OnlineTts|"
+msgid "Selected voice %1 is not supported for %2"
+msgstr "選定的語音 %1 不支援 %2"
+
+#: src/onlinetranslator/onlinetts.cpp:240
+#, fuzzy, qt-format
+#| msgctxt "OnlineTts|"
+#| msgid "Selected emotion %1 is not supported for %2"
+msgctxt "OnlineTts|"
+msgid "Selected emotion %1 is not supported by %2"
+msgstr "所選的情緒色彩 %1 不支援 %2"
+
+#: src/popupwindow.ui:32
+msgctxt "PopupWindow|"
+msgid "Swap languages"
+msgstr "交換語言"
+
+#: src/popupwindow.ui:64
+msgctxt "PopupWindow|"
+msgid "Copy source text to the clipboard"
+msgstr "複製原文到剪貼簿"
+
+#: src/popupwindow.ui:140
+msgctxt "PopupWindow|"
+msgid "Copy all translation data to the clipboard"
+msgstr "複製全部翻譯到剪貼簿"
+
+#: src/popupwindow.ui:151
+msgctxt "PopupWindow|"
+msgid "Copy translation to the clipboard"
+msgstr "複製譯文到剪貼簿"
+
+#: src/qgittag/qgittag.cpp:131
+#, qt-format
+msgctxt "QGitTag|"
+msgid "Release number %1 is missing"
+msgstr "版本號 %1 遺失"
+
+#: src/settings/appsettings.cpp:1261
+#, qt-format
+msgctxt "AppSettings|"
+msgid "Unknown language code: %1"
+msgstr "未知語言代碼： %1"
+
+#: src/settings/autostartmanager/abstractautostartmanager.cpp:44
+msgctxt "AbstractAutostartManager|"
+msgid "Unable to apply autostart settings"
+msgstr ""
+
+#: src/settings/autostartmanager/portalautostartmanager.cpp:35
+#, qt-format
+msgctxt "PortalAutostartManager|"
+msgid "Allow %1 to manage autostart setting for itself."
+msgstr ""
+
+#: src/settings/autostartmanager/portalautostartmanager.cpp:54
+#, fuzzy
+#| msgctxt "WaylandPortalScreenGrabber|"
+#| msgid "Unable to subscribe to response from xdg-desktop-portal."
+msgctxt "PortalAutostartManager|"
+msgid "Unable to subscribe to response from xdg-desktop-portal."
+msgstr "無法從 xdg-desktop-portal 訂閱回應。"
+
+#: src/settings/autostartmanager/unixautostartmanager.cpp:35
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Unable to create %1"
+msgctxt "UnixAutostartManager|"
+msgid "Unable to create %1"
+msgstr "無法建立 %1"
+
+#: src/settings/autostartmanager/unixautostartmanager.cpp:42
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Unable to copy %1 to %2"
+msgctxt "UnixAutostartManager|"
+msgid "Unable to copy %1 to %2"
+msgstr "無法複製 %1 到 %2"
+
+#: src/settings/autostartmanager/unixautostartmanager.cpp:47
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Unable to remove %1 from %2"
+msgctxt "UnixAutostartManager|"
+msgid "Unable to remove %1 from %2"
+msgstr "無法從 %2 中移除 %1"
+
+#: src/settings/settingsdialog.cpp:38
+msgctxt "SettingsDialog|"
+msgid "Portable mode"
+msgstr "可攜模式"
+
+#: src/settings/settingsdialog.cpp:51
+#, fuzzy, qt-format
+#| msgctxt "SettingsDialog|"
+#| msgid "Use system settings"
+msgctxt "SettingsDialog|"
+msgid "Use %1 to store settings"
+msgstr "使用系統設定"
+
+#: src/settings/settingsdialog.cpp:63 src/settings/settingsdialog.cpp:94
+#: src/settings/settingsdialog.cpp:95
+msgctxt "SettingsDialog|"
+msgid "<System language>"
+msgstr "<系統語言>"
+
+#: src/settings/settingsdialog.cpp:130
+msgctxt "SettingsDialog|"
+msgid "Icons:"
+msgstr "圖示:"
+
+#: src/settings/settingsdialog.cpp:140
+msgctxt "SettingsDialog|"
+msgid "Updates"
+msgstr "更新"
+
+#: src/settings/settingsdialog.cpp:147
+msgctxt "SettingsDialog|"
+msgid "Check for updates:"
+msgstr "檢查更新："
+
+#: src/settings/settingsdialog.cpp:151
+msgctxt "SettingsDialog|"
+msgid "Every day"
+msgstr "每天"
+
+#: src/settings/settingsdialog.cpp:152
+msgctxt "SettingsDialog|"
+msgid "Every week"
+msgstr "每週"
+
+#: src/settings/settingsdialog.cpp:153
+msgctxt "SettingsDialog|"
+msgid "Every month"
+msgstr "每月"
+
+#: src/settings/settingsdialog.cpp:154 src/settings/settingsdialog.ui:1047
+msgctxt "SettingsDialog|"
+msgid "Never"
+msgstr "從不"
+
+#: src/settings/settingsdialog.cpp:158
+msgctxt "SettingsDialog|"
+msgid "Check now"
+msgstr "立即檢查"
+
+#: src/settings/settingsdialog.cpp:159
+msgctxt "SettingsDialog|"
+msgid "Check for updates now"
+msgstr "立即檢查更新"
+
+#: src/settings/settingsdialog.cpp:172
+msgctxt "SettingsDialog|"
+msgid "Happy New Year!"
+msgstr "新年快樂！"
+
+#: src/settings/settingsdialog.cpp:186
+msgctxt "SettingsDialog|"
+msgid "The OCR parameter fields can not be empty."
+msgstr "OCR 參數欄位不能為空。"
+
+#: src/settings/settingsdialog.cpp:187
+msgctxt "SettingsDialog|"
+msgid "Do you want to discard the invalid parameters?"
+msgstr "確定要捨棄無效的參數嗎？"
+
+#: src/settings/settingsdialog.cpp:337
+msgctxt "SettingsDialog|"
+msgid "Select icon"
+msgstr "選擇圖示"
+
+#: src/settings/settingsdialog.cpp:337
+msgctxt "SettingsDialog|"
+msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
+msgstr "圖片 (*.png *.ico *.svg *.jpg);;所有檔案()"
+
+#: src/settings/settingsdialog.cpp:350
+msgctxt "SettingsDialog|"
+msgid "Select OCR languages path"
+msgstr "選擇 OCR 語言路徑"
+
+#: src/settings/settingsdialog.cpp:399 src/settings/settingsdialog.ui:1303
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Default"
+msgctxt "SettingsDialog|"
+msgid "Default region"
+msgstr "預設"
+
+#: src/settings/settingsdialog.cpp:402
+msgctxt "SettingsDialog|"
+msgid "Mandarin (China)"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:477
+msgctxt "SettingsDialog|"
+msgid "Checking for updates..."
+msgstr "正在檢查更新..."
+
+#: src/settings/settingsdialog.cpp:499
+msgctxt "SettingsDialog|"
+msgid "Update available!"
+msgstr "有可用更新！"
+
+#: src/settings/settingsdialog.cpp:505
+msgctxt "SettingsDialog|"
+msgid "No updates available."
+msgstr "無可用更新。"
+
+#: src/settings/settingsdialog.cpp:604
+msgctxt "SettingsDialog|"
+msgid "Back"
+msgstr "返回"
+
+#: src/settings/settingsdialog.cpp:710
+msgctxt "SettingsDialog|"
+msgid "Nothing to play"
+msgstr "沒有要播放的內容"
+
+#: src/settings/settingsdialog.cpp:710
+msgctxt "SettingsDialog|"
+msgid "Playback text is empty"
+msgstr "發音文字為空"
+
+#: src/settings/settingsdialog.cpp:720
+msgctxt "SettingsDialog|"
+msgid "Unable to detect language"
+msgstr "無法偵測語言"
+
+#: src/settings/settingsdialog.ui:14
+msgctxt "SettingsDialog|"
+msgid "Settings"
+msgstr "設定"
+
+#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:136
+msgctxt "SettingsDialog|"
+msgid "General"
+msgstr "一般"
+
+#: src/settings/settingsdialog.ui:57
+msgctxt "SettingsDialog|"
+msgid "Interface"
+msgstr "使用介面"
+
+#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:639
+msgctxt "SettingsDialog|"
+msgid "Translation"
+msgstr "翻譯"
+
+#: src/settings/settingsdialog.ui:81
+msgctxt "SettingsDialog|"
+msgid "Speech synthesis"
+msgstr "語音合成"
+
+#: src/settings/settingsdialog.ui:89
+msgctxt "SettingsDialog|"
+msgid "Connection"
+msgstr "網路連接"
+
+#: src/settings/settingsdialog.ui:97
+msgctxt "SettingsDialog|"
+msgid "Shortcuts"
+msgstr "快捷鍵"
+
+#: src/settings/settingsdialog.ui:105
+msgctxt "SettingsDialog|"
+msgid "About"
+msgstr "關於"
+
+#: src/settings/settingsdialog.ui:148
+msgctxt "SettingsDialog|"
+msgid "Language:"
+msgstr "語言："
+
+#: src/settings/settingsdialog.ui:155
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Interface language</p></body></html>"
+msgstr "<html><head/><body><p>使用介面語言</p></body></html>"
+
+#: src/settings/settingsdialog.ui:162
+msgctxt "SettingsDialog|"
+msgid "Main window orientation:"
+msgstr "主視窗方向："
+
+#: src/settings/settingsdialog.ui:169
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Orientation of the main window layout<br/>When using "
+"<span style=\" font-style:italic;\">Auto</span>, the window orientation will "
+"match the screen orientation</p></body></html>"
+msgstr ""
+"<html><head/><body><p>主視窗內容佈局的方向<br/>當使用 <span style=\" font-"
+"style:italic;\">自動</span>時，視窗方向將會匹配螢幕方向</p></body></html>"
+
+#. Orientation
+#: src/settings/settingsdialog.ui:173
+msgctxt "SettingsDialog|"
+msgid "Auto"
+msgstr "自動"
+
+#. Orientation
+#: src/settings/settingsdialog.ui:178
+msgctxt "SettingsDialog|"
+msgid "Portrait"
+msgstr "直向"
+
+#. Orientation
+#: src/settings/settingsdialog.ui:183
+msgctxt "SettingsDialog|"
+msgid "Landscape"
+msgstr "橫向"
+
+#: src/settings/settingsdialog.ui:191
+msgctxt "SettingsDialog|"
+msgid "Translation mode:"
+msgstr "翻譯模式："
+
+#: src/settings/settingsdialog.ui:198
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>A window for translating selected text. If the "
+"application is minimized, the main window will always be used.</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>在翻譯選取文字時顯示展示翻譯結果的視窗。如果程式處於最"
+"小化狀態，「主視窗」模式將被選用。</p></body></html>"
+
+#: src/settings/settingsdialog.ui:202 src/settings/settingsdialog.ui:351
+msgctxt "SettingsDialog|"
+msgid "Pop-up window"
+msgstr "彈出式視窗"
+
+#: src/settings/settingsdialog.ui:207
+msgctxt "SettingsDialog|"
+msgid "Main window"
+msgstr "主視窗"
+
+#: src/settings/settingsdialog.ui:212
+msgctxt "SettingsDialog|"
+msgid "Notification"
+msgstr "通知"
+
+#: src/settings/settingsdialog.ui:220
+msgctxt "SettingsDialog|"
+msgid "Translation notification timeout:"
+msgstr "翻譯通知逾時："
+
+#: src/settings/settingsdialog.ui:233
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Notification with translation display time</p></body></"
+"html>"
+msgstr "<html><head/><body><p>翻譯通知顯示時間</p></body></html>"
+
+#: src/settings/settingsdialog.ui:236 src/settings/settingsdialog.ui:441
+msgctxt "SettingsDialog|"
+msgid " sec"
+msgstr " 秒"
+
+#: src/settings/settingsdialog.ui:249
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Display icon in the system tray</p></body></html>"
+msgstr "<html><head/><body><p>在系統匣中顯示圖示</p></body></html>"
+
+#: src/settings/settingsdialog.ui:252
+msgctxt "SettingsDialog|"
+msgid "Show tray icon"
+msgstr "顯示系統匣圖示"
+
+#: src/settings/settingsdialog.ui:262
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Start application minimized to the system tray</p></"
+"body></html>"
+msgstr "<html><head/><body><p>啟動應用程式時最小化到系統匣</p></body></html>"
+
+#: src/settings/settingsdialog.ui:265
+msgctxt "SettingsDialog|"
+msgid "Start minimized"
+msgstr "啟動後最小化"
+
+#: src/settings/settingsdialog.ui:272
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Run the application at system startup</p></body></html>"
+msgstr "<html><head/><body><p>在系統啟動時運行應用程式</p></body></html>"
+
+#: src/settings/settingsdialog.ui:275
+msgctxt "SettingsDialog|"
+msgid "Launch at startup"
+msgstr "開機時啟動"
+
+#: src/settings/settingsdialog.ui:308
+msgctxt "SettingsDialog|"
+msgid "Font"
+msgstr "字型"
+
+#: src/settings/settingsdialog.ui:314
+msgctxt "SettingsDialog|"
+msgid "Name:"
+msgstr "字型名："
+
+#: src/settings/settingsdialog.ui:321
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Translation and source text font</p></body></html>"
+msgstr "<html><head/><body><p>譯文和原文字型</p></body></html>"
+
+#: src/settings/settingsdialog.ui:328
+msgctxt "SettingsDialog|"
+msgid "Size:"
+msgstr "大小："
+
+#: src/settings/settingsdialog.ui:335
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Font size of translation and source text</p></body></"
+"html>"
+msgstr "<html><head/><body><p>譯文和原文的字型大小</p></body></html>"
+
+#: src/settings/settingsdialog.ui:357
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Pop-up window height in pixels</p></body></html>"
+msgstr "<html><head/><body><p>彈出視窗高度(單位:像素)</p></body></html>"
+
+#: src/settings/settingsdialog.ui:367
+msgctxt "SettingsDialog|"
+msgid "Width:"
+msgstr "寬度："
+
+#: src/settings/settingsdialog.ui:374
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
+msgstr "<html><head/><body><p>彈出視窗寬度(單位:像素)</p></body></html>"
+
+#: src/settings/settingsdialog.ui:384
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Pop-up window opacity</p></body></html>"
+msgstr "<html><head/><body><p>彈出視窗不透明度</p></body></html>"
+
+#: src/settings/settingsdialog.ui:411
+msgctxt "SettingsDialog|"
+msgid "Opacity:"
+msgstr "透明度："
+
+#: src/settings/settingsdialog.ui:418
+msgctxt "SettingsDialog|"
+msgid "Show timeout:"
+msgstr "顯示時間限制:"
+
+#: src/settings/settingsdialog.ui:425
+msgctxt "SettingsDialog|"
+msgid "Height:"
+msgstr "高度："
+
+#: src/settings/settingsdialog.ui:438
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>The number of seconds after which the window will be "
+"hidden if it has no focus</p></body></html>"
+msgstr ""
+"<html><head/><body><p>當視窗失去焦點後，其自動隱藏的時間 (秒) </p></body></"
+"html>"
+
+#: src/settings/settingsdialog.ui:461
+msgctxt "SettingsDialog|"
+msgid "Language format"
+msgstr "語言格式"
+
+#: src/settings/settingsdialog.ui:467
+msgctxt "SettingsDialog|"
+msgid "Main window:"
+msgstr "主視窗:"
+
+#: src/settings/settingsdialog.ui:474 src/settings/settingsdialog.ui:498
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Languages text on buttons</p></body></html>"
+msgstr "<html><head/><body><p>按鈕上的語言文字</p></body></html>"
+
+#: src/settings/settingsdialog.ui:478 src/settings/settingsdialog.ui:502
+msgctxt "SettingsDialog|"
+msgid "Full name"
+msgstr "全稱"
+
+#: src/settings/settingsdialog.ui:483 src/settings/settingsdialog.ui:507
+msgctxt "SettingsDialog|"
+msgid "ISO 639-1 code"
+msgstr "ISO 639-1 編碼"
+
+#: src/settings/settingsdialog.ui:491
+msgctxt "SettingsDialog|"
+msgid "Pop-up:"
+msgstr "彈出式視窗:"
+
+#: src/settings/settingsdialog.ui:518
+msgctxt "SettingsDialog|"
+msgid "Tray icon"
+msgstr "系統匣圖示"
+
+#: src/settings/settingsdialog.ui:524
+msgctxt "SettingsDialog|"
+msgid "Icon:"
+msgstr "圖示："
+
+#: src/settings/settingsdialog.ui:537
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>System tray icon</p></body></html>"
+msgstr "<html><head/><body><p>系統匣圖示</p></body></html>"
+
+#: src/settings/settingsdialog.ui:541
+msgctxt "SettingsDialog|"
+msgid "Default"
+msgstr "預設"
+
+#: src/settings/settingsdialog.ui:549
+msgctxt "SettingsDialog|"
+msgid "Monochrome (dark theme)"
+msgstr "單色 (暗黑)"
+
+#: src/settings/settingsdialog.ui:557
+msgctxt "SettingsDialog|"
+msgid "Monochrome (light theme)"
+msgstr "單色 (明亮)"
+
+#: src/settings/settingsdialog.ui:565
+msgctxt "SettingsDialog|"
+msgid "Custom"
+msgstr "自訂"
+
+#: src/settings/settingsdialog.ui:579
+msgctxt "SettingsDialog|"
+msgid "Custom:"
+msgstr "自訂："
+
+#: src/settings/settingsdialog.ui:591
+msgctxt "SettingsDialog|"
+msgid "Path to the icon or icon name from theme"
+msgstr "圖示的路徑或在主題中的名稱"
+
+#: src/settings/settingsdialog.ui:601
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Select icon</p></body></html>"
+msgstr "<html><head/><body><p>選擇圖示</p></body></html>"
+
+#: src/settings/settingsdialog.ui:645
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable source transliteration</p></body></"
+"html>"
+msgstr "<html><head/><body><p>啟用或禁用原文音譯</p></body></html>"
+
+#: src/settings/settingsdialog.ui:648
+msgctxt "SettingsDialog|"
+msgid "Enable source transliteration"
+msgstr "啟用原文音譯"
+
+#: src/settings/settingsdialog.ui:655
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable translation transliteration</p></"
+"body></html>"
+msgstr "<html><head/><body><p>啟用或禁用譯文音譯</p></body></html>"
+
+#: src/settings/settingsdialog.ui:658
+msgctxt "SettingsDialog|"
+msgid "Enable translation transliteration"
+msgstr "啟用譯文音譯"
+
+#: src/settings/settingsdialog.ui:665
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable source transcription</p></body></"
+"html>"
+msgstr "<html><head/><body><p>啟用或禁用原文轉錄</p></body></html>"
+
+#: src/settings/settingsdialog.ui:668
+msgctxt "SettingsDialog|"
+msgid "Enable source transcription"
+msgstr "啟用原文轉錄"
+
+#: src/settings/settingsdialog.ui:675
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable translation options</p></body></html>"
+msgstr "<html><head/><body><p>啟用或禁用翻譯選項</p></body></html>"
+
+#: src/settings/settingsdialog.ui:678
+msgctxt "SettingsDialog|"
+msgid "Enable translation options"
+msgstr "啟用翻譯選項"
+
+#: src/settings/settingsdialog.ui:685
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable usage examples</p></body></html>"
+msgstr "<html><head/><body><p>啟用或禁用使用範例</p></body></html>"
+
+#: src/settings/settingsdialog.ui:688
+msgctxt "SettingsDialog|"
+msgid "Enable examples"
+msgstr "啟用範例"
+
+#: src/settings/settingsdialog.ui:695
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Replace each sequence of whitespaces (this includes "
+"the ASCII characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' ') with a "
+"single space in queries</p></body></html>"
+msgstr ""
+"<html><head/><body><p>在查詢中用單個空格替換每個空格序列 (包括 ASCII 字元 "
+"'\\t' '\\n' '\\v', '\\f', '\\r', 和 ' ')</p></body></html>"
+
+#: src/settings/settingsdialog.ui:698
+msgctxt "SettingsDialog|"
+msgid "Simplify source"
+msgstr "簡化原文格式"
+
+#: src/settings/settingsdialog.ui:708
+msgctxt "SettingsDialog|"
+msgid "Automatic language detection"
+msgstr "自動語言偵測"
+
+#: src/settings/settingsdialog.ui:714
+msgctxt "SettingsDialog|"
+msgid "Primary translation language:"
+msgstr "主要翻譯語言："
+
+#: src/settings/settingsdialog.ui:721
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Language to which text will be translated when "
+"autodetecting</p></body></html>"
+msgstr "<html><head/><body><p>自動偵測到為何種語言時翻譯文字</p></body></html>"
+
+#: src/settings/settingsdialog.ui:728
+msgctxt "SettingsDialog|"
+msgid "Secondary translation language:"
+msgstr "次要翻譯語言："
+
+#: src/settings/settingsdialog.ui:735
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Language to which the text will be translated if it is "
+"in the language selected above</p></body></html>"
+msgstr "<html><head/><body><p>在上面選定目標語言時翻譯文字</p></body></html>"
+
+#: src/settings/settingsdialog.ui:742 src/settings/settingsdialog.ui:752
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Automatically switch to <span style=\" font-style:"
+"italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
+msgstr ""
+"<html><head/><body><p>使用 OCR 和全域快捷鍵時，自動切換到<span style=\" font-"
+"style:italic;\">自動</span> 模式</p></body></html>"
+
+#: src/settings/settingsdialog.ui:745
+msgctxt "SettingsDialog|"
+msgid "Force source language detection"
+msgstr "強制偵測源語言"
+
+#: src/settings/settingsdialog.ui:755
+msgctxt "SettingsDialog|"
+msgid "Force translation language detection"
+msgstr "強制偵測翻譯語言"
+
+#: src/settings/settingsdialog.ui:778
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>LibreTranslate instance API key</p><p>Free instances "
+"listed here doesn't require a key, so field can be empty</p></body></html>"
+msgstr ""
+"<html><head/><body><p>LibreTranslate 實例的API金鑰</p><p>此處列出的免費實例不"
+"需要金鑰，因此欄位可以為空白</p></body></html>"
+
+#: src/settings/settingsdialog.ui:791
+msgctxt "SettingsDialog|"
+msgid "API key:"
+msgstr "API金鑰:"
+
+#: src/settings/settingsdialog.ui:804
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>LibreTranslate engine URL</p><p>All instances can be "
+"found here: https://github.com/LibreTranslate/LibreTranslate#mirrors</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>LibreTranslate 翻譯引擎網址</p><p>所有實例都可以在這裡"
+"找到: https://github.com/LibreTranslate/LibreTranslate#mirrors</p></body></"
+"html>"
+
+#: src/settings/settingsdialog.ui:844
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Lingva engine URL</p><p>All instances can be found "
+"here: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>Lingva 翻譯引擎網址</p><p>所有實例都可以在這裡找到: "
+"https://github.com/TheDavidDelta/lingva-translate#instances</p></body></html>"
+
+#: src/settings/settingsdialog.ui:898
+msgctxt "SettingsDialog|"
+msgid "Languages"
+msgstr "語言"
+
+#: src/settings/settingsdialog.ui:904
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Loading additional languages will impact both speed "
+"and accuracy, as there is more work to do to decide on the applicable "
+"language, and there is more chance of hallucinating incorrect words.</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>載入額外的語言會影響辨識速度和準確性，因為確認適當的語"
+"言需要程式做更多工作，並且這也會增加錯誤詞彙出現的機率</p></body></html>"
+
+#: src/settings/settingsdialog.ui:911
+msgctxt "SettingsDialog|"
+msgid "Languages path:"
+msgstr "語言檔案路徑："
+
+#: src/settings/settingsdialog.ui:918
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
+msgstr "<html><head/><body><p>選擇 OCR 語言路徑</p></body></html>"
+
+#: src/settings/settingsdialog.ui:928
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
+msgstr "<html><head/><body><p>打開 GitHub 儲存庫</p></body></html>"
+
+#: src/settings/settingsdialog.ui:931
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
+"\"><span style=\" text-decoration: underline; color:#2980b9;\">Download "
+"more</span></a></p></body></html>"
+msgstr ""
+"<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
+"\"><span style=\" text-decoration: underline; color:#2980b9;\">下載更多</"
+"span></a></p></body></html>"
+
+#: src/settings/settingsdialog.ui:941
+msgctxt "SettingsDialog|"
+msgid "Directory with trained models"
+msgstr "含有訓練模型的目錄"
+
+#: src/settings/settingsdialog.ui:957
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Replace all single line breaks with a space after text "
+"recognition</p></body></html>"
+msgstr ""
+"<html><head/><body><p>辨識文字後用空格替換所有單個換行符號</p></body></html>"
+
+#: src/settings/settingsdialog.ui:960
+msgctxt "SettingsDialog|"
+msgid "Convert line breaks"
+msgstr "轉換換行符號"
+
+#: src/settings/settingsdialog.ui:1024
+msgctxt "SettingsDialog|"
+msgid "Screen capture"
+msgstr "螢幕截圖"
+
+#: src/settings/settingsdialog.ui:1036
+msgctxt "SettingsDialog|"
+msgid "Remember region:"
+msgstr "記住區域設定："
+
+#: src/settings/settingsdialog.ui:1043
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>When to remember the last selected region</p></body></"
+"html>"
+msgstr "<html><head/><body><p>選擇何時記住上次選擇的區域</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1052
+msgctxt "SettingsDialog|"
+msgid "Remember last"
+msgstr "記住上一個"
+
+#: src/settings/settingsdialog.ui:1057
+msgctxt "SettingsDialog|"
+msgid "Remember always"
+msgstr "總是記住"
+
+#: src/settings/settingsdialog.ui:1065
+msgctxt "SettingsDialog|"
+msgid "Capture delay:"
+msgstr "截圖延遲："
+
+#: src/settings/settingsdialog.ui:1072
+msgctxt "SettingsDialog|"
+msgid "Delay before screen capture"
+msgstr "螢幕截圖前延遲的時間"
+
+#: src/settings/settingsdialog.ui:1075
+msgctxt "SettingsDialog|"
+msgid " ms"
+msgstr " ms"
+
+#: src/settings/settingsdialog.ui:1085
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
+msgstr "<html><head/><body><p>在滑鼠游標旁顯示放大鏡</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1088
+msgctxt "SettingsDialog|"
+msgid "Show magnifier"
+msgstr "顯示放大鏡"
+
+#: src/settings/settingsdialog.ui:1098
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Finish capturing the fragment when the mouse button is "
+"released</p></body></html>"
+msgstr "<html><head/><body><p>釋放滑鼠按鈕時截圖</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1101
+msgctxt "SettingsDialog|"
+msgid "Confirm on release"
+msgstr "鬆開時確認"
+
+#: src/settings/settingsdialog.ui:1108
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
+"html>"
+msgstr "<html><head/><body><p>霧化未選取部分</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1111
+msgctxt "SettingsDialog|"
+msgid "Apply light mask"
+msgstr "使用明亮遮罩"
+
+#: src/settings/settingsdialog.ui:1150
+msgctxt "SettingsDialog|"
+msgid "Voice:"
+msgstr "語音："
+
+#: src/settings/settingsdialog.ui:1163
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Voice of the speech synthesis engine</p></body></html>"
+msgstr "<html><head/><body><p>語音合成引擎的聲音風格</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1167
+msgctxt "SettingsDialog|"
+msgid "Zahar"
+msgstr "扎哈爾(Zahar)"
+
+#: src/settings/settingsdialog.ui:1172
+msgctxt "SettingsDialog|"
+msgid "Ermil"
+msgstr "埃爾米爾(Ermil)"
+
+#: src/settings/settingsdialog.ui:1177
+msgctxt "SettingsDialog|"
+msgid "Jane"
+msgstr "簡(Jane)"
+
+#: src/settings/settingsdialog.ui:1182
+msgctxt "SettingsDialog|"
+msgid "Oksana"
+msgstr "奧克薩娜(Oksana)"
+
+#: src/settings/settingsdialog.ui:1187
+msgctxt "SettingsDialog|"
+msgid "Alyss"
+msgstr "愛麗絲(Alyss)"
+
+#: src/settings/settingsdialog.ui:1192
+msgctxt "SettingsDialog|"
+msgid "Omazh"
+msgstr "奧馬茲(Omazh)"
+
+#: src/settings/settingsdialog.ui:1200
+msgctxt "SettingsDialog|"
+msgid "Emotional connotation:"
+msgstr "情緒色彩："
+
+#: src/settings/settingsdialog.ui:1213
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Voice mood of the speech synthesis engine</p></body></"
+"html>"
+msgstr "<html><head/><body><p>語音合成引擎的情緒色彩</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1217
+msgctxt "SettingsDialog|"
+msgid "Neutral"
+msgstr "中性"
+
+#: src/settings/settingsdialog.ui:1222
+msgctxt "SettingsDialog|"
+msgid "Good"
+msgstr "良好情緒"
+
+#: src/settings/settingsdialog.ui:1227
+msgctxt "SettingsDialog|"
+msgid "Evil"
+msgstr "糟糕情緒"
+
+#: src/settings/settingsdialog.ui:1235 src/settings/settingsdialog.ui:1311
+msgctxt "SettingsDialog|"
+msgid "Speech test:"
+msgstr "朗讀測試："
+
+#: src/settings/settingsdialog.ui:1244 src/settings/settingsdialog.ui:1273
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Text to test speech</p></body></html>"
+msgstr "<html><head/><body><p>測試朗讀的文字</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1247 src/settings/settingsdialog.ui:1276
+msgctxt "SettingsDialog|"
+msgid "This is an example of speech synthesis."
+msgstr "這是一句語音合成範例。"
+
+#: src/settings/settingsdialog.ui:1250
+msgctxt "SettingsDialog|"
+msgid "Test voice"
+msgstr "測試語音"
+
+#: src/settings/settingsdialog.ui:1295
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Version:"
+msgctxt "SettingsDialog|"
+msgid "Region:"
+msgstr "版本："
+
+#: src/settings/settingsdialog.ui:1344
+msgctxt "SettingsDialog|"
+msgid "Proxy server"
+msgstr "代理伺服器"
+
+#: src/settings/settingsdialog.ui:1350
+msgctxt "SettingsDialog|"
+msgid "Type:"
+msgstr "類型："
+
+#: src/settings/settingsdialog.ui:1363
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Proxy type</p></body></html>"
+msgstr "<html><head/><body><p>代理類型</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1367
+msgctxt "SettingsDialog|"
+msgid "Use system settings"
+msgstr "使用系統設定"
+
+#: src/settings/settingsdialog.ui:1377
+msgctxt "SettingsDialog|"
+msgid "Don't use a proxy"
+msgstr "不使用代理"
+
+#: src/settings/settingsdialog.ui:1393
+msgctxt "SettingsDialog|"
+msgid "Host:"
+msgstr "主機名："
+
+#: src/settings/settingsdialog.ui:1403
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Proxy host name</p></body></html>"
+msgstr "<html><head/><body><p>代理主機名</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1416
+msgctxt "SettingsDialog|"
+msgid "Port:"
+msgstr "通訊埠："
+
+#: src/settings/settingsdialog.ui:1432
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Proxy port</p></body></html>"
+msgstr "<html><head/><body><p>代理主機通訊埠</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1451
+msgctxt "SettingsDialog|"
+msgid "Info: the proxy works only for text translation"
+msgstr "資訊：代理設定只對文字翻譯生效"
+
+#: src/settings/settingsdialog.ui:1461
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable authentication</p></body></html>"
+msgstr "<html><head/><body><p>啟用或禁用驗證</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1464
+msgctxt "SettingsDialog|"
+msgid "Authentication"
+msgstr "驗證"
+
+#: src/settings/settingsdialog.ui:1474
+msgctxt "SettingsDialog|"
+msgid "Username:"
+msgstr "用戶名："
+
+#: src/settings/settingsdialog.ui:1484
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Proxy username for authentication</p></body></html>"
+msgstr "<html><head/><body><p>代理驗證用戶名</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1494
+msgctxt "SettingsDialog|"
+msgid "Password:"
+msgstr "密碼："
+
+#: src/settings/settingsdialog.ui:1504
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Proxy password for authentication</p></body></html>"
+msgstr "<html><head/><body><p>代理驗證密碼</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1517
+msgctxt "SettingsDialog|"
+msgid "Info: the password is saved unencrypted"
+msgstr "注：密碼將被加密保存"
+
+#: src/settings/settingsdialog.ui:1553
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Register global shortcuts in system</p></body></html>"
+msgstr "<html><head/><body><p>註冊全域快捷鍵</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1556
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Enable global shortcucts"
+msgctxt "SettingsDialog|"
+msgid "Enable global shortcuts"
+msgstr "啟用全域快捷鍵"
+
+#: src/settings/settingsdialog.ui:1572
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
+msgstr "<html><head/><body><p>重置所有快捷鍵為預設</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1575
+msgctxt "SettingsDialog|"
+msgid "Reset all"
+msgstr "重置全部"
+
+#: src/settings/settingsdialog.ui:1585
+msgctxt "SettingsDialog|"
+msgid "Shortcut"
+msgstr "快捷鍵"
+
+#: src/settings/settingsdialog.ui:1591
+msgctxt "SettingsDialog|"
+msgid "Key sequence:"
+msgstr "按鍵："
+
+#: src/settings/settingsdialog.ui:1598
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>The key sequence for the selected action</p></body></"
+"html>"
+msgstr "<html><head/><body><p>選定動作的關鍵次序</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1605
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
+msgstr "<html><head/><body><p>接受快捷鍵</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1608
+msgctxt "SettingsDialog|"
+msgid "Accept"
+msgstr "接受"
+
+#: src/settings/settingsdialog.ui:1618
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
+msgstr "<html><head/><body><p>清除快捷鍵</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1621
+msgctxt "SettingsDialog|"
+msgid "Clear"
+msgstr "清除"
+
+#: src/settings/settingsdialog.ui:1631
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
+msgstr "<html><head/><body><p>重置快捷鍵為預設</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1634
+msgctxt "SettingsDialog|"
+msgid "Reset"
+msgstr "重置"
+
+#: src/settings/settingsdialog.ui:1679
+msgctxt "SettingsDialog|"
+msgid "Version:"
+msgstr "版本："
+
+#: src/settings/settingsdialog.ui:1689
+msgctxt "SettingsDialog|"
+msgid "License:"
+msgstr "許可證："
+
+#: src/settings/settingsdialog.ui:1703
+msgctxt "SettingsDialog|"
+msgid "Source code:"
+msgstr "原始碼："
+
+#: src/settings/settingsdialog.ui:1743
+msgctxt "SettingsDialog|"
+msgid "Flag icons:"
+msgstr "旗幟圖示："
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:21
+msgctxt "ShortcutsModel|"
+msgid "Global"
+msgstr "全域"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:23
+msgctxt "ShortcutsModel|"
+msgid "Translate selected text"
+msgstr "翻譯選取文字"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:26
+msgctxt "ShortcutsModel|"
+msgid "Speak selected text"
+msgstr "播放選取文字發音"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:29
+msgctxt "ShortcutsModel|"
+msgid "Speak translation of selected text"
+msgstr "朗讀選取文字譯文"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:32
+msgctxt "ShortcutsModel|"
+msgid "Stop text speaking"
+msgstr "停止播放發音"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:35
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:71
+msgctxt "ShortcutsModel|"
+msgid "Speak / pause text speaking"
+msgstr "朗讀/暫停朗讀文字"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:38
+msgctxt "ShortcutsModel|"
+msgid "Show main window"
+msgstr "顯示主視窗"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:41
+msgctxt "ShortcutsModel|"
+msgid "Translate selected text and copy to clipboard"
+msgstr "翻譯選取文字並複製到剪貼簿"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:44
+msgctxt "ShortcutsModel|"
+msgid "Recognize text in screen area"
+msgstr "辨識螢幕區域內的文字"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:47
+msgctxt "ShortcutsModel|"
+msgid "Translate text in screen area"
+msgstr "翻譯螢幕區域內的文字"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:50
+msgctxt "ShortcutsModel|"
+msgid "Recognize text in screen area with delay"
+msgstr "延遲辨識螢幕區域內的文字"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:53
+msgctxt "ShortcutsModel|"
+msgid "Translate text in screen area with delay"
+msgstr "延遲翻譯螢幕區域內的文字"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:57
+msgctxt "ShortcutsModel|"
+msgid "Main window"
+msgstr "主視窗"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
+msgctxt "ShortcutsModel|"
+msgid "Translate"
+msgstr "翻譯"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:62
+msgctxt "ShortcutsModel|"
+msgid "Swap languages"
+msgstr "交換語言"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:65
+msgctxt "ShortcutsModel|"
+msgid "Close window"
+msgstr "關閉視窗"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:69
+msgctxt "ShortcutsModel|"
+msgid "Source text"
+msgstr "原文"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:75
+msgctxt "ShortcutsModel|"
+msgid "Translation"
+msgstr "譯文"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
+msgctxt "ShortcutsModel|"
+msgid "Speak / pause speaking"
+msgstr "朗讀/暫停朗讀"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:80
+msgctxt "ShortcutsModel|"
+msgid "Copy to clipboard"
+msgstr "複製到剪貼簿"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:126
+msgctxt "ShortcutsModel|"
+msgid "Description"
+msgstr "描述"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:128
+msgctxt "ShortcutsModel|"
+msgid "Shortcut"
+msgstr "快捷鍵"
+
+#: src/settings/tesseractparameterstablewidget.cpp:16
+msgctxt "TesseractParametersTableWidget|"
+msgid "Property"
+msgstr "屬性"
+
+#: src/settings/tesseractparameterstablewidget.cpp:16
+msgctxt "TesseractParametersTableWidget|"
+msgid "Value"
+msgstr "值"
+
+#: src/speakbuttons.cpp:138
+msgctxt "SpeakButtons|"
+msgid "No text specified"
+msgstr "未指定文字"
+
+#: src/speakbuttons.cpp:138
+msgctxt "SpeakButtons|"
+msgid "Playback text is empty"
+msgstr "發音文字為空"
+
+#: src/speakbuttons.cpp:147
+msgctxt "SpeakButtons|"
+msgid "Unable to generate URLs for TTS"
+msgstr "無法為 TTS 生成 URL"
+
+#: src/speakbuttons.ui:24
+msgctxt "SpeakButtons|"
+msgid "Speak / pause text speaking"
+msgstr "朗讀/暫停朗讀文字"
+
+#: src/speakbuttons.ui:34
+msgctxt "SpeakButtons|"
+msgid "Stop text speaking"
+msgstr "停止播放發音"
+
+#: src/transitions/ocruninitializedtransition.cpp:28
+msgctxt "Ocr|"
+msgid "OCR languages are not loaded"
+msgstr "OCR 語言未載入"
+
+#: src/transitions/ocruninitializedtransition.cpp:28
+msgctxt "Ocr|"
+msgid "You should set at least one OCR language in the application settings"
+msgstr "您應該在應用程式中設定至少一種 OCR 語言"
+
+#: src/translationedit.cpp:62
+msgctxt "TranslationEdit|"
+msgid "translation options:"
+msgstr "翻譯選項："
+
+#: src/translationedit.cpp:97
+msgctxt "TranslationEdit|"
+msgid "examples:"
+msgstr "範例："
+
+#: src/trayicon.cpp:19 src/trayicon.cpp:44
+msgctxt "TrayIcon|"
+msgid "Show window"
+msgstr "顯示視窗"
+
+#: src/trayicon.cpp:20 src/trayicon.cpp:45
+msgctxt "TrayIcon|"
+msgid "Settings"
+msgstr "設定"
+
+#: src/trayicon.cpp:21 src/trayicon.cpp:46
+msgctxt "TrayIcon|"
+msgid "Quit"
+msgstr "退出"
+
+#: src/trayicon.cpp:51
+msgctxt "TrayIcon|"
+msgid "Translation result"
+msgstr "翻譯結果"
+
+#: src/updaterdialog.cpp:46 src/updaterdialog.cpp:49
+msgctxt "UpdaterDialog|"
+msgid "Changelog:"
+msgstr "更新日誌："
+
+#: src/updaterdialog.cpp:75
+msgctxt "UpdaterDialog|"
+msgid "Unable to write file"
+msgstr "無法寫入檔案"
+
+#: src/updaterdialog.cpp:119
+msgctxt "UpdaterDialog|"
+msgid "Downloading is complete"
+msgstr "下載已完成"
+
+#: src/updaterdialog.ui:24
+msgctxt "UpdaterDialog|"
+msgid "Exit the program and run the installer"
+msgstr "退出應用程式並運行安裝程式"
+
+#: src/updaterdialog.ui:27
+msgctxt "UpdaterDialog|"
+msgid "Install"
+msgstr "安裝"
+
+#: src/updaterdialog.ui:34
+msgctxt "UpdaterDialog|"
+msgid "Download the installer to the Downloads folder"
+msgstr "下載安裝包到「下載」資料夾"
+
+#: src/updaterdialog.ui:37
+msgctxt "UpdaterDialog|"
+msgid "Download"
+msgstr "下載"
+
+#: src/updaterdialog.ui:44
+#, fuzzy
+#| msgctxt "UpdaterDialog|"
+#| msgid ""
+#| "<html><head/><body><p>A new version of Crow Translate is available! "
+#| "Updates add functionality and improve the stability of the application. "
+#| "Most often.<br/>You can also download the release manually from this <a "
+#| "href=\"https://github.com/crow-translate/crow-translate/releases\">link</"
+#| "a>.</p></body></html>"
+msgctxt "UpdaterDialog|"
+msgid ""
+"<html><head/><body><p>A new version of Crow Translate is available! Updates "
+"add functionality and improve the stability of the application. Most often."
+"<br/>You can also download the release manually from this <a href=\"https://"
+"download.kde.org/stable/crow-translate\">link</a>.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>有新版本的 Crow Translate 可用!  通常新版本會增加一些功"
+"能並提高應用程式的穩定性。 <br/>您也可以手動下載此版本 <a href=\"https://"
+"github.com/crow-translate/crow-translate/releases\">連結</a> </p></body></"
+"html>"
+
+#: src/updaterdialog.ui:67
+msgctxt "UpdaterDialog|"
+msgid "Close this window"
+msgstr "關閉視窗"
+
+#: src/updaterdialog.ui:70
+msgctxt "UpdaterDialog|"
+msgid "Update later"
+msgstr "以後更新"
+
+#: src/updaterdialog.ui:90
+msgctxt "UpdaterDialog|"
+msgid "Cancel download"
+msgstr "取消下載"
+
+#: src/updaterdialog.ui:93
+msgctxt "UpdaterDialog|"
+msgid "Cancel"
+msgstr "取消"
+
+#: src/updaterdialog.ui:109
+msgctxt "UpdaterDialog|"
+msgid "Current version:"
+msgstr "當前版本："
+
+#: src/updaterdialog.ui:129
+msgctxt "UpdaterDialog|"
+msgid "Available version:"
+msgstr "可用版本："
+
+#~ msgctxt "MainWindow|"
+#~ msgid "The application is already running"
+#~ msgstr "應用程式已在運行"
+
+#~ msgctxt "QHotkey|"
+#~ msgid "Failed to register %1. Error: %2"
+#~ msgstr "註冊 %1 失敗。錯誤: %2"
+
+#~ msgctxt "QHotkey|"
+#~ msgid "Failed to unregister %1. Error: %2"
+#~ msgstr "取消註冊 %1 失敗。錯誤: %2"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Error: Unable to find Yandex SID in web version."
+#~ msgstr "錯誤：無法在網頁版本中找到 Yandex SID 。"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Error: Unable to extract Yandex SID from web version."
+#~ msgstr "錯誤：無法從網頁版本擷取Yandex SID。"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Use %1 from the application folder to store settings"
+#~ msgstr "使用應用程式資料夾中的 %1 來儲存設定"

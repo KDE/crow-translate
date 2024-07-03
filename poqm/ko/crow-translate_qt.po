@@ -1,0 +1,2587 @@
+# SPDX-FileCopyrightText: 2024 VenusGirl
+# SPDX-License-Identifier: GPL-3.0-or-later
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Language: ko\n"
+"X-Source-Language: en\n"
+"X-Qt-Contexts: true\n"
+
+#: src/cli.cpp:41
+msgctxt "Cli|"
+msgid "Display all language codes."
+msgstr "모든 언어 코드를 표시합니다."
+
+#: src/cli.cpp:42
+msgctxt "Cli|"
+msgid ""
+"Specify the source language (by default, engine will try to determine the "
+"language on its own)."
+msgstr ""
+"원본 언어를 지정합니다 (기본적으로 엔진은 자체적으로 언어를 결정합니다)."
+
+#: src/cli.cpp:43
+msgctxt "Cli|"
+msgid ""
+"Specify the translation language(s), splitted by '+' (by default, the system "
+"language is used)."
+msgstr "'+'로 분할된 번역 언어를 지정합니다 (기본적으로 시스템 언어가 사용됨)."
+
+#: src/cli.cpp:44
+msgctxt "Cli|"
+msgid ""
+"Specify the translator language (by default, the system language is used)."
+msgstr "변역기 언어를 지정합니다 (기본적으로 시스템 언어가 사용됨)."
+
+#: src/cli.cpp:45
+msgctxt "Cli|"
+msgid ""
+"Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
+"or 'lingva'), Google is used by default."
+msgstr ""
+"번역기 엔진 ('google', 'yandex', 'bing', 'libretranslate' 또는 'lingva')를 지"
+"정합니다. 기본적으로 Google이 사용됩니다."
+
+#: src/cli.cpp:46
+msgctxt "Cli|"
+msgid "Speak the translation."
+msgstr "번역을 해보세요."
+
+#: src/cli.cpp:47
+msgctxt "Cli|"
+msgid "Speak the source."
+msgstr "출처를 말하세요."
+
+#: src/cli.cpp:48
+msgctxt "Cli|"
+msgid ""
+"Read source text from files. Arguments will be interpreted as file paths."
+msgstr "파일에서 원본 텍스트를 읽습니다. 인수는 파일 경로로 해석됩니다."
+
+#: src/cli.cpp:49
+msgctxt "Cli|"
+msgid "Add stdin data to source text."
+msgstr "원본 텍스트에 stdin 데이터를 추가합니다."
+
+#: src/cli.cpp:50
+#, qt-format
+msgctxt "Cli|"
+msgid "Do not print any text when using --%1 or --%2."
+msgstr "--%1 또는 --%2를 사용할 때 텍스트를 인쇄하지 마십시오."
+
+#: src/cli.cpp:51
+msgctxt "Cli|"
+msgid "Print only translations."
+msgstr "번역만 인쇄합니다."
+
+#: src/cli.cpp:52
+msgctxt "Cli|"
+msgid "Print output formatted as JSON."
+msgstr "출력을 JSON으로 포맷합니다."
+
+#: src/cli.cpp:55
+msgctxt "Cli|"
+msgid ""
+"A simple and lightweight translator that allows to translate and speak text "
+"using Google, Yandex, Bing, LibreTranslate and Lingva"
+msgstr ""
+"Google, Yandex, Bing, LibreTranslate 및 Lingva를 사용하여 텍스트를 번역하고 "
+"말할 수 있는 간단하고 가벼운 번역기입니다"
+
+#: src/cli.cpp:56
+msgctxt "Cli|"
+msgid ""
+"Text to translate. By default, the translation will be done to the system "
+"language."
+msgstr "번역할 텍스트입니다. 기본적으로 시스템 언어로 변환됩니다."
+
+#: src/cli.cpp:78
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
+msgstr "오류: --%1의 경우 --%2 및/또는 --%3 옵션을 지정해야 합니다"
+
+#: src/cli.cpp:112
+msgctxt "Cli|"
+msgid "Error: There is no text for translation"
+msgstr "오류: 번역할 텍스트가 없습니다"
+
+#: src/cli.cpp:130
+msgctxt "Cli|"
+msgid "Error: Unknown engine"
+msgstr "오류: 알 수 없는 엔진"
+
+#: src/cli.cpp:165 src/cli.cpp:258 src/cli.cpp:347
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: %1"
+msgstr "오류: %1"
+
+#: src/cli.cpp:219
+#, qt-format
+msgctxt "Cli|"
+msgid "%1 - translation options:"
+msgstr "%1 - 변역 옵션:"
+
+#: src/cli.cpp:236
+#, qt-format
+msgctxt "Cli|"
+msgid "%1 - examples:"
+msgstr "%1 - 예:"
+
+#: src/cli.cpp:360
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: You can't use --%1 with --%2"
+msgstr "오류: --%1을 --%2와 함께 사용할 수 없습니다"
+
+#: src/cli.cpp:376 src/cli.cpp:397
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: File does not exist: %1"
+msgstr "오류: 파일이 없습니다: %1"
+
+#: src/cli.cpp:381 src/cli.cpp:402
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: Unable to open file: %1"
+msgstr "오류: 파일을 열 수 없습니다: %1"
+
+#: src/contextmenu.h:39
+msgctxt "ContextMenu|"
+msgid "Search on Forvo.com"
+msgstr "Forvo.com에서 검색"
+
+#: src/languagebuttonswidget.cpp:451
+msgctxt "LanguageButtonsWidget|"
+msgid "Window width is larger than screen due to the languages on the panel."
+msgstr "창 너비는 패널의 언어로 인해 화면보다 큽니다."
+
+#: src/languagebuttonswidget.cpp:452
+msgctxt "LanguageButtonsWidget|"
+msgid "Please reduce added languages."
+msgstr "추가된 언어를 줄이십시오."
+
+#: src/languagebuttonswidget.cpp:528 src/languagebuttonswidget.cpp:530
+msgctxt "LanguageButtonsWidget|"
+msgid "Auto"
+msgstr "자동"
+
+#: src/languagebuttonswidget.ui:32
+msgctxt "LanguageButtonsWidget|"
+msgid "Edit languages"
+msgstr "언어 편집"
+
+#: src/languagesdialog.cpp:23
+#, qt-format
+msgctxt "LanguagesDialog|"
+msgid "Filter (%1)"
+msgstr "필터 (%1)"
+
+#: src/languagesdialog.ui:14
+msgctxt "LanguagesDialog|"
+msgid "Edit languages"
+msgstr "언어 편집"
+
+#: src/languagesdialog.ui:91
+msgctxt "LanguagesDialog|"
+msgid "Available languages:"
+msgstr "사용 가능한 언어:"
+
+#: src/languagesdialog.ui:104
+msgctxt "LanguagesDialog|"
+msgid "Current languages:"
+msgstr "현재 언어:"
+
+#: src/main.cpp:65
+#, qt-format
+msgctxt "D-Bus|"
+msgid "D-Bus service %1 is already registered by another application"
+msgstr "%1 D-Bus 서비스가 다른 응용 프로그램에 이미 등록되어 있습니다"
+
+#: src/main.cpp:90
+#, qt-format
+msgctxt "D-Bus|"
+msgid "Unable to register D-Bus object for %1"
+msgstr "%1에 대한 D-Bus 개체를 등록할 수 없습니다"
+
+#: src/mainwindow.cpp:384
+msgctxt "MainWindow|"
+msgid "Unable to detect language"
+msgstr "언어를 검색할 수 없습니다"
+
+#: src/mainwindow.cpp:436
+msgctxt "MainWindow|"
+msgid "Unable to translate text"
+msgstr "텍스트를 번역할 수 없습니다"
+
+#: src/mainwindow.cpp:916
+msgctxt "TrayIcon|"
+msgid "Invalid tray icon"
+msgstr "잘못된 트레이 아이콘"
+
+#: src/mainwindow.cpp:916
+#, qt-format
+msgctxt "TrayIcon|"
+msgid "The specified icon '%1' is invalid. The default icon will be used."
+msgstr "지정한 아이콘 '%1' 이(가) 잘못되었습니다. 기본 아이콘이 사용됩니다."
+
+#: src/mainwindow.cpp:947
+msgctxt "Ocr|"
+msgid "Unable to set OCR languages"
+msgstr "OCR 언어를 설정할 수 없습니다"
+
+#: src/mainwindow.cpp:947
+#, qt-format
+msgctxt "Ocr|"
+msgid "Unable to initialize Tesseract with %1"
+msgstr "%1로 Tesseract를 초기화할 수 없습니다"
+
+#: src/mainwindow.ui:36
+msgctxt "MainWindow|"
+msgid "Copy source text to the clipboard"
+msgstr "원본 텍스트를 클립보드에 복사"
+
+#: src/mainwindow.ui:47
+msgctxt "MainWindow|"
+msgid "Recognize screen area with delay"
+msgstr "화면 영역을 지연으로 인식"
+
+#. The text should be short to fit in portrait orientation on phones.
+#: src/mainwindow.ui:70
+msgctxt "MainWindow|"
+msgid "Auto-translation"
+msgstr "자동 번역"
+
+#: src/mainwindow.ui:82
+msgctxt "MainWindow|"
+msgid "Cancel"
+msgstr "Cancel"
+
+#: src/mainwindow.ui:93
+msgctxt "MainWindow|"
+msgid "Swap languages"
+msgstr "언어 교환"
+
+#: src/mainwindow.ui:117
+msgctxt "MainWindow|"
+msgid "Source"
+msgstr "원본"
+
+#: src/mainwindow.ui:124
+msgctxt "MainWindow|"
+msgid "Clear"
+msgstr "지우기"
+
+#: src/mainwindow.ui:141
+msgctxt "MainWindow|"
+msgid "Translate"
+msgstr "번역"
+
+#: src/mainwindow.ui:169
+msgctxt "MainWindow|"
+msgid "Translation"
+msgstr "번역"
+
+#: src/mainwindow.ui:253
+msgctxt "MainWindow|"
+msgid "Copy translation to the clipboard"
+msgstr "번역을 클립보드로 복사"
+
+#: src/mainwindow.ui:264
+msgctxt "MainWindow|"
+msgid "Copy all translation data to the clipboard"
+msgstr "모든 번역 데이터를 클립보드에 복사"
+
+#: src/mainwindow.ui:275
+msgctxt "MainWindow|"
+msgid "Translate screen area with delay"
+msgstr "화면 영역을 지연으로 번역"
+
+#: src/mainwindow.ui:286
+msgctxt "MainWindow|"
+msgid "Application settings"
+msgstr "응용 프로그램 설정"
+
+#: src/ocr/ocr.cpp:136
+#, qt-format
+msgctxt "Ocr|"
+msgid "%1 is not a valid Tesseract parameter name."
+msgstr "%1은 올바른 Tesseract 매개 변수 이름이 아닙니다."
+
+#: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
+msgctxt "AbstractScreenGrabber|"
+msgid "Unable to grab screen"
+msgstr "화면을 기록할 수 없습니다"
+
+#: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:47
+msgctxt "WaylandGnomeScreenGrabber|"
+msgid "GNOME failed to take screenshot."
+msgstr "GNOME이 스크린샷을 찍지 못했습니다."
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:43
+#, qt-format
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to create pipe: %1."
+msgstr "파이프를 만들 수 없습니다: %1."
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:87
+#, qt-format
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to wait for socket readiness: %1."
+msgstr "소켓 준비를 기다릴 수 없습니다. %1."
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:92
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Timeout reading from pipe."
+msgstr "파이프에서 읽는 시간이 초과되었습니다."
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:98
+#, qt-format
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to read data from socket: %1."
+msgstr "소켓에서 데이터를 읽을 수 없습니다: %1."
+
+#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:56
+msgctxt "WaylandPortalScreenGrabber|"
+msgid "Unable to subscribe to response from xdg-desktop-portal."
+msgstr "xdg-desktop-portal의 응답을 구독할 수 없습니다."
+
+#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:76
+msgctxt "WaylandPortalScreenGrabber|"
+msgid "Received an empty path from xdg-desktop-portal."
+msgstr "xdg-desktop-portal에서 빈 경로를 수신했습니다."
+
+#: src/ocr/snippingarea.cpp:73
+msgctxt "SnippingArea|"
+msgid "Unable to snip screen area"
+msgstr "화면 영역을 생략할 수 없습니다"
+
+#: src/ocr/snippingarea.cpp:74
+#, qt-format
+msgctxt "SnippingArea|"
+msgid "Received an invalid image of screen %1."
+msgstr "%1 화면의 잘못된 이미지를 받았습니다."
+
+#: src/ocr/snippingarea.cpp:626
+msgctxt "SnippingArea|"
+msgid ""
+"Click and drag to draw a selection rectangle,\n"
+"or press Esc to quit"
+msgstr ""
+"클릭하여 드래그하여 선택 사각형을 그립니다,\n"
+"종료하려면 Esc 키를 누르십시오"
+
+#: src/ocr/snippingarea.cpp:832
+msgctxt "SnippingArea|"
+msgid "Confirm:"
+msgstr "확인:"
+
+#: src/ocr/snippingarea.cpp:834
+msgctxt "SnippingArea|"
+msgid "Release left-click"
+msgstr "왼쪽 클릭 해제"
+
+#: src/ocr/snippingarea.cpp:834 src/ocr/snippingarea.cpp:836
+msgctxt "SnippingArea|"
+msgid "Enter"
+msgstr "입력"
+
+#: src/ocr/snippingarea.cpp:836
+msgctxt "SnippingArea|"
+msgid "Double-click"
+msgstr "두 번 클릭"
+
+#: src/ocr/snippingarea.cpp:838
+msgctxt "SnippingArea|"
+msgid "Create new selection rectangle:"
+msgstr "새 선택 사각형 만들기:"
+
+#: src/ocr/snippingarea.cpp:839
+msgctxt "SnippingArea|"
+msgid "Drag outside selection rectangle"
+msgstr "선택 영역 밖으로 끌어다 놓기 사각형"
+
+#: src/ocr/snippingarea.cpp:839
+msgctxt "SnippingArea|"
+msgid "+ Shift: Magnifier"
+msgstr "+ Shift: 돋보기"
+
+#: src/ocr/snippingarea.cpp:842
+msgctxt "SnippingArea|"
+msgid "Move selection rectangle:"
+msgstr "선택 사각형 이동:"
+
+#: src/ocr/snippingarea.cpp:843
+msgctxt "SnippingArea|"
+msgid "Drag inside selection rectangle"
+msgstr "선택 사각형 안으로 끌어오기"
+
+#: src/ocr/snippingarea.cpp:843
+msgctxt "SnippingArea|"
+msgid "Arrow keys"
+msgstr "화살표 키"
+
+#: src/ocr/snippingarea.cpp:843
+msgctxt "SnippingArea|"
+msgid "+ Shift: Move in 1 pixel steps"
+msgstr "+ Shift: 1픽셀 단위로 이동"
+
+#: src/ocr/snippingarea.cpp:845
+msgctxt "SnippingArea|"
+msgid "Resize selection rectangle:"
+msgstr "선택 사각형 크기 조정:"
+
+#: src/ocr/snippingarea.cpp:846
+msgctxt "SnippingArea|"
+msgid "Drag handles"
+msgstr "핸들 끌기"
+
+#: src/ocr/snippingarea.cpp:846
+msgctxt "SnippingArea|"
+msgid "Arrow keys + Alt"
+msgstr "화살표 키 + Alt"
+
+#: src/ocr/snippingarea.cpp:846
+msgctxt "SnippingArea|"
+msgid "+ Shift: Resize in 1 pixel steps"
+msgstr "+ Shift: 1픽셀 단위로 크기 조정"
+
+#: src/ocr/snippingarea.cpp:848
+msgctxt "SnippingArea|"
+msgid "Reset selection:"
+msgstr "선택 재설정:"
+
+#: src/ocr/snippingarea.cpp:849
+msgctxt "SnippingArea|"
+msgid "Right-click"
+msgstr "오른쪽 클릭"
+
+#: src/ocr/snippingarea.cpp:852
+msgctxt "SnippingArea|"
+msgid "Cancel:"
+msgstr "취소:"
+
+#: src/ocr/snippingarea.cpp:853
+msgctxt "SnippingArea|"
+msgid "Esc key"
+msgstr "Esc 키"
+
+#: src/onlinetranslator/onlinetranslator.cpp:190
+#, qt-format
+msgctxt "OnlineTranslator|"
+msgid "Selected source language %1 is not supported for %2"
+msgstr "%2에 대해 선택한 원본 언어 %1이(가) 지원되지 않습니다"
+
+#: src/onlinetranslator/onlinetranslator.cpp:195
+#, qt-format
+msgctxt "OnlineTranslator|"
+msgid "Selected translation language %1 is not supported for %2"
+msgstr "%2에 대해 선택한 번역 언어 %1이(가) 지원되지 않습니다"
+
+#: src/onlinetranslator/onlinetranslator.cpp:200
+#, qt-format
+msgctxt "OnlineTranslator|"
+msgid "Selected ui language %1 is not supported for %2"
+msgstr "%2에 대해 선택한 UI 언어 %1이(가) 지원되지 않습니다"
+
+#: src/onlinetranslator/onlinetranslator.cpp:217
+#: src/onlinetranslator/onlinetranslator.cpp:226
+#: src/onlinetranslator/onlinetranslator.cpp:261
+#: src/onlinetranslator/onlinetranslator.cpp:270
+#, qt-format
+msgctxt "OnlineTranslator|"
+msgid "%1 URL can't be empty."
+msgstr "%1 URL은 비워 둘 수 없습니다."
+
+#: src/onlinetranslator/onlinetranslator.cpp:468
+msgctxt "OnlineTranslator|"
+msgid "Automatically detect"
+msgstr "자동 검색"
+
+#: src/onlinetranslator/onlinetranslator.cpp:470
+msgctxt "OnlineTranslator|"
+msgid "Afrikaans"
+msgstr "아프리칸스어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:472
+msgctxt "OnlineTranslator|"
+msgid "Albanian"
+msgstr "알바니아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:474
+msgctxt "OnlineTranslator|"
+msgid "Amharic"
+msgstr "암하라어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:476
+msgctxt "OnlineTranslator|"
+msgid "Arabic"
+msgstr "아랍어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:478
+msgctxt "OnlineTranslator|"
+msgid "Armenian"
+msgstr "아르메니아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:480
+msgctxt "OnlineTranslator|"
+msgid "Azeerbaijani"
+msgstr "아제르바이잔어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:482
+msgctxt "OnlineTranslator|"
+msgid "Basque"
+msgstr "바스크어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:484
+msgctxt "OnlineTranslator|"
+msgid "Bashkir"
+msgstr "바시키르어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:486
+msgctxt "OnlineTranslator|"
+msgid "Belarusian"
+msgstr "벨라루스어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:488
+msgctxt "OnlineTranslator|"
+msgid "Bengali"
+msgstr "벵골어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:490
+msgctxt "OnlineTranslator|"
+msgid "Bosnian"
+msgstr "보스니아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:492
+msgctxt "OnlineTranslator|"
+msgid "Bulgarian"
+msgstr "불가리아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:494
+msgctxt "OnlineTranslator|"
+msgid "Catalan"
+msgstr "카탈루냐어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:496
+msgctxt "OnlineTranslator|"
+msgid "Cantonese"
+msgstr "광동어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:498
+msgctxt "OnlineTranslator|"
+msgid "Cebuano"
+msgstr "세부아노어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:500
+msgctxt "OnlineTranslator|"
+msgid "Chinese (Simplified)"
+msgstr "중국어 (간체)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:502
+msgctxt "OnlineTranslator|"
+msgid "Chinese (Traditional)"
+msgstr "중국어 (번체)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:504
+msgctxt "OnlineTranslator|"
+msgid "Corsican"
+msgstr "코르시카어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:506
+msgctxt "OnlineTranslator|"
+msgid "Croatian"
+msgstr "크로아티아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:508
+msgctxt "OnlineTranslator|"
+msgid "Czech"
+msgstr "체코어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:510
+msgctxt "OnlineTranslator|"
+msgid "Danish"
+msgstr "덴마크어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:512
+msgctxt "OnlineTranslator|"
+msgid "Dutch"
+msgstr "네덜란드어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:514
+msgctxt "OnlineTranslator|"
+msgid "English"
+msgstr "영어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:516
+msgctxt "OnlineTranslator|"
+msgid "Esperanto"
+msgstr "에스페란토어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:518
+msgctxt "OnlineTranslator|"
+msgid "Estonian"
+msgstr "에스토니아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:520
+msgctxt "OnlineTranslator|"
+msgid "Fijian"
+msgstr "피지어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:522
+msgctxt "OnlineTranslator|"
+msgid "Filipino"
+msgstr "필리핀어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:524
+msgctxt "OnlineTranslator|"
+msgid "Finnish"
+msgstr "핀란드어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:526
+msgctxt "OnlineTranslator|"
+msgid "French"
+msgstr "프랑스어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:528
+msgctxt "OnlineTranslator|"
+msgid "Frisian"
+msgstr "프리지아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:530
+msgctxt "OnlineTranslator|"
+msgid "Galician"
+msgstr "갈리시아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:532
+msgctxt "OnlineTranslator|"
+msgid "Georgian"
+msgstr "조지아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:534
+msgctxt "OnlineTranslator|"
+msgid "German"
+msgstr "독일어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:536
+msgctxt "OnlineTranslator|"
+msgid "Greek"
+msgstr "그리스어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:538
+msgctxt "OnlineTranslator|"
+msgid "Gujarati"
+msgstr "구자라트어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:540
+msgctxt "OnlineTranslator|"
+msgid "Haitian Creole"
+msgstr "아이티 크리올어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:542
+msgctxt "OnlineTranslator|"
+msgid "Hausa"
+msgstr "하우사어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:544
+msgctxt "OnlineTranslator|"
+msgid "Hawaiian"
+msgstr "하와이어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:546
+msgctxt "OnlineTranslator|"
+msgid "Hebrew"
+msgstr "히브리어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:548
+msgctxt "OnlineTranslator|"
+msgid "Hill Mari"
+msgstr "힐마리어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:550
+msgctxt "OnlineTranslator|"
+msgid "Hindi"
+msgstr "힌디어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:552
+msgctxt "OnlineTranslator|"
+msgid "Hmong"
+msgstr "몽족어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:554
+msgctxt "OnlineTranslator|"
+msgid "Hungarian"
+msgstr "헝가리어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:556
+msgctxt "OnlineTranslator|"
+msgid "Icelandic"
+msgstr "아이슬란드어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:558
+msgctxt "OnlineTranslator|"
+msgid "Igbo"
+msgstr "이그보어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:560
+msgctxt "OnlineTranslator|"
+msgid "Indonesian"
+msgstr "인도네시아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:562
+msgctxt "OnlineTranslator|"
+msgid "Irish"
+msgstr "아일랜드어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:564
+msgctxt "OnlineTranslator|"
+msgid "Italian"
+msgstr "이탈리아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:566
+msgctxt "OnlineTranslator|"
+msgid "Japanese"
+msgstr "일본어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:568
+msgctxt "OnlineTranslator|"
+msgid "Javanese"
+msgstr "자바어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:570
+msgctxt "OnlineTranslator|"
+msgid "Kannada"
+msgstr "칸나다어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:572
+msgctxt "OnlineTranslator|"
+msgid "Kazakh"
+msgstr "카자흐어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:574
+msgctxt "OnlineTranslator|"
+msgid "Khmer"
+msgstr "크메르어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:576
+msgctxt "OnlineTranslator|"
+msgid "Kinyarwanda"
+msgstr "키냐르완다어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:578
+msgctxt "OnlineTranslator|"
+msgid "Klingon"
+msgstr "클링온어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:580
+msgctxt "OnlineTranslator|"
+msgid "Klingon (PlqaD)"
+msgstr "클링곤어 (pIqaD)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:582
+msgctxt "OnlineTranslator|"
+msgid "Korean"
+msgstr "한국어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:584
+msgctxt "OnlineTranslator|"
+msgid "Kurdish"
+msgstr "쿠르드어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:586
+msgctxt "OnlineTranslator|"
+msgid "Kyrgyz"
+msgstr "키르기스어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:588
+msgctxt "OnlineTranslator|"
+msgid "Lao"
+msgstr "라오어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:590
+msgctxt "OnlineTranslator|"
+msgid "Latin"
+msgstr "라틴어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:592
+msgctxt "OnlineTranslator|"
+msgid "Latvian"
+msgstr "라트비아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:594
+msgctxt "OnlineTranslator|"
+msgid "Levantine Arabic"
+msgstr "레반트 아랍어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:596
+msgctxt "OnlineTranslator|"
+msgid "Lithuanian"
+msgstr "리투아니아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:598
+msgctxt "OnlineTranslator|"
+msgid "Luxembourgish"
+msgstr "룩셈부르크어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:600
+msgctxt "OnlineTranslator|"
+msgid "Macedonian"
+msgstr "마케도니아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:602
+msgctxt "OnlineTranslator|"
+msgid "Malagasy"
+msgstr "말라가시어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:604
+msgctxt "OnlineTranslator|"
+msgid "Malay"
+msgstr "말레이어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:606
+msgctxt "OnlineTranslator|"
+msgid "Malayalam"
+msgstr "말라얄람어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:608
+msgctxt "OnlineTranslator|"
+msgid "Maltese"
+msgstr "몰타어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:610
+msgctxt "OnlineTranslator|"
+msgid "Maori"
+msgstr "마오리어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:612
+msgctxt "OnlineTranslator|"
+msgid "Marathi"
+msgstr "마라티어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:614
+msgctxt "OnlineTranslator|"
+msgid "Mari"
+msgstr "마리어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:616
+msgctxt "OnlineTranslator|"
+msgid "Mongolian"
+msgstr "몽골어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:618
+msgctxt "OnlineTranslator|"
+msgid "Myanmar"
+msgstr "미얀마어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:620
+msgctxt "OnlineTranslator|"
+msgid "Nepali"
+msgstr "네팔어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:622
+msgctxt "OnlineTranslator|"
+msgid "Norwegian"
+msgstr "노르웨이어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:624
+msgctxt "OnlineTranslator|"
+msgid "Oriya"
+msgstr "오리야어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:626
+msgctxt "OnlineTranslator|"
+msgid "Chichewa"
+msgstr "치체와어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:628
+msgctxt "OnlineTranslator|"
+msgid "Papiamento"
+msgstr "파피아멘토어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:630
+msgctxt "OnlineTranslator|"
+msgid "Pashto"
+msgstr "파슈토어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:632
+msgctxt "OnlineTranslator|"
+msgid "Persian"
+msgstr "페르시아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:634
+msgctxt "OnlineTranslator|"
+msgid "Polish"
+msgstr "폴란드어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:636
+msgctxt "OnlineTranslator|"
+msgid "Portuguese"
+msgstr "포르투갈어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:638
+msgctxt "OnlineTranslator|"
+msgid "Punjabi"
+msgstr "펀자브어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:640
+msgctxt "OnlineTranslator|"
+msgid "Queretaro Otomi"
+msgstr "케레타로 오토미어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:642
+msgctxt "OnlineTranslator|"
+msgid "Romanian"
+msgstr "루마니아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:644
+msgctxt "OnlineTranslator|"
+msgid "Russian"
+msgstr "러시아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:646
+msgctxt "OnlineTranslator|"
+msgid "Samoan"
+msgstr "사모아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:648
+msgctxt "OnlineTranslator|"
+msgid "Scots Gaelic"
+msgstr "스코틀랜드 게일어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:650
+msgctxt "OnlineTranslator|"
+msgid "Serbian (Cyrillic)"
+msgstr "세르비아어 (키릴어)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:652
+msgctxt "OnlineTranslator|"
+msgid "Serbian (Latin)"
+msgstr "세르비아어 (라틴어)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:654
+msgctxt "OnlineTranslator|"
+msgid "Sesotho"
+msgstr "세소토어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:656
+msgctxt "OnlineTranslator|"
+msgid "Shona"
+msgstr "쇼나어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:658
+msgctxt "OnlineTranslator|"
+msgid "Sindhi"
+msgstr "신디어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:660
+msgctxt "OnlineTranslator|"
+msgid "Sinhala"
+msgstr "싱할라어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:662
+msgctxt "OnlineTranslator|"
+msgid "Slovak"
+msgstr "슬로바키아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:664
+msgctxt "OnlineTranslator|"
+msgid "Slovenian"
+msgstr "슬로베니아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:666
+msgctxt "OnlineTranslator|"
+msgid "Somali"
+msgstr "소말리아어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:668
+msgctxt "OnlineTranslator|"
+msgid "Spanish"
+msgstr "스페인어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:670
+msgctxt "OnlineTranslator|"
+msgid "Sundanese"
+msgstr "순다어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:672
+msgctxt "OnlineTranslator|"
+msgid "Swahili"
+msgstr "스와힐리어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:674
+msgctxt "OnlineTranslator|"
+msgid "Swedish"
+msgstr "스웨덴어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:676
+msgctxt "OnlineTranslator|"
+msgid "Tagalog"
+msgstr "타갈로그어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:678
+msgctxt "OnlineTranslator|"
+msgid "Tahitian"
+msgstr "타히티어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:680
+msgctxt "OnlineTranslator|"
+msgid "Tajik"
+msgstr "타지크어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:682
+msgctxt "OnlineTranslator|"
+msgid "Tamil"
+msgstr "타밀어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:684
+msgctxt "OnlineTranslator|"
+msgid "Tatar"
+msgstr "타타르어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:686
+msgctxt "OnlineTranslator|"
+msgid "Telugu"
+msgstr "텔루구어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:688
+msgctxt "OnlineTranslator|"
+msgid "Thai"
+msgstr "태국어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:690
+msgctxt "OnlineTranslator|"
+msgid "Tongan"
+msgstr "통가어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:692
+msgctxt "OnlineTranslator|"
+msgid "Turkish"
+msgstr "터키어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:694
+msgctxt "OnlineTranslator|"
+msgid "Turkmen"
+msgstr "투르크멘어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:696
+msgctxt "OnlineTranslator|"
+msgid "Udmurt"
+msgstr "우드말트어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:698
+msgctxt "OnlineTranslator|"
+msgid "Uighur"
+msgstr "위구르어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:700
+msgctxt "OnlineTranslator|"
+msgid "Ukrainian"
+msgstr "우크라이나어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:702
+msgctxt "OnlineTranslator|"
+msgid "Urdu"
+msgstr "우르두어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:704
+msgctxt "OnlineTranslator|"
+msgid "Uzbek"
+msgstr "우즈베크어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:706
+msgctxt "OnlineTranslator|"
+msgid "Vietnamese"
+msgstr "베트남어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:708
+msgctxt "OnlineTranslator|"
+msgid "Welsh"
+msgstr "웨일스어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:710
+msgctxt "OnlineTranslator|"
+msgid "Xhosa"
+msgstr "코사어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:712
+msgctxt "OnlineTranslator|"
+msgid "Yiddish"
+msgstr "이디시어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:714
+msgctxt "OnlineTranslator|"
+msgid "Yoruba"
+msgstr "요루바어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:716
+msgctxt "OnlineTranslator|"
+msgid "Yucatec Maya"
+msgstr "유카텍 마야어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:718
+msgctxt "OnlineTranslator|"
+msgid "Zulu"
+msgstr "줄루어"
+
+#: src/onlinetranslator/onlinetranslator.cpp:1211
+#: src/onlinetranslator/onlinetranslator.cpp:1220
+msgctxt "OnlineTranslator|"
+msgid ""
+"Error: Engine systems have detected suspicious traffic from your computer "
+"network. Please try your request again later."
+msgstr ""
+"오류: 엔진 시스템이 컴퓨터 네트워크에서 의심스러운 트래픽을 탐지했습니다. 나"
+"중에 다시 요청하십시오."
+
+#: src/onlinetranslator/onlinetranslator.cpp:1232
+#: src/onlinetranslator/onlinetranslator.cpp:1343
+#: src/onlinetranslator/onlinetranslator.cpp:1553
+#: src/onlinetranslator/onlinetranslator.cpp:1647
+msgctxt "OnlineTranslator|"
+msgid "Error: Unable to parse autodetected language"
+msgstr "오류: 자동 검색된 언어를 구문 분석할 수 없습니다"
+
+#: src/onlinetranslator/onlinetranslator.cpp:1459
+msgctxt "OnlineTranslator|"
+msgid "Error: Unable to find Bing credentials in web version."
+msgstr "오류: 웹 버전에서 Bing 자격 증명을 찾을 수 없습니다."
+
+#: src/onlinetranslator/onlinetranslator.cpp:1466
+msgctxt "OnlineTranslator|"
+msgid "Error: Unable to extract Bing key from web version."
+msgstr "오류: 웹 버전에서 Bing 키를 추출할 수 없습니다."
+
+#: src/onlinetranslator/onlinetranslator.cpp:1474
+msgctxt "OnlineTranslator|"
+msgid "Error: Unable to extract Bing token from web version."
+msgstr "오류: 웹 버전에서 Bing 토큰을 추출할 수 없습니다."
+
+#: src/onlinetranslator/onlinetranslator.cpp:1486
+#: src/onlinetranslator/onlinetranslator.cpp:1495
+msgctxt "OnlineTranslator|"
+msgid "Error: Unable to extract additional Bing information from web version."
+msgstr "오류: 웹 버전에서 추가 Bing 정보를 추출할 수 없습니다."
+
+#: src/onlinetranslator/onlinetranslator.cpp:1545
+msgctxt "OnlineTranslator|"
+msgid "Error: Bing return unhandled network error"
+msgstr ""
+
+#: src/onlinetranslator/onlinetts.cpp:64
+#, qt-format
+msgctxt "OnlineTts|"
+msgid "Selected engine %1 does not support voice settings"
+msgstr "선택한 엔진 %1이(가) 음성 설정을 지원하지 않습니다"
+
+#: src/onlinetranslator/onlinetts.cpp:69
+#, qt-format
+msgctxt "OnlineTts|"
+msgid "Selected engine %1 does not support emotion settings"
+msgstr "선택한 엔진 %1이(가) 감정 설정을 지원하지 않습니다"
+
+#: src/onlinetranslator/onlinetts.cpp:130
+#, qt-format
+msgctxt "OnlineTts|"
+msgid "%1 engine does not support TTS"
+msgstr "%1 엔진이 TTS를 지원하지 않습니다"
+
+#: src/onlinetranslator/onlinetts.cpp:216
+#, qt-format
+msgctxt "OnlineTts|"
+msgid "Selected language %1 is not supported for %2"
+msgstr "선택한 언어 %1은 %2에서 지원되지 않습니다"
+
+#: src/onlinetranslator/onlinetts.cpp:228
+#, qt-format
+msgctxt "OnlineTts|"
+msgid "Selected voice %1 is not supported for %2"
+msgstr "선택한 음성 %1은 %2에 대해 지원되지 않습니다"
+
+#: src/onlinetranslator/onlinetts.cpp:240
+#, qt-format
+msgctxt "OnlineTts|"
+msgid "Selected emotion %1 is not supported by %2"
+msgstr "선택한 감정 %1은(는) %2에서 지원되지 않습니다"
+
+#: src/popupwindow.ui:32
+msgctxt "PopupWindow|"
+msgid "Swap languages"
+msgstr "언어 교환"
+
+#: src/popupwindow.ui:64
+msgctxt "PopupWindow|"
+msgid "Copy source text to the clipboard"
+msgstr "원본 텍스트를 클립보드에 복사"
+
+#: src/popupwindow.ui:140
+msgctxt "PopupWindow|"
+msgid "Copy all translation data to the clipboard"
+msgstr "모든 번역 데이터를 클립보드에 복사"
+
+#: src/popupwindow.ui:151
+msgctxt "PopupWindow|"
+msgid "Copy translation to the clipboard"
+msgstr "번역을 클립보드로 복사"
+
+#: src/qgittag/qgittag.cpp:131
+#, qt-format
+msgctxt "QGitTag|"
+msgid "Release number %1 is missing"
+msgstr "릴리스 번호 %1이(가) 누락되었습니다"
+
+#: src/settings/appsettings.cpp:1261
+#, qt-format
+msgctxt "AppSettings|"
+msgid "Unknown language code: %1"
+msgstr "알 수 없는 언어 코드: %1"
+
+#: src/settings/autostartmanager/abstractautostartmanager.cpp:44
+msgctxt "AbstractAutostartManager|"
+msgid "Unable to apply autostart settings"
+msgstr "자동 시작 설정을 적용할 수 없습니다"
+
+#: src/settings/autostartmanager/portalautostartmanager.cpp:35
+#, qt-format
+msgctxt "PortalAutostartManager|"
+msgid "Allow %1 to manage autostart setting for itself."
+msgstr "%1이(가) 자동 시작 설정을 관리하도록 허용합니다."
+
+#: src/settings/autostartmanager/portalautostartmanager.cpp:54
+msgctxt "PortalAutostartManager|"
+msgid "Unable to subscribe to response from xdg-desktop-portal."
+msgstr "xdg-desktop-portal의 응답을 구독할 수 없습니다."
+
+#: src/settings/autostartmanager/unixautostartmanager.cpp:35
+#, qt-format
+msgctxt "UnixAutostartManager|"
+msgid "Unable to create %1"
+msgstr "%1을(를) 생성할 수 없습니다"
+
+#: src/settings/autostartmanager/unixautostartmanager.cpp:42
+#, qt-format
+msgctxt "UnixAutostartManager|"
+msgid "Unable to copy %1 to %2"
+msgstr "%1을 %2에 복사할 수 없습니다"
+
+#: src/settings/autostartmanager/unixautostartmanager.cpp:47
+#, qt-format
+msgctxt "UnixAutostartManager|"
+msgid "Unable to remove %1 from %2"
+msgstr "%2에서 %1을(를) 제거할 수 없습니다"
+
+#: src/settings/settingsdialog.cpp:38
+msgctxt "SettingsDialog|"
+msgid "Portable mode"
+msgstr "휴대용 모드"
+
+#: src/settings/settingsdialog.cpp:51
+#, qt-format
+msgctxt "SettingsDialog|"
+msgid "Use %1 to store settings"
+msgstr "%1을 사용하여 설정 저장"
+
+#: src/settings/settingsdialog.cpp:63 src/settings/settingsdialog.cpp:94
+#: src/settings/settingsdialog.cpp:95
+msgctxt "SettingsDialog|"
+msgid "<System language>"
+msgstr "<시스템 언어>"
+
+#: src/settings/settingsdialog.cpp:130
+msgctxt "SettingsDialog|"
+msgid "Icons:"
+msgstr "아이콘:"
+
+#: src/settings/settingsdialog.cpp:140
+msgctxt "SettingsDialog|"
+msgid "Updates"
+msgstr "업데이트"
+
+#: src/settings/settingsdialog.cpp:147
+msgctxt "SettingsDialog|"
+msgid "Check for updates:"
+msgstr "업데이트 확인:"
+
+#: src/settings/settingsdialog.cpp:151
+msgctxt "SettingsDialog|"
+msgid "Every day"
+msgstr "매일"
+
+#: src/settings/settingsdialog.cpp:152
+msgctxt "SettingsDialog|"
+msgid "Every week"
+msgstr "매주"
+
+#: src/settings/settingsdialog.cpp:153
+msgctxt "SettingsDialog|"
+msgid "Every month"
+msgstr "매월"
+
+#: src/settings/settingsdialog.cpp:154 src/settings/settingsdialog.ui:1047
+msgctxt "SettingsDialog|"
+msgid "Never"
+msgstr "안함"
+
+#: src/settings/settingsdialog.cpp:158
+msgctxt "SettingsDialog|"
+msgid "Check now"
+msgstr "지금 확인"
+
+#: src/settings/settingsdialog.cpp:159
+msgctxt "SettingsDialog|"
+msgid "Check for updates now"
+msgstr "지금 업데이트 확인"
+
+#: src/settings/settingsdialog.cpp:172
+msgctxt "SettingsDialog|"
+msgid "Happy New Year!"
+msgstr "새해 복 많이 받으세요!"
+
+#: src/settings/settingsdialog.cpp:186
+msgctxt "SettingsDialog|"
+msgid "The OCR parameter fields can not be empty."
+msgstr "OCR 매개변수 필드는 비워 둘 수 없습니다."
+
+#: src/settings/settingsdialog.cpp:187
+msgctxt "SettingsDialog|"
+msgid "Do you want to discard the invalid parameters?"
+msgstr "잘못된 매개변수를 삭제하시겠습니까?"
+
+#: src/settings/settingsdialog.cpp:337
+msgctxt "SettingsDialog|"
+msgid "Select icon"
+msgstr "아이콘 선택"
+
+#: src/settings/settingsdialog.cpp:337
+msgctxt "SettingsDialog|"
+msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
+msgstr "이미지 (*.png *.ico *.svg *.jpg);;모든 파일()"
+
+#: src/settings/settingsdialog.cpp:350
+msgctxt "SettingsDialog|"
+msgid "Select OCR languages path"
+msgstr "OCR 언어 경로 선택"
+
+#: src/settings/settingsdialog.cpp:399 src/settings/settingsdialog.ui:1303
+msgctxt "SettingsDialog|"
+msgid "Default region"
+msgstr "기본 영역"
+
+#: src/settings/settingsdialog.cpp:402
+msgctxt "SettingsDialog|"
+msgid "Mandarin (China)"
+msgstr "만다린 (중국)"
+
+#: src/settings/settingsdialog.cpp:477
+msgctxt "SettingsDialog|"
+msgid "Checking for updates..."
+msgstr "업데이트 확인 중..."
+
+#: src/settings/settingsdialog.cpp:499
+msgctxt "SettingsDialog|"
+msgid "Update available!"
+msgstr "업데이트 가능합니다!"
+
+#: src/settings/settingsdialog.cpp:505
+msgctxt "SettingsDialog|"
+msgid "No updates available."
+msgstr "사용 가능한 업데이트가 없습니다."
+
+#: src/settings/settingsdialog.cpp:604
+msgctxt "SettingsDialog|"
+msgid "Back"
+msgstr "뒤로"
+
+#: src/settings/settingsdialog.cpp:710
+msgctxt "SettingsDialog|"
+msgid "Nothing to play"
+msgstr "재생할 내용이 없습니다"
+
+#: src/settings/settingsdialog.cpp:710
+msgctxt "SettingsDialog|"
+msgid "Playback text is empty"
+msgstr "재생 텍스트가 비어 있습니다"
+
+#: src/settings/settingsdialog.cpp:720
+msgctxt "SettingsDialog|"
+msgid "Unable to detect language"
+msgstr "언어를 검색할 수 없습니다"
+
+#: src/settings/settingsdialog.ui:14
+msgctxt "SettingsDialog|"
+msgid "Settings"
+msgstr "설정"
+
+#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:136
+msgctxt "SettingsDialog|"
+msgid "General"
+msgstr "일반"
+
+#: src/settings/settingsdialog.ui:57
+msgctxt "SettingsDialog|"
+msgid "Interface"
+msgstr "인터페이스"
+
+#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:639
+msgctxt "SettingsDialog|"
+msgid "Translation"
+msgstr "번역"
+
+#: src/settings/settingsdialog.ui:81
+msgctxt "SettingsDialog|"
+msgid "Speech synthesis"
+msgstr "음성 합성"
+
+#: src/settings/settingsdialog.ui:89
+msgctxt "SettingsDialog|"
+msgid "Connection"
+msgstr "연결"
+
+#: src/settings/settingsdialog.ui:97
+msgctxt "SettingsDialog|"
+msgid "Shortcuts"
+msgstr "단축키"
+
+#: src/settings/settingsdialog.ui:105
+msgctxt "SettingsDialog|"
+msgid "About"
+msgstr "정보"
+
+#: src/settings/settingsdialog.ui:148
+msgctxt "SettingsDialog|"
+msgid "Language:"
+msgstr "언어:"
+
+#: src/settings/settingsdialog.ui:155
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Interface language</p></body></html>"
+msgstr "<html><head/><body><p>인터페이스 언어</p></body></html>"
+
+#: src/settings/settingsdialog.ui:162
+msgctxt "SettingsDialog|"
+msgid "Main window orientation:"
+msgstr "기본 창 방향:"
+
+#: src/settings/settingsdialog.ui:169
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Orientation of the main window layout<br/>When using "
+"<span style=\" font-style:italic;\">Auto</span>, the window orientation will "
+"match the screen orientation</p></body></html>"
+msgstr ""
+"<html><head/><body><p>기본 창 레이아웃의 방향<br/>사용 시 <span style=\" "
+"font-style:italic;\">자동</span>, 창 방향이 화면 방향과 일치합니다</p></"
+"body></html>"
+
+#. Orientation
+#: src/settings/settingsdialog.ui:173
+msgctxt "SettingsDialog|"
+msgid "Auto"
+msgstr "자동"
+
+#. Orientation
+#: src/settings/settingsdialog.ui:178
+msgctxt "SettingsDialog|"
+msgid "Portrait"
+msgstr "세로"
+
+#. Orientation
+#: src/settings/settingsdialog.ui:183
+msgctxt "SettingsDialog|"
+msgid "Landscape"
+msgstr "가로"
+
+#: src/settings/settingsdialog.ui:191
+msgctxt "SettingsDialog|"
+msgid "Translation mode:"
+msgstr "번역 모드:"
+
+#: src/settings/settingsdialog.ui:198
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>A window for translating selected text. If the "
+"application is minimized, the main window will always be used.</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>선택한 텍스트를 번역하기 위한 창입니다. 응용 프로그램"
+"을 최소화하면 기본 창이 항상 사용됩니다.</p></body></html>"
+
+#: src/settings/settingsdialog.ui:202 src/settings/settingsdialog.ui:351
+msgctxt "SettingsDialog|"
+msgid "Pop-up window"
+msgstr "팝업 창"
+
+#: src/settings/settingsdialog.ui:207
+msgctxt "SettingsDialog|"
+msgid "Main window"
+msgstr "기본 창"
+
+#: src/settings/settingsdialog.ui:212
+msgctxt "SettingsDialog|"
+msgid "Notification"
+msgstr "알림"
+
+#: src/settings/settingsdialog.ui:220
+msgctxt "SettingsDialog|"
+msgid "Translation notification timeout:"
+msgstr "번역 알림 시간 초과:"
+
+#: src/settings/settingsdialog.ui:233
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Notification with translation display time</p></body></"
+"html>"
+msgstr "<html><head/><body><p>번역 표시 시간이 포함된 알림</p></body></html>"
+
+#: src/settings/settingsdialog.ui:236 src/settings/settingsdialog.ui:441
+msgctxt "SettingsDialog|"
+msgid " sec"
+msgstr " 초"
+
+#: src/settings/settingsdialog.ui:249
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Display icon in the system tray</p></body></html>"
+msgstr "<html><head/><body><p>시스템 트레이에 아이콘 표시</p></body></html>"
+
+#: src/settings/settingsdialog.ui:252
+msgctxt "SettingsDialog|"
+msgid "Show tray icon"
+msgstr "트레이 아이콘 표시"
+
+#: src/settings/settingsdialog.ui:262
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Start application minimized to the system tray</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>시스템 트레이로 최소화된 시작 응용 프로그램</p></"
+"body></html>"
+
+#: src/settings/settingsdialog.ui:265
+msgctxt "SettingsDialog|"
+msgid "Start minimized"
+msgstr "최소화로 시작"
+
+#: src/settings/settingsdialog.ui:272
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Run the application at system startup</p></body></html>"
+msgstr ""
+"<html><head/><body><p>시스템 시작 시 응용 프로그램 실행</p></body></html>"
+
+#: src/settings/settingsdialog.ui:275
+msgctxt "SettingsDialog|"
+msgid "Launch at startup"
+msgstr "시작 시 실행"
+
+#: src/settings/settingsdialog.ui:308
+msgctxt "SettingsDialog|"
+msgid "Font"
+msgstr "글꼴"
+
+#: src/settings/settingsdialog.ui:314
+msgctxt "SettingsDialog|"
+msgid "Name:"
+msgstr "이름:"
+
+#: src/settings/settingsdialog.ui:321
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Translation and source text font</p></body></html>"
+msgstr "<html><head/><body><p>번역 및 원본 텍스트 글꼴</p></body></html>"
+
+#: src/settings/settingsdialog.ui:328
+msgctxt "SettingsDialog|"
+msgid "Size:"
+msgstr "크기:"
+
+#: src/settings/settingsdialog.ui:335
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Font size of translation and source text</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>번역 및 원본 텍스트의 글꼴 크기</p></body></html>"
+
+#: src/settings/settingsdialog.ui:357
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Pop-up window height in pixels</p></body></html>"
+msgstr "<html><head/><body><p>픽셀 단위의 팝업 창 높이</p></body></html>"
+
+#: src/settings/settingsdialog.ui:367
+msgctxt "SettingsDialog|"
+msgid "Width:"
+msgstr "너비:"
+
+#: src/settings/settingsdialog.ui:374
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
+msgstr "<html><head/><body><p>팝업 창 너비 (픽셀)</p></body></html>"
+
+#: src/settings/settingsdialog.ui:384
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Pop-up window opacity</p></body></html>"
+msgstr "<html><head/><body><p>팝업 창 불투명도</p></body></html>"
+
+#: src/settings/settingsdialog.ui:411
+msgctxt "SettingsDialog|"
+msgid "Opacity:"
+msgstr "불투명도:"
+
+#: src/settings/settingsdialog.ui:418
+msgctxt "SettingsDialog|"
+msgid "Show timeout:"
+msgstr "시간 초과 표시:"
+
+#: src/settings/settingsdialog.ui:425
+msgctxt "SettingsDialog|"
+msgid "Height:"
+msgstr "높이:"
+
+#: src/settings/settingsdialog.ui:438
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>The number of seconds after which the window will be "
+"hidden if it has no focus</p></body></html>"
+msgstr ""
+"<html><head/><body><p>포커스가 없는 경우 창을 숨길 때까지의 시간 (초)</p></"
+"body></html>"
+
+#: src/settings/settingsdialog.ui:461
+msgctxt "SettingsDialog|"
+msgid "Language format"
+msgstr "언어 형식"
+
+#: src/settings/settingsdialog.ui:467
+msgctxt "SettingsDialog|"
+msgid "Main window:"
+msgstr "기본 창:"
+
+#: src/settings/settingsdialog.ui:474 src/settings/settingsdialog.ui:498
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Languages text on buttons</p></body></html>"
+msgstr "<html><head/><body><p>버튼의 언어 텍스트</p></body></html>"
+
+#: src/settings/settingsdialog.ui:478 src/settings/settingsdialog.ui:502
+msgctxt "SettingsDialog|"
+msgid "Full name"
+msgstr "전체 이름"
+
+#: src/settings/settingsdialog.ui:483 src/settings/settingsdialog.ui:507
+msgctxt "SettingsDialog|"
+msgid "ISO 639-1 code"
+msgstr "ISO 639-1 코드"
+
+#: src/settings/settingsdialog.ui:491
+msgctxt "SettingsDialog|"
+msgid "Pop-up:"
+msgstr "팝업:"
+
+#: src/settings/settingsdialog.ui:518
+msgctxt "SettingsDialog|"
+msgid "Tray icon"
+msgstr "트레이 아이콘"
+
+#: src/settings/settingsdialog.ui:524
+msgctxt "SettingsDialog|"
+msgid "Icon:"
+msgstr "아이콘:"
+
+#: src/settings/settingsdialog.ui:537
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>System tray icon</p></body></html>"
+msgstr "<html><head/><body><p>시스템 트레이 아이콘</p></body></html>"
+
+#: src/settings/settingsdialog.ui:541
+msgctxt "SettingsDialog|"
+msgid "Default"
+msgstr "기본값"
+
+#: src/settings/settingsdialog.ui:549
+msgctxt "SettingsDialog|"
+msgid "Monochrome (dark theme)"
+msgstr "단색 (어두운 테마)"
+
+#: src/settings/settingsdialog.ui:557
+msgctxt "SettingsDialog|"
+msgid "Monochrome (light theme)"
+msgstr "단색 (밝은 테마)"
+
+#: src/settings/settingsdialog.ui:565
+msgctxt "SettingsDialog|"
+msgid "Custom"
+msgstr "사용자 지정"
+
+#: src/settings/settingsdialog.ui:579
+msgctxt "SettingsDialog|"
+msgid "Custom:"
+msgstr "사용자 지정:"
+
+#: src/settings/settingsdialog.ui:591
+msgctxt "SettingsDialog|"
+msgid "Path to the icon or icon name from theme"
+msgstr "테마에서 아이콘 또는 아이콘 이름의 경로"
+
+#: src/settings/settingsdialog.ui:601
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Select icon</p></body></html>"
+msgstr "<html><head/><body><p>아이콘 선택</p></body></html>"
+
+#: src/settings/settingsdialog.ui:645
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable source transliteration</p></body></"
+"html>"
+msgstr "<html><head/><body><p>원본 변환 사용 또는 사용 안 함</p></body></html>"
+
+#: src/settings/settingsdialog.ui:648
+msgctxt "SettingsDialog|"
+msgid "Enable source transliteration"
+msgstr "원본 변환 사용"
+
+#: src/settings/settingsdialog.ui:655
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable translation transliteration</p></"
+"body></html>"
+msgstr "<html><head/><body><p>번역 변환 사용 또는 사용 안 함</p></body></html>"
+
+#: src/settings/settingsdialog.ui:658
+msgctxt "SettingsDialog|"
+msgid "Enable translation transliteration"
+msgstr "번역 변환 사용"
+
+#: src/settings/settingsdialog.ui:665
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable source transcription</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>원본 문자 변환 사용 또는 사용 안 함</p></body></html>"
+
+#: src/settings/settingsdialog.ui:668
+msgctxt "SettingsDialog|"
+msgid "Enable source transcription"
+msgstr "원본 표기 사용"
+
+#: src/settings/settingsdialog.ui:675
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable translation options</p></body></html>"
+msgstr "<html><head/><body><p>번역 옵션 사용 또는 사용 안 함</p></body></html>"
+
+#: src/settings/settingsdialog.ui:678
+msgctxt "SettingsDialog|"
+msgid "Enable translation options"
+msgstr "번역 옵션 사용"
+
+#: src/settings/settingsdialog.ui:685
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable usage examples</p></body></html>"
+msgstr "<html><head/><body><p>사용 예제 사용 또는 사용 안 함</p></body></html>"
+
+#: src/settings/settingsdialog.ui:688
+msgctxt "SettingsDialog|"
+msgid "Enable examples"
+msgstr "예제 사용"
+
+#: src/settings/settingsdialog.ui:695
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Replace each sequence of whitespaces (this includes "
+"the ASCII characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' ') with a "
+"single space in queries</p></body></html>"
+msgstr ""
+"<html><head/><body><p>각 공백 시퀀스(ASCII 문자 포함 '\\t', '\\n', '\\v', "
+"'\\f', '\\r', 및 ' ')를 쿼리의 단일 공백으로 바꿉니다</p></body></html>"
+
+#: src/settings/settingsdialog.ui:698
+msgctxt "SettingsDialog|"
+msgid "Simplify source"
+msgstr "원본 단순화"
+
+#: src/settings/settingsdialog.ui:708
+msgctxt "SettingsDialog|"
+msgid "Automatic language detection"
+msgstr "자동 언어 감지"
+
+#: src/settings/settingsdialog.ui:714
+msgctxt "SettingsDialog|"
+msgid "Primary translation language:"
+msgstr "기본 번역 언어:"
+
+#: src/settings/settingsdialog.ui:721
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Language to which text will be translated when "
+"autodetecting</p></body></html>"
+msgstr ""
+"<html><head/><body><p>자동 검색 시 텍스트를 번역할 언어</p></body></html>"
+
+#: src/settings/settingsdialog.ui:728
+msgctxt "SettingsDialog|"
+msgid "Secondary translation language:"
+msgstr "보조 번역 언어:"
+
+#: src/settings/settingsdialog.ui:735
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Language to which the text will be translated if it is "
+"in the language selected above</p></body></html>"
+msgstr ""
+"<html><head/><body><p>위에서 선택한 언어로 텍스트를 번역할 언어</p></body></"
+"html>"
+
+#: src/settings/settingsdialog.ui:742 src/settings/settingsdialog.ui:752
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Automatically switch to <span style=\" font-style:"
+"italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
+msgstr ""
+"<html><head/><body><p>자동으로 전환 <span style=\" font-style:italic;\">자동"
+"</span> OCR 및 전역 단축키를 사용하는 경우</p></body></html>"
+
+#: src/settings/settingsdialog.ui:745
+msgctxt "SettingsDialog|"
+msgid "Force source language detection"
+msgstr "원본 언어 감지 강제 적용"
+
+#: src/settings/settingsdialog.ui:755
+msgctxt "SettingsDialog|"
+msgid "Force translation language detection"
+msgstr "번역 언어 감지 강제 적용"
+
+#: src/settings/settingsdialog.ui:778
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>LibreTranslate instance API key</p><p>Free instances "
+"listed here doesn't require a key, so field can be empty</p></body></html>"
+msgstr ""
+"<html><head/><body><p>LibreTranslate 인스턴스 API 키</p><p>여기에 나열된 사"
+"용 가능한 인스턴스는 키가 필요하지 않으므로 필드가 비어 있을 수 있습니다</"
+"p></body></html>"
+
+#: src/settings/settingsdialog.ui:791
+msgctxt "SettingsDialog|"
+msgid "API key:"
+msgstr "API 키:"
+
+#: src/settings/settingsdialog.ui:804
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>LibreTranslate engine URL</p><p>All instances can be "
+"found here: https://github.com/LibreTranslate/LibreTranslate#mirrors</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>LibreTranslate 엔진 URL</p><p>모든 인스턴스는 여기에서 "
+"찾을 수 있습니다: https://github.com/LibreTranslate/LibreTranslate#mirrors</"
+"p></body></html>"
+
+#: src/settings/settingsdialog.ui:844
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Lingva engine URL</p><p>All instances can be found "
+"here: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>Lingva 엔진 URL</p><p>모든 인스턴스는 여기에서 찾을 수 "
+"있습니다: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
+"body></html>"
+
+#: src/settings/settingsdialog.ui:898
+msgctxt "SettingsDialog|"
+msgid "Languages"
+msgstr "언어"
+
+#: src/settings/settingsdialog.ui:904
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Loading additional languages will impact both speed "
+"and accuracy, as there is more work to do to decide on the applicable "
+"language, and there is more chance of hallucinating incorrect words.</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>추가 언어를 로드하면 해당 언어를 결정하는 데 더 많은 작"
+"업이 필요하고 잘못된 단어를 환각으로 볼 가능성이 높기 때문에 속도와 정확성 모"
+"두에 영향을 미칩니다.</p></body></html>"
+
+#: src/settings/settingsdialog.ui:911
+msgctxt "SettingsDialog|"
+msgid "Languages path:"
+msgstr "언어 경로:"
+
+#: src/settings/settingsdialog.ui:918
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
+msgstr "<html><head/><body><p>OCR 언어 경로 선택</p></body></html>"
+
+#: src/settings/settingsdialog.ui:928
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
+msgstr "<html><head/><body><p>GitHub 리포지토리 열기</p></body></html>"
+
+#: src/settings/settingsdialog.ui:931
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
+"\"><span style=\" text-decoration: underline; color:#2980b9;\">Download "
+"more</span></a></p></body></html>"
+msgstr ""
+"<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
+"\"><span style=\" text-decoration: underline; color:#2980b9;\">추가 다운로드"
+"</span></a></p></body></html>"
+
+#: src/settings/settingsdialog.ui:941
+msgctxt "SettingsDialog|"
+msgid "Directory with trained models"
+msgstr "훈련된 모델이 있는 디렉터리"
+
+#: src/settings/settingsdialog.ui:957
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Replace all single line breaks with a space after text "
+"recognition</p></body></html>"
+msgstr ""
+"<html><head/><body><p>텍스트 인식 후 모든 단일 줄 바꿈을 공백으로 바꿉니다</"
+"p></body></html>"
+
+#: src/settings/settingsdialog.ui:960
+msgctxt "SettingsDialog|"
+msgid "Convert line breaks"
+msgstr "줄 바꿈 변환"
+
+#: src/settings/settingsdialog.ui:1024
+msgctxt "SettingsDialog|"
+msgid "Screen capture"
+msgstr "화면 캡처"
+
+#: src/settings/settingsdialog.ui:1036
+msgctxt "SettingsDialog|"
+msgid "Remember region:"
+msgstr "지역 기억:"
+
+#: src/settings/settingsdialog.ui:1043
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>When to remember the last selected region</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>마지막으로 선택한 영역을 기억해야 하는 시기</p></"
+"body></html>"
+
+#: src/settings/settingsdialog.ui:1052
+msgctxt "SettingsDialog|"
+msgid "Remember last"
+msgstr "최근 기억"
+
+#: src/settings/settingsdialog.ui:1057
+msgctxt "SettingsDialog|"
+msgid "Remember always"
+msgstr "항상 기억"
+
+#: src/settings/settingsdialog.ui:1065
+msgctxt "SettingsDialog|"
+msgid "Capture delay:"
+msgstr "캡처 지연:"
+
+#: src/settings/settingsdialog.ui:1072
+msgctxt "SettingsDialog|"
+msgid "Delay before screen capture"
+msgstr "화면 캡처 전 지연"
+
+#: src/settings/settingsdialog.ui:1075
+msgctxt "SettingsDialog|"
+msgid " ms"
+msgstr " ms"
+
+#: src/settings/settingsdialog.ui:1085
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
+msgstr "<html><head/><body><p>커서 옆에 돋보기 표시</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1088
+msgctxt "SettingsDialog|"
+msgid "Show magnifier"
+msgstr "돋보기 표시"
+
+#: src/settings/settingsdialog.ui:1098
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Finish capturing the fragment when the mouse button is "
+"released</p></body></html>"
+msgstr ""
+"<html><head/><body><p>마우스 버튼을 놓으면 조각 캡처 완료</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1101
+msgctxt "SettingsDialog|"
+msgid "Confirm on release"
+msgstr "릴리스 시 확인"
+
+#: src/settings/settingsdialog.ui:1108
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>선택하지 않은 부분에 안개를 약간 끼웁니다</p></body></"
+"html>"
+
+#: src/settings/settingsdialog.ui:1111
+msgctxt "SettingsDialog|"
+msgid "Apply light mask"
+msgstr "밝은 마스크 적용"
+
+#: src/settings/settingsdialog.ui:1150
+msgctxt "SettingsDialog|"
+msgid "Voice:"
+msgstr "음성:"
+
+#: src/settings/settingsdialog.ui:1163
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Voice of the speech synthesis engine</p></body></html>"
+msgstr "<html><head/><body><p>음성 합성 엔진의 음성</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1167
+msgctxt "SettingsDialog|"
+msgid "Zahar"
+msgstr "자하르"
+
+#: src/settings/settingsdialog.ui:1172
+msgctxt "SettingsDialog|"
+msgid "Ermil"
+msgstr "에밀"
+
+#: src/settings/settingsdialog.ui:1177
+msgctxt "SettingsDialog|"
+msgid "Jane"
+msgstr "제인"
+
+#: src/settings/settingsdialog.ui:1182
+msgctxt "SettingsDialog|"
+msgid "Oksana"
+msgstr "옥사나"
+
+#: src/settings/settingsdialog.ui:1187
+msgctxt "SettingsDialog|"
+msgid "Alyss"
+msgstr "알리스"
+
+#: src/settings/settingsdialog.ui:1192
+msgctxt "SettingsDialog|"
+msgid "Omazh"
+msgstr "오마즈"
+
+#: src/settings/settingsdialog.ui:1200
+msgctxt "SettingsDialog|"
+msgid "Emotional connotation:"
+msgstr "감정적 함의:"
+
+#: src/settings/settingsdialog.ui:1213
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Voice mood of the speech synthesis engine</p></body></"
+"html>"
+msgstr "<html><head/><body><p>음성 합성 엔진의 음성 무드</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1217
+msgctxt "SettingsDialog|"
+msgid "Neutral"
+msgstr "중립"
+
+#: src/settings/settingsdialog.ui:1222
+msgctxt "SettingsDialog|"
+msgid "Good"
+msgstr "좋음"
+
+#: src/settings/settingsdialog.ui:1227
+msgctxt "SettingsDialog|"
+msgid "Evil"
+msgstr "사악"
+
+#: src/settings/settingsdialog.ui:1235 src/settings/settingsdialog.ui:1311
+msgctxt "SettingsDialog|"
+msgid "Speech test:"
+msgstr "음성 테스트:"
+
+#: src/settings/settingsdialog.ui:1244 src/settings/settingsdialog.ui:1273
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Text to test speech</p></body></html>"
+msgstr "<html><head/><body><p>테스트할 음성 텍스트</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1247 src/settings/settingsdialog.ui:1276
+msgctxt "SettingsDialog|"
+msgid "This is an example of speech synthesis."
+msgstr "이것은 음성 합성의 한 예입니다."
+
+#: src/settings/settingsdialog.ui:1250
+msgctxt "SettingsDialog|"
+msgid "Test voice"
+msgstr "음성 테스트"
+
+#: src/settings/settingsdialog.ui:1295
+msgctxt "SettingsDialog|"
+msgid "Region:"
+msgstr "지역:"
+
+#: src/settings/settingsdialog.ui:1344
+msgctxt "SettingsDialog|"
+msgid "Proxy server"
+msgstr "프록시 서버"
+
+#: src/settings/settingsdialog.ui:1350
+msgctxt "SettingsDialog|"
+msgid "Type:"
+msgstr "유형:"
+
+#: src/settings/settingsdialog.ui:1363
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Proxy type</p></body></html>"
+msgstr "<html><head/><body><p>프록시 유형</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1367
+msgctxt "SettingsDialog|"
+msgid "Use system settings"
+msgstr "시스템 설정 사용"
+
+#: src/settings/settingsdialog.ui:1377
+msgctxt "SettingsDialog|"
+msgid "Don't use a proxy"
+msgstr "프록시 사용 안 함"
+
+#: src/settings/settingsdialog.ui:1393
+msgctxt "SettingsDialog|"
+msgid "Host:"
+msgstr "호스트:"
+
+#: src/settings/settingsdialog.ui:1403
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Proxy host name</p></body></html>"
+msgstr "<html><head/><body><p>프록시 호스트 이름</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1416
+msgctxt "SettingsDialog|"
+msgid "Port:"
+msgstr "포트:"
+
+#: src/settings/settingsdialog.ui:1432
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Proxy port</p></body></html>"
+msgstr "<html><head/><body><p>프록시 포트</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1451
+msgctxt "SettingsDialog|"
+msgid "Info: the proxy works only for text translation"
+msgstr "정보: 프록시는 텍스트 번역에만 작동합니다"
+
+#: src/settings/settingsdialog.ui:1461
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable authentication</p></body></html>"
+msgstr "<html><head/><body><p>인증 사용 또는 사용 안 함</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1464
+msgctxt "SettingsDialog|"
+msgid "Authentication"
+msgstr "인증"
+
+#: src/settings/settingsdialog.ui:1474
+msgctxt "SettingsDialog|"
+msgid "Username:"
+msgstr "사용자 이름:"
+
+#: src/settings/settingsdialog.ui:1484
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Proxy username for authentication</p></body></html>"
+msgstr "<html><head/><body><p>인증을 위한 프록시 사용자 이름</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1494
+msgctxt "SettingsDialog|"
+msgid "Password:"
+msgstr "암호:"
+
+#: src/settings/settingsdialog.ui:1504
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Proxy password for authentication</p></body></html>"
+msgstr "<html><head/><body><p>인증을 위한 프록시 암호</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1517
+msgctxt "SettingsDialog|"
+msgid "Info: the password is saved unencrypted"
+msgstr "정보: 암호화되지 않은 상태로 암호가 저장됩니다"
+
+#: src/settings/settingsdialog.ui:1553
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Register global shortcuts in system</p></body></html>"
+msgstr "<html><head/><body><p>시스템에 전역 단축키 등록</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1556
+msgctxt "SettingsDialog|"
+msgid "Enable global shortcuts"
+msgstr "전역 단축키 사용"
+
+#: src/settings/settingsdialog.ui:1572
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
+msgstr ""
+"<html><head/><body><p>모든 단축키를 기본값으로 재설정</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1575
+msgctxt "SettingsDialog|"
+msgid "Reset all"
+msgstr "모두 재설정"
+
+#: src/settings/settingsdialog.ui:1585
+msgctxt "SettingsDialog|"
+msgid "Shortcut"
+msgstr "단축키"
+
+#: src/settings/settingsdialog.ui:1591
+msgctxt "SettingsDialog|"
+msgid "Key sequence:"
+msgstr "키 시퀀스:"
+
+#: src/settings/settingsdialog.ui:1598
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>The key sequence for the selected action</p></body></"
+"html>"
+msgstr "<html><head/><body><p>선택한 작업의 키 시퀀스</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1605
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
+msgstr "<html><head/><body><p>단축키 수락</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1608
+msgctxt "SettingsDialog|"
+msgid "Accept"
+msgstr "수락"
+
+#: src/settings/settingsdialog.ui:1618
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
+msgstr "<html><head/><body><p>단축키 지우기</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1621
+msgctxt "SettingsDialog|"
+msgid "Clear"
+msgstr "지우기"
+
+#: src/settings/settingsdialog.ui:1631
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
+msgstr "<html><head/><body><p>단축키를 기본값으로 재설정</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1634
+msgctxt "SettingsDialog|"
+msgid "Reset"
+msgstr "재설정"
+
+#: src/settings/settingsdialog.ui:1679
+msgctxt "SettingsDialog|"
+msgid "Version:"
+msgstr "버전:"
+
+#: src/settings/settingsdialog.ui:1689
+msgctxt "SettingsDialog|"
+msgid "License:"
+msgstr "라이선스:"
+
+#: src/settings/settingsdialog.ui:1703
+msgctxt "SettingsDialog|"
+msgid "Source code:"
+msgstr "원본 코드:"
+
+#: src/settings/settingsdialog.ui:1743
+msgctxt "SettingsDialog|"
+msgid "Flag icons:"
+msgstr "플래그 아이콘:"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:21
+msgctxt "ShortcutsModel|"
+msgid "Global"
+msgstr "전역"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:23
+msgctxt "ShortcutsModel|"
+msgid "Translate selected text"
+msgstr "선택한 텍스트 번역"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:26
+msgctxt "ShortcutsModel|"
+msgid "Speak selected text"
+msgstr "선택한 텍스트 말하기"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:29
+msgctxt "ShortcutsModel|"
+msgid "Speak translation of selected text"
+msgstr "선택한 텍스트의 번역 말하기"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:32
+msgctxt "ShortcutsModel|"
+msgid "Stop text speaking"
+msgstr "텍스트 말하기 중지"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:35
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:71
+msgctxt "ShortcutsModel|"
+msgid "Speak / pause text speaking"
+msgstr "말하기 / 텍스트 말하기 일시 중지"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:38
+msgctxt "ShortcutsModel|"
+msgid "Show main window"
+msgstr "기본 창 표시"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:41
+msgctxt "ShortcutsModel|"
+msgid "Translate selected text and copy to clipboard"
+msgstr "선택한 텍스트를 번역하여 클립보드에 복사"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:44
+msgctxt "ShortcutsModel|"
+msgid "Recognize text in screen area"
+msgstr "화면 영역의 텍스트 인식"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:47
+msgctxt "ShortcutsModel|"
+msgid "Translate text in screen area"
+msgstr "화면 영역의 텍스트 번역"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:50
+msgctxt "ShortcutsModel|"
+msgid "Recognize text in screen area with delay"
+msgstr "지연이 있는 화면 영역의 텍스트 인식"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:53
+msgctxt "ShortcutsModel|"
+msgid "Translate text in screen area with delay"
+msgstr "지연이 있는 화면 영역의 텍스트 번역"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:57
+msgctxt "ShortcutsModel|"
+msgid "Main window"
+msgstr "기본 창"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
+msgctxt "ShortcutsModel|"
+msgid "Translate"
+msgstr "번역"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:62
+msgctxt "ShortcutsModel|"
+msgid "Swap languages"
+msgstr "언어 교환"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:65
+msgctxt "ShortcutsModel|"
+msgid "Close window"
+msgstr "창 닫기"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:69
+msgctxt "ShortcutsModel|"
+msgid "Source text"
+msgstr "원본 텍스트"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:75
+msgctxt "ShortcutsModel|"
+msgid "Translation"
+msgstr "번역"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
+msgctxt "ShortcutsModel|"
+msgid "Speak / pause speaking"
+msgstr "말하기 / 말하기 일시 중지"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:80
+msgctxt "ShortcutsModel|"
+msgid "Copy to clipboard"
+msgstr "클립보드에 복사"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:126
+msgctxt "ShortcutsModel|"
+msgid "Description"
+msgstr "설명"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:128
+msgctxt "ShortcutsModel|"
+msgid "Shortcut"
+msgstr "단축키"
+
+#: src/settings/tesseractparameterstablewidget.cpp:16
+msgctxt "TesseractParametersTableWidget|"
+msgid "Property"
+msgstr "속성"
+
+#: src/settings/tesseractparameterstablewidget.cpp:16
+msgctxt "TesseractParametersTableWidget|"
+msgid "Value"
+msgstr "값"
+
+#: src/speakbuttons.cpp:138
+msgctxt "SpeakButtons|"
+msgid "No text specified"
+msgstr "지정된 텍스트 없음"
+
+#: src/speakbuttons.cpp:138
+msgctxt "SpeakButtons|"
+msgid "Playback text is empty"
+msgstr "재생 텍스트가 비어 있습니다"
+
+#: src/speakbuttons.cpp:147
+msgctxt "SpeakButtons|"
+msgid "Unable to generate URLs for TTS"
+msgstr "TTS에 대한 URL을 생성할 수 없습니다"
+
+#: src/speakbuttons.ui:24
+msgctxt "SpeakButtons|"
+msgid "Speak / pause text speaking"
+msgstr "말하기 / 텍스트 말하기 일시 중지"
+
+#: src/speakbuttons.ui:34
+msgctxt "SpeakButtons|"
+msgid "Stop text speaking"
+msgstr "텍스트 말하기 중지"
+
+#: src/transitions/ocruninitializedtransition.cpp:28
+msgctxt "Ocr|"
+msgid "OCR languages are not loaded"
+msgstr "OCR 언어가 로드되지 않았습니다"
+
+#: src/transitions/ocruninitializedtransition.cpp:28
+msgctxt "Ocr|"
+msgid "You should set at least one OCR language in the application settings"
+msgstr "응용 프로그램 설정에서 하나 이상의 OCR 언어를 설정해야 합니다"
+
+#: src/translationedit.cpp:62
+msgctxt "TranslationEdit|"
+msgid "translation options:"
+msgstr "변역 옵션:"
+
+#: src/translationedit.cpp:97
+msgctxt "TranslationEdit|"
+msgid "examples:"
+msgstr "예:"
+
+#: src/trayicon.cpp:19 src/trayicon.cpp:44
+msgctxt "TrayIcon|"
+msgid "Show window"
+msgstr "창 표시"
+
+#: src/trayicon.cpp:20 src/trayicon.cpp:45
+msgctxt "TrayIcon|"
+msgid "Settings"
+msgstr "설정"
+
+#: src/trayicon.cpp:21 src/trayicon.cpp:46
+msgctxt "TrayIcon|"
+msgid "Quit"
+msgstr "종료"
+
+#: src/trayicon.cpp:51
+msgctxt "TrayIcon|"
+msgid "Translation result"
+msgstr "번역 결과"
+
+#: src/updaterdialog.cpp:46 src/updaterdialog.cpp:49
+msgctxt "UpdaterDialog|"
+msgid "Changelog:"
+msgstr "변경 내역:"
+
+#: src/updaterdialog.cpp:75
+msgctxt "UpdaterDialog|"
+msgid "Unable to write file"
+msgstr "파일을 쓸 수 없습니다"
+
+#: src/updaterdialog.cpp:119
+msgctxt "UpdaterDialog|"
+msgid "Downloading is complete"
+msgstr "다운로드가 완료되었습니다"
+
+#: src/updaterdialog.ui:24
+msgctxt "UpdaterDialog|"
+msgid "Exit the program and run the installer"
+msgstr "프로그램을 종료하고 설치 프로그램 실행"
+
+#: src/updaterdialog.ui:27
+msgctxt "UpdaterDialog|"
+msgid "Install"
+msgstr "설치"
+
+#: src/updaterdialog.ui:34
+msgctxt "UpdaterDialog|"
+msgid "Download the installer to the Downloads folder"
+msgstr "설치 관리자를 다운로드 폴더로 다운로드"
+
+#: src/updaterdialog.ui:37
+msgctxt "UpdaterDialog|"
+msgid "Download"
+msgstr "다운로드"
+
+#: src/updaterdialog.ui:44
+#, fuzzy
+#| msgctxt "UpdaterDialog|"
+#| msgid ""
+#| "<html><head/><body><p>A new version of Crow Translate is available! "
+#| "Updates add functionality and improve the stability of the application. "
+#| "Most often.<br/>You can also download the release manually from this <a "
+#| "href=\"https://github.com/crow-translate/crow-translate/releases\">link</"
+#| "a>.</p></body></html>"
+msgctxt "UpdaterDialog|"
+msgid ""
+"<html><head/><body><p>A new version of Crow Translate is available! Updates "
+"add functionality and improve the stability of the application. Most often."
+"<br/>You can also download the release manually from this <a href=\"https://"
+"download.kde.org/stable/crow-translate\">link</a>.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Crow Translate의 새로운 버전을 사용할 수 있습니다! 업데"
+"이트는 기능을 추가하고 응용프로그램의 안정성을 향상시킵니다. 가장 자주요.<br/"
+">이 <a href=\"https://github.com/crow-translate/crow-translate/releases\">링"
+"크</a>.</p></body></html>에서 릴리스를 수동으로 다운로드할 수도 있습니다"
+
+#: src/updaterdialog.ui:67
+msgctxt "UpdaterDialog|"
+msgid "Close this window"
+msgstr "이 창 닫기"
+
+#: src/updaterdialog.ui:70
+msgctxt "UpdaterDialog|"
+msgid "Update later"
+msgstr "나중에 업데이트"
+
+#: src/updaterdialog.ui:90
+msgctxt "UpdaterDialog|"
+msgid "Cancel download"
+msgstr "다운로드 취소"
+
+#: src/updaterdialog.ui:93
+msgctxt "UpdaterDialog|"
+msgid "Cancel"
+msgstr "Cancel"
+
+#: src/updaterdialog.ui:109
+msgctxt "UpdaterDialog|"
+msgid "Current version:"
+msgstr "현재 버전:"
+
+#: src/updaterdialog.ui:129
+msgctxt "UpdaterDialog|"
+msgid "Available version:"
+msgstr "사용 가능한 버전:"
+
+#~ msgctxt "QHotkey|"
+#~ msgid "Failed to register %1. Error: %2"
+#~ msgstr "%1을(를) 등록하지 못했습니다. 오류: %2"
+
+#~ msgctxt "QHotkey|"
+#~ msgid "Failed to unregister %1. Error: %2"
+#~ msgstr "%1 등록을 취소하지 못했습니다. 오류: %2"

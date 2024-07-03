@@ -1,0 +1,2628 @@
+# SPDX-FileCopyrightText: 2024 gidano
+# SPDX-License-Identifier: GPL-3.0-or-later
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Language: hu\n"
+"X-Source-Language: en\n"
+"X-Qt-Contexts: true\n"
+
+#: src/cli.cpp:41
+msgctxt "Cli|"
+msgid "Display all language codes."
+msgstr "Minden nyelvi kód megjelenítése."
+
+#: src/cli.cpp:42
+msgctxt "Cli|"
+msgid ""
+"Specify the source language (by default, engine will try to determine the "
+"language on its own)."
+msgstr ""
+"Adja meg a forrásnyelvet (alapértelmezés szerint a motor megpróbálja "
+"önállóan meghatározni)."
+
+#: src/cli.cpp:43
+msgctxt "Cli|"
+msgid ""
+"Specify the translation language(s), splitted by '+' (by default, the system "
+"language is used)."
+msgstr ""
+"Adja meg a fordítási nyelve(ke)t, '+' jellel elválasztva (alapértelmezésben "
+"a rendszer nyelvét használja)."
+
+#: src/cli.cpp:44
+msgctxt "Cli|"
+msgid ""
+"Specify the translator language (by default, the system language is used)."
+msgstr ""
+"Adja meg a fordító nyelvét (alapértelmezésben a rendszer nyelvét használja)."
+
+#: src/cli.cpp:45
+msgctxt "Cli|"
+msgid ""
+"Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
+"or 'lingva'), Google is used by default."
+msgstr ""
+"Jelölje ki a fordítómotort ('google', 'yandex', 'bing', 'libretranslate' "
+"vagy 'lingva'), a Google lesz az alapértelmezett."
+
+#: src/cli.cpp:46
+msgctxt "Cli|"
+msgid "Speak the translation."
+msgstr "Mondja el a fordítást."
+
+#: src/cli.cpp:47
+msgctxt "Cli|"
+msgid "Speak the source."
+msgstr "Mondja el a forrást."
+
+#: src/cli.cpp:48
+msgctxt "Cli|"
+msgid ""
+"Read source text from files. Arguments will be interpreted as file paths."
+msgstr ""
+"Forrásszöveg olvasása fájlokból. Az argumentumokat fájl elérési útjaként "
+"kell értelmezni."
+
+#: src/cli.cpp:49
+msgctxt "Cli|"
+msgid "Add stdin data to source text."
+msgstr "Az stdin adatok forrásszöveghez adása."
+
+#: src/cli.cpp:50
+#, qt-format
+msgctxt "Cli|"
+msgid "Do not print any text when using --%1 or --%2."
+msgstr "Ne nyomtasson szöveget a --%1 vagy --%2 használatakor."
+
+#: src/cli.cpp:51
+msgctxt "Cli|"
+msgid "Print only translations."
+msgstr "Csak a fordítás nyomtatása."
+
+#: src/cli.cpp:52
+msgctxt "Cli|"
+msgid "Print output formatted as JSON."
+msgstr "A nyomtatási kimenet JSON formázása."
+
+#: src/cli.cpp:55
+msgctxt "Cli|"
+msgid ""
+"A simple and lightweight translator that allows to translate and speak text "
+"using Google, Yandex, Bing, LibreTranslate and Lingva"
+msgstr ""
+"Egyszerű és kisméretű fordító, amely szöveg fordítást és felolvasást végez a "
+"Google, Yandex, Bing, LibreTranslate és Lingva segítségével"
+
+#: src/cli.cpp:56
+msgctxt "Cli|"
+msgid ""
+"Text to translate. By default, the translation will be done to the system "
+"language."
+msgstr ""
+"Fordítandó szöveg. Alapértelmezés szerint a fordítás a rendszer nyelvére "
+"történik."
+
+#: src/cli.cpp:78
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
+msgstr "Hiba: --%1 esetén meg kell adnia --%2 és/vagy --%3 opciót"
+
+#: src/cli.cpp:112
+msgctxt "Cli|"
+msgid "Error: There is no text for translation"
+msgstr "Hiba: Nincs szöveg a fordításhoz"
+
+#: src/cli.cpp:130
+msgctxt "Cli|"
+msgid "Error: Unknown engine"
+msgstr "Hiba: Ismeretlen motor"
+
+#: src/cli.cpp:165 src/cli.cpp:258 src/cli.cpp:347
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: %1"
+msgstr "Hiba: %1"
+
+#: src/cli.cpp:219
+#, qt-format
+msgctxt "Cli|"
+msgid "%1 - translation options:"
+msgstr "%1 - fordítási lehetőségek:"
+
+#: src/cli.cpp:236
+#, qt-format
+msgctxt "Cli|"
+msgid "%1 - examples:"
+msgstr "%1 - példák:"
+
+#: src/cli.cpp:360
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: You can't use --%1 with --%2"
+msgstr "Hiba: Nem használhatja ezt, --%1 ezzel, --%2"
+
+#: src/cli.cpp:376 src/cli.cpp:397
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: File does not exist: %1"
+msgstr "Hiba: A fájl nem létezik: %1"
+
+#: src/cli.cpp:381 src/cli.cpp:402
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: Unable to open file: %1"
+msgstr "Hiba: Nem sikerült megnyitni a fájlt: %1"
+
+#: src/contextmenu.h:39
+msgctxt "ContextMenu|"
+msgid "Search on Forvo.com"
+msgstr "Keresés a Forvo.com oldalon"
+
+#: src/languagebuttonswidget.cpp:451
+msgctxt "LanguageButtonsWidget|"
+msgid "Window width is larger than screen due to the languages on the panel."
+msgstr ""
+"Az ablak szélessége nagyobb a képernyőnél, a panelen található nyelvek miatt."
+
+#: src/languagebuttonswidget.cpp:452
+msgctxt "LanguageButtonsWidget|"
+msgid "Please reduce added languages."
+msgstr "Kérjük csökkentse a hozzáadott nyelvek számát."
+
+#: src/languagebuttonswidget.cpp:528 src/languagebuttonswidget.cpp:530
+msgctxt "LanguageButtonsWidget|"
+msgid "Auto"
+msgstr "Automatikus"
+
+#: src/languagebuttonswidget.ui:32
+msgctxt "LanguageButtonsWidget|"
+msgid "Edit languages"
+msgstr "Nyelvek szerkesztése"
+
+#: src/languagesdialog.cpp:23
+#, qt-format
+msgctxt "LanguagesDialog|"
+msgid "Filter (%1)"
+msgstr "Szűrő (%1)"
+
+#: src/languagesdialog.ui:14
+msgctxt "LanguagesDialog|"
+msgid "Edit languages"
+msgstr "Nyelvek szerkesztése"
+
+#: src/languagesdialog.ui:91
+msgctxt "LanguagesDialog|"
+msgid "Available languages:"
+msgstr "Elérhető nyelvek:"
+
+#: src/languagesdialog.ui:104
+msgctxt "LanguagesDialog|"
+msgid "Current languages:"
+msgstr "Jelenlegi nyelvek:"
+
+#: src/main.cpp:65
+#, qt-format
+msgctxt "D-Bus|"
+msgid "D-Bus service %1 is already registered by another application"
+msgstr "A(z) %1 D-Bus szolgáltatást már regisztrálta egy másik alkalmazás"
+
+#: src/main.cpp:90
+#, qt-format
+msgctxt "D-Bus|"
+msgid "Unable to register D-Bus object for %1"
+msgstr "Nem sikerült regisztrálni a D-Bus objektumot %1 számára"
+
+#: src/mainwindow.cpp:384
+msgctxt "MainWindow|"
+msgid "Unable to detect language"
+msgstr "A nyelv nem ismerhető fel"
+
+#: src/mainwindow.cpp:436
+msgctxt "MainWindow|"
+msgid "Unable to translate text"
+msgstr "Nem sikerült lefordítani a szöveget"
+
+#: src/mainwindow.cpp:916
+msgctxt "TrayIcon|"
+msgid "Invalid tray icon"
+msgstr "Érvénytelen tálca ikon"
+
+#: src/mainwindow.cpp:916
+#, qt-format
+msgctxt "TrayIcon|"
+msgid "The specified icon '%1' is invalid. The default icon will be used."
+msgstr "A megadott ikon '%1' érvénytelen. Az alapért. ikont fogja használni."
+
+#: src/mainwindow.cpp:947
+msgctxt "Ocr|"
+msgid "Unable to set OCR languages"
+msgstr "Nem lehet beállítani az OCR nyelveket"
+
+#: src/mainwindow.cpp:947
+#, qt-format
+msgctxt "Ocr|"
+msgid "Unable to initialize Tesseract with %1"
+msgstr "Nem sikerült inicializálni a Tesseract programot ezzel, %1"
+
+#: src/mainwindow.ui:36
+msgctxt "MainWindow|"
+msgid "Copy source text to the clipboard"
+msgstr "Másolja a forrásszöveget a vágólapra"
+
+#: src/mainwindow.ui:47
+msgctxt "MainWindow|"
+msgid "Recognize screen area with delay"
+msgstr "Képernyő terület felismerés késleltetése"
+
+#. The text should be short to fit in portrait orientation on phones.
+#: src/mainwindow.ui:70
+msgctxt "MainWindow|"
+msgid "Auto-translation"
+msgstr "Autom. fordítás"
+
+#: src/mainwindow.ui:82
+msgctxt "MainWindow|"
+msgid "Cancel"
+msgstr "Mégse"
+
+#: src/mainwindow.ui:93
+msgctxt "MainWindow|"
+msgid "Swap languages"
+msgstr "Nyelvek cseréje"
+
+#: src/mainwindow.ui:117
+msgctxt "MainWindow|"
+msgid "Source"
+msgstr "Forrás"
+
+#: src/mainwindow.ui:124
+msgctxt "MainWindow|"
+msgid "Clear"
+msgstr "Törlés"
+
+#: src/mainwindow.ui:141
+msgctxt "MainWindow|"
+msgid "Translate"
+msgstr "Fordít"
+
+#: src/mainwindow.ui:169
+msgctxt "MainWindow|"
+msgid "Translation"
+msgstr "Fordítás"
+
+#: src/mainwindow.ui:253
+msgctxt "MainWindow|"
+msgid "Copy translation to the clipboard"
+msgstr "Fordítás másolása a vágólapra"
+
+#: src/mainwindow.ui:264
+msgctxt "MainWindow|"
+msgid "Copy all translation data to the clipboard"
+msgstr "Másolja az összes fordítási adatot a vágólapra"
+
+#: src/mainwindow.ui:275
+msgctxt "MainWindow|"
+msgid "Translate screen area with delay"
+msgstr "A képernyőterület fordítása késleltetéssel"
+
+#: src/mainwindow.ui:286
+msgctxt "MainWindow|"
+msgid "Application settings"
+msgstr "Alkalmazás beállításai"
+
+#: src/ocr/ocr.cpp:136
+#, qt-format
+msgctxt "Ocr|"
+msgid "%1 is not a valid Tesseract parameter name."
+msgstr "%1 nem érvényes Tesseract paraméter név."
+
+#: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
+msgctxt "AbstractScreenGrabber|"
+msgid "Unable to grab screen"
+msgstr "Nem lehet a képernyőfelvételt elindítani"
+
+#: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:47
+msgctxt "WaylandGnomeScreenGrabber|"
+msgid "GNOME failed to take screenshot."
+msgstr "GNOME nem sikerült képernyőképet készíteni."
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:43
+#, qt-format
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to create pipe: %1."
+msgstr "Nem lehet csövet létrehozni: %1."
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:87
+#, qt-format
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to wait for socket readiness: %1."
+msgstr "Nem lehet várni a socket készenlétét: %1."
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:92
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Timeout reading from pipe."
+msgstr "Időtúllépés a csőtől."
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:98
+#, qt-format
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to read data from socket: %1."
+msgstr "Nem lehet leolvasni a socket adatait: %1."
+
+#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:56
+msgctxt "WaylandPortalScreenGrabber|"
+msgid "Unable to subscribe to response from xdg-desktop-portal."
+msgstr "Nem lehet feliratkozni az xdg-desktop-portal válaszára."
+
+#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:76
+msgctxt "WaylandPortalScreenGrabber|"
+msgid "Received an empty path from xdg-desktop-portal."
+msgstr "Üres útvonalat kapott az xdg-desktop-portal-tól."
+
+#: src/ocr/snippingarea.cpp:73
+msgctxt "SnippingArea|"
+msgid "Unable to snip screen area"
+msgstr "Nem lehet lemetszeni a képernyőt"
+
+#: src/ocr/snippingarea.cpp:74
+#, qt-format
+msgctxt "SnippingArea|"
+msgid "Received an invalid image of screen %1."
+msgstr "Érvénytelen kép érkezett a(z) %1 képernyőről."
+
+#: src/ocr/snippingarea.cpp:626
+msgctxt "SnippingArea|"
+msgid ""
+"Click and drag to draw a selection rectangle,\n"
+"or press Esc to quit"
+msgstr ""
+"Kattintson és húzza a kijelöléshez,\n"
+"vagy nyomjon Esc-et a kilépéshez"
+
+#: src/ocr/snippingarea.cpp:832
+msgctxt "SnippingArea|"
+msgid "Confirm:"
+msgstr "Megerősít:"
+
+#: src/ocr/snippingarea.cpp:834
+msgctxt "SnippingArea|"
+msgid "Release left-click"
+msgstr "Bal egérgomb felengedése"
+
+#: src/ocr/snippingarea.cpp:834 src/ocr/snippingarea.cpp:836
+msgctxt "SnippingArea|"
+msgid "Enter"
+msgstr "Enter"
+
+#: src/ocr/snippingarea.cpp:836
+msgctxt "SnippingArea|"
+msgid "Double-click"
+msgstr "Dupla kattintás"
+
+#: src/ocr/snippingarea.cpp:838
+msgctxt "SnippingArea|"
+msgid "Create new selection rectangle:"
+msgstr "Hozzon létre új kijelölést:"
+
+#: src/ocr/snippingarea.cpp:839
+msgctxt "SnippingArea|"
+msgid "Drag outside selection rectangle"
+msgstr "Húzza a kijelölésen kívülre"
+
+#: src/ocr/snippingarea.cpp:839
+msgctxt "SnippingArea|"
+msgid "+ Shift: Magnifier"
+msgstr "+ Shift: Nagyító"
+
+#: src/ocr/snippingarea.cpp:842
+msgctxt "SnippingArea|"
+msgid "Move selection rectangle:"
+msgstr "Kijelölés mozgatása:"
+
+#: src/ocr/snippingarea.cpp:843
+msgctxt "SnippingArea|"
+msgid "Drag inside selection rectangle"
+msgstr "Húzza a kiválasztás belsejébe"
+
+#: src/ocr/snippingarea.cpp:843
+msgctxt "SnippingArea|"
+msgid "Arrow keys"
+msgstr "Nyíl gombok"
+
+#: src/ocr/snippingarea.cpp:843
+msgctxt "SnippingArea|"
+msgid "+ Shift: Move in 1 pixel steps"
+msgstr "+ Shift: Mozgatás 1 képpontonként"
+
+#: src/ocr/snippingarea.cpp:845
+msgctxt "SnippingArea|"
+msgid "Resize selection rectangle:"
+msgstr "Kijelölés átméretezése:"
+
+#: src/ocr/snippingarea.cpp:846
+msgctxt "SnippingArea|"
+msgid "Drag handles"
+msgstr "Fogópont húzása"
+
+#: src/ocr/snippingarea.cpp:846
+msgctxt "SnippingArea|"
+msgid "Arrow keys + Alt"
+msgstr "Nyíl gombok + Alt"
+
+#: src/ocr/snippingarea.cpp:846
+msgctxt "SnippingArea|"
+msgid "+ Shift: Resize in 1 pixel steps"
+msgstr "+ Shift: Átméretezés 1 képpontonként"
+
+#: src/ocr/snippingarea.cpp:848
+msgctxt "SnippingArea|"
+msgid "Reset selection:"
+msgstr "Kijelölés megszüntetése:"
+
+#: src/ocr/snippingarea.cpp:849
+msgctxt "SnippingArea|"
+msgid "Right-click"
+msgstr "Jobb kattintás"
+
+#: src/ocr/snippingarea.cpp:852
+msgctxt "SnippingArea|"
+msgid "Cancel:"
+msgstr "Mégse:"
+
+#: src/ocr/snippingarea.cpp:853
+msgctxt "SnippingArea|"
+msgid "Esc key"
+msgstr "Esc billentyű"
+
+#: src/onlinetranslator/onlinetranslator.cpp:190
+#, qt-format
+msgctxt "OnlineTranslator|"
+msgid "Selected source language %1 is not supported for %2"
+msgstr "A kiválasztott %1 forrásnyelv nem támogatott %2 esetén"
+
+#: src/onlinetranslator/onlinetranslator.cpp:195
+#, qt-format
+msgctxt "OnlineTranslator|"
+msgid "Selected translation language %1 is not supported for %2"
+msgstr "A kiválasztott %1 fordítási nyelv nem támogatott %2 esetén"
+
+#: src/onlinetranslator/onlinetranslator.cpp:200
+#, qt-format
+msgctxt "OnlineTranslator|"
+msgid "Selected ui language %1 is not supported for %2"
+msgstr "A kiválasztott %1 felület nyelv nem támogatott %2 esetén"
+
+#: src/onlinetranslator/onlinetranslator.cpp:217
+#: src/onlinetranslator/onlinetranslator.cpp:226
+#: src/onlinetranslator/onlinetranslator.cpp:261
+#: src/onlinetranslator/onlinetranslator.cpp:270
+#, qt-format
+msgctxt "OnlineTranslator|"
+msgid "%1 URL can't be empty."
+msgstr "%1 URL nem lehet üres."
+
+#: src/onlinetranslator/onlinetranslator.cpp:468
+msgctxt "OnlineTranslator|"
+msgid "Automatically detect"
+msgstr "Autom. észlelés"
+
+#: src/onlinetranslator/onlinetranslator.cpp:470
+msgctxt "OnlineTranslator|"
+msgid "Afrikaans"
+msgstr "Afrikaans"
+
+#: src/onlinetranslator/onlinetranslator.cpp:472
+msgctxt "OnlineTranslator|"
+msgid "Albanian"
+msgstr "Albanian"
+
+#: src/onlinetranslator/onlinetranslator.cpp:474
+msgctxt "OnlineTranslator|"
+msgid "Amharic"
+msgstr "Amhara"
+
+#: src/onlinetranslator/onlinetranslator.cpp:476
+msgctxt "OnlineTranslator|"
+msgid "Arabic"
+msgstr "Arab"
+
+#: src/onlinetranslator/onlinetranslator.cpp:478
+msgctxt "OnlineTranslator|"
+msgid "Armenian"
+msgstr "Örmény"
+
+#: src/onlinetranslator/onlinetranslator.cpp:480
+msgctxt "OnlineTranslator|"
+msgid "Azeerbaijani"
+msgstr "Azerbajdzsán"
+
+#: src/onlinetranslator/onlinetranslator.cpp:482
+msgctxt "OnlineTranslator|"
+msgid "Basque"
+msgstr "Baszk"
+
+#: src/onlinetranslator/onlinetranslator.cpp:484
+msgctxt "OnlineTranslator|"
+msgid "Bashkir"
+msgstr "Baskír"
+
+#: src/onlinetranslator/onlinetranslator.cpp:486
+msgctxt "OnlineTranslator|"
+msgid "Belarusian"
+msgstr "Belarusz"
+
+#: src/onlinetranslator/onlinetranslator.cpp:488
+msgctxt "OnlineTranslator|"
+msgid "Bengali"
+msgstr "Bengáli"
+
+#: src/onlinetranslator/onlinetranslator.cpp:490
+msgctxt "OnlineTranslator|"
+msgid "Bosnian"
+msgstr "Bosnyák"
+
+#: src/onlinetranslator/onlinetranslator.cpp:492
+msgctxt "OnlineTranslator|"
+msgid "Bulgarian"
+msgstr "Bolgár"
+
+#: src/onlinetranslator/onlinetranslator.cpp:494
+msgctxt "OnlineTranslator|"
+msgid "Catalan"
+msgstr "Katalán"
+
+#: src/onlinetranslator/onlinetranslator.cpp:496
+msgctxt "OnlineTranslator|"
+msgid "Cantonese"
+msgstr "Kantoni"
+
+#: src/onlinetranslator/onlinetranslator.cpp:498
+msgctxt "OnlineTranslator|"
+msgid "Cebuano"
+msgstr "Cebuano"
+
+#: src/onlinetranslator/onlinetranslator.cpp:500
+msgctxt "OnlineTranslator|"
+msgid "Chinese (Simplified)"
+msgstr "Kínai (Egyszerűsített)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:502
+msgctxt "OnlineTranslator|"
+msgid "Chinese (Traditional)"
+msgstr "Kínai (Hagyományos)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:504
+msgctxt "OnlineTranslator|"
+msgid "Corsican"
+msgstr "Korzikai"
+
+#: src/onlinetranslator/onlinetranslator.cpp:506
+msgctxt "OnlineTranslator|"
+msgid "Croatian"
+msgstr "Horvát"
+
+#: src/onlinetranslator/onlinetranslator.cpp:508
+msgctxt "OnlineTranslator|"
+msgid "Czech"
+msgstr "Cseh"
+
+#: src/onlinetranslator/onlinetranslator.cpp:510
+msgctxt "OnlineTranslator|"
+msgid "Danish"
+msgstr "Dán"
+
+#: src/onlinetranslator/onlinetranslator.cpp:512
+msgctxt "OnlineTranslator|"
+msgid "Dutch"
+msgstr "Holland"
+
+#: src/onlinetranslator/onlinetranslator.cpp:514
+msgctxt "OnlineTranslator|"
+msgid "English"
+msgstr "Angol"
+
+#: src/onlinetranslator/onlinetranslator.cpp:516
+msgctxt "OnlineTranslator|"
+msgid "Esperanto"
+msgstr "Eszperantó"
+
+#: src/onlinetranslator/onlinetranslator.cpp:518
+msgctxt "OnlineTranslator|"
+msgid "Estonian"
+msgstr "Észt"
+
+#: src/onlinetranslator/onlinetranslator.cpp:520
+msgctxt "OnlineTranslator|"
+msgid "Fijian"
+msgstr "Fidzsi"
+
+#: src/onlinetranslator/onlinetranslator.cpp:522
+msgctxt "OnlineTranslator|"
+msgid "Filipino"
+msgstr "Filippínó"
+
+#: src/onlinetranslator/onlinetranslator.cpp:524
+msgctxt "OnlineTranslator|"
+msgid "Finnish"
+msgstr "Finn"
+
+#: src/onlinetranslator/onlinetranslator.cpp:526
+msgctxt "OnlineTranslator|"
+msgid "French"
+msgstr "Francia"
+
+#: src/onlinetranslator/onlinetranslator.cpp:528
+msgctxt "OnlineTranslator|"
+msgid "Frisian"
+msgstr "Fríz"
+
+#: src/onlinetranslator/onlinetranslator.cpp:530
+msgctxt "OnlineTranslator|"
+msgid "Galician"
+msgstr "Galíciai"
+
+#: src/onlinetranslator/onlinetranslator.cpp:532
+msgctxt "OnlineTranslator|"
+msgid "Georgian"
+msgstr "Grúz"
+
+#: src/onlinetranslator/onlinetranslator.cpp:534
+msgctxt "OnlineTranslator|"
+msgid "German"
+msgstr "Német"
+
+#: src/onlinetranslator/onlinetranslator.cpp:536
+msgctxt "OnlineTranslator|"
+msgid "Greek"
+msgstr "Görög"
+
+#: src/onlinetranslator/onlinetranslator.cpp:538
+msgctxt "OnlineTranslator|"
+msgid "Gujarati"
+msgstr "Gudzsaráti"
+
+#: src/onlinetranslator/onlinetranslator.cpp:540
+msgctxt "OnlineTranslator|"
+msgid "Haitian Creole"
+msgstr "Haiti kreol"
+
+#: src/onlinetranslator/onlinetranslator.cpp:542
+msgctxt "OnlineTranslator|"
+msgid "Hausa"
+msgstr "Hausa"
+
+#: src/onlinetranslator/onlinetranslator.cpp:544
+msgctxt "OnlineTranslator|"
+msgid "Hawaiian"
+msgstr "Hawaii"
+
+#: src/onlinetranslator/onlinetranslator.cpp:546
+msgctxt "OnlineTranslator|"
+msgid "Hebrew"
+msgstr "Héber"
+
+#: src/onlinetranslator/onlinetranslator.cpp:548
+msgctxt "OnlineTranslator|"
+msgid "Hill Mari"
+msgstr "Hill Mari"
+
+#: src/onlinetranslator/onlinetranslator.cpp:550
+msgctxt "OnlineTranslator|"
+msgid "Hindi"
+msgstr "Hindi"
+
+#: src/onlinetranslator/onlinetranslator.cpp:552
+msgctxt "OnlineTranslator|"
+msgid "Hmong"
+msgstr "Hmong"
+
+#: src/onlinetranslator/onlinetranslator.cpp:554
+msgctxt "OnlineTranslator|"
+msgid "Hungarian"
+msgstr "Magyar"
+
+#: src/onlinetranslator/onlinetranslator.cpp:556
+msgctxt "OnlineTranslator|"
+msgid "Icelandic"
+msgstr "Izlandi"
+
+#: src/onlinetranslator/onlinetranslator.cpp:558
+msgctxt "OnlineTranslator|"
+msgid "Igbo"
+msgstr "Igbo"
+
+#: src/onlinetranslator/onlinetranslator.cpp:560
+msgctxt "OnlineTranslator|"
+msgid "Indonesian"
+msgstr "Indonéz"
+
+#: src/onlinetranslator/onlinetranslator.cpp:562
+msgctxt "OnlineTranslator|"
+msgid "Irish"
+msgstr "Ír"
+
+#: src/onlinetranslator/onlinetranslator.cpp:564
+msgctxt "OnlineTranslator|"
+msgid "Italian"
+msgstr "Olasz"
+
+#: src/onlinetranslator/onlinetranslator.cpp:566
+msgctxt "OnlineTranslator|"
+msgid "Japanese"
+msgstr "Japán"
+
+#: src/onlinetranslator/onlinetranslator.cpp:568
+msgctxt "OnlineTranslator|"
+msgid "Javanese"
+msgstr "Jávai"
+
+#: src/onlinetranslator/onlinetranslator.cpp:570
+msgctxt "OnlineTranslator|"
+msgid "Kannada"
+msgstr "Kannada"
+
+#: src/onlinetranslator/onlinetranslator.cpp:572
+msgctxt "OnlineTranslator|"
+msgid "Kazakh"
+msgstr "Kazah"
+
+#: src/onlinetranslator/onlinetranslator.cpp:574
+msgctxt "OnlineTranslator|"
+msgid "Khmer"
+msgstr "Khmer"
+
+#: src/onlinetranslator/onlinetranslator.cpp:576
+msgctxt "OnlineTranslator|"
+msgid "Kinyarwanda"
+msgstr "Kinyarwanda"
+
+#: src/onlinetranslator/onlinetranslator.cpp:578
+msgctxt "OnlineTranslator|"
+msgid "Klingon"
+msgstr "Klingon"
+
+#: src/onlinetranslator/onlinetranslator.cpp:580
+msgctxt "OnlineTranslator|"
+msgid "Klingon (PlqaD)"
+msgstr "Klingon (PlqaD)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:582
+msgctxt "OnlineTranslator|"
+msgid "Korean"
+msgstr "Koreai"
+
+#: src/onlinetranslator/onlinetranslator.cpp:584
+msgctxt "OnlineTranslator|"
+msgid "Kurdish"
+msgstr "Kurd"
+
+#: src/onlinetranslator/onlinetranslator.cpp:586
+msgctxt "OnlineTranslator|"
+msgid "Kyrgyz"
+msgstr "Kyrgyz"
+
+#: src/onlinetranslator/onlinetranslator.cpp:588
+msgctxt "OnlineTranslator|"
+msgid "Lao"
+msgstr "Lao"
+
+#: src/onlinetranslator/onlinetranslator.cpp:590
+msgctxt "OnlineTranslator|"
+msgid "Latin"
+msgstr "Latin"
+
+#: src/onlinetranslator/onlinetranslator.cpp:592
+msgctxt "OnlineTranslator|"
+msgid "Latvian"
+msgstr "Lett"
+
+#: src/onlinetranslator/onlinetranslator.cpp:594
+msgctxt "OnlineTranslator|"
+msgid "Levantine Arabic"
+msgstr "Levantine Arabic"
+
+#: src/onlinetranslator/onlinetranslator.cpp:596
+msgctxt "OnlineTranslator|"
+msgid "Lithuanian"
+msgstr "Litván"
+
+#: src/onlinetranslator/onlinetranslator.cpp:598
+msgctxt "OnlineTranslator|"
+msgid "Luxembourgish"
+msgstr "Luxemburgi"
+
+#: src/onlinetranslator/onlinetranslator.cpp:600
+msgctxt "OnlineTranslator|"
+msgid "Macedonian"
+msgstr "Macedón"
+
+#: src/onlinetranslator/onlinetranslator.cpp:602
+msgctxt "OnlineTranslator|"
+msgid "Malagasy"
+msgstr "Malagasy"
+
+#: src/onlinetranslator/onlinetranslator.cpp:604
+msgctxt "OnlineTranslator|"
+msgid "Malay"
+msgstr "Malay"
+
+#: src/onlinetranslator/onlinetranslator.cpp:606
+msgctxt "OnlineTranslator|"
+msgid "Malayalam"
+msgstr "Malayalam"
+
+#: src/onlinetranslator/onlinetranslator.cpp:608
+msgctxt "OnlineTranslator|"
+msgid "Maltese"
+msgstr "Maltese"
+
+#: src/onlinetranslator/onlinetranslator.cpp:610
+msgctxt "OnlineTranslator|"
+msgid "Maori"
+msgstr "Maori"
+
+#: src/onlinetranslator/onlinetranslator.cpp:612
+msgctxt "OnlineTranslator|"
+msgid "Marathi"
+msgstr "Marathi"
+
+#: src/onlinetranslator/onlinetranslator.cpp:614
+msgctxt "OnlineTranslator|"
+msgid "Mari"
+msgstr "Mari"
+
+#: src/onlinetranslator/onlinetranslator.cpp:616
+msgctxt "OnlineTranslator|"
+msgid "Mongolian"
+msgstr "Mongol"
+
+#: src/onlinetranslator/onlinetranslator.cpp:618
+msgctxt "OnlineTranslator|"
+msgid "Myanmar"
+msgstr "Myanmar"
+
+#: src/onlinetranslator/onlinetranslator.cpp:620
+msgctxt "OnlineTranslator|"
+msgid "Nepali"
+msgstr "Nepáli"
+
+#: src/onlinetranslator/onlinetranslator.cpp:622
+msgctxt "OnlineTranslator|"
+msgid "Norwegian"
+msgstr "Norvég"
+
+#: src/onlinetranslator/onlinetranslator.cpp:624
+msgctxt "OnlineTranslator|"
+msgid "Oriya"
+msgstr "Oriya"
+
+#: src/onlinetranslator/onlinetranslator.cpp:626
+msgctxt "OnlineTranslator|"
+msgid "Chichewa"
+msgstr "Chichewa"
+
+#: src/onlinetranslator/onlinetranslator.cpp:628
+msgctxt "OnlineTranslator|"
+msgid "Papiamento"
+msgstr "Papiamento"
+
+#: src/onlinetranslator/onlinetranslator.cpp:630
+msgctxt "OnlineTranslator|"
+msgid "Pashto"
+msgstr "Pastu"
+
+#: src/onlinetranslator/onlinetranslator.cpp:632
+msgctxt "OnlineTranslator|"
+msgid "Persian"
+msgstr "Perzsa"
+
+#: src/onlinetranslator/onlinetranslator.cpp:634
+msgctxt "OnlineTranslator|"
+msgid "Polish"
+msgstr "Lengyel"
+
+#: src/onlinetranslator/onlinetranslator.cpp:636
+msgctxt "OnlineTranslator|"
+msgid "Portuguese"
+msgstr "Portugál"
+
+#: src/onlinetranslator/onlinetranslator.cpp:638
+msgctxt "OnlineTranslator|"
+msgid "Punjabi"
+msgstr "Punjabi"
+
+#: src/onlinetranslator/onlinetranslator.cpp:640
+msgctxt "OnlineTranslator|"
+msgid "Queretaro Otomi"
+msgstr "Queretaro Otomi"
+
+#: src/onlinetranslator/onlinetranslator.cpp:642
+msgctxt "OnlineTranslator|"
+msgid "Romanian"
+msgstr "Román"
+
+#: src/onlinetranslator/onlinetranslator.cpp:644
+msgctxt "OnlineTranslator|"
+msgid "Russian"
+msgstr "Orosz"
+
+#: src/onlinetranslator/onlinetranslator.cpp:646
+msgctxt "OnlineTranslator|"
+msgid "Samoan"
+msgstr "Samoan"
+
+#: src/onlinetranslator/onlinetranslator.cpp:648
+msgctxt "OnlineTranslator|"
+msgid "Scots Gaelic"
+msgstr "Skót gael"
+
+#: src/onlinetranslator/onlinetranslator.cpp:650
+msgctxt "OnlineTranslator|"
+msgid "Serbian (Cyrillic)"
+msgstr "Szerb (cirill)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:652
+msgctxt "OnlineTranslator|"
+msgid "Serbian (Latin)"
+msgstr "Szerb (Latin)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:654
+msgctxt "OnlineTranslator|"
+msgid "Sesotho"
+msgstr "Sesotho"
+
+#: src/onlinetranslator/onlinetranslator.cpp:656
+msgctxt "OnlineTranslator|"
+msgid "Shona"
+msgstr "Shona"
+
+#: src/onlinetranslator/onlinetranslator.cpp:658
+msgctxt "OnlineTranslator|"
+msgid "Sindhi"
+msgstr "Sindhi"
+
+#: src/onlinetranslator/onlinetranslator.cpp:660
+msgctxt "OnlineTranslator|"
+msgid "Sinhala"
+msgstr "Sinhala"
+
+#: src/onlinetranslator/onlinetranslator.cpp:662
+msgctxt "OnlineTranslator|"
+msgid "Slovak"
+msgstr "Szlovák"
+
+#: src/onlinetranslator/onlinetranslator.cpp:664
+msgctxt "OnlineTranslator|"
+msgid "Slovenian"
+msgstr "Szlovén"
+
+#: src/onlinetranslator/onlinetranslator.cpp:666
+msgctxt "OnlineTranslator|"
+msgid "Somali"
+msgstr "Szomáliai"
+
+#: src/onlinetranslator/onlinetranslator.cpp:668
+msgctxt "OnlineTranslator|"
+msgid "Spanish"
+msgstr "Spanyol"
+
+#: src/onlinetranslator/onlinetranslator.cpp:670
+msgctxt "OnlineTranslator|"
+msgid "Sundanese"
+msgstr "Sundanese"
+
+#: src/onlinetranslator/onlinetranslator.cpp:672
+msgctxt "OnlineTranslator|"
+msgid "Swahili"
+msgstr "Swahili"
+
+#: src/onlinetranslator/onlinetranslator.cpp:674
+msgctxt "OnlineTranslator|"
+msgid "Swedish"
+msgstr "Svéd"
+
+#: src/onlinetranslator/onlinetranslator.cpp:676
+msgctxt "OnlineTranslator|"
+msgid "Tagalog"
+msgstr "Tagalog"
+
+#: src/onlinetranslator/onlinetranslator.cpp:678
+msgctxt "OnlineTranslator|"
+msgid "Tahitian"
+msgstr "Tahiti"
+
+#: src/onlinetranslator/onlinetranslator.cpp:680
+msgctxt "OnlineTranslator|"
+msgid "Tajik"
+msgstr "Tajik"
+
+#: src/onlinetranslator/onlinetranslator.cpp:682
+msgctxt "OnlineTranslator|"
+msgid "Tamil"
+msgstr "Tamil"
+
+#: src/onlinetranslator/onlinetranslator.cpp:684
+msgctxt "OnlineTranslator|"
+msgid "Tatar"
+msgstr "Tatár"
+
+#: src/onlinetranslator/onlinetranslator.cpp:686
+msgctxt "OnlineTranslator|"
+msgid "Telugu"
+msgstr "Telugu"
+
+#: src/onlinetranslator/onlinetranslator.cpp:688
+msgctxt "OnlineTranslator|"
+msgid "Thai"
+msgstr "Thai"
+
+#: src/onlinetranslator/onlinetranslator.cpp:690
+msgctxt "OnlineTranslator|"
+msgid "Tongan"
+msgstr "Tongan"
+
+#: src/onlinetranslator/onlinetranslator.cpp:692
+msgctxt "OnlineTranslator|"
+msgid "Turkish"
+msgstr "Török"
+
+#: src/onlinetranslator/onlinetranslator.cpp:694
+msgctxt "OnlineTranslator|"
+msgid "Turkmen"
+msgstr "Türkmén"
+
+#: src/onlinetranslator/onlinetranslator.cpp:696
+msgctxt "OnlineTranslator|"
+msgid "Udmurt"
+msgstr "Udmurt"
+
+#: src/onlinetranslator/onlinetranslator.cpp:698
+msgctxt "OnlineTranslator|"
+msgid "Uighur"
+msgstr "Ujgur"
+
+#: src/onlinetranslator/onlinetranslator.cpp:700
+msgctxt "OnlineTranslator|"
+msgid "Ukrainian"
+msgstr "Ukrán"
+
+#: src/onlinetranslator/onlinetranslator.cpp:702
+msgctxt "OnlineTranslator|"
+msgid "Urdu"
+msgstr "Urdu"
+
+#: src/onlinetranslator/onlinetranslator.cpp:704
+msgctxt "OnlineTranslator|"
+msgid "Uzbek"
+msgstr "Üzbég"
+
+#: src/onlinetranslator/onlinetranslator.cpp:706
+msgctxt "OnlineTranslator|"
+msgid "Vietnamese"
+msgstr "Vietnámi"
+
+#: src/onlinetranslator/onlinetranslator.cpp:708
+msgctxt "OnlineTranslator|"
+msgid "Welsh"
+msgstr "Waleszi"
+
+#: src/onlinetranslator/onlinetranslator.cpp:710
+msgctxt "OnlineTranslator|"
+msgid "Xhosa"
+msgstr "Xhosa"
+
+#: src/onlinetranslator/onlinetranslator.cpp:712
+msgctxt "OnlineTranslator|"
+msgid "Yiddish"
+msgstr "Jiddis"
+
+#: src/onlinetranslator/onlinetranslator.cpp:714
+msgctxt "OnlineTranslator|"
+msgid "Yoruba"
+msgstr "Yoruba"
+
+#: src/onlinetranslator/onlinetranslator.cpp:716
+msgctxt "OnlineTranslator|"
+msgid "Yucatec Maya"
+msgstr "Yucatec Maya"
+
+#: src/onlinetranslator/onlinetranslator.cpp:718
+msgctxt "OnlineTranslator|"
+msgid "Zulu"
+msgstr "Zulu"
+
+#: src/onlinetranslator/onlinetranslator.cpp:1211
+#: src/onlinetranslator/onlinetranslator.cpp:1220
+msgctxt "OnlineTranslator|"
+msgid ""
+"Error: Engine systems have detected suspicious traffic from your computer "
+"network. Please try your request again later."
+msgstr ""
+"Hiba: A motor rendszerek gyanús forgalmat észleltek a számítógépes "
+"hálózatból. Kérjük próbálja a kérését később újra."
+
+#: src/onlinetranslator/onlinetranslator.cpp:1232
+#: src/onlinetranslator/onlinetranslator.cpp:1343
+#: src/onlinetranslator/onlinetranslator.cpp:1553
+#: src/onlinetranslator/onlinetranslator.cpp:1647
+msgctxt "OnlineTranslator|"
+msgid "Error: Unable to parse autodetected language"
+msgstr "Hiba: Nem sikerült elemezni az autom. észlelt nyelvet"
+
+#: src/onlinetranslator/onlinetranslator.cpp:1459
+msgctxt "OnlineTranslator|"
+msgid "Error: Unable to find Bing credentials in web version."
+msgstr "Hiba: Nem található a Bing hitelesítés a webes verzióban."
+
+#: src/onlinetranslator/onlinetranslator.cpp:1466
+msgctxt "OnlineTranslator|"
+msgid "Error: Unable to extract Bing key from web version."
+msgstr "Hiba: Nem sikerült kicsomagolni a Bing kulcsot a webes verzióból."
+
+#: src/onlinetranslator/onlinetranslator.cpp:1474
+msgctxt "OnlineTranslator|"
+msgid "Error: Unable to extract Bing token from web version."
+msgstr "Hiba: Nem sikerült kicsomagolni a Bing tokent a webes verzióból."
+
+#: src/onlinetranslator/onlinetranslator.cpp:1486
+#: src/onlinetranslator/onlinetranslator.cpp:1495
+msgctxt "OnlineTranslator|"
+msgid "Error: Unable to extract additional Bing information from web version."
+msgstr "Hiba: Nem lehet további Bing információkat kinyerni a webes verzióból."
+
+#: src/onlinetranslator/onlinetranslator.cpp:1545
+msgctxt "OnlineTranslator|"
+msgid "Error: Bing return unhandled network error"
+msgstr ""
+
+#: src/onlinetranslator/onlinetts.cpp:64
+#, qt-format
+msgctxt "OnlineTts|"
+msgid "Selected engine %1 does not support voice settings"
+msgstr "A kiválasztott %1 motor nem támogatja a hangbeállításokat"
+
+#: src/onlinetranslator/onlinetts.cpp:69
+#, qt-format
+msgctxt "OnlineTts|"
+msgid "Selected engine %1 does not support emotion settings"
+msgstr "A kiválasztott %1 motor nem támogatja az érzelem beállításokat"
+
+#: src/onlinetranslator/onlinetts.cpp:130
+#, qt-format
+msgctxt "OnlineTts|"
+msgid "%1 engine does not support TTS"
+msgstr "A %1 motor nem támogatja a TTS-t"
+
+#: src/onlinetranslator/onlinetts.cpp:216
+#, qt-format
+msgctxt "OnlineTts|"
+msgid "Selected language %1 is not supported for %2"
+msgstr "A(z) %1 nyelv nem támogatott %2 esetén"
+
+#: src/onlinetranslator/onlinetts.cpp:228
+#, qt-format
+msgctxt "OnlineTts|"
+msgid "Selected voice %1 is not supported for %2"
+msgstr "A kiválasztott %1 hang nem támogatott %2 esetén"
+
+#: src/onlinetranslator/onlinetts.cpp:240
+#, qt-format
+msgctxt "OnlineTts|"
+msgid "Selected emotion %1 is not supported by %2"
+msgstr "A kiválasztott %1 érzelem nem támogatott %2 által"
+
+#: src/popupwindow.ui:32
+msgctxt "PopupWindow|"
+msgid "Swap languages"
+msgstr "Nyelvek cseréje"
+
+#: src/popupwindow.ui:64
+msgctxt "PopupWindow|"
+msgid "Copy source text to the clipboard"
+msgstr "Másolja a forrásszöveget a vágólapra"
+
+#: src/popupwindow.ui:140
+msgctxt "PopupWindow|"
+msgid "Copy all translation data to the clipboard"
+msgstr "Másolja az összes fordítási adatot a vágólapra"
+
+#: src/popupwindow.ui:151
+msgctxt "PopupWindow|"
+msgid "Copy translation to the clipboard"
+msgstr "Fordítás másolása a vágólapra"
+
+#: src/qgittag/qgittag.cpp:131
+#, qt-format
+msgctxt "QGitTag|"
+msgid "Release number %1 is missing"
+msgstr "Hiányzik a(z) %1 kiadási szám"
+
+#: src/settings/appsettings.cpp:1261
+#, qt-format
+msgctxt "AppSettings|"
+msgid "Unknown language code: %1"
+msgstr "Ismeretlen nyelvi kód: %1"
+
+#: src/settings/autostartmanager/abstractautostartmanager.cpp:44
+msgctxt "AbstractAutostartManager|"
+msgid "Unable to apply autostart settings"
+msgstr "Nem lehet alkalmazni az auto. indítás beállításait"
+
+#: src/settings/autostartmanager/portalautostartmanager.cpp:35
+#, qt-format
+msgctxt "PortalAutostartManager|"
+msgid "Allow %1 to manage autostart setting for itself."
+msgstr "Engedélyezi %1 számára az auto. indítás kezelését."
+
+#: src/settings/autostartmanager/portalautostartmanager.cpp:54
+msgctxt "PortalAutostartManager|"
+msgid "Unable to subscribe to response from xdg-desktop-portal."
+msgstr "Nem lehet feliratkozni az xdg-desktop-portal válaszára."
+
+#: src/settings/autostartmanager/unixautostartmanager.cpp:35
+#, qt-format
+msgctxt "UnixAutostartManager|"
+msgid "Unable to create %1"
+msgstr "Nem lehet létrehozni %1"
+
+#: src/settings/autostartmanager/unixautostartmanager.cpp:42
+#, qt-format
+msgctxt "UnixAutostartManager|"
+msgid "Unable to copy %1 to %2"
+msgstr "Nem másolható %1 ide %2"
+
+#: src/settings/autostartmanager/unixautostartmanager.cpp:47
+#, qt-format
+msgctxt "UnixAutostartManager|"
+msgid "Unable to remove %1 from %2"
+msgstr "Nem távolítható el %1 innen %2"
+
+#: src/settings/settingsdialog.cpp:38
+msgctxt "SettingsDialog|"
+msgid "Portable mode"
+msgstr "Hordozható mód"
+
+#: src/settings/settingsdialog.cpp:51
+#, qt-format
+msgctxt "SettingsDialog|"
+msgid "Use %1 to store settings"
+msgstr "%1 használata a beállítások tárolására"
+
+#: src/settings/settingsdialog.cpp:63 src/settings/settingsdialog.cpp:94
+#: src/settings/settingsdialog.cpp:95
+msgctxt "SettingsDialog|"
+msgid "<System language>"
+msgstr "<Rendszer nyelve>"
+
+#: src/settings/settingsdialog.cpp:130
+msgctxt "SettingsDialog|"
+msgid "Icons:"
+msgstr "Ikonok:"
+
+#: src/settings/settingsdialog.cpp:140
+msgctxt "SettingsDialog|"
+msgid "Updates"
+msgstr "Frissítések"
+
+#: src/settings/settingsdialog.cpp:147
+msgctxt "SettingsDialog|"
+msgid "Check for updates:"
+msgstr "Frissítések ellenőrzése:"
+
+#: src/settings/settingsdialog.cpp:151
+msgctxt "SettingsDialog|"
+msgid "Every day"
+msgstr "Naponta"
+
+#: src/settings/settingsdialog.cpp:152
+msgctxt "SettingsDialog|"
+msgid "Every week"
+msgstr "Hetente"
+
+#: src/settings/settingsdialog.cpp:153
+msgctxt "SettingsDialog|"
+msgid "Every month"
+msgstr "Havonta"
+
+#: src/settings/settingsdialog.cpp:154 src/settings/settingsdialog.ui:1047
+msgctxt "SettingsDialog|"
+msgid "Never"
+msgstr "Soha"
+
+#: src/settings/settingsdialog.cpp:158
+msgctxt "SettingsDialog|"
+msgid "Check now"
+msgstr "Ellenőrzés most"
+
+#: src/settings/settingsdialog.cpp:159
+msgctxt "SettingsDialog|"
+msgid "Check for updates now"
+msgstr "Frissítések ellenőrzése most"
+
+#: src/settings/settingsdialog.cpp:172
+msgctxt "SettingsDialog|"
+msgid "Happy New Year!"
+msgstr "B.Ú.É.K.!"
+
+#: src/settings/settingsdialog.cpp:186
+msgctxt "SettingsDialog|"
+msgid "The OCR parameter fields can not be empty."
+msgstr "Az OCR paramétermezők nem lehetnek üresek."
+
+#: src/settings/settingsdialog.cpp:187
+msgctxt "SettingsDialog|"
+msgid "Do you want to discard the invalid parameters?"
+msgstr "El akarja dobni az érvénytelen paramétereket?"
+
+#: src/settings/settingsdialog.cpp:337
+msgctxt "SettingsDialog|"
+msgid "Select icon"
+msgstr "Válasszon ikont"
+
+#: src/settings/settingsdialog.cpp:337
+msgctxt "SettingsDialog|"
+msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
+msgstr "Képek (*.png *.ico *.svg *.jpg);;Minden fájl()"
+
+#: src/settings/settingsdialog.cpp:350
+msgctxt "SettingsDialog|"
+msgid "Select OCR languages path"
+msgstr "Válassza ki az OCR nyelvek elérési útját"
+
+#: src/settings/settingsdialog.cpp:399 src/settings/settingsdialog.ui:1303
+msgctxt "SettingsDialog|"
+msgid "Default region"
+msgstr "Alapért. régió"
+
+#: src/settings/settingsdialog.cpp:402
+msgctxt "SettingsDialog|"
+msgid "Mandarin (China)"
+msgstr "Mandarin (Kína)"
+
+#: src/settings/settingsdialog.cpp:477
+msgctxt "SettingsDialog|"
+msgid "Checking for updates..."
+msgstr "Frissítések ellenőrzése..."
+
+#: src/settings/settingsdialog.cpp:499
+msgctxt "SettingsDialog|"
+msgid "Update available!"
+msgstr "Frissítés érhető el!"
+
+#: src/settings/settingsdialog.cpp:505
+msgctxt "SettingsDialog|"
+msgid "No updates available."
+msgstr "Nincs elérhető frissítés."
+
+#: src/settings/settingsdialog.cpp:604
+msgctxt "SettingsDialog|"
+msgid "Back"
+msgstr "Vissza"
+
+#: src/settings/settingsdialog.cpp:710
+msgctxt "SettingsDialog|"
+msgid "Nothing to play"
+msgstr "Nincs mit lejátszani"
+
+#: src/settings/settingsdialog.cpp:710
+msgctxt "SettingsDialog|"
+msgid "Playback text is empty"
+msgstr "A lejátszási szöveg üres"
+
+#: src/settings/settingsdialog.cpp:720
+msgctxt "SettingsDialog|"
+msgid "Unable to detect language"
+msgstr "A nyelv nem ismerhető fel"
+
+#: src/settings/settingsdialog.ui:14
+msgctxt "SettingsDialog|"
+msgid "Settings"
+msgstr "Beállítások"
+
+#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:136
+msgctxt "SettingsDialog|"
+msgid "General"
+msgstr "Általános"
+
+#: src/settings/settingsdialog.ui:57
+msgctxt "SettingsDialog|"
+msgid "Interface"
+msgstr "Kezelőfelület"
+
+#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:639
+msgctxt "SettingsDialog|"
+msgid "Translation"
+msgstr "Fordítás"
+
+#: src/settings/settingsdialog.ui:81
+msgctxt "SettingsDialog|"
+msgid "Speech synthesis"
+msgstr "Beszéd szintézis"
+
+#: src/settings/settingsdialog.ui:89
+msgctxt "SettingsDialog|"
+msgid "Connection"
+msgstr "Kapcsolat"
+
+#: src/settings/settingsdialog.ui:97
+msgctxt "SettingsDialog|"
+msgid "Shortcuts"
+msgstr "Gyorsbillentyűk"
+
+#: src/settings/settingsdialog.ui:105
+msgctxt "SettingsDialog|"
+msgid "About"
+msgstr "Névjegy"
+
+#: src/settings/settingsdialog.ui:148
+msgctxt "SettingsDialog|"
+msgid "Language:"
+msgstr "Nyelv:"
+
+#: src/settings/settingsdialog.ui:155
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Interface language</p></body></html>"
+msgstr "<html><head/><body><p>A felület nyelve</p></body></html>"
+
+#: src/settings/settingsdialog.ui:162
+msgctxt "SettingsDialog|"
+msgid "Main window orientation:"
+msgstr "A főablak tájolása:"
+
+#: src/settings/settingsdialog.ui:169
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Orientation of the main window layout<br/>When using "
+"<span style=\" font-style:italic;\">Auto</span>, the window orientation will "
+"match the screen orientation</p></body></html>"
+msgstr ""
+"<html><head/><body><p>A főablak elrendezés tájolása<br/>A használat során "
+"<span style=\" font-style:italic;\">Auto</span>, az ablak tájolása megfelel "
+"a képernyő tájolásának</p></body></html>"
+
+#. Orientation
+#: src/settings/settingsdialog.ui:173
+msgctxt "SettingsDialog|"
+msgid "Auto"
+msgstr "Automatikus"
+
+#. Orientation
+#: src/settings/settingsdialog.ui:178
+msgctxt "SettingsDialog|"
+msgid "Portrait"
+msgstr "Álló"
+
+#. Orientation
+#: src/settings/settingsdialog.ui:183
+msgctxt "SettingsDialog|"
+msgid "Landscape"
+msgstr "Fekvő"
+
+#: src/settings/settingsdialog.ui:191
+msgctxt "SettingsDialog|"
+msgid "Translation mode:"
+msgstr "Fordítási mód:"
+
+#: src/settings/settingsdialog.ui:198
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>A window for translating selected text. If the "
+"application is minimized, the main window will always be used.</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>A kiválasztott szöveg fordítására szolgáló ablak. Ha "
+"az alkalmazást minimálisra csökkenti, akkor mindig a főablak lesz "
+"használatban.</p></body></html>"
+
+#: src/settings/settingsdialog.ui:202 src/settings/settingsdialog.ui:351
+msgctxt "SettingsDialog|"
+msgid "Pop-up window"
+msgstr "Felugró ablak"
+
+#: src/settings/settingsdialog.ui:207
+msgctxt "SettingsDialog|"
+msgid "Main window"
+msgstr "Főablak"
+
+#: src/settings/settingsdialog.ui:212
+msgctxt "SettingsDialog|"
+msgid "Notification"
+msgstr "Értesítés"
+
+#: src/settings/settingsdialog.ui:220
+msgctxt "SettingsDialog|"
+msgid "Translation notification timeout:"
+msgstr "Fordítási értesítés időtúllépése:"
+
+#: src/settings/settingsdialog.ui:233
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Notification with translation display time</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Értesítés fordítási megjelenítési idővel</p></body></"
+"html>"
+
+#: src/settings/settingsdialog.ui:236 src/settings/settingsdialog.ui:441
+msgctxt "SettingsDialog|"
+msgid " sec"
+msgstr " mp"
+
+#: src/settings/settingsdialog.ui:249
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Display icon in the system tray</p></body></html>"
+msgstr "<html><head/><body><p>Ikon a rendszertálcán</p></body></html>"
+
+#: src/settings/settingsdialog.ui:252
+msgctxt "SettingsDialog|"
+msgid "Show tray icon"
+msgstr "Tálca ikon megjelenítése"
+
+#: src/settings/settingsdialog.ui:262
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Start application minimized to the system tray</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>Indítsa el az alkalmazást a tálcára kicsinyítve</p></"
+"body></html>"
+
+#: src/settings/settingsdialog.ui:265
+msgctxt "SettingsDialog|"
+msgid "Start minimized"
+msgstr "Minimizált indítás"
+
+#: src/settings/settingsdialog.ui:272
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Run the application at system startup</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Az alkalmazás indítása a rendszer indításával</p></"
+"body></html>"
+
+#: src/settings/settingsdialog.ui:275
+msgctxt "SettingsDialog|"
+msgid "Launch at startup"
+msgstr "Indítás a rendszerrel"
+
+#: src/settings/settingsdialog.ui:308
+msgctxt "SettingsDialog|"
+msgid "Font"
+msgstr "Betűtípus"
+
+#: src/settings/settingsdialog.ui:314
+msgctxt "SettingsDialog|"
+msgid "Name:"
+msgstr "Név:"
+
+#: src/settings/settingsdialog.ui:321
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Translation and source text font</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Fordítás és forrásszöveg betűtípusa</p></body></html>"
+
+#: src/settings/settingsdialog.ui:328
+msgctxt "SettingsDialog|"
+msgid "Size:"
+msgstr "Méret:"
+
+#: src/settings/settingsdialog.ui:335
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Font size of translation and source text</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>A fordítás és a forrásszöveg betűmérete</p></body></"
+"html>"
+
+#: src/settings/settingsdialog.ui:357
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Pop-up window height in pixels</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Felugró ablak magassága képpontban</p></body></html>"
+
+#: src/settings/settingsdialog.ui:367
+msgctxt "SettingsDialog|"
+msgid "Width:"
+msgstr "Szélesség:"
+
+#: src/settings/settingsdialog.ui:374
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Felugró ablak szélessége képpontban</p></body></html>"
+
+#: src/settings/settingsdialog.ui:384
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Pop-up window opacity</p></body></html>"
+msgstr "<html><head/><body><p>Felugró ablak opacitás</p></body></html>"
+
+#: src/settings/settingsdialog.ui:411
+msgctxt "SettingsDialog|"
+msgid "Opacity:"
+msgstr "Áttetszőség:"
+
+#: src/settings/settingsdialog.ui:418
+msgctxt "SettingsDialog|"
+msgid "Show timeout:"
+msgstr "Időtúllépés:"
+
+#: src/settings/settingsdialog.ui:425
+msgctxt "SettingsDialog|"
+msgid "Height:"
+msgstr "Magasság:"
+
+#: src/settings/settingsdialog.ui:438
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>The number of seconds after which the window will be "
+"hidden if it has no focus</p></body></html>"
+msgstr ""
+"<html><head/><body><p>A másodpercek száma, amelyek elteltével az ablak "
+"elrejtésre kerül, ha nincs fókusza</p></body></html>"
+
+#: src/settings/settingsdialog.ui:461
+msgctxt "SettingsDialog|"
+msgid "Language format"
+msgstr "Nyelv formátum"
+
+#: src/settings/settingsdialog.ui:467
+msgctxt "SettingsDialog|"
+msgid "Main window:"
+msgstr "Főablak:"
+
+#: src/settings/settingsdialog.ui:474 src/settings/settingsdialog.ui:498
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Languages text on buttons</p></body></html>"
+msgstr "<html><head/><body><p>Nyelvek szövege a gombokon</p></body></html>"
+
+#: src/settings/settingsdialog.ui:478 src/settings/settingsdialog.ui:502
+msgctxt "SettingsDialog|"
+msgid "Full name"
+msgstr "Teljes név"
+
+#: src/settings/settingsdialog.ui:483 src/settings/settingsdialog.ui:507
+msgctxt "SettingsDialog|"
+msgid "ISO 639-1 code"
+msgstr "ISO 639-1 kód"
+
+#: src/settings/settingsdialog.ui:491
+msgctxt "SettingsDialog|"
+msgid "Pop-up:"
+msgstr "Felugró:"
+
+#: src/settings/settingsdialog.ui:518
+msgctxt "SettingsDialog|"
+msgid "Tray icon"
+msgstr "Tálca ikon"
+
+#: src/settings/settingsdialog.ui:524
+msgctxt "SettingsDialog|"
+msgid "Icon:"
+msgstr "Ikon:"
+
+#: src/settings/settingsdialog.ui:537
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>System tray icon</p></body></html>"
+msgstr "<html><head/><body><p>Rendszertálca ikon</p></body></html>"
+
+#: src/settings/settingsdialog.ui:541
+msgctxt "SettingsDialog|"
+msgid "Default"
+msgstr "Alapérték"
+
+#: src/settings/settingsdialog.ui:549
+msgctxt "SettingsDialog|"
+msgid "Monochrome (dark theme)"
+msgstr "Monokróm (sötét téma)"
+
+#: src/settings/settingsdialog.ui:557
+msgctxt "SettingsDialog|"
+msgid "Monochrome (light theme)"
+msgstr "Monokróm (világos téma)"
+
+#: src/settings/settingsdialog.ui:565
+msgctxt "SettingsDialog|"
+msgid "Custom"
+msgstr "Egyéni"
+
+#: src/settings/settingsdialog.ui:579
+msgctxt "SettingsDialog|"
+msgid "Custom:"
+msgstr "Egyéni:"
+
+#: src/settings/settingsdialog.ui:591
+msgctxt "SettingsDialog|"
+msgid "Path to the icon or icon name from theme"
+msgstr "Path to the icon or icon name from theme"
+
+#: src/settings/settingsdialog.ui:601
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Select icon</p></body></html>"
+msgstr "<html><head/><body><p>Válasszon ikont</p></body></html>"
+
+#: src/settings/settingsdialog.ui:645
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable source transliteration</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Forrás transzliteráció be vagy kikapcsolása</p></"
+"body></html>"
+
+#: src/settings/settingsdialog.ui:648
+msgctxt "SettingsDialog|"
+msgid "Enable source transliteration"
+msgstr "Forrás transzliteráció engedélyezése"
+
+#: src/settings/settingsdialog.ui:655
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable translation transliteration</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>Fordítás transzliteráció be vagy kikapcsolása</p></"
+"body></html>"
+
+#: src/settings/settingsdialog.ui:658
+msgctxt "SettingsDialog|"
+msgid "Enable translation transliteration"
+msgstr "Fordítás transzliteráció engedélyezése"
+
+#: src/settings/settingsdialog.ui:665
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable source transcription</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>A forrás átírás be vagy kikapcsolása</p></body></html>"
+
+#: src/settings/settingsdialog.ui:668
+msgctxt "SettingsDialog|"
+msgid "Enable source transcription"
+msgstr "Forrás átírás engedélyezése"
+
+#: src/settings/settingsdialog.ui:675
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable translation options</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Fordítási lehetőségek be vagy kikapcsolása</p></body></"
+"html>"
+
+#: src/settings/settingsdialog.ui:678
+msgctxt "SettingsDialog|"
+msgid "Enable translation options"
+msgstr "Fordítási lehetőségek engedélyezése"
+
+#: src/settings/settingsdialog.ui:685
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable usage examples</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Használati példák be- vagy kikapcsolása</p></body></"
+"html>"
+
+#: src/settings/settingsdialog.ui:688
+msgctxt "SettingsDialog|"
+msgid "Enable examples"
+msgstr "Példák engedélyezése"
+
+#: src/settings/settingsdialog.ui:695
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Replace each sequence of whitespaces (this includes "
+"the ASCII characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' ') with a "
+"single space in queries</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Cserélje ki a szóközök sorrendjét (ez magában foglalja "
+"az ASCII karaktereket is '\\t', '\\n', '\\v', '\\f', '\\r', és ' ') egyetlen "
+"szóközzel a lekérdezésekben</p></body></html>"
+
+#: src/settings/settingsdialog.ui:698
+msgctxt "SettingsDialog|"
+msgid "Simplify source"
+msgstr "A forrás egyszerűsítése"
+
+#: src/settings/settingsdialog.ui:708
+msgctxt "SettingsDialog|"
+msgid "Automatic language detection"
+msgstr "Autom. nyelv felismerés"
+
+#: src/settings/settingsdialog.ui:714
+msgctxt "SettingsDialog|"
+msgid "Primary translation language:"
+msgstr "Elsődleges fordítási nyelv:"
+
+#: src/settings/settingsdialog.ui:721
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Language to which text will be translated when "
+"autodetecting</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Az a nyelv, amelyre a szöveget lefordítják az autom. "
+"észlelés során</p></body></html>"
+
+#: src/settings/settingsdialog.ui:728
+msgctxt "SettingsDialog|"
+msgid "Secondary translation language:"
+msgstr "Másodlagos fordítási nyelv:"
+
+#: src/settings/settingsdialog.ui:735
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Language to which the text will be translated if it is "
+"in the language selected above</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Nyelv, amelyre a szöveget lefordítják, ha a fent "
+"kiválasztott nyelven készült</p></body></html>"
+
+#: src/settings/settingsdialog.ui:742 src/settings/settingsdialog.ui:752
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Automatically switch to <span style=\" font-style:"
+"italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Autom. váltás erre: <span style=\" font-style:italic;"
+"\">Auto</span> OCR és globális gyorsbillentyűk használatakor</p></body></"
+"html>"
+
+#: src/settings/settingsdialog.ui:745
+msgctxt "SettingsDialog|"
+msgid "Force source language detection"
+msgstr "Forrásnyelv észlelés kényszerítése"
+
+#: src/settings/settingsdialog.ui:755
+msgctxt "SettingsDialog|"
+msgid "Force translation language detection"
+msgstr "Fordítási nyelv kényszerített észlelése"
+
+#: src/settings/settingsdialog.ui:778
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>LibreTranslate instance API key</p><p>Free instances "
+"listed here doesn't require a key, so field can be empty</p></body></html>"
+msgstr ""
+"<html><head/><body><p>LibreTranslate példa API kulcs</p><p>A felsorolt ​​"
+"ingyenes példányokhoz nincs szükség kulcsra, így a mező üres lehet</p></"
+"body></html>"
+
+#: src/settings/settingsdialog.ui:791
+msgctxt "SettingsDialog|"
+msgid "API key:"
+msgstr "API kulcs:"
+
+#: src/settings/settingsdialog.ui:804
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>LibreTranslate engine URL</p><p>All instances can be "
+"found here: https://github.com/LibreTranslate/LibreTranslate#mirrors</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>LibreTranslate motor URL</p><p>Itt minden példány "
+"megtalálható: https://github.com/LibreTranslate/LibreTranslate#mirrors</p></"
+"body></html>"
+
+#: src/settings/settingsdialog.ui:844
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Lingva engine URL</p><p>All instances can be found "
+"here: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>Lingva motor URL</p><p>Itt minden példány "
+"megtalálható: https://github.com/TheDavidDelta/lingva-translate#instances</"
+"p></body></html>"
+
+#: src/settings/settingsdialog.ui:898
+msgctxt "SettingsDialog|"
+msgid "Languages"
+msgstr "Nyelvek"
+
+#: src/settings/settingsdialog.ui:904
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Loading additional languages will impact both speed "
+"and accuracy, as there is more work to do to decide on the applicable "
+"language, and there is more chance of hallucinating incorrect words.</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>A további nyelvek betöltése hatással lesz a sebességre "
+"és a pontosságra is, mivel több munka vár az alkalmazandó nyelv "
+"kiválasztására, és nagyobb az esélye a helytelen szavak hallucinálására.</"
+"p></body></html>"
+
+#: src/settings/settingsdialog.ui:911
+msgctxt "SettingsDialog|"
+msgid "Languages path:"
+msgstr "Nyelvek útvonala:"
+
+#: src/settings/settingsdialog.ui:918
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
+msgstr "<html><head/><body><p>Az OCR nyelvek elérési útja</p></body></html>"
+
+#: src/settings/settingsdialog.ui:928
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
+msgstr "<html><head/><body><p>GitHub adattár megnyitása</p></body></html>"
+
+#: src/settings/settingsdialog.ui:931
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
+"\"><span style=\" text-decoration: underline; color:#2980b9;\">Download "
+"more</span></a></p></body></html>"
+msgstr ""
+"<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
+"\"><span style=\" text-decoration: underline; color:#2980b9;\">Töltsön le "
+"többet</span></a></p></body></html>"
+
+#: src/settings/settingsdialog.ui:941
+msgctxt "SettingsDialog|"
+msgid "Directory with trained models"
+msgstr "Könyvtár képzett modellekkel"
+
+#: src/settings/settingsdialog.ui:957
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Replace all single line breaks with a space after text "
+"recognition</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Cserélje ki minden egyes sor törését szóközzel a "
+"szövegfelismerés után</p></body></html>"
+
+#: src/settings/settingsdialog.ui:960
+msgctxt "SettingsDialog|"
+msgid "Convert line breaks"
+msgstr "A sortörések konvertálása"
+
+#: src/settings/settingsdialog.ui:1024
+msgctxt "SettingsDialog|"
+msgid "Screen capture"
+msgstr "Képernyőfotó"
+
+#: src/settings/settingsdialog.ui:1036
+msgctxt "SettingsDialog|"
+msgid "Remember region:"
+msgstr "Ne feledje a régiót:"
+
+#: src/settings/settingsdialog.ui:1043
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>When to remember the last selected region</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Mikor kell emlékezni az utoljára kiválasztott régióra</"
+"p></body></html>"
+
+#: src/settings/settingsdialog.ui:1052
+msgctxt "SettingsDialog|"
+msgid "Remember last"
+msgstr "Jegyezze meg az utolsót"
+
+#: src/settings/settingsdialog.ui:1057
+msgctxt "SettingsDialog|"
+msgid "Remember always"
+msgstr "Emlékezzen mindig"
+
+#: src/settings/settingsdialog.ui:1065
+msgctxt "SettingsDialog|"
+msgid "Capture delay:"
+msgstr "Felvétel késleltetése:"
+
+#: src/settings/settingsdialog.ui:1072
+msgctxt "SettingsDialog|"
+msgid "Delay before screen capture"
+msgstr "Késleltetés a képernyő rögzítése előtt"
+
+#: src/settings/settingsdialog.ui:1075
+msgctxt "SettingsDialog|"
+msgid " ms"
+msgstr " ms"
+
+#: src/settings/settingsdialog.ui:1085
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Nagyító megjelenítése a kurzor mellett</p></body></"
+"html>"
+
+#: src/settings/settingsdialog.ui:1088
+msgctxt "SettingsDialog|"
+msgid "Show magnifier"
+msgstr "Nagyító megjelenítése"
+
+#: src/settings/settingsdialog.ui:1098
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Finish capturing the fragment when the mouse button is "
+"released</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Az egérgomb elengedésekor fejezze be a töredék "
+"rögzítését</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1101
+msgctxt "SettingsDialog|"
+msgid "Confirm on release"
+msgstr "Megerősítés felengedéskor"
+
+#: src/settings/settingsdialog.ui:1108
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Vigyen fel enyhe ködöt a nem kiválasztott részre</p></"
+"body></html>"
+
+#: src/settings/settingsdialog.ui:1111
+msgctxt "SettingsDialog|"
+msgid "Apply light mask"
+msgstr "Alkalmazzon könnyű maszkot"
+
+#: src/settings/settingsdialog.ui:1150
+msgctxt "SettingsDialog|"
+msgid "Voice:"
+msgstr "Hang:"
+
+#: src/settings/settingsdialog.ui:1163
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Voice of the speech synthesis engine</p></body></html>"
+msgstr "<html><head/><body><p>A beszédszintézis motor hangja</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1167
+msgctxt "SettingsDialog|"
+msgid "Zahar"
+msgstr "Zahar"
+
+#: src/settings/settingsdialog.ui:1172
+msgctxt "SettingsDialog|"
+msgid "Ermil"
+msgstr "Ermil"
+
+#: src/settings/settingsdialog.ui:1177
+msgctxt "SettingsDialog|"
+msgid "Jane"
+msgstr "Jane"
+
+#: src/settings/settingsdialog.ui:1182
+msgctxt "SettingsDialog|"
+msgid "Oksana"
+msgstr "Oksana"
+
+#: src/settings/settingsdialog.ui:1187
+msgctxt "SettingsDialog|"
+msgid "Alyss"
+msgstr "Alyss"
+
+#: src/settings/settingsdialog.ui:1192
+msgctxt "SettingsDialog|"
+msgid "Omazh"
+msgstr "Omazh"
+
+#: src/settings/settingsdialog.ui:1200
+msgctxt "SettingsDialog|"
+msgid "Emotional connotation:"
+msgstr "Érzelmi jelentés:"
+
+#: src/settings/settingsdialog.ui:1213
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Voice mood of the speech synthesis engine</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>A beszédszintézis motor hangulata</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1217
+msgctxt "SettingsDialog|"
+msgid "Neutral"
+msgstr "Semleges"
+
+#: src/settings/settingsdialog.ui:1222
+msgctxt "SettingsDialog|"
+msgid "Good"
+msgstr "Jó"
+
+#: src/settings/settingsdialog.ui:1227
+msgctxt "SettingsDialog|"
+msgid "Evil"
+msgstr "Ördögi"
+
+#: src/settings/settingsdialog.ui:1235 src/settings/settingsdialog.ui:1311
+msgctxt "SettingsDialog|"
+msgid "Speech test:"
+msgstr "Beszéd teszt:"
+
+#: src/settings/settingsdialog.ui:1244 src/settings/settingsdialog.ui:1273
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Text to test speech</p></body></html>"
+msgstr "<html><head/><body><p>Szöveg a beszéd tesztelésére</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1247 src/settings/settingsdialog.ui:1276
+msgctxt "SettingsDialog|"
+msgid "This is an example of speech synthesis."
+msgstr "Ez egy példa a beszédszintézisre."
+
+#: src/settings/settingsdialog.ui:1250
+msgctxt "SettingsDialog|"
+msgid "Test voice"
+msgstr "Teszthang"
+
+#: src/settings/settingsdialog.ui:1295
+msgctxt "SettingsDialog|"
+msgid "Region:"
+msgstr "Régió:"
+
+#: src/settings/settingsdialog.ui:1344
+msgctxt "SettingsDialog|"
+msgid "Proxy server"
+msgstr "Proxy szerver"
+
+#: src/settings/settingsdialog.ui:1350
+msgctxt "SettingsDialog|"
+msgid "Type:"
+msgstr "Típus:"
+
+#: src/settings/settingsdialog.ui:1363
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Proxy type</p></body></html>"
+msgstr "<html><head/><body><p>Proxy típus</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1367
+msgctxt "SettingsDialog|"
+msgid "Use system settings"
+msgstr "Rendszerbeállítások használata"
+
+#: src/settings/settingsdialog.ui:1377
+msgctxt "SettingsDialog|"
+msgid "Don't use a proxy"
+msgstr "Ne használjon proxyt"
+
+#: src/settings/settingsdialog.ui:1393
+msgctxt "SettingsDialog|"
+msgid "Host:"
+msgstr "Host:"
+
+#: src/settings/settingsdialog.ui:1403
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Proxy host name</p></body></html>"
+msgstr "<html><head/><body><p>Proxy host név</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1416
+msgctxt "SettingsDialog|"
+msgid "Port:"
+msgstr "Port:"
+
+#: src/settings/settingsdialog.ui:1432
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Proxy port</p></body></html>"
+msgstr "<html><head/><body><p>Proxy port</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1451
+msgctxt "SettingsDialog|"
+msgid "Info: the proxy works only for text translation"
+msgstr "Infó: a proxy csak szövegfordításra működik"
+
+#: src/settings/settingsdialog.ui:1461
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable authentication</p></body></html>"
+msgstr ""
+"<html><head/><body><p>A hitelesítés be- vagy kikapcsolása</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1464
+msgctxt "SettingsDialog|"
+msgid "Authentication"
+msgstr "Hitelesítés"
+
+#: src/settings/settingsdialog.ui:1474
+msgctxt "SettingsDialog|"
+msgid "Username:"
+msgstr "Felhasználónév:"
+
+#: src/settings/settingsdialog.ui:1484
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Proxy username for authentication</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Proxy felhasználónév a hitelesítéshez</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1494
+msgctxt "SettingsDialog|"
+msgid "Password:"
+msgstr "Jelszó:"
+
+#: src/settings/settingsdialog.ui:1504
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Proxy password for authentication</p></body></html>"
+msgstr "<html><head/><body><p>Proxy jelszó a hitelesítéshez</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1517
+msgctxt "SettingsDialog|"
+msgid "Info: the password is saved unencrypted"
+msgstr "Infó: a jelszó titkosítás nélkül kerül mentésre"
+
+#: src/settings/settingsdialog.ui:1553
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Register global shortcuts in system</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Regisztrálja a globális gyorsbillentyűket a "
+"rendszerben</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1556
+msgctxt "SettingsDialog|"
+msgid "Enable global shortcuts"
+msgstr "Globális gyorsbillentyűk engedélyezése"
+
+#: src/settings/settingsdialog.ui:1572
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Minden gyorsbillentyű alaphelyzetbe</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1575
+msgctxt "SettingsDialog|"
+msgid "Reset all"
+msgstr "Alaphelyzetbe mindet"
+
+#: src/settings/settingsdialog.ui:1585
+msgctxt "SettingsDialog|"
+msgid "Shortcut"
+msgstr "Gyorsbillentyű"
+
+#: src/settings/settingsdialog.ui:1591
+msgctxt "SettingsDialog|"
+msgid "Key sequence:"
+msgstr "Kulcs sorrend:"
+
+#: src/settings/settingsdialog.ui:1598
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>The key sequence for the selected action</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>A kiválasztott művelet billentyűsora</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1605
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
+msgstr "<html><head/><body><p>Gyorsbillentyű elfogadása</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1608
+msgctxt "SettingsDialog|"
+msgid "Accept"
+msgstr "Elfogad"
+
+#: src/settings/settingsdialog.ui:1618
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
+msgstr "<html><head/><body><p>Gyorsbillentyű törlése</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1621
+msgctxt "SettingsDialog|"
+msgid "Clear"
+msgstr "Törlés"
+
+#: src/settings/settingsdialog.ui:1631
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
+msgstr ""
+"<html><head/><body><p>A gyorsbillentyűk alaphelyzetbe állítása</p></body></"
+"html>"
+
+#: src/settings/settingsdialog.ui:1634
+msgctxt "SettingsDialog|"
+msgid "Reset"
+msgstr "Visszaállítás"
+
+#: src/settings/settingsdialog.ui:1679
+msgctxt "SettingsDialog|"
+msgid "Version:"
+msgstr "Verzió:"
+
+#: src/settings/settingsdialog.ui:1689
+msgctxt "SettingsDialog|"
+msgid "License:"
+msgstr "Licenc:"
+
+#: src/settings/settingsdialog.ui:1703
+msgctxt "SettingsDialog|"
+msgid "Source code:"
+msgstr "Forráskód:"
+
+#: src/settings/settingsdialog.ui:1743
+msgctxt "SettingsDialog|"
+msgid "Flag icons:"
+msgstr "Zászló ikonok:"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:21
+msgctxt "ShortcutsModel|"
+msgid "Global"
+msgstr "Globális"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:23
+msgctxt "ShortcutsModel|"
+msgid "Translate selected text"
+msgstr "A kijelölt szöveg fordítása"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:26
+msgctxt "ShortcutsModel|"
+msgid "Speak selected text"
+msgstr "Kijelölt szöveg kimondása"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:29
+msgctxt "ShortcutsModel|"
+msgid "Speak translation of selected text"
+msgstr "Mondja el a kiválasztott szöveg fordítását"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:32
+msgctxt "ShortcutsModel|"
+msgid "Stop text speaking"
+msgstr "Beszéd befejezése"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:35
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:71
+msgctxt "ShortcutsModel|"
+msgid "Speak / pause text speaking"
+msgstr "Beszéd / szünet a felolvasásban"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:38
+msgctxt "ShortcutsModel|"
+msgid "Show main window"
+msgstr "Főablak megjelenítése"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:41
+msgctxt "ShortcutsModel|"
+msgid "Translate selected text and copy to clipboard"
+msgstr "Fordítsa le a kijelölt szöveget és másolja a vágólapra"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:44
+msgctxt "ShortcutsModel|"
+msgid "Recognize text in screen area"
+msgstr "Szöveg felismerése a képernyőn"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:47
+msgctxt "ShortcutsModel|"
+msgid "Translate text in screen area"
+msgstr "Szöveg fordítása a képernyőn"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:50
+msgctxt "ShortcutsModel|"
+msgid "Recognize text in screen area with delay"
+msgstr "Késleltetett szövegfelismerés a képernyőn"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:53
+msgctxt "ShortcutsModel|"
+msgid "Translate text in screen area with delay"
+msgstr "Késleltetett fordítás a képernyőn"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:57
+msgctxt "ShortcutsModel|"
+msgid "Main window"
+msgstr "Főablak"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
+msgctxt "ShortcutsModel|"
+msgid "Translate"
+msgstr "Fordít"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:62
+msgctxt "ShortcutsModel|"
+msgid "Swap languages"
+msgstr "Nyelvek cseréje"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:65
+msgctxt "ShortcutsModel|"
+msgid "Close window"
+msgstr "Ablak bezárása"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:69
+msgctxt "ShortcutsModel|"
+msgid "Source text"
+msgstr "Forrás szöveg"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:75
+msgctxt "ShortcutsModel|"
+msgid "Translation"
+msgstr "Fordítás"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
+msgctxt "ShortcutsModel|"
+msgid "Speak / pause speaking"
+msgstr "Beszéd / beszéd szünet"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:80
+msgctxt "ShortcutsModel|"
+msgid "Copy to clipboard"
+msgstr "Vágólapra másolás"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:126
+msgctxt "ShortcutsModel|"
+msgid "Description"
+msgstr "Leírás"
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:128
+msgctxt "ShortcutsModel|"
+msgid "Shortcut"
+msgstr "Gyorsbillentyű"
+
+#: src/settings/tesseractparameterstablewidget.cpp:16
+msgctxt "TesseractParametersTableWidget|"
+msgid "Property"
+msgstr "Tulajdonság"
+
+#: src/settings/tesseractparameterstablewidget.cpp:16
+msgctxt "TesseractParametersTableWidget|"
+msgid "Value"
+msgstr "Érték"
+
+#: src/speakbuttons.cpp:138
+msgctxt "SpeakButtons|"
+msgid "No text specified"
+msgstr "Nincs szöveg megadva"
+
+#: src/speakbuttons.cpp:138
+msgctxt "SpeakButtons|"
+msgid "Playback text is empty"
+msgstr "A lejátszási szöveg üres"
+
+#: src/speakbuttons.cpp:147
+msgctxt "SpeakButtons|"
+msgid "Unable to generate URLs for TTS"
+msgstr "Nem sikerült URL-t generálni a TTS-hez"
+
+#: src/speakbuttons.ui:24
+msgctxt "SpeakButtons|"
+msgid "Speak / pause text speaking"
+msgstr "Beszéd / szünet a felolvasásban"
+
+#: src/speakbuttons.ui:34
+msgctxt "SpeakButtons|"
+msgid "Stop text speaking"
+msgstr "Beszéd befejezése"
+
+#: src/transitions/ocruninitializedtransition.cpp:28
+msgctxt "Ocr|"
+msgid "OCR languages are not loaded"
+msgstr "Az OCR nyelvek nincsenek betöltve"
+
+#: src/transitions/ocruninitializedtransition.cpp:28
+msgctxt "Ocr|"
+msgid "You should set at least one OCR language in the application settings"
+msgstr ""
+"Legalább egy OCR nyelvet be kell állítania az alkalmazás beállításaiban"
+
+#: src/translationedit.cpp:62
+msgctxt "TranslationEdit|"
+msgid "translation options:"
+msgstr "fordítási lehetőségek:"
+
+#: src/translationedit.cpp:97
+msgctxt "TranslationEdit|"
+msgid "examples:"
+msgstr "példák:"
+
+#: src/trayicon.cpp:19 src/trayicon.cpp:44
+msgctxt "TrayIcon|"
+msgid "Show window"
+msgstr "Ablak megjelenítése"
+
+#: src/trayicon.cpp:20 src/trayicon.cpp:45
+msgctxt "TrayIcon|"
+msgid "Settings"
+msgstr "Beállítások"
+
+#: src/trayicon.cpp:21 src/trayicon.cpp:46
+msgctxt "TrayIcon|"
+msgid "Quit"
+msgstr "Kilépés"
+
+#: src/trayicon.cpp:51
+msgctxt "TrayIcon|"
+msgid "Translation result"
+msgstr "A fordítás eredménye"
+
+#: src/updaterdialog.cpp:46 src/updaterdialog.cpp:49
+msgctxt "UpdaterDialog|"
+msgid "Changelog:"
+msgstr "Változások:"
+
+#: src/updaterdialog.cpp:75
+msgctxt "UpdaterDialog|"
+msgid "Unable to write file"
+msgstr "Nem sikerült írni a fájlt"
+
+#: src/updaterdialog.cpp:119
+msgctxt "UpdaterDialog|"
+msgid "Downloading is complete"
+msgstr "A letöltés befejeződött"
+
+#: src/updaterdialog.ui:24
+msgctxt "UpdaterDialog|"
+msgid "Exit the program and run the installer"
+msgstr "Kilépés a programból és a telepítő indítása"
+
+#: src/updaterdialog.ui:27
+msgctxt "UpdaterDialog|"
+msgid "Install"
+msgstr "Telepít"
+
+#: src/updaterdialog.ui:34
+msgctxt "UpdaterDialog|"
+msgid "Download the installer to the Downloads folder"
+msgstr "A telepítő letöltése a Letöltések mappába"
+
+#: src/updaterdialog.ui:37
+msgctxt "UpdaterDialog|"
+msgid "Download"
+msgstr "Letöltés"
+
+#: src/updaterdialog.ui:44
+#, fuzzy
+#| msgctxt "UpdaterDialog|"
+#| msgid ""
+#| "<html><head/><body><p>A new version of Crow Translate is available! "
+#| "Updates add functionality and improve the stability of the application. "
+#| "Most often.<br/>You can also download the release manually from this <a "
+#| "href=\"https://github.com/crow-translate/crow-translate/releases\">link</"
+#| "a>.</p></body></html>"
+msgctxt "UpdaterDialog|"
+msgid ""
+"<html><head/><body><p>A new version of Crow Translate is available! Updates "
+"add functionality and improve the stability of the application. Most often."
+"<br/>You can also download the release manually from this <a href=\"https://"
+"download.kde.org/stable/crow-translate\">link</a>.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Elérhető a Crow Translate új verziója! A frissítések "
+"újabb funkciókat adnak hozzá és javítják az alkalmazás stabilitását.<br/"
+">Innen manuálisan is letöltheti a kiadást, <a href=\"https://github.com/crow-"
+"translate/crow-translate/releases\">link</a>.</p></body></html>"
+
+#: src/updaterdialog.ui:67
+msgctxt "UpdaterDialog|"
+msgid "Close this window"
+msgstr "Zárja be az ablakot"
+
+#: src/updaterdialog.ui:70
+msgctxt "UpdaterDialog|"
+msgid "Update later"
+msgstr "Frissítés később"
+
+#: src/updaterdialog.ui:90
+msgctxt "UpdaterDialog|"
+msgid "Cancel download"
+msgstr "Letöltés megszakítása"
+
+#: src/updaterdialog.ui:93
+msgctxt "UpdaterDialog|"
+msgid "Cancel"
+msgstr "Mégse"
+
+#: src/updaterdialog.ui:109
+msgctxt "UpdaterDialog|"
+msgid "Current version:"
+msgstr "Jelenlegi verzió:"
+
+#: src/updaterdialog.ui:129
+msgctxt "UpdaterDialog|"
+msgid "Available version:"
+msgstr "Elérhető verzió:"
+
+#~ msgctxt "QHotkey|"
+#~ msgid "Failed to register %1. Error: %2"
+#~ msgstr "Nem sikerült regisztrálni, %1. Hiba: %2"
+
+#~ msgctxt "QHotkey|"
+#~ msgid "Failed to unregister %1. Error: %2"
+#~ msgstr "Nem sikerült a reg. visszavonás, %1. Hiba: %2"
