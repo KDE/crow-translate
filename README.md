@@ -90,8 +90,8 @@ The program also has a console interface.
 | `-c, --codes`              | Display language codes                                                                                                                 |
 | `-s, --source <code>`      | Specify the source language (by default, engine will try to determine the language on its own)                                         |
 | `-t, --translation <code>` | Specify the translation language(s), splitted by '+' (by default, the system language is used)                                         |
-| `-l, --locale <code>`      | Specify the translator language (by default, the system language is used)                                                              |
 | `-e, --engine <engine>`    | Specify the translator engine ('google', 'yandex', 'deepl', 'duckduckgo', 'libre', 'mymemory' or 'reverso'), Google is used by default |
+| `-u, --url <URL>`          | Specify instance URL, random instance URL will be used by default.                                                                     |
 | `-p, --speak-translation`  | Speak the translation                                                                                                                  |
 | `-u, --speak-source`       | Speak the source                                                                                                                       |
 | `-f, --file`               | Read source text from files. Arguments will be interpreted as file paths                                                               |

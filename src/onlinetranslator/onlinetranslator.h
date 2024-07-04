@@ -305,7 +305,7 @@ public:
      * @param sourceLang language of the passed text
      * @param uiLang ui language to use for display
      */
-    void translate(const QString &text, Engine engine = Google, Language translationLang = Auto, Language sourceLang = Auto, Language uiLang = Auto);
+    void translate(const QString &text, Engine engine = Google, Language translationLang = Auto, Language sourceLang = Auto);
 
     /**
      * @brief Detect language
@@ -617,7 +617,6 @@ private:
 
     Language m_sourceLang = NoLanguage;
     Language m_translationLang = NoLanguage;
-    Language m_uiLang = NoLanguage;
     TranslationError m_error = NoError;
     Engine m_engine = Google;
 

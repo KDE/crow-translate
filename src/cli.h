@@ -65,7 +65,6 @@ private:
     QVector<OnlineTranslator::Language> m_translationLanguages;
     OnlineTranslator::Engine m_engine = OnlineTranslator::Google;
     OnlineTranslator::Language m_sourceLang = OnlineTranslator::NoLanguage;
-    OnlineTranslator::Language m_uiLang = OnlineTranslator::NoLanguage;
     bool m_speakSource = false;
     bool m_speakTranslation = false;
     bool m_sourcePrinted = false;

@@ -40,7 +40,6 @@ void Cli::process(const QCoreApplication &app)
     const QCommandLineOption codes({"c", "codes"}, tr("Display all language codes."));
     const QCommandLineOption source({"s", "source"}, tr("Specify the source language (by default, engine will try to determine the language on its own)."), QStringLiteral("code"), QStringLiteral("auto"));
     const QCommandLineOption translation({"t", "translation"}, tr("Specify the translation language(s), splitted by '+' (by default, the system language is used)."), QStringLiteral("code"), QStringLiteral("auto"));
-    const QCommandLineOption locale({"l", "locale"}, tr("Specify the translator language (by default, the system language is used)."), QStringLiteral("code"), QStringLiteral("auto"));
     const QCommandLineOption engine({"e", "engine"}, tr("Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' or 'lingva'), Google is used by default."), QStringLiteral("engine"), QStringLiteral("google"));
     const QCommandLineOption url({"u", "url"}, tr("Specify instance URL. Random instance URL will be used by default."), QStringLiteral("URL"), AppSettings::randomInstanceUrl());
     const QCommandLineOption speakTranslation({"p", "speak-translation"}, tr("Speak the translation."));
@@ -59,7 +58,6 @@ void Cli::process(const QCoreApplication &app)
     parser.addOption(codes);
     parser.addOption(source);
     parser.addOption(translation);
-    parser.addOption(locale);
     parser.addOption(engine);
     parser.addOption(url);
     parser.addOption(speakTranslation);
@@ -89,7 +87,6 @@ void Cli::process(const QCoreApplication &app)
 
     // Translation languages
     m_sourceLang = OnlineTranslator::language(parser.value(source));
-    m_uiLang = OnlineTranslator::language(parser.value(locale));
     for (const QString &langCode : parser.value(translation).split('+'))
         m_translationLanguages << OnlineTranslator::language(langCode);
 
@@ -159,7 +156,7 @@ void Cli::requestTranslation()
     auto *state = qobject_cast<QState *>(sender());
     auto translationLang = state->property(s_langProperty).value<OnlineTranslator::Language>();
 
-    m_translator->translate(m_sourceText, m_engine, translationLang, m_sourceLang, m_uiLang);
+    m_translator->translate(m_sourceText, m_engine, translationLang, m_sourceLang);
 }
 
 void Cli::parseTranslation()

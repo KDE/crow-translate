@@ -268,7 +268,7 @@ OnlineTranslator::OnlineTranslator(QObject *parent)
     connect(m_stateMachine, &QStateMachine::stopped, this, &OnlineTranslator::finished);
 }
 
-void OnlineTranslator::translate(const QString &text, Engine engine, Language translationLang, Language sourceLang, Language uiLang)
+void OnlineTranslator::translate(const QString &text, Engine engine, Language translationLang, Language sourceLang)
 {
     abort();
     resetData();
@@ -277,7 +277,6 @@ void OnlineTranslator::translate(const QString &text, Engine engine, Language tr
     m_source = text;
     m_sourceLang = sourceLang;
     m_translationLang = translationLang == Auto ? language(QLocale()) : translationLang;
-    m_uiLang = uiLang == Auto ? language(QLocale()) : uiLang;
     m_engine = engine;
 
     buildStateMachine();
@@ -293,7 +292,6 @@ void OnlineTranslator::detectLanguage(const QString &text, Engine engine)
     m_source = text;
     m_sourceLang = Auto;
     m_translationLang = English;
-    m_uiLang = language(QLocale());
     m_engine = engine;
 
     buildDetectStateMachine();
@@ -1233,7 +1231,7 @@ void OnlineTranslator::requestTranslate()
 
     // Generate API url
     QUrl url(m_instanceUrl + "/api/translate");
-    url.setQuery(QStringLiteral("engine=%1&from=%2&to=%3&text=%4").arg(QString(QMetaEnum::fromType<OnlineTranslator::Engine>().valueToKey(m_engine)).toLower(), languageApiCode(m_engine, m_uiLang), languageApiCode(m_engine, m_translationLang), QUrl::toPercentEncoding(sourceText)));
+    url.setQuery(QStringLiteral("engine=%1&from=%2&to=%3&text=%4").arg(QString(QMetaEnum::fromType<OnlineTranslator::Engine>().valueToKey(m_engine)).toLower(), languageApiCode(m_engine, m_sourceLang), languageApiCode(m_engine, m_translationLang), QUrl::toPercentEncoding(sourceText)));
 
     m_currentReply = m_networkManager->get(QNetworkRequest(url));
 }
