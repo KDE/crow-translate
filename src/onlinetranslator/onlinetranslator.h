@@ -13,6 +13,7 @@
 
 #include <QJsonDocument>
 #include <QMap>
+#include <QMediaPlayer>
 #include <QPointer>
 #include <QUuid>
 #include <QVector>
@@ -29,8 +30,6 @@ class OnlineTranslator : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(OnlineTranslator)
-
-    friend class OnlineTts;
 
 public:
     /**
@@ -279,6 +278,8 @@ public:
         NoError,
         /** Network error */
         NetworkError,
+        /** Specified engine does not support TTS */
+        UnsupportedTtsEngine,
         /** Instance returned an error */
         InstanceError,
         /** The request could not be parsed (report a bug if you see this) */
@@ -325,6 +326,8 @@ public:
      * @return `true` when the translation is still processing and has not finished or was aborted yet.
      */
     bool isRunning() const;
+
+    QList<QMediaContent> generateUrls(const QString &text, OnlineTranslator::Engine engine, OnlineTranslator::Language lang);
 
     /**
      * @brief Converts the object to JSON
@@ -603,6 +606,7 @@ private:
     static const QMap<Language, QString> s_mymemory;
 
     static const int s_textLimits = 100000;
+    static constexpr int s_TtsLimit = 200;
 
     // This properties used to store unseful information in states
     static constexpr char s_textProperty[] = "Text";

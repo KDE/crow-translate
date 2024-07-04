@@ -8,8 +8,6 @@
 #ifndef SETTINGSDIALOG_H
 #define SETTINGSDIALOG_H
 
-#include "onlinetranslator/onlinetts.h"
-
 #include <QDialog>
 
 class MainWindow;

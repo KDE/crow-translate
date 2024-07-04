@@ -386,12 +386,12 @@ void MainWindow::parseSourceLanguage()
 
 void MainWindow::speakSource()
 {
-    ui->sourceSpeakButtons->speak(ui->sourceEdit->toSourceText(), ui->sourceLanguagesWidget->checkedLanguage(), currentEngine());
+    ui->sourceSpeakButtons->speak(*m_translator, ui->sourceEdit->toSourceText(), ui->sourceLanguagesWidget->checkedLanguage(), currentEngine());
 }
 
 void MainWindow::speakTranslation()
 {
-    ui->translationSpeakButtons->speak(ui->translationEdit->translation(), ui->translationEdit->translationLanguage(), currentEngine());
+    ui->translationSpeakButtons->speak(*m_translator, ui->translationEdit->translation(), ui->translationEdit->translationLanguage(), currentEngine());
 }
 
 void MainWindow::showTranslationWindow()

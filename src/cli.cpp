@@ -7,7 +7,6 @@
 
 #include "cli.h"
 
-#include "onlinetranslator/onlinetts.h"
 #include "settings/appsettings.h"
 #include "transitions/playerstoppedtransition.h"
 
@@ -335,16 +334,15 @@ void Cli::buildTranslationStateMachine()
 
 void Cli::speak(const QString &text, OnlineTranslator::Language lang)
 {
-    OnlineTts tts;
-    tts.generateUrls(m_translator->instanceUrl(), text, m_engine, lang);
-    if (tts.error() != OnlineTts::NoError) {
-        qCritical() << tr("Error: %1").arg(tts.errorString());
+    const QList<QMediaContent> media = m_translator->generateUrls(text, m_engine, lang);
+    if (m_translator->error() != OnlineTranslator::NoError) {
+        qCritical() << tr("Error: %1").arg(m_translator->errorString());
         m_stateMachine->stop();
         return;
     }
 
     m_player->playlist()->clear();
-    m_player->playlist()->addMedia(tts.media());
+    m_player->playlist()->addMedia(media);
     m_player->play();
 }
 

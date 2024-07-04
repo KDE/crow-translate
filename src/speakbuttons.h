@@ -9,7 +9,6 @@
 #define PLAYERBUTTONS_H
 
 #include "onlinetranslator/onlinetranslator.h"
-#include "onlinetranslator/onlinetts.h"
 
 #include <QMediaPlayer>
 #include <QWidget>
@@ -37,7 +36,7 @@ public:
     void setSpeakShortcut(const QKeySequence &shortcut);
     QKeySequence speakShortcut() const;
 
-    void speak(const QString &text, OnlineTranslator::Language lang, OnlineTranslator::Engine engine);
+    void speak(OnlineTranslator &translator, const QString &text, OnlineTranslator::Language lang, OnlineTranslator::Engine engine);
     void pauseSpeaking();
     void playPauseSpeaking();
 

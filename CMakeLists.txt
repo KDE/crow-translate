@@ -139,7 +139,6 @@ add_executable(${PROJECT_NAME}
     src/ocr/screengrabbers/genericscreengrabber.cpp
     src/ocr/snippingarea.cpp
     src/onlinetranslator/onlinetranslator.cpp
-    src/onlinetranslator/onlinetts.cpp
     src/popupwindow.cpp
     src/popupwindow.ui
     src/screenwatcher.cpp

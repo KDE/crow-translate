@@ -8,7 +8,7 @@
 #include "speakbuttons.h"
 #include "ui_speakbuttons.h"
 
-#include "settings/appsettings.h"
+#include "onlinetranslator/onlinetranslator.h"
 
 #include <QMediaPlaylist>
 #include <QMessageBox>
@@ -69,23 +69,20 @@ QKeySequence SpeakButtons::speakShortcut() const
     return ui->playPauseButton->shortcut();
 }
 
-void SpeakButtons::speak(const QString &text, OnlineTranslator::Language lang, OnlineTranslator::Engine engine)
+void SpeakButtons::speak(OnlineTranslator &translator, const QString &text, OnlineTranslator::Language lang, OnlineTranslator::Engine engine)
 {
     if (text.isEmpty()) {
         QMessageBox::information(this, tr("No text specified"), tr("Playback text is empty"));
         return;
     }
 
-    OnlineTts onlineTts;
-
-    onlineTts.generateUrls(AppSettings().instanceUrl(), text, engine, lang);
-    if (onlineTts.error() != OnlineTts::NoError) {
-        QMessageBox::critical(this, tr("Unable to generate URLs for TTS"), onlineTts.errorString());
+    const QList<QMediaContent> media = translator.generateUrls(text, engine, lang);
+    if (translator.error() != OnlineTranslator::NoError) {
+        QMessageBox::critical(this, tr("Unable to generate URLs for TTS"), translator.errorString());
         return;
     }
 
     // Use playlist to split long queries due engines limit
-    const QList<QMediaContent> media = onlineTts.media();
     playlist()->clear();
     playlist()->addMedia(media);
     m_mediaPlayer->play();

@@ -311,6 +311,48 @@ bool OnlineTranslator::isRunning() const
     return m_stateMachine->isRunning();
 }
 
+QList<QMediaContent> OnlineTranslator::generateUrls(const QString &text, OnlineTranslator::Engine engine, OnlineTranslator::Language lang)
+{
+    // Get speech
+    QString unparsedText = text;
+    switch (engine) {
+    case OnlineTranslator::Reverso:
+    case OnlineTranslator::Google: {
+        m_error = NoError;
+        m_errorString.clear();
+
+        const QString langString = OnlineTranslator::languageApiCode(engine, lang);
+        const QString engineString = QString(QMetaEnum::fromType<OnlineTranslator::Engine>().valueToKey(engine)).toLower();
+
+        // Limit characters per tts request. If the query is larger, then it should be splited into several
+        QList<QMediaContent> media;
+        while (!unparsedText.isEmpty()) {
+            const int splitIndex = OnlineTranslator::getSplitIndex(unparsedText, s_TtsLimit); // Split the part by special symbol
+
+            // Generate URL API for add it to the playlist
+            QUrl apiUrl(QStringLiteral("%1/api/tts").arg(m_instanceUrl));
+            const QString query = QStringLiteral("engine=%1&lang=%2&text=%3").arg(engineString, langString, QString(QUrl::toPercentEncoding(unparsedText.left(splitIndex))));
+            apiUrl.setQuery(query);
+            media.append(apiUrl);
+
+            // Remove the said part from the next saying
+            unparsedText = unparsedText.mid(splitIndex);
+        }
+        return media;
+    }
+    case OnlineTranslator::Yandex: // For some reason, Yandex doesn't supprt TTS in Mozhi
+    case OnlineTranslator::Deepl:
+    case OnlineTranslator::LibreTranslate:
+    case OnlineTranslator::Duckduckgo:
+    case OnlineTranslator::Mymemory:
+        m_error = UnsupportedTtsEngine;
+        m_errorString = tr("%1 engine does not support TTS").arg(QMetaEnum::fromType<OnlineTranslator::Engine>().valueToKey(engine));
+        return {};
+    }
+
+    Q_UNREACHABLE();
+}
+
 QJsonDocument OnlineTranslator::jsonResponse() const
 {
     return m_jsonResponse;
