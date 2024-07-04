@@ -1,43 +1,42 @@
-# SPDX-FileCopyrightText: 2024 Serdar Sağlam
-# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2024-07-03 19:38+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Language: tr\n"
-"X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: src/cli.cpp:41
 msgctxt "Cli|"
 msgid "Display all language codes."
-msgstr "Tüm dil kodlarını göster."
+msgstr "Tüm dil kodlarını görüntüle."
 
 #: src/cli.cpp:42
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
-msgstr ""
-"Kaynak dili belirtin (varsayılan olarak, motor dili kendi başına belirlemeye "
-"çalışacaktır)."
+msgstr "Kaynak dili belirt (Öntanımlı: Kendiliğinden algılama)."
 
 #: src/cli.cpp:43
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
 "language is used)."
-msgstr ""
-"'+' ile bölünmüş çeviri dillerini belirtin (varsayılan olarak sistem dili "
-"kullanılır)."
+msgstr "Çeviri dillerini “+” ile ayırıp belirt (Öntanımlı: Sistem dili)."
 
 #: src/cli.cpp:44
 msgctxt "Cli|"
 msgid ""
 "Specify the translator language (by default, the system language is used)."
-msgstr "Çeviri dilini belirtin (varsayılan olarak, sistem dili kullanılır)."
+msgstr "Çeviri dilini belirt (Öntanımlı: Sistem dili)."
 
 #: src/cli.cpp:45
 msgctxt "Cli|"
@@ -45,8 +44,8 @@ msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
 "or 'lingva'), Google is used by default."
 msgstr ""
-"Çeviri motorunu belirtin ('google', 'yandex', 'bing', 'libretranslate' veya "
-"'lingva'), varsayılan olarak Google kullanılır."
+"Çeviri işletkesini belirt (“google”, “yandex”, “bing”, “libretranslate”\n"
+"veya “lingva”). Öntanımlı olarak Google kullanılır."
 
 #: src/cli.cpp:46
 msgctxt "Cli|"
@@ -62,14 +61,12 @@ msgstr "Kaynağı konuş."
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
-msgstr ""
-"Dosyalardan kaynak metni okuyun. Bağımsız değişkenler dosya yolları olarak "
-"yorumlanacaktır."
+msgstr "Kaynak metni dosyadan oku. Argümanlar, dosya yolu olarak yorumlanır."
 
 #: src/cli.cpp:49
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
-msgstr "Kaynak metne stdin verisi ekleyin."
+msgstr "Kaynak metne stdin verisini ekle."
 
 #: src/cli.cpp:50
 #, qt-format
@@ -80,12 +77,12 @@ msgstr "--%1 veya --%2 kullanırken herhangi bir metin yazdırma."
 #: src/cli.cpp:51
 msgctxt "Cli|"
 msgid "Print only translations."
-msgstr "Yalnızca çeviriyi yazdır."
+msgstr "Yalnızca çevirileri yazdır."
 
 #: src/cli.cpp:52
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
-msgstr "JSON formatında çıktı al."
+msgstr "Çıktıyı JSON olarak biçimlendir."
 
 #: src/cli.cpp:55
 msgctxt "Cli|"
@@ -93,32 +90,32 @@ msgid ""
 "A simple and lightweight translator that allows to translate and speak text "
 "using Google, Yandex, Bing, LibreTranslate and Lingva"
 msgstr ""
-"Google, Yandex, Bing, LibreTranslate ve Lingva kullanarak metin çevirmeyi ve "
-"konuşmayı sağlayan basit ve hafif bir çevirmen"
+"Google, Yandex, Bing, LibreTranslate ve Lingva hizmetlerini kullanarak "
+"metinlerin çevrilmesine ve seslendirilmesine olanak tanıyan basit ve hafif "
+"bir çevirmen."
 
 #: src/cli.cpp:56
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
-msgstr ""
-"Çevrilecek metin. Varsayılan olarak, çeviri sistem diline yapılacaktır."
+msgstr "Çevrilecek metin. Öntanımlı olarak çeviri sistem diline yapılacaktır."
 
 #: src/cli.cpp:78
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
-msgstr "Hata: --%1 için --%2 ve/yada --%3 seçeneklerini belirtmelisiniz"
+msgstr "Hata: --%1 için --%2 ve/veya --%3 seçeneklerini belirtmelisiniz."
 
 #: src/cli.cpp:112
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
-msgstr "Hata: Çeviri için metin yok"
+msgstr "Hata: Çevrilecek metin yok."
 
 #: src/cli.cpp:130
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
-msgstr "Hata: Bilinmeyen motor"
+msgstr "Hata: Bilinmeyen işletke."
 
 #: src/cli.cpp:165 src/cli.cpp:258 src/cli.cpp:347
 #, qt-format
@@ -130,25 +127,25 @@ msgstr "Hata: %1"
 #, qt-format
 msgctxt "Cli|"
 msgid "%1 - translation options:"
-msgstr "%1 - çeviri seçenekleri:"
+msgstr "%1 — çeviri seçenekleri:"
 
 #: src/cli.cpp:236
 #, qt-format
 msgctxt "Cli|"
 msgid "%1 - examples:"
-msgstr "%1 - örnekler:"
+msgstr "%1 — örnekler:"
 
 #: src/cli.cpp:360
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
-msgstr "Hata: --%1'i --%2 ile kullanamazsınız"
+msgstr "Hata: --%2 ile --%1 kullanamazsınız."
 
 #: src/cli.cpp:376 src/cli.cpp:397
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
-msgstr "Hata: Dosya mevcut değil: %1"
+msgstr "Hata: Dosya yok: %1"
 
 #: src/cli.cpp:381 src/cli.cpp:402
 #, qt-format
@@ -159,22 +156,22 @@ msgstr "Hata: Dosya açılamıyor: %1"
 #: src/contextmenu.h:39
 msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
-msgstr "Forvo.com'da ara"
+msgstr "Forvo.com’da Ara"
 
 #: src/languagebuttonswidget.cpp:451
 msgctxt "LanguageButtonsWidget|"
 msgid "Window width is larger than screen due to the languages on the panel."
-msgstr "Paneldeki diller nedeniyle pencere genişliği ekrandan daha büyüktür."
+msgstr "Paneldeki dillerden dolayı pencere genişliği ekrandan daha büyük."
 
 #: src/languagebuttonswidget.cpp:452
 msgctxt "LanguageButtonsWidget|"
 msgid "Please reduce added languages."
-msgstr "Lütfen eklenen dilleri azaltın."
+msgstr "Lütfen eklenen dillerin sayısını azaltın."
 
 #: src/languagebuttonswidget.cpp:528 src/languagebuttonswidget.cpp:530
 msgctxt "LanguageButtonsWidget|"
 msgid "Auto"
-msgstr "Otomatik"
+msgstr "Kendiliğinden"
 
 #: src/languagebuttonswidget.ui:32
 msgctxt "LanguageButtonsWidget|"
@@ -185,7 +182,7 @@ msgstr "Dilleri düzenle"
 #, qt-format
 msgctxt "LanguagesDialog|"
 msgid "Filter (%1)"
-msgstr "Filtre (%1)"
+msgstr "Süzgeç (%1)"
 
 #: src/languagesdialog.ui:14
 msgctxt "LanguagesDialog|"
@@ -200,13 +197,14 @@ msgstr "Kullanılabilir diller:"
 #: src/languagesdialog.ui:104
 msgctxt "LanguagesDialog|"
 msgid "Current languages:"
-msgstr "Mevcut diller:"
+msgstr "Geçerli diller:"
 
 #: src/main.cpp:65
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
-msgstr "%1 D-Bus hizmeti başka bir uygulama tarafından zaten kayıtlı"
+msgstr ""
+"D-Bus hizmeti %1, halihazırda başka bir uygulama tarafından kaydedilmiş"
 
 #: src/main.cpp:90
 #, qt-format
@@ -214,37 +212,37 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "%1 için D-Bus nesnesi kaydedilemiyor"
 
-#: src/mainwindow.cpp:384
+#: src/mainwindow.cpp:380
 msgctxt "MainWindow|"
 msgid "Unable to detect language"
-msgstr "Dil tespit edilemiyor"
+msgstr "Dil algılanamıyor"
 
-#: src/mainwindow.cpp:436
+#: src/mainwindow.cpp:432
 msgctxt "MainWindow|"
 msgid "Unable to translate text"
 msgstr "Metin çevrilemiyor"
 
-#: src/mainwindow.cpp:916
+#: src/mainwindow.cpp:867
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Geçersiz tepsi simgesi"
 
-#: src/mainwindow.cpp:916
+#: src/mainwindow.cpp:867
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
-msgstr "Belirtilen '%1' simgesi geçersiz. Varsayılan simge kullanılacaktır."
+msgstr "Belirtilen simge “%1” geçersiz. Öntanımlı simge kullanılacak."
 
-#: src/mainwindow.cpp:947
+#: src/mainwindow.cpp:898
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
-msgstr "OCR dili ayarlanamıyor"
+msgstr "OKT dilleri ayarlanamıyor"
 
-#: src/mainwindow.cpp:947
+#: src/mainwindow.cpp:898
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
-msgstr "Tesseract %1 ile başlatılamıyor"
+msgstr "Tesseract %1 ile ilklendirilemiyor"
 
 #: src/mainwindow.ui:36
 msgctxt "MainWindow|"
@@ -260,7 +258,7 @@ msgstr "Ekran alanını gecikmeli olarak tanı"
 #: src/mainwindow.ui:70
 msgctxt "MainWindow|"
 msgid "Auto-translation"
-msgstr "Otomatik çeviri"
+msgstr "Anında çevir"
 
 #: src/mainwindow.ui:82
 msgctxt "MainWindow|"
@@ -270,7 +268,7 @@ msgstr "İptal"
 #: src/mainwindow.ui:93
 msgctxt "MainWindow|"
 msgid "Swap languages"
-msgstr "Dilleri değiştir"
+msgstr "Dilleri değiş–tokuş et"
 
 #: src/mainwindow.ui:117
 msgctxt "MainWindow|"
@@ -300,7 +298,7 @@ msgstr "Çeviriyi panoya kopyala"
 #: src/mainwindow.ui:264
 msgctxt "MainWindow|"
 msgid "Copy all translation data to the clipboard"
-msgstr "Tüm çeviri verilerini panoya kopyala"
+msgstr "Tüm çeviri verisini panoya kopyala"
 
 #: src/mainwindow.ui:275
 msgctxt "MainWindow|"
@@ -316,7 +314,7 @@ msgstr "Uygulama ayarları"
 #, qt-format
 msgctxt "Ocr|"
 msgid "%1 is not a valid Tesseract parameter name."
-msgstr "%1 geçerli bir tesseract parametre adı değil."
+msgstr "%1, geçerli bir Tesseract parametresi adı değil."
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 msgctxt "AbstractScreenGrabber|"
@@ -326,40 +324,40 @@ msgstr "Ekran yakalanamıyor"
 #: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:47
 msgctxt "WaylandGnomeScreenGrabber|"
 msgid "GNOME failed to take screenshot."
-msgstr "GNOME ekran görüntüsü alamadı."
+msgstr "GNOME, ekran görüntüsü alamadı."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:43
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to create pipe: %1."
-msgstr "Kanal oluşturulamıyor: %1."
+msgstr "Veriyolu oluşturulamıyor: %1"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:87
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to wait for socket readiness: %1."
-msgstr "Soket hazırlığı için beklenemiyor: %1."
+msgstr "Yuvanın hazır olup olmaması beklenemiyor: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:92
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Timeout reading from pipe."
-msgstr "Kanaldan okuma zaman aşımı."
+msgstr "Veriyolundan okurken zaman aşımı."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:98
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to read data from socket: %1."
-msgstr "Soketten veri okunamıyor: %1."
+msgstr "Yuvadan veri okunamıyor: %1."
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:56
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
-msgstr "Xdg-desktop-portal'dan gelen yanıta abone olunamıyor."
+msgstr "xdg-desktop-portal’dan gelen yanıta abone olunamıyor."
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:76
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
-msgstr "xdg-desktop-portal'dan boş bir yol alındı."
+msgstr "xdg-desktop-portal’dan boş bir yol alındı."
 
 #: src/ocr/snippingarea.cpp:73
 msgctxt "SnippingArea|"
@@ -370,7 +368,7 @@ msgstr "Ekran alanı kırpılamıyor"
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
-msgstr "%1 ekranının geçersiz bir görüntüsü alındı."
+msgstr "%1. ekranın geçersiz bir görseli alındı."
 
 #: src/ocr/snippingarea.cpp:626
 msgctxt "SnippingArea|"
@@ -378,23 +376,23 @@ msgid ""
 "Click and drag to draw a selection rectangle,\n"
 "or press Esc to quit"
 msgstr ""
-"Seçim dikdörtgeni çizmek için tıklayın ve sürükleyin,\n"
-"veya çıkmak için Esc tuşuna basın"
+"Bir seçim dörtgeni çizmek için tıklayıp sürükleyin\n"
+"veya çıkmak için Esc’ye basın"
 
 #: src/ocr/snippingarea.cpp:832
 msgctxt "SnippingArea|"
 msgid "Confirm:"
-msgstr "Onay:"
+msgstr "Onayla:"
 
 #: src/ocr/snippingarea.cpp:834
 msgctxt "SnippingArea|"
 msgid "Release left-click"
-msgstr "Sol tıklamayı bırakın"
+msgstr "Sol tıkı bırak"
 
 #: src/ocr/snippingarea.cpp:834 src/ocr/snippingarea.cpp:836
 msgctxt "SnippingArea|"
 msgid "Enter"
-msgstr "Enter"
+msgstr "Giriş"
 
 #: src/ocr/snippingarea.cpp:836
 msgctxt "SnippingArea|"
@@ -404,57 +402,57 @@ msgstr "Çift tık"
 #: src/ocr/snippingarea.cpp:838
 msgctxt "SnippingArea|"
 msgid "Create new selection rectangle:"
-msgstr "Yeni seçim dikdörtgeni oluşturun:"
+msgstr "Yeni seçim dörtgeni oluştur:"
 
 #: src/ocr/snippingarea.cpp:839
 msgctxt "SnippingArea|"
 msgid "Drag outside selection rectangle"
-msgstr "Seçimi dikdörtgeninin dışına sürükleyin"
+msgstr "Seçim dörtgeninin dışına sürükle"
 
 #: src/ocr/snippingarea.cpp:839
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
-msgstr "+ Shift: Büyüteç"
+msgstr "+ Üst Karakter: Büyüteç"
 
 #: src/ocr/snippingarea.cpp:842
 msgctxt "SnippingArea|"
 msgid "Move selection rectangle:"
-msgstr "Seçim dikdörtgenini taşı:"
+msgstr "Seçim dörtgenini taşı:"
 
 #: src/ocr/snippingarea.cpp:843
 msgctxt "SnippingArea|"
 msgid "Drag inside selection rectangle"
-msgstr "Seçimi dikdörtgeninin içine sürükleyin"
+msgstr "Seçim dörtgeni içine sürükle"
 
 #: src/ocr/snippingarea.cpp:843
 msgctxt "SnippingArea|"
 msgid "Arrow keys"
-msgstr "Yön tuşları"
+msgstr "Ok düğmeleri"
 
 #: src/ocr/snippingarea.cpp:843
 msgctxt "SnippingArea|"
 msgid "+ Shift: Move in 1 pixel steps"
-msgstr "+ Shift: 1 piksel adımda hareket et"
+msgstr "+  Üst Karakter: 1 piksellik adımlarla taşı"
 
 #: src/ocr/snippingarea.cpp:845
 msgctxt "SnippingArea|"
 msgid "Resize selection rectangle:"
-msgstr "Seçim dikdörtgenini yeniden boyutlandır:"
+msgstr "Seçim dörtgenini yeniden boyutlandır:"
 
 #: src/ocr/snippingarea.cpp:846
 msgctxt "SnippingArea|"
 msgid "Drag handles"
-msgstr "Tutamaçları sürükle"
+msgstr "Sürükleme tutaçları"
 
 #: src/ocr/snippingarea.cpp:846
 msgctxt "SnippingArea|"
 msgid "Arrow keys + Alt"
-msgstr "Yön tuşları + Alt"
+msgstr "Ok düğmeleri + Seçenek"
 
 #: src/ocr/snippingarea.cpp:846
 msgctxt "SnippingArea|"
 msgid "+ Shift: Resize in 1 pixel steps"
-msgstr "+ Shift: 1 piksel adımda yeniden boyutlandır"
+msgstr "+ Üst Karakter: 1 piksellik adımlarla yeniden boyutlandır"
 
 #: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
@@ -469,30 +467,30 @@ msgstr "Sağ tık"
 #: src/ocr/snippingarea.cpp:852
 msgctxt "SnippingArea|"
 msgid "Cancel:"
-msgstr "İptal Et:"
+msgstr "İptal:"
 
 #: src/ocr/snippingarea.cpp:853
 msgctxt "SnippingArea|"
 msgid "Esc key"
-msgstr "Esc tuşu"
+msgstr "Esc düğmesi"
 
 #: src/onlinetranslator/onlinetranslator.cpp:190
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Selected source language %1 is not supported for %2"
-msgstr "Seçilen kaynak dil %1, %2 için desteklenmiyor"
+msgstr "Seçili kaynak dil %1, %2 için desteklenmiyor"
 
 #: src/onlinetranslator/onlinetranslator.cpp:195
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Selected translation language %1 is not supported for %2"
-msgstr "%1 için seçilen çeviri dili %2 için desteklenmiyor"
+msgstr "Seçili çeviri dili %1, %2 için desteklenmiyor"
 
 #: src/onlinetranslator/onlinetranslator.cpp:200
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Selected ui language %1 is not supported for %2"
-msgstr "%1 için seçilen kullanıcı arayüzü dili %2 için desteklenmiyor"
+msgstr "Seçili arayüz dili %1, %2 için desteklenmiyor"
 
 #: src/onlinetranslator/onlinetranslator.cpp:217
 #: src/onlinetranslator/onlinetranslator.cpp:226
@@ -501,17 +499,17 @@ msgstr "%1 için seçilen kullanıcı arayüzü dili %2 için desteklenmiyor"
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "%1 URL can't be empty."
-msgstr "%1 URL'si boş olamaz."
+msgstr "%1 URL’si boş olamaz."
 
 #: src/onlinetranslator/onlinetranslator.cpp:468
 msgctxt "OnlineTranslator|"
 msgid "Automatically detect"
-msgstr "Otomatik algıla"
+msgstr "Kendiliğinden algıla"
 
 #: src/onlinetranslator/onlinetranslator.cpp:470
 msgctxt "OnlineTranslator|"
 msgid "Afrikaans"
-msgstr "Afrikaans"
+msgstr "Afrikaanca"
 
 #: src/onlinetranslator/onlinetranslator.cpp:472
 msgctxt "OnlineTranslator|"
@@ -536,7 +534,7 @@ msgstr "Ermenice"
 #: src/onlinetranslator/onlinetranslator.cpp:480
 msgctxt "OnlineTranslator|"
 msgid "Azeerbaijani"
-msgstr "Azerice"
+msgstr "Azerbaycanca"
 
 #: src/onlinetranslator/onlinetranslator.cpp:482
 msgctxt "OnlineTranslator|"
@@ -616,7 +614,7 @@ msgstr "Danca"
 #: src/onlinetranslator/onlinetranslator.cpp:512
 msgctxt "OnlineTranslator|"
 msgid "Dutch"
-msgstr "Flemenkçe"
+msgstr "Hollandaca"
 
 #: src/onlinetranslator/onlinetranslator.cpp:514
 msgctxt "OnlineTranslator|"
@@ -631,7 +629,7 @@ msgstr "Esperanto Dili"
 #: src/onlinetranslator/onlinetranslator.cpp:518
 msgctxt "OnlineTranslator|"
 msgid "Estonian"
-msgstr "Estonya Dili"
+msgstr "Estonca"
 
 #: src/onlinetranslator/onlinetranslator.cpp:520
 msgctxt "OnlineTranslator|"
@@ -681,12 +679,12 @@ msgstr "Yunanca"
 #: src/onlinetranslator/onlinetranslator.cpp:538
 msgctxt "OnlineTranslator|"
 msgid "Gujarati"
-msgstr "Gucaratça"
+msgstr "Güceratça"
 
 #: src/onlinetranslator/onlinetranslator.cpp:540
 msgctxt "OnlineTranslator|"
 msgid "Haitian Creole"
-msgstr "Haiti Kreyolu"
+msgstr "Haiti Kreolü"
 
 #: src/onlinetranslator/onlinetranslator.cpp:542
 msgctxt "OnlineTranslator|"
@@ -696,7 +694,7 @@ msgstr "Hausaca"
 #: src/onlinetranslator/onlinetranslator.cpp:544
 msgctxt "OnlineTranslator|"
 msgid "Hawaiian"
-msgstr "Hawaii Dili"
+msgstr "Hauaice"
 
 #: src/onlinetranslator/onlinetranslator.cpp:546
 msgctxt "OnlineTranslator|"
@@ -731,7 +729,7 @@ msgstr "İzlandaca"
 #: src/onlinetranslator/onlinetranslator.cpp:558
 msgctxt "OnlineTranslator|"
 msgid "Igbo"
-msgstr "Igbo Dili"
+msgstr "İgbo Dili"
 
 #: src/onlinetranslator/onlinetranslator.cpp:560
 msgctxt "OnlineTranslator|"
@@ -741,7 +739,7 @@ msgstr "Endonezce"
 #: src/onlinetranslator/onlinetranslator.cpp:562
 msgctxt "OnlineTranslator|"
 msgid "Irish"
-msgstr "İrlanda Dili"
+msgstr "İrlandaca"
 
 #: src/onlinetranslator/onlinetranslator.cpp:564
 msgctxt "OnlineTranslator|"
@@ -756,12 +754,12 @@ msgstr "Japonca"
 #: src/onlinetranslator/onlinetranslator.cpp:568
 msgctxt "OnlineTranslator|"
 msgid "Javanese"
-msgstr "Cava Dili"
+msgstr "Javaca"
 
 #: src/onlinetranslator/onlinetranslator.cpp:570
 msgctxt "OnlineTranslator|"
 msgid "Kannada"
-msgstr "Kannada Dili"
+msgstr "Kannadaca"
 
 #: src/onlinetranslator/onlinetranslator.cpp:572
 msgctxt "OnlineTranslator|"
@@ -781,12 +779,12 @@ msgstr "Ruandaca"
 #: src/onlinetranslator/onlinetranslator.cpp:578
 msgctxt "OnlineTranslator|"
 msgid "Klingon"
-msgstr "Klingon Dili"
+msgstr "Klingonca"
 
 #: src/onlinetranslator/onlinetranslator.cpp:580
 msgctxt "OnlineTranslator|"
 msgid "Klingon (PlqaD)"
-msgstr "Klingon Dili (PlqaD)"
+msgstr "Klingonca (PlqaD)"
 
 #: src/onlinetranslator/onlinetranslator.cpp:582
 msgctxt "OnlineTranslator|"
@@ -821,7 +819,7 @@ msgstr "Letonca"
 #: src/onlinetranslator/onlinetranslator.cpp:594
 msgctxt "OnlineTranslator|"
 msgid "Levantine Arabic"
-msgstr "Levanten Arapça"
+msgstr "Levant Arapçası"
 
 #: src/onlinetranslator/onlinetranslator.cpp:596
 msgctxt "OnlineTranslator|"
@@ -841,7 +839,7 @@ msgstr "Makedonca"
 #: src/onlinetranslator/onlinetranslator.cpp:602
 msgctxt "OnlineTranslator|"
 msgid "Malagasy"
-msgstr "Madagaskar Dili"
+msgstr "Malgaşça"
 
 #: src/onlinetranslator/onlinetranslator.cpp:604
 msgctxt "OnlineTranslator|"
@@ -866,12 +864,12 @@ msgstr "Maorice"
 #: src/onlinetranslator/onlinetranslator.cpp:612
 msgctxt "OnlineTranslator|"
 msgid "Marathi"
-msgstr "Marathice"
+msgstr "Maratice"
 
 #: src/onlinetranslator/onlinetranslator.cpp:614
 msgctxt "OnlineTranslator|"
 msgid "Mari"
-msgstr "Marice (Çirmiş Dili)"
+msgstr "Marice"
 
 #: src/onlinetranslator/onlinetranslator.cpp:616
 msgctxt "OnlineTranslator|"
@@ -881,7 +879,7 @@ msgstr "Moğolca"
 #: src/onlinetranslator/onlinetranslator.cpp:618
 msgctxt "OnlineTranslator|"
 msgid "Myanmar"
-msgstr "Birmanca"
+msgstr "Burmaca"
 
 #: src/onlinetranslator/onlinetranslator.cpp:620
 msgctxt "OnlineTranslator|"
@@ -896,7 +894,7 @@ msgstr "Norveççe"
 #: src/onlinetranslator/onlinetranslator.cpp:624
 msgctxt "OnlineTranslator|"
 msgid "Oriya"
-msgstr "Oriya Dili"
+msgstr "Oriyaca"
 
 #: src/onlinetranslator/onlinetranslator.cpp:626
 msgctxt "OnlineTranslator|"
@@ -906,7 +904,7 @@ msgstr "Çevaca"
 #: src/onlinetranslator/onlinetranslator.cpp:628
 msgctxt "OnlineTranslator|"
 msgid "Papiamento"
-msgstr "Papiamento Dili"
+msgstr "Papiamentu Dili"
 
 #: src/onlinetranslator/onlinetranslator.cpp:630
 msgctxt "OnlineTranslator|"
@@ -936,12 +934,12 @@ msgstr "Pencapça"
 #: src/onlinetranslator/onlinetranslator.cpp:640
 msgctxt "OnlineTranslator|"
 msgid "Queretaro Otomi"
-msgstr "Querétaro Otomi Dili"
+msgstr "Otomice"
 
 #: src/onlinetranslator/onlinetranslator.cpp:642
 msgctxt "OnlineTranslator|"
 msgid "Romanian"
-msgstr "Romence"
+msgstr "Rumence"
 
 #: src/onlinetranslator/onlinetranslator.cpp:644
 msgctxt "OnlineTranslator|"
@@ -956,7 +954,7 @@ msgstr "Samoaca"
 #: src/onlinetranslator/onlinetranslator.cpp:648
 msgctxt "OnlineTranslator|"
 msgid "Scots Gaelic"
-msgstr "İskoç Gal Dili"
+msgstr "İskoç Gaelcesi"
 
 #: src/onlinetranslator/onlinetranslator.cpp:650
 msgctxt "OnlineTranslator|"
@@ -981,7 +979,7 @@ msgstr "Şona Dili"
 #: src/onlinetranslator/onlinetranslator.cpp:658
 msgctxt "OnlineTranslator|"
 msgid "Sindhi"
-msgstr "Sintçe"
+msgstr "Sindce"
 
 #: src/onlinetranslator/onlinetranslator.cpp:660
 msgctxt "OnlineTranslator|"
@@ -1011,12 +1009,12 @@ msgstr "İspanyolca"
 #: src/onlinetranslator/onlinetranslator.cpp:670
 msgctxt "OnlineTranslator|"
 msgid "Sundanese"
-msgstr "Sunda Dili"
+msgstr "Sundaca"
 
 #: src/onlinetranslator/onlinetranslator.cpp:672
 msgctxt "OnlineTranslator|"
 msgid "Swahili"
-msgstr "Svahili"
+msgstr "Suahili Dili"
 
 #: src/onlinetranslator/onlinetranslator.cpp:674
 msgctxt "OnlineTranslator|"
@@ -1116,7 +1114,7 @@ msgstr "Zosa Dili"
 #: src/onlinetranslator/onlinetranslator.cpp:712
 msgctxt "OnlineTranslator|"
 msgid "Yiddish"
-msgstr "Yidiş"
+msgstr "Yidiş Dili"
 
 #: src/onlinetranslator/onlinetranslator.cpp:714
 msgctxt "OnlineTranslator|"
@@ -1140,8 +1138,8 @@ msgid ""
 "Error: Engine systems have detected suspicious traffic from your computer "
 "network. Please try your request again later."
 msgstr ""
-"Hata: Çekirdek sistemleri, bilgisayar ağınızdan şüpheli trafik algıladı. "
-"Lütfen isteği daha sonra tekrar deneyin."
+"Hata: İşletke sistemleri bilgisayar ağınızdan şüpheli trafik algıladı. "
+"Lütfen isteğinizi daha sonra yeniden deneyin."
 
 #: src/onlinetranslator/onlinetranslator.cpp:1232
 #: src/onlinetranslator/onlinetranslator.cpp:1343
@@ -1149,74 +1147,74 @@ msgstr ""
 #: src/onlinetranslator/onlinetranslator.cpp:1647
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
-msgstr "Hata: Otomatik algılanan dil ayrıştırılamadı"
+msgstr "Hata: Kendiliğinden algılanan dil ayrıştırılamıyor"
 
 #: src/onlinetranslator/onlinetranslator.cpp:1459
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to find Bing credentials in web version."
-msgstr "Hata: Web sürümünde Bing kimlik bilgileri bulunamadı."
+msgstr "Hata: Bing kimlik bilgileri web sürümünde bulunamıyor."
 
 #: src/onlinetranslator/onlinetranslator.cpp:1466
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to extract Bing key from web version."
-msgstr "Hata: Web sürümünden Bing anahtarı çıkarılamıyor."
+msgstr "Hata: Bing anahtarı web sürümünden çıkarılamıyor."
 
 #: src/onlinetranslator/onlinetranslator.cpp:1474
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to extract Bing token from web version."
-msgstr "Hata: Web sürümünden Bing belirteci çıkarılamıyor."
+msgstr "Hata: Bing jetonu web sürümünden çıkarılamıyor."
 
 #: src/onlinetranslator/onlinetranslator.cpp:1486
 #: src/onlinetranslator/onlinetranslator.cpp:1495
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to extract additional Bing information from web version."
-msgstr "Hata: Web sürümünden ek Bing bilgileri alınamıyor."
+msgstr "Hata: Web sürümünden ek Bing bilgileri çıkarılamıyor."
 
 #: src/onlinetranslator/onlinetranslator.cpp:1545
 msgctxt "OnlineTranslator|"
 msgid "Error: Bing return unhandled network error"
-msgstr ""
+msgstr "Hata: Bing, işlenemeyen ağ hatası döndürüyor"
 
 #: src/onlinetranslator/onlinetts.cpp:64
 #, qt-format
 msgctxt "OnlineTts|"
 msgid "Selected engine %1 does not support voice settings"
-msgstr "%1 seçili motor ses ayarlarını desteklemiyor"
+msgstr "Seçili işletke %1, ses ayarlarını desteklemiyor."
 
 #: src/onlinetranslator/onlinetts.cpp:69
 #, qt-format
 msgctxt "OnlineTts|"
 msgid "Selected engine %1 does not support emotion settings"
-msgstr "Seçilen %1 motoru duygu ayarlarını desteklemiyor"
+msgstr "Seçili işletke %1, duygu ayarlarını desteklemiyor."
 
 #: src/onlinetranslator/onlinetts.cpp:130
 #, qt-format
 msgctxt "OnlineTts|"
 msgid "%1 engine does not support TTS"
-msgstr "%1 motoru TTS'yi desteklemiyor"
+msgstr "%1 işletkesi TTS desteklemiyor."
 
 #: src/onlinetranslator/onlinetts.cpp:216
 #, qt-format
 msgctxt "OnlineTts|"
 msgid "Selected language %1 is not supported for %2"
-msgstr "%1 seçili dil %2 için desteklenmiyor"
+msgstr "Seçili dil %1, %2 için desteklenmiyor."
 
 #: src/onlinetranslator/onlinetts.cpp:228
 #, qt-format
 msgctxt "OnlineTts|"
 msgid "Selected voice %1 is not supported for %2"
-msgstr "%1 seçili ses %2 için desteklenmiyor"
+msgstr "Seçili ses %1, %2 için desteklenmiyor."
 
 #: src/onlinetranslator/onlinetts.cpp:240
 #, qt-format
 msgctxt "OnlineTts|"
 msgid "Selected emotion %1 is not supported by %2"
-msgstr "Seçili %1 duygusu %2 tarafından desteklenmiyor"
+msgstr "Seçili duygu %1, %2 tarafından desteklenmiyor."
 
 #: src/popupwindow.ui:32
 msgctxt "PopupWindow|"
 msgid "Swap languages"
-msgstr "Dilleri değiştir"
+msgstr "Dilleri takas et"
 
 #: src/popupwindow.ui:64
 msgctxt "PopupWindow|"
@@ -1226,20 +1224,14 @@ msgstr "Kaynak metni panoya kopyala"
 #: src/popupwindow.ui:140
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
-msgstr "Tüm çeviri verilerini panoya kopyala"
+msgstr "Tüm çeviri verisini panoya kopyala"
 
 #: src/popupwindow.ui:151
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Çeviriyi panoya kopyala"
 
-#: src/qgittag/qgittag.cpp:131
-#, qt-format
-msgctxt "QGitTag|"
-msgid "Release number %1 is missing"
-msgstr "%1 sürüm numarası eksik"
-
-#: src/settings/appsettings.cpp:1261
+#: src/settings/appsettings.cpp:1234
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1248,173 +1240,120 @@ msgstr "Bilinmeyen dil kodu: %1"
 #: src/settings/autostartmanager/abstractautostartmanager.cpp:44
 msgctxt "AbstractAutostartManager|"
 msgid "Unable to apply autostart settings"
-msgstr "Otomatik başlatma ayarları uygulanamıyor"
+msgstr "Kendiliğinden başlatma ayarları uygulanamıyor."
 
 #: src/settings/autostartmanager/portalautostartmanager.cpp:35
 #, qt-format
 msgctxt "PortalAutostartManager|"
 msgid "Allow %1 to manage autostart setting for itself."
-msgstr "%1'in kendisi için otomatik başlatma ayarını yönetmesine izin verin."
+msgstr ""
+"%1 uygulamasının kendisi için olan kendiliğinden başlatma ayarını "
+"yönetmesine izin verin."
 
 #: src/settings/autostartmanager/portalautostartmanager.cpp:54
 msgctxt "PortalAutostartManager|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
-msgstr "Xdg-desktop-portal'dan gelen yanıta abone olunamıyor."
+msgstr "xdg-desktop-portal’dan gelen yanıta abone olunamıyor."
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:35
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to create %1"
-msgstr "%1 oluşturulamadı"
+msgstr "%1 oluşturulamıyor."
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:42
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to copy %1 to %2"
-msgstr "%1, %2'ye kopyalanamadı"
+msgstr "%1, %2 konumuna kopyalanamıyor."
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:47
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
-msgstr "%1, %2'den kaldırılamadı"
+msgstr "%2 içinden %1 kaldırılamıyor."
 
-#: src/settings/settingsdialog.cpp:38
+#: src/settings/settingsdialog.cpp:34
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
-msgstr "Taşınabilir mod"
+msgstr "Taşınabilir kip"
 
-#: src/settings/settingsdialog.cpp:51
+#: src/settings/settingsdialog.cpp:47
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
-msgstr "Ayarları saklamak için %1 kullanın"
+msgstr "Ayarları depolamak için %1 kullan"
 
-#: src/settings/settingsdialog.cpp:63 src/settings/settingsdialog.cpp:94
-#: src/settings/settingsdialog.cpp:95
+#: src/settings/settingsdialog.cpp:59 src/settings/settingsdialog.cpp:90
+#: src/settings/settingsdialog.cpp:91
 msgctxt "SettingsDialog|"
 msgid "<System language>"
-msgstr "<Sistem dili>"
+msgstr "<Sistem Dili>"
 
-#: src/settings/settingsdialog.cpp:130
+#: src/settings/settingsdialog.cpp:126
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Simgeler:"
 
-#: src/settings/settingsdialog.cpp:140
+#: src/settings/settingsdialog.cpp:139
 msgctxt "SettingsDialog|"
-msgid "Updates"
-msgstr "Güncellemeler"
-
-#: src/settings/settingsdialog.cpp:147
-msgctxt "SettingsDialog|"
-msgid "Check for updates:"
-msgstr "Güncellemeleri kontrol et:"
-
-#: src/settings/settingsdialog.cpp:151
-msgctxt "SettingsDialog|"
-msgid "Every day"
-msgstr "Her gün"
-
-#: src/settings/settingsdialog.cpp:152
-msgctxt "SettingsDialog|"
-msgid "Every week"
-msgstr "Her hafta"
+msgid "Happy New Year!"
+msgstr "Mutlu yıllar!"
 
 #: src/settings/settingsdialog.cpp:153
 msgctxt "SettingsDialog|"
-msgid "Every month"
-msgstr "Her ay"
-
-#: src/settings/settingsdialog.cpp:154 src/settings/settingsdialog.ui:1047
-msgctxt "SettingsDialog|"
-msgid "Never"
-msgstr "Asla"
-
-#: src/settings/settingsdialog.cpp:158
-msgctxt "SettingsDialog|"
-msgid "Check now"
-msgstr "Şimdi kontrol et"
-
-#: src/settings/settingsdialog.cpp:159
-msgctxt "SettingsDialog|"
-msgid "Check for updates now"
-msgstr "Güncellemeleri şimdi kontrol et"
-
-#: src/settings/settingsdialog.cpp:172
-msgctxt "SettingsDialog|"
-msgid "Happy New Year!"
-msgstr "Yeni Yılınız Kutlu Olsun!"
-
-#: src/settings/settingsdialog.cpp:186
-msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
-msgstr "OCR parametre alanları boş olamaz."
+msgstr "OKT parametresi boş olamaz."
 
-#: src/settings/settingsdialog.cpp:187
+#: src/settings/settingsdialog.cpp:154
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Geçersiz parametreleri atmak istiyor musunuz?"
 
-#: src/settings/settingsdialog.cpp:337
+#: src/settings/settingsdialog.cpp:301
 msgctxt "SettingsDialog|"
 msgid "Select icon"
-msgstr "Simge seç"
+msgstr "Simge Seç"
 
-#: src/settings/settingsdialog.cpp:337
+#: src/settings/settingsdialog.cpp:301
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
-msgstr "Görüntüler (*.png *.ico *.svg *.jpg);;Tüm dosyalar()"
+msgstr "Görseller (*.png *.ico *.svg *.jpg);;Tüm dosyalar()"
 
-#: src/settings/settingsdialog.cpp:350
+#: src/settings/settingsdialog.cpp:314
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
-msgstr "OCR dilleri yolunu seçin"
+msgstr "OKT Dilleri Yolunu Seç"
 
-#: src/settings/settingsdialog.cpp:399 src/settings/settingsdialog.ui:1303
+#: src/settings/settingsdialog.cpp:363 src/settings/settingsdialog.ui:1303
 msgctxt "SettingsDialog|"
 msgid "Default region"
-msgstr "Varsayılan bölge"
+msgstr "Öntanımlı bölge"
 
-#: src/settings/settingsdialog.cpp:402
+#: src/settings/settingsdialog.cpp:366
 msgctxt "SettingsDialog|"
 msgid "Mandarin (China)"
 msgstr "Mandarin (Çin)"
 
-#: src/settings/settingsdialog.cpp:477
-msgctxt "SettingsDialog|"
-msgid "Checking for updates..."
-msgstr "Güncellemeler kontrol ediliyor..."
-
-#: src/settings/settingsdialog.cpp:499
-msgctxt "SettingsDialog|"
-msgid "Update available!"
-msgstr "Güncelleme mevcut!"
-
-#: src/settings/settingsdialog.cpp:505
-msgctxt "SettingsDialog|"
-msgid "No updates available."
-msgstr "Güncelleme yok."
-
-#: src/settings/settingsdialog.cpp:604
+#: src/settings/settingsdialog.cpp:525
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Geri"
 
-#: src/settings/settingsdialog.cpp:710
+#: src/settings/settingsdialog.cpp:628
 msgctxt "SettingsDialog|"
 msgid "Nothing to play"
-msgstr "Oynatılacak bir şey yok"
+msgstr "Çalınacak bir şey yok"
 
-#: src/settings/settingsdialog.cpp:710
+#: src/settings/settingsdialog.cpp:628
 msgctxt "SettingsDialog|"
 msgid "Playback text is empty"
-msgstr "Oynatım metni boş"
+msgstr "Çalınacak metin boş"
 
-#: src/settings/settingsdialog.cpp:720
+#: src/settings/settingsdialog.cpp:638
 msgctxt "SettingsDialog|"
 msgid "Unable to detect language"
-msgstr "Dil tespit edilemiyor"
+msgstr "Dil algılanamıyor"
 
 #: src/settings/settingsdialog.ui:14
 msgctxt "SettingsDialog|"
@@ -1439,7 +1378,7 @@ msgstr "Çeviri"
 #: src/settings/settingsdialog.ui:81
 msgctxt "SettingsDialog|"
 msgid "Speech synthesis"
-msgstr "Konuşma sentezi"
+msgstr "Konuşma Sentezi"
 
 #: src/settings/settingsdialog.ui:89
 msgctxt "SettingsDialog|"
@@ -1469,7 +1408,7 @@ msgstr "<html><head/><body><p>Arayüz dili</p></body></html>"
 #: src/settings/settingsdialog.ui:162
 msgctxt "SettingsDialog|"
 msgid "Main window orientation:"
-msgstr "Ana pencere yönü:"
+msgstr "Ana pencere yönelimi:"
 
 #: src/settings/settingsdialog.ui:169
 msgctxt "SettingsDialog|"
@@ -1478,15 +1417,15 @@ msgid ""
 "<span style=\" font-style:italic;\">Auto</span>, the window orientation will "
 "match the screen orientation</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Ana pencere düzeninin yönü<br/><span style=\" font-"
-"style:italic;\">Otomatik</span> kullanılırken, pencere yönü ekran yönüyle "
-"eşleşecektir</p></body></html>"
+"<html><head/><body><p>Ana pencere yerleşiminin yönelimi<br/><span style=\" "
+"font-style:italic;\">Kendiliğinden</span> seçiliyse pencere yönelimi, ekran "
+"yönelimi ile aynıdır.</p></body></html>"
 
 #. Orientation
 #: src/settings/settingsdialog.ui:173
 msgctxt "SettingsDialog|"
 msgid "Auto"
-msgstr "Otomatik"
+msgstr "Kendiliğinden"
 
 #. Orientation
 #: src/settings/settingsdialog.ui:178
@@ -1512,8 +1451,8 @@ msgid ""
 "application is minimized, the main window will always be used.</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Seçilen metni çevirmek için bir pencere. Uygulama "
-"küçültülür ise, ana pencere her zaman kullanılır.</p></body></html>"
+"<html><head/><body><p>Seçili metni çevirmek için bir pencere. Uygulama simge "
+"durumuna küçültülmüşse her zaman ana pencere kullanılır.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:202 src/settings/settingsdialog.ui:351
 msgctxt "SettingsDialog|"
@@ -1541,18 +1480,20 @@ msgid ""
 "<html><head/><body><p>Notification with translation display time</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Çeviri görüntüleme süresi ile bildirim</p></body></"
+"<html><head/><body><p>Çeviri görüntüleme süresiyle bildirim.</p></body></"
 "html>"
 
 #: src/settings/settingsdialog.ui:236 src/settings/settingsdialog.ui:441
 msgctxt "SettingsDialog|"
 msgid " sec"
-msgstr " saniye"
+msgstr " san"
 
 #: src/settings/settingsdialog.ui:249
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Display icon in the system tray</p></body></html>"
-msgstr "<html><head/><body><p>Sistem tepsisinde simge göster</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Sistem tepsisinde simgeyi görüntüleyin.</p></body></"
+"html>"
 
 #: src/settings/settingsdialog.ui:252
 msgctxt "SettingsDialog|"
@@ -1565,21 +1506,21 @@ msgid ""
 "<html><head/><body><p>Start application minimized to the system tray</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Sistem tepsisinde küçültülmüş olarak başlat</p></"
-"body></html>"
+"<html><head/><body><p>Uygulamayı sistem tepsisine küçültülmüş olarak "
+"başlatın.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:265
 msgctxt "SettingsDialog|"
 msgid "Start minimized"
-msgstr "Küçültülmüş olarak başla"
+msgstr "Küçültülmüş olarak başlat"
 
 #: src/settings/settingsdialog.ui:272
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Run the application at system startup</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Uygulamayı sistem başlangıcında çalıştır</p></body></"
-"html>"
+"<html><head/><body><p>Uygulamayı sistem başlangıcında çalıştırın.</p></"
+"body></html>"
 
 #: src/settings/settingsdialog.ui:275
 msgctxt "SettingsDialog|"
@@ -1589,19 +1530,19 @@ msgstr "Başlangıçta çalıştır"
 #: src/settings/settingsdialog.ui:308
 msgctxt "SettingsDialog|"
 msgid "Font"
-msgstr "Yazı tipi"
+msgstr "Yazıtipi"
 
 #: src/settings/settingsdialog.ui:314
 msgctxt "SettingsDialog|"
 msgid "Name:"
-msgstr "İsim:"
+msgstr "Ad:"
 
 #: src/settings/settingsdialog.ui:321
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Translation and source text font</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Çeviri ve kaynak metin yazı tipi</p></body></html>"
+"<html><head/><body><p>Çeviri ve kaynak metni yazıtipi.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:328
 msgctxt "SettingsDialog|"
@@ -1614,14 +1555,13 @@ msgid ""
 "<html><head/><body><p>Font size of translation and source text</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Çeviri ve kaynak metnin yazı tipi boyutu</p></body></"
-"html>"
+"<html><head/><body><p>Çeviri ve kaynak metnin puntosu.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:357
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window height in pixels</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Piksel cinsinden açılır pencere yüksekliği</p></body></"
+"<html><head/><body><p>Piksel olarak açılır pencere yüksekliği.</p></body></"
 "html>"
 
 #: src/settings/settingsdialog.ui:367
@@ -1633,18 +1573,18 @@ msgstr "Genişlik:"
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Piksel cinsinden açılır pencere genişliği</p></body></"
+"<html><head/><body><p>Piksel olarak açılır pencere genişliği.</p></body></"
 "html>"
 
 #: src/settings/settingsdialog.ui:384
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window opacity</p></body></html>"
-msgstr "<html><head/><body><p>Açılır pencere saydamlığı</p></body></html>"
+msgstr "<html><head/><body><p>Açılır pencere matlığı.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:411
 msgctxt "SettingsDialog|"
 msgid "Opacity:"
-msgstr "Saydamlık:"
+msgstr "Matlık:"
 
 #: src/settings/settingsdialog.ui:418
 msgctxt "SettingsDialog|"
@@ -1662,13 +1602,13 @@ msgid ""
 "<html><head/><body><p>The number of seconds after which the window will be "
 "hidden if it has no focus</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Odak yoksa pencerenin gizleneceği saniye sayısı</p></"
-"body></html>"
+"<html><head/><body><p>Odaklanmadığı takdirde pencerenin gizleneceği saniye "
+"sayısı.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:461
 msgctxt "SettingsDialog|"
 msgid "Language format"
-msgstr "Dil formatı"
+msgstr "Dil biçimi"
 
 #: src/settings/settingsdialog.ui:467
 msgctxt "SettingsDialog|"
@@ -1678,12 +1618,12 @@ msgstr "Ana pencere:"
 #: src/settings/settingsdialog.ui:474 src/settings/settingsdialog.ui:498
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Languages text on buttons</p></body></html>"
-msgstr "<html><head/><body><p>Butonlardaki dil metni</p></body></html>"
+msgstr "<html><head/><body><p>Düğmelerdeki diller metni.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:478 src/settings/settingsdialog.ui:502
 msgctxt "SettingsDialog|"
 msgid "Full name"
-msgstr "Tam isim"
+msgstr "Tam ad"
 
 #: src/settings/settingsdialog.ui:483 src/settings/settingsdialog.ui:507
 msgctxt "SettingsDialog|"
@@ -1708,22 +1648,22 @@ msgstr "Simge:"
 #: src/settings/settingsdialog.ui:537
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>System tray icon</p></body></html>"
-msgstr "<html><head/><body><p>Sistem tepsisi simgesi</p></body></html>"
+msgstr "<html><head/><body><p>Sistem tepsisi simgesi.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:541
 msgctxt "SettingsDialog|"
 msgid "Default"
-msgstr "Varsayılan"
+msgstr "Öntanımlı"
 
 #: src/settings/settingsdialog.ui:549
 msgctxt "SettingsDialog|"
 msgid "Monochrome (dark theme)"
-msgstr "Tek renkli (koyu tema)"
+msgstr "Siyah–beyaz (koyu tema)"
 
 #: src/settings/settingsdialog.ui:557
 msgctxt "SettingsDialog|"
 msgid "Monochrome (light theme)"
-msgstr "Tek renkli (açık tema)"
+msgstr "Siyah–beyaz (açık tema)"
 
 #: src/settings/settingsdialog.ui:565
 msgctxt "SettingsDialog|"
@@ -1738,12 +1678,12 @@ msgstr "Özel:"
 #: src/settings/settingsdialog.ui:591
 msgctxt "SettingsDialog|"
 msgid "Path to the icon or icon name from theme"
-msgstr "Temadan simgeye veya simge adına giden yol"
+msgstr "Simgenin yolu veya temadaki simge adı"
 
 #: src/settings/settingsdialog.ui:601
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select icon</p></body></html>"
-msgstr "<html><head/><body><p>Simge seçin</p></body></html>"
+msgstr "<html><head/><body><p>Simge seçin.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:645
 msgctxt "SettingsDialog|"
@@ -1751,13 +1691,13 @@ msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Kaynak çevirisini etkinleştir/devre dışı bırak</p></"
-"body></html>"
+"<html><head/><body><p>Kaynak yazıçevrimini etkinleştirin veya devre dışı "
+"bırakın.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:648
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
-msgstr "Kaynak harf çevirisini etkinleştir"
+msgstr "Kaynak yazıçevrimini etkinleştir"
 
 #: src/settings/settingsdialog.ui:655
 msgctxt "SettingsDialog|"
@@ -1765,13 +1705,13 @@ msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Çeviri uyarlamasını etkinleştir/devre dışı bırak</p></"
-"body></html>"
+"<html><head/><body><p>Çeviri yazıçevrimini etkinleştirin veya devre dışı "
+"bırakın.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:658
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
-msgstr "Çeviri harf çevirisini etkinleştir"
+msgstr "Çeviri yazıçevrimini etkinleştir"
 
 #: src/settings/settingsdialog.ui:665
 msgctxt "SettingsDialog|"
@@ -1779,21 +1719,21 @@ msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Kaynak çevirisini etkinleştir/devre dışı bırak</p></"
-"body></html>"
+"<html><head/><body><p>Kaynak transkripsiyonunu etkinleştirin veya devre dışı "
+"bırakın.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:668
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
-msgstr "Kaynak uyarlamasını etkinleştir"
+msgstr "Kaynak transkripsiyonunu etkinleştir"
 
 #: src/settings/settingsdialog.ui:675
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Çeviri seçeneklerini etkinleştir/devre dışı bırak</p></"
-"body></html>"
+"<html><head/><body><p>Çeviri seçeneklerini etkinleştirin veya devre dışı "
+"bırakın.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:678
 msgctxt "SettingsDialog|"
@@ -1805,8 +1745,8 @@ msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Kullanım örneklerini etkinleştir/devre dışı bırak</p></"
-"body></html>"
+"<html><head/><body><p>Kullanım örneklerini etkinleştirin veya devre dışı "
+"bırakın.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:688
 msgctxt "SettingsDialog|"
@@ -1820,19 +1760,19 @@ msgid ""
 "the ASCII characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' ') with a "
 "single space in queries</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Her beyaz boşluk dizisini (bu, ASCII karakterleri "
-"'\\t', '\\n', '\\v', '\\f', '\\r' ve ' 'içerir) sorguda tek bir boşlukla "
-"değiştirin</p></body></html>"
+"<html><head/><body><p>Sorgulardaki her bir boşluk dizisini tek bir boşlukla "
+"değiştirin (bu, “\\t”, “\\n”, “\\v”, “\\f”, “\\r”, ve “ ” ASCII "
+"karakterlerini içerir).</p></body></html>"
 
 #: src/settings/settingsdialog.ui:698
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
-msgstr "Kaynağı basitleştir"
+msgstr "Kaynağı yalınlaştır"
 
 #: src/settings/settingsdialog.ui:708
 msgctxt "SettingsDialog|"
 msgid "Automatic language detection"
-msgstr "Otomatik dil algılama"
+msgstr "Kendiliğinden dil algılaması"
 
 #: src/settings/settingsdialog.ui:714
 msgctxt "SettingsDialog|"
@@ -1845,8 +1785,8 @@ msgid ""
 "<html><head/><body><p>Language to which text will be translated when "
 "autodetecting</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Otomatik algılama sırasında metnin çevrileceği dil</"
-"p></body></html>"
+"<html><head/><body><p>Kendiliğinden algılama sırasında metnin çevrileceği "
+"dil.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:728
 msgctxt "SettingsDialog|"
@@ -1859,8 +1799,8 @@ msgid ""
 "<html><head/><body><p>Language to which the text will be translated if it is "
 "in the language selected above</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Yukarıda seçilen dilde ise metnin çevrileceği dil</p></"
-"body></html>"
+"<html><head/><body><p>Yukarıda seçili olan dildeyse metnin çevrileceği dil.</"
+"p></body></html>"
 
 #: src/settings/settingsdialog.ui:742 src/settings/settingsdialog.ui:752
 msgctxt "SettingsDialog|"
@@ -1868,18 +1808,18 @@ msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
 "italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
 msgstr ""
-"<html><head/><body><p>OCR ve genel kısayolları kullanırken doğrudan <span "
-"style=\" font-style:italic;\">Otomatik</span> 'e geç</p></body></html>"
+"<html><head/><body><p>OKT ve global kısayollar kullanılıyorsa <span style=\" "
+"font-style:italic;\">Kendiliğinden</span> ayarını kullanın.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:745
 msgctxt "SettingsDialog|"
 msgid "Force source language detection"
-msgstr "Kaynak dili algılamayı zorla"
+msgstr "Kaynak dil algılamasını zorla"
 
 #: src/settings/settingsdialog.ui:755
 msgctxt "SettingsDialog|"
 msgid "Force translation language detection"
-msgstr "Çeviri dilini algılamayı zorla"
+msgstr "Çeviri dili algılamasını zorla"
 
 #: src/settings/settingsdialog.ui:778
 msgctxt "SettingsDialog|"
@@ -1888,8 +1828,8 @@ msgid ""
 "listed here doesn't require a key, so field can be empty</p></body></html>"
 msgstr ""
 "<html><head/><body><p>LibreTranslate örneği API anahtarı</p><p>Burada "
-"listelenen ücretsiz örnekler bir anahtar gerektirmez, bu nedenle alan boş "
-"olabilir</p></body></html>"
+"listelenen ücretsiz örnekler anahtar gerektirmediğinden alan boş "
+"bırakılabilir.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:791
 msgctxt "SettingsDialog|"
@@ -1903,8 +1843,9 @@ msgid ""
 "found here: https://github.com/LibreTranslate/LibreTranslate#mirrors</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>LibreTranslate motor URL'si</p><p>Tüm örnekler burada "
-"bulunabilir: https://github.com/LibreTranslate#mirrors</p></body></html>"
+"<html><head/><body><p>LibreTranslate işletkesi URL’si.</p><p>Tüm örnekler "
+"burada bulunabilir: https://github.com/LibreTranslate/"
+"LibreTranslate#mirrors</p></body></html>"
 
 #: src/settings/settingsdialog.ui:844
 msgctxt "SettingsDialog|"
@@ -1913,7 +1854,7 @@ msgid ""
 "here: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Lingva motor URL'si</p><p>Tüm örnekler burada "
+"<html><head/><body><p>Lingva işletkesi URL’si.</p><p>Tüm örnekler burada "
 "bulunabilir: https://github.com/TheDavidDelta/lingva-translate#instances</"
 "p></body></html>"
 
@@ -1930,25 +1871,25 @@ msgid ""
 "language, and there is more chance of hallucinating incorrect words.</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Ek dillerin yüklenmesi hem hızı hem de doğruluğu "
-"etkileyecektir, çünkü geçerli dile karar vermek için yapılacak daha çok iş "
-"vardır ve yanlış sözcüklerle halüsinasyon görme olasılığı daha yüksektir.</"
-"p></body></html>"
+"<html><head/><body><p>Uygulanabilir dile karar vermek için yapılması gereken "
+"daha fazla iş olduğundan ve daha çok yanlış sözcük ortaya çıkarmaya neden "
+"olabileceğinden, ek dillerin yüklenmesi hem hızı hem de doğruluğu "
+"etkileyecektir.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:911
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
-msgstr "Dil yolu:"
+msgstr "Diller yolu:"
 
 #: src/settings/settingsdialog.ui:918
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
-msgstr "<html><head/><body><p>OCR dilleri yolunu seçin</p></body></html>"
+msgstr "<html><head/><body><p>OKT dilleri yolunu seçin.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:928
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
-msgstr "<html><head/><body><p>GitHub deposunu açın</p></body></html>"
+msgstr "<html><head/><body><p>GitHub deposunu açın.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:931
 msgctxt "SettingsDialog|"
@@ -1958,8 +1899,8 @@ msgid ""
 "more</span></a></p></body></html>"
 msgstr ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
-"\"><span style=\" text-decoration: underline; color:#2980b9;\">Daha "
-"fazlasını indir</span></a></p></body></html>"
+"\"><span style=\" text-decoration: underline; color:#2980b9;\">Daha fazla "
+"indirin</span></a></p></body></html>"
 
 #: src/settings/settingsdialog.ui:941
 msgctxt "SettingsDialog|"
@@ -1972,8 +1913,8 @@ msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
 "recognition</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Metin tanımadan sonra tüm tek satır sonlarını bir "
-"boşlukla değiştirin</p></body></html>"
+"<html><head/><body><p>Metin tanıma sonrasında tüm tek satır sonlarını "
+"boşlukla değiştirin.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:960
 msgctxt "SettingsDialog|"
@@ -1988,7 +1929,7 @@ msgstr "Ekran yakalama"
 #: src/settings/settingsdialog.ui:1036
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
-msgstr "Bölgeyi hatırla:"
+msgstr "Bölgeyi anımsa:"
 
 #: src/settings/settingsdialog.ui:1043
 msgctxt "SettingsDialog|"
@@ -1996,18 +1937,23 @@ msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Son seçilen bölge ne zaman hatırlanmalı</p></body></"
+"<html><head/><body><p>Son seçili bölgenin ne zaman anımsanacağı.</p></body></"
 "html>"
+
+#: src/settings/settingsdialog.ui:1047
+msgctxt "SettingsDialog|"
+msgid "Never"
+msgstr "Asla"
 
 #: src/settings/settingsdialog.ui:1052
 msgctxt "SettingsDialog|"
 msgid "Remember last"
-msgstr "Sonuncuya hatırla"
+msgstr "Son kullanılanı anımsa"
 
 #: src/settings/settingsdialog.ui:1057
 msgctxt "SettingsDialog|"
 msgid "Remember always"
-msgstr "Her zaman hatırla"
+msgstr "Her zaman anımsa"
 
 #: src/settings/settingsdialog.ui:1065
 msgctxt "SettingsDialog|"
@@ -2017,7 +1963,7 @@ msgstr "Yakalama gecikmesi:"
 #: src/settings/settingsdialog.ui:1072
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
-msgstr "Ekran görüntüsünden önceki gecikme"
+msgstr "Ekran yakalama öncesi gecikme"
 
 #: src/settings/settingsdialog.ui:1075
 msgctxt "SettingsDialog|"
@@ -2029,7 +1975,7 @@ msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
 msgstr ""
-"<html><head/><body><p>İmlecin yanında bir büyüteç göster</p></body></html>"
+"<html><head/><body><p>İmlecin yanında bir büyüteç gösterin.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1088
 msgctxt "SettingsDialog|"
@@ -2042,13 +1988,13 @@ msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
 "released</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Fare düğmesi bırakıldığında parçayı yakalamayı bitir</"
-"p></body></html>"
+"<html><head/><body><p>Fare düğmesi bırakıldığında parçayı yakalamayı "
+"tamamlayın.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1101
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
-msgstr "Serbest bırakıldığında onayla"
+msgstr "Bırakmada onayla"
 
 #: src/settings/settingsdialog.ui:1108
 msgctxt "SettingsDialog|"
@@ -2056,7 +2002,7 @@ msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Seçilmemiş kısma hafif bir sis uygulayın</p></body></"
+"<html><head/><body><p>Seçilmeyen kısma hafif bir sis uygulayın.</p></body></"
 "html>"
 
 #: src/settings/settingsdialog.ui:1111
@@ -2073,7 +2019,8 @@ msgstr "Ses:"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Voice of the speech synthesis engine</p></body></html>"
-msgstr "<html><head/><body><p>Konuşma sentezi motorunun sesi</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Konuşma sentezi işletkesinin sesi.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1167
 msgctxt "SettingsDialog|"
@@ -2103,7 +2050,7 @@ msgstr "Alyss"
 #: src/settings/settingsdialog.ui:1192
 msgctxt "SettingsDialog|"
 msgid "Omazh"
-msgstr "Omazh"
+msgstr "Omaj"
 
 #: src/settings/settingsdialog.ui:1200
 msgctxt "SettingsDialog|"
@@ -2116,7 +2063,7 @@ msgid ""
 "<html><head/><body><p>Voice mood of the speech synthesis engine</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Konuşma sentezi motorunun ses ruh hali</p></body></"
+"<html><head/><body><p>Konuşma sentezi işletkesinin ses ruh hali.</p></body></"
 "html>"
 
 #: src/settings/settingsdialog.ui:1217
@@ -2132,17 +2079,17 @@ msgstr "İyi"
 #: src/settings/settingsdialog.ui:1227
 msgctxt "SettingsDialog|"
 msgid "Evil"
-msgstr "Kötü"
+msgstr "Kötü niyetli"
 
 #: src/settings/settingsdialog.ui:1235 src/settings/settingsdialog.ui:1311
 msgctxt "SettingsDialog|"
 msgid "Speech test:"
-msgstr "Konuşma testi:"
+msgstr "Konuşma sınaması:"
 
 #: src/settings/settingsdialog.ui:1244 src/settings/settingsdialog.ui:1273
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Text to test speech</p></body></html>"
-msgstr "<html><head/><body><p>Konuşmayı testi için metin</p></body></html>"
+msgstr "<html><head/><body><p>Konuşmayı sınamak için metin.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1247 src/settings/settingsdialog.ui:1276
 msgctxt "SettingsDialog|"
@@ -2152,7 +2099,7 @@ msgstr "Bu bir konuşma sentezi örneğidir."
 #: src/settings/settingsdialog.ui:1250
 msgctxt "SettingsDialog|"
 msgid "Test voice"
-msgstr "Ses testi"
+msgstr "Sesi sına"
 
 #: src/settings/settingsdialog.ui:1295
 msgctxt "SettingsDialog|"
@@ -2172,7 +2119,7 @@ msgstr "Tür:"
 #: src/settings/settingsdialog.ui:1363
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
-msgstr "<html><head/><body><p>Vekil türü</p></body></html>"
+msgstr "<html><head/><body><p>Vekil türü.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1367
 msgctxt "SettingsDialog|"
@@ -2182,45 +2129,45 @@ msgstr "Sistem ayarlarını kullan"
 #: src/settings/settingsdialog.ui:1377
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
-msgstr "Vekil sunucu kullanma"
+msgstr "Vekil kullanma"
 
 #: src/settings/settingsdialog.ui:1393
 msgctxt "SettingsDialog|"
 msgid "Host:"
-msgstr "Sunucu:"
+msgstr "Makine:"
 
 #: src/settings/settingsdialog.ui:1403
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
-msgstr "<html><head/><body><p>Vekil sunucu adı</p></body></html>"
+msgstr "<html><head/><body><p>Vekil makine adı.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1416
 msgctxt "SettingsDialog|"
 msgid "Port:"
-msgstr "Port:"
+msgstr "Kapı:"
 
 #: src/settings/settingsdialog.ui:1432
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
-msgstr "<html><head/><body><p>Vekil port</p></body></html>"
+msgstr "<html><head/><body><p>Vekil kapısı.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1451
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
-msgstr "Bilgi: vekil sunucu sadece metin çevirisi için çalışır"
+msgstr "Bilgi: Vekil, yalnızca metin çevirisi için çalışır."
 
 #: src/settings/settingsdialog.ui:1461
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Kimlik doğrulamayı etkinleştir/devre dışı bırak</p></"
-"body></html>"
+"<html><head/><body><p>Kimlik doğrulamayı etkinleştirin veya devre dışı "
+"bırakın.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1464
 msgctxt "SettingsDialog|"
 msgid "Authentication"
-msgstr "Doğrula"
+msgstr "Kimlik doğrulama"
 
 #: src/settings/settingsdialog.ui:1474
 msgctxt "SettingsDialog|"
@@ -2232,7 +2179,7 @@ msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Kimlik doğrulama için vekil kullanıcı adı</p></body></"
+"<html><head/><body><p>Kimlik doğrulama için vekil kullanıcı adı.</p></body></"
 "html>"
 
 #: src/settings/settingsdialog.ui:1494
@@ -2245,30 +2192,31 @@ msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Kimlik doğrulama için vekil parolası</p></body></html>"
+"<html><head/><body><p>Kimlik doğrulama için vekil parolası.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1517
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
-msgstr "Bilgi: parola şifrelenmemiş olarak kaydedilir"
+msgstr "Bilgi: Parola şifrelenmeden kaydedilir."
 
 #: src/settings/settingsdialog.ui:1553
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Genel kısayolları sisteme kaydet</p></body></html>"
+"<html><head/><body><p>Global kısayolları sisteme kaydedin.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1556
 msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
-msgstr "Genel kısayolları etkinleştir"
+msgstr "Global kısayolları etkinleştir"
 
 #: src/settings/settingsdialog.ui:1572
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Tüm kısayolları öntanımlılara sıfırla</p></body></html>"
+"<html><head/><body><p>Tüm kısayolları öntanımlılarına sıfırlayın.</p></"
+"body></html>"
 
 #: src/settings/settingsdialog.ui:1575
 msgctxt "SettingsDialog|"
@@ -2283,29 +2231,30 @@ msgstr "Kısayol"
 #: src/settings/settingsdialog.ui:1591
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
-msgstr "Anahtar sırası:"
+msgstr "Düğme dizisi:"
 
 #: src/settings/settingsdialog.ui:1598
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
 "html>"
-msgstr "<html><head/><body><p>Seçilen işlem için tuş sırası</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Seçili eylem için olan düğme dizisi.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1605
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
-msgstr "<html><head/><body><p>Kısayolu onayla</p></body></html>"
+msgstr "<html><head/><body><p>Kısayolu kabul edin.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1608
 msgctxt "SettingsDialog|"
 msgid "Accept"
-msgstr "Onayla"
+msgstr "Kabul Et"
 
 #: src/settings/settingsdialog.ui:1618
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
-msgstr "<html><head/><body><p>Kısayolu temizle</p></body></html>"
+msgstr "<html><head/><body><p>Kısayolu temizleyin.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1621
 msgctxt "SettingsDialog|"
@@ -2315,7 +2264,8 @@ msgstr "Temizle"
 #: src/settings/settingsdialog.ui:1631
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
-msgstr "<html><head/><body><p>Kısayolu öntanımlıya sıfırla</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Kısayolu öntanımlı değere sıfırlayın.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1634
 msgctxt "SettingsDialog|"
@@ -2345,68 +2295,68 @@ msgstr "Bayrak simgeleri:"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:21
 msgctxt "ShortcutsModel|"
 msgid "Global"
-msgstr "Genel"
+msgstr "Global"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:23
 msgctxt "ShortcutsModel|"
 msgid "Translate selected text"
-msgstr "Seçilen metni çevir"
+msgstr "Seçili Metni Çevir"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:26
 msgctxt "ShortcutsModel|"
 msgid "Speak selected text"
-msgstr "Seçili metni konuştur"
+msgstr "Seçili Metni Konuş"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:29
 msgctxt "ShortcutsModel|"
 msgid "Speak translation of selected text"
-msgstr "Seçilen metnin çevirisini konuştur"
+msgstr "Seçili Metnin Çevirisini Konuş"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:32
 msgctxt "ShortcutsModel|"
 msgid "Stop text speaking"
-msgstr "Metin konuşmasını durdur"
+msgstr "Metni Konuşmayı Durdur"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:35
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:71
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause text speaking"
-msgstr "Konuşma / metin konuşmasını duraklat"
+msgstr "Metni Konuşmayı Başlat/Duraklat"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:38
 msgctxt "ShortcutsModel|"
 msgid "Show main window"
-msgstr "Ana pencereyi göster"
+msgstr "Ana Pencereyi Göster"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:41
 msgctxt "ShortcutsModel|"
 msgid "Translate selected text and copy to clipboard"
-msgstr "Seçili metni çevir ve panoya kopyala"
+msgstr "Seçili Metni Çevir ve Panoya Kopyala"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:44
 msgctxt "ShortcutsModel|"
 msgid "Recognize text in screen area"
-msgstr "Ekran alanındaki metni tanı"
+msgstr "Ekran Alanındaki Metni Tanı"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:47
 msgctxt "ShortcutsModel|"
 msgid "Translate text in screen area"
-msgstr "Ekran alanındaki metni çevir"
+msgstr "Ekran Alanındaki Metni Çevir"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:50
 msgctxt "ShortcutsModel|"
 msgid "Recognize text in screen area with delay"
-msgstr "Ekran alanındaki metni gecikmeli olarak tanı"
+msgstr "Ekran Alanındaki Metni Gecikmeyle Tanı"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:53
 msgctxt "ShortcutsModel|"
 msgid "Translate text in screen area with delay"
-msgstr "Ekran alanındaki metni gecikmeli olarak çevir"
+msgstr "Ekran Alanındaki Metni Gecikmeyle Çevir"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:57
 msgctxt "ShortcutsModel|"
 msgid "Main window"
-msgstr "Ana pencere"
+msgstr "Ana Pencere"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
@@ -2416,17 +2366,17 @@ msgstr "Çevir"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:62
 msgctxt "ShortcutsModel|"
 msgid "Swap languages"
-msgstr "Dilleri değiştir"
+msgstr "Dilleri Takas Et"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:65
 msgctxt "ShortcutsModel|"
 msgid "Close window"
-msgstr "Pencereyi kapat"
+msgstr "Pencereyi Kapat"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:69
 msgctxt "ShortcutsModel|"
 msgid "Source text"
-msgstr "Kaynak metin"
+msgstr "Kaynak Metin"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:75
 msgctxt "ShortcutsModel|"
@@ -2436,12 +2386,12 @@ msgstr "Çeviri"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause speaking"
-msgstr "Konuşma / konuşmayı duraklat"
+msgstr "Konuşmayı Başlat/Duraklat"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:80
 msgctxt "ShortcutsModel|"
 msgid "Copy to clipboard"
-msgstr "Panoya kopyala"
+msgstr "Panoya Kopyala"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:126
 msgctxt "ShortcutsModel|"
@@ -2466,52 +2416,52 @@ msgstr "Değer"
 #: src/speakbuttons.cpp:138
 msgctxt "SpeakButtons|"
 msgid "No text specified"
-msgstr "Metin belirtilmedi"
+msgstr "Belirtilen metin yok"
 
 #: src/speakbuttons.cpp:138
 msgctxt "SpeakButtons|"
 msgid "Playback text is empty"
-msgstr "Oynatım metni boş"
+msgstr "Çalınacak metin boş"
 
 #: src/speakbuttons.cpp:147
 msgctxt "SpeakButtons|"
 msgid "Unable to generate URLs for TTS"
-msgstr "TTS için URL oluşturulamıyor"
+msgstr "TTS için URL’ler üretilemiyor"
 
 #: src/speakbuttons.ui:24
 msgctxt "SpeakButtons|"
 msgid "Speak / pause text speaking"
-msgstr "Konuşma / metin konuşmasını duraklat"
+msgstr "Metni Konuşmayı Başlat/Duraklat"
 
 #: src/speakbuttons.ui:34
 msgctxt "SpeakButtons|"
 msgid "Stop text speaking"
-msgstr "Metin konuşmasını durdur"
+msgstr "Metni Konuşmayı Durdur"
 
 #: src/transitions/ocruninitializedtransition.cpp:28
 msgctxt "Ocr|"
 msgid "OCR languages are not loaded"
-msgstr "OCR dili yüklenemedi"
+msgstr "OKT Dilleri Yüklü Değil"
 
 #: src/transitions/ocruninitializedtransition.cpp:28
 msgctxt "Ocr|"
 msgid "You should set at least one OCR language in the application settings"
-msgstr "Uygulama ayarlarında en az bir OCR dili seçmelisiniz"
+msgstr "Uygulama ayarlarında en az bir OKT dili ayarlamanız gerekir."
 
 #: src/translationedit.cpp:62
 msgctxt "TranslationEdit|"
 msgid "translation options:"
-msgstr "çeviri seçenekleri:"
+msgstr "Çeviri seçenekleri:"
 
 #: src/translationedit.cpp:97
 msgctxt "TranslationEdit|"
 msgid "examples:"
-msgstr "örnekler:"
+msgstr "Örnekler:"
 
 #: src/trayicon.cpp:19 src/trayicon.cpp:44
 msgctxt "TrayIcon|"
 msgid "Show window"
-msgstr "Pencereyi göster"
+msgstr "Pencereyi Göster"
 
 #: src/trayicon.cpp:20 src/trayicon.cpp:45
 msgctxt "TrayIcon|"
@@ -2521,103 +2471,119 @@ msgstr "Ayarlar"
 #: src/trayicon.cpp:21 src/trayicon.cpp:46
 msgctxt "TrayIcon|"
 msgid "Quit"
-msgstr "Çıkış"
+msgstr "Çık"
 
 #: src/trayicon.cpp:51
 msgctxt "TrayIcon|"
 msgid "Translation result"
-msgstr "Çeviri sonucu"
+msgstr "Çeviri Sonucu"
 
-#: src/updaterdialog.cpp:46 src/updaterdialog.cpp:49
-msgctxt "UpdaterDialog|"
-msgid "Changelog:"
-msgstr "Değişiklikler:"
+#~ msgctxt "QGitTag|"
+#~ msgid "Release number %1 is missing"
+#~ msgstr "Eksik yayım numarası %1."
 
-#: src/updaterdialog.cpp:75
-msgctxt "UpdaterDialog|"
-msgid "Unable to write file"
-msgstr "Dosya yazılamıyor"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Updates"
+#~ msgstr "Güncellemeler"
 
-#: src/updaterdialog.cpp:119
-msgctxt "UpdaterDialog|"
-msgid "Downloading is complete"
-msgstr "İndirme tamamlandı"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check for updates:"
+#~ msgstr "Güncellemeleri denetle:"
 
-#: src/updaterdialog.ui:24
-msgctxt "UpdaterDialog|"
-msgid "Exit the program and run the installer"
-msgstr "Programdan çık ve kurucuyu çalıştır"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every day"
+#~ msgstr "Her gün"
 
-#: src/updaterdialog.ui:27
-msgctxt "UpdaterDialog|"
-msgid "Install"
-msgstr "Kur"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every week"
+#~ msgstr "Her hafta"
 
-#: src/updaterdialog.ui:34
-msgctxt "UpdaterDialog|"
-msgid "Download the installer to the Downloads folder"
-msgstr "Kurucuyu, İndirilenler klasörüne indir"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every month"
+#~ msgstr "Her ay"
 
-#: src/updaterdialog.ui:37
-msgctxt "UpdaterDialog|"
-msgid "Download"
-msgstr "İndir"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check now"
+#~ msgstr "Şimdi Denetle"
 
-#: src/updaterdialog.ui:44
-#, fuzzy
-#| msgctxt "UpdaterDialog|"
-#| msgid ""
-#| "<html><head/><body><p>A new version of Crow Translate is available! "
-#| "Updates add functionality and improve the stability of the application. "
-#| "Most often.<br/>You can also download the release manually from this <a "
-#| "href=\"https://github.com/crow-translate/crow-translate/releases\">link</"
-#| "a>.</p></body></html>"
-msgctxt "UpdaterDialog|"
-msgid ""
-"<html><head/><body><p>A new version of Crow Translate is available! Updates "
-"add functionality and improve the stability of the application. Most often."
-"<br/>You can also download the release manually from this <a href=\"https://"
-"download.kde.org/stable/crow-translate\">link</a>.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Crow Translate'in yeni bir sürümü mevcut! Çoğu zaman "
-"güncellemeler işlevsellik ekler ve uygulamanın kararlılığını artırır.<br/"
-">Sürümü manuel olarak da buradan indirebilirsiniz <a href=\"https://github."
-"com/crow-translate/crow-translate/releases\">link</a>.</p></body></html>"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check for updates now"
+#~ msgstr "Güncellemeleri şimdi denetle"
 
-#: src/updaterdialog.ui:67
-msgctxt "UpdaterDialog|"
-msgid "Close this window"
-msgstr "Bu pencereyi kapat"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Checking for updates..."
+#~ msgstr "Güncellemeler denetleniyor…"
 
-#: src/updaterdialog.ui:70
-msgctxt "UpdaterDialog|"
-msgid "Update later"
-msgstr "Sonra güncelle"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Update available!"
+#~ msgstr "Güncelleme kullanılabilir!"
 
-#: src/updaterdialog.ui:90
-msgctxt "UpdaterDialog|"
-msgid "Cancel download"
-msgstr "İndirmeyi iptal et"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "No updates available."
+#~ msgstr "Kullanılabilir güncelleme yok."
 
-#: src/updaterdialog.ui:93
-msgctxt "UpdaterDialog|"
-msgid "Cancel"
-msgstr "İptal"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Changelog:"
+#~ msgstr "Değişiklik günlüğü:"
 
-#: src/updaterdialog.ui:109
-msgctxt "UpdaterDialog|"
-msgid "Current version:"
-msgstr "Mevcut sürüm:"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Unable to write file"
+#~ msgstr "Dosya yazılamıyor"
 
-#: src/updaterdialog.ui:129
-msgctxt "UpdaterDialog|"
-msgid "Available version:"
-msgstr "Uygun sürüm:"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Downloading is complete"
+#~ msgstr "İndirme tamamlandı"
 
-#~ msgctxt "QHotkey|"
-#~ msgid "Failed to register %1. Error: %2"
-#~ msgstr "%1 kaydedilemedi. Hata:%2"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Exit the program and run the installer"
+#~ msgstr "Programdan çıkın ve kur programını çalıştırın"
 
-#~ msgctxt "QHotkey|"
-#~ msgid "Failed to unregister %1. Error: %2"
-#~ msgstr "%1 kaydı silinemedi. Hata: %2"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Install"
+#~ msgstr "Kur"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Download the installer to the Downloads folder"
+#~ msgstr "Kurulum programını İndirilenler klasörüne indirin"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Download"
+#~ msgstr "İndir"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>A new version of Crow Translate is available! "
+#~ "Updates add functionality and improve the stability of the application. "
+#~ "Most often.<br/>You can also download the release manually from this <a "
+#~ "href=\"https://download.kde.org/stable/crow-translate\">link</a>.</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Crow Çeviri’nin yeni bir sürümü kullanılabilir. "
+#~ "Güncellemeler genellikle yeni işlevsellikler ekler ve uygulamanın "
+#~ "kararlılığını artırır.<br/>Ayrıca bu <a href=\"https://download.kde.org/"
+#~ "stable/crow-translate\">bağlantıdan</a> da elle indirebilirsiniz.</p></"
+#~ "body></html>"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Close this window"
+#~ msgstr "Bu Pencereyi Kapat"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Update later"
+#~ msgstr "Daha Sonra Güncelle"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Cancel download"
+#~ msgstr "İndirmeyi İptal Et"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Cancel"
+#~ msgstr "İptal"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Current version:"
+#~ msgstr "Geçerli sürüm:"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Available version:"
+#~ msgstr "Kullanılabilir sürüm:"

@@ -5,7 +5,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: az\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
@@ -214,33 +214,33 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "%1 üçün D-Bus obyekti qeydiyyatdan keçirilə bilmədi"
 
-#: src/mainwindow.cpp:384
+#: src/mainwindow.cpp:380
 msgctxt "MainWindow|"
 msgid "Unable to detect language"
 msgstr "Dili aşkar etmək mümkün deyil"
 
-#: src/mainwindow.cpp:436
+#: src/mainwindow.cpp:432
 msgctxt "MainWindow|"
 msgid "Unable to translate text"
 msgstr "Mətni tərcümə etmək mümkün deyil"
 
-#: src/mainwindow.cpp:916
+#: src/mainwindow.cpp:867
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Yararsız trey nişanı"
 
-#: src/mainwindow.cpp:916
+#: src/mainwindow.cpp:867
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "Seçilmiş '%1' işanı yararsızdır. ilkin nişan istifadə olunacaq."
 
-#: src/mainwindow.cpp:947
+#: src/mainwindow.cpp:898
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "OCR dillər təyin edilə bilmədi"
 
-#: src/mainwindow.cpp:947
+#: src/mainwindow.cpp:898
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -1233,13 +1233,7 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Tərcüməni mübadilə yaddaşına kopyalayın"
 
-#: src/qgittag/qgittag.cpp:131
-#, qt-format
-msgctxt "QGitTag|"
-msgid "Release number %1 is missing"
-msgstr "Buraxılış nömrəsi %1 çatışmlr"
-
-#: src/settings/appsettings.cpp:1261
+#: src/settings/appsettings.cpp:1234
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1280,139 +1274,84 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "%1, %2-dan silinə bilmədi"
 
-#: src/settings/settingsdialog.cpp:38
+#: src/settings/settingsdialog.cpp:34
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Daşınabilən rejim"
 
-#: src/settings/settingsdialog.cpp:51
+#: src/settings/settingsdialog.cpp:47
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Ayarları saxlamaq üçün %1 istifadə edin"
 
-#: src/settings/settingsdialog.cpp:63 src/settings/settingsdialog.cpp:94
-#: src/settings/settingsdialog.cpp:95
+#: src/settings/settingsdialog.cpp:59 src/settings/settingsdialog.cpp:90
+#: src/settings/settingsdialog.cpp:91
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<System language>"
 
-#: src/settings/settingsdialog.cpp:130
+#: src/settings/settingsdialog.cpp:126
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Nişanlar:"
 
-#: src/settings/settingsdialog.cpp:140
-msgctxt "SettingsDialog|"
-msgid "Updates"
-msgstr "Yeniləmələr"
-
-#: src/settings/settingsdialog.cpp:147
-msgctxt "SettingsDialog|"
-msgid "Check for updates:"
-msgstr "Yenilənmələr yoxlanılsın:"
-
-#: src/settings/settingsdialog.cpp:151
-msgctxt "SettingsDialog|"
-msgid "Every day"
-msgstr "Hər gün"
-
-#: src/settings/settingsdialog.cpp:152
-msgctxt "SettingsDialog|"
-msgid "Every week"
-msgstr "Hər həftə"
-
-#: src/settings/settingsdialog.cpp:153
-msgctxt "SettingsDialog|"
-msgid "Every month"
-msgstr "Hər ay"
-
-#: src/settings/settingsdialog.cpp:154 src/settings/settingsdialog.ui:1047
-msgctxt "SettingsDialog|"
-msgid "Never"
-msgstr "Heç vaxt"
-
-#: src/settings/settingsdialog.cpp:158
-msgctxt "SettingsDialog|"
-msgid "Check now"
-msgstr "İndi yoxlayın"
-
-#: src/settings/settingsdialog.cpp:159
-msgctxt "SettingsDialog|"
-msgid "Check for updates now"
-msgstr "Yenilənmələr indi yoxlanılsın"
-
-#: src/settings/settingsdialog.cpp:172
+#: src/settings/settingsdialog.cpp:139
 msgctxt "SettingsDialog|"
 msgid "Happy New Year!"
 msgstr "Yeni İliniz Mübarək!"
 
-#: src/settings/settingsdialog.cpp:186
+#: src/settings/settingsdialog.cpp:153
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "OCR parametrləri sahəs boş ola bilməz."
 
-#: src/settings/settingsdialog.cpp:187
+#: src/settings/settingsdialog.cpp:154
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Yararsız pararmetrləri ləğv etmək istəyirsiniz?"
 
-#: src/settings/settingsdialog.cpp:337
+#: src/settings/settingsdialog.cpp:301
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Nişan seçin"
 
-#: src/settings/settingsdialog.cpp:337
+#: src/settings/settingsdialog.cpp:301
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Şəkillər (*.png *.ico *.svg *.jpg);;Bütün fayllar()"
 
-#: src/settings/settingsdialog.cpp:350
+#: src/settings/settingsdialog.cpp:314
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "OCR dilləri yolunu seçin"
 
-#: src/settings/settingsdialog.cpp:399 src/settings/settingsdialog.ui:1303
+#: src/settings/settingsdialog.cpp:363 src/settings/settingsdialog.ui:1303
 msgctxt "SettingsDialog|"
 msgid "Default region"
 msgstr "Standart bölgə"
 
-#: src/settings/settingsdialog.cpp:402
+#: src/settings/settingsdialog.cpp:366
 msgctxt "SettingsDialog|"
 msgid "Mandarin (China)"
 msgstr "Mandarin (Çin)"
 
-#: src/settings/settingsdialog.cpp:477
-msgctxt "SettingsDialog|"
-msgid "Checking for updates..."
-msgstr "Yenilənmələr yoxlanılr..."
-
-#: src/settings/settingsdialog.cpp:499
-msgctxt "SettingsDialog|"
-msgid "Update available!"
-msgstr "Yeniləınmə var!"
-
-#: src/settings/settingsdialog.cpp:505
-msgctxt "SettingsDialog|"
-msgid "No updates available."
-msgstr "Yenilənmə yoxdur."
-
-#: src/settings/settingsdialog.cpp:604
+#: src/settings/settingsdialog.cpp:525
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Geriyə"
 
-#: src/settings/settingsdialog.cpp:710
+#: src/settings/settingsdialog.cpp:628
 msgctxt "SettingsDialog|"
 msgid "Nothing to play"
 msgstr "Səsləndiriləcək heç nə yoxdur"
 
-#: src/settings/settingsdialog.cpp:710
+#: src/settings/settingsdialog.cpp:628
 msgctxt "SettingsDialog|"
 msgid "Playback text is empty"
 msgstr "Səsləndirmə mətni boşdur"
 
-#: src/settings/settingsdialog.cpp:720
+#: src/settings/settingsdialog.cpp:638
 msgctxt "SettingsDialog|"
 msgid "Unable to detect language"
 msgstr "Dili aşkar etmək mümkün deyil"
@@ -2002,6 +1941,11 @@ msgstr ""
 "<html><head/><body><p>Sonuncu seçilmiş bölgə nə vaxt xatırladılmaslı</p></"
 "body></html>"
 
+#: src/settings/settingsdialog.ui:1047
+msgctxt "SettingsDialog|"
+msgid "Never"
+msgstr "Heç vaxt"
+
 #: src/settings/settingsdialog.ui:1052
 msgctxt "SettingsDialog|"
 msgid "Remember last"
@@ -2535,92 +2479,123 @@ msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Tərcümə nəticəsi"
 
-#: src/updaterdialog.cpp:46 src/updaterdialog.cpp:49
-msgctxt "UpdaterDialog|"
-msgid "Changelog:"
-msgstr "Dəyişikliklər siyahısı:"
+#~ msgctxt "QGitTag|"
+#~ msgid "Release number %1 is missing"
+#~ msgstr "Buraxılış nömrəsi %1 çatışmlr"
 
-#: src/updaterdialog.cpp:75
-msgctxt "UpdaterDialog|"
-msgid "Unable to write file"
-msgstr "Faylı yazmaq mümkün olmadı"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Updates"
+#~ msgstr "Yeniləmələr"
 
-#: src/updaterdialog.cpp:119
-msgctxt "UpdaterDialog|"
-msgid "Downloading is complete"
-msgstr "Endirmə tamamlandı"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check for updates:"
+#~ msgstr "Yenilənmələr yoxlanılsın:"
 
-#: src/updaterdialog.ui:24
-msgctxt "UpdaterDialog|"
-msgid "Exit the program and run the installer"
-msgstr "Proqramdan çıxın və quraşdırıcını başladın"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every day"
+#~ msgstr "Hər gün"
 
-#: src/updaterdialog.ui:27
-msgctxt "UpdaterDialog|"
-msgid "Install"
-msgstr "Quraşdırın"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every week"
+#~ msgstr "Hər həftə"
 
-#: src/updaterdialog.ui:34
-msgctxt "UpdaterDialog|"
-msgid "Download the installer to the Downloads folder"
-msgstr "Quraşdırıcını Yükləmələr qovluğuna endirin"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every month"
+#~ msgstr "Hər ay"
 
-#: src/updaterdialog.ui:37
-msgctxt "UpdaterDialog|"
-msgid "Download"
-msgstr "Endirin"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check now"
+#~ msgstr "İndi yoxlayın"
 
-#: src/updaterdialog.ui:44
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check for updates now"
+#~ msgstr "Yenilənmələr indi yoxlanılsın"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Checking for updates..."
+#~ msgstr "Yenilənmələr yoxlanılr..."
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Update available!"
+#~ msgstr "Yeniləınmə var!"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "No updates available."
+#~ msgstr "Yenilənmə yoxdur."
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Changelog:"
+#~ msgstr "Dəyişikliklər siyahısı:"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Unable to write file"
+#~ msgstr "Faylı yazmaq mümkün olmadı"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Downloading is complete"
+#~ msgstr "Endirmə tamamlandı"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Exit the program and run the installer"
+#~ msgstr "Proqramdan çıxın və quraşdırıcını başladın"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Install"
+#~ msgstr "Quraşdırın"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Download the installer to the Downloads folder"
+#~ msgstr "Quraşdırıcını Yükləmələr qovluğuna endirin"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Download"
+#~ msgstr "Endirin"
+
 #, fuzzy
-#| msgctxt "UpdaterDialog|"
-#| msgid ""
-#| "<html><head/><body><p>A new version of Crow Translate is available! "
-#| "Updates add functionality and improve the stability of the application. "
-#| "Most often.<br/>You can also download the release manually from this <a "
-#| "href=\"https://github.com/crow-translate/crow-translate/releases\">link</"
-#| "a>.</p></body></html>"
-msgctxt "UpdaterDialog|"
-msgid ""
-"<html><head/><body><p>A new version of Crow Translate is available! Updates "
-"add functionality and improve the stability of the application. Most often."
-"<br/>You can also download the release manually from this <a href=\"https://"
-"download.kde.org/stable/crow-translate\">link</a>.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Yeni Crow Translate versiyası var! Yenilənmə, əksər "
-"hallarda, tətbiqin stabilliyini yaxşılaşdırır və yeni funksiyalar əlavə "
-"edir. <br/>Siz həmçinin buraxılışı əl ilə bu <a href=\"https://github.com/"
-"crow-translate/crow-translate/releases\">keçiddən</a> endirə bilərsiniz.</"
-"p></body></html>"
+#~| msgctxt "UpdaterDialog|"
+#~| msgid ""
+#~| "<html><head/><body><p>A new version of Crow Translate is available! "
+#~| "Updates add functionality and improve the stability of the application. "
+#~| "Most often.<br/>You can also download the release manually from this <a "
+#~| "href=\"https://github.com/crow-translate/crow-translate/releases\">link</"
+#~| "a>.</p></body></html>"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>A new version of Crow Translate is available! "
+#~ "Updates add functionality and improve the stability of the application. "
+#~ "Most often.<br/>You can also download the release manually from this <a "
+#~ "href=\"https://download.kde.org/stable/crow-translate\">link</a>.</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Yeni Crow Translate versiyası var! Yenilənmə, əksər "
+#~ "hallarda, tətbiqin stabilliyini yaxşılaşdırır və yeni funksiyalar əlavə "
+#~ "edir. <br/>Siz həmçinin buraxılışı əl ilə bu <a href=\"https://github.com/"
+#~ "crow-translate/crow-translate/releases\">keçiddən</a> endirə bilərsiniz.</"
+#~ "p></body></html>"
 
-#: src/updaterdialog.ui:67
-msgctxt "UpdaterDialog|"
-msgid "Close this window"
-msgstr "Bu pəncərəni bağlayın"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Close this window"
+#~ msgstr "Bu pəncərəni bağlayın"
 
-#: src/updaterdialog.ui:70
-msgctxt "UpdaterDialog|"
-msgid "Update later"
-msgstr "Daha sonra yeniləyin"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Update later"
+#~ msgstr "Daha sonra yeniləyin"
 
-#: src/updaterdialog.ui:90
-msgctxt "UpdaterDialog|"
-msgid "Cancel download"
-msgstr "Endirməni dayandırın"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Cancel download"
+#~ msgstr "Endirməni dayandırın"
 
-#: src/updaterdialog.ui:93
-msgctxt "UpdaterDialog|"
-msgid "Cancel"
-msgstr "Imtina"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Cancel"
+#~ msgstr "Imtina"
 
-#: src/updaterdialog.ui:109
-msgctxt "UpdaterDialog|"
-msgid "Current version:"
-msgstr "Cari buraxılış:"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Current version:"
+#~ msgstr "Cari buraxılış:"
 
-#: src/updaterdialog.ui:129
-msgctxt "UpdaterDialog|"
-msgid "Available version:"
-msgstr "Əlçatan buraxılış:"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Available version:"
+#~ msgstr "Əlçatan buraxılış:"
 
 #~ msgctxt "QHotkey|"
 #~ msgid "Failed to register %1. Error: %2"

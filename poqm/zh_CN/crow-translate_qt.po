@@ -1,16 +1,19 @@
-# SPDX-FileCopyrightText: 2024 EldersJavas
-# SPDX-FileCopyrightText: 2024 Arsenii404
-# SPDX-FileCopyrightText: 2024 whiredplanck
-# SPDX-License-Identifier: GPL-3.0-or-later
 msgid ""
 msgstr ""
+"Project-Id-Version: kdeorg\n"
+"PO-Revision-Date: 2024-07-03 19:15\n"
+"Language-Team: Chinese Simplified\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Language: zh-CN\n"
-"X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: kdeorg\n"
+"X-Crowdin-Project-ID: 269464\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: /kf5-trunk/messages/crow-translate/crow-translate_qt.pot\n"
+"X-Crowdin-File-ID: 54414\n"
 
 #: src/cli.cpp:41
 msgctxt "Cli|"
@@ -209,33 +212,33 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "无法为 %1 注册 D-Bus 对象"
 
-#: src/mainwindow.cpp:384
+#: src/mainwindow.cpp:380
 msgctxt "MainWindow|"
 msgid "Unable to detect language"
 msgstr "无法检测语言"
 
-#: src/mainwindow.cpp:436
+#: src/mainwindow.cpp:432
 msgctxt "MainWindow|"
 msgid "Unable to translate text"
 msgstr "无法翻译文字"
 
-#: src/mainwindow.cpp:916
+#: src/mainwindow.cpp:867
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "无效的托盘图标"
 
-#: src/mainwindow.cpp:916
+#: src/mainwindow.cpp:867
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "指定的图标 '%1' 无效。将使用默认图标。"
 
-#: src/mainwindow.cpp:947
+#: src/mainwindow.cpp:898
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "无法设定 OCR 语言"
 
-#: src/mainwindow.cpp:947
+#: src/mainwindow.cpp:898
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -1226,13 +1229,7 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "复制译文到剪切板"
 
-#: src/qgittag/qgittag.cpp:131
-#, qt-format
-msgctxt "QGitTag|"
-msgid "Release number %1 is missing"
-msgstr "丢失发行号 %1"
-
-#: src/settings/appsettings.cpp:1261
+#: src/settings/appsettings.cpp:1234
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1272,139 +1269,84 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "无法从 %2 中移除 %1"
 
-#: src/settings/settingsdialog.cpp:38
+#: src/settings/settingsdialog.cpp:34
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "便携模式"
 
-#: src/settings/settingsdialog.cpp:51
+#: src/settings/settingsdialog.cpp:47
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "使用 %1 来存储设置"
 
-#: src/settings/settingsdialog.cpp:63 src/settings/settingsdialog.cpp:94
-#: src/settings/settingsdialog.cpp:95
+#: src/settings/settingsdialog.cpp:59 src/settings/settingsdialog.cpp:90
+#: src/settings/settingsdialog.cpp:91
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "系统语言"
 
-#: src/settings/settingsdialog.cpp:130
+#: src/settings/settingsdialog.cpp:126
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Icone:"
 
-#: src/settings/settingsdialog.cpp:140
-msgctxt "SettingsDialog|"
-msgid "Updates"
-msgstr "更新"
-
-#: src/settings/settingsdialog.cpp:147
-msgctxt "SettingsDialog|"
-msgid "Check for updates:"
-msgstr "检查更新："
-
-#: src/settings/settingsdialog.cpp:151
-msgctxt "SettingsDialog|"
-msgid "Every day"
-msgstr "每天"
-
-#: src/settings/settingsdialog.cpp:152
-msgctxt "SettingsDialog|"
-msgid "Every week"
-msgstr "每周"
-
-#: src/settings/settingsdialog.cpp:153
-msgctxt "SettingsDialog|"
-msgid "Every month"
-msgstr "每月"
-
-#: src/settings/settingsdialog.cpp:154 src/settings/settingsdialog.ui:1047
-msgctxt "SettingsDialog|"
-msgid "Never"
-msgstr "从不"
-
-#: src/settings/settingsdialog.cpp:158
-msgctxt "SettingsDialog|"
-msgid "Check now"
-msgstr "立即检查"
-
-#: src/settings/settingsdialog.cpp:159
-msgctxt "SettingsDialog|"
-msgid "Check for updates now"
-msgstr "立即检查更新"
-
-#: src/settings/settingsdialog.cpp:172
+#: src/settings/settingsdialog.cpp:139
 msgctxt "SettingsDialog|"
 msgid "Happy New Year!"
 msgstr "新年快乐！"
 
-#: src/settings/settingsdialog.cpp:186
+#: src/settings/settingsdialog.cpp:153
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "OCR 参数字段不能为空。"
 
-#: src/settings/settingsdialog.cpp:187
+#: src/settings/settingsdialog.cpp:154
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "确定要舍弃无效的参数吗？"
 
-#: src/settings/settingsdialog.cpp:337
+#: src/settings/settingsdialog.cpp:301
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "选择图标"
 
-#: src/settings/settingsdialog.cpp:337
+#: src/settings/settingsdialog.cpp:301
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "图片 (*.png *.ico *.svg *.jpg);;所有文件()"
 
-#: src/settings/settingsdialog.cpp:350
+#: src/settings/settingsdialog.cpp:314
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "选择 OCR 语言路径"
 
-#: src/settings/settingsdialog.cpp:399 src/settings/settingsdialog.ui:1303
+#: src/settings/settingsdialog.cpp:363 src/settings/settingsdialog.ui:1303
 msgctxt "SettingsDialog|"
 msgid "Default region"
 msgstr "默认区域："
 
-#: src/settings/settingsdialog.cpp:402
+#: src/settings/settingsdialog.cpp:366
 msgctxt "SettingsDialog|"
 msgid "Mandarin (China)"
 msgstr "普通话(中国)"
 
-#: src/settings/settingsdialog.cpp:477
-msgctxt "SettingsDialog|"
-msgid "Checking for updates..."
-msgstr "正在检查更新..."
-
-#: src/settings/settingsdialog.cpp:499
-msgctxt "SettingsDialog|"
-msgid "Update available!"
-msgstr "有可用更新！"
-
-#: src/settings/settingsdialog.cpp:505
-msgctxt "SettingsDialog|"
-msgid "No updates available."
-msgstr "无可用更新。"
-
-#: src/settings/settingsdialog.cpp:604
+#: src/settings/settingsdialog.cpp:525
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "返回"
 
-#: src/settings/settingsdialog.cpp:710
+#: src/settings/settingsdialog.cpp:628
 msgctxt "SettingsDialog|"
 msgid "Nothing to play"
 msgstr "没有要播放的内容"
 
-#: src/settings/settingsdialog.cpp:710
+#: src/settings/settingsdialog.cpp:628
 msgctxt "SettingsDialog|"
 msgid "Playback text is empty"
 msgstr "发音文字为空"
 
-#: src/settings/settingsdialog.cpp:720
+#: src/settings/settingsdialog.cpp:638
 msgctxt "SettingsDialog|"
 msgid "Unable to detect language"
 msgstr "无法检测语言"
@@ -1957,6 +1899,11 @@ msgid ""
 "html>"
 msgstr "<html><head/><body><p>选择何时记住上次选择的区域</p></body></html>"
 
+#: src/settings/settingsdialog.ui:1047
+msgctxt "SettingsDialog|"
+msgid "Never"
+msgstr "从不"
+
 #: src/settings/settingsdialog.ui:1052
 msgctxt "SettingsDialog|"
 msgid "Remember last"
@@ -2473,96 +2420,98 @@ msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "翻译结果"
 
-#: src/updaterdialog.cpp:46 src/updaterdialog.cpp:49
-msgctxt "UpdaterDialog|"
-msgid "Changelog:"
-msgstr "更新日志："
+#~ msgctxt "QGitTag|"
+#~ msgid "Release number %1 is missing"
+#~ msgstr "丢失发行号 %1"
 
-#: src/updaterdialog.cpp:75
-msgctxt "UpdaterDialog|"
-msgid "Unable to write file"
-msgstr "无法写入文件"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Updates"
+#~ msgstr "更新"
 
-#: src/updaterdialog.cpp:119
-msgctxt "UpdaterDialog|"
-msgid "Downloading is complete"
-msgstr "下载已完成"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check for updates:"
+#~ msgstr "检查更新："
 
-#: src/updaterdialog.ui:24
-msgctxt "UpdaterDialog|"
-msgid "Exit the program and run the installer"
-msgstr "退出应用并运行安装"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every day"
+#~ msgstr "每天"
 
-#: src/updaterdialog.ui:27
-msgctxt "UpdaterDialog|"
-msgid "Install"
-msgstr "安装"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every week"
+#~ msgstr "每周"
 
-#: src/updaterdialog.ui:34
-msgctxt "UpdaterDialog|"
-msgid "Download the installer to the Downloads folder"
-msgstr "下载安装包到「下载」文件夹"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every month"
+#~ msgstr "每月"
 
-#: src/updaterdialog.ui:37
-msgctxt "UpdaterDialog|"
-msgid "Download"
-msgstr "下载"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check now"
+#~ msgstr "立即检查"
 
-#: src/updaterdialog.ui:44
-#, fuzzy
-#| msgctxt "UpdaterDialog|"
-#| msgid ""
-#| "<html><head/><body><p>A new version of Crow Translate is available! "
-#| "Updates add functionality and improve the stability of the application. "
-#| "Most often.<br/>You can also download the release manually from this <a "
-#| "href=\"https://github.com/crow-translate/crow-translate/releases\">link</"
-#| "a>.</p></body></html>"
-msgctxt "UpdaterDialog|"
-msgid ""
-"<html><head/><body><p>A new version of Crow Translate is available! Updates "
-"add functionality and improve the stability of the application. Most often."
-"<br/>You can also download the release manually from this <a href=\"https://"
-"download.kde.org/stable/crow-translate\">link</a>.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>有新版本的 Crow Translate 可用!  通常新版本会增加一些功"
-"能并提高应用程序的稳定性。 <br/>您也可以手动下载此版本 <a href=\"https://"
-"github.com/crow-translate/crow-translate/releases\">链接</a> </p></body></"
-"html>"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check for updates now"
+#~ msgstr "立即检查更新"
 
-#: src/updaterdialog.ui:67
-msgctxt "UpdaterDialog|"
-msgid "Close this window"
-msgstr "关闭窗口"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Checking for updates..."
+#~ msgstr "正在检查更新..."
 
-#: src/updaterdialog.ui:70
-msgctxt "UpdaterDialog|"
-msgid "Update later"
-msgstr "以后更新"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Update available!"
+#~ msgstr "有可用更新！"
 
-#: src/updaterdialog.ui:90
-msgctxt "UpdaterDialog|"
-msgid "Cancel download"
-msgstr "取消下载"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "No updates available."
+#~ msgstr "无可用更新。"
 
-#: src/updaterdialog.ui:93
-msgctxt "UpdaterDialog|"
-msgid "Cancel"
-msgstr "取消"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Changelog:"
+#~ msgstr "更新日志："
 
-#: src/updaterdialog.ui:109
-msgctxt "UpdaterDialog|"
-msgid "Current version:"
-msgstr "当前版本："
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Unable to write file"
+#~ msgstr "无法写入文件"
 
-#: src/updaterdialog.ui:129
-msgctxt "UpdaterDialog|"
-msgid "Available version:"
-msgstr "可用版本："
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Downloading is complete"
+#~ msgstr "下载已完成"
 
-#~ msgctxt "QHotkey|"
-#~ msgid "Failed to register %1. Error: %2"
-#~ msgstr "注册 %1 失败。错误: %2"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Exit the program and run the installer"
+#~ msgstr "退出应用并运行安装"
 
-#~ msgctxt "QHotkey|"
-#~ msgid "Failed to unregister %1. Error: %2"
-#~ msgstr "取消注册 %1 失败。错误: %2"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Install"
+#~ msgstr "安装"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Download the installer to the Downloads folder"
+#~ msgstr "下载安装包到「下载」文件夹"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Download"
+#~ msgstr "下载"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Close this window"
+#~ msgstr "关闭窗口"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Update later"
+#~ msgstr "以后更新"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Cancel download"
+#~ msgstr "取消下载"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Cancel"
+#~ msgstr "取消"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Current version:"
+#~ msgstr "当前版本："
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Available version:"
+#~ msgstr "可用版本："

@@ -5,7 +5,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: et\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
@@ -208,33 +208,33 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "D-Bus'i objekti registreerimine %1 jaoks ei õnnestu"
 
-#: src/mainwindow.cpp:384
+#: src/mainwindow.cpp:380
 msgctxt "MainWindow|"
 msgid "Unable to detect language"
 msgstr "Keele tuvastamine ei õnnestu"
 
-#: src/mainwindow.cpp:436
+#: src/mainwindow.cpp:432
 msgctxt "MainWindow|"
 msgid "Unable to translate text"
 msgstr "Teksti tõlkimine ei õnnestu"
 
-#: src/mainwindow.cpp:916
+#: src/mainwindow.cpp:867
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Vigane süsteemisalve ikoon"
 
-#: src/mainwindow.cpp:916
+#: src/mainwindow.cpp:867
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "Valitud ikoon „%1“ on vigane. Kasutame vaikimisi määratud ikooni."
 
-#: src/mainwindow.cpp:947
+#: src/mainwindow.cpp:898
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "Optilise tekstituvastuse keelte määramine ei õnnestu"
 
-#: src/mainwindow.cpp:947
+#: src/mainwindow.cpp:898
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -1229,13 +1229,7 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Kopeeri tõlge lõikelauale"
 
-#: src/qgittag/qgittag.cpp:131
-#, qt-format
-msgctxt "QGitTag|"
-msgid "Release number %1 is missing"
-msgstr "Versioon %1 puudub"
-
-#: src/settings/appsettings.cpp:1261
+#: src/settings/appsettings.cpp:1234
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1276,139 +1270,84 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "Eemaldamine ei õnnestu: %1 %2'st"
 
-#: src/settings/settingsdialog.cpp:38
+#: src/settings/settingsdialog.cpp:34
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Kaasaskantava rakenduse režiim"
 
-#: src/settings/settingsdialog.cpp:51
+#: src/settings/settingsdialog.cpp:47
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Seadistuste salvestamiseks kasuta %1"
 
-#: src/settings/settingsdialog.cpp:63 src/settings/settingsdialog.cpp:94
-#: src/settings/settingsdialog.cpp:95
+#: src/settings/settingsdialog.cpp:59 src/settings/settingsdialog.cpp:90
+#: src/settings/settingsdialog.cpp:91
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Süsteemi keel>"
 
-#: src/settings/settingsdialog.cpp:130
+#: src/settings/settingsdialog.cpp:126
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Ikoonid:"
 
-#: src/settings/settingsdialog.cpp:140
-msgctxt "SettingsDialog|"
-msgid "Updates"
-msgstr "Uuendused"
-
-#: src/settings/settingsdialog.cpp:147
-msgctxt "SettingsDialog|"
-msgid "Check for updates:"
-msgstr "Kontrolli uuendusi:"
-
-#: src/settings/settingsdialog.cpp:151
-msgctxt "SettingsDialog|"
-msgid "Every day"
-msgstr "Iga päev"
-
-#: src/settings/settingsdialog.cpp:152
-msgctxt "SettingsDialog|"
-msgid "Every week"
-msgstr "Kord nädalas"
-
-#: src/settings/settingsdialog.cpp:153
-msgctxt "SettingsDialog|"
-msgid "Every month"
-msgstr "Kord kuus"
-
-#: src/settings/settingsdialog.cpp:154 src/settings/settingsdialog.ui:1047
-msgctxt "SettingsDialog|"
-msgid "Never"
-msgstr "Mitte kunagi"
-
-#: src/settings/settingsdialog.cpp:158
-msgctxt "SettingsDialog|"
-msgid "Check now"
-msgstr "Kontrolli kohe"
-
-#: src/settings/settingsdialog.cpp:159
-msgctxt "SettingsDialog|"
-msgid "Check for updates now"
-msgstr "Kontrolli uuendusi kohe nüüd"
-
-#: src/settings/settingsdialog.cpp:172
+#: src/settings/settingsdialog.cpp:139
 msgctxt "SettingsDialog|"
 msgid "Happy New Year!"
 msgstr "Head uut aastat!"
 
-#: src/settings/settingsdialog.cpp:186
+#: src/settings/settingsdialog.cpp:153
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "Optilise tekstituvastuse parameetrite väljad ei saa olla tühjad."
 
-#: src/settings/settingsdialog.cpp:187
+#: src/settings/settingsdialog.cpp:154
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Kas soovid eemaldada vigased parameetrid?"
 
-#: src/settings/settingsdialog.cpp:337
+#: src/settings/settingsdialog.cpp:301
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Vali ikoon"
 
-#: src/settings/settingsdialog.cpp:337
+#: src/settings/settingsdialog.cpp:301
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Pildid (*.png *.ico *.svg *.jpg);;Kõik failid()"
 
-#: src/settings/settingsdialog.cpp:350
+#: src/settings/settingsdialog.cpp:314
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Vali optilise tekstituvastuse keelemudelite asukoht"
 
-#: src/settings/settingsdialog.cpp:399 src/settings/settingsdialog.ui:1303
+#: src/settings/settingsdialog.cpp:363 src/settings/settingsdialog.ui:1303
 msgctxt "SettingsDialog|"
 msgid "Default region"
 msgstr "Vaikimisi piirkond"
 
-#: src/settings/settingsdialog.cpp:402
+#: src/settings/settingsdialog.cpp:366
 msgctxt "SettingsDialog|"
 msgid "Mandarin (China)"
 msgstr "põhjahiina"
 
-#: src/settings/settingsdialog.cpp:477
-msgctxt "SettingsDialog|"
-msgid "Checking for updates..."
-msgstr "Kontrollime uuendusi..."
-
-#: src/settings/settingsdialog.cpp:499
-msgctxt "SettingsDialog|"
-msgid "Update available!"
-msgstr "Uuendus saadaval!"
-
-#: src/settings/settingsdialog.cpp:505
-msgctxt "SettingsDialog|"
-msgid "No updates available."
-msgstr "Uuendusi pole saadaval."
-
-#: src/settings/settingsdialog.cpp:604
+#: src/settings/settingsdialog.cpp:525
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Tagasi"
 
-#: src/settings/settingsdialog.cpp:710
+#: src/settings/settingsdialog.cpp:628
 msgctxt "SettingsDialog|"
 msgid "Nothing to play"
 msgstr "Mitte midagi ei saa esitada"
 
-#: src/settings/settingsdialog.cpp:710
+#: src/settings/settingsdialog.cpp:628
 msgctxt "SettingsDialog|"
 msgid "Playback text is empty"
 msgstr "Taasesitatav tekst on tühi"
 
-#: src/settings/settingsdialog.cpp:720
+#: src/settings/settingsdialog.cpp:638
 msgctxt "SettingsDialog|"
 msgid "Unable to detect language"
 msgstr "Keele tuvastamine ei õnnestu"
@@ -1993,6 +1932,11 @@ msgstr ""
 "<html><head/><body><p>Millal jätame valitud ekraaniosa meelde</p></body></"
 "html>"
 
+#: src/settings/settingsdialog.ui:1047
+msgctxt "SettingsDialog|"
+msgid "Never"
+msgstr "Mitte kunagi"
+
 #: src/settings/settingsdialog.ui:1052
 msgctxt "SettingsDialog|"
 msgid "Remember last"
@@ -2530,92 +2474,123 @@ msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Tõlketulemus"
 
-#: src/updaterdialog.cpp:46 src/updaterdialog.cpp:49
-msgctxt "UpdaterDialog|"
-msgid "Changelog:"
-msgstr "Muudatuste logi:"
+#~ msgctxt "QGitTag|"
+#~ msgid "Release number %1 is missing"
+#~ msgstr "Versioon %1 puudub"
 
-#: src/updaterdialog.cpp:75
-msgctxt "UpdaterDialog|"
-msgid "Unable to write file"
-msgstr "Faili salvestamine pole võimalik"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Updates"
+#~ msgstr "Uuendused"
 
-#: src/updaterdialog.cpp:119
-msgctxt "UpdaterDialog|"
-msgid "Downloading is complete"
-msgstr "Allalaadimine on lõppenud"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check for updates:"
+#~ msgstr "Kontrolli uuendusi:"
 
-#: src/updaterdialog.ui:24
-msgctxt "UpdaterDialog|"
-msgid "Exit the program and run the installer"
-msgstr "Välju rakendusest ja käivita paigaldaja"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every day"
+#~ msgstr "Iga päev"
 
-#: src/updaterdialog.ui:27
-msgctxt "UpdaterDialog|"
-msgid "Install"
-msgstr "Paigalda"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every week"
+#~ msgstr "Kord nädalas"
 
-#: src/updaterdialog.ui:34
-msgctxt "UpdaterDialog|"
-msgid "Download the installer to the Downloads folder"
-msgstr "Laadi paigalduspakk oma arvuti allalaadimiste kausta"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every month"
+#~ msgstr "Kord kuus"
 
-#: src/updaterdialog.ui:37
-msgctxt "UpdaterDialog|"
-msgid "Download"
-msgstr "Laadi alla"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check now"
+#~ msgstr "Kontrolli kohe"
 
-#: src/updaterdialog.ui:44
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check for updates now"
+#~ msgstr "Kontrolli uuendusi kohe nüüd"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Checking for updates..."
+#~ msgstr "Kontrollime uuendusi..."
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Update available!"
+#~ msgstr "Uuendus saadaval!"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "No updates available."
+#~ msgstr "Uuendusi pole saadaval."
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Changelog:"
+#~ msgstr "Muudatuste logi:"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Unable to write file"
+#~ msgstr "Faili salvestamine pole võimalik"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Downloading is complete"
+#~ msgstr "Allalaadimine on lõppenud"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Exit the program and run the installer"
+#~ msgstr "Välju rakendusest ja käivita paigaldaja"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Install"
+#~ msgstr "Paigalda"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Download the installer to the Downloads folder"
+#~ msgstr "Laadi paigalduspakk oma arvuti allalaadimiste kausta"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Download"
+#~ msgstr "Laadi alla"
+
 #, fuzzy
-#| msgctxt "UpdaterDialog|"
-#| msgid ""
-#| "<html><head/><body><p>A new version of Crow Translate is available! "
-#| "Updates add functionality and improve the stability of the application. "
-#| "Most often.<br/>You can also download the release manually from this <a "
-#| "href=\"https://github.com/crow-translate/crow-translate/releases\">link</"
-#| "a>.</p></body></html>"
-msgctxt "UpdaterDialog|"
-msgid ""
-"<html><head/><body><p>A new version of Crow Translate is available! Updates "
-"add functionality and improve the stability of the application. Most often."
-"<br/>You can also download the release manually from this <a href=\"https://"
-"download.kde.org/stable/crow-translate\">link</a>.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Crow Translate uus versioon on saadaval! Uuendused "
-"parandavad rakenduse funktsionaalsust ja stabiilsust. Üldjuhul siis...<br/"
-">Käsitsi saad rakenduse uue versiooni alla laadida <a href=\"https://github."
-"com/crow-translate/crow-translate/releases\">siit lehelt</a>.</p></body></"
-"html>"
+#~| msgctxt "UpdaterDialog|"
+#~| msgid ""
+#~| "<html><head/><body><p>A new version of Crow Translate is available! "
+#~| "Updates add functionality and improve the stability of the application. "
+#~| "Most often.<br/>You can also download the release manually from this <a "
+#~| "href=\"https://github.com/crow-translate/crow-translate/releases\">link</"
+#~| "a>.</p></body></html>"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>A new version of Crow Translate is available! "
+#~ "Updates add functionality and improve the stability of the application. "
+#~ "Most often.<br/>You can also download the release manually from this <a "
+#~ "href=\"https://download.kde.org/stable/crow-translate\">link</a>.</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Crow Translate uus versioon on saadaval! Uuendused "
+#~ "parandavad rakenduse funktsionaalsust ja stabiilsust. Üldjuhul siis...<br/"
+#~ ">Käsitsi saad rakenduse uue versiooni alla laadida <a href=\"https://"
+#~ "github.com/crow-translate/crow-translate/releases\">siit lehelt</a>.</p></"
+#~ "body></html>"
 
-#: src/updaterdialog.ui:67
-msgctxt "UpdaterDialog|"
-msgid "Close this window"
-msgstr "Sulge see aken"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Close this window"
+#~ msgstr "Sulge see aken"
 
-#: src/updaterdialog.ui:70
-msgctxt "UpdaterDialog|"
-msgid "Update later"
-msgstr "Uuenda hiljem"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Update later"
+#~ msgstr "Uuenda hiljem"
 
-#: src/updaterdialog.ui:90
-msgctxt "UpdaterDialog|"
-msgid "Cancel download"
-msgstr "Katkesta allalaadimine"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Cancel download"
+#~ msgstr "Katkesta allalaadimine"
 
-#: src/updaterdialog.ui:93
-msgctxt "UpdaterDialog|"
-msgid "Cancel"
-msgstr "Katkesta"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Cancel"
+#~ msgstr "Katkesta"
 
-#: src/updaterdialog.ui:109
-msgctxt "UpdaterDialog|"
-msgid "Current version:"
-msgstr "Praegune versioon:"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Current version:"
+#~ msgstr "Praegune versioon:"
 
-#: src/updaterdialog.ui:129
-msgctxt "UpdaterDialog|"
-msgid "Available version:"
-msgstr "Viimane versioon:"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Available version:"
+#~ msgstr "Viimane versioon:"
 
 #~ msgctxt "QHotkey|"
 #~ msgid "Failed to register %1. Error: %2"

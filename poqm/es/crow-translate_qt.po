@@ -5,7 +5,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es-ES\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
@@ -220,34 +220,34 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "No se puede registrar el objeto D-Bus para %1"
 
-#: src/mainwindow.cpp:384
+#: src/mainwindow.cpp:380
 msgctxt "MainWindow|"
 msgid "Unable to detect language"
 msgstr "No se puede detectar el idioma"
 
-#: src/mainwindow.cpp:436
+#: src/mainwindow.cpp:432
 msgctxt "MainWindow|"
 msgid "Unable to translate text"
 msgstr "No se puede traducir el texto"
 
-#: src/mainwindow.cpp:916
+#: src/mainwindow.cpp:867
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Icono de bandeja de sistema inválido"
 
-#: src/mainwindow.cpp:916
+#: src/mainwindow.cpp:867
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr ""
 "El icono especificado '%1' es inválido. Se utilizará el icono predeterminado."
 
-#: src/mainwindow.cpp:947
+#: src/mainwindow.cpp:898
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "No se pueden establecer los idiomas de OCR"
 
-#: src/mainwindow.cpp:947
+#: src/mainwindow.cpp:898
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -1246,13 +1246,7 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Copiar la traducción al portapapeles"
 
-#: src/qgittag/qgittag.cpp:131
-#, qt-format
-msgctxt "QGitTag|"
-msgid "Release number %1 is missing"
-msgstr "Falta el número de versión %1"
-
-#: src/settings/appsettings.cpp:1261
+#: src/settings/appsettings.cpp:1234
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1293,139 +1287,84 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "No se puede quitar %1 de %2"
 
-#: src/settings/settingsdialog.cpp:38
+#: src/settings/settingsdialog.cpp:34
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Modo portable"
 
-#: src/settings/settingsdialog.cpp:51
+#: src/settings/settingsdialog.cpp:47
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Usar %1 para almacenar la configuración"
 
-#: src/settings/settingsdialog.cpp:63 src/settings/settingsdialog.cpp:94
-#: src/settings/settingsdialog.cpp:95
+#: src/settings/settingsdialog.cpp:59 src/settings/settingsdialog.cpp:90
+#: src/settings/settingsdialog.cpp:91
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<System language>"
 
-#: src/settings/settingsdialog.cpp:130
+#: src/settings/settingsdialog.cpp:126
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Iconos:"
 
-#: src/settings/settingsdialog.cpp:140
-msgctxt "SettingsDialog|"
-msgid "Updates"
-msgstr "Actualizaciones"
-
-#: src/settings/settingsdialog.cpp:147
-msgctxt "SettingsDialog|"
-msgid "Check for updates:"
-msgstr "Comprobar actualizaciones:"
-
-#: src/settings/settingsdialog.cpp:151
-msgctxt "SettingsDialog|"
-msgid "Every day"
-msgstr "Cada día"
-
-#: src/settings/settingsdialog.cpp:152
-msgctxt "SettingsDialog|"
-msgid "Every week"
-msgstr "Cada semana"
-
-#: src/settings/settingsdialog.cpp:153
-msgctxt "SettingsDialog|"
-msgid "Every month"
-msgstr "Cada mes"
-
-#: src/settings/settingsdialog.cpp:154 src/settings/settingsdialog.ui:1047
-msgctxt "SettingsDialog|"
-msgid "Never"
-msgstr "Nunca"
-
-#: src/settings/settingsdialog.cpp:158
-msgctxt "SettingsDialog|"
-msgid "Check now"
-msgstr "Comprobar ahora"
-
-#: src/settings/settingsdialog.cpp:159
-msgctxt "SettingsDialog|"
-msgid "Check for updates now"
-msgstr "Comprobar actualizaciones ahora"
-
-#: src/settings/settingsdialog.cpp:172
+#: src/settings/settingsdialog.cpp:139
 msgctxt "SettingsDialog|"
 msgid "Happy New Year!"
 msgstr "¡Feliz año nuevo!"
 
-#: src/settings/settingsdialog.cpp:186
+#: src/settings/settingsdialog.cpp:153
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "Los campos de parámetro OCR no pueden estar vacíos."
 
-#: src/settings/settingsdialog.cpp:187
+#: src/settings/settingsdialog.cpp:154
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "¿Desea descartar los parámetros inválidos?"
 
-#: src/settings/settingsdialog.cpp:337
+#: src/settings/settingsdialog.cpp:301
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Seleccionar icono"
 
-#: src/settings/settingsdialog.cpp:337
+#: src/settings/settingsdialog.cpp:301
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Imágenes (*.png *.ico *.svg *.jpg);;Todos los archivos()"
 
-#: src/settings/settingsdialog.cpp:350
+#: src/settings/settingsdialog.cpp:314
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Seleccionar ruta de idiomas OCR"
 
-#: src/settings/settingsdialog.cpp:399 src/settings/settingsdialog.ui:1303
+#: src/settings/settingsdialog.cpp:363 src/settings/settingsdialog.ui:1303
 msgctxt "SettingsDialog|"
 msgid "Default region"
 msgstr "Región predeterminada"
 
-#: src/settings/settingsdialog.cpp:402
+#: src/settings/settingsdialog.cpp:366
 msgctxt "SettingsDialog|"
 msgid "Mandarin (China)"
 msgstr "Mandarín (China)"
 
-#: src/settings/settingsdialog.cpp:477
-msgctxt "SettingsDialog|"
-msgid "Checking for updates..."
-msgstr "Comprobando actualizaciones..."
-
-#: src/settings/settingsdialog.cpp:499
-msgctxt "SettingsDialog|"
-msgid "Update available!"
-msgstr "¡Actualización disponible!"
-
-#: src/settings/settingsdialog.cpp:505
-msgctxt "SettingsDialog|"
-msgid "No updates available."
-msgstr "No hay actualizaciones disponibles."
-
-#: src/settings/settingsdialog.cpp:604
+#: src/settings/settingsdialog.cpp:525
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Volver"
 
-#: src/settings/settingsdialog.cpp:710
+#: src/settings/settingsdialog.cpp:628
 msgctxt "SettingsDialog|"
 msgid "Nothing to play"
 msgstr "Nada a reproducir"
 
-#: src/settings/settingsdialog.cpp:710
+#: src/settings/settingsdialog.cpp:628
 msgctxt "SettingsDialog|"
 msgid "Playback text is empty"
 msgstr "El texto de reproducción está vacío"
 
-#: src/settings/settingsdialog.cpp:720
+#: src/settings/settingsdialog.cpp:638
 msgctxt "SettingsDialog|"
 msgid "Unable to detect language"
 msgstr "No se pudo detectar el idioma"
@@ -2020,6 +1959,11 @@ msgstr ""
 "<html><head/><body><p>Cuándo recordar la última región seleccionada</p></"
 "body></html>"
 
+#: src/settings/settingsdialog.ui:1047
+msgctxt "SettingsDialog|"
+msgid "Never"
+msgstr "Nunca"
+
 #: src/settings/settingsdialog.ui:1052
 msgctxt "SettingsDialog|"
 msgid "Remember last"
@@ -2558,92 +2502,123 @@ msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Resultado de la traducción"
 
-#: src/updaterdialog.cpp:46 src/updaterdialog.cpp:49
-msgctxt "UpdaterDialog|"
-msgid "Changelog:"
-msgstr "Registro de cambios:"
+#~ msgctxt "QGitTag|"
+#~ msgid "Release number %1 is missing"
+#~ msgstr "Falta el número de versión %1"
 
-#: src/updaterdialog.cpp:75
-msgctxt "UpdaterDialog|"
-msgid "Unable to write file"
-msgstr "No se puede escribir el archivo"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Updates"
+#~ msgstr "Actualizaciones"
 
-#: src/updaterdialog.cpp:119
-msgctxt "UpdaterDialog|"
-msgid "Downloading is complete"
-msgstr "La descarga está completada"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check for updates:"
+#~ msgstr "Comprobar actualizaciones:"
 
-#: src/updaterdialog.ui:24
-msgctxt "UpdaterDialog|"
-msgid "Exit the program and run the installer"
-msgstr "Salir del programa y ejecutar el instalador"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every day"
+#~ msgstr "Cada día"
 
-#: src/updaterdialog.ui:27
-msgctxt "UpdaterDialog|"
-msgid "Install"
-msgstr "Instalar"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every week"
+#~ msgstr "Cada semana"
 
-#: src/updaterdialog.ui:34
-msgctxt "UpdaterDialog|"
-msgid "Download the installer to the Downloads folder"
-msgstr "Descargar el instalador a la carpeta de Descargas"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every month"
+#~ msgstr "Cada mes"
 
-#: src/updaterdialog.ui:37
-msgctxt "UpdaterDialog|"
-msgid "Download"
-msgstr "Descargar"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check now"
+#~ msgstr "Comprobar ahora"
 
-#: src/updaterdialog.ui:44
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check for updates now"
+#~ msgstr "Comprobar actualizaciones ahora"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Checking for updates..."
+#~ msgstr "Comprobando actualizaciones..."
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Update available!"
+#~ msgstr "¡Actualización disponible!"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "No updates available."
+#~ msgstr "No hay actualizaciones disponibles."
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Changelog:"
+#~ msgstr "Registro de cambios:"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Unable to write file"
+#~ msgstr "No se puede escribir el archivo"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Downloading is complete"
+#~ msgstr "La descarga está completada"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Exit the program and run the installer"
+#~ msgstr "Salir del programa y ejecutar el instalador"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Install"
+#~ msgstr "Instalar"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Download the installer to the Downloads folder"
+#~ msgstr "Descargar el instalador a la carpeta de Descargas"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Download"
+#~ msgstr "Descargar"
+
 #, fuzzy
-#| msgctxt "UpdaterDialog|"
-#| msgid ""
-#| "<html><head/><body><p>A new version of Crow Translate is available! "
-#| "Updates add functionality and improve the stability of the application. "
-#| "Most often.<br/>You can also download the release manually from this <a "
-#| "href=\"https://github.com/crow-translate/crow-translate/releases\">link</"
-#| "a>.</p></body></html>"
-msgctxt "UpdaterDialog|"
-msgid ""
-"<html><head/><body><p>A new version of Crow Translate is available! Updates "
-"add functionality and improve the stability of the application. Most often."
-"<br/>You can also download the release manually from this <a href=\"https://"
-"download.kde.org/stable/crow-translate\">link</a>.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>¡Hay disponible una nueva versión de Crow Translate! "
-"Las actualizaciones agregan funcionalidad y mejoran la estabilidad de la "
-"aplicación. Más amenudo.<br/>También puede descargar la versión manualmente "
-"desde este <a href=\"https://github.com/crow-translate/crow-translate/"
-"releases\">enlace</a>.</p></body></html>"
+#~| msgctxt "UpdaterDialog|"
+#~| msgid ""
+#~| "<html><head/><body><p>A new version of Crow Translate is available! "
+#~| "Updates add functionality and improve the stability of the application. "
+#~| "Most often.<br/>You can also download the release manually from this <a "
+#~| "href=\"https://github.com/crow-translate/crow-translate/releases\">link</"
+#~| "a>.</p></body></html>"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>A new version of Crow Translate is available! "
+#~ "Updates add functionality and improve the stability of the application. "
+#~ "Most often.<br/>You can also download the release manually from this <a "
+#~ "href=\"https://download.kde.org/stable/crow-translate\">link</a>.</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>¡Hay disponible una nueva versión de Crow "
+#~ "Translate! Las actualizaciones agregan funcionalidad y mejoran la "
+#~ "estabilidad de la aplicación. Más amenudo.<br/>También puede descargar la "
+#~ "versión manualmente desde este <a href=\"https://github.com/crow-"
+#~ "translate/crow-translate/releases\">enlace</a>.</p></body></html>"
 
-#: src/updaterdialog.ui:67
-msgctxt "UpdaterDialog|"
-msgid "Close this window"
-msgstr "Cerrar esta ventana"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Close this window"
+#~ msgstr "Cerrar esta ventana"
 
-#: src/updaterdialog.ui:70
-msgctxt "UpdaterDialog|"
-msgid "Update later"
-msgstr "Actualizar más tarde"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Update later"
+#~ msgstr "Actualizar más tarde"
 
-#: src/updaterdialog.ui:90
-msgctxt "UpdaterDialog|"
-msgid "Cancel download"
-msgstr "Cancelar descarga"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Cancel download"
+#~ msgstr "Cancelar descarga"
 
-#: src/updaterdialog.ui:93
-msgctxt "UpdaterDialog|"
-msgid "Cancel"
-msgstr "Cancelar"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
 
-#: src/updaterdialog.ui:109
-msgctxt "UpdaterDialog|"
-msgid "Current version:"
-msgstr "Versión actual"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Current version:"
+#~ msgstr "Versión actual"
 
-#: src/updaterdialog.ui:129
-msgctxt "UpdaterDialog|"
-msgid "Available version:"
-msgstr "Versión disponible:"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Available version:"
+#~ msgstr "Versión disponible:"
 
 #~ msgctxt "QHotkey|"
 #~ msgid "Failed to register %1. Error: %2"

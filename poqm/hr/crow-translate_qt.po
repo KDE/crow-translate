@@ -213,33 +213,33 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "Nije moguće registrirati D-Bus objekt za %1"
 
-#: src/mainwindow.cpp:384
+#: src/mainwindow.cpp:380
 msgctxt "MainWindow|"
 msgid "Unable to detect language"
 msgstr "Nije moguće otkriti jezik"
 
-#: src/mainwindow.cpp:436
+#: src/mainwindow.cpp:432
 msgctxt "MainWindow|"
 msgid "Unable to translate text"
 msgstr "Nije moguće prevesti tekst"
 
-#: src/mainwindow.cpp:916
+#: src/mainwindow.cpp:867
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Neispravna ikona u programskoj traci"
 
-#: src/mainwindow.cpp:916
+#: src/mainwindow.cpp:867
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "Određena ikona „%1” nije ispravna. Koristit će se standardna ikona."
 
-#: src/mainwindow.cpp:947
+#: src/mainwindow.cpp:898
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "Nije moguće postaviti OCR jezike"
 
-#: src/mainwindow.cpp:947
+#: src/mainwindow.cpp:898
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -1232,13 +1232,7 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Kopiraj prijevod u međuspremnik"
 
-#: src/qgittag/qgittag.cpp:131
-#, qt-format
-msgctxt "QGitTag|"
-msgid "Release number %1 is missing"
-msgstr "Nedostaje broj izdanja %1"
-
-#: src/settings/appsettings.cpp:1261
+#: src/settings/appsettings.cpp:1234
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1278,139 +1272,84 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "Nije moguće ukloniti %1 iz %2"
 
-#: src/settings/settingsdialog.cpp:38
+#: src/settings/settingsdialog.cpp:34
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Prijenosni modus"
 
-#: src/settings/settingsdialog.cpp:51
+#: src/settings/settingsdialog.cpp:47
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Koristi %1 za spremanje postavki"
 
-#: src/settings/settingsdialog.cpp:63 src/settings/settingsdialog.cpp:94
-#: src/settings/settingsdialog.cpp:95
+#: src/settings/settingsdialog.cpp:59 src/settings/settingsdialog.cpp:90
+#: src/settings/settingsdialog.cpp:91
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Jezik sustava>"
 
-#: src/settings/settingsdialog.cpp:130
+#: src/settings/settingsdialog.cpp:126
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Ikone:"
 
-#: src/settings/settingsdialog.cpp:140
-msgctxt "SettingsDialog|"
-msgid "Updates"
-msgstr "Nove verzije"
-
-#: src/settings/settingsdialog.cpp:147
-msgctxt "SettingsDialog|"
-msgid "Check for updates:"
-msgstr "Traži nove verzije:"
-
-#: src/settings/settingsdialog.cpp:151
-msgctxt "SettingsDialog|"
-msgid "Every day"
-msgstr "Svaki dan"
-
-#: src/settings/settingsdialog.cpp:152
-msgctxt "SettingsDialog|"
-msgid "Every week"
-msgstr "Svaki tjedan"
-
-#: src/settings/settingsdialog.cpp:153
-msgctxt "SettingsDialog|"
-msgid "Every month"
-msgstr "Svaki mjesec"
-
-#: src/settings/settingsdialog.cpp:154 src/settings/settingsdialog.ui:1047
-msgctxt "SettingsDialog|"
-msgid "Never"
-msgstr "Nikada"
-
-#: src/settings/settingsdialog.cpp:158
-msgctxt "SettingsDialog|"
-msgid "Check now"
-msgstr "Provjeri sada"
-
-#: src/settings/settingsdialog.cpp:159
-msgctxt "SettingsDialog|"
-msgid "Check for updates now"
-msgstr "Traži nove verzije sada"
-
-#: src/settings/settingsdialog.cpp:172
+#: src/settings/settingsdialog.cpp:139
 msgctxt "SettingsDialog|"
 msgid "Happy New Year!"
 msgstr "Sretna Nova Godina!"
 
-#: src/settings/settingsdialog.cpp:186
+#: src/settings/settingsdialog.cpp:153
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "Polja OCR parametara ne smiju biti prazna."
 
-#: src/settings/settingsdialog.cpp:187
+#: src/settings/settingsdialog.cpp:154
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Želi li odbaciti nevažeće parametre?"
 
-#: src/settings/settingsdialog.cpp:337
+#: src/settings/settingsdialog.cpp:301
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Odaberi ikonu"
 
-#: src/settings/settingsdialog.cpp:337
+#: src/settings/settingsdialog.cpp:301
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Slike (*.png *.ico *.svg *.jpg);;Sve datoteke()"
 
-#: src/settings/settingsdialog.cpp:350
+#: src/settings/settingsdialog.cpp:314
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Odaberi putanju OCR jezika"
 
-#: src/settings/settingsdialog.cpp:399 src/settings/settingsdialog.ui:1303
+#: src/settings/settingsdialog.cpp:363 src/settings/settingsdialog.ui:1303
 msgctxt "SettingsDialog|"
 msgid "Default region"
 msgstr "Standardno područje"
 
-#: src/settings/settingsdialog.cpp:402
+#: src/settings/settingsdialog.cpp:366
 msgctxt "SettingsDialog|"
 msgid "Mandarin (China)"
 msgstr "mandarinski (Kina)"
 
-#: src/settings/settingsdialog.cpp:477
-msgctxt "SettingsDialog|"
-msgid "Checking for updates..."
-msgstr "Traženje novih verzija …"
-
-#: src/settings/settingsdialog.cpp:499
-msgctxt "SettingsDialog|"
-msgid "Update available!"
-msgstr "Dostupna je nova verzija!"
-
-#: src/settings/settingsdialog.cpp:505
-msgctxt "SettingsDialog|"
-msgid "No updates available."
-msgstr "Nema novih verzija."
-
-#: src/settings/settingsdialog.cpp:604
+#: src/settings/settingsdialog.cpp:525
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Natrag"
 
-#: src/settings/settingsdialog.cpp:710
+#: src/settings/settingsdialog.cpp:628
 msgctxt "SettingsDialog|"
 msgid "Nothing to play"
 msgstr "Ništa za reprodukciju"
 
-#: src/settings/settingsdialog.cpp:710
+#: src/settings/settingsdialog.cpp:628
 msgctxt "SettingsDialog|"
 msgid "Playback text is empty"
 msgstr "Tekst za reprodukciju je prazan"
 
-#: src/settings/settingsdialog.cpp:720
+#: src/settings/settingsdialog.cpp:638
 msgctxt "SettingsDialog|"
 msgid "Unable to detect language"
 msgstr "Nije moguće otkriti jezik"
@@ -1997,6 +1936,11 @@ msgstr ""
 "<html><head/><body><p>Kada zapamtiti zadnje odabrano područje</p></body></"
 "html>"
 
+#: src/settings/settingsdialog.ui:1047
+msgctxt "SettingsDialog|"
+msgid "Never"
+msgstr "Nikada"
+
 #: src/settings/settingsdialog.ui:1052
 msgctxt "SettingsDialog|"
 msgid "Remember last"
@@ -2522,92 +2466,123 @@ msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Rezultat prijevoda"
 
-#: src/updaterdialog.cpp:46 src/updaterdialog.cpp:49
-msgctxt "UpdaterDialog|"
-msgid "Changelog:"
-msgstr "Dnevnik promjena:"
+#~ msgctxt "QGitTag|"
+#~ msgid "Release number %1 is missing"
+#~ msgstr "Nedostaje broj izdanja %1"
 
-#: src/updaterdialog.cpp:75
-msgctxt "UpdaterDialog|"
-msgid "Unable to write file"
-msgstr "Nije moguće zapisati datoteku"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Updates"
+#~ msgstr "Nove verzije"
 
-#: src/updaterdialog.cpp:119
-msgctxt "UpdaterDialog|"
-msgid "Downloading is complete"
-msgstr "Preuzimanje je gotovo"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check for updates:"
+#~ msgstr "Traži nove verzije:"
 
-#: src/updaterdialog.ui:24
-msgctxt "UpdaterDialog|"
-msgid "Exit the program and run the installer"
-msgstr "Zatvori program i pokreni instalacijski program"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every day"
+#~ msgstr "Svaki dan"
 
-#: src/updaterdialog.ui:27
-msgctxt "UpdaterDialog|"
-msgid "Install"
-msgstr "Instaliraj"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every week"
+#~ msgstr "Svaki tjedan"
 
-#: src/updaterdialog.ui:34
-msgctxt "UpdaterDialog|"
-msgid "Download the installer to the Downloads folder"
-msgstr "Preuzmi instalacijski program u mapu „Preuzimanja”"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every month"
+#~ msgstr "Svaki mjesec"
 
-#: src/updaterdialog.ui:37
-msgctxt "UpdaterDialog|"
-msgid "Download"
-msgstr "Preuzmi"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check now"
+#~ msgstr "Provjeri sada"
 
-#: src/updaterdialog.ui:44
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check for updates now"
+#~ msgstr "Traži nove verzije sada"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Checking for updates..."
+#~ msgstr "Traženje novih verzija …"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Update available!"
+#~ msgstr "Dostupna je nova verzija!"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "No updates available."
+#~ msgstr "Nema novih verzija."
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Changelog:"
+#~ msgstr "Dnevnik promjena:"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Unable to write file"
+#~ msgstr "Nije moguće zapisati datoteku"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Downloading is complete"
+#~ msgstr "Preuzimanje je gotovo"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Exit the program and run the installer"
+#~ msgstr "Zatvori program i pokreni instalacijski program"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Install"
+#~ msgstr "Instaliraj"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Download the installer to the Downloads folder"
+#~ msgstr "Preuzmi instalacijski program u mapu „Preuzimanja”"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Download"
+#~ msgstr "Preuzmi"
+
 #, fuzzy
-#| msgctxt "UpdaterDialog|"
-#| msgid ""
-#| "<html><head/><body><p>A new version of Crow Translate is available! "
-#| "Updates add functionality and improve the stability of the application. "
-#| "Most often.<br/>You can also download the release manually from this <a "
-#| "href=\"https://github.com/crow-translate/crow-translate/releases\">link</"
-#| "a>.</p></body></html>"
-msgctxt "UpdaterDialog|"
-msgid ""
-"<html><head/><body><p>A new version of Crow Translate is available! Updates "
-"add functionality and improve the stability of the application. Most often."
-"<br/>You can also download the release manually from this <a href=\"https://"
-"download.kde.org/stable/crow-translate\">link</a>.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Dostupna je nova verzija za Crow Translate! "
-"Aktualiziranja dodaju funkcionalnost i poboljšavaju stabilnost aplikacije. "
-"Najčešće.<br/>Izdanje se može preuzeti i ručno pomoću ove <a href=\"https://"
-"github.com/crow-translate/crow-translate/releases\">poveznice</a>.</p> </"
-"body></html>"
+#~| msgctxt "UpdaterDialog|"
+#~| msgid ""
+#~| "<html><head/><body><p>A new version of Crow Translate is available! "
+#~| "Updates add functionality and improve the stability of the application. "
+#~| "Most often.<br/>You can also download the release manually from this <a "
+#~| "href=\"https://github.com/crow-translate/crow-translate/releases\">link</"
+#~| "a>.</p></body></html>"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>A new version of Crow Translate is available! "
+#~ "Updates add functionality and improve the stability of the application. "
+#~ "Most often.<br/>You can also download the release manually from this <a "
+#~ "href=\"https://download.kde.org/stable/crow-translate\">link</a>.</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Dostupna je nova verzija za Crow Translate! "
+#~ "Aktualiziranja dodaju funkcionalnost i poboljšavaju stabilnost "
+#~ "aplikacije. Najčešće.<br/>Izdanje se može preuzeti i ručno pomoću ove <a "
+#~ "href=\"https://github.com/crow-translate/crow-translate/releases"
+#~ "\">poveznice</a>.</p> </body></html>"
 
-#: src/updaterdialog.ui:67
-msgctxt "UpdaterDialog|"
-msgid "Close this window"
-msgstr "Zatvori ovaj prozor"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Close this window"
+#~ msgstr "Zatvori ovaj prozor"
 
-#: src/updaterdialog.ui:70
-msgctxt "UpdaterDialog|"
-msgid "Update later"
-msgstr "Aktualiziraj kasnije"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Update later"
+#~ msgstr "Aktualiziraj kasnije"
 
-#: src/updaterdialog.ui:90
-msgctxt "UpdaterDialog|"
-msgid "Cancel download"
-msgstr "Prekini preuzimanje"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Cancel download"
+#~ msgstr "Prekini preuzimanje"
 
-#: src/updaterdialog.ui:93
-msgctxt "UpdaterDialog|"
-msgid "Cancel"
-msgstr "Odustani"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Cancel"
+#~ msgstr "Odustani"
 
-#: src/updaterdialog.ui:109
-msgctxt "UpdaterDialog|"
-msgid "Current version:"
-msgstr "Trenutačna verzija:"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Current version:"
+#~ msgstr "Trenutačna verzija:"
 
-#: src/updaterdialog.ui:129
-msgctxt "UpdaterDialog|"
-msgid "Available version:"
-msgstr "Dostupna verzija:"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Available version:"
+#~ msgstr "Dostupna verzija:"
 
 #~ msgctxt "QHotkey|"
 #~ msgid "Failed to register %1. Error: %2"

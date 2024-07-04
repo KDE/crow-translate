@@ -1,15 +1,22 @@
 # SPDX-FileCopyrightText: 2024 bodqhrohro
 # SPDX-License-Identifier: GPL-3.0-or-later
+# Yuri Chornoivan <yurchor@ukr.net>, 2024.
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2024-07-03 09:35+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Language: uk\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: src/cli.cpp:41
 msgctxt "Cli|"
@@ -64,8 +71,8 @@ msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
 msgstr ""
-"Зчитати початковий текст із файлів. Аргументи будуть інтерпретируватися як "
-"шляхи до файлів."
+"Зчитати початковий текст із файлів. Аргументи будуть буде оброблено як шляхи "
+"до файлів."
 
 #: src/cli.cpp:49
 msgctxt "Cli|"
@@ -206,7 +213,7 @@ msgstr "Поточні мови:"
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
-msgstr "Сервіс D-Bus %1 вже зареєстрований иншим застосунком"
+msgstr "Сервіс D-Bus %1 вже зареєстрований іншою програмою"
 
 #: src/main.cpp:90
 #, qt-format
@@ -214,33 +221,33 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "Не вдалося зареєструвати об'єкт D-Bus для %1"
 
-#: src/mainwindow.cpp:384
+#: src/mainwindow.cpp:380
 msgctxt "MainWindow|"
 msgid "Unable to detect language"
 msgstr "Не вдається визначити мову"
 
-#: src/mainwindow.cpp:436
+#: src/mainwindow.cpp:432
 msgctxt "MainWindow|"
 msgid "Unable to translate text"
 msgstr "Не вдалося перекласти текст"
 
-#: src/mainwindow.cpp:916
+#: src/mainwindow.cpp:867
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Недійсна піктограма для таці"
 
-#: src/mainwindow.cpp:916
+#: src/mainwindow.cpp:867
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr " Вказана піктограма '%1' недійсна. Буде використано типову піктограму."
 
-#: src/mainwindow.cpp:947
+#: src/mainwindow.cpp:898
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "Не вдалося вказати мови OCR"
 
-#: src/mainwindow.cpp:947
+#: src/mainwindow.cpp:898
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -310,7 +317,7 @@ msgstr "Перекласти область екрану з затримкою"
 #: src/mainwindow.ui:286
 msgctxt "MainWindow|"
 msgid "Application settings"
-msgstr "Налаштування застосунку"
+msgstr "Налаштування програми"
 
 #: src/ocr/ocr.cpp:136
 #, qt-format
@@ -483,10 +490,10 @@ msgid "Selected source language %1 is not supported for %2"
 msgstr "Обрана мова оригіналу %1 не підтримується %2"
 
 #: src/onlinetranslator/onlinetranslator.cpp:195
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Selected translation language %1 is not supported for %2"
-msgstr "Обрана мова перекладу 1% не підтримується %2"
+msgstr "Підтримки вибраної мови перекладу %1 для %2 не передбачено"
 
 #: src/onlinetranslator/onlinetranslator.cpp:200
 #, qt-format
@@ -501,7 +508,7 @@ msgstr "Обрана мова інтерфейсу %1 не підтримуєт�
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "%1 URL can't be empty."
-msgstr "%1 URL-адреса не може'бути пустою."
+msgstr "Адреса %1 не може бути порожньою."
 
 #: src/onlinetranslator/onlinetranslator.cpp:468
 msgctxt "OnlineTranslator|"
@@ -546,7 +553,7 @@ msgstr "Баскська"
 #: src/onlinetranslator/onlinetranslator.cpp:484
 msgctxt "OnlineTranslator|"
 msgid "Bashkir"
-msgstr "Башкірська"
+msgstr "Башкирська"
 
 #: src/onlinetranslator/onlinetranslator.cpp:486
 msgctxt "OnlineTranslator|"
@@ -641,7 +648,7 @@ msgstr "Фіджійська"
 #: src/onlinetranslator/onlinetranslator.cpp:522
 msgctxt "OnlineTranslator|"
 msgid "Filipino"
-msgstr "Філіпійська"
+msgstr "Філіппінська"
 
 #: src/onlinetranslator/onlinetranslator.cpp:524
 msgctxt "OnlineTranslator|"
@@ -656,7 +663,7 @@ msgstr "Французька"
 #: src/onlinetranslator/onlinetranslator.cpp:528
 msgctxt "OnlineTranslator|"
 msgid "Frisian"
-msgstr "Фрізька"
+msgstr "Фризька"
 
 #: src/onlinetranslator/onlinetranslator.cpp:530
 msgctxt "OnlineTranslator|"
@@ -681,7 +688,7 @@ msgstr "Грецька"
 #: src/onlinetranslator/onlinetranslator.cpp:538
 msgctxt "OnlineTranslator|"
 msgid "Gujarati"
-msgstr "Ґуджаратська"
+msgstr "Гуджараті"
 
 #: src/onlinetranslator/onlinetranslator.cpp:540
 msgctxt "OnlineTranslator|"
@@ -706,7 +713,7 @@ msgstr "Гебрейська"
 #: src/onlinetranslator/onlinetranslator.cpp:548
 msgctxt "OnlineTranslator|"
 msgid "Hill Mari"
-msgstr "Хілл Марі"
+msgstr "Гірська марійська"
 
 #: src/onlinetranslator/onlinetranslator.cpp:550
 msgctxt "OnlineTranslator|"
@@ -806,7 +813,7 @@ msgstr "Киргизька"
 #: src/onlinetranslator/onlinetranslator.cpp:588
 msgctxt "OnlineTranslator|"
 msgid "Lao"
-msgstr "Лао"
+msgstr "Лаоська"
 
 #: src/onlinetranslator/onlinetranslator.cpp:590
 msgctxt "OnlineTranslator|"
@@ -821,7 +828,7 @@ msgstr "Латвійська"
 #: src/onlinetranslator/onlinetranslator.cpp:594
 msgctxt "OnlineTranslator|"
 msgid "Levantine Arabic"
-msgstr "Левантинська арабська"
+msgstr "Левантійська арабська"
 
 #: src/onlinetranslator/onlinetranslator.cpp:596
 msgctxt "OnlineTranslator|"
@@ -831,7 +838,7 @@ msgstr "Литовська"
 #: src/onlinetranslator/onlinetranslator.cpp:598
 msgctxt "OnlineTranslator|"
 msgid "Luxembourgish"
-msgstr "Люксембургська"
+msgstr "Люксембурзька"
 
 #: src/onlinetranslator/onlinetranslator.cpp:600
 msgctxt "OnlineTranslator|"
@@ -881,7 +888,7 @@ msgstr "Монгольська"
 #: src/onlinetranslator/onlinetranslator.cpp:618
 msgctxt "OnlineTranslator|"
 msgid "Myanmar"
-msgstr "М'янманська"
+msgstr "М’янма"
 
 #: src/onlinetranslator/onlinetranslator.cpp:620
 msgctxt "OnlineTranslator|"
@@ -901,7 +908,7 @@ msgstr "Орія"
 #: src/onlinetranslator/onlinetranslator.cpp:626
 msgctxt "OnlineTranslator|"
 msgid "Chichewa"
-msgstr "Чичева"
+msgstr "Чічеванська"
 
 #: src/onlinetranslator/onlinetranslator.cpp:628
 msgctxt "OnlineTranslator|"
@@ -916,7 +923,7 @@ msgstr "Пушту"
 #: src/onlinetranslator/onlinetranslator.cpp:632
 msgctxt "OnlineTranslator|"
 msgid "Persian"
-msgstr "Персидська"
+msgstr "Перська"
 
 #: src/onlinetranslator/onlinetranslator.cpp:634
 msgctxt "OnlineTranslator|"
@@ -931,7 +938,7 @@ msgstr "Португальська"
 #: src/onlinetranslator/onlinetranslator.cpp:638
 msgctxt "OnlineTranslator|"
 msgid "Punjabi"
-msgstr "Пенджабська"
+msgstr "Пенджабі"
 
 #: src/onlinetranslator/onlinetranslator.cpp:640
 msgctxt "OnlineTranslator|"
@@ -981,7 +988,7 @@ msgstr "Шона"
 #: src/onlinetranslator/onlinetranslator.cpp:658
 msgctxt "OnlineTranslator|"
 msgid "Sindhi"
-msgstr "Сіндхі"
+msgstr "Синдхі"
 
 #: src/onlinetranslator/onlinetranslator.cpp:660
 msgctxt "OnlineTranslator|"
@@ -1026,7 +1033,7 @@ msgstr "Шведська"
 #: src/onlinetranslator/onlinetranslator.cpp:676
 msgctxt "OnlineTranslator|"
 msgid "Tagalog"
-msgstr "Таґальська"
+msgstr "Тагальська"
 
 #: src/onlinetranslator/onlinetranslator.cpp:678
 msgctxt "OnlineTranslator|"
@@ -1126,12 +1133,12 @@ msgstr "Йоруба"
 #: src/onlinetranslator/onlinetranslator.cpp:716
 msgctxt "OnlineTranslator|"
 msgid "Yucatec Maya"
-msgstr "Юкатек Майя"
+msgstr "Юкатанська майянська"
 
 #: src/onlinetranslator/onlinetranslator.cpp:718
 msgctxt "OnlineTranslator|"
 msgid "Zulu"
-msgstr "Зулу"
+msgstr "Зулуська"
 
 #: src/onlinetranslator/onlinetranslator.cpp:1211
 #: src/onlinetranslator/onlinetranslator.cpp:1220
@@ -1175,7 +1182,7 @@ msgstr "Помилка: Не вдалося витягти додаткові в
 #: src/onlinetranslator/onlinetranslator.cpp:1545
 msgctxt "OnlineTranslator|"
 msgid "Error: Bing return unhandled network error"
-msgstr ""
+msgstr "Помилка: Bing повернуто непридатну до обробки помилку мережі"
 
 #: src/onlinetranslator/onlinetts.cpp:64
 #, qt-format
@@ -1233,13 +1240,7 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Скопіювати переклад до буфера обміну"
 
-#: src/qgittag/qgittag.cpp:131
-#, qt-format
-msgctxt "QGitTag|"
-msgid "Release number %1 is missing"
-msgstr "Випуск під номером %1 відсутній"
-
-#: src/settings/appsettings.cpp:1261
+#: src/settings/appsettings.cpp:1234
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1279,139 +1280,84 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "Не вдалося видалити %1 з %2"
 
-#: src/settings/settingsdialog.cpp:38
+#: src/settings/settingsdialog.cpp:34
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Портативний режим"
 
-#: src/settings/settingsdialog.cpp:51
+#: src/settings/settingsdialog.cpp:47
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Використовуйте %1 для зберігання налаштувань"
 
-#: src/settings/settingsdialog.cpp:63 src/settings/settingsdialog.cpp:94
-#: src/settings/settingsdialog.cpp:95
+#: src/settings/settingsdialog.cpp:59 src/settings/settingsdialog.cpp:90
+#: src/settings/settingsdialog.cpp:91
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "Системна мова"
 
-#: src/settings/settingsdialog.cpp:130
+#: src/settings/settingsdialog.cpp:126
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Піктограми:"
 
-#: src/settings/settingsdialog.cpp:140
-msgctxt "SettingsDialog|"
-msgid "Updates"
-msgstr "Оновлення"
-
-#: src/settings/settingsdialog.cpp:147
-msgctxt "SettingsDialog|"
-msgid "Check for updates:"
-msgstr "Перевіряти наявність оновлень:"
-
-#: src/settings/settingsdialog.cpp:151
-msgctxt "SettingsDialog|"
-msgid "Every day"
-msgstr "Щодня"
-
-#: src/settings/settingsdialog.cpp:152
-msgctxt "SettingsDialog|"
-msgid "Every week"
-msgstr "Щотижня"
-
-#: src/settings/settingsdialog.cpp:153
-msgctxt "SettingsDialog|"
-msgid "Every month"
-msgstr "Щомісяця"
-
-#: src/settings/settingsdialog.cpp:154 src/settings/settingsdialog.ui:1047
-msgctxt "SettingsDialog|"
-msgid "Never"
-msgstr "НІколи"
-
-#: src/settings/settingsdialog.cpp:158
-msgctxt "SettingsDialog|"
-msgid "Check now"
-msgstr "Перевірити зараз"
-
-#: src/settings/settingsdialog.cpp:159
-msgctxt "SettingsDialog|"
-msgid "Check for updates now"
-msgstr "Перевірити наявність оновлень зараз"
-
-#: src/settings/settingsdialog.cpp:172
+#: src/settings/settingsdialog.cpp:139
 msgctxt "SettingsDialog|"
 msgid "Happy New Year!"
 msgstr "З Новим Роком!"
 
-#: src/settings/settingsdialog.cpp:186
+#: src/settings/settingsdialog.cpp:153
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "Поля налаштувань OCR не можуть бути порожніми."
 
-#: src/settings/settingsdialog.cpp:187
+#: src/settings/settingsdialog.cpp:154
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Ви бажаєте скасувати неправильні параметри?"
 
-#: src/settings/settingsdialog.cpp:337
+#: src/settings/settingsdialog.cpp:301
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Обрати піктограму"
 
-#: src/settings/settingsdialog.cpp:337
+#: src/settings/settingsdialog.cpp:301
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Зображення (*.png *.ico *.svg *.jpg);;Усі файли()"
 
-#: src/settings/settingsdialog.cpp:350
+#: src/settings/settingsdialog.cpp:314
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Оберіть шлях до мов OCR"
 
-#: src/settings/settingsdialog.cpp:399 src/settings/settingsdialog.ui:1303
+#: src/settings/settingsdialog.cpp:363 src/settings/settingsdialog.ui:1303
 msgctxt "SettingsDialog|"
 msgid "Default region"
 msgstr "Регіон за замовчуванням"
 
-#: src/settings/settingsdialog.cpp:402
+#: src/settings/settingsdialog.cpp:366
 msgctxt "SettingsDialog|"
 msgid "Mandarin (China)"
 msgstr "Мандарин (Китай)"
 
-#: src/settings/settingsdialog.cpp:477
-msgctxt "SettingsDialog|"
-msgid "Checking for updates..."
-msgstr "Перевірка наявності оновлень…"
-
-#: src/settings/settingsdialog.cpp:499
-msgctxt "SettingsDialog|"
-msgid "Update available!"
-msgstr "Є оновлення!"
-
-#: src/settings/settingsdialog.cpp:505
-msgctxt "SettingsDialog|"
-msgid "No updates available."
-msgstr "Нема доступних оновлень."
-
-#: src/settings/settingsdialog.cpp:604
+#: src/settings/settingsdialog.cpp:525
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Назад"
 
-#: src/settings/settingsdialog.cpp:710
+#: src/settings/settingsdialog.cpp:628
 msgctxt "SettingsDialog|"
 msgid "Nothing to play"
 msgstr "Нема що промовляти"
 
-#: src/settings/settingsdialog.cpp:710
+#: src/settings/settingsdialog.cpp:628
 msgctxt "SettingsDialog|"
 msgid "Playback text is empty"
 msgstr "Текст для промовляння"
 
-#: src/settings/settingsdialog.cpp:720
+#: src/settings/settingsdialog.cpp:638
 msgctxt "SettingsDialog|"
 msgid "Unable to detect language"
 msgstr "Не вдалося визначити мову"
@@ -1454,7 +1400,7 @@ msgstr "Гарячі клавіші"
 #: src/settings/settingsdialog.ui:105
 msgctxt "SettingsDialog|"
 msgid "About"
-msgstr "Про застосунок"
+msgstr "Про програму"
 
 #: src/settings/settingsdialog.ui:148
 msgctxt "SettingsDialog|"
@@ -1518,7 +1464,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:202 src/settings/settingsdialog.ui:351
 msgctxt "SettingsDialog|"
 msgid "Pop-up window"
-msgstr "Виринне вікно"
+msgstr "Контекстне вікно"
 
 #: src/settings/settingsdialog.ui:207
 msgctxt "SettingsDialog|"
@@ -1566,8 +1512,8 @@ msgid ""
 "<html><head/><body><p>Start application minimized to the system tray</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Запускати застосунок згорнутим до системного лотка</"
-"p></body></html>"
+"<html><head/><body><p>Запускати програму згорнутою до системного лотка</p></"
+"body></html>"
 
 #: src/settings/settingsdialog.ui:265
 msgctxt "SettingsDialog|"
@@ -1579,7 +1525,7 @@ msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Run the application at system startup</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Запускати застосунок під час завантаження системи</p></"
+"<html><head/><body><p>Запускати програму під час завантаження системи</p></"
 "body></html>"
 
 #: src/settings/settingsdialog.ui:275
@@ -1622,7 +1568,7 @@ msgstr ""
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window height in pixels</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Висота вікна, що спливає, у пікселах</p></body></html>"
+"<html><head/><body><p>Висота контекстного вікна у пікселях</p></body></html>"
 
 #: src/settings/settingsdialog.ui:367
 msgctxt "SettingsDialog|"
@@ -1633,12 +1579,12 @@ msgstr "Ширина:"
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Ширина вікна, що спливає, у пікселах</p></body></html>"
+"<html><head/><body><p>Ширина контекстного вікна у пікселях</p></body></html>"
 
 #: src/settings/settingsdialog.ui:384
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window opacity</p></body></html>"
-msgstr "<html><head/><body><p>Прозорість вікна, що спливає</p></body></html>"
+msgstr "<html><head/><body><p>Прозорість контекстного вікна</p></body></html>"
 
 #: src/settings/settingsdialog.ui:411
 msgctxt "SettingsDialog|"
@@ -1692,7 +1638,7 @@ msgstr "Код ISO 639-1"
 #: src/settings/settingsdialog.ui:491
 msgctxt "SettingsDialog|"
 msgid "Pop-up:"
-msgstr "Виринне вікно"
+msgstr "Контекстне вікно:"
 
 #: src/settings/settingsdialog.ui:518
 msgctxt "SettingsDialog|"
@@ -1867,9 +1813,9 @@ msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
 "italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Автоматично переключитися на <span style=\" font-style:"
-"курсив;\">Auto</span> при використанні OCR та глобальних ярликів</p></body></"
-"html>"
+"<html><head/><body><p>Автоматично перемикатися на <span style=\" font-style:"
+"курсив;\">Auto</span> при використанні розпізнавання тексту та глобальних "
+"скорочень</p></body></html>"
 
 #: src/settings/settingsdialog.ui:745
 msgctxt "SettingsDialog|"
@@ -1999,6 +1945,11 @@ msgstr ""
 "<html><head/><body><p>Коли слід запам'ятати останню вибрану область</p></"
 "body></html>"
 
+#: src/settings/settingsdialog.ui:1047
+msgctxt "SettingsDialog|"
+msgid "Never"
+msgstr "Ніколи"
+
 #: src/settings/settingsdialog.ui:1052
 msgctxt "SettingsDialog|"
 msgid "Remember last"
@@ -2043,7 +1994,7 @@ msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
 "released</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Закінчувати захоплення фраґменту, коли кнопка миші "
+"<html><head/><body><p>Закінчувати захоплення фрагменту, коли кнопка миші "
 "відпущена</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1101
@@ -2187,7 +2138,7 @@ msgstr "Не використовувати проксі"
 #: src/settings/settingsdialog.ui:1393
 msgctxt "SettingsDialog|"
 msgid "Host:"
-msgstr "Хост:"
+msgstr "Вузол:"
 
 #: src/settings/settingsdialog.ui:1403
 msgctxt "SettingsDialog|"
@@ -2284,7 +2235,7 @@ msgstr "Гарячий клавіш"
 #: src/settings/settingsdialog.ui:1591
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
-msgstr "Послідовність клавішів:"
+msgstr "Послідовність клавіш:"
 
 #: src/settings/settingsdialog.ui:1598
 msgctxt "SettingsDialog|"
@@ -2292,8 +2243,7 @@ msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Послідовність клавішів для обраної дії</p></body></"
-"html>"
+"<html><head/><body><p>Послідовність клавіш для обраної дії</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1605
 msgctxt "SettingsDialog|"
@@ -2370,7 +2320,7 @@ msgstr "Промовити переклад виділеного тексту"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:32
 msgctxt "ShortcutsModel|"
 msgid "Stop text speaking"
-msgstr "Зупинити промовлення тексту"
+msgstr "Зупинити озвучення тексту"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:35
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:71
@@ -2476,7 +2426,7 @@ msgstr "Текст не вказано"
 #: src/speakbuttons.cpp:138
 msgctxt "SpeakButtons|"
 msgid "Playback text is empty"
-msgstr " Текст для відтворення порожній"
+msgstr "Текст для відтворення порожній"
 
 #: src/speakbuttons.cpp:147
 msgctxt "SpeakButtons|"
@@ -2501,7 +2451,7 @@ msgstr "Мови OCR не завантажено"
 #: src/transitions/ocruninitializedtransition.cpp:28
 msgctxt "Ocr|"
 msgid "You should set at least one OCR language in the application settings"
-msgstr "Ви повинні вказати хоч одну мову OCR у налаштуваннях застосунку"
+msgstr "Ви повинні вказати хоч одну мову OCR у налаштуваннях програми"
 
 #: src/translationedit.cpp:62
 msgctxt "TranslationEdit|"
@@ -2533,91 +2483,121 @@ msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Результат перекладу"
 
-#: src/updaterdialog.cpp:46 src/updaterdialog.cpp:49
-msgctxt "UpdaterDialog|"
-msgid "Changelog:"
-msgstr "Перелік змін:"
+#~ msgctxt "QGitTag|"
+#~ msgid "Release number %1 is missing"
+#~ msgstr "Випуск під номером %1 відсутній"
 
-#: src/updaterdialog.cpp:75
-msgctxt "UpdaterDialog|"
-msgid "Unable to write file"
-msgstr "Не вийшло зберегти файл"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Updates"
+#~ msgstr "Оновлення"
 
-#: src/updaterdialog.cpp:119
-msgctxt "UpdaterDialog|"
-msgid "Downloading is complete"
-msgstr "Завантаження завершено"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check for updates:"
+#~ msgstr "Перевіряти наявність оновлень:"
 
-#: src/updaterdialog.ui:24
-msgctxt "UpdaterDialog|"
-msgid "Exit the program and run the installer"
-msgstr "Вийти з програми й запустити встановлювач"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every day"
+#~ msgstr "Щодня"
 
-#: src/updaterdialog.ui:27
-msgctxt "UpdaterDialog|"
-msgid "Install"
-msgstr "Встановити"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every week"
+#~ msgstr "Щотижня"
 
-#: src/updaterdialog.ui:34
-msgctxt "UpdaterDialog|"
-msgid "Download the installer to the Downloads folder"
-msgstr "Завантажити встановлювач до теки «Завантаження»"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Every month"
+#~ msgstr "Щомісяця"
 
-#: src/updaterdialog.ui:37
-msgctxt "UpdaterDialog|"
-msgid "Download"
-msgstr "Завантажити"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check now"
+#~ msgstr "Перевірити зараз"
 
-#: src/updaterdialog.ui:44
-#, fuzzy
-#| msgctxt "UpdaterDialog|"
-#| msgid ""
-#| "<html><head/><body><p>A new version of Crow Translate is available! "
-#| "Updates add functionality and improve the stability of the application. "
-#| "Most often.<br/>You can also download the release manually from this <a "
-#| "href=\"https://github.com/crow-translate/crow-translate/releases\">link</"
-#| "a>.</p></body></html>"
-msgctxt "UpdaterDialog|"
-msgid ""
-"<html><head/><body><p>A new version of Crow Translate is available! Updates "
-"add functionality and improve the stability of the application. Most often."
-"<br/>You can also download the release manually from this <a href=\"https://"
-"download.kde.org/stable/crow-translate\">link</a>.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Доступна нова версія Crow Translate! Оновлення додають "
-"функціональність та покращують стабільність програми. Найчастіше.<br/>Ви "
-"також можете завантажити випуск вручну з цього <a href=\"https://github.com/"
-"crow-translate/crow-translate/releases\">посилання</a>.</p></body></html>"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Check for updates now"
+#~ msgstr "Перевірити наявність оновлень зараз"
 
-#: src/updaterdialog.ui:67
-msgctxt "UpdaterDialog|"
-msgid "Close this window"
-msgstr "Закрити це вікно"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Checking for updates..."
+#~ msgstr "Перевірка наявності оновлень…"
 
-#: src/updaterdialog.ui:70
-msgctxt "UpdaterDialog|"
-msgid "Update later"
-msgstr "Оновити пізніше"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Update available!"
+#~ msgstr "Є оновлення!"
 
-#: src/updaterdialog.ui:90
-msgctxt "UpdaterDialog|"
-msgid "Cancel download"
-msgstr "Скасувати завантаження"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "No updates available."
+#~ msgstr "Нема доступних оновлень."
 
-#: src/updaterdialog.ui:93
-msgctxt "UpdaterDialog|"
-msgid "Cancel"
-msgstr "Скасувати"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Changelog:"
+#~ msgstr "Перелік змін:"
 
-#: src/updaterdialog.ui:109
-msgctxt "UpdaterDialog|"
-msgid "Current version:"
-msgstr "Поточна версія:"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Unable to write file"
+#~ msgstr "Не вийшло зберегти файл"
 
-#: src/updaterdialog.ui:129
-msgctxt "UpdaterDialog|"
-msgid "Available version:"
-msgstr "Доступна версія:"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Downloading is complete"
+#~ msgstr "Завантаження завершено"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Exit the program and run the installer"
+#~ msgstr "Вийти з програми й запустити встановлювач"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Install"
+#~ msgstr "Встановити"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Download the installer to the Downloads folder"
+#~ msgstr "Завантажити встановлювач до теки «Завантаження»"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Download"
+#~ msgstr "Завантажити"
+
+#~| msgctxt "UpdaterDialog|"
+#~| msgid ""
+#~| "<html><head/><body><p>A new version of Crow Translate is available! "
+#~| "Updates add functionality and improve the stability of the application. "
+#~| "Most often.<br/>You can also download the release manually from this <a "
+#~| "href=\"https://github.com/crow-translate/crow-translate/releases\">link</"
+#~| "a>.</p></body></html>"
+#~ msgctxt "UpdaterDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>A new version of Crow Translate is available! "
+#~ "Updates add functionality and improve the stability of the application. "
+#~ "Most often.<br/>You can also download the release manually from this <a "
+#~ "href=\"https://download.kde.org/stable/crow-translate\">link</a>.</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Доступна нова версія Crow Translate! Оновлення "
+#~ "додають функціональність та покращують стабільність програми. Найчастіше."
+#~ "<br/>Ви також можете завантажити випуск вручну з цього <a href=\"https://"
+#~ "download.kde.org/stable/crow-translate\">посилання</a>.</p></body></html>"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Close this window"
+#~ msgstr "Закрити це вікно"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Update later"
+#~ msgstr "Оновити пізніше"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Cancel download"
+#~ msgstr "Скасувати завантаження"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Cancel"
+#~ msgstr "Скасувати"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Current version:"
+#~ msgstr "Поточна версія:"
+
+#~ msgctxt "UpdaterDialog|"
+#~ msgid "Available version:"
+#~ msgstr "Доступна версія:"
 
 #~ msgctxt "QHotkey|"
 #~ msgid "Failed to register %1. Error: %2"

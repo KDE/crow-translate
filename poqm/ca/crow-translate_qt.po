@@ -1,20 +1,27 @@
-# SPDX-FileCopyrightText: 2024 dmocha
-# SPDX-License-Identifier: GPL-3.0-or-later
+# Translation of crow-translate_qt.po to Catalan
+# Copyright (C) 2024 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Josep M. Ferrer <txemaq@gmail.com>, 2024.
 msgid ""
 msgstr ""
+"Project-Id-Version: crow-translate\n"
+"PO-Revision-Date: 2024-07-03 20:27+0200\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
-"X-Language: pl\n"
-"X-Source-Language: en\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/cli.cpp:41
 msgctxt "Cli|"
 msgid "Display all language codes."
-msgstr "Wyświetl wszystkie kody języków."
+msgstr "Mostra tots els codis d'idioma."
 
 #: src/cli.cpp:42
 msgctxt "Cli|"
@@ -22,8 +29,8 @@ msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
 msgstr ""
-"Określ język źródłowy (domyślnie silnik będzie próbował samodzielnie "
-"określić język)."
+"Especifiqueu l'idioma d'origen (de manera predeterminada, el motor intentarà "
+"determinar l'idioma per si mateix)."
 
 #: src/cli.cpp:43
 msgctxt "Cli|"
@@ -31,14 +38,16 @@ msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
 "language is used)."
 msgstr ""
-"Określ język(i) tłumaczenia, z podziałem na '+' (domyślnie używany jest "
-"język systemowy)."
+"Especifica l'/els idioma/s de traducció, dividit per «+» (de manera "
+"predeterminada, s'utilitza l'idioma del sistema)."
 
 #: src/cli.cpp:44
 msgctxt "Cli|"
 msgid ""
 "Specify the translator language (by default, the system language is used)."
-msgstr "Określ język tłumacza (domyślnie używany jest język systemowy)."
+msgstr ""
+"Especifica l'idioma del traductor (de manera predeterminada, s'utilitza "
+"l'idioma del sistema)."
 
 #: src/cli.cpp:45
 msgctxt "Cli|"
@@ -46,47 +55,47 @@ msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
 "or 'lingva'), Google is used by default."
 msgstr ""
-"Określ silnik translatora ('google', 'yandex', 'bing', 'libretranslate' lub "
-"'lingva'), domyślnie używana jest usługa Google."
+"Especifica el motor del traductor («google», «yandex», «bing», "
+"«libretranslate» o «lingva»), s'utilitza Google de manera predeterminada."
 
 #: src/cli.cpp:46
 msgctxt "Cli|"
 msgid "Speak the translation."
-msgstr "Wypowiedz tłumaczenie."
+msgstr "Pronuncia la traducció."
 
 #: src/cli.cpp:47
 msgctxt "Cli|"
 msgid "Speak the source."
-msgstr "Wypowiedz źródło."
+msgstr "Pronuncia l'origen."
 
 #: src/cli.cpp:48
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
 msgstr ""
-"Czytaj tekst źródłowy z plików. Argumenty będą interpretowane jako ścieżki "
-"plików."
+"Llegeix el text d'origen a partir de fitxers. Els arguments s'interpretaran "
+"com a camins de fitxer."
 
 #: src/cli.cpp:49
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
-msgstr "Dodaj dane stdin do tekstu źródłowego."
+msgstr "Afegeix les dades de «stdin» al text d'origen."
 
 #: src/cli.cpp:50
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
-msgstr "Nie drukuj żadnego tekstu, gdy używasz --%1 lub --%2."
+msgstr "No imprimeix cap text quan s'utilitza --%1 o --%2."
 
 #: src/cli.cpp:51
 msgctxt "Cli|"
 msgid "Print only translations."
-msgstr "Drukuj tylko tłumaczenia."
+msgstr "Imprimeix només les traduccions."
 
 #: src/cli.cpp:52
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
-msgstr "Wydrukuj dane wyjściowe sformatowane jako JSON."
+msgstr "Imprimeix la sortida amb format JSON."
 
 #: src/cli.cpp:55
 msgctxt "Cli|"
@@ -94,8 +103,8 @@ msgid ""
 "A simple and lightweight translator that allows to translate and speak text "
 "using Google, Yandex, Bing, LibreTranslate and Lingva"
 msgstr ""
-"Prosty i lekki tłumacz, który pozwala tłumaczyć i mówić tekst za pomocą "
-"Google, Yandex, Bing, LibreTranslate i Lingva"
+"Un traductor senzill i lleuger que permet traduir i pronunciar text fent "
+"servir Google, Yandex, Bing, LibreTranslate o Lingva"
 
 #: src/cli.cpp:56
 msgctxt "Cli|"
@@ -103,282 +112,280 @@ msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr ""
-"Tekst do przetłumaczenia. Domyślnie tłumaczenie zostanie wykonane na język "
-"systemowy."
+"Text a traduir. De manera predeterminada, la traducció es farà a l'idioma "
+"del sistema."
 
 #: src/cli.cpp:78
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
-msgstr "Błąd: dla --%1 musisz podać --%2 i/lub --%3 opcje"
+msgstr "Error: Per a --%1 cal especificar les opcions --%2 i/o --%3"
 
 #: src/cli.cpp:112
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
-msgstr "Błąd: nie ma tekstu do tłumaczenia"
+msgstr "Error: No hi ha text a traduir"
 
 #: src/cli.cpp:130
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
-msgstr "Błąd: nieznany silnik"
+msgstr "Error: Motor desconegut"
 
 #: src/cli.cpp:165 src/cli.cpp:258 src/cli.cpp:347
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
-msgstr "Błąd: %1"
+msgstr "Error: %1"
 
 #: src/cli.cpp:219
 #, qt-format
 msgctxt "Cli|"
 msgid "%1 - translation options:"
-msgstr "%1 - opcje tłumaczenia:"
+msgstr "%1 - opcions de traducció:"
 
 #: src/cli.cpp:236
 #, qt-format
 msgctxt "Cli|"
 msgid "%1 - examples:"
-msgstr "%1 - przykłady:"
+msgstr "%1 - exemples:"
 
 #: src/cli.cpp:360
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
-msgstr "Błąd: Nie można użyć --%1 z --%2"
+msgstr "Error: No es pot utilitzar --%1 amb --%2"
 
 #: src/cli.cpp:376 src/cli.cpp:397
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
-msgstr "Błąd: Plik nie istnieje: %1"
+msgstr "Error: El fitxer no existeix: %1"
 
 #: src/cli.cpp:381 src/cli.cpp:402
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
-msgstr "Błąd: Nie można otworzyć pliku: %1"
+msgstr "Error: No s'ha pogut obrir el fitxer: %1"
 
 #: src/contextmenu.h:39
 msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
-msgstr "Szukaj na Forvo.com"
+msgstr "Cerca a Forvo.com"
 
 #: src/languagebuttonswidget.cpp:451
 msgctxt "LanguageButtonsWidget|"
 msgid "Window width is larger than screen due to the languages on the panel."
-msgstr "Szerokość okna jest większa niż ekran ze względu na języki na panelu."
+msgstr ""
+"L'amplada de la finestra és més gran que la pantalla a causa dels idiomes en "
+"el plafó."
 
 #: src/languagebuttonswidget.cpp:452
 msgctxt "LanguageButtonsWidget|"
 msgid "Please reduce added languages."
-msgstr "Ogranicz dodane języki."
+msgstr "Reduïu els idiomes afegits."
 
 #: src/languagebuttonswidget.cpp:528 src/languagebuttonswidget.cpp:530
 msgctxt "LanguageButtonsWidget|"
 msgid "Auto"
-msgstr "Auto"
+msgstr "Automàtic"
 
 #: src/languagebuttonswidget.ui:32
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Add language"
 msgctxt "LanguageButtonsWidget|"
 msgid "Edit languages"
-msgstr "Dodaj język"
+msgstr "Edició dels idiomes"
 
 #: src/languagesdialog.cpp:23
 #, qt-format
 msgctxt "LanguagesDialog|"
 msgid "Filter (%1)"
-msgstr "Filtruj (%1)"
+msgstr "Filtre (%1)"
 
 #: src/languagesdialog.ui:14
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Add language"
 msgctxt "LanguagesDialog|"
 msgid "Edit languages"
-msgstr "Dodaj język"
+msgstr "Edició dels idiomes"
 
 #: src/languagesdialog.ui:91
 msgctxt "LanguagesDialog|"
 msgid "Available languages:"
-msgstr "Dostępne języki:"
+msgstr "Idiomes disponibles:"
 
 #: src/languagesdialog.ui:104
 msgctxt "LanguagesDialog|"
 msgid "Current languages:"
-msgstr "Obecne języki:"
+msgstr "Idiomes actuals:"
 
 #: src/main.cpp:65
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
-msgstr "Usługa D-Bus %1 jest już zarejestrowana przez inną aplikację"
+msgstr "El servei del D-Bus %1 ja està registrat per una altra aplicació"
 
 #: src/main.cpp:90
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
-msgstr "Nie można zarejestrować obiektu D-Bus dla %1"
+msgstr "No s'ha pogut registrar l'objecte del D-Bus per a %1"
 
 #: src/mainwindow.cpp:380
 msgctxt "MainWindow|"
 msgid "Unable to detect language"
-msgstr "Nie można wykryć języka"
+msgstr "No s'ha pogut detectar l'idioma"
 
 #: src/mainwindow.cpp:432
 msgctxt "MainWindow|"
 msgid "Unable to translate text"
-msgstr "Nie udało się przetłumaczyć tekstu"
+msgstr "No s'ha pogut traduir el text"
 
 #: src/mainwindow.cpp:867
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
-msgstr "Nieprawidłowa ikona zasobnika"
+msgstr "Icona de la safata no vàlida"
 
 #: src/mainwindow.cpp:867
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
-msgstr "Podana ikona '%1' jest nieważna. Zostanie użyta domyślna ikona."
+msgstr ""
+"La icona especificada «%1» no és vàlida. S'utilitzarà la icona "
+"predeterminada."
 
 #: src/mainwindow.cpp:898
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
-msgstr "Nie można ustawić języków OCR"
+msgstr "No s'han pogut definir els idiomes de l'OCR"
 
 #: src/mainwindow.cpp:898
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
-msgstr "Nie można zainicjować programu Tesseract za pomocą %1"
+msgstr "No s'ha pogut inicialitzar el Tesseract amb %1"
 
 #: src/mainwindow.ui:36
 msgctxt "MainWindow|"
 msgid "Copy source text to the clipboard"
-msgstr "Kopiuj tekst źródłowy do schowka"
+msgstr "Copia el text d'origen al porta-retalls"
 
 #: src/mainwindow.ui:47
 msgctxt "MainWindow|"
 msgid "Recognize screen area with delay"
-msgstr "Rozpoznawanie obszaru ekranu z opóźnieniem"
+msgstr "Reconeix l'àrea de la pantalla amb un retard"
 
 #. The text should be short to fit in portrait orientation on phones.
 #: src/mainwindow.ui:70
 msgctxt "MainWindow|"
 msgid "Auto-translation"
-msgstr "Autotłumaczenie"
+msgstr "Traducció automàtica"
 
 #: src/mainwindow.ui:82
 msgctxt "MainWindow|"
 msgid "Cancel"
-msgstr "Anuluj"
+msgstr "Cancel·la"
 
 #: src/mainwindow.ui:93
 msgctxt "MainWindow|"
 msgid "Swap languages"
-msgstr "Zamiana języków"
+msgstr "Intercanvia els idiomes"
 
 #: src/mainwindow.ui:117
 msgctxt "MainWindow|"
 msgid "Source"
-msgstr "Źródło"
+msgstr "Origen"
 
 #: src/mainwindow.ui:124
 msgctxt "MainWindow|"
 msgid "Clear"
-msgstr "Wyczyść"
+msgstr "Neteja"
 
 #: src/mainwindow.ui:141
 msgctxt "MainWindow|"
 msgid "Translate"
-msgstr "Przetłumacz"
+msgstr "Tradueix"
 
 #: src/mainwindow.ui:169
 msgctxt "MainWindow|"
 msgid "Translation"
-msgstr "Tłumaczenie"
+msgstr "Traducció"
 
 #: src/mainwindow.ui:253
 msgctxt "MainWindow|"
 msgid "Copy translation to the clipboard"
-msgstr "Kopiuj tłumaczenie do schowka"
+msgstr "Copia la traducció al porta-retalls"
 
 #: src/mainwindow.ui:264
 msgctxt "MainWindow|"
 msgid "Copy all translation data to the clipboard"
-msgstr "Kopiuj wszystkie dane tłumaczenia do schowka"
+msgstr "Copia totes les dades de traducció al porta-retalls"
 
 #: src/mainwindow.ui:275
 msgctxt "MainWindow|"
 msgid "Translate screen area with delay"
-msgstr "Tłumaczenie obszaru ekranu z opóźnieniem"
+msgstr "Tradueix l'àrea de la pantalla amb un retard"
 
 #: src/mainwindow.ui:286
 msgctxt "MainWindow|"
 msgid "Application settings"
-msgstr "Ustawienia aplikacji"
+msgstr "Configuració de l'aplicació"
 
 #: src/ocr/ocr.cpp:136
 #, qt-format
 msgctxt "Ocr|"
 msgid "%1 is not a valid Tesseract parameter name."
-msgstr "%1 nie jest poprawną nazwą parametru Tesseract."
+msgstr "%1 no és un nom vàlid de paràmetre Tesseract."
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 msgctxt "AbstractScreenGrabber|"
 msgid "Unable to grab screen"
-msgstr "Nie można przechwycić ekranu"
+msgstr "No s'ha pogut capturar la pantalla"
 
 #: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:47
 msgctxt "WaylandGnomeScreenGrabber|"
 msgid "GNOME failed to take screenshot."
-msgstr "W środowisku GNOME nie udało się wykonać zrzutu ekranu."
+msgstr "El GNOME no ha pogut fer la captura de pantalla."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:43
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to create pipe: %1."
-msgstr "Nie można utworzyć potoku: %1."
+msgstr "No s'ha pogut crear una canonada: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:87
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to wait for socket readiness: %1."
-msgstr "Nie można poczekać na odczyt gniazda: %1."
+msgstr "No s'ha pogut esperar la preparació del sòcol: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:92
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Timeout reading from pipe."
-msgstr "Limit czasu odczytu z potoku."
+msgstr "S'ha excedit el temps de lectura de la canonada."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:98
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to read data from socket: %1."
-msgstr "Nie można odczytać danych z gniazda: %1."
+msgstr "No s'han pogut llegir les dades del sòcol: %1."
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:56
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
-msgstr "Nie można subskrybować odpowiedzi z portalu xdg-desktop."
+msgstr "No s'ha pogut subscriure a la resposta des de «xdg-desktop-portal»."
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:76
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
-msgstr "Otrzymano pustą ścieżkę z portalu xdg."
+msgstr "S'ha rebut un camí buit des de «xdg-desktop-portal»."
 
 #: src/ocr/snippingarea.cpp:73
 msgctxt "SnippingArea|"
 msgid "Unable to snip screen area"
-msgstr "Nie można przyciąć obszaru ekranu"
+msgstr "No s'ha pogut retallar l'àrea de la pantalla"
 
 #: src/ocr/snippingarea.cpp:74
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
-msgstr "Odebrano nieprawidłowy obraz ekranu %1."
+msgstr "S'ha rebut una imatge no vàlida de la pantalla %1."
 
 #: src/ocr/snippingarea.cpp:626
 msgctxt "SnippingArea|"
@@ -386,121 +393,121 @@ msgid ""
 "Click and drag to draw a selection rectangle,\n"
 "or press Esc to quit"
 msgstr ""
-"Kliknij i przeciągnij, aby narysować prostokąt zaznaczenia,\n"
-"lub naciśnij Esc, aby wyjść"
+"Feu clic i arrossegueu per a dibuixar un rectangle de selecció,\n"
+"o premeu Esc per a sortir"
 
 #: src/ocr/snippingarea.cpp:832
 msgctxt "SnippingArea|"
 msgid "Confirm:"
-msgstr "Potwierdź:"
+msgstr "Confirma:"
 
 #: src/ocr/snippingarea.cpp:834
 msgctxt "SnippingArea|"
 msgid "Release left-click"
-msgstr "Zwolnij lewe kliknięcie"
+msgstr "Deixar anar el clic esquerre"
 
 #: src/ocr/snippingarea.cpp:834 src/ocr/snippingarea.cpp:836
 msgctxt "SnippingArea|"
 msgid "Enter"
-msgstr "Wejdź"
+msgstr "Entrada"
 
 #: src/ocr/snippingarea.cpp:836
 msgctxt "SnippingArea|"
 msgid "Double-click"
-msgstr "Kliknij dwukrotnie"
+msgstr "Doble clic"
 
 #: src/ocr/snippingarea.cpp:838
 msgctxt "SnippingArea|"
 msgid "Create new selection rectangle:"
-msgstr "Utwórz nowy prostokąt zaznaczenia:"
+msgstr "Crea un rectangle de la selecció nou:"
 
 #: src/ocr/snippingarea.cpp:839
 msgctxt "SnippingArea|"
 msgid "Drag outside selection rectangle"
-msgstr "Przeciągnij poza prostokąt zaznaczenia"
+msgstr "Arrossega fora del rectangle de la selecció"
 
 #: src/ocr/snippingarea.cpp:839
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
-msgstr "+ Shift: Lupa"
+msgstr "+ Majúscules: Mostra la lupa"
 
 #: src/ocr/snippingarea.cpp:842
 msgctxt "SnippingArea|"
 msgid "Move selection rectangle:"
-msgstr "Przesuń prostokąt zaznaczenia:"
+msgstr "Mou el rectangle de la selecció:"
 
 #: src/ocr/snippingarea.cpp:843
 msgctxt "SnippingArea|"
 msgid "Drag inside selection rectangle"
-msgstr "Przeciągnij wewnątrz prostokąta zaznaczenia"
+msgstr "Arrossega dins el rectangle de la selecció"
 
 #: src/ocr/snippingarea.cpp:843
 msgctxt "SnippingArea|"
 msgid "Arrow keys"
-msgstr "Klawisze strzałek"
+msgstr "Tecles de cursor"
 
 #: src/ocr/snippingarea.cpp:843
 msgctxt "SnippingArea|"
 msgid "+ Shift: Move in 1 pixel steps"
-msgstr "+ Shift: poruszaj się w krokach co 1 piksel"
+msgstr "+ Majúscules: Mou en passos d'1 píxel"
 
 #: src/ocr/snippingarea.cpp:845
 msgctxt "SnippingArea|"
 msgid "Resize selection rectangle:"
-msgstr "Zmień rozmiar prostokąta zaznaczenia:"
+msgstr "Redimensiona el rectangle de la selecció:"
 
 #: src/ocr/snippingarea.cpp:846
 msgctxt "SnippingArea|"
 msgid "Drag handles"
-msgstr "Przeciągnij uchwyty"
+msgstr "Arrossega les manetes"
 
 #: src/ocr/snippingarea.cpp:846
 msgctxt "SnippingArea|"
 msgid "Arrow keys + Alt"
-msgstr "Klawisze strzałek + Alt"
+msgstr "Tecles de cursor + Alt"
 
 #: src/ocr/snippingarea.cpp:846
 msgctxt "SnippingArea|"
 msgid "+ Shift: Resize in 1 pixel steps"
-msgstr "+ Shift: zmiana rozmiaru w krokach co 1 piksel"
+msgstr "+ Majúscules: Redimensiona en passos d'1 píxel"
 
 #: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "Reset selection:"
-msgstr "Zresetuj wybór:"
+msgstr "Restableix la selecció:"
 
 #: src/ocr/snippingarea.cpp:849
 msgctxt "SnippingArea|"
 msgid "Right-click"
-msgstr "Kliknij prawym przyciskiem myszy"
+msgstr "Clic dret"
 
 #: src/ocr/snippingarea.cpp:852
 msgctxt "SnippingArea|"
 msgid "Cancel:"
-msgstr "Anuluj:"
+msgstr "Cancel·la:"
 
 #: src/ocr/snippingarea.cpp:853
 msgctxt "SnippingArea|"
 msgid "Esc key"
-msgstr "Klawisz Esc"
+msgstr "Tecla Esc"
 
 #: src/onlinetranslator/onlinetranslator.cpp:190
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Selected source language %1 is not supported for %2"
-msgstr "Wybrany język źródłowy %1 nie jest obsługiwany dla %2"
+msgstr "L'idioma origen seleccionat %1 no està implementat a %2"
 
 #: src/onlinetranslator/onlinetranslator.cpp:195
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Selected translation language %1 is not supported for %2"
-msgstr "Wybrany język tłumaczenia %1 nie jest obsługiwany dla %2"
+msgstr "L'idioma de traducció seleccionat %1 no està implementat a %2"
 
 #: src/onlinetranslator/onlinetranslator.cpp:200
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Selected ui language %1 is not supported for %2"
-msgstr "Wybrany język interfejsu użytkownika %1 nie jest obsługiwany dla %2"
+msgstr "L'idioma seleccionat de la IU %1 no està implementat a %2"
 
 #: src/onlinetranslator/onlinetranslator.cpp:217
 #: src/onlinetranslator/onlinetranslator.cpp:226
@@ -509,12 +516,12 @@ msgstr "Wybrany język interfejsu użytkownika %1 nie jest obsługiwany dla %2"
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "%1 URL can't be empty."
-msgstr "%1 URL nie może być pusty."
+msgstr "L'URL %1 no pot estar buit."
 
 #: src/onlinetranslator/onlinetranslator.cpp:468
 msgctxt "OnlineTranslator|"
 msgid "Automatically detect"
-msgstr "Automatyczna detekcja"
+msgstr "Detecta automàticament"
 
 #: src/onlinetranslator/onlinetranslator.cpp:470
 msgctxt "OnlineTranslator|"
@@ -524,67 +531,68 @@ msgstr "Afrikaans"
 #: src/onlinetranslator/onlinetranslator.cpp:472
 msgctxt "OnlineTranslator|"
 msgid "Albanian"
-msgstr "Albański"
+msgstr "Albanès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:474
 msgctxt "OnlineTranslator|"
 msgid "Amharic"
-msgstr "Amharic"
+msgstr "Amhàric"
 
 #: src/onlinetranslator/onlinetranslator.cpp:476
 msgctxt "OnlineTranslator|"
 msgid "Arabic"
-msgstr "Arabski"
+msgstr "Àrab"
 
 #: src/onlinetranslator/onlinetranslator.cpp:478
 msgctxt "OnlineTranslator|"
 msgid "Armenian"
-msgstr "Armeński"
+msgstr "Armeni"
 
 #: src/onlinetranslator/onlinetranslator.cpp:480
 msgctxt "OnlineTranslator|"
 msgid "Azeerbaijani"
-msgstr "Azerbejdżański"
+msgstr "Àzeri"
 
 #: src/onlinetranslator/onlinetranslator.cpp:482
 msgctxt "OnlineTranslator|"
 msgid "Basque"
-msgstr "Baskijski"
+msgstr "Basc"
 
 #: src/onlinetranslator/onlinetranslator.cpp:484
 msgctxt "OnlineTranslator|"
 msgid "Bashkir"
-msgstr "Bashkir"
+msgstr "Baixkir"
 
+# skip-rule: iso_639-Belarusian
 #: src/onlinetranslator/onlinetranslator.cpp:486
 msgctxt "OnlineTranslator|"
 msgid "Belarusian"
-msgstr "Białoruski"
+msgstr "Belarús"
 
 #: src/onlinetranslator/onlinetranslator.cpp:488
 msgctxt "OnlineTranslator|"
 msgid "Bengali"
-msgstr "Bengali"
+msgstr "Bengalí"
 
 #: src/onlinetranslator/onlinetranslator.cpp:490
 msgctxt "OnlineTranslator|"
 msgid "Bosnian"
-msgstr "Bośniacki"
+msgstr "Bosnià"
 
 #: src/onlinetranslator/onlinetranslator.cpp:492
 msgctxt "OnlineTranslator|"
 msgid "Bulgarian"
-msgstr "Bułgarski"
+msgstr "Búlgar"
 
 #: src/onlinetranslator/onlinetranslator.cpp:494
 msgctxt "OnlineTranslator|"
 msgid "Catalan"
-msgstr "Kataloński"
+msgstr "Català"
 
 #: src/onlinetranslator/onlinetranslator.cpp:496
 msgctxt "OnlineTranslator|"
 msgid "Cantonese"
-msgstr "Kantoński"
+msgstr "Cantonès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:498
 msgctxt "OnlineTranslator|"
@@ -594,42 +602,42 @@ msgstr "Cebuano"
 #: src/onlinetranslator/onlinetranslator.cpp:500
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Simplified)"
-msgstr "Chiński (uproszczony)"
+msgstr "Xinès (simplificat)"
 
 #: src/onlinetranslator/onlinetranslator.cpp:502
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Traditional)"
-msgstr "Chiński (tradycyjny)"
+msgstr "Xinès (tradicional)"
 
 #: src/onlinetranslator/onlinetranslator.cpp:504
 msgctxt "OnlineTranslator|"
 msgid "Corsican"
-msgstr "Korsykański"
+msgstr "Cors"
 
 #: src/onlinetranslator/onlinetranslator.cpp:506
 msgctxt "OnlineTranslator|"
 msgid "Croatian"
-msgstr "Chorwacki"
+msgstr "Croat"
 
 #: src/onlinetranslator/onlinetranslator.cpp:508
 msgctxt "OnlineTranslator|"
 msgid "Czech"
-msgstr "Czeski"
+msgstr "Txec"
 
 #: src/onlinetranslator/onlinetranslator.cpp:510
 msgctxt "OnlineTranslator|"
 msgid "Danish"
-msgstr "Duński"
+msgstr "Danès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:512
 msgctxt "OnlineTranslator|"
 msgid "Dutch"
-msgstr "Holenderski"
+msgstr "Neerlandès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:514
 msgctxt "OnlineTranslator|"
 msgid "English"
-msgstr "Angielski"
+msgstr "Anglès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:516
 msgctxt "OnlineTranslator|"
@@ -639,52 +647,52 @@ msgstr "Esperanto"
 #: src/onlinetranslator/onlinetranslator.cpp:518
 msgctxt "OnlineTranslator|"
 msgid "Estonian"
-msgstr "Estoński"
+msgstr "Estonià"
 
 #: src/onlinetranslator/onlinetranslator.cpp:520
 msgctxt "OnlineTranslator|"
 msgid "Fijian"
-msgstr "Fidżyjski"
+msgstr "Fijià"
 
 #: src/onlinetranslator/onlinetranslator.cpp:522
 msgctxt "OnlineTranslator|"
 msgid "Filipino"
-msgstr "Filipiński"
+msgstr "Filipí"
 
 #: src/onlinetranslator/onlinetranslator.cpp:524
 msgctxt "OnlineTranslator|"
 msgid "Finnish"
-msgstr "Fiński"
+msgstr "Finès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:526
 msgctxt "OnlineTranslator|"
 msgid "French"
-msgstr "Francuski"
+msgstr "Francès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:528
 msgctxt "OnlineTranslator|"
 msgid "Frisian"
-msgstr "Fryzyjski"
+msgstr "Frisó"
 
 #: src/onlinetranslator/onlinetranslator.cpp:530
 msgctxt "OnlineTranslator|"
 msgid "Galician"
-msgstr "Galicyjski"
+msgstr "Gallec"
 
 #: src/onlinetranslator/onlinetranslator.cpp:532
 msgctxt "OnlineTranslator|"
 msgid "Georgian"
-msgstr "Gruziński"
+msgstr "Georgià"
 
 #: src/onlinetranslator/onlinetranslator.cpp:534
 msgctxt "OnlineTranslator|"
 msgid "German"
-msgstr "Niemiecki"
+msgstr "Alemany"
 
 #: src/onlinetranslator/onlinetranslator.cpp:536
 msgctxt "OnlineTranslator|"
 msgid "Greek"
-msgstr "Grecki"
+msgstr "Grec"
 
 #: src/onlinetranslator/onlinetranslator.cpp:538
 msgctxt "OnlineTranslator|"
@@ -694,27 +702,27 @@ msgstr "Gujarati"
 #: src/onlinetranslator/onlinetranslator.cpp:540
 msgctxt "OnlineTranslator|"
 msgid "Haitian Creole"
-msgstr "Kreolski haitański"
+msgstr "Crioll haitià"
 
 #: src/onlinetranslator/onlinetranslator.cpp:542
 msgctxt "OnlineTranslator|"
 msgid "Hausa"
-msgstr "Hausa"
+msgstr "Haussa"
 
 #: src/onlinetranslator/onlinetranslator.cpp:544
 msgctxt "OnlineTranslator|"
 msgid "Hawaiian"
-msgstr "Hawajski"
+msgstr "Hawaià"
 
 #: src/onlinetranslator/onlinetranslator.cpp:546
 msgctxt "OnlineTranslator|"
 msgid "Hebrew"
-msgstr "Hebrajski"
+msgstr "Hebreu"
 
 #: src/onlinetranslator/onlinetranslator.cpp:548
 msgctxt "OnlineTranslator|"
 msgid "Hill Mari"
-msgstr "Wzgórze Mari"
+msgstr "Mari occidental"
 
 #: src/onlinetranslator/onlinetranslator.cpp:550
 msgctxt "OnlineTranslator|"
@@ -729,12 +737,12 @@ msgstr "Hmong"
 #: src/onlinetranslator/onlinetranslator.cpp:554
 msgctxt "OnlineTranslator|"
 msgid "Hungarian"
-msgstr "Węgierski"
+msgstr "Hongarès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:556
 msgctxt "OnlineTranslator|"
 msgid "Icelandic"
-msgstr "Islandzki"
+msgstr "Islandès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:558
 msgctxt "OnlineTranslator|"
@@ -744,37 +752,37 @@ msgstr "Igbo"
 #: src/onlinetranslator/onlinetranslator.cpp:560
 msgctxt "OnlineTranslator|"
 msgid "Indonesian"
-msgstr "Indonezyjski"
+msgstr "Indonesi"
 
 #: src/onlinetranslator/onlinetranslator.cpp:562
 msgctxt "OnlineTranslator|"
 msgid "Irish"
-msgstr "Irlandzki"
+msgstr "Irlandès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:564
 msgctxt "OnlineTranslator|"
 msgid "Italian"
-msgstr "Włoski"
+msgstr "Italià"
 
 #: src/onlinetranslator/onlinetranslator.cpp:566
 msgctxt "OnlineTranslator|"
 msgid "Japanese"
-msgstr "Japoński"
+msgstr "Japonès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:568
 msgctxt "OnlineTranslator|"
 msgid "Javanese"
-msgstr "Javanese"
+msgstr "Javanès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:570
 msgctxt "OnlineTranslator|"
 msgid "Kannada"
-msgstr "Kannada"
+msgstr "Kanarès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:572
 msgctxt "OnlineTranslator|"
 msgid "Kazakh"
-msgstr "Kazachski"
+msgstr "Kazakh"
 
 #: src/onlinetranslator/onlinetranslator.cpp:574
 msgctxt "OnlineTranslator|"
@@ -789,87 +797,87 @@ msgstr "Kinyarwanda"
 #: src/onlinetranslator/onlinetranslator.cpp:578
 msgctxt "OnlineTranslator|"
 msgid "Klingon"
-msgstr "Klingoński"
+msgstr "Klíngon"
 
 #: src/onlinetranslator/onlinetranslator.cpp:580
 msgctxt "OnlineTranslator|"
 msgid "Klingon (PlqaD)"
-msgstr "Klingoński (PlqaD)"
+msgstr "Klíngon (PlqaD)"
 
 #: src/onlinetranslator/onlinetranslator.cpp:582
 msgctxt "OnlineTranslator|"
 msgid "Korean"
-msgstr "Koreański"
+msgstr "Coreà"
 
 #: src/onlinetranslator/onlinetranslator.cpp:584
 msgctxt "OnlineTranslator|"
 msgid "Kurdish"
-msgstr "Kurdyjski"
+msgstr "Kurd"
 
 #: src/onlinetranslator/onlinetranslator.cpp:586
 msgctxt "OnlineTranslator|"
 msgid "Kyrgyz"
-msgstr "Kirgizyjski"
+msgstr "Kirguís"
 
 #: src/onlinetranslator/onlinetranslator.cpp:588
 msgctxt "OnlineTranslator|"
 msgid "Lao"
-msgstr "Laoski"
+msgstr "Laosià"
 
 #: src/onlinetranslator/onlinetranslator.cpp:590
 msgctxt "OnlineTranslator|"
 msgid "Latin"
-msgstr "Łaciński"
+msgstr "Llatí"
 
 #: src/onlinetranslator/onlinetranslator.cpp:592
 msgctxt "OnlineTranslator|"
 msgid "Latvian"
-msgstr "Łotewski"
+msgstr "Letó"
 
 #: src/onlinetranslator/onlinetranslator.cpp:594
 msgctxt "OnlineTranslator|"
 msgid "Levantine Arabic"
-msgstr "Arabski lewantyński"
+msgstr "Àrab llevantí"
 
 #: src/onlinetranslator/onlinetranslator.cpp:596
 msgctxt "OnlineTranslator|"
 msgid "Lithuanian"
-msgstr "Litewski"
+msgstr "Lituà"
 
 #: src/onlinetranslator/onlinetranslator.cpp:598
 msgctxt "OnlineTranslator|"
 msgid "Luxembourgish"
-msgstr "Luksemburski"
+msgstr "Luxemburguès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:600
 msgctxt "OnlineTranslator|"
 msgid "Macedonian"
-msgstr "Macedoński"
+msgstr "Macedoni"
 
 #: src/onlinetranslator/onlinetranslator.cpp:602
 msgctxt "OnlineTranslator|"
 msgid "Malagasy"
-msgstr "Malagasy"
+msgstr "Malgaix"
 
 #: src/onlinetranslator/onlinetranslator.cpp:604
 msgctxt "OnlineTranslator|"
 msgid "Malay"
-msgstr "Malay"
+msgstr "Malai"
 
 #: src/onlinetranslator/onlinetranslator.cpp:606
 msgctxt "OnlineTranslator|"
 msgid "Malayalam"
-msgstr "Malayalam"
+msgstr "Malaiàlam"
 
 #: src/onlinetranslator/onlinetranslator.cpp:608
 msgctxt "OnlineTranslator|"
 msgid "Maltese"
-msgstr "Maltański"
+msgstr "Maltès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:610
 msgctxt "OnlineTranslator|"
 msgid "Maori"
-msgstr "Maoryski"
+msgstr "Maori"
 
 #: src/onlinetranslator/onlinetranslator.cpp:612
 msgctxt "OnlineTranslator|"
@@ -884,7 +892,7 @@ msgstr "Mari"
 #: src/onlinetranslator/onlinetranslator.cpp:616
 msgctxt "OnlineTranslator|"
 msgid "Mongolian"
-msgstr "Mongolski"
+msgstr "Mongol"
 
 #: src/onlinetranslator/onlinetranslator.cpp:618
 msgctxt "OnlineTranslator|"
@@ -894,12 +902,12 @@ msgstr "Myanmar"
 #: src/onlinetranslator/onlinetranslator.cpp:620
 msgctxt "OnlineTranslator|"
 msgid "Nepali"
-msgstr "Nepalski"
+msgstr "Nepalès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:622
 msgctxt "OnlineTranslator|"
 msgid "Norwegian"
-msgstr "Norweski"
+msgstr "Noruec"
 
 #: src/onlinetranslator/onlinetranslator.cpp:624
 msgctxt "OnlineTranslator|"
@@ -909,77 +917,77 @@ msgstr "Oriya"
 #: src/onlinetranslator/onlinetranslator.cpp:626
 msgctxt "OnlineTranslator|"
 msgid "Chichewa"
-msgstr "Chichewa"
+msgstr "Chewa"
 
 #: src/onlinetranslator/onlinetranslator.cpp:628
 msgctxt "OnlineTranslator|"
 msgid "Papiamento"
-msgstr "Papiamento"
+msgstr "Papiament"
 
 #: src/onlinetranslator/onlinetranslator.cpp:630
 msgctxt "OnlineTranslator|"
 msgid "Pashto"
-msgstr "Pashto"
+msgstr "Paixtu"
 
 #: src/onlinetranslator/onlinetranslator.cpp:632
 msgctxt "OnlineTranslator|"
 msgid "Persian"
-msgstr "Perski"
+msgstr "Persa"
 
 #: src/onlinetranslator/onlinetranslator.cpp:634
 msgctxt "OnlineTranslator|"
 msgid "Polish"
-msgstr "Polski"
+msgstr "Polonès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:636
 msgctxt "OnlineTranslator|"
 msgid "Portuguese"
-msgstr "Portugalski"
+msgstr "Portuguès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:638
 msgctxt "OnlineTranslator|"
 msgid "Punjabi"
-msgstr "Punjabi"
+msgstr "Panjabi"
 
 #: src/onlinetranslator/onlinetranslator.cpp:640
 msgctxt "OnlineTranslator|"
 msgid "Queretaro Otomi"
-msgstr "Queretaro Otomi"
+msgstr "Otomí de Querétaro"
 
 #: src/onlinetranslator/onlinetranslator.cpp:642
 msgctxt "OnlineTranslator|"
 msgid "Romanian"
-msgstr "Rumuński"
+msgstr "Romanès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:644
 msgctxt "OnlineTranslator|"
 msgid "Russian"
-msgstr "Rosyjski"
+msgstr "Rus"
 
 #: src/onlinetranslator/onlinetranslator.cpp:646
 msgctxt "OnlineTranslator|"
 msgid "Samoan"
-msgstr "Samoański"
+msgstr "Samoà"
 
 #: src/onlinetranslator/onlinetranslator.cpp:648
 msgctxt "OnlineTranslator|"
 msgid "Scots Gaelic"
-msgstr "Szkocki gaelicki"
+msgstr "Gaèlic escocès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:650
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Cyrillic)"
-msgstr "Serbski (cyrylica)"
+msgstr "Serbi (ciríl·lic)"
 
 #: src/onlinetranslator/onlinetranslator.cpp:652
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Latin)"
-msgstr "Serbski (łacina)"
+msgstr "Serbi (llatí)"
 
 #: src/onlinetranslator/onlinetranslator.cpp:654
 msgctxt "OnlineTranslator|"
 msgid "Sesotho"
-msgstr "Sesotho"
+msgstr "Sotho"
 
 #: src/onlinetranslator/onlinetranslator.cpp:656
 msgctxt "OnlineTranslator|"
@@ -994,32 +1002,32 @@ msgstr "Sindhi"
 #: src/onlinetranslator/onlinetranslator.cpp:660
 msgctxt "OnlineTranslator|"
 msgid "Sinhala"
-msgstr "Sinhala"
+msgstr "Singalès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:662
 msgctxt "OnlineTranslator|"
 msgid "Slovak"
-msgstr "Słowacki"
+msgstr "Eslovac"
 
 #: src/onlinetranslator/onlinetranslator.cpp:664
 msgctxt "OnlineTranslator|"
 msgid "Slovenian"
-msgstr "Słoweński"
+msgstr "Eslovè"
 
 #: src/onlinetranslator/onlinetranslator.cpp:666
 msgctxt "OnlineTranslator|"
 msgid "Somali"
-msgstr "Somalijski"
+msgstr "Somali"
 
 #: src/onlinetranslator/onlinetranslator.cpp:668
 msgctxt "OnlineTranslator|"
 msgid "Spanish"
-msgstr "Hiszpański"
+msgstr "Espanyol"
 
 #: src/onlinetranslator/onlinetranslator.cpp:670
 msgctxt "OnlineTranslator|"
 msgid "Sundanese"
-msgstr "Sundajski"
+msgstr "Sundanès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:672
 msgctxt "OnlineTranslator|"
@@ -1029,32 +1037,32 @@ msgstr "Suahili"
 #: src/onlinetranslator/onlinetranslator.cpp:674
 msgctxt "OnlineTranslator|"
 msgid "Swedish"
-msgstr "Szwedzki"
+msgstr "Suec"
 
 #: src/onlinetranslator/onlinetranslator.cpp:676
 msgctxt "OnlineTranslator|"
 msgid "Tagalog"
-msgstr "Tagalog"
+msgstr "Tagal"
 
 #: src/onlinetranslator/onlinetranslator.cpp:678
 msgctxt "OnlineTranslator|"
 msgid "Tahitian"
-msgstr "Tahitański"
+msgstr "Tahitià"
 
 #: src/onlinetranslator/onlinetranslator.cpp:680
 msgctxt "OnlineTranslator|"
 msgid "Tajik"
-msgstr "Tadżykistański"
+msgstr "Tadjik"
 
 #: src/onlinetranslator/onlinetranslator.cpp:682
 msgctxt "OnlineTranslator|"
 msgid "Tamil"
-msgstr "Tamil"
+msgstr "Tàmil"
 
 #: src/onlinetranslator/onlinetranslator.cpp:684
 msgctxt "OnlineTranslator|"
 msgid "Tatar"
-msgstr "Tatarski"
+msgstr "Tàtar"
 
 #: src/onlinetranslator/onlinetranslator.cpp:686
 msgctxt "OnlineTranslator|"
@@ -1064,22 +1072,22 @@ msgstr "Telugu"
 #: src/onlinetranslator/onlinetranslator.cpp:688
 msgctxt "OnlineTranslator|"
 msgid "Thai"
-msgstr "Tajlandzki"
+msgstr "Tai"
 
 #: src/onlinetranslator/onlinetranslator.cpp:690
 msgctxt "OnlineTranslator|"
 msgid "Tongan"
-msgstr "Tongan"
+msgstr "Tongalès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:692
 msgctxt "OnlineTranslator|"
 msgid "Turkish"
-msgstr "Turecki"
+msgstr "Turc"
 
 #: src/onlinetranslator/onlinetranslator.cpp:694
 msgctxt "OnlineTranslator|"
 msgid "Turkmen"
-msgstr "Turkmeński"
+msgstr "Turcman"
 
 #: src/onlinetranslator/onlinetranslator.cpp:696
 msgctxt "OnlineTranslator|"
@@ -1089,52 +1097,52 @@ msgstr "Udmurt"
 #: src/onlinetranslator/onlinetranslator.cpp:698
 msgctxt "OnlineTranslator|"
 msgid "Uighur"
-msgstr "Uighur"
+msgstr "Uigur"
 
 #: src/onlinetranslator/onlinetranslator.cpp:700
 msgctxt "OnlineTranslator|"
 msgid "Ukrainian"
-msgstr "Ukraiński"
+msgstr "Ucraïnès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:702
 msgctxt "OnlineTranslator|"
 msgid "Urdu"
-msgstr "Urdu"
+msgstr "Urdú"
 
 #: src/onlinetranslator/onlinetranslator.cpp:704
 msgctxt "OnlineTranslator|"
 msgid "Uzbek"
-msgstr "Uzbecki"
+msgstr "Uzbek"
 
 #: src/onlinetranslator/onlinetranslator.cpp:706
 msgctxt "OnlineTranslator|"
 msgid "Vietnamese"
-msgstr "Wietnamski"
+msgstr "Vietnamita"
 
 #: src/onlinetranslator/onlinetranslator.cpp:708
 msgctxt "OnlineTranslator|"
 msgid "Welsh"
-msgstr "Walijski"
+msgstr "Gal·lès"
 
 #: src/onlinetranslator/onlinetranslator.cpp:710
 msgctxt "OnlineTranslator|"
 msgid "Xhosa"
-msgstr "Xhosa"
+msgstr "Xosa"
 
 #: src/onlinetranslator/onlinetranslator.cpp:712
 msgctxt "OnlineTranslator|"
 msgid "Yiddish"
-msgstr "Żydowski"
+msgstr "Jiddisch"
 
 #: src/onlinetranslator/onlinetranslator.cpp:714
 msgctxt "OnlineTranslator|"
 msgid "Yoruba"
-msgstr "Joruba"
+msgstr "Ioruba"
 
 #: src/onlinetranslator/onlinetranslator.cpp:716
 msgctxt "OnlineTranslator|"
 msgid "Yucatec Maya"
-msgstr "Majowie Jukateccy"
+msgstr "Maia yucatec"
 
 #: src/onlinetranslator/onlinetranslator.cpp:718
 msgctxt "OnlineTranslator|"
@@ -1148,8 +1156,8 @@ msgid ""
 "Error: Engine systems have detected suspicious traffic from your computer "
 "network. Please try your request again later."
 msgstr ""
-"Błąd: Systemy informatyczne wykryły podejrzany ruch w sieci komputerowej. "
-"Spróbuj ponownie wysłać zapytanie później."
+"Error: Els sistemes del motor han detectat trànsit sospitós des de la xarxa "
+"d'aquest ordinador. Torneu-ho a provar més tard."
 
 #: src/onlinetranslator/onlinetranslator.cpp:1232
 #: src/onlinetranslator/onlinetranslator.cpp:1343
@@ -1157,268 +1165,268 @@ msgstr ""
 #: src/onlinetranslator/onlinetranslator.cpp:1647
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
-msgstr "Błąd: Nie można przetworzyć automatycznie wykrytego języka"
+msgstr "Error: No s'ha pogut analitzar l'idioma detectat automàticament"
 
 #: src/onlinetranslator/onlinetranslator.cpp:1459
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to find Bing credentials in web version."
-msgstr "Błąd: Nie można znaleźć poświadczeń Bing w wersji internetowej."
+msgstr "Error: No s'han pogut trobar les credencials de Bing en la versió web."
 
 #: src/onlinetranslator/onlinetranslator.cpp:1466
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to extract Bing key from web version."
-msgstr "Błąd: Nie można wyodrębnić klucza Bing z wersji internetowej."
+msgstr "Error: No s'ha pogut extreure la clau de Bing de la versió web."
 
 #: src/onlinetranslator/onlinetranslator.cpp:1474
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to extract Bing token from web version."
-msgstr "Błąd: Nie można wyodrębnić tokena Bing z wersji internetowej."
+msgstr "Error: No s'ha pogut extreure el testimoni de Bing de la versió web."
 
 #: src/onlinetranslator/onlinetranslator.cpp:1486
 #: src/onlinetranslator/onlinetranslator.cpp:1495
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to extract additional Bing information from web version."
 msgstr ""
-"Błąd: Nie można wyodrębnić dodatkowych informacji o Bing z wersji "
-"internetowej."
+"Error: No s'ha pogut extreure la informació addicional de Bing de la versió "
+"web."
 
 #: src/onlinetranslator/onlinetranslator.cpp:1545
 msgctxt "OnlineTranslator|"
 msgid "Error: Bing return unhandled network error"
-msgstr ""
+msgstr "Error: Bing retorna un error no gestionat de xarxa"
 
 #: src/onlinetranslator/onlinetts.cpp:64
 #, qt-format
 msgctxt "OnlineTts|"
 msgid "Selected engine %1 does not support voice settings"
-msgstr "Wybrany silnik %1 nie obsługuje ustawień głosowych"
+msgstr "El motor seleccionat %1 no permet la configuració de la veu"
 
 #: src/onlinetranslator/onlinetts.cpp:69
 #, qt-format
 msgctxt "OnlineTts|"
 msgid "Selected engine %1 does not support emotion settings"
-msgstr "Wybrany silnik %1 nie obsługuje ustawień emocji"
+msgstr "El motor seleccionat %1 no permet la configuració de les emocions"
 
 #: src/onlinetranslator/onlinetts.cpp:130
 #, qt-format
 msgctxt "OnlineTts|"
 msgid "%1 engine does not support TTS"
-msgstr "Silnik %1 nie obsługuje TTS"
+msgstr "El motor %1 no permet TTS"
 
 #: src/onlinetranslator/onlinetts.cpp:216
 #, qt-format
 msgctxt "OnlineTts|"
 msgid "Selected language %1 is not supported for %2"
-msgstr "Wybrany język %1 nie jest obsługiwany dla %2"
+msgstr "L'idioma seleccionat %1 no està implementat a %2"
 
 #: src/onlinetranslator/onlinetts.cpp:228
 #, qt-format
 msgctxt "OnlineTts|"
 msgid "Selected voice %1 is not supported for %2"
-msgstr "Wybrany głos %1 nie jest obsługiwany dla %2"
+msgstr "La veu seleccionada %1 no està implementada a %2"
 
 #: src/onlinetranslator/onlinetts.cpp:240
 #, qt-format
 msgctxt "OnlineTts|"
 msgid "Selected emotion %1 is not supported by %2"
-msgstr "Wybrana emocja %1 nie jest obsługiwana przez %2"
+msgstr "L'emoció seleccionada %1 no és compatible amb %2"
 
 #: src/popupwindow.ui:32
 msgctxt "PopupWindow|"
 msgid "Swap languages"
-msgstr "Zamiana języków"
+msgstr "Intercanvia els idiomes"
 
 #: src/popupwindow.ui:64
 msgctxt "PopupWindow|"
 msgid "Copy source text to the clipboard"
-msgstr "Kopiuj tekst źródłowy do schowka"
+msgstr "Copia el text d'origen al porta-retalls"
 
 #: src/popupwindow.ui:140
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
-msgstr "Kopiuj wszystkie dane tłumaczenia do schowka"
+msgstr "Copia totes les dades de traducció al porta-retalls"
 
 #: src/popupwindow.ui:151
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
-msgstr "Kopiuj tłumaczenie do schowka"
+msgstr "Copia la traducció al porta-retalls"
 
 #: src/settings/appsettings.cpp:1234
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
-msgstr "Nieznany kod języka: %1"
+msgstr "Codi d'idioma desconegut: %1"
 
 #: src/settings/autostartmanager/abstractautostartmanager.cpp:44
 msgctxt "AbstractAutostartManager|"
 msgid "Unable to apply autostart settings"
-msgstr "Nie można zastosować ustawień autostartu"
+msgstr "No s'han pogut aplicar els paràmetres d'inici automàtic"
 
 #: src/settings/autostartmanager/portalautostartmanager.cpp:35
 #, qt-format
 msgctxt "PortalAutostartManager|"
 msgid "Allow %1 to manage autostart setting for itself."
-msgstr "Zezwalaj %1 na zarządzanie ustawieniami autostartu."
+msgstr "Permet que %1 gestioni el paràmetre d'inici automàtic per a si mateix."
 
 #: src/settings/autostartmanager/portalautostartmanager.cpp:54
 msgctxt "PortalAutostartManager|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
-msgstr "Nie można zapisać się do odpowiedzi z xdg-desktop-portal."
+msgstr "No s'ha pogut subscriure a la resposta des de «xdg-desktop-portal»."
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:35
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to create %1"
-msgstr "Nie można utworzyć %1"
+msgstr "No s'ha pogut crear %1"
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:42
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to copy %1 to %2"
-msgstr "Nie można skopiować %1 do %2"
+msgstr "No s'ha pogut copiar %1 a %2"
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:47
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
-msgstr "Nie można usunąć %1 z %2"
+msgstr "No s'ha pogut eliminar %1 de %2"
 
 #: src/settings/settingsdialog.cpp:34
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
-msgstr "Tryb przenośny"
+msgstr "Mode portàtil"
 
 #: src/settings/settingsdialog.cpp:47
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
-msgstr "Użyj %1 do przechowywania ustawień"
+msgstr "Usa %1 per a emmagatzemar la configuració"
 
 #: src/settings/settingsdialog.cpp:59 src/settings/settingsdialog.cpp:90
 #: src/settings/settingsdialog.cpp:91
 msgctxt "SettingsDialog|"
 msgid "<System language>"
-msgstr "<Ustawienia systemowe>"
+msgstr "<Idioma del sistema>"
 
 #: src/settings/settingsdialog.cpp:126
 msgctxt "SettingsDialog|"
 msgid "Icons:"
-msgstr "Ikony:"
+msgstr "Icones:"
 
 #: src/settings/settingsdialog.cpp:139
 msgctxt "SettingsDialog|"
 msgid "Happy New Year!"
-msgstr "Szczęśliwego Nowego Roku!"
+msgstr "Bon any nou!"
 
 #: src/settings/settingsdialog.cpp:153
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
-msgstr "Pola parametrów OCR nie mogą być puste."
+msgstr "Els camps dels paràmetres d'OCR no poden estar buits."
 
 #: src/settings/settingsdialog.cpp:154
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
-msgstr "Czy chcesz odrzucić nieprawidłowe parametry?"
+msgstr "Voleu descartar els paràmetres no vàlids?"
 
 #: src/settings/settingsdialog.cpp:301
 msgctxt "SettingsDialog|"
 msgid "Select icon"
-msgstr "Wybierz ikonę"
+msgstr "Seleccioneu una icona"
 
 #: src/settings/settingsdialog.cpp:301
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
-msgstr "Obrazki (*.png *.ico *.svg *.jpg);;Wszystkie pliki()"
+msgstr "Imatges (*.png *.ico *.svg *.jpg);;Tots els fitxers()"
 
 #: src/settings/settingsdialog.cpp:314
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
-msgstr "Wybierz ścieżkę języków OCR"
+msgstr "Seleccioneu el camí dels idiomes de l'OCR"
 
 #: src/settings/settingsdialog.cpp:363 src/settings/settingsdialog.ui:1303
 msgctxt "SettingsDialog|"
 msgid "Default region"
-msgstr "Domyślny rejon"
+msgstr "Regió predeterminada"
 
 #: src/settings/settingsdialog.cpp:366
 msgctxt "SettingsDialog|"
 msgid "Mandarin (China)"
-msgstr "Mandaryński (Chiny)"
+msgstr "Mandarí (Xina)"
 
 #: src/settings/settingsdialog.cpp:525
 msgctxt "SettingsDialog|"
 msgid "Back"
-msgstr "Powrót"
+msgstr "Enrere"
 
 #: src/settings/settingsdialog.cpp:628
 msgctxt "SettingsDialog|"
 msgid "Nothing to play"
-msgstr "Nie ma nic do odsłuchania"
+msgstr "Res a reproduir"
 
 #: src/settings/settingsdialog.cpp:628
 msgctxt "SettingsDialog|"
 msgid "Playback text is empty"
-msgstr "Tekst do odsłuchania jest pusty"
+msgstr "El text a reproduir és buit"
 
 #: src/settings/settingsdialog.cpp:638
 msgctxt "SettingsDialog|"
 msgid "Unable to detect language"
-msgstr "Nie można wykryć języka"
+msgstr "No s'ha pogut detectar l'idioma"
 
 #: src/settings/settingsdialog.ui:14
 msgctxt "SettingsDialog|"
 msgid "Settings"
-msgstr "Ustawienia"
+msgstr "Configuració"
 
 #: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:136
 msgctxt "SettingsDialog|"
 msgid "General"
-msgstr "Ogólne"
+msgstr "General"
 
 #: src/settings/settingsdialog.ui:57
 msgctxt "SettingsDialog|"
 msgid "Interface"
-msgstr "Wygląd"
+msgstr "Interfície"
 
 #: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:639
 msgctxt "SettingsDialog|"
 msgid "Translation"
-msgstr "Tłumaczenie"
+msgstr "Traducció"
 
 #: src/settings/settingsdialog.ui:81
 msgctxt "SettingsDialog|"
 msgid "Speech synthesis"
-msgstr "Synteza mowy"
+msgstr "Síntesi de veu"
 
 #: src/settings/settingsdialog.ui:89
 msgctxt "SettingsDialog|"
 msgid "Connection"
-msgstr "Połączenie"
+msgstr "Connexió"
 
 #: src/settings/settingsdialog.ui:97
 msgctxt "SettingsDialog|"
 msgid "Shortcuts"
-msgstr "Skróty klawiszowe"
+msgstr "Dreceres"
 
 #: src/settings/settingsdialog.ui:105
 msgctxt "SettingsDialog|"
 msgid "About"
-msgstr "O programie"
+msgstr "Quant a"
 
 #: src/settings/settingsdialog.ui:148
 msgctxt "SettingsDialog|"
 msgid "Language:"
-msgstr "Język:"
+msgstr "Idioma:"
 
 #: src/settings/settingsdialog.ui:155
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Interface language</p></body></html>"
-msgstr "<html><head/><body><p>Język interfejsu</p></body></html>"
+msgstr "<html><head/><body><p>Idioma de la interfície</p></body></html>"
 
 #: src/settings/settingsdialog.ui:162
 msgctxt "SettingsDialog|"
 msgid "Main window orientation:"
-msgstr "Orientacja głównego okna:"
+msgstr "Orientació de la finestra principal:"
 
 #: src/settings/settingsdialog.ui:169
 msgctxt "SettingsDialog|"
@@ -1427,32 +1435,33 @@ msgid ""
 "<span style=\" font-style:italic;\">Auto</span>, the window orientation will "
 "match the screen orientation</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Orientacja układu okna głównego<br/>Podczas używania "
-"<span style=\" font-style:italic;\">Auto</span>, orientacja okna zostanie "
-"dopasowana do orientacji ekranu</p></body></html>"
+"<html><head/><body><p>Orientació de la disposició de la finestra "
+"principal<br/>Quan s'utilitza <span style=\" font-style:italic;"
+"\">Automàtica</span>, l'orientació de la finestra coincidirà amb "
+"l'orientació de la pantalla</p></body></html>"
 
 #. Orientation
 #: src/settings/settingsdialog.ui:173
 msgctxt "SettingsDialog|"
 msgid "Auto"
-msgstr "Automatycznie"
+msgstr "Automàtica"
 
 #. Orientation
 #: src/settings/settingsdialog.ui:178
 msgctxt "SettingsDialog|"
 msgid "Portrait"
-msgstr "Portret"
+msgstr "Retrat"
 
 #. Orientation
 #: src/settings/settingsdialog.ui:183
 msgctxt "SettingsDialog|"
 msgid "Landscape"
-msgstr "Orientacja w poziomie"
+msgstr "Apaïsada"
 
 #: src/settings/settingsdialog.ui:191
 msgctxt "SettingsDialog|"
 msgid "Translation mode:"
-msgstr "Tryb tłumaczenia:"
+msgstr "Mode de traducció:"
 
 #: src/settings/settingsdialog.ui:198
 msgctxt "SettingsDialog|"
@@ -1461,29 +1470,29 @@ msgid ""
 "application is minimized, the main window will always be used.</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Okno służące do tłumaczenia zaznaczonego tekstu. Jeśli "
-"aplikacja zostanie zminimalizowana, zawsze będzie używane okno główne.</"
-"p><body></html>"
+"<html><head/><body><p>Una finestra per a traduir el text seleccionat. Si "
+"l'aplicació està minimitzada, sempre s'utilitzarà la finestra principal.</"
+"p></body></html>"
 
 #: src/settings/settingsdialog.ui:202 src/settings/settingsdialog.ui:351
 msgctxt "SettingsDialog|"
 msgid "Pop-up window"
-msgstr "Okno pop-up"
+msgstr "Finestra emergent"
 
 #: src/settings/settingsdialog.ui:207
 msgctxt "SettingsDialog|"
 msgid "Main window"
-msgstr "Główne okno"
+msgstr "Finestra principal"
 
 #: src/settings/settingsdialog.ui:212
 msgctxt "SettingsDialog|"
 msgid "Notification"
-msgstr "Zgłoszenie"
+msgstr "Notificació"
 
 #: src/settings/settingsdialog.ui:220
 msgctxt "SettingsDialog|"
 msgid "Translation notification timeout:"
-msgstr "Limit czasu powiadomienia o tłumaczeniu:"
+msgstr "Temps d'espera de les notificacions de traducció:"
 
 #: src/settings/settingsdialog.ui:233
 msgctxt "SettingsDialog|"
@@ -1491,24 +1500,25 @@ msgid ""
 "<html><head/><body><p>Notification with translation display time</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Powiadomienie z tłumaczeniem czasu wyświetlania</p></"
-"body></html>"
+"<html><head/><body><p>Notificació amb temps de visualització de la "
+"traducció</p></body></html>"
 
 #: src/settings/settingsdialog.ui:236 src/settings/settingsdialog.ui:441
 msgctxt "SettingsDialog|"
 msgid " sec"
-msgstr " sec"
+msgstr " s"
 
 #: src/settings/settingsdialog.ui:249
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Display icon in the system tray</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Wyświetl ikonę w zasobniku systemowym</p></body></html>"
+"<html><head/><body><p>Mostra una icona a la safata del sistema</p></body></"
+"html>"
 
 #: src/settings/settingsdialog.ui:252
 msgctxt "SettingsDialog|"
 msgid "Show tray icon"
-msgstr "Pokaż ikonę w zasobniku systemowym"
+msgstr "Mostra una icona a la safata del sistema"
 
 #: src/settings/settingsdialog.ui:262
 msgctxt "SettingsDialog|"
@@ -1516,49 +1526,49 @@ msgid ""
 "<html><head/><body><p>Start application minimized to the system tray</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Uruchom aplikację zminimalizowaną do zasobnika "
-"systemowego</p></body></html>"
+"<html><head/><body><p>Inicia l'aplicació minimitzada a la safata del "
+"sistema</p></body></html>"
 
 #: src/settings/settingsdialog.ui:265
 msgctxt "SettingsDialog|"
 msgid "Start minimized"
-msgstr "Uruchom zminimalizowany"
+msgstr "Inicia minimitzada"
 
 #: src/settings/settingsdialog.ui:272
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Run the application at system startup</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Uruchom aplikację przy starcie systemu</p></body></"
+"<html><head/><body><p>Executa l'aplicació en iniciar el sistema</p></body></"
 "html>"
 
 #: src/settings/settingsdialog.ui:275
 msgctxt "SettingsDialog|"
 msgid "Launch at startup"
-msgstr "Uruchom przy starcie"
+msgstr "Llança a l'inici"
 
 #: src/settings/settingsdialog.ui:308
 msgctxt "SettingsDialog|"
 msgid "Font"
-msgstr "Czcionka"
+msgstr "Lletra"
 
 #: src/settings/settingsdialog.ui:314
 msgctxt "SettingsDialog|"
 msgid "Name:"
-msgstr "Nazwa:"
+msgstr "Nom:"
 
 #: src/settings/settingsdialog.ui:321
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Translation and source text font</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Czcionka tłumaczenia i tekstu źródłowego</p></body></"
-"html>"
+"<html><head/><body><p>Lletra del text de la traducció i de l'origen</p></"
+"body></html>"
 
 #: src/settings/settingsdialog.ui:328
 msgctxt "SettingsDialog|"
 msgid "Size:"
-msgstr "Rozmiar:"
+msgstr "Mida:"
 
 #: src/settings/settingsdialog.ui:335
 msgctxt "SettingsDialog|"
@@ -1566,48 +1576,48 @@ msgid ""
 "<html><head/><body><p>Font size of translation and source text</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Rozmiar czcionki w tłumaczeniu i tekście źródłowym</"
-"p></body></html>"
+"<html><head/><body><p>Mida de la lletra del text de la traducció i de "
+"l'origen</p></body></html>"
 
 #: src/settings/settingsdialog.ui:357
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window height in pixels</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Wysokość wyskakującego okna w pikselach</p></body></"
+"<html><head/><body><p>Alçada de la finestra emergent en píxels</p></body></"
 "html>"
 
 #: src/settings/settingsdialog.ui:367
 msgctxt "SettingsDialog|"
 msgid "Width:"
-msgstr "Szerokość:"
+msgstr "Amplada:"
 
 #: src/settings/settingsdialog.ui:374
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Szerokość wyskakującego okna w pikselach</p></body></"
+"<html><head/><body><p>Amplada de la finestra emergent en píxels</p></body></"
 "html>"
 
 #: src/settings/settingsdialog.ui:384
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window opacity</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Przezroczystość wyskakującego okna</p></body></html>"
+"<html><head/><body><p>Opacitat de la finestra emergent</p></body></html>"
 
 #: src/settings/settingsdialog.ui:411
 msgctxt "SettingsDialog|"
 msgid "Opacity:"
-msgstr "Przeźroczystość:"
+msgstr "Opacitat:"
 
 #: src/settings/settingsdialog.ui:418
 msgctxt "SettingsDialog|"
 msgid "Show timeout:"
-msgstr "Pokaż limit czasu:"
+msgstr "Mostra el temps d'espera:"
 
 #: src/settings/settingsdialog.ui:425
 msgctxt "SettingsDialog|"
 msgid "Height:"
-msgstr "Wysokość:"
+msgstr "Alçada:"
 
 #: src/settings/settingsdialog.ui:438
 msgctxt "SettingsDialog|"
@@ -1615,88 +1625,88 @@ msgid ""
 "<html><head/><body><p>The number of seconds after which the window will be "
 "hidden if it has no focus</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Liczba sekund, po których okno zostanie ukryte, jeśli "
-"nie ma na nim fokusu</p></body></html>"
+"<html><head/><body><p>El nombre de segons després dels quals s'ocultarà la "
+"finestra si no té el focus</p></body></html>"
 
 #: src/settings/settingsdialog.ui:461
 msgctxt "SettingsDialog|"
 msgid "Language format"
-msgstr "Format językowy"
+msgstr "Format de l'idioma"
 
 #: src/settings/settingsdialog.ui:467
 msgctxt "SettingsDialog|"
 msgid "Main window:"
-msgstr "Główne okno:"
+msgstr "Finestra principal:"
 
 #: src/settings/settingsdialog.ui:474 src/settings/settingsdialog.ui:498
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Languages text on buttons</p></body></html>"
-msgstr "<html><head/><body><p>Języki tekstu na przyciskach</p></body></html>"
+msgstr "<html><head/><body><p>Text dels idiomes als botons</p></body></html>"
 
 #: src/settings/settingsdialog.ui:478 src/settings/settingsdialog.ui:502
 msgctxt "SettingsDialog|"
 msgid "Full name"
-msgstr "Pełna nazwa"
+msgstr "Nom complet"
 
 #: src/settings/settingsdialog.ui:483 src/settings/settingsdialog.ui:507
 msgctxt "SettingsDialog|"
 msgid "ISO 639-1 code"
-msgstr "Kod ISO 639-1"
+msgstr "Codi ISO 639-1"
 
 #: src/settings/settingsdialog.ui:491
 msgctxt "SettingsDialog|"
 msgid "Pop-up:"
-msgstr "Pop-up:"
+msgstr "Emergent:"
 
 #: src/settings/settingsdialog.ui:518
 msgctxt "SettingsDialog|"
 msgid "Tray icon"
-msgstr "Ikona obszaru powiadamiania"
+msgstr "Icona de la safata"
 
 #: src/settings/settingsdialog.ui:524
 msgctxt "SettingsDialog|"
 msgid "Icon:"
-msgstr "Ikona:"
+msgstr "Icona:"
 
 #: src/settings/settingsdialog.ui:537
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>System tray icon</p></body></html>"
-msgstr "<html><head/><body><p>Ikona zasobnika systemowego</p></body></html>"
+msgstr "<html><head/><body><p>Icona de la safata del sistema</p></body></html>"
 
 #: src/settings/settingsdialog.ui:541
 msgctxt "SettingsDialog|"
 msgid "Default"
-msgstr "Domyślna"
+msgstr "Predeterminat"
 
 #: src/settings/settingsdialog.ui:549
 msgctxt "SettingsDialog|"
 msgid "Monochrome (dark theme)"
-msgstr "Monochrome (ciemny motyw)"
+msgstr "Monocrom (tema fosc)"
 
 #: src/settings/settingsdialog.ui:557
 msgctxt "SettingsDialog|"
 msgid "Monochrome (light theme)"
-msgstr "Monochrome (jasny motyw)"
+msgstr "Monocrom (tema clar)"
 
 #: src/settings/settingsdialog.ui:565
 msgctxt "SettingsDialog|"
 msgid "Custom"
-msgstr "Własna"
+msgstr "Personalitzat"
 
 #: src/settings/settingsdialog.ui:579
 msgctxt "SettingsDialog|"
 msgid "Custom:"
-msgstr "Własna:"
+msgstr "Personalitzat:"
 
 #: src/settings/settingsdialog.ui:591
 msgctxt "SettingsDialog|"
 msgid "Path to the icon or icon name from theme"
-msgstr "Ścieżka do ikony lub nazwy ikony z motywu"
+msgstr "Camí a la icona o nom de la icona del tema"
 
 #: src/settings/settingsdialog.ui:601
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select icon</p></body></html>"
-msgstr "<html><head/><body><p>Wybierz ikonę</p></body></html>"
+msgstr "<html><head/><body><p>Seleccioneu una icona</p></body></html>"
 
 #: src/settings/settingsdialog.ui:645
 msgctxt "SettingsDialog|"
@@ -1704,13 +1714,13 @@ msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Włączenie lub wyłączenie transliteracji źródła</p></"
+"<html><head/><body><p>Activa o desactiva la transliteració de l'origen</p></"
 "body></html>"
 
 #: src/settings/settingsdialog.ui:648
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
-msgstr "Włącz transliterację źródła"
+msgstr "Activa la transliteració de l'origen"
 
 #: src/settings/settingsdialog.ui:655
 msgctxt "SettingsDialog|"
@@ -1718,13 +1728,13 @@ msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Włącz lub wyłącz transliterację tłumaczenia</p></"
-"body></html>"
+"<html><head/><body><p>Activa o desactiva la transliteració de la traducció</"
+"p></body></html>"
 
 #: src/settings/settingsdialog.ui:658
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
-msgstr "Włącz transliterację tłumaczenia"
+msgstr "Activa la transliteració de la traducció"
 
 #: src/settings/settingsdialog.ui:665
 msgctxt "SettingsDialog|"
@@ -1732,37 +1742,38 @@ msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Włączanie lub wyłączanie transkrypcji źródła</p></"
+"<html><head/><body><p>Activa o desactiva la transcripció de l'origen</p></"
 "body></html>"
 
 #: src/settings/settingsdialog.ui:668
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
-msgstr "Włącz transkrypcję źródła"
+msgstr "Activa la transcripció de l'origen"
 
 #: src/settings/settingsdialog.ui:675
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
 msgstr ""
-"html><head/><body><p>Włącz lub wyłącz opcje tłumaczenia</p></body></html>"
+"<html><head/><body><p>Activa o desactiva les opcions de traducció</p></"
+"body></html>"
 
 #: src/settings/settingsdialog.ui:678
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
-msgstr "Włącz opcje tłumaczenia"
+msgstr "Activa les opcions de traducció"
 
 #: src/settings/settingsdialog.ui:685
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Włącz lub wyłącz przykłady użycia</p></body></html>"
+"<html><head/><body><p>Activa o desactiva els exemples d'ús</p></body></html>"
 
 #: src/settings/settingsdialog.ui:688
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
-msgstr "Włącz przykłady"
+msgstr "Activa els exemples"
 
 #: src/settings/settingsdialog.ui:695
 msgctxt "SettingsDialog|"
@@ -1771,24 +1782,24 @@ msgid ""
 "the ASCII characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' ') with a "
 "single space in queries</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Zastąp każdą sekwencję białych znaków (w tym znaki "
-"ASCII '\\t', '\\n', '\\v', '\\f', '\\r' i ' ') z jedną spacją w zapytaniach</"
-"p></body></html>"
+"<html><head/><body><p>Reemplaça cada seqüència d'espais en blanc (això "
+"inclou els caràcters ASCII «\\t», «\\n», «\\v», «\\f», «\\r» i « ») per un "
+"espai únic a les consultes</p></body></html>"
 
 #: src/settings/settingsdialog.ui:698
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
-msgstr "Uprość źródło"
+msgstr "Simplifica l'origen"
 
 #: src/settings/settingsdialog.ui:708
 msgctxt "SettingsDialog|"
 msgid "Automatic language detection"
-msgstr "Automatyczna detekcja języka"
+msgstr "Detecció automàtica de l'idioma"
 
 #: src/settings/settingsdialog.ui:714
 msgctxt "SettingsDialog|"
 msgid "Primary translation language:"
-msgstr "Podstawowy język tłumaczenia:"
+msgstr "Idioma primari de traducció:"
 
 #: src/settings/settingsdialog.ui:721
 msgctxt "SettingsDialog|"
@@ -1796,13 +1807,13 @@ msgid ""
 "<html><head/><body><p>Language to which text will be translated when "
 "autodetecting</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Język, na który zostanie przetłumaczony tekst podczas "
-"autowykrywania</p></body></html>"
+"<html><head/><body><p>Idioma al qual es traduirà el text quan es detecti "
+"automàticament</p></body></html>"
 
 #: src/settings/settingsdialog.ui:728
 msgctxt "SettingsDialog|"
 msgid "Secondary translation language:"
-msgstr "Drugi język tłumaczenia:"
+msgstr "Idioma secundari de traducció:"
 
 #: src/settings/settingsdialog.ui:735
 msgctxt "SettingsDialog|"
@@ -1810,8 +1821,8 @@ msgid ""
 "<html><head/><body><p>Language to which the text will be translated if it is "
 "in the language selected above</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Język, na który zostanie przetłumaczony tekst, jeśli "
-"jest on w języku wybranym powyżej</p></body></html>."
+"<html><head/><body><p>Idioma al qual es traduirà el text si està en l'idioma "
+"seleccionat abans</p></body></html>"
 
 #: src/settings/settingsdialog.ui:742 src/settings/settingsdialog.ui:752
 msgctxt "SettingsDialog|"
@@ -1819,19 +1830,19 @@ msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
 "italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Automatycznie przełączaj się na <span style=\" font-"
-"style:italic;\">Auto</span> podczas korzystania z OCR i skrótów globalnych</"
-"p></body></html>"
+"<html><head/><body><p>Canvia automàticament a <span style=\" font-style:"
+"italic;\">Automàtic</span> quan s'utilitzen dreceres d'OCR i globals</p></"
+"body></html>"
 
 #: src/settings/settingsdialog.ui:745
 msgctxt "SettingsDialog|"
 msgid "Force source language detection"
-msgstr "Wymuś wykrywanie języka źródłowego"
+msgstr "Força la detecció de l'idioma d'origen"
 
 #: src/settings/settingsdialog.ui:755
 msgctxt "SettingsDialog|"
 msgid "Force translation language detection"
-msgstr "Wymuś wykrywanie języka tłumaczenia"
+msgstr "Força la detecció de l'idioma de traducció"
 
 #: src/settings/settingsdialog.ui:778
 msgctxt "SettingsDialog|"
@@ -1839,14 +1850,14 @@ msgid ""
 "<html><head/><body><p>LibreTranslate instance API key</p><p>Free instances "
 "listed here doesn't require a key, so field can be empty</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Klucz API instancji LibreTranslate</p><p>Wymienione "
-"tutaj bezpłatne instancje nie wymagają klucza, więc pole może być puste</p></"
-"body></html>"
+"<html><head/><body><p>Clau de l'API de la instància del LibreTranslate</"
+"p><p>Les instàncies lliures llistades aquí no requereixen cap clau, de "
+"manera que el camp pot estar buit</p></body></html>"
 
 #: src/settings/settingsdialog.ui:791
 msgctxt "SettingsDialog|"
 msgid "API key:"
-msgstr "Klucz API:"
+msgstr "Clau de l'API:"
 
 #: src/settings/settingsdialog.ui:804
 msgctxt "SettingsDialog|"
@@ -1855,8 +1866,8 @@ msgid ""
 "found here: https://github.com/LibreTranslate/LibreTranslate#mirrors</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Adres URL silnika LibreTranslate</p><p>Wszystkie "
-"instancje można znaleźć tutaj: https://github.com/LibreTranslate/"
+"<html><head/><body><p>URL del motor LibreTranslate</p><p>Totes les "
+"instàncies es poden trobar aquí: https://github.com/LibreTranslate/"
 "LibreTranslate#mirrors</p></body></html>"
 
 #: src/settings/settingsdialog.ui:844
@@ -1866,14 +1877,14 @@ msgid ""
 "here: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Adres URL silnika Lingva</p><p>Wszystkie instancje "
-"można znaleźć tutaj: https://github.com/TheDavidDelta/lingva-"
+"<html><head/><body><p>URL del motor Lingva</p><p>Totes les instàncies es "
+"poden trobar aquí: https://github.com/TheDavidDelta/lingva-"
 "translate#instances</p></body></html>"
 
 #: src/settings/settingsdialog.ui:898
 msgctxt "SettingsDialog|"
 msgid "Languages"
-msgstr "Języki"
+msgstr "Idiomes"
 
 #: src/settings/settingsdialog.ui:904
 msgctxt "SettingsDialog|"
@@ -1883,25 +1894,27 @@ msgid ""
 "language, and there is more chance of hallucinating incorrect words.</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Wczytanie dodatkowych języków wpłynie zarówno na "
-"szybkość, jak i na dokładność, ponieważ trzeba będzie wykonać więcej pracy, "
-"aby wybrać odpowiedni język, a ponadto istnieje większe prawdopodobieństwo, "
-"że pojawią się nieprawidłowe słowa.</p></body></html>"
+"<html><head/><body><p>La càrrega d'idiomes addicionals afectarà tant la "
+"velocitat com la precisió, ja que hi ha més feina a fer per decidir sobre "
+"l'idioma aplicable, i hi ha més possibilitats d'al·lucinar paraules "
+"incorrectes.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:911
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
-msgstr "Ścieżka językowa:"
+msgstr "Camí dels idiomes:"
 
 #: src/settings/settingsdialog.ui:918
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
-msgstr "<html><head/><body><p>Wybierz ścieżkę języków OCR</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Selecciona el camí dels idiomes de l'OCR</p></body></"
+"html>"
 
 #: src/settings/settingsdialog.ui:928
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
-msgstr "<html><head/><body><p>Otwórz repozytorium GitHub</p></body></html>"
+msgstr "<html><head/><body><p>Obre el repositori GitHub</p></body></html>"
 
 #: src/settings/settingsdialog.ui:931
 msgctxt "SettingsDialog|"
@@ -1911,13 +1924,13 @@ msgid ""
 "more</span></a></p></body></html>"
 msgstr ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
-"\"><span style=\" text-decoration: underline; color:#2980b9;\">Pobierz "
-"więcej</span></a></p></body></html>"
+"\"><span style=\" text-decoration: underline; color:#2980b9;\">Descarrega'n "
+"més</span></a></p></body></html>"
 
 #: src/settings/settingsdialog.ui:941
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
-msgstr "Katalog z wyszkolonymi modelami"
+msgstr "Directori amb models entrenats"
 
 #: src/settings/settingsdialog.ui:957
 msgctxt "SettingsDialog|"
@@ -1925,23 +1938,23 @@ msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
 "recognition</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Zamień wszystkie pojedyncze podziały wiersza na spację "
-"po rozpoznaniu tekstu</p></body></html>"
+"<html><head/><body><p>Substitueix tots els salts de línia simples per un "
+"espai després del reconeixement de text</p></body></html>"
 
 #: src/settings/settingsdialog.ui:960
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
-msgstr "Konwertuj podziały wierszy"
+msgstr "Converteix els salts de línia"
 
 #: src/settings/settingsdialog.ui:1024
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
-msgstr "Zrzut ekranu"
+msgstr "Captura de pantalla"
 
 #: src/settings/settingsdialog.ui:1036
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
-msgstr "Pamiętaj o regionie:"
+msgstr "Recorda la regió:"
 
 #: src/settings/settingsdialog.ui:1043
 msgctxt "SettingsDialog|"
@@ -1949,33 +1962,33 @@ msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Kiedy zapamiętać ostatnio wybrany region</p></body></"
+"<html><head/><body><p>Quan recordar l'última regió seleccionada</p></body></"
 "html>"
 
 #: src/settings/settingsdialog.ui:1047
 msgctxt "SettingsDialog|"
 msgid "Never"
-msgstr "Nigdy"
+msgstr "Mai"
 
 #: src/settings/settingsdialog.ui:1052
 msgctxt "SettingsDialog|"
 msgid "Remember last"
-msgstr "Zapamiętaj ostatni"
+msgstr "Recorda l'última"
 
 #: src/settings/settingsdialog.ui:1057
 msgctxt "SettingsDialog|"
 msgid "Remember always"
-msgstr "Pamiętaj zawsze"
+msgstr "Recorda sempre"
 
 #: src/settings/settingsdialog.ui:1065
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
-msgstr "Opóźnienie przechwytywania:"
+msgstr "Retard de la captura:"
 
 #: src/settings/settingsdialog.ui:1072
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
-msgstr "Opóźnienie przed wykonaniem zrzutu ekranu"
+msgstr "Retard abans de la captura de pantalla"
 
 #: src/settings/settingsdialog.ui:1075
 msgctxt "SettingsDialog|"
@@ -1986,12 +1999,13 @@ msgstr " ms"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
-msgstr "<html><head/><body><p>Pokaż lupę obok kursora</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Mostra una lupa al costat del cursor</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1088
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
-msgstr "Pokaż lupę"
+msgstr "Mostra la lupa"
 
 #: src/settings/settingsdialog.ui:1098
 msgctxt "SettingsDialog|"
@@ -1999,13 +2013,13 @@ msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
 "released</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Zakończ przechwytywanie fragmentu po zwolnieniu "
-"przycisku myszy</p></body></html>"
+"<html><head/><body><p>Acaba la captura del fragment quan es deixa anar el "
+"botó del ratolí</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1101
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
-msgstr "Potwierdź przy wydaniu"
+msgstr "Confirma en deixar anar"
 
 #: src/settings/settingsdialog.ui:1108
 msgctxt "SettingsDialog|"
@@ -2013,24 +2027,25 @@ msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Zastosuj lekką mgłę do niezaznaczonej części</p></"
-"body></html>"
+"<html><head/><body><p>Aplica una lleugera boira a la part no seleccionada</"
+"p></body></html>"
 
 #: src/settings/settingsdialog.ui:1111
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
-msgstr "Zastosuj lekką maskę"
+msgstr "Aplica una màscara de llum"
 
 #: src/settings/settingsdialog.ui:1150
 msgctxt "SettingsDialog|"
 msgid "Voice:"
-msgstr "Głos:"
+msgstr "Veu:"
 
 #: src/settings/settingsdialog.ui:1163
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Voice of the speech synthesis engine</p></body></html>"
-msgstr "<html><head/><body><p>Głos silnika syntezy mowy</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Veu del motor de síntesi de veu</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1167
 msgctxt "SettingsDialog|"
@@ -2065,7 +2080,7 @@ msgstr "Omazh"
 #: src/settings/settingsdialog.ui:1200
 msgctxt "SettingsDialog|"
 msgid "Emotional connotation:"
-msgstr "Zabarwienie emocjonalne:"
+msgstr "Connotació emocional:"
 
 #: src/settings/settingsdialog.ui:1213
 msgctxt "SettingsDialog|"
@@ -2073,83 +2088,83 @@ msgid ""
 "<html><head/><body><p>Voice mood of the speech synthesis engine</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Nastrój głosu silnika syntezy mowy</p></div> "
-"<html><head/><body></html>"
+"<html><head/><body><p>Estat d'ànim de la veu del motor de síntesi de veu</"
+"p></body></html>"
 
 #: src/settings/settingsdialog.ui:1217
 msgctxt "SettingsDialog|"
 msgid "Neutral"
-msgstr "Neutralne"
+msgstr "Neutre"
 
 #: src/settings/settingsdialog.ui:1222
 msgctxt "SettingsDialog|"
 msgid "Good"
-msgstr "Dobre"
+msgstr "Bo"
 
 #: src/settings/settingsdialog.ui:1227
 msgctxt "SettingsDialog|"
 msgid "Evil"
-msgstr "Złe"
+msgstr "Demoníac"
 
 #: src/settings/settingsdialog.ui:1235 src/settings/settingsdialog.ui:1311
 msgctxt "SettingsDialog|"
 msgid "Speech test:"
-msgstr "Badanie mowy:"
+msgstr "Prova de veu:"
 
 #: src/settings/settingsdialog.ui:1244 src/settings/settingsdialog.ui:1273
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Text to test speech</p></body></html>"
-msgstr "<html><head/><body><p>Tekst do testowania wypowiedzi</p></body></html>"
+msgstr "<html><head/><body><p>Text per a provar la veu</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1247 src/settings/settingsdialog.ui:1276
 msgctxt "SettingsDialog|"
 msgid "This is an example of speech synthesis."
-msgstr "W Strzebrzeszynie chrząszcz brzmi w trzcinie."
+msgstr "Aquest és un exemple de síntesi de veu."
 
 #: src/settings/settingsdialog.ui:1250
 msgctxt "SettingsDialog|"
 msgid "Test voice"
-msgstr "Test głosu"
+msgstr "Prova la veu"
 
 #: src/settings/settingsdialog.ui:1295
 msgctxt "SettingsDialog|"
 msgid "Region:"
-msgstr "Rejon:"
+msgstr "Regió:"
 
 #: src/settings/settingsdialog.ui:1344
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
-msgstr "Serwer proxy"
+msgstr "Servidor intermediari"
 
 #: src/settings/settingsdialog.ui:1350
 msgctxt "SettingsDialog|"
 msgid "Type:"
-msgstr "Typ:"
+msgstr "Tipus:"
 
 #: src/settings/settingsdialog.ui:1363
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
-msgstr "<html><head/><body><p>Typ serwera proxy</p></body></html>"
+msgstr "<html><head/><body><p>Tipus de servidor intermediari</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1367
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
-msgstr "Użyj ustawień systemowych"
+msgstr "Usa la configuració de servidor intermediari del sistema"
 
 #: src/settings/settingsdialog.ui:1377
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
-msgstr "Nie używaj proxy"
+msgstr "No usa cap servidor intermediari"
 
 #: src/settings/settingsdialog.ui:1393
 msgctxt "SettingsDialog|"
 msgid "Host:"
-msgstr "Gospodarz:"
+msgstr "Servidor:"
 
 #: src/settings/settingsdialog.ui:1403
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
-msgstr "<html><head/><body><p>Nazwa hosta serwera proxy</p></body></html>"
+msgstr "<html><head/><body><p>Nom del servidor intermediari</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1416
 msgctxt "SettingsDialog|"
@@ -2159,90 +2174,91 @@ msgstr "Port:"
 #: src/settings/settingsdialog.ui:1432
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
-msgstr "<html><head/><body><p>Port proxy</p></body></html>"
+msgstr "<html><head/><body><p>Port del servidor intermediari</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1451
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
-msgstr "Info: proxy używane tylko do tłumaczenia tekstu"
+msgstr ""
+"Informació: el servidor intermediari només funciona per a la traducció de "
+"text"
 
 #: src/settings/settingsdialog.ui:1461
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Włączanie lub wyłączanie uwierzytelniania</p></body></"
-"html>"
+"<html><head/><body><p>Activa o desactiva l'autenticació</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1464
 msgctxt "SettingsDialog|"
 msgid "Authentication"
-msgstr "Autentykacja"
+msgstr "Autenticació"
 
 #: src/settings/settingsdialog.ui:1474
 msgctxt "SettingsDialog|"
 msgid "Username:"
-msgstr "Użytkownik:"
+msgstr "Nom d'usuari:"
 
 #: src/settings/settingsdialog.ui:1484
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Nazwa użytkownika serwera proxy do uwierzytelniania</"
-"p></body></html>"
+"<html><head/><body><p>Nom d'usuari del servidor intermediari per a "
+"l'autenticació</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1494
 msgctxt "SettingsDialog|"
 msgid "Password:"
-msgstr "Hasło:"
+msgstr "Contrasenya:"
 
 #: src/settings/settingsdialog.ui:1504
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Hasło proxy do uwierzytelniania</p></body></html>"
+"<html><head/><body><p>Contrasenya del servidor intermediari per a "
+"l'autenticació</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1517
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
-msgstr "Info: hasło jest zapisywany czystym tekstem"
+msgstr "Informació: la contrasenya s'ha desat sense encriptar"
 
 #: src/settings/settingsdialog.ui:1553
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Zarejestruj skróty globalne w systemie</p></body></"
-"html>"
+"<html><head/><body><p>Registra dreceres globals al sistema</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1556
 msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
-msgstr "Włącz globalne skróty"
+msgstr "Activa les dreceres globals"
 
 #: src/settings/settingsdialog.ui:1572
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Przywróć domyślne ustawienia wszystkich skrótów</p></"
-"body></html>."
+"<html><head/><body><p>Restableix totes les dreceres als valors "
+"predeterminats</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1575
 msgctxt "SettingsDialog|"
 msgid "Reset all"
-msgstr "Resetuj wszystko"
+msgstr "Restableix-ho tot"
 
 #: src/settings/settingsdialog.ui:1585
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
-msgstr "Skrót"
+msgstr "Drecera"
 
 #: src/settings/settingsdialog.ui:1591
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
-msgstr "Kombinacja klawiszy:"
+msgstr "Seqüència de tecles:"
 
 #: src/settings/settingsdialog.ui:1598
 msgctxt "SettingsDialog|"
@@ -2250,326 +2266,319 @@ msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Sekwencja klawiszy dla wybranej akcji</p></body></"
-"html>."
+"<html><head/><body><p>La seqüència de claus per a l'acció seleccionada</p></"
+"body></html>"
 
 #: src/settings/settingsdialog.ui:1605
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
-msgstr "<html><head/><body><p>Zaakceptuj skrót</p></body></html>"
+msgstr "<html><head/><body><p>Accepta la drecera</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1608
 msgctxt "SettingsDialog|"
 msgid "Accept"
-msgstr "Akceptuj"
+msgstr "Accepta"
 
 #: src/settings/settingsdialog.ui:1618
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
-msgstr "<html><head/><body><p>Wyczyść skrót</p></body></html>"
+msgstr "<html><head/><body><p>Neteja la drecera</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1621
 msgctxt "SettingsDialog|"
 msgid "Clear"
-msgstr "Wyczyść"
+msgstr "Neteja"
 
 #: src/settings/settingsdialog.ui:1631
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Przywróć domyślne ustawienia skrótów</p></body></html>"
+"<html><head/><body><p>Restableix la drecera al valor predeterminat</p></"
+"body></html>"
 
 #: src/settings/settingsdialog.ui:1634
 msgctxt "SettingsDialog|"
 msgid "Reset"
-msgstr "Resetuj"
+msgstr "Restableix"
 
 #: src/settings/settingsdialog.ui:1679
 msgctxt "SettingsDialog|"
 msgid "Version:"
-msgstr "Wersja:"
+msgstr "Versió:"
 
 #: src/settings/settingsdialog.ui:1689
 msgctxt "SettingsDialog|"
 msgid "License:"
-msgstr "Licencja:"
+msgstr "Llicència:"
 
 #: src/settings/settingsdialog.ui:1703
 msgctxt "SettingsDialog|"
 msgid "Source code:"
-msgstr "Kod źródłowy:"
+msgstr "Codi font:"
 
 #: src/settings/settingsdialog.ui:1743
 msgctxt "SettingsDialog|"
 msgid "Flag icons:"
-msgstr "Ikony flag:"
+msgstr "Icones de banderes:"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:21
 msgctxt "ShortcutsModel|"
 msgid "Global"
-msgstr "Globalne"
+msgstr "Global"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:23
 msgctxt "ShortcutsModel|"
 msgid "Translate selected text"
-msgstr "Przetłumacz zaznaczony tekst"
+msgstr "Tradueix el text seleccionat"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:26
 msgctxt "ShortcutsModel|"
 msgid "Speak selected text"
-msgstr "Wypowiedz wybrany tekst"
+msgstr "Pronuncia el text seleccionat"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:29
 msgctxt "ShortcutsModel|"
 msgid "Speak translation of selected text"
-msgstr "Tłumaczenie ustne wybranego tekstu"
+msgstr "Pronuncia la traducció del text seleccionat"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:32
 msgctxt "ShortcutsModel|"
 msgid "Stop text speaking"
-msgstr "Zatrzymaj wypowiadanie tekstu"
+msgstr "Atura la pronunciació del text"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:35
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:71
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause text speaking"
-msgstr "Wypowiadanie / przerwa w mówieniu tekstu"
+msgstr "Pronuncia/pausa el text en la parla"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:38
 msgctxt "ShortcutsModel|"
 msgid "Show main window"
-msgstr "Pokaż okno główne"
+msgstr "Mostra la finestra principal"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:41
 msgctxt "ShortcutsModel|"
 msgid "Translate selected text and copy to clipboard"
-msgstr "Tłumacz zaznaczony tekst i skopij do schowka"
+msgstr "Tradueix el text seleccionat i el copia al porta-retalls"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:44
 msgctxt "ShortcutsModel|"
 msgid "Recognize text in screen area"
-msgstr "Rozpoznawanie tekstu w obszarze ekranu"
+msgstr "Reconeix text en una àrea de la pantalla"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:47
 msgctxt "ShortcutsModel|"
 msgid "Translate text in screen area"
-msgstr "Tłumaczenie tekstu w obszarze ekranu"
+msgstr "Tradueix text en una àrea de la pantalla"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:50
 msgctxt "ShortcutsModel|"
 msgid "Recognize text in screen area with delay"
-msgstr "Rozpoznawanie tekstu w obszarze ekranu z opóźnieniem"
+msgstr "Reconeix text en una àrea de la pantalla amb un retard"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:53
 msgctxt "ShortcutsModel|"
 msgid "Translate text in screen area with delay"
-msgstr "Tłumaczenie tekstu w obszarze ekranu z opóźnieniem"
+msgstr "Tradueix text en una àrea de la pantalla amb un retard"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:57
 msgctxt "ShortcutsModel|"
 msgid "Main window"
-msgstr "Główne okno"
+msgstr "Finestra principal"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
 msgid "Translate"
-msgstr "Przetłumacz"
+msgstr "Tradueix"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:62
 msgctxt "ShortcutsModel|"
 msgid "Swap languages"
-msgstr "Zamiana języków"
+msgstr "Intercanvia els idiomes"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:65
 msgctxt "ShortcutsModel|"
 msgid "Close window"
-msgstr "Zamknij okno"
+msgstr "Tanca la finestra"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:69
 msgctxt "ShortcutsModel|"
 msgid "Source text"
-msgstr "Tekst źródłowy"
+msgstr "Text d'origen"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:75
 msgctxt "ShortcutsModel|"
 msgid "Translation"
-msgstr "Tłumaczenie"
+msgstr "Traducció"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause speaking"
-msgstr "Mówienie / przerwa w mówieniu"
+msgstr "Pronuncia/pausa la parla"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:80
 msgctxt "ShortcutsModel|"
 msgid "Copy to clipboard"
-msgstr "Kopiuj do schowka"
+msgstr "Copia al porta-retalls"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:126
 msgctxt "ShortcutsModel|"
 msgid "Description"
-msgstr "Opis"
+msgstr "Descripció"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:128
 msgctxt "ShortcutsModel|"
 msgid "Shortcut"
-msgstr "Skrót"
+msgstr "Drecera"
 
 #: src/settings/tesseractparameterstablewidget.cpp:16
 msgctxt "TesseractParametersTableWidget|"
 msgid "Property"
-msgstr "Własność"
+msgstr "Propietat"
 
 #: src/settings/tesseractparameterstablewidget.cpp:16
 msgctxt "TesseractParametersTableWidget|"
 msgid "Value"
-msgstr "Wartość"
+msgstr "Valor"
 
 #: src/speakbuttons.cpp:138
 msgctxt "SpeakButtons|"
 msgid "No text specified"
-msgstr "Nie podano tekstu"
+msgstr "No s'ha especificat cap text"
 
 #: src/speakbuttons.cpp:138
 msgctxt "SpeakButtons|"
 msgid "Playback text is empty"
-msgstr "Tekst do odsłuchania jest pusty"
+msgstr "El text a reproduir és buit"
 
 #: src/speakbuttons.cpp:147
 msgctxt "SpeakButtons|"
 msgid "Unable to generate URLs for TTS"
-msgstr "Nie można wygenerować adresów URL dla TTS"
+msgstr "No s'han pogut generar els URL dels TTS"
 
 #: src/speakbuttons.ui:24
 msgctxt "SpeakButtons|"
 msgid "Speak / pause text speaking"
-msgstr "Mówienie / przerwa w mówieniu tekstu"
+msgstr "Pronuncia/pausa el text en la parla"
 
 #: src/speakbuttons.ui:34
 msgctxt "SpeakButtons|"
 msgid "Stop text speaking"
-msgstr "Zatrzymaj wypowiadanie tekstu"
+msgstr "Atura la pronunciació del text"
 
 #: src/transitions/ocruninitializedtransition.cpp:28
 msgctxt "Ocr|"
 msgid "OCR languages are not loaded"
-msgstr "Języki OCR nie są załadowane"
+msgstr "No s'han carregat dels idiomes de l'OCR"
 
 #: src/transitions/ocruninitializedtransition.cpp:28
 msgctxt "Ocr|"
 msgid "You should set at least one OCR language in the application settings"
-msgstr "W ustawieniach aplikacji należy ustawić co najmniej jeden język OCR"
+msgstr "Cal definir almenys un idioma d'OCR a la configuració de l'aplicació"
 
 #: src/translationedit.cpp:62
 msgctxt "TranslationEdit|"
 msgid "translation options:"
-msgstr "Opcje tłumaczenia:"
+msgstr "opcions de traducció:"
 
 #: src/translationedit.cpp:97
 msgctxt "TranslationEdit|"
 msgid "examples:"
-msgstr "przykłady:"
+msgstr "exemples:"
 
 #: src/trayicon.cpp:19 src/trayicon.cpp:44
 msgctxt "TrayIcon|"
 msgid "Show window"
-msgstr "Pokaż okno"
+msgstr "Mostra la finestra"
 
 #: src/trayicon.cpp:20 src/trayicon.cpp:45
 msgctxt "TrayIcon|"
 msgid "Settings"
-msgstr "Ustawienia"
+msgstr "Configuració"
 
 #: src/trayicon.cpp:21 src/trayicon.cpp:46
 msgctxt "TrayIcon|"
 msgid "Quit"
-msgstr "Wyjdź"
+msgstr "Surt"
 
 #: src/trayicon.cpp:51
 msgctxt "TrayIcon|"
 msgid "Translation result"
-msgstr "Wynik tłumaczenia"
+msgstr "Resultat de la traducció"
 
 #~ msgctxt "QGitTag|"
 #~ msgid "Release number %1 is missing"
-#~ msgstr "Brakuje numeru wydania %1"
+#~ msgstr "Manca el número de versió %1"
 
 #~ msgctxt "SettingsDialog|"
 #~ msgid "Updates"
-#~ msgstr "Aktualizacje"
+#~ msgstr "Actualitzacions"
 
 #~ msgctxt "SettingsDialog|"
 #~ msgid "Check for updates:"
-#~ msgstr "Sprawdzaj aktualizacje:"
+#~ msgstr "Comprova si hi ha actualitzacions:"
 
 #~ msgctxt "SettingsDialog|"
 #~ msgid "Every day"
-#~ msgstr "Codziennie"
+#~ msgstr "Cada dia"
 
 #~ msgctxt "SettingsDialog|"
 #~ msgid "Every week"
-#~ msgstr "Co tydzień"
+#~ msgstr "Cada setmana"
 
 #~ msgctxt "SettingsDialog|"
 #~ msgid "Every month"
-#~ msgstr "Co miesiąc"
+#~ msgstr "Cada mes"
 
 #~ msgctxt "SettingsDialog|"
 #~ msgid "Check now"
-#~ msgstr "Sprawdź teraz"
+#~ msgstr "Comprova-ho ara"
 
 #~ msgctxt "SettingsDialog|"
 #~ msgid "Check for updates now"
-#~ msgstr "Sprawdź teraz dostępność aktualizacji"
+#~ msgstr "Comprova ara si hi ha actualitzacions"
 
 #~ msgctxt "SettingsDialog|"
 #~ msgid "Checking for updates..."
-#~ msgstr "Sprawdzam dostepność aktualizacji..."
+#~ msgstr "S'està comprovant si hi ha actualitzacions..."
 
 #~ msgctxt "SettingsDialog|"
 #~ msgid "Update available!"
-#~ msgstr "Dostępna aktualizacja!"
+#~ msgstr "Actualització disponible!"
 
 #~ msgctxt "SettingsDialog|"
 #~ msgid "No updates available."
-#~ msgstr "Brak dostępnych aktualizacji."
+#~ msgstr "No hi ha cap actualització disponible."
 
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Changelog:"
-#~ msgstr "Lista zmian:"
+#~ msgstr "Registre de canvis:"
 
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Unable to write file"
-#~ msgstr "Nie można zapisać pliku"
+#~ msgstr "No s'ha pogut escriure al fitxer"
 
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Downloading is complete"
-#~ msgstr "Pobieranie zakończone"
+#~ msgstr "S'ha completat la baixada"
 
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Exit the program and run the installer"
-#~ msgstr "Wyjdź z programu i uruchom instalator"
+#~ msgstr "Surt del programa i executa l'instal·lador"
 
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Install"
-#~ msgstr "Instaluj"
+#~ msgstr "Instal·la"
 
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Download the installer to the Downloads folder"
-#~ msgstr "Pobierz instalator do katalogu pobierania"
+#~ msgstr "Baixa l'instal·lador a la carpeta de Baixades"
 
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Download"
-#~ msgstr "Pobierz"
+#~ msgstr "Baixa"
 
-#, fuzzy
-#~| msgctxt "UpdaterDialog|"
-#~| msgid ""
-#~| "<html><head/><body><p>A new version of Crow Translate is available! "
-#~| "Updates add functionality and improve the stability of the application. "
-#~| "Most often.<br/>You can also download the release manually from this <a "
-#~| "href=\"https://github.com/crow-translate/crow-translate/releases\">link</"
-#~| "a>.</p></body></html>"
 #~ msgctxt "UpdaterDialog|"
 #~ msgid ""
 #~ "<html><head/><body><p>A new version of Crow Translate is available! "
@@ -2578,40 +2587,32 @@ msgstr "Wynik tłumaczenia"
 #~ "href=\"https://download.kde.org/stable/crow-translate\">link</a>.</p></"
 #~ "body></html>"
 #~ msgstr ""
-#~ "<html><head/><body><p>Dostępna jest nowa wersja programu Crow Translate! "
-#~ "Aktualizacje najczęściej zwiększają funkcjonalność i poprawiają "
-#~ "stabilność aplikacji.<br/>Możesz również pobrać to wydanie ręcznie z tej "
-#~ "strony <a href=\"https://github.com/crow-translate/crow-translate/releases"
-#~ "\">link</a>.</p></body></html>"
+#~ "<html><head/><body><p>Hi ha disponible una nova versió de Crow Translate! "
+#~ "Les actualitzacions afegeixen funcionalitat i milloren l'estabilitat de "
+#~ "l'aplicació. Normalment.<br/>També podeu baixar manualment la versió des "
+#~ "d'aquest <a href=\"https://download.kde.org/stable/crow-translate"
+#~ "\">enllaç</a>.</p></body></html>"
 
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Close this window"
-#~ msgstr "Zamknij to okno"
+#~ msgstr "Tanca aquesta finestra"
 
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Update later"
-#~ msgstr "Aktualizuj później"
+#~ msgstr "Actualitza més tard"
 
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Cancel download"
-#~ msgstr "Anuluj pobieranie"
+#~ msgstr "Cancel·la la baixada"
 
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Cancel"
-#~ msgstr "Anuluj"
+#~ msgstr "Cancel·la"
 
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Current version:"
-#~ msgstr "Zainstalowana wersja:"
+#~ msgstr "Versió actual:"
 
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Available version:"
-#~ msgstr "Dostępna wersja:"
-
-#~ msgctxt "QHotkey|"
-#~ msgid "Failed to register %1. Error: %2"
-#~ msgstr "Nie udało się zarejestrować %1. Błąd: %2"
-
-#~ msgctxt "QHotkey|"
-#~ msgid "Failed to unregister %1. Error: %2"
-#~ msgstr "Nie udało się wyrejestrować %1. Błąd: %2"
+#~ msgstr "Versió disponible:"
