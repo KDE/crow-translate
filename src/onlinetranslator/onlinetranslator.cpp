@@ -271,7 +271,24 @@ OnlineTranslator::OnlineTranslator(QObject *parent)
 void OnlineTranslator::translate(const QString &text, Engine engine, Language translationLang, Language sourceLang)
 {
     abort();
-    resetData();
+
+    switch (engine) {
+    case Yandex:
+    case Deepl:
+    case LibreTranslate:
+    case Reverso:
+        if (sourceLang == Auto) {
+            resetData(InstanceError, tr("Language detection is not supported for %1").arg(QMetaEnum::fromType<OnlineTranslator::Engine>().valueToKey(engine)));
+            emit finished();
+            return;
+        }
+        [[fallthrough]];
+    case Google:
+    case Duckduckgo:
+    case Mymemory:
+        resetData();
+        break;
+    }
 
     m_onlyDetectLanguage = false;
     m_source = text;
