@@ -1,9 +1,33 @@
 [Desktop Entry]
 Actions=TranslateSelectedText;SpeakSelection;SpeakTranslatedSelection;StopSpeaking;Open;CopyTranslatedSelection;TranslateScreenArea;RecognizeScreenArea;
 Name=Crow Translate
+Name[ca]=Crow Translate
+Name[ca@valencia]=Crow Translate
+Name[nl]=Crow vertalen
+Name[tr]=Crow Çeviri
+Name[uk]=Crow Translate
+Name[x-test]=xxCrow Translatexx
 GenericName=Translator
+GenericName[ca]=Traductor
+GenericName[ca@valencia]=Traductor
+GenericName[nl]=Vertaler
+GenericName[tr]=Çevirmen
+GenericName[uk]=Перекладач
+GenericName[x-test]=xxTranslatorxx
 Comment=A simple and lightweight translator that allows to translate and speak the selected text
+Comment[ca]=Un traductor senzill i lleuger que permet traduir i pronunciar el text seleccionat
+Comment[ca@valencia]=Un traductor senzill i lleuger que permet traduir i llegir el text seleccionat
+Comment[nl]=Een eenvoudige en lichtgewicht vertaler die het vertalen en spreken van de geselecteerde tekst biedt
+Comment[tr]=Metinleri çevirmenize ve seslendirmenize olanak tanıyan basit ve hafif bir çeviri yazılımı.
+Comment[uk]=Проста і невибаглива до ресурсів програма для перекладу, яка дає вам змогу перекладати і озвучувати позначені фрагменти тексту
+Comment[x-test]=xxA simple and lightweight translator that allows to translate and speak the selected textxx
 Keywords=google;yandex;text-to-speech;
+Keywords[ca]=google;yandex;text-to-speech;
+Keywords[ca@valencia]=google;yandex;text-to-speech;
+Keywords[nl]=google;yandex;tekst-naar-spraak;
+Keywords[tr]=google;yandex;metni konuş;
+Keywords[uk]=google;yandex;text-to-speech;гугл;яндекс;озвучення;текст;
+Keywords[x-test]=xxgooglexx;xxyandexxx;xxtext-to-speechxx;
 Exec=crow
 Icon=crow-translate
 Terminal=false
@@ -17,38 +41,86 @@ X-Purism-FormFactor=Workstation;Mobile;
 [Desktop Action TranslateSelectedText]
 Exec=@QT_BIN_DIR@/qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow translateSelection
 Name=Translate selected text
+Name[ca]=Tradueix el text seleccionat
+Name[ca@valencia]=Traduïx el text seleccionat
+Name[nl]=Geselecteerde tekst vertalen
+Name[tr]=Seçili Metni Çevir
+Name[uk]=Перекласти позначений текст
+Name[x-test]=xxTranslate selected textxx
 X-KDE-Shortcuts=Ctrl+Alt+E
 
 [Desktop Action SpeakSelection]
 Exec=@QT_BIN_DIR@/qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow speakSelection
 Name=Speak selected text
+Name[ca]=Pronuncia el text seleccionat
+Name[ca@valencia]=Llig el text seleccionat
+Name[nl]=Geselecteerde tekst uitspreken
+Name[tr]=Seçili Metni Konuş
+Name[uk]=Озвучити позначений текст
+Name[x-test]=xxSpeak selected textxx
 X-KDE-Shortcuts=Ctrl+Alt+S
 
 [Desktop Action SpeakTranslatedSelection]
 Exec=@QT_BIN_DIR@/qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow speakTranslatedSelection
 Name=Speak translation of selected text
+Name[ca]=Pronuncia la traducció del text seleccionat
+Name[ca@valencia]=Llig la traducció del text seleccionat
+Name[nl]=Vertaling van geselecteerde tekst uitspreken
+Name[tr]=Seçili Metnin Çevirisini Konuş
+Name[uk]=Озвучити переклад позначеного фрагмента тексту
+Name[x-test]=xxSpeak translation of selected textxx
 X-KDE-Shortcuts=Ctrl+Alt+F
 
 [Desktop Action StopSpeaking]
 Exec=@QT_BIN_DIR@/qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow stopSpeaking
 Name=Stop text speaking
+Name[ca]=Atura la pronunciació del text
+Name[ca@valencia]=Para la pronunciació del text
+Name[nl]=Tekst uitspreken stoppen
+Name[tr]=Metni Konuşmayı Durdur
+Name[uk]=Припинити озвучення тексту
+Name[x-test]=xxStop text speakingxx
 X-KDE-Shortcuts=Ctrl+Alt+G
 
 [Desktop Action Open]
 Exec=@QT_BIN_DIR@/qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow open
 Name=Show main window
+Name[ca]=Mostra la finestra principal
+Name[ca@valencia]=Mostra la finestra principal
+Name[nl]=Hoofdvenster tonen
+Name[tr]=Ana Pencereyi Göster
+Name[uk]=Показати головне вікно
+Name[x-test]=xxShow main windowxx
 X-KDE-Shortcuts=Ctrl+Alt+C
 
 [Desktop Action CopyTranslatedSelection]
 Exec=@QT_BIN_DIR@/qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow copyTranslatedSelection
 Name=Translate selected text and copy to clipboard
+Name[ca]=Tradueix el text seleccionat i el copia al porta-retalls
+Name[ca@valencia]=Traduïx el text seleccionat i el copia a dins del porta-retalls
+Name[nl]=Geselecteerde tekst vertalen en naar klembord kopiëren
+Name[tr]=Seçili Metni Çevir ve Panoya Kopyala
+Name[uk]=Перекласти позначений текст і скопіювати переклад до буфера обміну
+Name[x-test]=xxTranslate selected text and copy to clipboardxx
 
 [Desktop Action RecognizeScreenArea]
 Exec=@QT_BIN_DIR@/qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow recognizeScreenArea
 Name=Recognize text in screen area
+Name[ca]=Reconeix text en una àrea de la pantalla
+Name[ca@valencia]=Reconeix text en una àrea de la pantalla
+Name[nl]=Tekst in schermgebied herkennen
+Name[tr]=Ekran Alanındaki Metni Tanı
+Name[uk]=Розпізнати текст в області екрана
+Name[x-test]=xxRecognize text in screen areaxx
 X-KDE-Shortcuts=Ctrl+Alt+I
 
 [Desktop Action TranslateScreenArea]
 Exec=@QT_BIN_DIR@/qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow translateScreenArea
 Name=Translate text in screen area
+Name[ca]=Tradueix text en una àrea de la pantalla
+Name[ca@valencia]=Traduïx text en una àrea de la pantalla
+Name[nl]=Tekst in schermgebied vertalen
+Name[tr]=Ekran Alanındaki Metni Çevir
+Name[uk]=Перекласти текст в області екрана
+Name[x-test]=xxTranslate text in screen areaxx
 X-KDE-Shortcuts=Ctrl+Alt+O
