@@ -1255,7 +1255,7 @@ void OnlineTranslator::parseTranslate()
 
     if (m_sourceLang == Auto) {
         // Parse language
-        m_sourceLang = language(m_engine, jsonData.value(QStringLiteral("source_language")).toString());
+        m_sourceLang = language(m_engine, jsonData.value(QStringLiteral("detected")).toString());
         if (m_sourceLang == NoLanguage) {
             resetData(ParsingError, tr("Error: Unable to parse autodetected language"));
             return;
