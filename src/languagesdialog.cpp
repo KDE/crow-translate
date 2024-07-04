@@ -124,7 +124,6 @@ void LanguagesDialog::addLanguage(QListWidget *widget, OnlineTranslator::Languag
 {
     auto *item = new QListWidgetItem;
     item->setText(OnlineTranslator::languageName(lang));
-    item->setIcon(LanguageButtonsWidget::countryIcon(lang));
     item->setData(Qt::UserRole, lang);
     widget->addItem(item);
 }

@@ -19,6 +19,7 @@
 #include <QKeySequence>
 #include <QLibraryInfo>
 #include <QMetaEnum>
+#include <QRandomGenerator>
 #include <QSettings>
 #include <QStandardPaths>
 #include <QTextStream>
@@ -500,207 +501,36 @@ bool AppSettings::defaultForceTranslationAutodetect()
     return true;
 }
 
-QString AppSettings::engineUrl(OnlineTranslator::Engine engine) const
+QString AppSettings::instanceUrl() const
 {
-    switch (engine) {
-    case OnlineTranslator::LibreTranslate:
-        return m_settings->value(QStringLiteral("Translation/LibreTranslateUrl"), defaultEngineUrl(engine)).toString();
-    case OnlineTranslator::Lingva:
-        return m_settings->value(QStringLiteral("Translation/LingvaUrl"), defaultEngineUrl(engine)).toString();
-    default:
-        Q_UNREACHABLE();
-    }
+    return m_settings->value(QStringLiteral("Translation/InstanceUrl"), randomInstanceUrl()).toString();
 }
 
-void AppSettings::setEngineUrl(OnlineTranslator::Engine engine, const QString &url)
+void AppSettings::setInstanceUrl(const QString &url)
 {
-    switch (engine) {
-    case OnlineTranslator::LibreTranslate:
-        m_settings->setValue(QStringLiteral("Translation/LibreTranslateUrl"), url);
-        break;
-    case OnlineTranslator::Lingva:
-        m_settings->setValue(QStringLiteral("Translation/LingvaUrl"), url);
-        break;
-    default:
-        Q_UNREACHABLE();
-    }
+    m_settings->setValue(QStringLiteral("Translation/InstanceUrl"), url);
 }
 
-QString AppSettings::defaultEngineUrl(OnlineTranslator::Engine engine)
+QString AppSettings::randomInstanceUrl()
 {
-    switch (engine) {
-    case OnlineTranslator::LibreTranslate:
-        return QStringLiteral("https://translate.argosopentech.com");
-    case OnlineTranslator::Lingva:
-        return QStringLiteral("https://lingva.garudalinux.org");
-    default:
-        Q_UNREACHABLE();
-    }
+    // Pick random instance by default to spread load
+    QStringList urls = AppSettings::instanceUrls();
+    int randomNumber = QRandomGenerator::global()->bounded(urls.size());
+    return urls[randomNumber];
 }
 
-QByteArray AppSettings::engineApiKey(OnlineTranslator::Engine engine) const
+QStringList AppSettings::instanceUrls()
 {
-    switch (engine) {
-    case OnlineTranslator::LibreTranslate:
-        return m_settings->value(QStringLiteral("Translation/LibreTranslateApiKey"), defaultEngineApiKey(engine)).toByteArray();
-    default:
-        Q_UNREACHABLE();
-    }
-}
-
-void AppSettings::setEngineApiKey(OnlineTranslator::Engine engine, const QByteArray &apiKey)
-{
-    switch (engine) {
-    case OnlineTranslator::LibreTranslate:
-        m_settings->setValue(QStringLiteral("Translation/LibreTranslateApiKey"), apiKey);
-        break;
-    default:
-        Q_UNREACHABLE();
-    }
-}
-
-QByteArray AppSettings::defaultEngineApiKey(OnlineTranslator::Engine engine)
-{
-    switch (engine) {
-    case OnlineTranslator::LibreTranslate:
-        return {};
-    default:
-        Q_UNREACHABLE();
-    }
-}
-
-OnlineTts::Voice AppSettings::voice(OnlineTranslator::Engine engine) const
-{
-    switch (engine) {
-    case OnlineTranslator::Google:
-    case OnlineTranslator::Bing:
-    case OnlineTranslator::LibreTranslate:
-    case OnlineTranslator::Lingva:
-        return OnlineTts::NoVoice;
-    case OnlineTranslator::Yandex:
-        return m_settings->value(QStringLiteral("TTS/YandexVoice"), defaultVoice(engine)).value<OnlineTts::Voice>();
-    default:
-        Q_UNREACHABLE();
-    }
-}
-
-void AppSettings::setVoice(OnlineTranslator::Engine engine, OnlineTts::Voice voice)
-{
-    switch (engine) {
-    case OnlineTranslator::Yandex:
-        m_settings->setValue(QStringLiteral("TTS/YandexVoice"), voice);
-        return;
-    default:
-        // Currently only Yandex have voice settings
-        Q_UNREACHABLE();
-    }
-}
-
-OnlineTts::Voice AppSettings::defaultVoice(OnlineTranslator::Engine engine)
-{
-    switch (engine) {
-    case OnlineTranslator::Google:
-    case OnlineTranslator::Bing:
-    case OnlineTranslator::LibreTranslate:
-    case OnlineTranslator::Lingva:
-        return OnlineTts::NoVoice;
-    case OnlineTranslator::Yandex:
-        return OnlineTts::Zahar;
-    default:
-        Q_UNREACHABLE();
-    }
-}
-
-OnlineTts::Emotion AppSettings::emotion(OnlineTranslator::Engine engine) const
-{
-    switch (engine) {
-    case OnlineTranslator::Google:
-    case OnlineTranslator::Bing:
-    case OnlineTranslator::LibreTranslate:
-    case OnlineTranslator::Lingva:
-        return OnlineTts::NoEmotion;
-    case OnlineTranslator::Yandex:
-        return m_settings->value(QStringLiteral("TTS/YandexEmotion"), defaultEmotion(engine)).value<OnlineTts::Emotion>();
-    default:
-        Q_UNREACHABLE();
-    }
-}
-
-void AppSettings::setEmotion(OnlineTranslator::Engine engine, OnlineTts::Emotion emotion)
-{
-    switch (engine) {
-    case OnlineTranslator::Yandex:
-        m_settings->setValue(QStringLiteral("TTS/YandexEmotion"), emotion);
-        return;
-    default:
-        // Currently only Yandex have emotion settings
-        Q_UNREACHABLE();
-    }
-}
-
-OnlineTts::Emotion AppSettings::defaultEmotion(OnlineTranslator::Engine engine)
-{
-    switch (engine) {
-    case OnlineTranslator::Google:
-    case OnlineTranslator::Bing:
-    case OnlineTranslator::LibreTranslate:
-    case OnlineTranslator::Lingva:
-        return OnlineTts::NoEmotion;
-    case OnlineTranslator::Yandex:
-        return OnlineTts::Neutral;
-    default:
-        Q_UNREACHABLE();
-    }
-}
-
-QMap<OnlineTranslator::Language, QLocale::Country> AppSettings::regions(OnlineTranslator::Engine engine) const
-{
-    switch (engine) {
-    case OnlineTranslator::Google: {
-        const auto regionSettings(m_settings->value(QStringLiteral("TTS/GoogleRegions")).value<QMap<QString, QVariant>>());
-        QMap<OnlineTranslator::Language, QLocale::Country> regions;
-        for (const OnlineTranslator::Language lang : OnlineTts::validRegions().keys())
-            regions[lang] = regionSettings.value(OnlineTranslator::languageName(lang)).value<QLocale::Country>();
-        return regions;
-    }
-    case OnlineTranslator::Bing:
-    case OnlineTranslator::Yandex:
-    case OnlineTranslator::LibreTranslate:
-    case OnlineTranslator::Lingva:
-        return {};
-    default:
-        Q_UNREACHABLE();
-    }
-}
-
-void AppSettings::setRegions(OnlineTranslator::Engine engine, const QMap<OnlineTranslator::Language, QLocale::Country> &regions)
-{
-    switch (engine) {
-    case OnlineTranslator::Google: {
-        QMap<QString, QVariant> regionSettings;
-        for (auto it = regions.cbegin(); it != regions.cend(); ++it)
-            regionSettings[OnlineTranslator::languageName(it.key())] = it.value();
-
-        m_settings->setValue(QStringLiteral("TTS/GoogleRegions"), regionSettings);
-        return;
-    }
-    default:
-        Q_UNREACHABLE();
-    }
-}
-
-QMap<OnlineTranslator::Language, QLocale::Country> AppSettings::defaultRegions(OnlineTranslator::Engine engine)
-{
-    switch (engine) {
-    case OnlineTranslator::Google:
-    case OnlineTranslator::Bing:
-    case OnlineTranslator::Yandex:
-    case OnlineTranslator::LibreTranslate:
-    case OnlineTranslator::Lingva:
-        return {};
-    default:
-        Q_UNREACHABLE();
-    }
+    return {
+        QStringLiteral("https://mozhi.aryak.me"),
+        QStringLiteral("https://translate.bus-hit.me"),
+        QStringLiteral("https://nyc1.mz.ggtyler.dev"),
+        QStringLiteral("https://translate.projectsegfau.lt"),
+        QStringLiteral("https://translate.nerdvpn.de"),
+        QStringLiteral("https://mozhi.ducks.party"),
+        QStringLiteral("https://mozhi.frontendfriendly.xyz"),
+        QStringLiteral("https://mozhi.pussthecat.org"),
+    };
 }
 
 QNetworkProxy::ProxyType AppSettings::proxyType() const

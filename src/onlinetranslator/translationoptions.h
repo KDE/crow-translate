@@ -22,13 +22,10 @@
  * // Obtain translation
  *
  * QTextStream out(stdout);
- * for (auto it = translator.translationOptions().cbegin(); it != translator.translationOptions().cend(); ++it) {
- *     out << it.key() << ":" << endl; // Output the type of speech with a colon
- *     for (const auto &[word, gender, translations] : it.value()) {
- *         out << "  " << word << ": "; // Print the word
- *         out << translations; // Print translations
- *         out << endl;
- *     }
+ * out << "translation options:" << endl;
+ * for (const auto &[word, translations] : translator.translationOptions()) {
+ *     out << "  " << word << ": "; // Print the word
+ *     out << translations; // Print translations
  *     out << endl;
  * }
  * @endcode
@@ -57,21 +54,9 @@ struct TranslationOptions {
     QString word;
 
     /**
-     * @brief Gender of the word.
-     */
-    QString gender;
-
-    /**
      * @brief Associated translations for the word.
      */
     QStringList translations;
-
-    /**
-     * @brief Converts the object to JSON
-     *
-     * @return JSON representation
-     */
-    QJsonObject toJson() const;
 };
 
 #endif // TRANSLATIONOPTIONS_H

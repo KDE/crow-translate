@@ -69,69 +69,6 @@ QKeySequence SpeakButtons::speakShortcut() const
     return ui->playPauseButton->shortcut();
 }
 
-OnlineTts::Voice SpeakButtons::voice(OnlineTranslator::Engine engine) const
-{
-    switch (engine) {
-    case OnlineTranslator::Yandex:
-        return m_yandexVoice;
-    default:
-        return OnlineTts::NoVoice;
-    }
-}
-
-void SpeakButtons::setVoice(OnlineTranslator::Engine engine, OnlineTts::Voice voice)
-{
-    switch (engine) {
-    case OnlineTranslator::Yandex:
-        m_yandexVoice = voice;
-        break;
-    default:
-        break;
-    }
-}
-
-OnlineTts::Emotion SpeakButtons::emotion(OnlineTranslator::Engine engine) const
-{
-    switch (engine) {
-    case OnlineTranslator::Yandex:
-        return m_yandexEmotion;
-    default:
-        return OnlineTts::NoEmotion;
-    }
-}
-
-void SpeakButtons::setEmotion(OnlineTranslator::Engine engine, OnlineTts::Emotion emotion)
-{
-    switch (engine) {
-    case OnlineTranslator::Yandex:
-        m_yandexEmotion = emotion;
-        break;
-    default:
-        break;
-    }
-}
-
-QMap<OnlineTranslator::Language, QLocale::Country> SpeakButtons::regions(OnlineTranslator::Engine engine) const
-{
-    switch (engine) {
-    case OnlineTranslator::Google:
-        return m_googleRegions;
-    default:
-        return {};
-    }
-}
-
-void SpeakButtons::setRegions(OnlineTranslator::Engine engine, QMap<OnlineTranslator::Language, QLocale::Country> regions)
-{
-    switch (engine) {
-    case OnlineTranslator::Google:
-        m_googleRegions = std::move(regions);
-        break;
-    default:
-        break;
-    }
-}
-
 void SpeakButtons::speak(const QString &text, OnlineTranslator::Language lang, OnlineTranslator::Engine engine)
 {
     if (text.isEmpty()) {
@@ -140,9 +77,8 @@ void SpeakButtons::speak(const QString &text, OnlineTranslator::Language lang, O
     }
 
     OnlineTts onlineTts;
-    onlineTts.setRegions(m_googleRegions);
 
-    onlineTts.generateUrls(text, engine, lang, voice(engine), emotion(engine));
+    onlineTts.generateUrls(AppSettings().instanceUrl(), text, engine, lang);
     if (onlineTts.error() != OnlineTts::NoError) {
         QMessageBox::critical(this, tr("Unable to generate URLs for TTS"), onlineTts.errorString());
         return;

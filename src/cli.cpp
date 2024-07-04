@@ -43,6 +43,7 @@ void Cli::process(const QCoreApplication &app)
     const QCommandLineOption translation({"t", "translation"}, tr("Specify the translation language(s), splitted by '+' (by default, the system language is used)."), QStringLiteral("code"), QStringLiteral("auto"));
     const QCommandLineOption locale({"l", "locale"}, tr("Specify the translator language (by default, the system language is used)."), QStringLiteral("code"), QStringLiteral("auto"));
     const QCommandLineOption engine({"e", "engine"}, tr("Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' or 'lingva'), Google is used by default."), QStringLiteral("engine"), QStringLiteral("google"));
+    const QCommandLineOption url({"u", "url"}, tr("Specify instance URL. Random instance URL will be used by default."), QStringLiteral("URL"), AppSettings::randomInstanceUrl());
     const QCommandLineOption speakTranslation({"p", "speak-translation"}, tr("Speak the translation."));
     const QCommandLineOption speakSource({"u", "speak-source"}, tr("Speak the source."));
     const QCommandLineOption file({"f", "file"}, tr("Read source text from files. Arguments will be interpreted as file paths."));
@@ -52,7 +53,7 @@ void Cli::process(const QCoreApplication &app)
     const QCommandLineOption json({"j", "json"}, tr("Print output formatted as JSON."));
 
     QCommandLineParser parser;
-    parser.setApplicationDescription(tr("A simple and lightweight translator that allows to translate and speak text using Google, Yandex, Bing, LibreTranslate and Lingva"));
+    parser.setApplicationDescription(tr("A simple and lightweight translator that allows to translate and speak text using Mozhi"));
     parser.addPositionalArgument(QStringLiteral("text"), tr("Text to translate. By default, the translation will be done to the system language."));
     parser.addHelpOption();
     parser.addVersionOption();
@@ -61,6 +62,7 @@ void Cli::process(const QCoreApplication &app)
     parser.addOption(translation);
     parser.addOption(locale);
     parser.addOption(engine);
+    parser.addOption(url);
     parser.addOption(speakTranslation);
     parser.addOption(speakSource);
     parser.addOption(file);
@@ -113,19 +115,21 @@ void Cli::process(const QCoreApplication &app)
         parser.showHelp();
     }
 
+    m_translator->setInstanceUrl(parser.value(url));
+
     // Engine
-    if (parser.value(engine) == QLatin1String("google")) {
+    if (parser.value(engine) == QLatin1String("deepl")) {
+        m_engine = OnlineTranslator::Deepl;
+    } else if (parser.value(engine) == QLatin1String("mymemory")) {
+        m_engine = OnlineTranslator::Mymemory;
+    } else if (parser.value(engine) == QLatin1String("reverso")) {
+        m_engine = OnlineTranslator::Reverso;
+    } else if (parser.value(engine) == QLatin1String("google")) {
         m_engine = OnlineTranslator::Google;
     } else if (parser.value(engine) == QLatin1String("yandex")) {
         m_engine = OnlineTranslator::Yandex;
-    } else if (parser.value(engine) == QLatin1String("bing")) {
-        m_engine = OnlineTranslator::Bing;
-    } else if (parser.value(engine) == QLatin1String("libretranslate")) {
-        m_engine = OnlineTranslator::LibreTranslate;
-        m_translator->setEngineUrl(OnlineTranslator::Engine::LibreTranslate, AppSettings().engineUrl(OnlineTranslator::Engine::LibreTranslate));
-    } else if (parser.value(engine) == QLatin1String("lingva")) {
-        m_engine = OnlineTranslator::Lingva;
-        m_translator->setEngineUrl(OnlineTranslator::Engine::Lingva, AppSettings().engineUrl(OnlineTranslator::Engine::Lingva));
+    } else if (parser.value(engine) == QLatin1String("duckduckgo") || parser.value(engine) == QLatin1String("bing")) { // DuckDuckGo is 1-1 replacemnet for Bing
+        m_engine = OnlineTranslator::Duckduckgo;
     } else {
         qCritical() << tr("Error: Unknown engine") << '\n';
         parser.showHelp();
@@ -175,7 +179,7 @@ void Cli::printTranslation()
 {
     // JSON mode
     if (m_json) {
-        m_stdout << m_translator->toJson().toJson();
+        m_stdout << m_translator->jsonResponse().toJson();
         return;
     }
 
@@ -217,30 +221,20 @@ void Cli::printTranslation()
     // Translation options
     if (!m_translator->translationOptions().isEmpty()) {
         m_stdout << tr("%1 - translation options:").arg(m_translator->source()) << '\n';
-        const QMap<QString, QVector<TranslationOptions>> translationOptions = m_translator->translationOptions();
-        for (auto it = translationOptions.cbegin(); it != translationOptions.cend(); ++it) {
-            m_stdout << it.key() << '\n';
-            for (const auto &[word, gender, translations] : it.value()) {
-                m_stdout << '\t';
-                if (!gender.isEmpty())
-                    m_stdout << gender << ' ';
-                m_stdout << word << ": ";
-                m_stdout << translations.join(QStringLiteral(", ")) << '\n';
-            }
-            m_stdout << '\n';
+        for (const auto &[word, translations] : m_translator->translationOptions()) {
+            m_stdout << '\t';
+            m_stdout << word << ": ";
+            m_stdout << translations.join(QStringLiteral(", ")) << '\n';
         }
+        m_stdout << '\n';
     }
 
     // Examples
     if (!m_translator->examples().isEmpty()) {
         m_stdout << tr("%1 - examples:").arg(m_translator->source()) << '\n';
-        const QMap<QString, QVector<TranslationExample>> examples = m_translator->examples();
-        for (auto it = examples.cbegin(); it != examples.cend(); ++it) {
-            m_stdout << it.key() << '\n';
-            for (const auto &[example, description] : it.value()) {
-                m_stdout << '\t' << description << '\n';
-                m_stdout << '\t' << example << '\n';
-            }
+        for (const auto &[example, description] : m_translator->examples()) {
+            m_stdout << '\t' << description << '\n';
+            m_stdout << '\t' << example << '\n';
         }
     }
 
@@ -342,7 +336,7 @@ void Cli::buildTranslationStateMachine()
 void Cli::speak(const QString &text, OnlineTranslator::Language lang)
 {
     OnlineTts tts;
-    tts.generateUrls(text, m_engine, lang);
+    tts.generateUrls(m_translator->instanceUrl(), text, m_engine, lang);
     if (tts.error() != OnlineTts::NoError) {
         qCritical() << tr("Error: %1").arg(tts.errorString());
         m_stateMachine->stop();

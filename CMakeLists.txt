@@ -9,7 +9,7 @@ cmake_minimum_required(VERSION 3.16.0)
 
 project(crow-translate
     VERSION 2.11.1
-    DESCRIPTION "A simple and lightweight translator that allows to translate and speak text using Google, Yandex, Bing, LibreTranslate and Lingva"
+    DESCRIPTION "A simple and lightweight translator that allows to translate and speak text using Mozhi"
     HOMEPAGE_URL https://apps.kde.org/crow-translate
     LANGUAGES CXX
 )
@@ -123,7 +123,6 @@ endif()
 configure_file(src/cmake.h.in cmake.h)
 
 add_executable(${PROJECT_NAME}
-    data/icons/flags.qrc
     data/icons/icon-theme.qrc
     data/icons/engines/engines.qrc
     src/languagesdialog.cpp
@@ -141,8 +140,6 @@ add_executable(${PROJECT_NAME}
     src/ocr/snippingarea.cpp
     src/onlinetranslator/onlinetranslator.cpp
     src/onlinetranslator/onlinetts.cpp
-    src/onlinetranslator/translationexample.cpp
-    src/onlinetranslator/translationoptions.cpp
     src/popupwindow.cpp
     src/popupwindow.ui
     src/screenwatcher.cpp

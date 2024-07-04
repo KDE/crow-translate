@@ -21,13 +21,10 @@
  * // Obtain translation
  *
  * QTextStream out(stdout);
- * for (auto it = translator.examples().cbegin(); it != translator.examples().cend(); ++it) {
- *     out << it.key() << ":" << endl; // Output the type of speech with a colon
- *     for (const auto &[example, description] : it.value()) {
- *         out << "  " << description << endl;
- *         out << "  " << example << endl;
- *         out << endl;
- *     }
+ * out << "examples:" << endl;
+ * for (const auto &[example, description] : translator.examples()) {
+ *     out << "  " << description << endl;
+ *     out << "  " << example << endl;
  *     out << endl;
  * }
  * @endcode
@@ -57,13 +54,6 @@ struct TranslationExample {
      * @brief description for the example
      */
     QString description;
-
-    /**
-     * @brief Converts the object to JSON
-     *
-     * @return JSON representation
-     */
-    QJsonObject toJson() const;
 };
 
 #endif // TRANSLATIONEXAMPLE_H

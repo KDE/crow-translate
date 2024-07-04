@@ -53,16 +53,6 @@ private slots:
     void onOcrLanguagesPathChanged(const QString &path);
     void onTesseractParametersCurrentItemChanged();
 
-    void saveYandexEngineVoice(int voice);
-    void saveYandexEngineEmotion(int emotion);
-    void detectYandexTextLanguage();
-    void speakYandexTestText();
-
-    void onGoogleLanguageSelectionChanged(int languageIndex);
-    void saveGoogleEngineRegion(int region);
-    void detectGoogleTextLanguage();
-    void speakGoogleTestText();
-
     void loadShortcut(ShortcutItem *item);
     void updateAcceptButton();
     void acceptCurrentShortcut();
@@ -77,17 +67,10 @@ private:
     void activateCompactMode();
     void loadSettings();
 
-    void detectTestTextLanguage(OnlineTranslator &translator, OnlineTranslator::Engine engine);
-    void speakTestText(OnlineTranslator &translator, OnlineTranslator::Engine engine);
-
     Ui::SettingsDialog *ui;
 
     // Manage platform-dependant autostart
     AbstractAutostartManager *m_autostartManager;
-
-    // Test voice
-    OnlineTranslator *m_yandexTranslator;
-    OnlineTranslator *m_googleTranslator;
 
 #ifdef WITH_PORTABLE_MODE
     QCheckBox *m_portableCheckbox;

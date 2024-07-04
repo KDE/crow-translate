@@ -886,10 +886,8 @@ void MainWindow::loadAppSettings()
     m_forceSourceAutodetect = settings.isForceSourceAutodetect();
     m_forceTranslationAutodetect = settings.isForceTranslationAutodetect();
 
-    // Engine settings
-    m_translator->setEngineUrl(OnlineTranslator::LibreTranslate, settings.engineUrl(OnlineTranslator::LibreTranslate));
-    m_translator->setEngineApiKey(OnlineTranslator::LibreTranslate, settings.engineApiKey(OnlineTranslator::LibreTranslate));
-    m_translator->setEngineUrl(OnlineTranslator::Lingva, settings.engineUrl(OnlineTranslator::Lingva));
+    // Instance settings
+    m_translator->setInstanceUrl(settings.instanceUrl());
 
     // OCR settings
     if (const QByteArray languages = settings.ocrLanguagesString(), path = settings.ocrLanguagesPath(); !m_ocr->init(languages, path, settings.tesseractParameters())) {
@@ -908,14 +906,6 @@ void MainWindow::loadAppSettings()
     m_snippingArea->setCaptureOnRelese(settings.isConfirmOnRelease());
     m_snippingArea->setShowMagnifier(settings.isShowMagnifier());
     m_snippingArea->setApplyLightMask(settings.isApplyLightMask());
-
-    // TTS
-    ui->sourceSpeakButtons->setVoice(OnlineTranslator::Yandex, settings.voice(OnlineTranslator::Yandex));
-    ui->sourceSpeakButtons->setEmotion(OnlineTranslator::Yandex, settings.emotion(OnlineTranslator::Yandex));
-    ui->sourceSpeakButtons->setRegions(OnlineTranslator::Google, settings.regions(OnlineTranslator::Google));
-    ui->translationSpeakButtons->setVoice(OnlineTranslator::Yandex, settings.voice(OnlineTranslator::Yandex));
-    ui->translationSpeakButtons->setEmotion(OnlineTranslator::Yandex, settings.emotion(OnlineTranslator::Yandex));
-    ui->translationSpeakButtons->setRegions(OnlineTranslator::Google, settings.regions(OnlineTranslator::Google));
 
     // Connection
     if (const QNetworkProxy::ProxyType proxyType = settings.proxyType(); proxyType == QNetworkProxy::DefaultProxy) {
@@ -988,17 +978,6 @@ void MainWindow::checkLanguageButton(int checkedId)
     if (checkedLang == anotherGroup->checkedLanguage() && !checkedGroup->isAutoButtonChecked() && !anotherGroup->isAutoButtonChecked()) {
         if (!anotherGroup->checkLanguage(checkedGroup->previousCheckedLanguage()))
             anotherGroup->checkAutoButton(); // Select "Auto" button if group do not have such language
-        return;
-    }
-
-    // Check if selected language is supported by engine
-    if (!OnlineTranslator::isSupportTranslation(currentEngine(), checkedLang)) {
-        for (int i = 0; i < ui->engineComboBox->count(); ++i) {
-            if (OnlineTranslator::isSupportTranslation(static_cast<OnlineTranslator::Engine>(i), checkedLang)) {
-                ui->engineComboBox->setCurrentIndex(i); // Check first supported language
-                break;
-            }
-        }
         return;
     }
 

@@ -3,7 +3,7 @@
 
 # ![Crow Translate logo](data/icons/app/48-apps-crow-translate.png) Crow Translate
 
-**Crow Translate** is a simple and lightweight translator written in **C++ / Qt** that allows you to translate and speak text.
+**Crow Translate** is a simple and lightweight translator written in **C++ / Qt** that allows you to translate and speak text using [Mozhi](https://codeberg.org/aryak/mozhi).
 
 ## Content
 
@@ -41,8 +41,7 @@
 
 ## Features
 
-- Translate and speak text from screen or selection Google, Yandex, Bing, LibreTranslate and Lingva translate API
-- Support 125 different languages
+- Translate and speak text from screen or selection
 - Low memory consumption (~20MB)
 - Highly customizable shortcuts
 - Command-line interface with rich options
@@ -84,22 +83,22 @@ The program also has a console interface.
 
 **Usage:** `crow [options] text`
 
-| Option                     | Description                                                                                                         |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `-h, --help`               | Display help                                                                                                        |
-| `-v, --version`            | Display version information                                                                                         |
-| `-c, --codes`              | Display language codes                                                                                              |
-| `-s, --source <code>`      | Specify the source language (by default, engine will try to determine the language on its own)                      |
-| `-t, --translation <code>` | Specify the translation language(s), splitted by '+' (by default, the system language is used)                      |
-| `-l, --locale <code>`      | Specify the translator language (by default, the system language is used)                                           |
-| `-e, --engine <engine>`    | Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' or 'lingva'), Google is used by default |
-| `-p, --speak-translation`  | Speak the translation                                                                                               |
-| `-u, --speak-source`       | Speak the source                                                                                                    |
-| `-f, --file`               | Read source text from files. Arguments will be interpreted as file paths                                            |
-| `-i, --stdin`              | Add stdin data to source text                                                                                       |
-| `-a, --audio-only`         | Print text only for speaking when using `--speak-translation` or `--speak-source`                                   |
-| `-b, --brief`              | Print only translations                                                                                             |
-| `-j, --json`               | Print output formatted as JSON                                                                                      |
+| Option                     | Description                                                                                                                            |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------                    |
+| `-h, --help`               | Display help                                                                                                                           |
+| `-v, --version`            | Display version information                                                                                                            |
+| `-c, --codes`              | Display language codes                                                                                                                 |
+| `-s, --source <code>`      | Specify the source language (by default, engine will try to determine the language on its own)                                         |
+| `-t, --translation <code>` | Specify the translation language(s), splitted by '+' (by default, the system language is used)                                         |
+| `-l, --locale <code>`      | Specify the translator language (by default, the system language is used)                                                              |
+| `-e, --engine <engine>`    | Specify the translator engine ('google', 'yandex', 'deepl', 'duckduckgo', 'libre', 'mymemory' or 'reverso'), Google is used by default |
+| `-p, --speak-translation`  | Speak the translation                                                                                                                  |
+| `-u, --speak-source`       | Speak the source                                                                                                                       |
+| `-f, --file`               | Read source text from files. Arguments will be interpreted as file paths                                                               |
+| `-i, --stdin`              | Add stdin data to source text                                                                                                          |
+| `-a, --audio-only`         | Print text only for speaking when using `--speak-translation` or `--speak-source`                                                      |
+| `-b, --brief`              | Print only translations                                                                                                                |
+| `-j, --json`               | Print output formatted as JSON                                                                                                         |
 
 **Note:** If you do not pass startup arguments to the program, the GUI starts.
 

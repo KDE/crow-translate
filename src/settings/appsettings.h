@@ -175,26 +175,10 @@ public:
     void setForceTranslationAutodetect(bool force);
     static bool defaultForceTranslationAutodetect();
 
-    QString engineUrl(OnlineTranslator::Engine engine) const;
-    void setEngineUrl(OnlineTranslator::Engine engine, const QString &url);
-    static QString defaultEngineUrl(OnlineTranslator::Engine engine);
-
-    QByteArray engineApiKey(OnlineTranslator::Engine engine) const;
-    void setEngineApiKey(OnlineTranslator::Engine engine, const QByteArray &apiKey);
-    static QByteArray defaultEngineApiKey(OnlineTranslator::Engine engine);
-
-    // Speech synthesis settings
-    OnlineTts::Voice voice(OnlineTranslator::Engine engine) const;
-    void setVoice(OnlineTranslator::Engine engine, OnlineTts::Voice voice);
-    static OnlineTts::Voice defaultVoice(OnlineTranslator::Engine engine);
-
-    OnlineTts::Emotion emotion(OnlineTranslator::Engine engine) const;
-    void setEmotion(OnlineTranslator::Engine engine, OnlineTts::Emotion emotion);
-    static OnlineTts::Emotion defaultEmotion(OnlineTranslator::Engine engine);
-
-    QMap<OnlineTranslator::Language, QLocale::Country> regions(OnlineTranslator::Engine engine) const;
-    void setRegions(OnlineTranslator::Engine engine, const QMap<OnlineTranslator::Language, QLocale::Country> &regions);
-    static QMap<OnlineTranslator::Language, QLocale::Country> defaultRegions(OnlineTranslator::Engine engine);
+    QString instanceUrl() const;
+    void setInstanceUrl(const QString &url);
+    static QString randomInstanceUrl();
+    static QStringList instanceUrls();
 
     // Connection settings
     QNetworkProxy::ProxyType proxyType() const;

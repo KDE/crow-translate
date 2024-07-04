@@ -35,41 +35,6 @@ class OnlineTts : public QObject
 
 public:
     /**
-     * @brief Defines voice to use
-     *
-     * Used only by Yandex.
-     */
-    enum Voice {
-        // All
-        NoVoice = -1,
-
-        // Yandex
-        Zahar,
-        Ermil,
-        Jane,
-        Oksana,
-        Alyss,
-        Omazh
-    };
-    Q_ENUM(Voice)
-
-    /**
-     * @brief Defines emotion to use
-     *
-     * Used only by Yandex.
-     */
-    enum Emotion {
-        // All
-        NoEmotion = -1,
-
-        // Yandex
-        Neutral,
-        Good,
-        Evil
-    };
-    Q_ENUM(Emotion)
-
-    /**
      * @brief Indicates all possible error conditions found during the processing of the URLs generation
      */
     enum TtsError {
@@ -106,7 +71,7 @@ public:
      * @param voice voice to use (used only by Yandex)
      * @param emotion emotion to use (used only by Yandex)
      */
-    void generateUrls(const QString &text, OnlineTranslator::Engine engine, OnlineTranslator::Language lang, Voice voice = NoVoice, Emotion emotion = NoEmotion);
+    void generateUrls(const QString &instanceUrl, const QString &text, OnlineTranslator::Engine engine, OnlineTranslator::Language lang);
 
     /**
      * @brief Generated media
@@ -135,99 +100,12 @@ public:
      */
     const QString &errorString() const;
 
-    /**
-     * @brief Code of the voice
-     *
-     * @param voice voice
-     * @return code for voice
-     */
-    static QString voiceCode(Voice voice);
-
-    /**
-     * @brief Code of the emotion
-     *
-     * Used only by Yandex.
-     *
-     * @param emotion emotion
-     * @return code for emotion
-     */
-    static QString emotionCode(Emotion emotion);
-
-    /**
-     * @brief code of the regional language (voice only)
-     *
-     * Used only by Google
-     *
-     * @param language language
-     * @param region region
-     * @return code for language in region, or a region-neutral language code if region is not supported
-     */
-    static QString regionCode(OnlineTranslator::Language language, QLocale::Country region);
-
-    /**
-     * @brief Emotion from code
-     *
-     * Used only by Yandex.
-     *
-     * @param emotionCode emotion code
-     * @return corresponding emotion
-     */
-    static Emotion emotion(const QString &emotionCode);
-
-    /**
-     * @brief Voice from code
-     *
-     * Used only by Yandex.
-     *
-     * @param voiceCode voice code
-     * @return corresponding voice
-     */
-    static Voice voice(const QString &voiceCode);
-
-    /**
-     * @brief Voice region from code
-     *
-     * Used only by Google
-     *
-     * @param regionCode region code
-     * @return corresponding region code
-     */
-    static QPair<OnlineTranslator::Language, QLocale::Country> region(const QString &regionCode);
-
-    /**
-     * @brief valid and supported regions for languages
-     * @return a map, with key being language enum and value a list of valid regions enum
-     */
-    static const QMap<OnlineTranslator::Language, QList<QLocale::Country>> &validRegions();
-
-    /**
-     * @brief region preferences
-     * @return region preferences
-     */
-    const QMap<OnlineTranslator::Language, QLocale::Country> &regions() const;
-
-    /**
-     * @brief set region preferences
-     * @param newRegionPreferences new region preferences
-     */
-    void setRegions(const QMap<OnlineTranslator::Language, QLocale::Country> &newRegionPreferences);
-
 private:
     void setError(TtsError error, const QString &errorString);
 
     QString languageApiCode(OnlineTranslator::Engine engine, OnlineTranslator::Language lang);
-    QString voiceApiCode(OnlineTranslator::Engine engine, Voice voice);
-    QString emotionApiCode(OnlineTranslator::Engine engine, Emotion emotion);
 
-    static const QMap<Emotion, QString> s_emotionCodes;
-    static const QMap<Voice, QString> s_voiceCodes;
-    static const QMap<QPair<OnlineTranslator::Language, QLocale::Country>, QString> s_regionCodes;
-    static const QMap<OnlineTranslator::Language, QList<QLocale::Country>> s_validRegions;
-
-    QMap<OnlineTranslator::Language, QLocale::Country> m_regionPreferences;
-
-    static constexpr int s_googleTtsLimit = 200;
-    static constexpr int s_yandexTtsLimit = 1400;
+    static constexpr int s_TtsLimit = 200;
 
     QList<QMediaContent> m_media;
     QString m_errorString;

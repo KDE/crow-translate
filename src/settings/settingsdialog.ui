@@ -49,7 +49,8 @@
         <string>General</string>
        </property>
        <property name="icon">
-        <iconset theme="preferences-system"/>
+        <iconset theme="preferences-system">
+         <normaloff>.</normaloff>.</iconset>
        </property>
       </item>
       <item>
@@ -57,7 +58,8 @@
         <string>Interface</string>
        </property>
        <property name="icon">
-        <iconset theme="preferences-desktop-theme"/>
+        <iconset theme="preferences-desktop-theme">
+         <normaloff>.</normaloff>.</iconset>
        </property>
       </item>
       <item>
@@ -65,7 +67,8 @@
         <string>Translation</string>
        </property>
        <property name="icon">
-        <iconset theme="preferences-desktop-locale"/>
+        <iconset theme="preferences-desktop-locale">
+         <normaloff>.</normaloff>.</iconset>
        </property>
       </item>
       <item>
@@ -73,15 +76,8 @@
         <string notr="true">OCR</string>
        </property>
        <property name="icon">
-        <iconset theme="scanner"/>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Speech synthesis</string>
-       </property>
-       <property name="icon">
-        <iconset theme="preferences-desktop-sound"/>
+        <iconset theme="scanner">
+         <normaloff>.</normaloff>.</iconset>
        </property>
       </item>
       <item>
@@ -89,7 +85,8 @@
         <string>Connection</string>
        </property>
        <property name="icon">
-        <iconset theme="preferences-system-network"/>
+        <iconset theme="preferences-system-network">
+         <normaloff>.</normaloff>.</iconset>
        </property>
       </item>
       <item>
@@ -97,7 +94,8 @@
         <string>Shortcuts</string>
        </property>
        <property name="icon">
-        <iconset theme="preferences-desktop-keyboard"/>
+        <iconset theme="preferences-desktop-keyboard">
+         <normaloff>.</normaloff>.</iconset>
        </property>
       </item>
       <item>
@@ -105,7 +103,8 @@
         <string>About</string>
        </property>
        <property name="icon">
-        <iconset theme="dialog-information"/>
+        <iconset theme="dialog-information">
+         <normaloff>.</normaloff>.</iconset>
        </property>
       </item>
      </widget>
@@ -118,8 +117,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>626</width>
-         <height>609</height>
+         <width>637</width>
+         <height>608</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -541,7 +540,8 @@
                    <string>Default</string>
                   </property>
                   <property name="icon">
-                   <iconset theme="crow-translate-tray"/>
+                   <iconset theme="crow-translate-tray">
+                    <normaloff>.</normaloff>.</iconset>
                   </property>
                  </item>
                  <item>
@@ -549,7 +549,8 @@
                    <string>Monochrome (dark theme)</string>
                   </property>
                   <property name="icon">
-                   <iconset theme="crow-translate-tray-light"/>
+                   <iconset theme="crow-translate-tray-light">
+                    <normaloff>.</normaloff>.</iconset>
                   </property>
                  </item>
                  <item>
@@ -557,7 +558,8 @@
                    <string>Monochrome (light theme)</string>
                   </property>
                   <property name="icon">
-                   <iconset theme="crow-translate-tray-dark"/>
+                   <iconset theme="crow-translate-tray-dark">
+                    <normaloff>.</normaloff>.</iconset>
                   </property>
                  </item>
                  <item>
@@ -565,7 +567,8 @@
                    <string>Custom</string>
                   </property>
                   <property name="icon">
-                   <iconset theme="folder"/>
+                   <iconset theme="folder">
+                    <normaloff>.</normaloff>.</iconset>
                   </property>
                  </item>
                 </widget>
@@ -760,80 +763,20 @@
              </widget>
             </item>
             <item>
-             <widget class="QGroupBox" name="libreTranslateGroupBox">
+             <widget class="QGroupBox" name="mozhiGroupBox">
               <property name="title">
-               <string notr="true">LibreTranslate</string>
-              </property>
-              <layout class="QFormLayout" name="formLayout_10">
-               <item row="1" column="0">
-                <widget class="QLabel" name="libreTranslateUrlLabel">
-                 <property name="text">
-                  <string notr="true">URL:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1">
-                <widget class="QLineEdit" name="libreTranslateApiKeyTextEdit">
-                 <property name="toolTip">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;LibreTranslate instance API key&lt;/p&gt;&lt;p&gt;Free instances listed here doesn't require a key, so field can be empty&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                 </property>
-                 <property name="text">
-                  <string notr="true"/>
-                 </property>
-                 <property name="placeholderText">
-                  <string notr="true">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QLabel" name="libreTranslateApiKeyLabel">
-                 <property name="text">
-                  <string>API key:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QComboBox" name="libreTranslateUrlComboBox">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="toolTip">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;LibreTranslate engine URL&lt;/p&gt;&lt;p&gt;All instances can be found here: https://github.com/LibreTranslate/LibreTranslate#mirrors&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                 </property>
-                 <property name="editable">
-                  <bool>true</bool>
-                 </property>
-                 <property name="currentText">
-                  <string notr="true">https://libretranslate.de</string>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string notr="true">https://libretranslate.de</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item>
-             <widget class="QGroupBox" name="lingvaGroupBox">
-              <property name="title">
-               <string notr="true">Lingva</string>
+               <string notr="true">Mozhi</string>
               </property>
               <layout class="QFormLayout" name="formLayout_11">
                <item row="0" column="0">
-                <widget class="QLabel" name="lingvaUrlLabel">
+                <widget class="QLabel" name="mozhiUrlLabel">
                  <property name="text">
                   <string notr="true">URL:</string>
                  </property>
                 </widget>
                </item>
                <item row="0" column="1">
-                <widget class="QComboBox" name="lingvaUrlComboBox">
+                <widget class="QComboBox" name="mozhiUrlComboBox">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                    <horstretch>0</horstretch>
@@ -847,23 +790,8 @@
                   <bool>true</bool>
                  </property>
                  <property name="currentText">
-                  <string notr="true">https://lingva.ml</string>
+                  <string notr="true"/>
                  </property>
-                 <item>
-                  <property name="text">
-                   <string notr="true">https://lingva.ml</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string notr="true">https://translate.plausibility.cloud</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string notr="true">https://lingva.lunar.icu</string>
-                  </property>
-                 </item>
                 </widget>
                </item>
               </layout>
@@ -918,7 +846,8 @@
                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select OCR languages path&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                  <property name="icon">
-                  <iconset theme="folder"/>
+                  <iconset theme="folder">
+                   <normaloff>.</normaloff>.</iconset>
                  </property>
                 </widget>
                </item>
@@ -981,7 +910,8 @@
                    <item>
                     <widget class="QToolButton" name="tesseractParametersAddButton">
                      <property name="icon">
-                      <iconset theme="list-add"/>
+                      <iconset theme="list-add">
+                       <normaloff>.</normaloff>.</iconset>
                      </property>
                     </widget>
                    </item>
@@ -991,7 +921,8 @@
                       <bool>false</bool>
                      </property>
                      <property name="icon">
-                      <iconset theme="list-remove"/>
+                      <iconset theme="list-remove">
+                       <normaloff>.</normaloff>.</iconset>
                      </property>
                     </widget>
                    </item>
@@ -1117,206 +1048,6 @@
             </item>
             <item>
              <spacer name="ocrSpacer">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QWidget" name="speechPage">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <layout class="QVBoxLayout" name="speechLayout">
-            <item>
-             <widget class="QGroupBox" name="yandexSpeechGroupBox">
-              <property name="title">
-               <string notr="true">Yandex</string>
-              </property>
-              <layout class="QFormLayout" name="formLayout_7">
-               <item row="0" column="0">
-                <widget class="QLabel" name="yandexVoiceLabel">
-                 <property name="text">
-                  <string>Voice:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QComboBox" name="yandexVoiceComboBox">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="toolTip">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Voice of the speech synthesis engine&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string>Zahar</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Ermil</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Jane</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Oksana</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Alyss</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Omazh</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="yandexEmotionLabel">
-                 <property name="text">
-                  <string>Emotional connotation:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QComboBox" name="yandexEmotionComboBox">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="toolTip">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Voice mood of the speech synthesis engine&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string>Neutral</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Good</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Evil</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QLabel" name="yandexTestSpeechLabel">
-                 <property name="text">
-                  <string>Speech test:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1">
-                <layout class="QHBoxLayout" name="yandexTestSpeechLayout">
-                 <item>
-                  <widget class="QLineEdit" name="yandexTestSpeechEdit">
-                   <property name="toolTip">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Text to test speech&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                   <property name="text">
-                    <string>This is an example of speech synthesis.</string>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Test voice</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="SpeakButtons" name="yandexPlayerButtons" native="true"/>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item>
-             <widget class="QGroupBox" name="googleSpeechGroupBox">
-              <property name="title">
-               <string notr="true">Google</string>
-              </property>
-              <layout class="QGridLayout" name="googleSpeechSettingsLayout">
-               <item row="1" column="1" colspan="2">
-                <layout class="QHBoxLayout" name="googleTestSpeechLayout">
-                 <item>
-                  <widget class="QLineEdit" name="googleTestSpeechEdit">
-                   <property name="toolTip">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Text to test speech&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                   <property name="text">
-                    <string>This is an example of speech synthesis.</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="SpeakButtons" name="googlePlayerButtons" native="true"/>
-                 </item>
-                </layout>
-               </item>
-               <item row="0" column="1">
-                <widget class="QComboBox" name="googleLanguageComboBox">
-                 <property name="currentText">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="googleRegionLabel">
-                 <property name="text">
-                  <string>Region:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QComboBox" name="googleRegionComboBox">
-                 <item>
-                  <property name="text">
-                   <string>Default region</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="googleTestSpeechLabel">
-                 <property name="text">
-                  <string>Speech test:</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item>
-             <spacer name="speechPageSpacer">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
               </property>
@@ -1608,7 +1339,8 @@
                   <string>Accept</string>
                  </property>
                  <property name="icon">
-                  <iconset theme="dialog-ok-apply"/>
+                  <iconset theme="dialog-ok-apply">
+                   <normaloff>.</normaloff>.</iconset>
                  </property>
                 </widget>
                </item>
@@ -1621,7 +1353,8 @@
                   <string>Clear</string>
                  </property>
                  <property name="icon">
-                  <iconset theme="edit-clear-all"/>
+                  <iconset theme="edit-clear-all">
+                   <normaloff>.</normaloff>.</iconset>
                  </property>
                 </widget>
                </item>
@@ -1634,7 +1367,8 @@
                   <string>Reset</string>
                  </property>
                  <property name="icon">
-                  <iconset theme="view-refresh"/>
+                  <iconset theme="view-refresh">
+                   <normaloff>.</normaloff>.</iconset>
                  </property>
                 </widget>
                </item>
@@ -1795,16 +1529,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>SpeakButtons</class>
-   <extends>QWidget</extends>
-   <header>speakbuttons.h</header>
-   <container>1</container>
-   <slots>
-    <signal>playerMediaRequested()</signal>
-    <slot>stopSpeaking()</slot>
-   </slots>
-  </customwidget>
   <customwidget>
    <class>ShortcutsView</class>
    <extends>QTreeView</extends>
@@ -2147,38 +1871,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>yandexVoiceComboBox</sender>
-   <signal>currentIndexChanged(int)</signal>
-   <receiver>SettingsDialog</receiver>
-   <slot>saveYandexEngineVoice(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>480</x>
-     <y>83</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>275</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>yandexEmotionComboBox</sender>
-   <signal>currentIndexChanged(int)</signal>
-   <receiver>SettingsDialog</receiver>
-   <slot>saveYandexEngineEmotion(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>481</x>
-     <y>110</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>275</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>resetAllShortcutsButton</sender>
    <signal>clicked()</signal>
    <receiver>SettingsDialog</receiver>
@@ -2267,22 +1959,6 @@
     <hint type="sourcelabel">
      <x>313</x>
      <y>27</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>275</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>yandexPlayerButtons</sender>
-   <signal>playerMediaRequested()</signal>
-   <receiver>SettingsDialog</receiver>
-   <slot>detectYandexTextLanguage()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>808</x>
-     <y>147</y>
     </hint>
     <hint type="destinationlabel">
      <x>399</x>
@@ -2383,54 +2059,6 @@
     <hint type="destinationlabel">
      <x>667</x>
      <y>-19</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>googleLanguageComboBox</sender>
-   <signal>currentIndexChanged(int)</signal>
-   <receiver>SettingsDialog</receiver>
-   <slot>onGoogleLanguageSelectionChanged(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>473</x>
-     <y>222</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>236</x>
-     <y>655</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>googleRegionComboBox</sender>
-   <signal>currentIndexChanged(int)</signal>
-   <receiver>SettingsDialog</receiver>
-   <slot>saveGoogleEngineRegion(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>639</x>
-     <y>220</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>576</x>
-     <y>657</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>googlePlayerButtons</sender>
-   <signal>playerMediaRequested()</signal>
-   <receiver>SettingsDialog</receiver>
-   <slot>detectGoogleTextLanguage()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>808</x>
-     <y>243</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>424</x>
-     <y>329</y>
     </hint>
    </hints>
   </connection>

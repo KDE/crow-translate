@@ -11,6 +11,7 @@
 #include "translationexample.h"
 #include "translationoptions.h"
 
+#include <QJsonDocument>
 #include <QMap>
 #include <QPointer>
 #include <QUuid>
@@ -43,34 +44,73 @@ public:
         Amharic,
         Arabic,
         Armenian,
+        Assamese,
+        Aymara,
         Azerbaijani,
+        Bajan,
+        BalkanGipsy,
+        Bambara,
+        Bangla,
         Bashkir,
         Basque,
         Belarusian,
-        Bengali,
+        Bemba,
+        Bhojpuri,
+        Bislama,
         Bosnian,
+        Breton,
         Bulgarian,
         Cantonese,
         Catalan,
         Cebuano,
+        Chamorro,
         Chichewa,
+        ChineseLiterary,
+        ChineseSimplified,
+        ChineseTraditional,
+        Chuvash,
+        Comorian,
+        Coptic,
         Corsican,
+        AntiguanCreole,
+        BahamianCreole,
+        GrenadianCreole,
+        GuyaneseCreole,
+        JamaicanCreole,
+        VincentianCreole,
+        VirginIslandsCreole,
+        SaintLucianCreole,
+        SeselwaCreole,
+        UpperGuineaCreole,
         Croatian,
         Czech,
         Danish,
+        Dari,
+        Divehi,
+        Dogri,
         Dutch,
+        Dzongkha,
+        Elvish,
+        Emoji,
         English,
         Esperanto,
         Estonian,
+        Ewe,
+        Fanagalo,
+        Faroese,
         Fijian,
         Filipino,
         Finnish,
         French,
+        FrenchCanada,
         Frisian,
         Galician,
+        Ganda,
         Georgian,
         German,
         Greek,
+        GreekClassical,
+        Guarani,
         Gujarati,
         HaitianCreole,
         Hausa,
@@ -79,90 +119,141 @@ public:
         HillMari,
         Hindi,
         Hmong,
+        HmongDaw,
         Hungarian,
         Icelandic,
         Igbo,
+        Ilocano,
         Indonesian,
+        Inuinnaqtun,
+        Inuktitut,
+        InuktitutGreenlandic,
+        InuktitutLatin,
         Irish,
         Italian,
         Japanese,
         Javanese,
+        Kabuverdianu,
+        Kabylian,
         Kannada,
         Kazakh,
+        KazakhLatin,
         Khmer,
         Kinyarwanda,
+        Kirundi,
         Klingon,
-        KlingonPlqaD,
+        Konkani,
         Korean,
-        Kurdish,
+        Krio,
+        KurdishCentral,
+        KurdishNorthern,
+        KurdishSorani,
         Kyrgyz,
         Lao,
         Latin,
         Latvian,
-        LevantineArabic,
+        Lingala,
         Lithuanian,
+        LowerSorbian,
+        Luganda,
         Luxembourgish,
         Macedonian,
+        Maithili,
         Malagasy,
         Malay,
         Malayalam,
         Maltese,
-        Maori,
+        ManxGaelic,
         Marathi,
         Mari,
+        Marshallese,
+        Meiteilon,
+        Mende,
+        Mizo,
         Mongolian,
+        MongolianCyrillic,
+        MongolianTraditional,
+        Morisyen,
         Myanmar,
+        Maori,
         Nepali,
+        Niuean,
         Norwegian,
-        Oriya,
-        Papiamento,
+        Nyanja,
+        Odia,
+        Oromo,
+        Palauan,
+        Papiamentu,
         Pashto,
         Persian,
+        Pijin,
         Polish,
-        Portuguese,
+        PortugueseBrazilian,
+        PortuguesePortugal,
+        Potawatomi,
         Punjabi,
+        Quechua,
         QueretaroOtomi,
         Romanian,
+        Rundi,
         Russian,
         Samoan,
+        Sango,
+        Sanskrit,
         ScotsGaelic,
         SerbianCyrillic,
         SerbianLatin,
         Sesotho,
+        SesothoSaLeboa,
+        Setswana,
         Shona,
-        SimplifiedChinese,
         Sindhi,
         Sinhala,
         Slovak,
         Slovenian,
         Somali,
         Spanish,
+        SrananTongo,
         Sundanese,
         Swahili,
         Swedish,
-        Tagalog,
+        Syriac,
         Tahitian,
         Tajik,
+        Tamashek,
         Tamil,
         Tatar,
         Telugu,
+        Tetum,
         Thai,
+        Tibetan,
+        Tigrinya,
+        TokPisin,
+        Tokelauan,
         Tongan,
-        TraditionalChinese,
+        Tsonga,
         Turkish,
         Turkmen,
+        Tuvaluan,
+        Twi,
         Udmurt,
-        Uighur,
         Ukrainian,
+        Uma,
+        UpperSorbian,
         Urdu,
-        Uzbek,
+        Uyghur,
+        UzbekCyrillic,
+        UzbekLatin,
         Vietnamese,
+        Wallisian,
         Welsh,
+        Wolof,
         Xhosa,
+        Yakut,
         Yiddish,
         Yoruba,
         YucatecMaya,
-        Zulu
+        Zulu,
     };
     Q_ENUM(Language)
 
@@ -172,9 +263,11 @@ public:
     enum Engine {
         Google,
         Yandex,
-        Bing,
+        Deepl,
+        Duckduckgo, // Also known as Bing
         LibreTranslate,
-        Lingva
+        Mymemory,
+        Reverso
     };
     Q_ENUM(Engine)
 
@@ -184,12 +277,10 @@ public:
     enum TranslationError {
         /** No error condition */
         NoError,
-        /** Unsupported combination of parameters */
-        ParametersError,
         /** Network error */
         NetworkError,
-        /** Service unavailable or maximum number of requests */
-        ServiceError,
+        /** Instance returned an error */
+        InstanceError,
         /** The request could not be parsed (report a bug if you see this) */
         ParsingError
     };
@@ -240,7 +331,7 @@ public:
      *
      * @return JSON representation
      */
-    QJsonDocument toJson() const;
+    QJsonDocument jsonResponse() const;
 
     /**
      * @brief Source text
@@ -311,7 +402,7 @@ public:
      * @return QMap whose key represents the type of speech, and the value is a QVector of translation options
      * @sa TranslationOptions
      */
-    const QMap<QString, QVector<TranslationOptions>> &translationOptions() const;
+    const QVector<TranslationOptions> &translationOptions() const;
 
     /**
      * @brief Translation examples
@@ -319,7 +410,7 @@ public:
      * @return QMap whose key represents the type of speech, and the value is a QVector of translation examples
      * @sa TranslationExample
      */
-    const QMap<QString, QVector<TranslationExample>> &examples() const;
+    const QVector<TranslationExample> &examples() const;
 
     /**
      * @brief Last error
@@ -416,25 +507,22 @@ public:
     void setExamplesEnabled(bool enable);
 
     /**
-     * @brief Set the URL engine
+     * @brief Returns currenly used instance URL
      *
-     * Only affects LibreTranslate and Lingva because these engines have multiple instances.
-     * You need to call this function to specify the URL of an instance for them.
+     * You need to call this function to specify the URL of an instance for Mozhi.
      *
-     * @param engine engine
-     * @param url engine url
+     * @return Mozhi instance url
      */
-    void setEngineUrl(Engine engine, QString url);
+    const QString &instanceUrl();
 
     /**
-     * @brief Set api key for engine
+     * @brief Set the URL engine
      *
-     * Affects only LibreTranslate.
+     * You need to call this function to specify the URL of an instance for Mozhi.
      *
-     * @param engine engine
-     * @param apiKey your key for this particular instance
+     * @param url Mozhi instance url
      */
-    void setEngineApiKey(Engine engine, QByteArray apiKey);
+    void setInstanceUrl(QString url);
 
     /**
      * @brief Language name
@@ -468,15 +556,6 @@ public:
      */
     static Language language(const QString &langCode);
 
-    /**
-     * @brief Check if transliteration is supported
-     *
-     * @param engine engine
-     * @param lang language
-     * @return `true` if the specified engine supports transliteration for specified language
-     */
-    static bool isSupportTranslation(Engine engine, Language lang);
-
 signals:
     /**
      * @brief Translation finished
@@ -489,41 +568,8 @@ private slots:
     void skipGarbageText();
 
     // Google
-    void requestGoogleTranslate();
-    void parseGoogleTranslate();
-
-    void requestYandexTranslate();
-    void parseYandexTranslate();
-
-    void requestYandexSourceTranslit();
-    void parseYandexSourceTranslit();
-
-    void requestYandexTranslationTranslit();
-    void parseYandexTranslationTranslit();
-
-    void requestYandexDictionary();
-    void parseYandexDictionary();
-
-    // Bing
-    void requestBingCredentials();
-    void parseBingCredentials();
-
-    void requestBingTranslate();
-    void parseBingTranslate();
-
-    void requestBingDictionary();
-    void parseBingDictionary();
-
-    // LibreTranslate
-    void requestLibreLangDetection();
-    void parseLibreLangDetection();
-
-    void requestLibreTranslate();
-    void parseLibreTranslate();
-
-    // Lingva
-    void requestLingvaTranslate();
-    void parseLingvaTranslate();
+    void requestTranslate();
+    void parseTranslate();
 
 private:
     /*
@@ -531,34 +577,14 @@ private:
      * Also Yandex and Bing requires several requests to get dictionary, transliteration etc.
      * We use state machine to rely async computation with signals and slots.
      */
-    void buildGoogleStateMachine();
-    void buildGoogleDetectStateMachine();
-
-    void buildYandexStateMachine();
-    void buildYandexDetectStateMachine();
-
-    void buildBingStateMachine();
-    void buildBingDetectStateMachine();
-
-    void buildLibreStateMachine();
-    void buildLibreDetectStateMachine();
-
-    void buildLingvaStateMachine();
-    void buildLingvaDetectStateMachine();
+    void buildStateMachine();
+    void buildDetectStateMachine();
 
     // Helper functions to build nested states
     void buildSplitNetworkRequest(QState *parent, void (OnlineTranslator::*requestMethod)(), void (OnlineTranslator::*parseMethod)(), const QString &text, int textLimit);
     void buildNetworkRequestState(QState *parent, void (OnlineTranslator::*requestMethod)(), void (OnlineTranslator::*parseMethod)(), const QString &text = {});
 
-    // Helper functions for transliteration
-    void requestYandexTranslit(Language language);
-    void parseYandexTranslit(QString &text);
-
     void resetData(TranslationError error = NoError, const QString &errorString = {});
-
-    // Check for service support
-    static bool isSupportTranslit(Engine engine, Language lang);
-    static bool isSupportDictionary(Engine engine, Language sourceLang, Language translationLang);
 
     // Other
     static QString languageApiCode(Engine engine, Language lang);
@@ -572,28 +598,14 @@ private:
     // Engines have some language codes exceptions
     static const QMap<Language, QString> s_googleLanguageCodes;
     static const QMap<Language, QString> s_yandexLanguageCodes;
-    static const QMap<Language, QString> s_bingLanguageCodes;
-    static const QMap<Language, QString> s_lingvaLanguageCodes;
+    static const QMap<Language, QString> s_ddgLanguageCodes;
+    static const QMap<Language, QString> s_reverso;
+    static const QMap<Language, QString> s_mymemory;
 
-    // Yandex require a random UUID to be generated
-    static inline QByteArray s_yandexUcid = QUuid::createUuid().toByteArray(QUuid::Id128);
-
-    // Credentials that is parsed from the web version to receive the translation using the API
-    static inline QByteArray s_bingKey;
-    static inline QByteArray s_bingToken;
-    static inline QString s_bingIg;
-    static inline QString s_bingIid;
+    static const int s_textLimits = 100000;
 
     // This properties used to store unseful information in states
     static constexpr char s_textProperty[] = "Text";
-
-    // Engines have a limit of characters per translation request.
-    // If the query is larger, then it should be splited into several with getSplitIndex() helper function
-    static constexpr int s_googleTranslateLimit = 5000;
-    static constexpr int s_yandexTranslateLimit = 150;
-    static constexpr int s_yandexTranslitLimit = 180;
-    static constexpr int s_bingTranslateLimit = 502;
-    static constexpr int s_libreTranslateLimit = 120;
 
     QStateMachine *m_stateMachine;
     QNetworkAccessManager *m_networkManager;
@@ -603,6 +615,7 @@ private:
     Language m_translationLang = NoLanguage;
     Language m_uiLang = NoLanguage;
     TranslationError m_error = NoError;
+    Engine m_engine = Google;
 
     QString m_source;
     QString m_sourceTranslit;
@@ -611,13 +624,12 @@ private:
     QString m_translationTranslit;
     QString m_errorString;
 
-    // Self-hosted engines settings
-    QByteArray m_libreApiKey; // Can be empty, since free instances ignores api_key param
-    QString m_libreUrl;
-    QString m_lingvaUrl;
+    // Self-hosted Mozhi settings
+    QString m_instanceUrl;
 
-    QMap<QString, QVector<TranslationOptions>> m_translationOptions;
-    QMap<QString, QVector<TranslationExample>> m_examples;
+    QVector<TranslationOptions> m_translationOptions;
+    QVector<TranslationExample> m_examples;
+    QJsonDocument m_jsonResponse;
 
     bool m_sourceTranslitEnabled = true;
     bool m_translationTranslitEnabled = true;

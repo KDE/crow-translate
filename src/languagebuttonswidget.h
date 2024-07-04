@@ -41,7 +41,6 @@ public:
     bool isAutoButtonChecked() const;
     void retranslate();
 
-    static QIcon countryIcon(OnlineTranslator::Language lang);
     static void swapCurrentLanguages(LanguageButtonsWidget *first, LanguageButtonsWidget *second);
 
     static constexpr int autoButtonId()
