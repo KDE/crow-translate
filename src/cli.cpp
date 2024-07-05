@@ -216,7 +216,7 @@ void Cli::printTranslation()
 
     // Translation options
     if (!m_translator->translationOptions().isEmpty()) {
-        m_stdout << tr("%1 - translation options:").arg(m_translator->source()) << '\n';
+        m_stdout << tr("translation options:") << '\n';
         for (const auto &[word, translations] : m_translator->translationOptions()) {
             m_stdout << '\t';
             m_stdout << word << ": ";
@@ -227,10 +227,19 @@ void Cli::printTranslation()
 
     // Examples
     if (!m_translator->examples().isEmpty()) {
-        m_stdout << tr("%1 - examples:").arg(m_translator->source()) << '\n';
-        for (const auto &[example, description] : m_translator->examples()) {
-            m_stdout << '\t' << description << '\n';
-            m_stdout << '\t' << example << '\n';
+        m_stdout << tr("examples:") << '\n';
+        for (const auto &[word, example, definition, examplesSource, examplesTarget] : m_translator->examples()) {
+            m_stdout << '\t' << word << '\n';
+
+            if (!definition.isEmpty())
+                m_stdout << '\t' << definition << '\n';
+            if (!example.isEmpty())
+                m_stdout << '\t' << example << '\n';
+
+            for (size_t i = 0; i < examplesSource.size(); ++i)
+                m_stdout << '\t' << examplesSource[i] << ' ' << examplesTarget[i] << '\n';
+
+            m_stdout << '\n';
         }
     }
 

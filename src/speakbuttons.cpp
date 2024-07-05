@@ -8,7 +8,7 @@
 #include "speakbuttons.h"
 #include "ui_speakbuttons.h"
 
-#include "onlinetranslator/onlinetranslator.h"
+#include "onlinetranslator.h"
 
 #include <QMediaPlaylist>
 #include <QMessageBox>

@@ -9,7 +9,7 @@
 #define MAINWINDOW_H
 
 #include "cmake.h"
-#include "onlinetranslator/onlinetranslator.h"
+#include "onlinetranslator.h"
 #include "settings/appsettings.h"
 
 #include <QMainWindow>

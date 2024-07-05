@@ -7,7 +7,7 @@
 
 #include "translatorerrortransition.h"
 
-#include "onlinetranslator/onlinetranslator.h"
+#include "onlinetranslator.h"
 
 TranslatorErrorTransition::TranslatorErrorTransition(OnlineTranslator *translator, QState *sourceState)
     : QAbstractTransition(sourceState)

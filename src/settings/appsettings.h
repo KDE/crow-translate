@@ -8,7 +8,7 @@
 #ifndef APPSETTINGS_H
 #define APPSETTINGS_H
 
-#include "onlinetranslator/onlinetranslator.h"
+#include "onlinetranslator.h"
 
 #include <QCoreApplication>
 #include <QLocale>

@@ -8,7 +8,7 @@
 #ifndef TRANSLATIONEDIT_H
 #define TRANSLATIONEDIT_H
 
-#include "onlinetranslator/onlinetranslator.h"
+#include "onlinetranslator.h"
 
 #include <QTextEdit>
 

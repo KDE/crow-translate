@@ -8,7 +8,7 @@
 #include "retranslationtransition.h"
 
 #include "languagebuttonswidget.h"
-#include "onlinetranslator/onlinetranslator.h"
+#include "onlinetranslator.h"
 
 RetranslationTransition::RetranslationTransition(OnlineTranslator *translator, LanguageButtonsWidget *buttons, QState *sourceState)
     : QAbstractTransition(sourceState)

@@ -88,9 +88,17 @@ bool TranslationEdit::parseTranslationData(OnlineTranslator *translator)
         QTextBlockFormat indent;
         indent.setTextIndent(20);
         textCursor().setBlockFormat(indent);
-        for (const auto &[example, description] : translator->examples()) {
-            append(description);
-            append(QStringLiteral("<font color=\"grey\"><i>%1</i></font>").arg(example));
+        for (const auto &[word, example, definition, examplesSource, examplesTarget] : translator->examples()) {
+            append(QStringLiteral("<i>%1</i>").arg(word));
+
+            if (!definition.isEmpty())
+                append(definition);
+            if (!example.isEmpty())
+                append(QStringLiteral("<font color=\"grey\"><i>%1</i></font>").arg(example));
+
+            for (size_t i = 0; i < examplesSource.size(); ++i)
+                append(QStringLiteral("%1 <font color=\"grey\"><i>%2</i></font>").arg(examplesSource[i].toHtmlEscaped(), examplesTarget[i].toHtmlEscaped()));
+
             append({});
         }
         indent.setTextIndent(0);

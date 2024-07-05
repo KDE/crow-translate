@@ -8,7 +8,7 @@
 #ifndef CLI_H
 #define CLI_H
 
-#include "onlinetranslator/onlinetranslator.h"
+#include "onlinetranslator.h"
 
 #include <QObject>
 #include <QTextStream>

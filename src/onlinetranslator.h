@@ -8,9 +8,6 @@
 #ifndef ONLINETRANSLATOR_H
 #define ONLINETRANSLATOR_H
 
-#include "translationexample.h"
-#include "translationoptions.h"
-
 #include <QJsonDocument>
 #include <QMap>
 #include <QMediaPlayer>
@@ -22,6 +19,19 @@ class QStateMachine;
 class QState;
 class QNetworkAccessManager;
 class QNetworkReply;
+
+struct TranslationExample {
+    QString word;
+    QString definition;
+    QString example;
+    QStringList examplesSource;
+    QStringList examplesTarget;
+};
+
+struct TranslationOptions {
+    QString word;
+    QStringList translations;
+};
 
 /**
  * @brief Provides translation data

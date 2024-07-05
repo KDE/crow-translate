@@ -7,7 +7,7 @@
 
 #include "translatorabortedtransition.h"
 
-#include "onlinetranslator/onlinetranslator.h"
+#include "onlinetranslator.h"
 
 TranslatorAbortedTransition::TranslatorAbortedTransition(OnlineTranslator *translator, QState *sourceState)
     : QSignalTransition(translator, &OnlineTranslator::finished, sourceState)

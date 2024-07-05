@@ -1311,10 +1311,21 @@ void OnlineTranslator::parseTranslate()
     if (m_examplesEnabled) {
         for (const QJsonValueRef examplesData : jsonData.value(QStringLiteral("word_choices")).toArray()) {
             const QJsonObject exampleObject = examplesData.toObject();
+            const QString word = exampleObject.value(QStringLiteral("word")).toString();
             const QString example = exampleObject.value(QStringLiteral("example")).toString();
             const QString definition = exampleObject.value(QStringLiteral("definition")).toString();
 
-            m_examples.append({example, definition});
+            QStringList examplesSource;
+            for (const QJsonValue &value : exampleObject.value(QStringLiteral("examples_source")).toArray()) {
+                examplesSource.append(value.toString());
+            }
+
+            QStringList examplesTarget;
+            for (const QJsonValue &value : exampleObject.value(QStringLiteral("examples_target")).toArray()) {
+                examplesTarget.append(value.toString());
+            }
+
+            m_examples.append({word, example, definition, examplesSource, examplesTarget});
         }
     }
 }

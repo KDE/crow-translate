@@ -8,7 +8,7 @@
 #ifndef ADDLANGDIALOG_H
 #define ADDLANGDIALOG_H
 
-#include "onlinetranslator/onlinetranslator.h"
+#include "onlinetranslator.h"
 
 #include <QDialog>
 

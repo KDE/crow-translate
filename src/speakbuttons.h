@@ -8,7 +8,7 @@
 #ifndef PLAYERBUTTONS_H
 #define PLAYERBUTTONS_H
 
-#include "onlinetranslator/onlinetranslator.h"
+#include "onlinetranslator.h"
 
 #include <QMediaPlayer>
 #include <QWidget>
