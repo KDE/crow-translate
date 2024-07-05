@@ -120,6 +120,12 @@ if(WIN32)
     )
 endif()
 
+file(GLOB LOCALE_DIRS RELATIVE ${CMAKE_SOURCE_DIR}/poqm poqm/*)
+set(LOCALES "")
+foreach(LOCALE ${LOCALE_DIRS})
+    set(LOCALES "${LOCALES} QStringLiteral(\"${LOCALE}\"), ")
+endforeach()
+
 configure_file(src/cmake.h.in cmake.h)
 
 add_executable(${PROJECT_NAME}

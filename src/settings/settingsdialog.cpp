@@ -47,35 +47,8 @@ SettingsDialog::SettingsDialog(MainWindow *parent)
 
     // Set item data in comboboxes
     ui->localeComboBox->addItem(tr("<System language>"), AppSettings::defaultLocale());
-    addLocale(QLocale::Albanian);
-    addLocale(QLocale::Arabic);
-    addLocale(QLocale::Azerbaijani);
-    addLocale(QLocale::Basque);
-    addLocale({QLocale::Chinese, QLocale::China});
-    addLocale({QLocale::Chinese, QLocale::Taiwan});
-    addLocale(QLocale::Croatian);
-    addLocale(QLocale::Dutch);
-    addLocale(QLocale::English);
-    addLocale(QLocale::Estonian);
-    addLocale(QLocale::Finnish);
-    addLocale(QLocale::French);
-    addLocale(QLocale::German);
-    addLocale(QLocale::Greek);
-    addLocale(QLocale::Hindi);
-    addLocale(QLocale::Hungarian);
-    addLocale(QLocale::Indonesian);
-    addLocale(QLocale::Italian);
-    addLocale(QLocale::Korean);
-    addLocale(QLocale::Latvian);
-    addLocale(QLocale::Malay);
-    addLocale(QLocale::Polish);
-    addLocale({QLocale::Portuguese, QLocale::Brazil});
-    addLocale({QLocale::Portuguese, QLocale::Portugal});
-    addLocale(QLocale::Russian);
-    addLocale(QLocale::Spanish);
-    addLocale(QLocale::Turkish);
-    addLocale(QLocale::Uighur);
-    addLocale(QLocale::Ukrainian);
+    for (const QString &locale : LOCALES)
+        addLocale(QLocale(locale));
 
     ui->primaryLangComboBox->addItem(tr("<System language>"), OnlineTranslator::Auto);
     ui->secondaryLangComboBox->addItem(tr("<System language>"), OnlineTranslator::Auto);
