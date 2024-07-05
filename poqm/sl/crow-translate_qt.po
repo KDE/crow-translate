@@ -3,41 +3,31 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-03 10:19+0200\n"
-"PO-Revision-Date: 2024-07-03 12:09+0200\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2024-07-04 11:11+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.05.0\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Poedit 3.4.4\n"
 
-#: src/cli.cpp:41
-#, fuzzy
-#| msgid "Display all language codes."
+#: src/cli.cpp:40
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Prikaži vse jezikovne kode."
 
-#: src/cli.cpp:42
-#, fuzzy
-#| msgid ""
-#| "Specify the source language (by default, engine will try to determine the "
-#| "language on its own)."
+#: src/cli.cpp:41
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
 msgstr "Določi izvorni jezik (privzeto bo stroj poskušal sam določiti jezik)."
 
-#: src/cli.cpp:43
-#, fuzzy
-#| msgid ""
-#| "Specify the translation language(s), splitted by '+' (by default, the "
-#| "system language is used)."
+#: src/cli.cpp:42
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
@@ -46,20 +36,7 @@ msgstr ""
 "Določi jezik(-e) prevoda, razdeljen z '+' (privzeto je uporabljen sistemski "
 "jezik)."
 
-#: src/cli.cpp:44
-#, fuzzy
-#| msgid ""
-#| "Specify the translator language (by default, the system language is used)."
-msgctxt "Cli|"
-msgid ""
-"Specify the translator language (by default, the system language is used)."
-msgstr "Določite jezik prevajalnika (privzeto je uporabljen sistemski jezik)."
-
-#: src/cli.cpp:45
-#, fuzzy
-#| msgid ""
-#| "Specify the translator engine ('google', 'yandex', 'bing', "
-#| "'libretranslate' or 'lingva'), Google is used by default."
+#: src/cli.cpp:43
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
@@ -68,24 +45,22 @@ msgstr ""
 "Določite prevajalski mehanizem ('google', 'yandex', 'bing', 'libretranslate' "
 "ali 'lingva'), privzeto se uporablja Google."
 
-#: src/cli.cpp:46
-#, fuzzy
-#| msgid "Speak the translation."
+#: src/cli.cpp:44
+msgctxt "Cli|"
+msgid "Specify instance URL. Random instance URL will be used by default."
+msgstr ""
+
+#: src/cli.cpp:45
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Izgovorite prevod."
 
-#: src/cli.cpp:47
-#, fuzzy
-#| msgid "Speak the source."
+#: src/cli.cpp:46
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Povej vir."
 
-#: src/cli.cpp:48
-#, fuzzy
-#| msgid ""
-#| "Read source text from files. Arguments will be interpreted as file paths."
+#: src/cli.cpp:47
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -93,429 +68,317 @@ msgstr ""
 "Branje izvornega besedila iz datotek. Argumenti bodo interpretirani kot poti "
 "do datotek."
 
-#: src/cli.cpp:49
-#, fuzzy
-#| msgid "Add stdin data to source text."
+#: src/cli.cpp:48
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Izvornemu besedilu dodajte podatke stdin."
 
-#: src/cli.cpp:50
-#, fuzzy, qt-format
-#| msgid "Do not print any text when using --%1 or --%2."
+#: src/cli.cpp:49
+#, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "Pri uporabi --%1 ali --%2 ne natisnite nobenega besedila."
 
-#: src/cli.cpp:51
-#, fuzzy
-#| msgid "Print only translations."
+#: src/cli.cpp:50
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Natisni samo prevode."
 
-#: src/cli.cpp:52
-#, fuzzy
-#| msgid "Print output formatted as JSON."
+#: src/cli.cpp:51
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Izpis tiskanja, oblikovan kot JSON."
 
-#: src/cli.cpp:55
+#: src/cli.cpp:54
 #, fuzzy
+#| msgctxt "Cli|"
 #| msgid ""
 #| "A simple and lightweight translator that allows to translate and speak "
 #| "text using Google, Yandex, Bing, LibreTranslate and Lingva"
 msgctxt "Cli|"
 msgid ""
 "A simple and lightweight translator that allows to translate and speak text "
-"using Google, Yandex, Bing, LibreTranslate and Lingva"
+"using Mozhi"
 msgstr ""
 "Preprost in lahek prevajalnik, ki omogoča prevajanje in govorjenje besedila "
 "z uporabo Google, Yandex, Bing, LibreTranslate in Lingva"
 
-#: src/cli.cpp:56
-#, fuzzy
-#| msgid ""
-#| "Text to translate. By default, the translation will be done to the system "
-#| "language."
+#: src/cli.cpp:55
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr "Besedilo za prevod. Privzeto bo prevod izveden v sistemski jezik."
 
-#: src/cli.cpp:78
-#, fuzzy, qt-format
-#| msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
+#: src/cli.cpp:77
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Napaka: Za --%1 morate podati možnosti --%2 in/ali --%3"
 
-#: src/cli.cpp:112
-#, fuzzy
-#| msgid "Error: There is no text for translation"
+#: src/cli.cpp:110
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Napaka: ni besedila za prevod"
 
 #: src/cli.cpp:130
-#, fuzzy
-#| msgid "Error: Unknown engine"
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "Napaka: Neznan stroj"
 
-#: src/cli.cpp:165 src/cli.cpp:258 src/cli.cpp:347
-#, fuzzy, qt-format
-#| msgid "Error: %1"
+#: src/cli.cpp:165 src/cli.cpp:248 src/cli.cpp:336
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Napaka: %1"
 
 #: src/cli.cpp:219
-#, fuzzy, qt-format
-#| msgid "%1 - translation options:"
+#, qt-format
 msgctxt "Cli|"
 msgid "%1 - translation options:"
 msgstr "%1 - možnosti prevoda:"
 
-#: src/cli.cpp:236
-#, fuzzy, qt-format
-#| msgid "%1 - examples:"
+#: src/cli.cpp:230
+#, qt-format
 msgctxt "Cli|"
 msgid "%1 - examples:"
 msgstr "%1 - primeri:"
 
-#: src/cli.cpp:360
-#, fuzzy, qt-format
-#| msgid "Error: You can't use --%1 with --%2"
+#: src/cli.cpp:349
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Napaka: ne morete uporabiti --%1 z --%2"
 
-#: src/cli.cpp:376 src/cli.cpp:397
-#, fuzzy, qt-format
-#| msgid "Error: File does not exist: %1"
+#: src/cli.cpp:365 src/cli.cpp:386
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Napaka: datoteka ne obstaja: %1"
 
-#: src/cli.cpp:381 src/cli.cpp:402
-#, fuzzy, qt-format
-#| msgid "Error: Unable to open file: %1"
+#: src/cli.cpp:370 src/cli.cpp:391
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
 msgstr "Napaka: datoteke ni mogoče odpreti: %1"
 
 #: src/contextmenu.h:39
-#, fuzzy
-#| msgid "Search on Forvo.com"
 msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Iščite na Forvo.com"
 
-#: src/languagebuttonswidget.cpp:451
-#, fuzzy
-#| msgid ""
-#| "Window width is larger than screen due to the languages on the panel."
+#: src/languagebuttonswidget.cpp:220
 msgctxt "LanguageButtonsWidget|"
 msgid "Window width is larger than screen due to the languages on the panel."
 msgstr "Širina okna je zaradi jezikov na plošči večja od širine zaslona."
 
-#: src/languagebuttonswidget.cpp:452
-#, fuzzy
-#| msgid "Please reduce added languages."
+#: src/languagebuttonswidget.cpp:221
 msgctxt "LanguageButtonsWidget|"
 msgid "Please reduce added languages."
 msgstr "Zmanjšajte dodane jezike."
 
-#: src/languagebuttonswidget.cpp:528 src/languagebuttonswidget.cpp:530
-#, fuzzy
-#| msgctxt ""
-#| "src/languagebuttonswidget.cpp:528 src/languagebuttonswidget.cpp:530"
-#| msgid "Auto"
+#: src/languagebuttonswidget.cpp:297 src/languagebuttonswidget.cpp:299
 msgctxt "LanguageButtonsWidget|"
 msgid "Auto"
 msgstr "Avto"
 
 #: src/languagebuttonswidget.ui:32
-#, fuzzy
-#| msgctxt "src/languagebuttonswidget.ui:32"
-#| msgid "Edit languages"
 msgctxt "LanguageButtonsWidget|"
 msgid "Edit languages"
 msgstr "Uredi jezike"
 
 #: src/languagesdialog.cpp:23
-#, fuzzy, qt-format
-#| msgid "Filter (%1)"
+#, qt-format
 msgctxt "LanguagesDialog|"
 msgid "Filter (%1)"
 msgstr "Filter (%1)"
 
 #: src/languagesdialog.ui:14
-#, fuzzy
-#| msgctxt "src/languagebuttonswidget.ui:32"
-#| msgid "Edit languages"
 msgctxt "LanguagesDialog|"
 msgid "Edit languages"
 msgstr "Uredi jezike"
 
 #: src/languagesdialog.ui:91
-#, fuzzy
-#| msgid "Available languages:"
 msgctxt "LanguagesDialog|"
 msgid "Available languages:"
 msgstr "Razpoložljivi jeziki:"
 
 #: src/languagesdialog.ui:104
-#, fuzzy
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Trenutni jeziki:"
 
 #: src/main.cpp:65
-#, fuzzy, qt-format
-#| msgid "D-Bus service %1 is already registered by another application"
+#, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr "Storitev D-Bus %1 je že registrirana v drugi aplikaciji"
 
 #: src/main.cpp:90
-#, fuzzy, qt-format
-#| msgid "Unable to register D-Bus object for %1"
+#, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "Objekta D-Bus ni mogoče registrirati za %1"
 
 #: src/mainwindow.cpp:380
-#, fuzzy
-#| msgctxt "src/mainwindow.cpp:384"
-#| msgid "Unable to detect language"
 msgctxt "MainWindow|"
 msgid "Unable to detect language"
 msgstr "Jezika ni mogoče zaznati"
 
 #: src/mainwindow.cpp:432
-#, fuzzy
-#| msgid "Unable to translate text"
 msgctxt "MainWindow|"
 msgid "Unable to translate text"
 msgstr "Ni mogoče prevesti besedila"
 
 #: src/mainwindow.cpp:867
-#, fuzzy
-#| msgid "Invalid tray icon"
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Neveljavna ikona v pladnju"
 
 #: src/mainwindow.cpp:867
-#, fuzzy, qt-format
-#| msgid "The specified icon '%1' is invalid. The default icon will be used."
+#, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "Podana ikona '%1' ni veljavna. Uporabljena bo privzeta ikona."
 
-#: src/mainwindow.cpp:898
-#, fuzzy
-#| msgid "Unable to set OCR languages"
+#: src/mainwindow.cpp:896
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "Ni mogoče nastaviti jezikov OCR"
 
-#: src/mainwindow.cpp:898
-#, fuzzy, qt-format
-#| msgid "Unable to initialize Tesseract with %1"
+#: src/mainwindow.cpp:896
+#, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "Ni mogoče inicializirati Tesseracta z %1"
 
 #: src/mainwindow.ui:36
-#, fuzzy
-#| msgctxt "src/mainwindow.ui:36"
-#| msgid "Copy source text to the clipboard"
 msgctxt "MainWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "Kopirajte izvorno besedilo v odložišče"
 
 #: src/mainwindow.ui:47
-#, fuzzy
-#| msgid "Recognize screen area with delay"
 msgctxt "MainWindow|"
 msgid "Recognize screen area with delay"
 msgstr "Prepozna območje zaslona z zakasnitvijo"
 
 #. The text should be short to fit in portrait orientation on phones.
 #: src/mainwindow.ui:70
-#, fuzzy
-#| msgid "Auto-translation"
 msgctxt "MainWindow|"
 msgid "Auto-translation"
 msgstr "Samodejno prevajanje"
 
 #: src/mainwindow.ui:82
-#, fuzzy
-#| msgctxt "src/mainwindow.ui:82"
-#| msgid "Cancel"
 msgctxt "MainWindow|"
 msgid "Cancel"
 msgstr "Prekliči"
 
 #: src/mainwindow.ui:93
-#, fuzzy
-#| msgctxt "src/mainwindow.ui:93src/mainwindow.ui:93"
-#| msgid "Swap languages"
 msgctxt "MainWindow|"
 msgid "Swap languages"
 msgstr "Premenjaj jezike"
 
 #: src/mainwindow.ui:117
-#, fuzzy
-#| msgid "Source"
 msgctxt "MainWindow|"
 msgid "Source"
 msgstr "Vir"
 
 #: src/mainwindow.ui:124
-#, fuzzy
-#| msgctxt "src/mainwindow.ui:124"
-#| msgid "Clear"
 msgctxt "MainWindow|"
 msgid "Clear"
 msgstr "Očisti"
 
 #: src/mainwindow.ui:141
-#, fuzzy
-#| msgctxt "src/mainwindow.ui:141"
-#| msgid "Translate"
 msgctxt "MainWindow|"
 msgid "Translate"
 msgstr "Prevedi"
 
 #: src/mainwindow.ui:169
-#, fuzzy
-#| msgctxt "src/mainwindow.ui:169src/mainwindow.ui:169"
-#| msgid "Translation"
 msgctxt "MainWindow|"
 msgid "Translation"
 msgstr "Prevod"
 
-#: src/mainwindow.ui:253
-#, fuzzy
-#| msgctxt "src/mainwindow.ui:253"
-#| msgid "Copy translation to the clipboard"
+#: src/mainwindow.ui:271
 msgctxt "MainWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Kopiraj prevod na odložišče"
 
-#: src/mainwindow.ui:264
-#, fuzzy
-#| msgctxt "src/mainwindow.ui:264"
-#| msgid "Copy all translation data to the clipboard"
+#: src/mainwindow.ui:282
 msgctxt "MainWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "Kopirajte vse prevodne podatke v odložišče"
 
-#: src/mainwindow.ui:275
-#, fuzzy
-#| msgid "Translate screen area with delay"
+#: src/mainwindow.ui:293
 msgctxt "MainWindow|"
 msgid "Translate screen area with delay"
 msgstr "Prevedi območje zaslona z zamikom"
 
-#: src/mainwindow.ui:286
-#, fuzzy
-#| msgid "Application settings"
+#: src/mainwindow.ui:304
 msgctxt "MainWindow|"
 msgid "Application settings"
 msgstr "Nastavitve aplikacije"
 
 #: src/ocr/ocr.cpp:136
-#, fuzzy, qt-format
-#| msgid "%1 is not a valid Tesseract parameter name."
+#, qt-format
 msgctxt "Ocr|"
 msgid "%1 is not a valid Tesseract parameter name."
 msgstr "%1 ni veljavno ime parametra Tesseract."
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
-#, fuzzy
-#| msgid "Unable to grab screen"
 msgctxt "AbstractScreenGrabber|"
 msgid "Unable to grab screen"
 msgstr "Ni mogoče zajeti zaslona"
 
 #: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:47
-#, fuzzy
-#| msgid "GNOME failed to take screenshot."
 msgctxt "WaylandGnomeScreenGrabber|"
 msgid "GNOME failed to take screenshot."
 msgstr "GNOME ni uspel narediti posnetka zaslona."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:43
-#, fuzzy, qt-format
-#| msgid "Unable to create pipe: %1."
+#, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to create pipe: %1."
 msgstr "Ni mogoče ustvariti cevi pipe: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:87
-#, fuzzy, qt-format
-#| msgid "Unable to wait for socket readiness: %1."
+#, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to wait for socket readiness: %1."
 msgstr "Ni mogoče počakati na pripravljenost vtičnice: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:92
-#, fuzzy
-#| msgid "Timeout reading from pipe."
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Timeout reading from pipe."
 msgstr "Časovna omejitev branja iz cevi pipe."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:98
-#, fuzzy, qt-format
-#| msgid "Unable to read data from socket: %1."
+#, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to read data from socket: %1."
 msgstr "Ni mogoče prebrati podatkov iz vtičnice: %1."
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:56
-#, fuzzy
-#| msgctxt "src/ocr/screengrabbers/waylandportalscreengrabber.cpp:56"
-#| msgid "Unable to subscribe to response from xdg-desktop-portal."
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
 msgstr "Na odgovor portala xdg-desktop-portal se ni mogoče naročiti."
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:76
-#, fuzzy
-#| msgid "Received an empty path from xdg-desktop-portal."
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
 msgstr "Prejeta prazna pot iz xdg-desktop-portal."
 
 #: src/ocr/snippingarea.cpp:73
-#, fuzzy
-#| msgid "Unable to snip screen area"
 msgctxt "SnippingArea|"
 msgid "Unable to snip screen area"
 msgstr "Območja zaslona ni mogoče izrezati"
 
 #: src/ocr/snippingarea.cpp:74
-#, fuzzy, qt-format
-#| msgid "Received an invalid image of screen %1."
+#, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
 msgstr "Prejeta je neveljavna slika zaslona %1."
 
 #: src/ocr/snippingarea.cpp:626
-#, fuzzy
-#| msgid ""
-#| "Click and drag to draw a selection rectangle,\n"
-#| "or press Esc to quit"
 msgctxt "SnippingArea|"
 msgid ""
 "Click and drag to draw a selection rectangle,\n"
@@ -525,1437 +388,1439 @@ msgstr ""
 "da zapustite"
 
 #: src/ocr/snippingarea.cpp:832
-#, fuzzy
-#| msgid "Confirm:"
 msgctxt "SnippingArea|"
 msgid "Confirm:"
 msgstr "Potrdi:"
 
 #: src/ocr/snippingarea.cpp:834
-#, fuzzy
-#| msgid "Release left-click"
 msgctxt "SnippingArea|"
 msgid "Release left-click"
 msgstr "Spustite levi klik"
 
 #: src/ocr/snippingarea.cpp:834 src/ocr/snippingarea.cpp:836
-#, fuzzy
-#| msgid "Enter"
 msgctxt "SnippingArea|"
 msgid "Enter"
 msgstr "Vnesi"
 
 #: src/ocr/snippingarea.cpp:836
-#, fuzzy
-#| msgid "Double-click"
 msgctxt "SnippingArea|"
 msgid "Double-click"
 msgstr "Dvojni klik"
 
 #: src/ocr/snippingarea.cpp:838
-#, fuzzy
-#| msgid "Create new selection rectangle:"
 msgctxt "SnippingArea|"
 msgid "Create new selection rectangle:"
 msgstr "Ustvari nov izbirni pravokotnik:"
 
 #: src/ocr/snippingarea.cpp:839
-#, fuzzy
-#| msgid "Drag outside selection rectangle"
 msgctxt "SnippingArea|"
 msgid "Drag outside selection rectangle"
 msgstr "Povlecite zunaj izbirnega pravokotnika"
 
 #: src/ocr/snippingarea.cpp:839
-#, fuzzy
-#| msgid "+ Shift: Magnifier"
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
 msgstr "+ Shift: lupa"
 
 #: src/ocr/snippingarea.cpp:842
-#, fuzzy
-#| msgid "Move selection rectangle:"
 msgctxt "SnippingArea|"
 msgid "Move selection rectangle:"
 msgstr "Premakni izbirni pravokotnik:"
 
 #: src/ocr/snippingarea.cpp:843
-#, fuzzy
-#| msgid "Drag inside selection rectangle"
 msgctxt "SnippingArea|"
 msgid "Drag inside selection rectangle"
 msgstr "Povlecite znotraj izbirnega pravokotnika"
 
 #: src/ocr/snippingarea.cpp:843
-#, fuzzy
-#| msgid "Arrow keys"
 msgctxt "SnippingArea|"
 msgid "Arrow keys"
 msgstr "Smerne tipke"
 
 #: src/ocr/snippingarea.cpp:843
-#, fuzzy
-#| msgid "+ Shift: Move in 1 pixel steps"
 msgctxt "SnippingArea|"
 msgid "+ Shift: Move in 1 pixel steps"
 msgstr "+ Shift: premikanje v korakih po 1 slikovno piko"
 
 #: src/ocr/snippingarea.cpp:845
-#, fuzzy
-#| msgid "Resize selection rectangle:"
 msgctxt "SnippingArea|"
 msgid "Resize selection rectangle:"
 msgstr "Spremeni velikost izbirnega pravokotnika:"
 
 #: src/ocr/snippingarea.cpp:846
-#, fuzzy
-#| msgid "Drag handles"
 msgctxt "SnippingArea|"
 msgid "Drag handles"
 msgstr "Povleci ročaje"
 
 #: src/ocr/snippingarea.cpp:846
-#, fuzzy
-#| msgid "Arrow keys + Alt"
 msgctxt "SnippingArea|"
 msgid "Arrow keys + Alt"
 msgstr "Puščične tipke + Alt"
 
 #: src/ocr/snippingarea.cpp:846
-#, fuzzy
-#| msgid "+ Shift: Resize in 1 pixel steps"
 msgctxt "SnippingArea|"
 msgid "+ Shift: Resize in 1 pixel steps"
 msgstr "+ Shift: Spremenite velikost v korakih po 1 slikovno piko"
 
 #: src/ocr/snippingarea.cpp:848
-#, fuzzy
-#| msgid "Reset selection:"
 msgctxt "SnippingArea|"
 msgid "Reset selection:"
 msgstr "Ponastavi izbiro:"
 
 #: src/ocr/snippingarea.cpp:849
-#, fuzzy
-#| msgid "Right-click"
 msgctxt "SnippingArea|"
 msgid "Right-click"
 msgstr "Desni klik"
 
 #: src/ocr/snippingarea.cpp:852
-#, fuzzy
-#| msgid "Cancel:"
 msgctxt "SnippingArea|"
 msgid "Cancel:"
 msgstr "Prekliči:"
 
 #: src/ocr/snippingarea.cpp:853
-#, fuzzy
-#| msgid "Esc key"
 msgctxt "SnippingArea|"
 msgid "Esc key"
 msgstr "Tipka Esc"
 
-#: src/onlinetranslator/onlinetranslator.cpp:190
+#: src/onlinetranslator/onlinetranslator.cpp:281
 #, fuzzy, qt-format
-#| msgid "Selected source language %1 is not supported for %2"
+#| msgctxt "OnlineTts|"
+#| msgid "Selected language %1 is not supported for %2"
 msgctxt "OnlineTranslator|"
-msgid "Selected source language %1 is not supported for %2"
-msgstr "Izbrani izvorni jezik %1 ni podprt za %2"
+msgid "Language detection is not supported for %1"
+msgstr "Izbrani jezik %1 ni podprt za %2"
 
-#: src/onlinetranslator/onlinetranslator.cpp:195
+#: src/onlinetranslator/onlinetranslator.cpp:364
 #, fuzzy, qt-format
-#| msgid "Selected translation language %1 is not supported for %2"
+#| msgctxt "OnlineTts|"
+#| msgid "%1 engine does not support TTS"
 msgctxt "OnlineTranslator|"
-msgid "Selected translation language %1 is not supported for %2"
-msgstr "Izbrani jezik prevoda %1 ni podprt za %2"
+msgid "%1 engine does not support TTS"
+msgstr "Mehanizem %1 ne podpira TTS"
 
-#: src/onlinetranslator/onlinetranslator.cpp:200
-#, fuzzy, qt-format
-#| msgid "Selected ui language %1 is not supported for %2"
-msgctxt "OnlineTranslator|"
-msgid "Selected ui language %1 is not supported for %2"
-msgstr "Izbrani jezik uporabniškega vmesnika %1 ni podprt za %2"
-
-#: src/onlinetranslator/onlinetranslator.cpp:217
-#: src/onlinetranslator/onlinetranslator.cpp:226
-#: src/onlinetranslator/onlinetranslator.cpp:261
-#: src/onlinetranslator/onlinetranslator.cpp:270
-#, fuzzy, qt-format
-#| msgid "%1 URL can't be empty."
-msgctxt "OnlineTranslator|"
-msgid "%1 URL can't be empty."
-msgstr "%1 URL ne more biti prazen."
-
-#: src/onlinetranslator/onlinetranslator.cpp:468
-#, fuzzy
-#| msgid "Automatically detect"
+#: src/onlinetranslator/onlinetranslator.cpp:505
 msgctxt "OnlineTranslator|"
 msgid "Automatically detect"
 msgstr "Samodejno zaznaj"
 
-#: src/onlinetranslator/onlinetranslator.cpp:470
-#, fuzzy
-#| msgid "Afrikaans"
+#: src/onlinetranslator/onlinetranslator.cpp:507
 msgctxt "OnlineTranslator|"
 msgid "Afrikaans"
 msgstr "afrikanščina"
 
-#: src/onlinetranslator/onlinetranslator.cpp:472
-#, fuzzy
-#| msgid "Albanian"
+#: src/onlinetranslator/onlinetranslator.cpp:509
 msgctxt "OnlineTranslator|"
 msgid "Albanian"
 msgstr "albanski"
 
-#: src/onlinetranslator/onlinetranslator.cpp:474
-#, fuzzy
-#| msgid "Amharic"
+#: src/onlinetranslator/onlinetranslator.cpp:511
 msgctxt "OnlineTranslator|"
 msgid "Amharic"
 msgstr "amharščina"
 
-#: src/onlinetranslator/onlinetranslator.cpp:476
-#, fuzzy
-#| msgid "Arabic"
+#: src/onlinetranslator/onlinetranslator.cpp:513
 msgctxt "OnlineTranslator|"
 msgid "Arabic"
 msgstr "arabsko"
 
-#: src/onlinetranslator/onlinetranslator.cpp:478
-#, fuzzy
-#| msgid "Armenian"
+#: src/onlinetranslator/onlinetranslator.cpp:515
 msgctxt "OnlineTranslator|"
 msgid "Armenian"
 msgstr "armenski"
 
-#: src/onlinetranslator/onlinetranslator.cpp:480
+#: src/onlinetranslator/onlinetranslator.cpp:517
+msgctxt "OnlineTranslator|"
+msgid "Assamese"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:519
+msgctxt "OnlineTranslator|"
+msgid "Aymara"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:521
 #, fuzzy
+#| msgctxt "OnlineTranslator|"
 #| msgid "Azeerbaijani"
 msgctxt "OnlineTranslator|"
-msgid "Azeerbaijani"
+msgid "Azerbaijani"
 msgstr "azerbajdžanski"
 
-#: src/onlinetranslator/onlinetranslator.cpp:482
-#, fuzzy
-#| msgid "Basque"
+#: src/onlinetranslator/onlinetranslator.cpp:523
 msgctxt "OnlineTranslator|"
-msgid "Basque"
-msgstr "baskovščina"
+msgid "Bajan"
+msgstr ""
 
-#: src/onlinetranslator/onlinetranslator.cpp:484
-#, fuzzy
-#| msgid "Bashkir"
+#: src/onlinetranslator/onlinetranslator.cpp:525
+msgctxt "OnlineTranslator|"
+msgid "Balkan Gipsy"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:527
+msgctxt "OnlineTranslator|"
+msgid "Bambara"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:529
+msgctxt "OnlineTranslator|"
+msgid "Bangla"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:531
 msgctxt "OnlineTranslator|"
 msgid "Bashkir"
 msgstr "Baškir"
 
-#: src/onlinetranslator/onlinetranslator.cpp:486
-#, fuzzy
-#| msgid "Belarusian"
+#: src/onlinetranslator/onlinetranslator.cpp:533
+msgctxt "OnlineTranslator|"
+msgid "Basque"
+msgstr "baskovščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:535
 msgctxt "OnlineTranslator|"
 msgid "Belarusian"
 msgstr "beloruski"
 
-#: src/onlinetranslator/onlinetranslator.cpp:488
-#, fuzzy
-#| msgid "Bengali"
+#: src/onlinetranslator/onlinetranslator.cpp:537
 msgctxt "OnlineTranslator|"
-msgid "Bengali"
-msgstr "bengalščina"
+msgid "Bemba"
+msgstr ""
 
-#: src/onlinetranslator/onlinetranslator.cpp:490
-#, fuzzy
-#| msgid "Bosnian"
+#: src/onlinetranslator/onlinetranslator.cpp:539
+msgctxt "OnlineTranslator|"
+msgid "Bhojpuri"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:541
+msgctxt "OnlineTranslator|"
+msgid "Bislama"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:543
 msgctxt "OnlineTranslator|"
 msgid "Bosnian"
 msgstr "bosanski"
 
-#: src/onlinetranslator/onlinetranslator.cpp:492
-#, fuzzy
-#| msgid "Bulgarian"
+#: src/onlinetranslator/onlinetranslator.cpp:545
+msgctxt "OnlineTranslator|"
+msgid "Breton"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:547
 msgctxt "OnlineTranslator|"
 msgid "Bulgarian"
 msgstr "bolgarščina"
 
-#: src/onlinetranslator/onlinetranslator.cpp:494
+#: src/onlinetranslator/onlinetranslator.cpp:549
 #, fuzzy
-#| msgid "Catalan"
+#| msgctxt "OnlineTranslator|"
+#| msgid "Chinese (Traditional)"
+msgctxt "OnlineTranslator|"
+msgid "Cantonese (Traditional)"
+msgstr "kitajščina (tradicionalna)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:551
 msgctxt "OnlineTranslator|"
 msgid "Catalan"
 msgstr "katalonski"
 
-#: src/onlinetranslator/onlinetranslator.cpp:496
-#, fuzzy
-#| msgid "Cantonese"
-msgctxt "OnlineTranslator|"
-msgid "Cantonese"
-msgstr "kantonščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:498
-#, fuzzy
-#| msgid "Cebuano"
+#: src/onlinetranslator/onlinetranslator.cpp:553
 msgctxt "OnlineTranslator|"
 msgid "Cebuano"
 msgstr "Cebuano"
 
-#: src/onlinetranslator/onlinetranslator.cpp:500
-#, fuzzy
-#| msgid "Chinese (Simplified)"
+#: src/onlinetranslator/onlinetranslator.cpp:555
 msgctxt "OnlineTranslator|"
-msgid "Chinese (Simplified)"
-msgstr "kitajščina (poenostavljena)"
+msgid "Chamorro"
+msgstr ""
 
-#: src/onlinetranslator/onlinetranslator.cpp:502
-#, fuzzy
-#| msgid "Chinese (Traditional)"
-msgctxt "OnlineTranslator|"
-msgid "Chinese (Traditional)"
-msgstr "kitajščina (tradicionalna)"
-
-#: src/onlinetranslator/onlinetranslator.cpp:504
-#, fuzzy
-#| msgid "Corsican"
-msgctxt "OnlineTranslator|"
-msgid "Corsican"
-msgstr "korziški"
-
-#: src/onlinetranslator/onlinetranslator.cpp:506
-#, fuzzy
-#| msgid "Croatian"
-msgctxt "OnlineTranslator|"
-msgid "Croatian"
-msgstr "hrvaško"
-
-#: src/onlinetranslator/onlinetranslator.cpp:508
-#, fuzzy
-#| msgid "Czech"
-msgctxt "OnlineTranslator|"
-msgid "Czech"
-msgstr "češki"
-
-#: src/onlinetranslator/onlinetranslator.cpp:510
-#, fuzzy
-#| msgid "Danish"
-msgctxt "OnlineTranslator|"
-msgid "Danish"
-msgstr "danščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:512
-#, fuzzy
-#| msgid "Dutch"
-msgctxt "OnlineTranslator|"
-msgid "Dutch"
-msgstr "nizozemščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:514
-#, fuzzy
-#| msgid "English"
-msgctxt "OnlineTranslator|"
-msgid "English"
-msgstr "angleščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:516
-#, fuzzy
-#| msgid "Esperanto"
-msgctxt "OnlineTranslator|"
-msgid "Esperanto"
-msgstr "Esperanto"
-
-#: src/onlinetranslator/onlinetranslator.cpp:518
-#, fuzzy
-#| msgid "Estonian"
-msgctxt "OnlineTranslator|"
-msgid "Estonian"
-msgstr "estonski"
-
-#: src/onlinetranslator/onlinetranslator.cpp:520
-#, fuzzy
-#| msgid "Fijian"
-msgctxt "OnlineTranslator|"
-msgid "Fijian"
-msgstr "fidžijski"
-
-#: src/onlinetranslator/onlinetranslator.cpp:522
-#, fuzzy
-#| msgid "Filipino"
-msgctxt "OnlineTranslator|"
-msgid "Filipino"
-msgstr "filipinski"
-
-#: src/onlinetranslator/onlinetranslator.cpp:524
-#, fuzzy
-#| msgid "Finnish"
-msgctxt "OnlineTranslator|"
-msgid "Finnish"
-msgstr "finščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:526
-#, fuzzy
-#| msgid "French"
-msgctxt "OnlineTranslator|"
-msgid "French"
-msgstr "francosko"
-
-#: src/onlinetranslator/onlinetranslator.cpp:528
-#, fuzzy
-#| msgid "Frisian"
-msgctxt "OnlineTranslator|"
-msgid "Frisian"
-msgstr "frizijščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:530
-#, fuzzy
-#| msgid "Galician"
-msgctxt "OnlineTranslator|"
-msgid "Galician"
-msgstr "galicijski"
-
-#: src/onlinetranslator/onlinetranslator.cpp:532
-#, fuzzy
-#| msgid "Georgian"
-msgctxt "OnlineTranslator|"
-msgid "Georgian"
-msgstr "gruzijski"
-
-#: src/onlinetranslator/onlinetranslator.cpp:534
-#, fuzzy
-#| msgid "German"
-msgctxt "OnlineTranslator|"
-msgid "German"
-msgstr "nemški"
-
-#: src/onlinetranslator/onlinetranslator.cpp:536
-#, fuzzy
-#| msgid "Greek"
-msgctxt "OnlineTranslator|"
-msgid "Greek"
-msgstr "grški"
-
-#: src/onlinetranslator/onlinetranslator.cpp:538
-#, fuzzy
-#| msgid "Gujarati"
-msgctxt "OnlineTranslator|"
-msgid "Gujarati"
-msgstr "gudžaratščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:540
-#, fuzzy
-#| msgid "Haitian Creole"
-msgctxt "OnlineTranslator|"
-msgid "Haitian Creole"
-msgstr "haitska kreolščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:542
-#, fuzzy
-#| msgid "Hausa"
-msgctxt "OnlineTranslator|"
-msgid "Hausa"
-msgstr "Hausa"
-
-#: src/onlinetranslator/onlinetranslator.cpp:544
-#, fuzzy
-#| msgid "Hawaiian"
-msgctxt "OnlineTranslator|"
-msgid "Hawaiian"
-msgstr "havajski"
-
-#: src/onlinetranslator/onlinetranslator.cpp:546
-#, fuzzy
-#| msgid "Hebrew"
-msgctxt "OnlineTranslator|"
-msgid "Hebrew"
-msgstr "hebrejščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:548
-#, fuzzy
-#| msgid "Hill Mari"
-msgctxt "OnlineTranslator|"
-msgid "Hill Mari"
-msgstr "Hrib Mari"
-
-#: src/onlinetranslator/onlinetranslator.cpp:550
-#, fuzzy
-#| msgid "Hindi"
-msgctxt "OnlineTranslator|"
-msgid "Hindi"
-msgstr "Hindi"
-
-#: src/onlinetranslator/onlinetranslator.cpp:552
-#, fuzzy
-#| msgid "Hmong"
-msgctxt "OnlineTranslator|"
-msgid "Hmong"
-msgstr "Hmong"
-
-#: src/onlinetranslator/onlinetranslator.cpp:554
-#, fuzzy
-#| msgid "Hungarian"
-msgctxt "OnlineTranslator|"
-msgid "Hungarian"
-msgstr "madžarski"
-
-#: src/onlinetranslator/onlinetranslator.cpp:556
-#, fuzzy
-#| msgid "Icelandic"
-msgctxt "OnlineTranslator|"
-msgid "Icelandic"
-msgstr "islandski"
-
-#: src/onlinetranslator/onlinetranslator.cpp:558
-#, fuzzy
-#| msgid "Igbo"
-msgctxt "OnlineTranslator|"
-msgid "Igbo"
-msgstr "Igbo"
-
-#: src/onlinetranslator/onlinetranslator.cpp:560
-#, fuzzy
-#| msgid "Indonesian"
-msgctxt "OnlineTranslator|"
-msgid "Indonesian"
-msgstr "indonezijski"
-
-#: src/onlinetranslator/onlinetranslator.cpp:562
-#, fuzzy
-#| msgid "Irish"
-msgctxt "OnlineTranslator|"
-msgid "Irish"
-msgstr "irski"
-
-#: src/onlinetranslator/onlinetranslator.cpp:564
-#, fuzzy
-#| msgid "Italian"
-msgctxt "OnlineTranslator|"
-msgid "Italian"
-msgstr "italijanščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:566
-#, fuzzy
-#| msgid "Japanese"
-msgctxt "OnlineTranslator|"
-msgid "Japanese"
-msgstr "japonščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:568
-#, fuzzy
-#| msgid "Javanese"
-msgctxt "OnlineTranslator|"
-msgid "Javanese"
-msgstr "javanščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:570
-#, fuzzy
-#| msgid "Kannada"
-msgctxt "OnlineTranslator|"
-msgid "Kannada"
-msgstr "kanadščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:572
-#, fuzzy
-#| msgid "Kazakh"
-msgctxt "OnlineTranslator|"
-msgid "Kazakh"
-msgstr "kazaščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:574
-#, fuzzy
-#| msgid "Khmer"
-msgctxt "OnlineTranslator|"
-msgid "Khmer"
-msgstr "kmerščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:576
-#, fuzzy
-#| msgid "Kinyarwanda"
-msgctxt "OnlineTranslator|"
-msgid "Kinyarwanda"
-msgstr "kinjaruandščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:578
-#, fuzzy
-#| msgid "Klingon"
-msgctxt "OnlineTranslator|"
-msgid "Klingon"
-msgstr "klingonščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:580
-#, fuzzy
-#| msgid "Klingon (PlqaD)"
-msgctxt "OnlineTranslator|"
-msgid "Klingon (PlqaD)"
-msgstr "klingonščina (PlqaD)"
-
-#: src/onlinetranslator/onlinetranslator.cpp:582
-#, fuzzy
-#| msgid "Korean"
-msgctxt "OnlineTranslator|"
-msgid "Korean"
-msgstr "korejščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:584
-#, fuzzy
-#| msgid "Kurdish"
-msgctxt "OnlineTranslator|"
-msgid "Kurdish"
-msgstr "kurdščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:586
-#, fuzzy
-#| msgid "Kyrgyz"
-msgctxt "OnlineTranslator|"
-msgid "Kyrgyz"
-msgstr "Kirgiz"
-
-#: src/onlinetranslator/onlinetranslator.cpp:588
-#, fuzzy
-#| msgid "Lao"
-msgctxt "OnlineTranslator|"
-msgid "Lao"
-msgstr "Lao"
-
-#: src/onlinetranslator/onlinetranslator.cpp:590
-#, fuzzy
-#| msgid "Latin"
-msgctxt "OnlineTranslator|"
-msgid "Latin"
-msgstr "latinsko"
-
-#: src/onlinetranslator/onlinetranslator.cpp:592
-#, fuzzy
-#| msgid "Latvian"
-msgctxt "OnlineTranslator|"
-msgid "Latvian"
-msgstr "latvijščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:594
-#, fuzzy
-#| msgid "Levantine Arabic"
-msgctxt "OnlineTranslator|"
-msgid "Levantine Arabic"
-msgstr "levantinska arabščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:596
-#, fuzzy
-#| msgid "Lithuanian"
-msgctxt "OnlineTranslator|"
-msgid "Lithuanian"
-msgstr "litovski"
-
-#: src/onlinetranslator/onlinetranslator.cpp:598
-#, fuzzy
-#| msgid "Luxembourgish"
-msgctxt "OnlineTranslator|"
-msgid "Luxembourgish"
-msgstr "luksemburški"
-
-#: src/onlinetranslator/onlinetranslator.cpp:600
-#, fuzzy
-#| msgid "Macedonian"
-msgctxt "OnlineTranslator|"
-msgid "Macedonian"
-msgstr "makedonski"
-
-#: src/onlinetranslator/onlinetranslator.cpp:602
-#, fuzzy
-#| msgid "Malagasy"
-msgctxt "OnlineTranslator|"
-msgid "Malagasy"
-msgstr "malgaški"
-
-#: src/onlinetranslator/onlinetranslator.cpp:604
-#, fuzzy
-#| msgid "Malay"
-msgctxt "OnlineTranslator|"
-msgid "Malay"
-msgstr "malajščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:606
-#, fuzzy
-#| msgid "Malayalam"
-msgctxt "OnlineTranslator|"
-msgid "Malayalam"
-msgstr "malajalamščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:608
-#, fuzzy
-#| msgid "Maltese"
-msgctxt "OnlineTranslator|"
-msgid "Maltese"
-msgstr "malteški"
-
-#: src/onlinetranslator/onlinetranslator.cpp:610
-#, fuzzy
-#| msgid "Maori"
-msgctxt "OnlineTranslator|"
-msgid "Maori"
-msgstr "maorski"
-
-#: src/onlinetranslator/onlinetranslator.cpp:612
-#, fuzzy
-#| msgid "Marathi"
-msgctxt "OnlineTranslator|"
-msgid "Marathi"
-msgstr "maratščina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:614
-#, fuzzy
-#| msgid "Mari"
-msgctxt "OnlineTranslator|"
-msgid "Mari"
-msgstr "Mari"
-
-#: src/onlinetranslator/onlinetranslator.cpp:616
-#, fuzzy
-#| msgid "Mongolian"
-msgctxt "OnlineTranslator|"
-msgid "Mongolian"
-msgstr "mongolski"
-
-#: src/onlinetranslator/onlinetranslator.cpp:618
-#, fuzzy
-#| msgid "Myanmar"
-msgctxt "OnlineTranslator|"
-msgid "Myanmar"
-msgstr "Mjanmar"
-
-#: src/onlinetranslator/onlinetranslator.cpp:620
-#, fuzzy
-#| msgid "Nepali"
-msgctxt "OnlineTranslator|"
-msgid "Nepali"
-msgstr "nepalsko"
-
-#: src/onlinetranslator/onlinetranslator.cpp:622
-#, fuzzy
-#| msgid "Norwegian"
-msgctxt "OnlineTranslator|"
-msgid "Norwegian"
-msgstr "norveški"
-
-#: src/onlinetranslator/onlinetranslator.cpp:624
-#, fuzzy
-#| msgid "Oriya"
-msgctxt "OnlineTranslator|"
-msgid "Oriya"
-msgstr "orija"
-
-#: src/onlinetranslator/onlinetranslator.cpp:626
-#, fuzzy
-#| msgid "Chichewa"
+#: src/onlinetranslator/onlinetranslator.cpp:557
 msgctxt "OnlineTranslator|"
 msgid "Chichewa"
 msgstr "Chichewa"
 
-#: src/onlinetranslator/onlinetranslator.cpp:628
+#: src/onlinetranslator/onlinetranslator.cpp:559
 #, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Chinese (Traditional)"
+msgctxt "OnlineTranslator|"
+msgid "Chinese (Literary)"
+msgstr "kitajščina (tradicionalna)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:561
+msgctxt "OnlineTranslator|"
+msgid "Chinese (Simplified)"
+msgstr "kitajščina (poenostavljena)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:563
+msgctxt "OnlineTranslator|"
+msgid "Chinese (Traditional)"
+msgstr "kitajščina (tradicionalna)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:565
+msgctxt "OnlineTranslator|"
+msgid "Chuvash"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:567
+msgctxt "OnlineTranslator|"
+msgid "Comorian (Ngazidja)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:569
+msgctxt "OnlineTranslator|"
+msgid "Coptic"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:571
+msgctxt "OnlineTranslator|"
+msgid "Corsican"
+msgstr "korziški"
+
+#: src/onlinetranslator/onlinetranslator.cpp:573
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Antigua and Barbuda)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:575
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Bahamas)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:577
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Grenadian)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:579
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Guyanese)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:581
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Jamaican)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:583
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Vincentian)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:585
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Virgin Islands)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:587
+msgctxt "OnlineTranslator|"
+msgid "Creole French (Saint Lucian)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:589
+msgctxt "OnlineTranslator|"
+msgid "Creole French (Seselwa)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:591
+msgctxt "OnlineTranslator|"
+msgid "Creole Portuguese (Upper Guinea)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:593
+msgctxt "OnlineTranslator|"
+msgid "Croatian"
+msgstr "hrvaško"
+
+#: src/onlinetranslator/onlinetranslator.cpp:595
+msgctxt "OnlineTranslator|"
+msgid "Czech"
+msgstr "češki"
+
+#: src/onlinetranslator/onlinetranslator.cpp:597
+msgctxt "OnlineTranslator|"
+msgid "Danish"
+msgstr "danščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:599
+msgctxt "OnlineTranslator|"
+msgid "Dari"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:601
+msgctxt "OnlineTranslator|"
+msgid "Divehi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:603
+msgctxt "OnlineTranslator|"
+msgid "Dogri"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:605
+msgctxt "OnlineTranslator|"
+msgid "Dutch"
+msgstr "nizozemščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:607
+msgctxt "OnlineTranslator|"
+msgid "Dzongkha"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:609
+msgctxt "OnlineTranslator|"
+msgid "Elvish (Sindarin)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:611
+msgctxt "OnlineTranslator|"
+msgid "Emoji"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:613
+msgctxt "OnlineTranslator|"
+msgid "English"
+msgstr "angleščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:615
+msgctxt "OnlineTranslator|"
+msgid "Esperanto"
+msgstr "Esperanto"
+
+#: src/onlinetranslator/onlinetranslator.cpp:617
+msgctxt "OnlineTranslator|"
+msgid "Estonian"
+msgstr "estonski"
+
+#: src/onlinetranslator/onlinetranslator.cpp:619
+msgctxt "OnlineTranslator|"
+msgid "Ewe"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:621
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Tagalog"
+msgctxt "OnlineTranslator|"
+msgid "Fanagalo"
+msgstr "Tagalog"
+
+#: src/onlinetranslator/onlinetranslator.cpp:623
+msgctxt "OnlineTranslator|"
+msgid "Faroese"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:625
+msgctxt "OnlineTranslator|"
+msgid "Fijian"
+msgstr "fidžijski"
+
+#: src/onlinetranslator/onlinetranslator.cpp:627
+msgctxt "OnlineTranslator|"
+msgid "Filipino"
+msgstr "filipinski"
+
+#: src/onlinetranslator/onlinetranslator.cpp:629
+msgctxt "OnlineTranslator|"
+msgid "Finnish"
+msgstr "finščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:631
+msgctxt "OnlineTranslator|"
+msgid "French"
+msgstr "francosko"
+
+#: src/onlinetranslator/onlinetranslator.cpp:633
+msgctxt "OnlineTranslator|"
+msgid "French (Canada)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:635
+msgctxt "OnlineTranslator|"
+msgid "Frisian"
+msgstr "frizijščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:637
+msgctxt "OnlineTranslator|"
+msgid "Galician"
+msgstr "galicijski"
+
+#: src/onlinetranslator/onlinetranslator.cpp:639
+msgctxt "OnlineTranslator|"
+msgid "Ganda"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:641
+msgctxt "OnlineTranslator|"
+msgid "Georgian"
+msgstr "gruzijski"
+
+#: src/onlinetranslator/onlinetranslator.cpp:643
+msgctxt "OnlineTranslator|"
+msgid "German"
+msgstr "nemški"
+
+#: src/onlinetranslator/onlinetranslator.cpp:645
+msgctxt "OnlineTranslator|"
+msgid "Greek"
+msgstr "grški"
+
+#: src/onlinetranslator/onlinetranslator.cpp:647
+msgctxt "OnlineTranslator|"
+msgid "Greek (Classical)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:649
+msgctxt "OnlineTranslator|"
+msgid "Guarani"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:651
+msgctxt "OnlineTranslator|"
+msgid "Gujarati"
+msgstr "gudžaratščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:653
+msgctxt "OnlineTranslator|"
+msgid "Haitian Creole"
+msgstr "haitska kreolščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:655
+msgctxt "OnlineTranslator|"
+msgid "Hausa"
+msgstr "Hausa"
+
+#: src/onlinetranslator/onlinetranslator.cpp:657
+msgctxt "OnlineTranslator|"
+msgid "Hawaiian"
+msgstr "havajski"
+
+#: src/onlinetranslator/onlinetranslator.cpp:659
+msgctxt "OnlineTranslator|"
+msgid "Hebrew"
+msgstr "hebrejščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:661
+msgctxt "OnlineTranslator|"
+msgid "Hill Mari"
+msgstr "Hrib Mari"
+
+#: src/onlinetranslator/onlinetranslator.cpp:663
+msgctxt "OnlineTranslator|"
+msgid "Hindi"
+msgstr "Hindi"
+
+#: src/onlinetranslator/onlinetranslator.cpp:665
+msgctxt "OnlineTranslator|"
+msgid "Hmong"
+msgstr "Hmong"
+
+#: src/onlinetranslator/onlinetranslator.cpp:667
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Hmong"
+msgctxt "OnlineTranslator|"
+msgid "Hmong Daw"
+msgstr "Hmong"
+
+#: src/onlinetranslator/onlinetranslator.cpp:669
+msgctxt "OnlineTranslator|"
+msgid "Hungarian"
+msgstr "madžarski"
+
+#: src/onlinetranslator/onlinetranslator.cpp:671
+msgctxt "OnlineTranslator|"
+msgid "Icelandic"
+msgstr "islandski"
+
+#: src/onlinetranslator/onlinetranslator.cpp:673
+msgctxt "OnlineTranslator|"
+msgid "Igbo"
+msgstr "Igbo"
+
+#: src/onlinetranslator/onlinetranslator.cpp:675
+msgctxt "OnlineTranslator|"
+msgid "Ilocano"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:677
+msgctxt "OnlineTranslator|"
+msgid "Indonesian"
+msgstr "indonezijski"
+
+#: src/onlinetranslator/onlinetranslator.cpp:679
+msgctxt "OnlineTranslator|"
+msgid "Inuinnaqtun"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:681
+msgctxt "OnlineTranslator|"
+msgid "Inuktitut"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:683
+msgctxt "OnlineTranslator|"
+msgid "Inuktitut (Greenlandic)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:685
+msgctxt "OnlineTranslator|"
+msgid "Inuktitut (Latin)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:687
+msgctxt "OnlineTranslator|"
+msgid "Irish"
+msgstr "irski"
+
+#: src/onlinetranslator/onlinetranslator.cpp:689
+msgctxt "OnlineTranslator|"
+msgid "Italian"
+msgstr "italijanščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:691
+msgctxt "OnlineTranslator|"
+msgid "Japanese"
+msgstr "japonščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:693
+msgctxt "OnlineTranslator|"
+msgid "Javanese"
+msgstr "javanščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:695
+msgctxt "OnlineTranslator|"
+msgid "Kabuverdianu"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:697
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Italian"
+msgctxt "OnlineTranslator|"
+msgid "Kabylian"
+msgstr "italijanščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:699
+msgctxt "OnlineTranslator|"
+msgid "Kannada"
+msgstr "kanadščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:701
+msgctxt "OnlineTranslator|"
+msgid "Kazakh"
+msgstr "kazaščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:703
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Serbian (Latin)"
+msgctxt "OnlineTranslator|"
+msgid "Kazakh (Latin)"
+msgstr "srbščina (latinica)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:705
+msgctxt "OnlineTranslator|"
+msgid "Khmer"
+msgstr "kmerščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:707
+msgctxt "OnlineTranslator|"
+msgid "Kinyarwanda"
+msgstr "kinjaruandščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:709
+msgctxt "OnlineTranslator|"
+msgid "Kirundi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:711
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Klingon (PlqaD)"
+msgctxt "OnlineTranslator|"
+msgid "Klingon (Latin)"
+msgstr "klingonščina (PlqaD)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:713
+msgctxt "OnlineTranslator|"
+msgid "Konkani"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:715
+msgctxt "OnlineTranslator|"
+msgid "Korean"
+msgstr "korejščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:717
+msgctxt "OnlineTranslator|"
+msgid "Krio"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:719
+msgctxt "OnlineTranslator|"
+msgid "Kurdish (Central)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:721
+msgctxt "OnlineTranslator|"
+msgid "Kurdish (Northern)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:723
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Kurdish"
+msgctxt "OnlineTranslator|"
+msgid "Kurdish (Sorani)"
+msgstr "kurdščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:725
+msgctxt "OnlineTranslator|"
+msgid "Kyrgyz"
+msgstr "Kirgiz"
+
+#: src/onlinetranslator/onlinetranslator.cpp:727
+msgctxt "OnlineTranslator|"
+msgid "Lao"
+msgstr "Lao"
+
+#: src/onlinetranslator/onlinetranslator.cpp:729
+msgctxt "OnlineTranslator|"
+msgid "Latin"
+msgstr "latinsko"
+
+#: src/onlinetranslator/onlinetranslator.cpp:731
+msgctxt "OnlineTranslator|"
+msgid "Latvian"
+msgstr "latvijščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:733
+msgctxt "OnlineTranslator|"
+msgid "Lingala"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:735
+msgctxt "OnlineTranslator|"
+msgid "Lithuanian"
+msgstr "litovski"
+
+#: src/onlinetranslator/onlinetranslator.cpp:737
+msgctxt "OnlineTranslator|"
+msgid "Lower Sorbian"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:739
+msgctxt "OnlineTranslator|"
+msgid "Luganda"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:741
+msgctxt "OnlineTranslator|"
+msgid "Luxembourgish"
+msgstr "luksemburški"
+
+#: src/onlinetranslator/onlinetranslator.cpp:743
+msgctxt "OnlineTranslator|"
+msgid "Macedonian"
+msgstr "makedonski"
+
+#: src/onlinetranslator/onlinetranslator.cpp:745
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Swahili"
+msgctxt "OnlineTranslator|"
+msgid "Maithili"
+msgstr "svahili"
+
+#: src/onlinetranslator/onlinetranslator.cpp:747
+msgctxt "OnlineTranslator|"
+msgid "Malagasy"
+msgstr "malgaški"
+
+#: src/onlinetranslator/onlinetranslator.cpp:749
+msgctxt "OnlineTranslator|"
+msgid "Malay"
+msgstr "malajščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:751
+msgctxt "OnlineTranslator|"
+msgid "Malayalam"
+msgstr "malajalamščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:753
+msgctxt "OnlineTranslator|"
+msgid "Maltese"
+msgstr "malteški"
+
+#: src/onlinetranslator/onlinetranslator.cpp:755
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Scots Gaelic"
+msgctxt "OnlineTranslator|"
+msgid "Manx Gaelic"
+msgstr "škotska galščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:757
+msgctxt "OnlineTranslator|"
+msgid "Marathi"
+msgstr "maratščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:759
+msgctxt "OnlineTranslator|"
+msgid "Mari"
+msgstr "Mari"
+
+#: src/onlinetranslator/onlinetranslator.cpp:761
+msgctxt "OnlineTranslator|"
+msgid "Marshallese"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:763
+msgctxt "OnlineTranslator|"
+msgid "Meiteilon (Manipuri)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:765
+msgctxt "OnlineTranslator|"
+msgid "Mende"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:767
+msgctxt "OnlineTranslator|"
+msgid "Mizo"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:769
+msgctxt "OnlineTranslator|"
+msgid "Mongolian"
+msgstr "mongolski"
+
+#: src/onlinetranslator/onlinetranslator.cpp:771
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Serbian (Cyrillic)"
+msgctxt "OnlineTranslator|"
+msgid "Mongolian (Cyrillic)"
+msgstr "srbščina (cirilica)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:773
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Chinese (Traditional)"
+msgctxt "OnlineTranslator|"
+msgid "Mongolian (Traditional)"
+msgstr "kitajščina (tradicionalna)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:775
+msgctxt "OnlineTranslator|"
+msgid "Morisyen"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:777
+msgctxt "OnlineTranslator|"
+msgid "Myanmar (Burmese)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:779
+msgctxt "OnlineTranslator|"
+msgid "Māori"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:781
+msgctxt "OnlineTranslator|"
+msgid "Nepali"
+msgstr "nepalsko"
+
+#: src/onlinetranslator/onlinetranslator.cpp:783
+msgctxt "OnlineTranslator|"
+msgid "Niuean"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:785
+msgctxt "OnlineTranslator|"
+msgid "Norwegian"
+msgstr "norveški"
+
+#: src/onlinetranslator/onlinetranslator.cpp:787
+msgctxt "OnlineTranslator|"
+msgid "Nyanja"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:789
+msgctxt "OnlineTranslator|"
+msgid "Odia"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:791
+msgctxt "OnlineTranslator|"
+msgid "Oromo"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:793
+msgctxt "OnlineTranslator|"
+msgid "Palauan"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:795
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
 #| msgid "Papiamento"
 msgctxt "OnlineTranslator|"
-msgid "Papiamento"
+msgid "Papiamentu"
 msgstr "Papiamento"
 
-#: src/onlinetranslator/onlinetranslator.cpp:630
-#, fuzzy
-#| msgid "Pashto"
+#: src/onlinetranslator/onlinetranslator.cpp:797
 msgctxt "OnlineTranslator|"
 msgid "Pashto"
 msgstr "paštunsko"
 
-#: src/onlinetranslator/onlinetranslator.cpp:632
-#, fuzzy
-#| msgid "Persian"
+#: src/onlinetranslator/onlinetranslator.cpp:799
 msgctxt "OnlineTranslator|"
 msgid "Persian"
 msgstr "perzijsko"
 
-#: src/onlinetranslator/onlinetranslator.cpp:634
-#, fuzzy
-#| msgid "Polish"
+#: src/onlinetranslator/onlinetranslator.cpp:801
+msgctxt "OnlineTranslator|"
+msgid "Pijin"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:803
 msgctxt "OnlineTranslator|"
 msgid "Polish"
 msgstr "poljski"
 
-#: src/onlinetranslator/onlinetranslator.cpp:636
+#: src/onlinetranslator/onlinetranslator.cpp:805
 #, fuzzy
+#| msgctxt "OnlineTranslator|"
 #| msgid "Portuguese"
 msgctxt "OnlineTranslator|"
-msgid "Portuguese"
+msgid "Portuguese (Brazilian)"
 msgstr "portugalščina"
 
-#: src/onlinetranslator/onlinetranslator.cpp:638
+#: src/onlinetranslator/onlinetranslator.cpp:807
 #, fuzzy
-#| msgid "Punjabi"
+#| msgctxt "OnlineTranslator|"
+#| msgid "Portuguese"
+msgctxt "OnlineTranslator|"
+msgid "Portuguese (Portugal)"
+msgstr "portugalščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:809
+msgctxt "OnlineTranslator|"
+msgid "Potawatomi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:811
 msgctxt "OnlineTranslator|"
 msgid "Punjabi"
 msgstr "pandžabščina"
 
-#: src/onlinetranslator/onlinetranslator.cpp:640
+#: src/onlinetranslator/onlinetranslator.cpp:813
+msgctxt "OnlineTranslator|"
+msgid "Quechua"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:815
 #, fuzzy
+#| msgctxt "OnlineTranslator|"
 #| msgid "Queretaro Otomi"
 msgctxt "OnlineTranslator|"
-msgid "Queretaro Otomi"
+msgid "Querétaro Otomi"
 msgstr "Queretaro Otomi"
 
-#: src/onlinetranslator/onlinetranslator.cpp:642
-#, fuzzy
-#| msgid "Romanian"
+#: src/onlinetranslator/onlinetranslator.cpp:817
 msgctxt "OnlineTranslator|"
 msgid "Romanian"
 msgstr "romunščina"
 
-#: src/onlinetranslator/onlinetranslator.cpp:644
-#, fuzzy
-#| msgid "Russian"
+#: src/onlinetranslator/onlinetranslator.cpp:819
+msgctxt "OnlineTranslator|"
+msgid "Rundi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:821
 msgctxt "OnlineTranslator|"
 msgid "Russian"
 msgstr "ruski"
 
-#: src/onlinetranslator/onlinetranslator.cpp:646
-#, fuzzy
-#| msgid "Samoan"
+#: src/onlinetranslator/onlinetranslator.cpp:823
 msgctxt "OnlineTranslator|"
 msgid "Samoan"
 msgstr "samoanska"
 
-#: src/onlinetranslator/onlinetranslator.cpp:648
-#, fuzzy
-#| msgid "Scots Gaelic"
+#: src/onlinetranslator/onlinetranslator.cpp:825
+msgctxt "OnlineTranslator|"
+msgid "Sango"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:827
+msgctxt "OnlineTranslator|"
+msgid "Sanskrit"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:829
 msgctxt "OnlineTranslator|"
 msgid "Scots Gaelic"
 msgstr "škotska galščina"
 
-#: src/onlinetranslator/onlinetranslator.cpp:650
-#, fuzzy
-#| msgid "Serbian (Cyrillic)"
+#: src/onlinetranslator/onlinetranslator.cpp:831
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Cyrillic)"
 msgstr "srbščina (cirilica)"
 
-#: src/onlinetranslator/onlinetranslator.cpp:652
-#, fuzzy
-#| msgid "Serbian (Latin)"
+#: src/onlinetranslator/onlinetranslator.cpp:833
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Latin)"
 msgstr "srbščina (latinica)"
 
-#: src/onlinetranslator/onlinetranslator.cpp:654
-#, fuzzy
-#| msgid "Sesotho"
+#: src/onlinetranslator/onlinetranslator.cpp:835
 msgctxt "OnlineTranslator|"
 msgid "Sesotho"
 msgstr "sesoto"
 
-#: src/onlinetranslator/onlinetranslator.cpp:656
+#: src/onlinetranslator/onlinetranslator.cpp:837
 #, fuzzy
-#| msgid "Shona"
+#| msgctxt "OnlineTranslator|"
+#| msgid "Sesotho"
+msgctxt "OnlineTranslator|"
+msgid "Sesotho sa Leboa"
+msgstr "sesoto"
+
+#: src/onlinetranslator/onlinetranslator.cpp:839
+msgctxt "OnlineTranslator|"
+msgid "Setswana"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:841
 msgctxt "OnlineTranslator|"
 msgid "Shona"
 msgstr "Shona"
 
-#: src/onlinetranslator/onlinetranslator.cpp:658
-#, fuzzy
-#| msgid "Sindhi"
+#: src/onlinetranslator/onlinetranslator.cpp:843
 msgctxt "OnlineTranslator|"
 msgid "Sindhi"
 msgstr "Sindhi"
 
-#: src/onlinetranslator/onlinetranslator.cpp:660
-#, fuzzy
-#| msgid "Sinhala"
+#: src/onlinetranslator/onlinetranslator.cpp:845
 msgctxt "OnlineTranslator|"
 msgid "Sinhala"
 msgstr "singalščina"
 
-#: src/onlinetranslator/onlinetranslator.cpp:662
-#, fuzzy
-#| msgid "Slovak"
+#: src/onlinetranslator/onlinetranslator.cpp:847
 msgctxt "OnlineTranslator|"
 msgid "Slovak"
 msgstr "slovaški"
 
-#: src/onlinetranslator/onlinetranslator.cpp:664
-#, fuzzy
-#| msgid "Slovenian"
+#: src/onlinetranslator/onlinetranslator.cpp:849
 msgctxt "OnlineTranslator|"
 msgid "Slovenian"
 msgstr "slovenščina"
 
-#: src/onlinetranslator/onlinetranslator.cpp:666
-#, fuzzy
-#| msgid "Somali"
+#: src/onlinetranslator/onlinetranslator.cpp:851
 msgctxt "OnlineTranslator|"
 msgid "Somali"
 msgstr "somalski"
 
-#: src/onlinetranslator/onlinetranslator.cpp:668
-#, fuzzy
-#| msgid "Spanish"
+#: src/onlinetranslator/onlinetranslator.cpp:853
 msgctxt "OnlineTranslator|"
 msgid "Spanish"
 msgstr "španski"
 
-#: src/onlinetranslator/onlinetranslator.cpp:670
-#, fuzzy
-#| msgid "Sundanese"
+#: src/onlinetranslator/onlinetranslator.cpp:855
+msgctxt "OnlineTranslator|"
+msgid "Sranan Tongo"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:857
 msgctxt "OnlineTranslator|"
 msgid "Sundanese"
 msgstr "sundanski"
 
-#: src/onlinetranslator/onlinetranslator.cpp:672
-#, fuzzy
-#| msgid "Swahili"
+#: src/onlinetranslator/onlinetranslator.cpp:859
 msgctxt "OnlineTranslator|"
 msgid "Swahili"
 msgstr "svahili"
 
-#: src/onlinetranslator/onlinetranslator.cpp:674
-#, fuzzy
-#| msgid "Swedish"
+#: src/onlinetranslator/onlinetranslator.cpp:861
 msgctxt "OnlineTranslator|"
 msgid "Swedish"
 msgstr "švedščina"
 
-#: src/onlinetranslator/onlinetranslator.cpp:676
-#, fuzzy
-#| msgid "Tagalog"
+#: src/onlinetranslator/onlinetranslator.cpp:863
 msgctxt "OnlineTranslator|"
-msgid "Tagalog"
-msgstr "Tagalog"
+msgid "Syriac (Aramaic)"
+msgstr ""
 
-#: src/onlinetranslator/onlinetranslator.cpp:678
-#, fuzzy
-#| msgid "Tahitian"
+#: src/onlinetranslator/onlinetranslator.cpp:865
 msgctxt "OnlineTranslator|"
 msgid "Tahitian"
 msgstr "tahitijska"
 
-#: src/onlinetranslator/onlinetranslator.cpp:680
-#, fuzzy
-#| msgid "Tajik"
+#: src/onlinetranslator/onlinetranslator.cpp:867
 msgctxt "OnlineTranslator|"
 msgid "Tajik"
 msgstr "tadžikistanski"
 
-#: src/onlinetranslator/onlinetranslator.cpp:682
-#, fuzzy
-#| msgid "Tamil"
+#: src/onlinetranslator/onlinetranslator.cpp:869
+msgctxt "OnlineTranslator|"
+msgid "Tamashek (Tuareg)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:871
 msgctxt "OnlineTranslator|"
 msgid "Tamil"
 msgstr "tamilščina"
 
-#: src/onlinetranslator/onlinetranslator.cpp:684
-#, fuzzy
-#| msgid "Tatar"
+#: src/onlinetranslator/onlinetranslator.cpp:873
 msgctxt "OnlineTranslator|"
 msgid "Tatar"
 msgstr "tatarščina"
 
-#: src/onlinetranslator/onlinetranslator.cpp:686
-#, fuzzy
-#| msgid "Telugu"
+#: src/onlinetranslator/onlinetranslator.cpp:875
 msgctxt "OnlineTranslator|"
 msgid "Telugu"
 msgstr "telugu"
 
-#: src/onlinetranslator/onlinetranslator.cpp:688
-#, fuzzy
-#| msgid "Thai"
+#: src/onlinetranslator/onlinetranslator.cpp:877
+msgctxt "OnlineTranslator|"
+msgid "Tetum"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:879
 msgctxt "OnlineTranslator|"
 msgid "Thai"
 msgstr "tajska"
 
-#: src/onlinetranslator/onlinetranslator.cpp:690
-#, fuzzy
-#| msgid "Tongan"
+#: src/onlinetranslator/onlinetranslator.cpp:881
+msgctxt "OnlineTranslator|"
+msgid "Tibetan"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:883
+msgctxt "OnlineTranslator|"
+msgid "Tigrinya"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:885
+msgctxt "OnlineTranslator|"
+msgid "Tok Pisin"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:887
+msgctxt "OnlineTranslator|"
+msgid "Tokelauan"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:889
 msgctxt "OnlineTranslator|"
 msgid "Tongan"
 msgstr "tonganski"
 
-#: src/onlinetranslator/onlinetranslator.cpp:692
+#: src/onlinetranslator/onlinetranslator.cpp:891
 #, fuzzy
-#| msgid "Turkish"
+#| msgctxt "OnlineTranslator|"
+#| msgid "Tongan"
+msgctxt "OnlineTranslator|"
+msgid "Tsonga"
+msgstr "tonganski"
+
+#: src/onlinetranslator/onlinetranslator.cpp:893
 msgctxt "OnlineTranslator|"
 msgid "Turkish"
 msgstr "turško"
 
-#: src/onlinetranslator/onlinetranslator.cpp:694
-#, fuzzy
-#| msgid "Turkmen"
+#: src/onlinetranslator/onlinetranslator.cpp:895
 msgctxt "OnlineTranslator|"
 msgid "Turkmen"
 msgstr "turkmenski"
 
-#: src/onlinetranslator/onlinetranslator.cpp:696
-#, fuzzy
-#| msgid "Udmurt"
+#: src/onlinetranslator/onlinetranslator.cpp:897
+msgctxt "OnlineTranslator|"
+msgid "Tuvaluan"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:899
+msgctxt "OnlineTranslator|"
+msgid "Twi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:901
 msgctxt "OnlineTranslator|"
 msgid "Udmurt"
 msgstr "Udmurt"
 
-#: src/onlinetranslator/onlinetranslator.cpp:698
-#, fuzzy
-#| msgid "Uighur"
-msgctxt "OnlineTranslator|"
-msgid "Uighur"
-msgstr "ujgurski"
-
-#: src/onlinetranslator/onlinetranslator.cpp:700
-#, fuzzy
-#| msgid "Ukrainian"
+#: src/onlinetranslator/onlinetranslator.cpp:903
 msgctxt "OnlineTranslator|"
 msgid "Ukrainian"
 msgstr "ukrajinski"
 
-#: src/onlinetranslator/onlinetranslator.cpp:702
-#, fuzzy
-#| msgid "Urdu"
+#: src/onlinetranslator/onlinetranslator.cpp:905
+msgctxt "OnlineTranslator|"
+msgid "Uma"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:907
+msgctxt "OnlineTranslator|"
+msgid "Upper Sorbian"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:909
 msgctxt "OnlineTranslator|"
 msgid "Urdu"
 msgstr "urdu"
 
-#: src/onlinetranslator/onlinetranslator.cpp:704
+#: src/onlinetranslator/onlinetranslator.cpp:911
 #, fuzzy
-#| msgid "Uzbek"
+#| msgctxt "OnlineTranslator|"
+#| msgid "Uighur"
 msgctxt "OnlineTranslator|"
-msgid "Uzbek"
-msgstr "Uzbek"
+msgid "Uyghur"
+msgstr "ujgurski"
 
-#: src/onlinetranslator/onlinetranslator.cpp:706
+#: src/onlinetranslator/onlinetranslator.cpp:913
 #, fuzzy
-#| msgid "Vietnamese"
+#| msgctxt "OnlineTranslator|"
+#| msgid "Serbian (Cyrillic)"
+msgctxt "OnlineTranslator|"
+msgid "Uzbek (Cyrillic)"
+msgstr "srbščina (cirilica)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:915
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Serbian (Latin)"
+msgctxt "OnlineTranslator|"
+msgid "Uzbek (Latin)"
+msgstr "srbščina (latinica)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:917
 msgctxt "OnlineTranslator|"
 msgid "Vietnamese"
 msgstr "vietnamski"
 
-#: src/onlinetranslator/onlinetranslator.cpp:708
+#: src/onlinetranslator/onlinetranslator.cpp:919
 #, fuzzy
-#| msgid "Welsh"
+#| msgctxt "OnlineTranslator|"
+#| msgid "Frisian"
+msgctxt "OnlineTranslator|"
+msgid "Wallisian"
+msgstr "frizijščina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:921
 msgctxt "OnlineTranslator|"
 msgid "Welsh"
 msgstr "valižanščina"
 
-#: src/onlinetranslator/onlinetranslator.cpp:710
-#, fuzzy
-#| msgid "Xhosa"
+#: src/onlinetranslator/onlinetranslator.cpp:923
+msgctxt "OnlineTranslator|"
+msgid "Wolof"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:925
 msgctxt "OnlineTranslator|"
 msgid "Xhosa"
 msgstr "Xhosa"
 
-#: src/onlinetranslator/onlinetranslator.cpp:712
-#, fuzzy
-#| msgid "Yiddish"
+#: src/onlinetranslator/onlinetranslator.cpp:927
+msgctxt "OnlineTranslator|"
+msgid "Yakut"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:929
 msgctxt "OnlineTranslator|"
 msgid "Yiddish"
 msgstr "jidiš"
 
-#: src/onlinetranslator/onlinetranslator.cpp:714
-#, fuzzy
-#| msgid "Yoruba"
+#: src/onlinetranslator/onlinetranslator.cpp:931
 msgctxt "OnlineTranslator|"
 msgid "Yoruba"
 msgstr "joruba"
 
-#: src/onlinetranslator/onlinetranslator.cpp:716
-#, fuzzy
-#| msgid "Yucatec Maya"
+#: src/onlinetranslator/onlinetranslator.cpp:933
 msgctxt "OnlineTranslator|"
 msgid "Yucatec Maya"
 msgstr "Jukateški Maji"
 
-#: src/onlinetranslator/onlinetranslator.cpp:718
-#, fuzzy
-#| msgid "Zulu"
+#: src/onlinetranslator/onlinetranslator.cpp:935
 msgctxt "OnlineTranslator|"
 msgid "Zulu"
 msgstr "Zulu"
 
-#: src/onlinetranslator/onlinetranslator.cpp:1211
-#: src/onlinetranslator/onlinetranslator.cpp:1220
-#, fuzzy
-#| msgid ""
-#| "Error: Engine systems have detected suspicious traffic from your computer "
-#| "network. Please try your request again later."
+#: src/onlinetranslator/onlinetranslator.cpp:1263
+#, qt-format
 msgctxt "OnlineTranslator|"
-msgid ""
-"Error: Engine systems have detected suspicious traffic from your computer "
-"network. Please try your request again later."
+msgid "Instance error: %1"
 msgstr ""
-"Napaka: sistemi stroja so zaznali sumljiv promet iz vašega računalniškega "
-"omrežja. Poskusite znova pozneje."
 
-#: src/onlinetranslator/onlinetranslator.cpp:1232
-#: src/onlinetranslator/onlinetranslator.cpp:1343
-#: src/onlinetranslator/onlinetranslator.cpp:1553
-#: src/onlinetranslator/onlinetranslator.cpp:1647
-#, fuzzy
-#| msgid "Error: Unable to parse autodetected language"
+#: src/onlinetranslator/onlinetranslator.cpp:1277
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
 msgstr "Napaka: samodejno zaznanega jezika ni mogoče razčleniti"
 
-#: src/onlinetranslator/onlinetranslator.cpp:1459
-#, fuzzy
-#| msgid "Error: Unable to find Bing credentials in web version."
-msgctxt "OnlineTranslator|"
-msgid "Error: Unable to find Bing credentials in web version."
-msgstr "Napaka: ni mogoče najti poverilnic Bing v spletni različici."
-
-#: src/onlinetranslator/onlinetranslator.cpp:1466
-#, fuzzy
-#| msgid "Error: Unable to extract Bing key from web version."
-msgctxt "OnlineTranslator|"
-msgid "Error: Unable to extract Bing key from web version."
-msgstr "Napaka: ključa Bing ni mogoče izvleči iz spletne različice."
-
-#: src/onlinetranslator/onlinetranslator.cpp:1474
-#, fuzzy
-#| msgid "Error: Unable to extract Bing token from web version."
-msgctxt "OnlineTranslator|"
-msgid "Error: Unable to extract Bing token from web version."
-msgstr "Napaka: ni mogoče izvleči žetona Bing iz spletne različice."
-
-#: src/onlinetranslator/onlinetranslator.cpp:1486
-#: src/onlinetranslator/onlinetranslator.cpp:1495
-#, fuzzy
-#| msgid ""
-#| "Error: Unable to extract additional Bing information from web version."
-msgctxt "OnlineTranslator|"
-msgid "Error: Unable to extract additional Bing information from web version."
-msgstr ""
-"Napaka: iz spletne različice ni mogoče pridobiti dodatnih informacij Bing."
-
-#: src/onlinetranslator/onlinetranslator.cpp:1545
-#, fuzzy
-#| msgid "Error: Bing return unhandled network error"
-msgctxt "OnlineTranslator|"
-msgid "Error: Bing return unhandled network error"
-msgstr "Napaka: Bing vrne neobdelano omrežno napako"
-
-#: src/onlinetranslator/onlinetts.cpp:64
-#, fuzzy, qt-format
-#| msgid "Selected engine %1 does not support voice settings"
-msgctxt "OnlineTts|"
-msgid "Selected engine %1 does not support voice settings"
-msgstr "Izbrani stroj %1 ne podpira glasovnih nastavitev"
-
-#: src/onlinetranslator/onlinetts.cpp:69
-#, fuzzy, qt-format
-#| msgid "Selected engine %1 does not support emotion settings"
-msgctxt "OnlineTts|"
-msgid "Selected engine %1 does not support emotion settings"
-msgstr "Izbrani mehanizem %1 ne podpira nastavitev čustev"
-
-#: src/onlinetranslator/onlinetts.cpp:130
-#, fuzzy, qt-format
-#| msgid "%1 engine does not support TTS"
-msgctxt "OnlineTts|"
-msgid "%1 engine does not support TTS"
-msgstr "Mehanizem %1 ne podpira TTS"
-
-#: src/onlinetranslator/onlinetts.cpp:216
-#, fuzzy, qt-format
-#| msgid "Selected language %1 is not supported for %2"
-msgctxt "OnlineTts|"
-msgid "Selected language %1 is not supported for %2"
-msgstr "Izbrani jezik %1 ni podprt za %2"
-
-#: src/onlinetranslator/onlinetts.cpp:228
-#, fuzzy, qt-format
-#| msgid "Selected voice %1 is not supported for %2"
-msgctxt "OnlineTts|"
-msgid "Selected voice %1 is not supported for %2"
-msgstr "Izbrani glas %1 ni podprt za %2"
-
-#: src/onlinetranslator/onlinetts.cpp:240
-#, fuzzy, qt-format
-#| msgid "Selected emotion %1 is not supported by %2"
-msgctxt "OnlineTts|"
-msgid "Selected emotion %1 is not supported by %2"
-msgstr "%2 ne podpira izbranega čustva %1"
-
 #: src/popupwindow.ui:32
-#, fuzzy
-#| msgctxt "src/mainwindow.ui:93src/mainwindow.ui:93"
-#| msgid "Swap languages"
 msgctxt "PopupWindow|"
 msgid "Swap languages"
 msgstr "Premenjaj jezike"
 
 #: src/popupwindow.ui:64
-#, fuzzy
-#| msgctxt "src/mainwindow.ui:36"
-#| msgid "Copy source text to the clipboard"
 msgctxt "PopupWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "Kopirajte izvorno besedilo v odložišče"
 
-#: src/popupwindow.ui:140
-#, fuzzy
-#| msgctxt "src/mainwindow.ui:264"
-#| msgid "Copy all translation data to the clipboard"
+#: src/popupwindow.ui:158
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "Kopirajte vse prevodne podatke v odložišče"
 
-#: src/popupwindow.ui:151
-#, fuzzy
-#| msgctxt "src/mainwindow.ui:253"
-#| msgid "Copy translation to the clipboard"
+#: src/popupwindow.ui:169
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Kopiraj prevod na odložišče"
 
-#: src/settings/appsettings.cpp:1234
-#, fuzzy, qt-format
-#| msgid "Unknown language code: %1"
+#: src/settings/appsettings.cpp:1064
+#, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
 msgstr "Koda neznanega jezika: %1"
 
 #: src/settings/autostartmanager/abstractautostartmanager.cpp:44
-#, fuzzy
-#| msgid "Unable to apply autostart settings"
 msgctxt "AbstractAutostartManager|"
 msgid "Unable to apply autostart settings"
 msgstr "Nastavitev samodejnega zagona ni mogoče uporabiti"
 
 #: src/settings/autostartmanager/portalautostartmanager.cpp:35
-#, fuzzy, qt-format
-#| msgid "Allow %1 to manage autostart setting for itself."
+#, qt-format
 msgctxt "PortalAutostartManager|"
 msgid "Allow %1 to manage autostart setting for itself."
 msgstr "Dovolite %1, da sam upravlja nastavitve samodejnega zagona."
 
 #: src/settings/autostartmanager/portalautostartmanager.cpp:54
-#, fuzzy
-#| msgctxt "src/ocr/screengrabbers/waylandportalscreengrabber.cpp:56"
-#| msgid "Unable to subscribe to response from xdg-desktop-portal."
 msgctxt "PortalAutostartManager|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
 msgstr "Na odgovor portala xdg-desktop-portal se ni mogoče naročiti."
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:35
-#, fuzzy, qt-format
-#| msgid "Unable to create %1"
+#, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to create %1"
 msgstr "Ni mogoče ustvariti %1"
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:42
-#, fuzzy, qt-format
-#| msgid "Unable to copy %1 to %2"
+#, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to copy %1 to %2"
 msgstr "Ni mogoče kopirati %1 v %2"
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:47
-#, fuzzy, qt-format
-#| msgid "Unable to remove %1 from %2"
+#, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "Ni mogoče odstraniti %1 iz %2"
 
-#: src/settings/settingsdialog.cpp:34
-#, fuzzy
-#| msgid "Portable mode"
+#: src/settings/settingsdialog.cpp:31
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Prenosni način"
 
-#: src/settings/settingsdialog.cpp:47
-#, fuzzy, qt-format
-#| msgid "Use %1 to store settings"
+#: src/settings/settingsdialog.cpp:44
+#, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Za shranjevanje nastavitev uporabite %1"
 
-#: src/settings/settingsdialog.cpp:59 src/settings/settingsdialog.cpp:90
-#: src/settings/settingsdialog.cpp:91
-#, fuzzy
-#| msgid "<System language>"
+#: src/settings/settingsdialog.cpp:49 src/settings/settingsdialog.cpp:80
+#: src/settings/settingsdialog.cpp:81
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Sistemski jezik>"
 
-#: src/settings/settingsdialog.cpp:126
-#, fuzzy
-#| msgid "Icons:"
+#: src/settings/settingsdialog.cpp:115
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Ikone:"
 
-#: src/settings/settingsdialog.cpp:139
-#, fuzzy
-#| msgid "Happy New Year!"
-msgctxt "SettingsDialog|"
-msgid "Happy New Year!"
-msgstr "Srečno novo leto!"
-
-#: src/settings/settingsdialog.cpp:153
-#, fuzzy
-#| msgid "The OCR parameter fields can not be empty."
+#: src/settings/settingsdialog.cpp:137
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "Polja parametrov OCR ne smejo biti prazna."
 
-#: src/settings/settingsdialog.cpp:154
-#, fuzzy
-#| msgid "Do you want to discard the invalid parameters?"
+#: src/settings/settingsdialog.cpp:138
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Ali želite zavreči neveljavne parametre?"
 
-#: src/settings/settingsdialog.cpp:301
-#, fuzzy
-#| msgid "Select icon"
+#: src/settings/settingsdialog.cpp:278
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Izberi ikono"
 
-#: src/settings/settingsdialog.cpp:301
-#, fuzzy
-#| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
+#: src/settings/settingsdialog.cpp:278
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Slike (*.png *.ico *.svg *.jpg);;Vse datoteke()"
 
-#: src/settings/settingsdialog.cpp:314
-#, fuzzy
-#| msgid "Select OCR languages path"
+#: src/settings/settingsdialog.cpp:291
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Izberite pot jezikov OCR"
 
-#: src/settings/settingsdialog.cpp:363 src/settings/settingsdialog.ui:1303
-#, fuzzy
-#| msgid "Default region"
-msgctxt "SettingsDialog|"
-msgid "Default region"
-msgstr "Privzeta regija"
-
-#: src/settings/settingsdialog.cpp:366
-#, fuzzy
-#| msgid "Mandarin (China)"
-msgctxt "SettingsDialog|"
-msgid "Mandarin (China)"
-msgstr "mandarinščina (Kitajska)"
-
-#: src/settings/settingsdialog.cpp:525
-#, fuzzy
-#| msgid "Back"
+#: src/settings/settingsdialog.cpp:432
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Nazaj"
 
-#: src/settings/settingsdialog.cpp:628
-#, fuzzy
-#| msgid "Nothing to play"
-msgctxt "SettingsDialog|"
-msgid "Nothing to play"
-msgstr "Nič za predvajanje"
-
-#: src/settings/settingsdialog.cpp:628
-#, fuzzy
-#| msgctxt "src/settings/settingsdialog.cpp:710"
-#| msgid "Playback text is empty"
-msgctxt "SettingsDialog|"
-msgid "Playback text is empty"
-msgstr "Besedilo za predvajanje je prazno"
-
-#: src/settings/settingsdialog.cpp:638
-#, fuzzy
-#| msgctxt "src/mainwindow.cpp:384"
-#| msgid "Unable to detect language"
-msgctxt "SettingsDialog|"
-msgid "Unable to detect language"
-msgstr "Jezika ni mogoče zaznati"
-
 #: src/settings/settingsdialog.ui:14
-#, fuzzy
-#| msgctxt "src/settings/settingsdialog.ui:14"
-#| msgid "Settings"
 msgctxt "SettingsDialog|"
 msgid "Settings"
 msgstr "Nastavitve"
 
-#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:136
-#, fuzzy
-#| msgid "General"
+#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:135
 msgctxt "SettingsDialog|"
 msgid "General"
 msgstr "Splošno"
 
-#: src/settings/settingsdialog.ui:57
-#, fuzzy
-#| msgid "Interface"
+#: src/settings/settingsdialog.ui:58
 msgctxt "SettingsDialog|"
 msgid "Interface"
 msgstr "Vmesnik"
 
-#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:639
-#, fuzzy
-#| msgctxt "src/mainwindow.ui:169src/mainwindow.ui:169"
-#| msgid "Translation"
+#: src/settings/settingsdialog.ui:67 src/settings/settingsdialog.ui:642
 msgctxt "SettingsDialog|"
 msgid "Translation"
 msgstr "Prevod"
 
-#: src/settings/settingsdialog.ui:81
-#, fuzzy
-#| msgid "Speech synthesis"
-msgctxt "SettingsDialog|"
-msgid "Speech synthesis"
-msgstr "Sinteza govora"
-
-#: src/settings/settingsdialog.ui:89
-#, fuzzy
-#| msgid "Connection"
+#: src/settings/settingsdialog.ui:85
 msgctxt "SettingsDialog|"
 msgid "Connection"
 msgstr "Povezava"
 
-#: src/settings/settingsdialog.ui:97
-#, fuzzy
-#| msgid "Shortcuts"
+#: src/settings/settingsdialog.ui:94
 msgctxt "SettingsDialog|"
 msgid "Shortcuts"
 msgstr "Bližnjice"
 
-#: src/settings/settingsdialog.ui:105
-#, fuzzy
-#| msgid "About"
+#: src/settings/settingsdialog.ui:103
 msgctxt "SettingsDialog|"
 msgid "About"
 msgstr "O tem"
 
-#: src/settings/settingsdialog.ui:148
-#, fuzzy
-#| msgid "Language:"
+#: src/settings/settingsdialog.ui:147
 msgctxt "SettingsDialog|"
 msgid "Language:"
 msgstr "jezik:"
 
-#: src/settings/settingsdialog.ui:155
-#, fuzzy
-#| msgid "<html><head/><body><p>Interface language</p></body></html>"
+#: src/settings/settingsdialog.ui:154
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Interface language</p></body></html>"
 msgstr "<html><head/><body><p>Jezik vmesnika</p></body></html>"
 
-#: src/settings/settingsdialog.ui:162
-#, fuzzy
-#| msgid "Main window orientation:"
+#: src/settings/settingsdialog.ui:161
 msgctxt "SettingsDialog|"
 msgid "Main window orientation:"
 msgstr "Orientacija glavnega okna:"
 
-#: src/settings/settingsdialog.ui:169
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Orientation of the main window layout<br/>When "
-#| "using <span style=\" font-style:italic;\">Auto</span>, the window "
-#| "orientation will match the screen orientation</p></body></html>"
+#: src/settings/settingsdialog.ui:168
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Orientation of the main window layout<br/>When using "
@@ -1967,44 +1832,29 @@ msgstr ""
 "orientacija okna ujemala z usmerjenost zaslona</p></body></html>"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:173
-#, fuzzy
-#| msgctxt ""
-#| "src/languagebuttonswidget.cpp:528 src/languagebuttonswidget.cpp:530"
-#| msgid "Auto"
+#: src/settings/settingsdialog.ui:172
 msgctxt "SettingsDialog|"
 msgid "Auto"
 msgstr "Avto"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:178
-#, fuzzy
-#| msgid "Portrait"
+#: src/settings/settingsdialog.ui:177
 msgctxt "SettingsDialog|"
 msgid "Portrait"
 msgstr "Portret"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:183
-#, fuzzy
-#| msgid "Landscape"
+#: src/settings/settingsdialog.ui:182
 msgctxt "SettingsDialog|"
 msgid "Landscape"
 msgstr "Pokrajina"
 
-#: src/settings/settingsdialog.ui:191
-#, fuzzy
-#| msgid "Translation mode:"
+#: src/settings/settingsdialog.ui:190
 msgctxt "SettingsDialog|"
 msgid "Translation mode:"
 msgstr "Način prevajanja:"
 
-#: src/settings/settingsdialog.ui:198
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>A window for translating selected text. If the "
-#| "application is minimized, the main window will always be used.</p></"
-#| "body></html>"
+#: src/settings/settingsdialog.ui:197
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>A window for translating selected text. If the "
@@ -2014,40 +1864,27 @@ msgstr ""
 "<html><head/><body><p>Okno za prevajanje izbranega besedila. Če je "
 "aplikacija pomanjšana, bo vedno uporabljeno glavno okno.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:202 src/settings/settingsdialog.ui:351
-#, fuzzy
-#| msgid "Pop-up window"
+#: src/settings/settingsdialog.ui:201 src/settings/settingsdialog.ui:350
 msgctxt "SettingsDialog|"
 msgid "Pop-up window"
 msgstr "Pojavno okno"
 
-#: src/settings/settingsdialog.ui:207
-#, fuzzy
-#| msgctxt "src/settings/settingsdialog.ui:207"
-#| msgid "Main window"
+#: src/settings/settingsdialog.ui:206
 msgctxt "SettingsDialog|"
 msgid "Main window"
 msgstr "Glavno okno"
 
-#: src/settings/settingsdialog.ui:212
-#, fuzzy
-#| msgid "Notification"
+#: src/settings/settingsdialog.ui:211
 msgctxt "SettingsDialog|"
 msgid "Notification"
 msgstr "Obvestilo"
 
-#: src/settings/settingsdialog.ui:220
-#, fuzzy
-#| msgid "Translation notification timeout:"
+#: src/settings/settingsdialog.ui:219
 msgctxt "SettingsDialog|"
 msgid "Translation notification timeout:"
 msgstr "Časovna omejitev obvestila o prevodu:"
 
-#: src/settings/settingsdialog.ui:233
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Notification with translation display time</p></"
-#| "body></html>"
+#: src/settings/settingsdialog.ui:232
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Notification with translation display time</p></body></"
@@ -2055,34 +1892,23 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Obvestilo s časom prikaza prevoda</p></body></html>"
 
-#: src/settings/settingsdialog.ui:236 src/settings/settingsdialog.ui:441
-#, fuzzy
-#| msgid " sec"
+#: src/settings/settingsdialog.ui:235 src/settings/settingsdialog.ui:440
 msgctxt "SettingsDialog|"
 msgid " sec"
 msgstr " sek"
 
-#: src/settings/settingsdialog.ui:249
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Display icon in the system tray</p></body></html>"
+#: src/settings/settingsdialog.ui:248
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Display icon in the system tray</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Ikona zaslona v sistemskem pladnju</p></body></html>"
 
-#: src/settings/settingsdialog.ui:252
-#, fuzzy
-#| msgid "Show tray icon"
+#: src/settings/settingsdialog.ui:251
 msgctxt "SettingsDialog|"
 msgid "Show tray icon"
 msgstr "Pokaži ikono pladnja"
 
-#: src/settings/settingsdialog.ui:262
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Start application minimized to the system tray</p></"
-#| "body></html>"
+#: src/settings/settingsdialog.ui:261
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Start application minimized to the system tray</p></"
@@ -2091,67 +1917,46 @@ msgstr ""
 "<html><head/><body><p>Zaženi aplikacijo, pomanjšano v sistemskem pladnju</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:265
-#, fuzzy
-#| msgid "Start minimized"
+#: src/settings/settingsdialog.ui:264
 msgctxt "SettingsDialog|"
 msgid "Start minimized"
 msgstr "Začetek strnjen"
 
-#: src/settings/settingsdialog.ui:272
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Run the application at system startup</p></body></"
-#| "html>"
+#: src/settings/settingsdialog.ui:271
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Run the application at system startup</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Zaženi aplikacijo ob zagonu sistema</p></body></html>"
 
-#: src/settings/settingsdialog.ui:275
-#, fuzzy
-#| msgid "Launch at startup"
+#: src/settings/settingsdialog.ui:274
 msgctxt "SettingsDialog|"
 msgid "Launch at startup"
 msgstr "Zagon ob zagonu"
 
-#: src/settings/settingsdialog.ui:308
-#, fuzzy
-#| msgid "Font"
+#: src/settings/settingsdialog.ui:307
 msgctxt "SettingsDialog|"
 msgid "Font"
 msgstr "Pisava"
 
-#: src/settings/settingsdialog.ui:314
-#, fuzzy
-#| msgid "Name:"
+#: src/settings/settingsdialog.ui:313
 msgctxt "SettingsDialog|"
 msgid "Name:"
 msgstr "Ime:"
 
-#: src/settings/settingsdialog.ui:321
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Translation and source text font</p></body></html>"
+#: src/settings/settingsdialog.ui:320
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Translation and source text font</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Pisava prevoda in izvornega besedila</p></body></html>"
 
-#: src/settings/settingsdialog.ui:328
-#, fuzzy
-#| msgid "Size:"
+#: src/settings/settingsdialog.ui:327
 msgctxt "SettingsDialog|"
 msgid "Size:"
 msgstr "Velikost:"
 
-#: src/settings/settingsdialog.ui:335
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Font size of translation and source text</p></"
-#| "body></html>"
+#: src/settings/settingsdialog.ui:334
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Font size of translation and source text</p></body></"
@@ -2160,66 +1965,46 @@ msgstr ""
 "<html><head/><body><p>Velikost pisave prevoda in izvornega besedila</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:357
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Pop-up window height in pixels</p></body></html>"
+#: src/settings/settingsdialog.ui:356
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window height in pixels</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Višina pojavnega okna v slikovnih pikah</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:367
-#, fuzzy
-#| msgid "Width:"
+#: src/settings/settingsdialog.ui:366
 msgctxt "SettingsDialog|"
 msgid "Width:"
 msgstr "Širina:"
 
-#: src/settings/settingsdialog.ui:374
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
+#: src/settings/settingsdialog.ui:373
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Širina pojavnega okna v slikovnih pikah</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:384
-#, fuzzy
-#| msgid "<html><head/><body><p>Pop-up window opacity</p></body></html>"
+#: src/settings/settingsdialog.ui:383
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window opacity</p></body></html>"
 msgstr "<html><head/><body><p>Neprosojnost pojavnega okna</p></body></html>"
 
-#: src/settings/settingsdialog.ui:411
-#, fuzzy
-#| msgid "Opacity:"
+#: src/settings/settingsdialog.ui:410
 msgctxt "SettingsDialog|"
 msgid "Opacity:"
 msgstr "Neprosojnost:"
 
-#: src/settings/settingsdialog.ui:418
-#, fuzzy
-#| msgid "Show timeout:"
+#: src/settings/settingsdialog.ui:417
 msgctxt "SettingsDialog|"
 msgid "Show timeout:"
 msgstr "Pokaži časovno omejitev:"
 
-#: src/settings/settingsdialog.ui:425
-#, fuzzy
-#| msgid "Height:"
+#: src/settings/settingsdialog.ui:424
 msgctxt "SettingsDialog|"
 msgid "Height:"
 msgstr "Višina:"
 
-#: src/settings/settingsdialog.ui:438
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>The number of seconds after which the window will "
-#| "be hidden if it has no focus</p></body></html>"
+#: src/settings/settingsdialog.ui:437
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The number of seconds after which the window will be "
@@ -2228,123 +2013,87 @@ msgstr ""
 "<html><head/><body><p>Število sekund, po katerem bo okno skrito, če ni v "
 "fokusu</p></body></html>"
 
-#: src/settings/settingsdialog.ui:461
-#, fuzzy
-#| msgid "Language format"
+#: src/settings/settingsdialog.ui:460
 msgctxt "SettingsDialog|"
 msgid "Language format"
 msgstr "Jezikovni format"
 
-#: src/settings/settingsdialog.ui:467
-#, fuzzy
-#| msgid "Main window:"
+#: src/settings/settingsdialog.ui:466
 msgctxt "SettingsDialog|"
 msgid "Main window:"
 msgstr "Glavno okno:"
 
-#: src/settings/settingsdialog.ui:474 src/settings/settingsdialog.ui:498
-#, fuzzy
-#| msgid "<html><head/><body><p>Languages text on buttons</p></body></html>"
+#: src/settings/settingsdialog.ui:473 src/settings/settingsdialog.ui:497
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Languages text on buttons</p></body></html>"
 msgstr "<html><head/><body><p>Jeziki besedila na gumbih</p></body></html>"
 
-#: src/settings/settingsdialog.ui:478 src/settings/settingsdialog.ui:502
-#, fuzzy
-#| msgid "Full name"
+#: src/settings/settingsdialog.ui:477 src/settings/settingsdialog.ui:501
 msgctxt "SettingsDialog|"
 msgid "Full name"
 msgstr "Polno ime"
 
-#: src/settings/settingsdialog.ui:483 src/settings/settingsdialog.ui:507
-#, fuzzy
-#| msgid "ISO 639-1 code"
+#: src/settings/settingsdialog.ui:482 src/settings/settingsdialog.ui:506
 msgctxt "SettingsDialog|"
 msgid "ISO 639-1 code"
 msgstr "Koda ISO 639-1"
 
-#: src/settings/settingsdialog.ui:491
-#, fuzzy
-#| msgid "Pop-up:"
+#: src/settings/settingsdialog.ui:490
 msgctxt "SettingsDialog|"
 msgid "Pop-up:"
 msgstr "pojavno okno:"
 
-#: src/settings/settingsdialog.ui:518
-#, fuzzy
-#| msgid "Tray icon"
+#: src/settings/settingsdialog.ui:517
 msgctxt "SettingsDialog|"
 msgid "Tray icon"
 msgstr "Ikona pladnja"
 
-#: src/settings/settingsdialog.ui:524
-#, fuzzy
-#| msgid "Icon:"
+#: src/settings/settingsdialog.ui:523
 msgctxt "SettingsDialog|"
 msgid "Icon:"
 msgstr "Ikona:"
 
-#: src/settings/settingsdialog.ui:537
-#, fuzzy
-#| msgid "<html><head/><body><p>System tray icon</p></body></html>"
+#: src/settings/settingsdialog.ui:536
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>System tray icon</p></body></html>"
 msgstr "<html><head/><body><p>Ikona sistemskega pladnja</p></body></html>"
 
-#: src/settings/settingsdialog.ui:541
-#, fuzzy
-#| msgid "Default"
+#: src/settings/settingsdialog.ui:540
 msgctxt "SettingsDialog|"
 msgid "Default"
 msgstr "Privzeto"
 
 #: src/settings/settingsdialog.ui:549
-#, fuzzy
-#| msgid "Monochrome (dark theme)"
 msgctxt "SettingsDialog|"
 msgid "Monochrome (dark theme)"
 msgstr "Enobarvno (temna tema)"
 
-#: src/settings/settingsdialog.ui:557
-#, fuzzy
-#| msgid "Monochrome (light theme)"
+#: src/settings/settingsdialog.ui:558
 msgctxt "SettingsDialog|"
 msgid "Monochrome (light theme)"
 msgstr "Enobarvno (svetla tema)"
 
-#: src/settings/settingsdialog.ui:565
-#, fuzzy
-#| msgid "Custom"
+#: src/settings/settingsdialog.ui:567
 msgctxt "SettingsDialog|"
 msgid "Custom"
 msgstr "Po meri"
 
-#: src/settings/settingsdialog.ui:579
-#, fuzzy
-#| msgid "Custom:"
+#: src/settings/settingsdialog.ui:582
 msgctxt "SettingsDialog|"
 msgid "Custom:"
 msgstr "Po meri:"
 
-#: src/settings/settingsdialog.ui:591
-#, fuzzy
-#| msgid "Path to the icon or icon name from theme"
+#: src/settings/settingsdialog.ui:594
 msgctxt "SettingsDialog|"
 msgid "Path to the icon or icon name from theme"
 msgstr "Pot do ikone ali ime ikone iz teme"
 
-#: src/settings/settingsdialog.ui:601
-#, fuzzy
-#| msgid "<html><head/><body><p>Select icon</p></body></html>"
+#: src/settings/settingsdialog.ui:604
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>Izberi ikono</p></body></html>"
 
-#: src/settings/settingsdialog.ui:645
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Enable or disable source transliteration</p></"
-#| "body></html>"
+#: src/settings/settingsdialog.ui:648
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
@@ -2353,18 +2102,12 @@ msgstr ""
 "<html><head/><body><p>Omogoči ali onemogoči izvorno prečrkovanje</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:648
-#, fuzzy
-#| msgid "Enable source transliteration"
+#: src/settings/settingsdialog.ui:651
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
 msgstr "Omogoči izvorno prečrkovanje"
 
-#: src/settings/settingsdialog.ui:655
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Enable or disable translation transliteration</p></"
-#| "body></html>"
+#: src/settings/settingsdialog.ui:658
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
@@ -2373,18 +2116,12 @@ msgstr ""
 "<html><head/><body><p>Omogočanje ali onemogočanje transkripcije prevoda</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:658
-#, fuzzy
-#| msgid "Enable translation transliteration"
+#: src/settings/settingsdialog.ui:661
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
 msgstr "Omogoči prečrkovanje prevoda"
 
-#: src/settings/settingsdialog.ui:665
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Enable or disable source transcription</p></body></"
-#| "html>"
+#: src/settings/settingsdialog.ui:668
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
@@ -2392,18 +2129,12 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Omogoči ali onemogoči izvorni prepis</p></body></html>"
 
-#: src/settings/settingsdialog.ui:668
-#, fuzzy
-#| msgid "Enable source transcription"
+#: src/settings/settingsdialog.ui:671
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
 msgstr "Omogoči izvorni prepis"
 
-#: src/settings/settingsdialog.ui:675
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Enable or disable translation options</p></body></"
-#| "html>"
+#: src/settings/settingsdialog.ui:678
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
@@ -2411,36 +2142,24 @@ msgstr ""
 "<html><head/><body><p>Omogoči ali onemogoči možnosti prevajanja</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:678
-#, fuzzy
-#| msgid "Enable translation options"
+#: src/settings/settingsdialog.ui:681
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
 msgstr "Omogoči možnosti prevajanja"
 
-#: src/settings/settingsdialog.ui:685
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
+#: src/settings/settingsdialog.ui:688
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Omogoči ali onemogoči primere uporabe</p></body></html>"
 
-#: src/settings/settingsdialog.ui:688
-#, fuzzy
-#| msgid "Enable examples"
+#: src/settings/settingsdialog.ui:691
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
 msgstr "Omogoči primere"
 
-#: src/settings/settingsdialog.ui:695
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Replace each sequence of whitespaces (this includes "
-#| "the ASCII characters '\\\\t', '\\\\n', '\\\\v', '\\\\f', '\\\\r', and ' "
-#| "') with a single space in queries</p></body></html>"
+#: src/settings/settingsdialog.ui:698
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace each sequence of whitespaces (this includes "
@@ -2451,32 +2170,22 @@ msgstr ""
 "znake ASCII '\\\\t', '\\\\n', '\\\\v', '\\\\f', '\\ \\r' in ' ') z enim "
 "presledkom v poizvedbah</p></body></html>"
 
-#: src/settings/settingsdialog.ui:698
-#, fuzzy
-#| msgid "Simplify source"
+#: src/settings/settingsdialog.ui:701
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
 msgstr "Poenostavi vir"
 
-#: src/settings/settingsdialog.ui:708
-#, fuzzy
-#| msgid "Automatic language detection"
+#: src/settings/settingsdialog.ui:711
 msgctxt "SettingsDialog|"
 msgid "Automatic language detection"
 msgstr "Samodejno zaznavanje jezika"
 
-#: src/settings/settingsdialog.ui:714
-#, fuzzy
-#| msgid "Primary translation language:"
+#: src/settings/settingsdialog.ui:717
 msgctxt "SettingsDialog|"
 msgid "Primary translation language:"
 msgstr "Primarni jezik prevoda:"
 
-#: src/settings/settingsdialog.ui:721
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Language to which text will be translated when "
-#| "autodetecting</p></body></html>"
+#: src/settings/settingsdialog.ui:724
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which text will be translated when "
@@ -2485,18 +2194,12 @@ msgstr ""
 "<html><head/><body><p>Jezik, v katerega bo besedilo prevedeno pri samodejnem "
 "zaznavanju</p></body></html>"
 
-#: src/settings/settingsdialog.ui:728
-#, fuzzy
-#| msgid "Secondary translation language:"
+#: src/settings/settingsdialog.ui:731
 msgctxt "SettingsDialog|"
 msgid "Secondary translation language:"
 msgstr "Sekundarni jezik prevoda:"
 
-#: src/settings/settingsdialog.ui:735
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Language to which the text will be translated if it "
-#| "is in the language selected above</p></body></html>"
+#: src/settings/settingsdialog.ui:738
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which the text will be translated if it is "
@@ -2505,12 +2208,7 @@ msgstr ""
 "<html><head/><body><p>Jezik, v katerega bo besedilo prevedeno, če je v "
 "zgoraj izbranem jeziku</p></body></html>"
 
-#: src/settings/settingsdialog.ui:742 src/settings/settingsdialog.ui:752
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
-#| "italic;\">Auto</span> when using OCR and global shortcuts</p></body></"
-#| "html>"
+#: src/settings/settingsdialog.ui:745 src/settings/settingsdialog.ui:755
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
@@ -2519,64 +2217,17 @@ msgstr ""
 "<html><head/><body><p>Samodejno preklopi na <span style=\" font-style:italic;"
 "\">Samodejno</span> pri uporabi OCR in globalnih bližnjic</p></body></ html>"
 
-#: src/settings/settingsdialog.ui:745
-#, fuzzy
-#| msgid "Force source language detection"
+#: src/settings/settingsdialog.ui:748
 msgctxt "SettingsDialog|"
 msgid "Force source language detection"
 msgstr "Vsili zaznavanje izvornega jezika"
 
-#: src/settings/settingsdialog.ui:755
-#, fuzzy
-#| msgid "Force translation language detection"
+#: src/settings/settingsdialog.ui:758
 msgctxt "SettingsDialog|"
 msgid "Force translation language detection"
 msgstr "Vsili zaznavanje jezika prevoda"
 
-#: src/settings/settingsdialog.ui:778
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>LibreTranslate instance API key</p><p>Free "
-#| "instances listed here doesn't require a key, so field can be empty</p></"
-#| "body></html>"
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>LibreTranslate instance API key</p><p>Free instances "
-"listed here doesn't require a key, so field can be empty</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Ključ API-ja pojavka LibreTranslate</p><p>Brezplačni "
-"pojavki, navedeni tukaj, ne potrebujejo ključa, zato je polje lahko prazno</"
-"p></body></ html>"
-
-#: src/settings/settingsdialog.ui:791
-#, fuzzy
-#| msgid "API key:"
-msgctxt "SettingsDialog|"
-msgid "API key:"
-msgstr "Ključ API:"
-
-#: src/settings/settingsdialog.ui:804
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>LibreTranslate engine URL</p><p>All instances can "
-#| "be found here: https://github.com/LibreTranslate/LibreTranslate#mirrors</"
-#| "p></body></html>"
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>LibreTranslate engine URL</p><p>All instances can be "
-"found here: https://github.com/LibreTranslate/LibreTranslate#mirrors</p></"
-"body></html>"
-msgstr ""
-"<html><head/><body><p>URL mehanizma LibreTranslate</p><p>Vse pojavke najdete "
-"tukaj: https://github.com/LibreTranslate/LibreTranslate#mirrors</p></body></"
-"html>"
-
-#: src/settings/settingsdialog.ui:844
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Lingva engine URL</p><p>All instances can be found "
-#| "here: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
-#| "body></html>"
+#: src/settings/settingsdialog.ui:787
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Lingva engine URL</p><p>All instances can be found "
@@ -2586,20 +2237,12 @@ msgstr ""
 "<html><head/><body><p>URL mehanizma Lingva</p><p>Vse pojavke najdete tukaj: "
 "https://github.com/TheDavidDelta/lingva-translate#instances</p></body></html>"
 
-#: src/settings/settingsdialog.ui:898
-#, fuzzy
-#| msgid "Languages"
+#: src/settings/settingsdialog.ui:826
 msgctxt "SettingsDialog|"
 msgid "Languages"
 msgstr "Jeziki"
 
-#: src/settings/settingsdialog.ui:904
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Loading additional languages will impact both speed "
-#| "and accuracy, as there is more work to do to decide on the applicable "
-#| "language, and there is more chance of hallucinating incorrect words.</p></"
-#| "body></html>"
+#: src/settings/settingsdialog.ui:832
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Loading additional languages will impact both speed "
@@ -2612,33 +2255,22 @@ msgstr ""
 "jeziku in obstaja večja možnost haluciniranja napačnih besed.</p ></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:911
-#, fuzzy
-#| msgid "Languages path:"
+#: src/settings/settingsdialog.ui:839
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
 msgstr "Jezikovna pot:"
 
-#: src/settings/settingsdialog.ui:918
-#, fuzzy
-#| msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
+#: src/settings/settingsdialog.ui:846
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr "<html><head/><body><p>Izberite pot jezikov OCR</p></body></html>"
 
-#: src/settings/settingsdialog.ui:928
-#, fuzzy
-#| msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
+#: src/settings/settingsdialog.ui:857
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
 msgstr "<html><head/><body><p>Odpri repozitorij GitHub</p></body></html>"
 
-#: src/settings/settingsdialog.ui:931
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
-#| "\"><span style=\" text-decoration: underline; color:#2980b9;\">Download "
-#| "more</span></a></p></body></html>"
+#: src/settings/settingsdialog.ui:860
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
@@ -2649,18 +2281,12 @@ msgstr ""
 "\"><span style=\"text-decoration: underline; color:#2980b9;\" >Prenesi več</"
 "span></a></p></body></html>"
 
-#: src/settings/settingsdialog.ui:941
-#, fuzzy
-#| msgid "Directory with trained models"
+#: src/settings/settingsdialog.ui:870
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
 msgstr "Imenik z usposobljenimi modeli"
 
-#: src/settings/settingsdialog.ui:957
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Replace all single line breaks with a space after "
-#| "text recognition</p></body></html>"
+#: src/settings/settingsdialog.ui:886
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
@@ -2669,32 +2295,22 @@ msgstr ""
 "<html><head/><body><p>Zamenjaj vse posamezne prelome vrstic s presledkom po "
 "prepoznavanju besedila</p></body></html>"
 
-#: src/settings/settingsdialog.ui:960
-#, fuzzy
-#| msgid "Convert line breaks"
+#: src/settings/settingsdialog.ui:889
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
 msgstr "Pretvori prelome vrstic"
 
-#: src/settings/settingsdialog.ui:1024
-#, fuzzy
-#| msgid "Screen capture"
+#: src/settings/settingsdialog.ui:955
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
 msgstr "Zajem zaslona"
 
-#: src/settings/settingsdialog.ui:1036
-#, fuzzy
-#| msgid "Remember region:"
+#: src/settings/settingsdialog.ui:967
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
 msgstr "Zapomni si regijo:"
 
-#: src/settings/settingsdialog.ui:1043
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>When to remember the last selected region</p></"
-#| "body></html>"
+#: src/settings/settingsdialog.ui:974
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
@@ -2703,70 +2319,48 @@ msgstr ""
 "<html><head/><body><p>Kdaj si zapomniti zadnjo izbrano regijo</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1047
-#, fuzzy
-#| msgid "Never"
+#: src/settings/settingsdialog.ui:978
 msgctxt "SettingsDialog|"
 msgid "Never"
 msgstr "Nikoli"
 
-#: src/settings/settingsdialog.ui:1052
-#, fuzzy
-#| msgid "Remember last"
+#: src/settings/settingsdialog.ui:983
 msgctxt "SettingsDialog|"
 msgid "Remember last"
 msgstr "Zapomni si zadnje"
 
-#: src/settings/settingsdialog.ui:1057
-#, fuzzy
-#| msgid "Remember always"
+#: src/settings/settingsdialog.ui:988
 msgctxt "SettingsDialog|"
 msgid "Remember always"
 msgstr "Zapomni si vedno"
 
-#: src/settings/settingsdialog.ui:1065
-#, fuzzy
-#| msgid "Capture delay:"
+#: src/settings/settingsdialog.ui:996
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
 msgstr "Zakasnitev zajema:"
 
-#: src/settings/settingsdialog.ui:1072
-#, fuzzy
-#| msgid "Delay before screen capture"
+#: src/settings/settingsdialog.ui:1003
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
 msgstr "Zakasnitev pred zajemom zaslona"
 
-#: src/settings/settingsdialog.ui:1075
-#, fuzzy
-#| msgid " ms"
+#: src/settings/settingsdialog.ui:1006
 msgctxt "SettingsDialog|"
 msgid " ms"
 msgstr " ms"
 
-#: src/settings/settingsdialog.ui:1085
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Show a magnifier next to the cursor</p></body></"
-#| "html>"
+#: src/settings/settingsdialog.ui:1016
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
 msgstr "<html><head/><body><p>Pokaži lupo poleg kazalca</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1088
-#, fuzzy
-#| msgid "Show magnifier"
+#: src/settings/settingsdialog.ui:1019
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
 msgstr "Prikaži lupo"
 
-#: src/settings/settingsdialog.ui:1098
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Finish capturing the fragment when the mouse button "
-#| "is released</p></body></html>"
+#: src/settings/settingsdialog.ui:1029
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
@@ -2775,264 +2369,91 @@ msgstr ""
 "<html><head/><body><p>Dokončajte zajem fragmenta, ko spustite gumb miške</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:1101
-#, fuzzy
-#| msgid "Confirm on release"
+#: src/settings/settingsdialog.ui:1032
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
 msgstr "Potrdi ob sprostitvi"
 
-#: src/settings/settingsdialog.ui:1108
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Apply a slight fog to the unselected part</p></"
-#| "body></html>"
+#: src/settings/settingsdialog.ui:1039
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
 "html>"
 msgstr "<html><head/><body><p>Rahlo zameglite neizbrani del</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1111
-#, fuzzy
-#| msgid "Apply light mask"
+#: src/settings/settingsdialog.ui:1042
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
 msgstr "Uveljavi svetlo masko"
 
-#: src/settings/settingsdialog.ui:1150
-#, fuzzy
-#| msgid "Voice:"
-msgctxt "SettingsDialog|"
-msgid "Voice:"
-msgstr "Glas:"
-
-#: src/settings/settingsdialog.ui:1163
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Voice of the speech synthesis engine</p></body></"
-#| "html>"
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Voice of the speech synthesis engine</p></body></html>"
-msgstr "<html><head/><body><p>Glas motorja za sintezo govora</p></body></html>"
-
-#: src/settings/settingsdialog.ui:1167
-#, fuzzy
-#| msgid "Zahar"
-msgctxt "SettingsDialog|"
-msgid "Zahar"
-msgstr "Zahar"
-
-#: src/settings/settingsdialog.ui:1172
-#, fuzzy
-#| msgid "Ermil"
-msgctxt "SettingsDialog|"
-msgid "Ermil"
-msgstr "Ermil"
-
-#: src/settings/settingsdialog.ui:1177
-#, fuzzy
-#| msgid "Jane"
-msgctxt "SettingsDialog|"
-msgid "Jane"
-msgstr "Jane"
-
-#: src/settings/settingsdialog.ui:1182
-#, fuzzy
-#| msgid "Oksana"
-msgctxt "SettingsDialog|"
-msgid "Oksana"
-msgstr "Oksana"
-
-#: src/settings/settingsdialog.ui:1187
-#, fuzzy
-#| msgid "Alyss"
-msgctxt "SettingsDialog|"
-msgid "Alyss"
-msgstr "Alyss"
-
-#: src/settings/settingsdialog.ui:1192
-#, fuzzy
-#| msgid "Omazh"
-msgctxt "SettingsDialog|"
-msgid "Omazh"
-msgstr "Omazh"
-
-#: src/settings/settingsdialog.ui:1200
-#, fuzzy
-#| msgid "Emotional connotation:"
-msgctxt "SettingsDialog|"
-msgid "Emotional connotation:"
-msgstr "Čustvena konotacija:"
-
-#: src/settings/settingsdialog.ui:1213
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Voice mood of the speech synthesis engine</p></"
-#| "body></html>"
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Voice mood of the speech synthesis engine</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>Glasovno razpoloženje mehanizma za sintezo govora</p></"
-"body></html>"
-
-#: src/settings/settingsdialog.ui:1217
-#, fuzzy
-#| msgid "Neutral"
-msgctxt "SettingsDialog|"
-msgid "Neutral"
-msgstr "Nevtralno"
-
-#: src/settings/settingsdialog.ui:1222
-#, fuzzy
-#| msgid "Good"
-msgctxt "SettingsDialog|"
-msgid "Good"
-msgstr "Dobro"
-
-#: src/settings/settingsdialog.ui:1227
-#, fuzzy
-#| msgid "Evil"
-msgctxt "SettingsDialog|"
-msgid "Evil"
-msgstr "Zlovešče"
-
-#: src/settings/settingsdialog.ui:1235 src/settings/settingsdialog.ui:1311
-#, fuzzy
-#| msgid "Speech test:"
-msgctxt "SettingsDialog|"
-msgid "Speech test:"
-msgstr "Preizkus govora:"
-
-#: src/settings/settingsdialog.ui:1244 src/settings/settingsdialog.ui:1273
-#, fuzzy
-#| msgid "<html><head/><body><p>Text to test speech</p></body></html>"
-msgctxt "SettingsDialog|"
-msgid "<html><head/><body><p>Text to test speech</p></body></html>"
-msgstr "<html><head/><body><p>Besedilo za preizkus govora</p></body></html>"
-
-#: src/settings/settingsdialog.ui:1247 src/settings/settingsdialog.ui:1276
-#, fuzzy
-#| msgid "This is an example of speech synthesis."
-msgctxt "SettingsDialog|"
-msgid "This is an example of speech synthesis."
-msgstr "To je primer sinteze govora."
-
-#: src/settings/settingsdialog.ui:1250
-#, fuzzy
-#| msgid "Test voice"
-msgctxt "SettingsDialog|"
-msgid "Test voice"
-msgstr "Testni glas"
-
-#: src/settings/settingsdialog.ui:1295
-#, fuzzy
-#| msgid "Region:"
-msgctxt "SettingsDialog|"
-msgid "Region:"
-msgstr "Regija:"
-
-#: src/settings/settingsdialog.ui:1344
-#, fuzzy
-#| msgid "Proxy server"
+#: src/settings/settingsdialog.ui:1075
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
 msgstr "Posredni strežnik"
 
-#: src/settings/settingsdialog.ui:1350
-#, fuzzy
-#| msgid "Type:"
+#: src/settings/settingsdialog.ui:1081
 msgctxt "SettingsDialog|"
 msgid "Type:"
 msgstr "Tip:"
 
-#: src/settings/settingsdialog.ui:1363
-#, fuzzy
-#| msgid "<html><head/><body><p>Proxy type</p></body></html>"
+#: src/settings/settingsdialog.ui:1094
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
 msgstr "<html><head/><body><p>Vrsta posrednika</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1367
-#, fuzzy
-#| msgid "Use system settings"
+#: src/settings/settingsdialog.ui:1098
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
 msgstr "Uporabi sistemske nastavitve"
 
-#: src/settings/settingsdialog.ui:1377
-#, fuzzy
-#| msgid "Don't use a proxy"
+#: src/settings/settingsdialog.ui:1108
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
 msgstr "Ne uporabljaj posrednika"
 
-#: src/settings/settingsdialog.ui:1393
-#, fuzzy
-#| msgid "Host:"
+#: src/settings/settingsdialog.ui:1124
 msgctxt "SettingsDialog|"
 msgid "Host:"
 msgstr "Gostitelj:"
 
-#: src/settings/settingsdialog.ui:1403
-#, fuzzy
-#| msgid "<html><head/><body><p>Proxy host name</p></body></html>"
+#: src/settings/settingsdialog.ui:1134
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr "<html><head/><body><p>Ime posrednega strežnika</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1416
-#, fuzzy
-#| msgid "Port:"
+#: src/settings/settingsdialog.ui:1147
 msgctxt "SettingsDialog|"
 msgid "Port:"
 msgstr "Vrata:"
 
-#: src/settings/settingsdialog.ui:1432
-#, fuzzy
-#| msgid "<html><head/><body><p>Proxy port</p></body></html>"
+#: src/settings/settingsdialog.ui:1163
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
 msgstr "<html><head/><body><p>Vrata posrednika</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1451
-#, fuzzy
-#| msgid "Info: the proxy works only for text translation"
+#: src/settings/settingsdialog.ui:1182
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
 msgstr "Info: posrednik deluje samo za prevajanje besedila"
 
-#: src/settings/settingsdialog.ui:1461
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Enable or disable authentication</p></body></html>"
+#: src/settings/settingsdialog.ui:1192
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Omogoči ali onemogoči avtentikacijo</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1464
-#, fuzzy
-#| msgid "Authentication"
+#: src/settings/settingsdialog.ui:1195
 msgctxt "SettingsDialog|"
 msgid "Authentication"
 msgstr "Avtentikacija"
 
-#: src/settings/settingsdialog.ui:1474
-#, fuzzy
-#| msgid "Username:"
+#: src/settings/settingsdialog.ui:1205
 msgctxt "SettingsDialog|"
 msgid "Username:"
 msgstr "Uporabniško ime:"
 
-#: src/settings/settingsdialog.ui:1484
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Proxy username for authentication</p></body></html>"
+#: src/settings/settingsdialog.ui:1215
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
@@ -3040,35 +2461,24 @@ msgstr ""
 "<html><head/><body><p>Uporabniško ime posrednika za avtentikacijo</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1494
-#, fuzzy
-#| msgid "Password:"
+#: src/settings/settingsdialog.ui:1225
 msgctxt "SettingsDialog|"
 msgid "Password:"
 msgstr "Geslo:"
 
-#: src/settings/settingsdialog.ui:1504
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Proxy password for authentication</p></body></html>"
+#: src/settings/settingsdialog.ui:1235
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Geslo posrednika za avtentikacijo</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1517
-#, fuzzy
-#| msgid "Info: the password is saved unencrypted"
+#: src/settings/settingsdialog.ui:1248
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
 msgstr "Info: geslo je shranjeno nešifrirano"
 
-#: src/settings/settingsdialog.ui:1553
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Register global shortcuts in system</p></body></"
-#| "html>"
+#: src/settings/settingsdialog.ui:1284
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
@@ -3076,49 +2486,33 @@ msgstr ""
 "<html><head/><body><p>Registracija globalnih bližnjic v sistemu</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1556
-#, fuzzy
-#| msgid "Enable global shortcuts"
+#: src/settings/settingsdialog.ui:1287
 msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "Omogoči globalne bližnjice"
 
-#: src/settings/settingsdialog.ui:1572
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
+#: src/settings/settingsdialog.ui:1303
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Ponastavi vse bližnjice na privzete</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1575
-#, fuzzy
-#| msgid "Reset all"
+#: src/settings/settingsdialog.ui:1306
 msgctxt "SettingsDialog|"
 msgid "Reset all"
 msgstr "Ponastavi vse"
 
-#: src/settings/settingsdialog.ui:1585
-#, fuzzy
-#| msgctxt "src/settings/settingsdialog.ui:1585"
-#| msgid "Shortcut"
+#: src/settings/settingsdialog.ui:1316
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
 msgstr "Bližnjica"
 
-#: src/settings/settingsdialog.ui:1591
-#, fuzzy
-#| msgid "Key sequence:"
+#: src/settings/settingsdialog.ui:1322
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
 msgstr "Zaporedje tipk:"
 
-#: src/settings/settingsdialog.ui:1598
-#, fuzzy
-#| msgid ""
-#| "<html><head/><body><p>The key sequence for the selected action</p></"
-#| "body></html>"
+#: src/settings/settingsdialog.ui:1329
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
@@ -3126,352 +2520,473 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Zaporedje tipk za izbrano dejanje</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1605
-#, fuzzy
-#| msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
+#: src/settings/settingsdialog.ui:1336
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Sprejmi bližnjico</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1608
-#, fuzzy
-#| msgid "Accept"
+#: src/settings/settingsdialog.ui:1339
 msgctxt "SettingsDialog|"
 msgid "Accept"
 msgstr "Sprejmi"
 
-#: src/settings/settingsdialog.ui:1618
-#, fuzzy
-#| msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
+#: src/settings/settingsdialog.ui:1350
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Počisti bližnjico</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1621
-#, fuzzy
-#| msgctxt "src/mainwindow.ui:124"
-#| msgid "Clear"
+#: src/settings/settingsdialog.ui:1353
 msgctxt "SettingsDialog|"
 msgid "Clear"
 msgstr "Očisti"
 
-#: src/settings/settingsdialog.ui:1631
-#, fuzzy
-#| msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
+#: src/settings/settingsdialog.ui:1364
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Ponastavi bližnjico na privzeto</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1634
-#, fuzzy
-#| msgid "Reset"
+#: src/settings/settingsdialog.ui:1367
 msgctxt "SettingsDialog|"
 msgid "Reset"
 msgstr "Ponastavi"
 
-#: src/settings/settingsdialog.ui:1679
-#, fuzzy
-#| msgid "Version:"
+#: src/settings/settingsdialog.ui:1413
 msgctxt "SettingsDialog|"
 msgid "Version:"
 msgstr "Različica:"
 
-#: src/settings/settingsdialog.ui:1689
-#, fuzzy
-#| msgid "License:"
+#: src/settings/settingsdialog.ui:1423
 msgctxt "SettingsDialog|"
 msgid "License:"
 msgstr "Licenca:"
 
-#: src/settings/settingsdialog.ui:1703
-#, fuzzy
-#| msgid "Source code:"
+#: src/settings/settingsdialog.ui:1437
 msgctxt "SettingsDialog|"
 msgid "Source code:"
 msgstr "Izvorna koda:"
 
-#: src/settings/settingsdialog.ui:1743
-#, fuzzy
-#| msgid "Flag icons:"
+#: src/settings/settingsdialog.ui:1477
 msgctxt "SettingsDialog|"
 msgid "Flag icons:"
 msgstr "Ikone zastavic:"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:21
-#, fuzzy
-#| msgid "Global"
 msgctxt "ShortcutsModel|"
 msgid "Global"
 msgstr "Globalno"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:23
-#, fuzzy
-#| msgid "Translate selected text"
 msgctxt "ShortcutsModel|"
 msgid "Translate selected text"
 msgstr "Prevedi izbrano besedilo"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:26
-#, fuzzy
-#| msgid "Speak selected text"
 msgctxt "ShortcutsModel|"
 msgid "Speak selected text"
 msgstr "Izgovori izbrano besedilo"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:29
-#, fuzzy
-#| msgid "Speak translation of selected text"
 msgctxt "ShortcutsModel|"
 msgid "Speak translation of selected text"
 msgstr "Izgovori prevod izbranega besedila"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:32
-#, fuzzy
-#| msgctxt "src/settings/shortcutsmodel/shortcutsmodel.cpp:32"
-#| msgid "Stop text speaking"
 msgctxt "ShortcutsModel|"
 msgid "Stop text speaking"
 msgstr "Ustavi govor besedila"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:35
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:71
-#, fuzzy
-#| msgctxt ""
-#| "src/settings/shortcutsmodel/shortcutsmodel.cpp:35 src/settings/"
-#| "shortcutsmodel/shortcutsmodel.cpp:71"
-#| msgid "Speak / pause text speaking"
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause text speaking"
 msgstr "Izgovori/začasno ustavi govorjenje besedila"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:38
-#, fuzzy
-#| msgid "Show main window"
 msgctxt "ShortcutsModel|"
 msgid "Show main window"
 msgstr "Pokaži glavno okno"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:41
-#, fuzzy
-#| msgid "Translate selected text and copy to clipboard"
 msgctxt "ShortcutsModel|"
 msgid "Translate selected text and copy to clipboard"
 msgstr "Prevedi izbrano besedilo in kopiraj na odložišče"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:44
-#, fuzzy
-#| msgid "Recognize text in screen area"
 msgctxt "ShortcutsModel|"
 msgid "Recognize text in screen area"
 msgstr "Prepoznaj besedilo v območju zaslona"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:47
-#, fuzzy
-#| msgid "Translate text in screen area"
 msgctxt "ShortcutsModel|"
 msgid "Translate text in screen area"
 msgstr "Prevedi besedilo v območju zaslona"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:50
-#, fuzzy
-#| msgid "Recognize text in screen area with delay"
 msgctxt "ShortcutsModel|"
 msgid "Recognize text in screen area with delay"
 msgstr "Prepoznaj besedilo na območju zaslona z zakasnitvijo"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:53
-#, fuzzy
-#| msgid "Translate text in screen area with delay"
 msgctxt "ShortcutsModel|"
 msgid "Translate text in screen area with delay"
 msgstr "Prevedi besedilo v območju zaslona z zakasnitvijo"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:57
-#, fuzzy
-#| msgctxt "src/settings/settingsdialog.ui:207"
-#| msgid "Main window"
 msgctxt "ShortcutsModel|"
 msgid "Main window"
 msgstr "Glavno okno"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
-#, fuzzy
-#| msgctxt "src/mainwindow.ui:141"
-#| msgid "Translate"
 msgctxt "ShortcutsModel|"
 msgid "Translate"
 msgstr "Prevedi"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:62
-#, fuzzy
-#| msgctxt "src/mainwindow.ui:93src/mainwindow.ui:93"
-#| msgid "Swap languages"
 msgctxt "ShortcutsModel|"
 msgid "Swap languages"
 msgstr "Premenjaj jezike"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:65
-#, fuzzy
-#| msgid "Close window"
 msgctxt "ShortcutsModel|"
 msgid "Close window"
 msgstr "Zapri okno"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:69
-#, fuzzy
-#| msgid "Source text"
 msgctxt "ShortcutsModel|"
 msgid "Source text"
 msgstr "Izvorno besedilo"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:75
-#, fuzzy
-#| msgctxt "src/mainwindow.ui:169src/mainwindow.ui:169"
-#| msgid "Translation"
 msgctxt "ShortcutsModel|"
 msgid "Translation"
 msgstr "Prevod"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
-#, fuzzy
-#| msgid "Speak / pause speaking"
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause speaking"
 msgstr "Govori / začasno ustavi govor"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:80
-#, fuzzy
-#| msgid "Copy to clipboard"
 msgctxt "ShortcutsModel|"
 msgid "Copy to clipboard"
 msgstr "Kopiraj na odložišče"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:126
-#, fuzzy
-#| msgid "Description"
 msgctxt "ShortcutsModel|"
 msgid "Description"
 msgstr "Opis"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:128
-#, fuzzy
-#| msgctxt "src/settings/settingsdialog.ui:1585"
-#| msgid "Shortcut"
 msgctxt "ShortcutsModel|"
 msgid "Shortcut"
 msgstr "Bližnjica"
 
 #: src/settings/tesseractparameterstablewidget.cpp:16
-#, fuzzy
-#| msgid "Property"
 msgctxt "TesseractParametersTableWidget|"
 msgid "Property"
 msgstr "Lastnost"
 
 #: src/settings/tesseractparameterstablewidget.cpp:16
-#, fuzzy
-#| msgid "Value"
 msgctxt "TesseractParametersTableWidget|"
 msgid "Value"
 msgstr "Vrednost"
 
-#: src/speakbuttons.cpp:138
-#, fuzzy
-#| msgid "No text specified"
+#: src/speakbuttons.cpp:75
 msgctxt "SpeakButtons|"
 msgid "No text specified"
 msgstr "Ni navedenega besedila"
 
-#: src/speakbuttons.cpp:138
-#, fuzzy
-#| msgctxt "src/settings/settingsdialog.cpp:710"
-#| msgid "Playback text is empty"
+#: src/speakbuttons.cpp:75
 msgctxt "SpeakButtons|"
 msgid "Playback text is empty"
 msgstr "Besedilo za predvajanje je prazno"
 
-#: src/speakbuttons.cpp:147
-#, fuzzy
-#| msgid "Unable to generate URLs for TTS"
+#: src/speakbuttons.cpp:81
 msgctxt "SpeakButtons|"
 msgid "Unable to generate URLs for TTS"
 msgstr "Ni mogoče ustvariti URL-jev za TTS"
 
 #: src/speakbuttons.ui:24
-#, fuzzy
-#| msgctxt ""
-#| "src/settings/shortcutsmodel/shortcutsmodel.cpp:35 src/settings/"
-#| "shortcutsmodel/shortcutsmodel.cpp:71"
-#| msgid "Speak / pause text speaking"
 msgctxt "SpeakButtons|"
 msgid "Speak / pause text speaking"
 msgstr "Izgovori/začasno ustavi govorjenje besedila"
 
 #: src/speakbuttons.ui:34
-#, fuzzy
-#| msgctxt "src/settings/shortcutsmodel/shortcutsmodel.cpp:32"
-#| msgid "Stop text speaking"
 msgctxt "SpeakButtons|"
 msgid "Stop text speaking"
 msgstr "Ustavi govor besedila"
 
 #: src/transitions/ocruninitializedtransition.cpp:28
-#, fuzzy
-#| msgid "OCR languages are not loaded"
 msgctxt "Ocr|"
 msgid "OCR languages are not loaded"
 msgstr "Jeziki OCR niso naloženi"
 
 #: src/transitions/ocruninitializedtransition.cpp:28
-#, fuzzy
-#| msgid "You should set at least one OCR language in the application settings"
 msgctxt "Ocr|"
 msgid "You should set at least one OCR language in the application settings"
 msgstr "V nastavitvah aplikacije morate nastaviti vsaj en jezik OCR"
 
 #: src/translationedit.cpp:62
-#, fuzzy
-#| msgid "translation options:"
 msgctxt "TranslationEdit|"
 msgid "translation options:"
 msgstr "možnosti prevoda:"
 
-#: src/translationedit.cpp:97
-#, fuzzy
-#| msgid "examples:"
+#: src/translationedit.cpp:87
 msgctxt "TranslationEdit|"
 msgid "examples:"
 msgstr "primeri:"
 
 #: src/trayicon.cpp:19 src/trayicon.cpp:44
-#, fuzzy
-#| msgid "Show window"
 msgctxt "TrayIcon|"
 msgid "Show window"
 msgstr "Pokaži okno"
 
 #: src/trayicon.cpp:20 src/trayicon.cpp:45
-#, fuzzy
-#| msgctxt "src/settings/settingsdialog.ui:14"
-#| msgid "Settings"
 msgctxt "TrayIcon|"
 msgid "Settings"
 msgstr "Nastavitve"
 
 #: src/trayicon.cpp:21 src/trayicon.cpp:46
-#, fuzzy
-#| msgid "Quit"
 msgctxt "TrayIcon|"
 msgid "Quit"
 msgstr "Zapusti"
 
 #: src/trayicon.cpp:51
-#, fuzzy
-#| msgid "Translation result"
 msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Rezultat prevoda"
+
+#~ msgctxt "Cli|"
+#~ msgid ""
+#~ "Specify the translator language (by default, the system language is used)."
+#~ msgstr ""
+#~ "Določite jezik prevajalnika (privzeto je uporabljen sistemski jezik)."
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Selected source language %1 is not supported for %2"
+#~ msgstr "Izbrani izvorni jezik %1 ni podprt za %2"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Selected translation language %1 is not supported for %2"
+#~ msgstr "Izbrani jezik prevoda %1 ni podprt za %2"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Selected ui language %1 is not supported for %2"
+#~ msgstr "Izbrani jezik uporabniškega vmesnika %1 ni podprt za %2"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "%1 URL can't be empty."
+#~ msgstr "%1 URL ne more biti prazen."
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Bengali"
+#~ msgstr "bengalščina"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Cantonese"
+#~ msgstr "kantonščina"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Klingon"
+#~ msgstr "klingonščina"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Levantine Arabic"
+#~ msgstr "levantinska arabščina"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Maori"
+#~ msgstr "maorski"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Myanmar"
+#~ msgstr "Mjanmar"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Oriya"
+#~ msgstr "orija"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Uzbek"
+#~ msgstr "Uzbek"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid ""
+#~ "Error: Engine systems have detected suspicious traffic from your computer "
+#~ "network. Please try your request again later."
+#~ msgstr ""
+#~ "Napaka: sistemi stroja so zaznali sumljiv promet iz vašega računalniškega "
+#~ "omrežja. Poskusite znova pozneje."
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Error: Unable to find Bing credentials in web version."
+#~ msgstr "Napaka: ni mogoče najti poverilnic Bing v spletni različici."
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Error: Unable to extract Bing key from web version."
+#~ msgstr "Napaka: ključa Bing ni mogoče izvleči iz spletne različice."
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Error: Unable to extract Bing token from web version."
+#~ msgstr "Napaka: ni mogoče izvleči žetona Bing iz spletne različice."
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid ""
+#~ "Error: Unable to extract additional Bing information from web version."
+#~ msgstr ""
+#~ "Napaka: iz spletne različice ni mogoče pridobiti dodatnih informacij Bing."
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Error: Bing return unhandled network error"
+#~ msgstr "Napaka: Bing vrne neobdelano omrežno napako"
+
+#~ msgctxt "OnlineTts|"
+#~ msgid "Selected engine %1 does not support voice settings"
+#~ msgstr "Izbrani stroj %1 ne podpira glasovnih nastavitev"
+
+#~ msgctxt "OnlineTts|"
+#~ msgid "Selected engine %1 does not support emotion settings"
+#~ msgstr "Izbrani mehanizem %1 ne podpira nastavitev čustev"
+
+#~ msgctxt "OnlineTts|"
+#~ msgid "Selected voice %1 is not supported for %2"
+#~ msgstr "Izbrani glas %1 ni podprt za %2"
+
+#~ msgctxt "OnlineTts|"
+#~ msgid "Selected emotion %1 is not supported by %2"
+#~ msgstr "%2 ne podpira izbranega čustva %1"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Happy New Year!"
+#~ msgstr "Srečno novo leto!"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Default region"
+#~ msgstr "Privzeta regija"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Mandarin (China)"
+#~ msgstr "mandarinščina (Kitajska)"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Nothing to play"
+#~ msgstr "Nič za predvajanje"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Playback text is empty"
+#~ msgstr "Besedilo za predvajanje je prazno"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Unable to detect language"
+#~ msgstr "Jezika ni mogoče zaznati"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Speech synthesis"
+#~ msgstr "Sinteza govora"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>LibreTranslate instance API key</p><p>Free "
+#~ "instances listed here doesn't require a key, so field can be empty</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Ključ API-ja pojavka LibreTranslate</"
+#~ "p><p>Brezplačni pojavki, navedeni tukaj, ne potrebujejo ključa, zato je "
+#~ "polje lahko prazno</p></body></ html>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "API key:"
+#~ msgstr "Ključ API:"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>LibreTranslate engine URL</p><p>All instances can "
+#~ "be found here: https://github.com/LibreTranslate/LibreTranslate#mirrors</"
+#~ "p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>URL mehanizma LibreTranslate</p><p>Vse pojavke "
+#~ "najdete tukaj: https://github.com/LibreTranslate/LibreTranslate#mirrors</"
+#~ "p></body></html>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Voice:"
+#~ msgstr "Glas:"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>Voice of the speech synthesis engine</p></body></"
+#~ "html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Glas motorja za sintezo govora</p></body></html>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Zahar"
+#~ msgstr "Zahar"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Ermil"
+#~ msgstr "Ermil"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Jane"
+#~ msgstr "Jane"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Oksana"
+#~ msgstr "Oksana"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Alyss"
+#~ msgstr "Alyss"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Omazh"
+#~ msgstr "Omazh"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Emotional connotation:"
+#~ msgstr "Čustvena konotacija:"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>Voice mood of the speech synthesis engine</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Glasovno razpoloženje mehanizma za sintezo govora</"
+#~ "p></body></html>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Neutral"
+#~ msgstr "Nevtralno"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Good"
+#~ msgstr "Dobro"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Evil"
+#~ msgstr "Zlovešče"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Speech test:"
+#~ msgstr "Preizkus govora:"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "<html><head/><body><p>Text to test speech</p></body></html>"
+#~ msgstr "<html><head/><body><p>Besedilo za preizkus govora</p></body></html>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "This is an example of speech synthesis."
+#~ msgstr "To je primer sinteze govora."
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Test voice"
+#~ msgstr "Testni glas"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Region:"
+#~ msgstr "Regija:"
 
 #~ msgctxt "src/languagesdialog.ui:14"
 #~ msgid "Edit languages"

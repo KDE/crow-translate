@@ -10,12 +10,12 @@ msgstr ""
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
 
-#: src/cli.cpp:41
+#: src/cli.cpp:40
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Προβολή όλων των κωδικών γλωσσών."
 
-#: src/cli.cpp:42
+#: src/cli.cpp:41
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -24,7 +24,7 @@ msgstr ""
 "Καθορισμός της πηγαίας γλώσσας (εξ ορισμού, η μηχανή θα προσπαθήσει να "
 "εντοπίσει την γλώσσα αυτομάτως)."
 
-#: src/cli.cpp:43
+#: src/cli.cpp:42
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
@@ -33,15 +33,7 @@ msgstr ""
 "Καθορισμός των γλωσσών μετάφρασης, διαχωρισμένων με '+' (εξ ορισμού, "
 "χρησιμοποιείται η γλώσσα του συστήματος)."
 
-#: src/cli.cpp:44
-msgctxt "Cli|"
-msgid ""
-"Specify the translator language (by default, the system language is used)."
-msgstr ""
-"Καθορισμός της γλώσσας του μεταφραστή (εξ ορισμού, χρησιμοποιείται η γλώσσα "
-"του συστήματος)."
-
-#: src/cli.cpp:45
+#: src/cli.cpp:43
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
@@ -50,17 +42,22 @@ msgstr ""
 "Καθορισμός της μηχανής μετάφρασης ('google', 'yandex', 'bing', "
 "'libretranslate' ή 'lingva')·η Google είναι η εξ ορισμού μηχανή."
 
-#: src/cli.cpp:46
+#: src/cli.cpp:44
+msgctxt "Cli|"
+msgid "Specify instance URL. Random instance URL will be used by default."
+msgstr ""
+
+#: src/cli.cpp:45
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Εκφώνηση της μετάφρασης."
 
-#: src/cli.cpp:47
+#: src/cli.cpp:46
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Εκφώνηση της πηγής."
 
-#: src/cli.cpp:48
+#: src/cli.cpp:47
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -68,38 +65,43 @@ msgstr ""
 "Ανάγνωση πηγαίου κειμένου από αρχεία. Τα ορίσματα θα ερμηνευτούν ως "
 "διαδρομές αρχείων."
 
-#: src/cli.cpp:49
+#: src/cli.cpp:48
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Προσθήκη των δεδομένων stdin στο κείμενο πηγής."
 
-#: src/cli.cpp:50
+#: src/cli.cpp:49
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "Να μην γίνεται εκτύπωση κειμένου με την χρήση --%1 ή --%2."
 
-#: src/cli.cpp:51
+#: src/cli.cpp:50
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Εκτύπωση μόνο των μεταφράσεων."
 
-#: src/cli.cpp:52
+#: src/cli.cpp:51
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Εκτύπωση της εξόδου σε μορφή JSON."
 
-#: src/cli.cpp:55
+#: src/cli.cpp:54
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid ""
+#| "A simple and lightweight translator that allows to translate and speak "
+#| "text using Google, Yandex, Bing, LibreTranslate and Lingva"
 msgctxt "Cli|"
 msgid ""
 "A simple and lightweight translator that allows to translate and speak text "
-"using Google, Yandex, Bing, LibreTranslate and Lingva"
+"using Mozhi"
 msgstr ""
 "Ένας απλός και ελαφρύς μεταφραστής που επιτρέπει την μετάφραση και την "
 "εκφώνηση κειμένου από τους ιστότοπους Google, Yandex, Bing, LibreTranslate "
 "και Lingva"
 
-#: src/cli.cpp:56
+#: src/cli.cpp:55
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
@@ -108,13 +110,13 @@ msgstr ""
 "Κείμενο προς μετάφραση. Εξ ορισμού, το κείμενο θα μεταφραστεί στην γλώσσα "
 "του συστήματος."
 
-#: src/cli.cpp:78
+#: src/cli.cpp:77
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Σφάλμα: Για --%1 πρέπει να καθορίσετε --%2 και/ή --%3 επιλογές"
 
-#: src/cli.cpp:112
+#: src/cli.cpp:110
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Σφάλμα: δεν υπάρχει κείμενο προς μετάφραση"
@@ -124,7 +126,7 @@ msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "Σφάλμα: Άγνωστή μηχανή"
 
-#: src/cli.cpp:165 src/cli.cpp:258 src/cli.cpp:347
+#: src/cli.cpp:165 src/cli.cpp:248 src/cli.cpp:336
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
@@ -136,25 +138,25 @@ msgctxt "Cli|"
 msgid "%1 - translation options:"
 msgstr "%1 - επιλογές μετάφρασης:"
 
-#: src/cli.cpp:236
+#: src/cli.cpp:230
 #, qt-format
 msgctxt "Cli|"
 msgid "%1 - examples:"
 msgstr "%1 - παραδείγματα:"
 
-#: src/cli.cpp:360
+#: src/cli.cpp:349
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Σφάλμα: Δεν μπορείτε να χρησιμοποιήσετε --%1 με --%2"
 
-#: src/cli.cpp:376 src/cli.cpp:397
+#: src/cli.cpp:365 src/cli.cpp:386
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Σφάλμα: Το αρχείο δεν υπάρχει: %1"
 
-#: src/cli.cpp:381 src/cli.cpp:402
+#: src/cli.cpp:370 src/cli.cpp:391
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -165,19 +167,19 @@ msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Αναζήτηση στο Forvo.com"
 
-#: src/languagebuttonswidget.cpp:451
+#: src/languagebuttonswidget.cpp:220
 msgctxt "LanguageButtonsWidget|"
 msgid "Window width is larger than screen due to the languages on the panel."
 msgstr ""
 "Το πλάτος του παραθύρου είναι μεγαλύτερο από την οθόνη λόγω των γλωσσών στον "
 "πίνακα."
 
-#: src/languagebuttonswidget.cpp:452
+#: src/languagebuttonswidget.cpp:221
 msgctxt "LanguageButtonsWidget|"
 msgid "Please reduce added languages."
 msgstr "Παρακαλώ μειώστε τις προστιθέμενες γλώσσες."
 
-#: src/languagebuttonswidget.cpp:528 src/languagebuttonswidget.cpp:530
+#: src/languagebuttonswidget.cpp:297 src/languagebuttonswidget.cpp:299
 msgctxt "LanguageButtonsWidget|"
 msgid "Auto"
 msgstr "Αυτόματο"
@@ -249,12 +251,12 @@ msgstr ""
 "Το καθορισμένο εικονίδιο '%1' δεν είναι έγκυρο. Θα χρησιμοποιηθεί το "
 "εικονίδιο εξ ορισμού."
 
-#: src/mainwindow.cpp:898
+#: src/mainwindow.cpp:896
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "Αδύνατος ο ορισμός γλωσσών οπτικής αναγνώρισης χαρακτήρων (OCR)"
 
-#: src/mainwindow.cpp:898
+#: src/mainwindow.cpp:896
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -306,22 +308,22 @@ msgctxt "MainWindow|"
 msgid "Translation"
 msgstr "Μετάφραση"
 
-#: src/mainwindow.ui:253
+#: src/mainwindow.ui:271
 msgctxt "MainWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Αντιγραφή της μετάφρασης στο πρόχειρο"
 
-#: src/mainwindow.ui:264
+#: src/mainwindow.ui:282
 msgctxt "MainWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "Αντιγραφή όλων των δεδομένων της μετάφρασης στο πρόχειρο"
 
-#: src/mainwindow.ui:275
+#: src/mainwindow.ui:293
 msgctxt "MainWindow|"
 msgid "Translate screen area with delay"
 msgstr "Μετάφραση περιοχής της οθόνης με καθυστέρηση"
 
-#: src/mainwindow.ui:286
+#: src/mainwindow.ui:304
 msgctxt "MainWindow|"
 msgid "Application settings"
 msgstr "Ρυθμίσεις εφαρμογής"
@@ -490,746 +492,1181 @@ msgctxt "SnippingArea|"
 msgid "Esc key"
 msgstr "Esc"
 
-#: src/onlinetranslator/onlinetranslator.cpp:190
-#, qt-format
+#: src/onlinetranslator/onlinetranslator.cpp:281
+#, fuzzy, qt-format
+#| msgctxt "OnlineTts|"
+#| msgid "Selected language %1 is not supported for %2"
 msgctxt "OnlineTranslator|"
-msgid "Selected source language %1 is not supported for %2"
-msgstr "Η επιλεγμένη γλώσσα πηγής %1 δεν υποστηρίζεται από το %2"
+msgid "Language detection is not supported for %1"
+msgstr "Η επιλεγμένη γλώσσα %1 δεν υποστηρίζεται από το %2"
 
-#: src/onlinetranslator/onlinetranslator.cpp:195
-#, qt-format
+#: src/onlinetranslator/onlinetranslator.cpp:364
+#, fuzzy, qt-format
+#| msgctxt "OnlineTts|"
+#| msgid "%1 engine does not support TTS"
 msgctxt "OnlineTranslator|"
-msgid "Selected translation language %1 is not supported for %2"
-msgstr "Η επιλεγμένη γλώσσα μετάφρασης %1 δεν υποστηρίζεται από το %2"
+msgid "%1 engine does not support TTS"
+msgstr "Η μηχανή %1 δεν υποστηρίζει TTS"
 
-#: src/onlinetranslator/onlinetranslator.cpp:200
-#, qt-format
-msgctxt "OnlineTranslator|"
-msgid "Selected ui language %1 is not supported for %2"
-msgstr "Η επιλεγμένη γλώσσα περιβάλλοντος %1 δεν υποστηρίζεται από το %2"
-
-#: src/onlinetranslator/onlinetranslator.cpp:217
-#: src/onlinetranslator/onlinetranslator.cpp:226
-#: src/onlinetranslator/onlinetranslator.cpp:261
-#: src/onlinetranslator/onlinetranslator.cpp:270
-#, qt-format
-msgctxt "OnlineTranslator|"
-msgid "%1 URL can't be empty."
-msgstr "Το URL του %1 δεν μπορεί να είναι κενό."
-
-#: src/onlinetranslator/onlinetranslator.cpp:468
+#: src/onlinetranslator/onlinetranslator.cpp:505
 msgctxt "OnlineTranslator|"
 msgid "Automatically detect"
 msgstr "Αυτόματος εντοπισμός"
 
-#: src/onlinetranslator/onlinetranslator.cpp:470
+#: src/onlinetranslator/onlinetranslator.cpp:507
 msgctxt "OnlineTranslator|"
 msgid "Afrikaans"
 msgstr "Αφρικάανς"
 
-#: src/onlinetranslator/onlinetranslator.cpp:472
+#: src/onlinetranslator/onlinetranslator.cpp:509
 msgctxt "OnlineTranslator|"
 msgid "Albanian"
 msgstr "Αλβανικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:474
+#: src/onlinetranslator/onlinetranslator.cpp:511
 msgctxt "OnlineTranslator|"
 msgid "Amharic"
 msgstr "Αμχαρικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:476
+#: src/onlinetranslator/onlinetranslator.cpp:513
 msgctxt "OnlineTranslator|"
 msgid "Arabic"
 msgstr "Αραβικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:478
+#: src/onlinetranslator/onlinetranslator.cpp:515
 msgctxt "OnlineTranslator|"
 msgid "Armenian"
 msgstr "Αρμενικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:480
+#: src/onlinetranslator/onlinetranslator.cpp:517
 msgctxt "OnlineTranslator|"
-msgid "Azeerbaijani"
+msgid "Assamese"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:519
+msgctxt "OnlineTranslator|"
+msgid "Aymara"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:521
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Azeerbaijani"
+msgctxt "OnlineTranslator|"
+msgid "Azerbaijani"
 msgstr "Αζερικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:482
+#: src/onlinetranslator/onlinetranslator.cpp:523
 msgctxt "OnlineTranslator|"
-msgid "Basque"
-msgstr "Βασκικά"
+msgid "Bajan"
+msgstr ""
 
-#: src/onlinetranslator/onlinetranslator.cpp:484
+#: src/onlinetranslator/onlinetranslator.cpp:525
+msgctxt "OnlineTranslator|"
+msgid "Balkan Gipsy"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:527
+msgctxt "OnlineTranslator|"
+msgid "Bambara"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:529
+msgctxt "OnlineTranslator|"
+msgid "Bangla"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:531
 msgctxt "OnlineTranslator|"
 msgid "Bashkir"
 msgstr "Μπασκίρ"
 
-#: src/onlinetranslator/onlinetranslator.cpp:486
+#: src/onlinetranslator/onlinetranslator.cpp:533
+msgctxt "OnlineTranslator|"
+msgid "Basque"
+msgstr "Βασκικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:535
 msgctxt "OnlineTranslator|"
 msgid "Belarusian"
 msgstr "Λευκορωσικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:488
+#: src/onlinetranslator/onlinetranslator.cpp:537
 msgctxt "OnlineTranslator|"
-msgid "Bengali"
-msgstr "Βεγγαλικά"
+msgid "Bemba"
+msgstr ""
 
-#: src/onlinetranslator/onlinetranslator.cpp:490
+#: src/onlinetranslator/onlinetranslator.cpp:539
+msgctxt "OnlineTranslator|"
+msgid "Bhojpuri"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:541
+msgctxt "OnlineTranslator|"
+msgid "Bislama"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:543
 msgctxt "OnlineTranslator|"
 msgid "Bosnian"
 msgstr "Βοσνιακά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:492
+#: src/onlinetranslator/onlinetranslator.cpp:545
+msgctxt "OnlineTranslator|"
+msgid "Breton"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:547
 msgctxt "OnlineTranslator|"
 msgid "Bulgarian"
 msgstr "Βουλγαρικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:494
+#: src/onlinetranslator/onlinetranslator.cpp:549
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Chinese (Traditional)"
+msgctxt "OnlineTranslator|"
+msgid "Cantonese (Traditional)"
+msgstr "Κινέζικα (Παραδοσιακά)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:551
 msgctxt "OnlineTranslator|"
 msgid "Catalan"
 msgstr "Καταλανικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:496
-msgctxt "OnlineTranslator|"
-msgid "Cantonese"
-msgstr "Καντονεζικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:498
+#: src/onlinetranslator/onlinetranslator.cpp:553
 msgctxt "OnlineTranslator|"
 msgid "Cebuano"
 msgstr "Κεμπούνο"
 
-#: src/onlinetranslator/onlinetranslator.cpp:500
+#: src/onlinetranslator/onlinetranslator.cpp:555
 msgctxt "OnlineTranslator|"
-msgid "Chinese (Simplified)"
-msgstr "Κινεζικά (Απλοποιημένα)"
+msgid "Chamorro"
+msgstr ""
 
-#: src/onlinetranslator/onlinetranslator.cpp:502
-msgctxt "OnlineTranslator|"
-msgid "Chinese (Traditional)"
-msgstr "Κινέζικα (Παραδοσιακά)"
-
-#: src/onlinetranslator/onlinetranslator.cpp:504
-msgctxt "OnlineTranslator|"
-msgid "Corsican"
-msgstr "Κορσικανικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:506
-msgctxt "OnlineTranslator|"
-msgid "Croatian"
-msgstr "Κροατικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:508
-msgctxt "OnlineTranslator|"
-msgid "Czech"
-msgstr "Τσέχικα"
-
-#: src/onlinetranslator/onlinetranslator.cpp:510
-msgctxt "OnlineTranslator|"
-msgid "Danish"
-msgstr "Δανέζικα"
-
-#: src/onlinetranslator/onlinetranslator.cpp:512
-msgctxt "OnlineTranslator|"
-msgid "Dutch"
-msgstr "Ολλανδικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:514
-msgctxt "OnlineTranslator|"
-msgid "English"
-msgstr "Αγγλικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:516
-msgctxt "OnlineTranslator|"
-msgid "Esperanto"
-msgstr "Εσπεράντο"
-
-#: src/onlinetranslator/onlinetranslator.cpp:518
-msgctxt "OnlineTranslator|"
-msgid "Estonian"
-msgstr "Εσθονικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:520
-msgctxt "OnlineTranslator|"
-msgid "Fijian"
-msgstr "Νησιών Φίτζι"
-
-#: src/onlinetranslator/onlinetranslator.cpp:522
-msgctxt "OnlineTranslator|"
-msgid "Filipino"
-msgstr "Φιλιπίνο"
-
-#: src/onlinetranslator/onlinetranslator.cpp:524
-msgctxt "OnlineTranslator|"
-msgid "Finnish"
-msgstr "Φιλανδικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:526
-msgctxt "OnlineTranslator|"
-msgid "French"
-msgstr "Γαλλικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:528
-msgctxt "OnlineTranslator|"
-msgid "Frisian"
-msgstr "Φριζικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:530
-msgctxt "OnlineTranslator|"
-msgid "Galician"
-msgstr "Γαλικιανά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:532
-msgctxt "OnlineTranslator|"
-msgid "Georgian"
-msgstr "Γεωργιανά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:534
-msgctxt "OnlineTranslator|"
-msgid "German"
-msgstr "Γερμανικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:536
-msgctxt "OnlineTranslator|"
-msgid "Greek"
-msgstr "Ελληνικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:538
-msgctxt "OnlineTranslator|"
-msgid "Gujarati"
-msgstr "Γκουτζαράτι"
-
-#: src/onlinetranslator/onlinetranslator.cpp:540
-msgctxt "OnlineTranslator|"
-msgid "Haitian Creole"
-msgstr "Creole Αϊτής"
-
-#: src/onlinetranslator/onlinetranslator.cpp:542
-msgctxt "OnlineTranslator|"
-msgid "Hausa"
-msgstr "Χάουσα"
-
-#: src/onlinetranslator/onlinetranslator.cpp:544
-msgctxt "OnlineTranslator|"
-msgid "Hawaiian"
-msgstr "Xαβαϊκά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:546
-msgctxt "OnlineTranslator|"
-msgid "Hebrew"
-msgstr "Εβραϊκά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:548
-msgctxt "OnlineTranslator|"
-msgid "Hill Mari"
-msgstr "Δυτική Μαρί"
-
-#: src/onlinetranslator/onlinetranslator.cpp:550
-msgctxt "OnlineTranslator|"
-msgid "Hindi"
-msgstr "Χίντι"
-
-#: src/onlinetranslator/onlinetranslator.cpp:552
-msgctxt "OnlineTranslator|"
-msgid "Hmong"
-msgstr "Hmong"
-
-#: src/onlinetranslator/onlinetranslator.cpp:554
-msgctxt "OnlineTranslator|"
-msgid "Hungarian"
-msgstr "Ουγγρικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:556
-msgctxt "OnlineTranslator|"
-msgid "Icelandic"
-msgstr "Ισλανδικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:558
-msgctxt "OnlineTranslator|"
-msgid "Igbo"
-msgstr "Ίγκμπο"
-
-#: src/onlinetranslator/onlinetranslator.cpp:560
-msgctxt "OnlineTranslator|"
-msgid "Indonesian"
-msgstr "Ινδονησιακά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:562
-msgctxt "OnlineTranslator|"
-msgid "Irish"
-msgstr "Ιρλανδικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:564
-msgctxt "OnlineTranslator|"
-msgid "Italian"
-msgstr "Ιταλικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:566
-msgctxt "OnlineTranslator|"
-msgid "Japanese"
-msgstr "Ιαπωνικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:568
-msgctxt "OnlineTranslator|"
-msgid "Javanese"
-msgstr "Ιαβαϊκά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:570
-msgctxt "OnlineTranslator|"
-msgid "Kannada"
-msgstr "Κανάντα"
-
-#: src/onlinetranslator/onlinetranslator.cpp:572
-msgctxt "OnlineTranslator|"
-msgid "Kazakh"
-msgstr "Καζακικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:574
-msgctxt "OnlineTranslator|"
-msgid "Khmer"
-msgstr "Χμερ"
-
-#: src/onlinetranslator/onlinetranslator.cpp:576
-msgctxt "OnlineTranslator|"
-msgid "Kinyarwanda"
-msgstr "Κινιαρουάντα"
-
-#: src/onlinetranslator/onlinetranslator.cpp:578
-msgctxt "OnlineTranslator|"
-msgid "Klingon"
-msgstr "Klingon"
-
-#: src/onlinetranslator/onlinetranslator.cpp:580
-msgctxt "OnlineTranslator|"
-msgid "Klingon (PlqaD)"
-msgstr "Klingon (PlqaD)"
-
-#: src/onlinetranslator/onlinetranslator.cpp:582
-msgctxt "OnlineTranslator|"
-msgid "Korean"
-msgstr "Κορεάτικα"
-
-#: src/onlinetranslator/onlinetranslator.cpp:584
-msgctxt "OnlineTranslator|"
-msgid "Kurdish"
-msgstr "Κουρδικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:586
-msgctxt "OnlineTranslator|"
-msgid "Kyrgyz"
-msgstr "Kyrgyz"
-
-#: src/onlinetranslator/onlinetranslator.cpp:588
-msgctxt "OnlineTranslator|"
-msgid "Lao"
-msgstr "Λαοτινά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:590
-msgctxt "OnlineTranslator|"
-msgid "Latin"
-msgstr "Λατινικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:592
-msgctxt "OnlineTranslator|"
-msgid "Latvian"
-msgstr "Λετονικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:594
-msgctxt "OnlineTranslator|"
-msgid "Levantine Arabic"
-msgstr "Λεβαντινικά Αραβικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:596
-msgctxt "OnlineTranslator|"
-msgid "Lithuanian"
-msgstr "Λιθουανικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:598
-msgctxt "OnlineTranslator|"
-msgid "Luxembourgish"
-msgstr "Λουξεμβουργιανά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:600
-msgctxt "OnlineTranslator|"
-msgid "Macedonian"
-msgstr "Σλαβομακεδονικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:602
-msgctxt "OnlineTranslator|"
-msgid "Malagasy"
-msgstr "Μαλγασικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:604
-msgctxt "OnlineTranslator|"
-msgid "Malay"
-msgstr "Μαλαισιανά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:606
-msgctxt "OnlineTranslator|"
-msgid "Malayalam"
-msgstr "Μαλαγιάλαμ"
-
-#: src/onlinetranslator/onlinetranslator.cpp:608
-msgctxt "OnlineTranslator|"
-msgid "Maltese"
-msgstr "Μαλτέζικα"
-
-#: src/onlinetranslator/onlinetranslator.cpp:610
-msgctxt "OnlineTranslator|"
-msgid "Maori"
-msgstr "Μαορί"
-
-#: src/onlinetranslator/onlinetranslator.cpp:612
-msgctxt "OnlineTranslator|"
-msgid "Marathi"
-msgstr "Μαράθι"
-
-#: src/onlinetranslator/onlinetranslator.cpp:614
-msgctxt "OnlineTranslator|"
-msgid "Mari"
-msgstr "Μαρί"
-
-#: src/onlinetranslator/onlinetranslator.cpp:616
-msgctxt "OnlineTranslator|"
-msgid "Mongolian"
-msgstr "Μογγολικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:618
-msgctxt "OnlineTranslator|"
-msgid "Myanmar"
-msgstr "Βιρμανικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:620
-msgctxt "OnlineTranslator|"
-msgid "Nepali"
-msgstr "Νεπάλι"
-
-#: src/onlinetranslator/onlinetranslator.cpp:622
-msgctxt "OnlineTranslator|"
-msgid "Norwegian"
-msgstr "Νορβηγικά"
-
-#: src/onlinetranslator/onlinetranslator.cpp:624
-msgctxt "OnlineTranslator|"
-msgid "Oriya"
-msgstr "Ορίγια"
-
-#: src/onlinetranslator/onlinetranslator.cpp:626
+#: src/onlinetranslator/onlinetranslator.cpp:557
 msgctxt "OnlineTranslator|"
 msgid "Chichewa"
 msgstr "Τσιτσέουα"
 
-#: src/onlinetranslator/onlinetranslator.cpp:628
+#: src/onlinetranslator/onlinetranslator.cpp:559
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Chinese (Traditional)"
 msgctxt "OnlineTranslator|"
-msgid "Papiamento"
+msgid "Chinese (Literary)"
+msgstr "Κινέζικα (Παραδοσιακά)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:561
+msgctxt "OnlineTranslator|"
+msgid "Chinese (Simplified)"
+msgstr "Κινεζικά (Απλοποιημένα)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:563
+msgctxt "OnlineTranslator|"
+msgid "Chinese (Traditional)"
+msgstr "Κινέζικα (Παραδοσιακά)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:565
+msgctxt "OnlineTranslator|"
+msgid "Chuvash"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:567
+msgctxt "OnlineTranslator|"
+msgid "Comorian (Ngazidja)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:569
+msgctxt "OnlineTranslator|"
+msgid "Coptic"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:571
+msgctxt "OnlineTranslator|"
+msgid "Corsican"
+msgstr "Κορσικανικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:573
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Antigua and Barbuda)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:575
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Bahamas)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:577
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Grenadian)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:579
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Guyanese)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:581
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Jamaican)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:583
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Vincentian)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:585
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Virgin Islands)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:587
+msgctxt "OnlineTranslator|"
+msgid "Creole French (Saint Lucian)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:589
+msgctxt "OnlineTranslator|"
+msgid "Creole French (Seselwa)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:591
+msgctxt "OnlineTranslator|"
+msgid "Creole Portuguese (Upper Guinea)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:593
+msgctxt "OnlineTranslator|"
+msgid "Croatian"
+msgstr "Κροατικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:595
+msgctxt "OnlineTranslator|"
+msgid "Czech"
+msgstr "Τσέχικα"
+
+#: src/onlinetranslator/onlinetranslator.cpp:597
+msgctxt "OnlineTranslator|"
+msgid "Danish"
+msgstr "Δανέζικα"
+
+#: src/onlinetranslator/onlinetranslator.cpp:599
+msgctxt "OnlineTranslator|"
+msgid "Dari"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:601
+msgctxt "OnlineTranslator|"
+msgid "Divehi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:603
+msgctxt "OnlineTranslator|"
+msgid "Dogri"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:605
+msgctxt "OnlineTranslator|"
+msgid "Dutch"
+msgstr "Ολλανδικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:607
+msgctxt "OnlineTranslator|"
+msgid "Dzongkha"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:609
+msgctxt "OnlineTranslator|"
+msgid "Elvish (Sindarin)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:611
+msgctxt "OnlineTranslator|"
+msgid "Emoji"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:613
+msgctxt "OnlineTranslator|"
+msgid "English"
+msgstr "Αγγλικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:615
+msgctxt "OnlineTranslator|"
+msgid "Esperanto"
+msgstr "Εσπεράντο"
+
+#: src/onlinetranslator/onlinetranslator.cpp:617
+msgctxt "OnlineTranslator|"
+msgid "Estonian"
+msgstr "Εσθονικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:619
+msgctxt "OnlineTranslator|"
+msgid "Ewe"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:621
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Tagalog"
+msgctxt "OnlineTranslator|"
+msgid "Fanagalo"
+msgstr "Ταγκαλόγκ"
+
+#: src/onlinetranslator/onlinetranslator.cpp:623
+msgctxt "OnlineTranslator|"
+msgid "Faroese"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:625
+msgctxt "OnlineTranslator|"
+msgid "Fijian"
+msgstr "Νησιών Φίτζι"
+
+#: src/onlinetranslator/onlinetranslator.cpp:627
+msgctxt "OnlineTranslator|"
+msgid "Filipino"
+msgstr "Φιλιπίνο"
+
+#: src/onlinetranslator/onlinetranslator.cpp:629
+msgctxt "OnlineTranslator|"
+msgid "Finnish"
+msgstr "Φιλανδικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:631
+msgctxt "OnlineTranslator|"
+msgid "French"
+msgstr "Γαλλικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:633
+msgctxt "OnlineTranslator|"
+msgid "French (Canada)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:635
+msgctxt "OnlineTranslator|"
+msgid "Frisian"
+msgstr "Φριζικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:637
+msgctxt "OnlineTranslator|"
+msgid "Galician"
+msgstr "Γαλικιανά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:639
+msgctxt "OnlineTranslator|"
+msgid "Ganda"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:641
+msgctxt "OnlineTranslator|"
+msgid "Georgian"
+msgstr "Γεωργιανά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:643
+msgctxt "OnlineTranslator|"
+msgid "German"
+msgstr "Γερμανικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:645
+msgctxt "OnlineTranslator|"
+msgid "Greek"
+msgstr "Ελληνικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:647
+msgctxt "OnlineTranslator|"
+msgid "Greek (Classical)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:649
+msgctxt "OnlineTranslator|"
+msgid "Guarani"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:651
+msgctxt "OnlineTranslator|"
+msgid "Gujarati"
+msgstr "Γκουτζαράτι"
+
+#: src/onlinetranslator/onlinetranslator.cpp:653
+msgctxt "OnlineTranslator|"
+msgid "Haitian Creole"
+msgstr "Creole Αϊτής"
+
+#: src/onlinetranslator/onlinetranslator.cpp:655
+msgctxt "OnlineTranslator|"
+msgid "Hausa"
+msgstr "Χάουσα"
+
+#: src/onlinetranslator/onlinetranslator.cpp:657
+msgctxt "OnlineTranslator|"
+msgid "Hawaiian"
+msgstr "Xαβαϊκά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:659
+msgctxt "OnlineTranslator|"
+msgid "Hebrew"
+msgstr "Εβραϊκά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:661
+msgctxt "OnlineTranslator|"
+msgid "Hill Mari"
+msgstr "Δυτική Μαρί"
+
+#: src/onlinetranslator/onlinetranslator.cpp:663
+msgctxt "OnlineTranslator|"
+msgid "Hindi"
+msgstr "Χίντι"
+
+#: src/onlinetranslator/onlinetranslator.cpp:665
+msgctxt "OnlineTranslator|"
+msgid "Hmong"
+msgstr "Hmong"
+
+#: src/onlinetranslator/onlinetranslator.cpp:667
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Hmong"
+msgctxt "OnlineTranslator|"
+msgid "Hmong Daw"
+msgstr "Hmong"
+
+#: src/onlinetranslator/onlinetranslator.cpp:669
+msgctxt "OnlineTranslator|"
+msgid "Hungarian"
+msgstr "Ουγγρικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:671
+msgctxt "OnlineTranslator|"
+msgid "Icelandic"
+msgstr "Ισλανδικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:673
+msgctxt "OnlineTranslator|"
+msgid "Igbo"
+msgstr "Ίγκμπο"
+
+#: src/onlinetranslator/onlinetranslator.cpp:675
+msgctxt "OnlineTranslator|"
+msgid "Ilocano"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:677
+msgctxt "OnlineTranslator|"
+msgid "Indonesian"
+msgstr "Ινδονησιακά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:679
+msgctxt "OnlineTranslator|"
+msgid "Inuinnaqtun"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:681
+msgctxt "OnlineTranslator|"
+msgid "Inuktitut"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:683
+msgctxt "OnlineTranslator|"
+msgid "Inuktitut (Greenlandic)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:685
+msgctxt "OnlineTranslator|"
+msgid "Inuktitut (Latin)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:687
+msgctxt "OnlineTranslator|"
+msgid "Irish"
+msgstr "Ιρλανδικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:689
+msgctxt "OnlineTranslator|"
+msgid "Italian"
+msgstr "Ιταλικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:691
+msgctxt "OnlineTranslator|"
+msgid "Japanese"
+msgstr "Ιαπωνικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:693
+msgctxt "OnlineTranslator|"
+msgid "Javanese"
+msgstr "Ιαβαϊκά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:695
+msgctxt "OnlineTranslator|"
+msgid "Kabuverdianu"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:697
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Italian"
+msgctxt "OnlineTranslator|"
+msgid "Kabylian"
+msgstr "Ιταλικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:699
+msgctxt "OnlineTranslator|"
+msgid "Kannada"
+msgstr "Κανάντα"
+
+#: src/onlinetranslator/onlinetranslator.cpp:701
+msgctxt "OnlineTranslator|"
+msgid "Kazakh"
+msgstr "Καζακικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:703
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Serbian (Latin)"
+msgctxt "OnlineTranslator|"
+msgid "Kazakh (Latin)"
+msgstr "Σερβικά (Λατινικά)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:705
+msgctxt "OnlineTranslator|"
+msgid "Khmer"
+msgstr "Χμερ"
+
+#: src/onlinetranslator/onlinetranslator.cpp:707
+msgctxt "OnlineTranslator|"
+msgid "Kinyarwanda"
+msgstr "Κινιαρουάντα"
+
+#: src/onlinetranslator/onlinetranslator.cpp:709
+msgctxt "OnlineTranslator|"
+msgid "Kirundi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:711
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Klingon (PlqaD)"
+msgctxt "OnlineTranslator|"
+msgid "Klingon (Latin)"
+msgstr "Klingon (PlqaD)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:713
+msgctxt "OnlineTranslator|"
+msgid "Konkani"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:715
+msgctxt "OnlineTranslator|"
+msgid "Korean"
+msgstr "Κορεάτικα"
+
+#: src/onlinetranslator/onlinetranslator.cpp:717
+msgctxt "OnlineTranslator|"
+msgid "Krio"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:719
+msgctxt "OnlineTranslator|"
+msgid "Kurdish (Central)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:721
+msgctxt "OnlineTranslator|"
+msgid "Kurdish (Northern)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:723
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Kurdish"
+msgctxt "OnlineTranslator|"
+msgid "Kurdish (Sorani)"
+msgstr "Κουρδικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:725
+msgctxt "OnlineTranslator|"
+msgid "Kyrgyz"
+msgstr "Kyrgyz"
+
+#: src/onlinetranslator/onlinetranslator.cpp:727
+msgctxt "OnlineTranslator|"
+msgid "Lao"
+msgstr "Λαοτινά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:729
+msgctxt "OnlineTranslator|"
+msgid "Latin"
+msgstr "Λατινικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:731
+msgctxt "OnlineTranslator|"
+msgid "Latvian"
+msgstr "Λετονικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:733
+msgctxt "OnlineTranslator|"
+msgid "Lingala"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:735
+msgctxt "OnlineTranslator|"
+msgid "Lithuanian"
+msgstr "Λιθουανικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:737
+msgctxt "OnlineTranslator|"
+msgid "Lower Sorbian"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:739
+msgctxt "OnlineTranslator|"
+msgid "Luganda"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:741
+msgctxt "OnlineTranslator|"
+msgid "Luxembourgish"
+msgstr "Λουξεμβουργιανά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:743
+msgctxt "OnlineTranslator|"
+msgid "Macedonian"
+msgstr "Σλαβομακεδονικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:745
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Swahili"
+msgctxt "OnlineTranslator|"
+msgid "Maithili"
+msgstr "Σουαχίλι"
+
+#: src/onlinetranslator/onlinetranslator.cpp:747
+msgctxt "OnlineTranslator|"
+msgid "Malagasy"
+msgstr "Μαλγασικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:749
+msgctxt "OnlineTranslator|"
+msgid "Malay"
+msgstr "Μαλαισιανά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:751
+msgctxt "OnlineTranslator|"
+msgid "Malayalam"
+msgstr "Μαλαγιάλαμ"
+
+#: src/onlinetranslator/onlinetranslator.cpp:753
+msgctxt "OnlineTranslator|"
+msgid "Maltese"
+msgstr "Μαλτέζικα"
+
+#: src/onlinetranslator/onlinetranslator.cpp:755
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Scots Gaelic"
+msgctxt "OnlineTranslator|"
+msgid "Manx Gaelic"
+msgstr "Σκωτική Γαελική"
+
+#: src/onlinetranslator/onlinetranslator.cpp:757
+msgctxt "OnlineTranslator|"
+msgid "Marathi"
+msgstr "Μαράθι"
+
+#: src/onlinetranslator/onlinetranslator.cpp:759
+msgctxt "OnlineTranslator|"
+msgid "Mari"
+msgstr "Μαρί"
+
+#: src/onlinetranslator/onlinetranslator.cpp:761
+msgctxt "OnlineTranslator|"
+msgid "Marshallese"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:763
+msgctxt "OnlineTranslator|"
+msgid "Meiteilon (Manipuri)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:765
+msgctxt "OnlineTranslator|"
+msgid "Mende"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:767
+msgctxt "OnlineTranslator|"
+msgid "Mizo"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:769
+msgctxt "OnlineTranslator|"
+msgid "Mongolian"
+msgstr "Μογγολικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:771
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Serbian (Cyrillic)"
+msgctxt "OnlineTranslator|"
+msgid "Mongolian (Cyrillic)"
+msgstr "Σερβικά (Κυριλλικά)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:773
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Chinese (Traditional)"
+msgctxt "OnlineTranslator|"
+msgid "Mongolian (Traditional)"
+msgstr "Κινέζικα (Παραδοσιακά)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:775
+msgctxt "OnlineTranslator|"
+msgid "Morisyen"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:777
+msgctxt "OnlineTranslator|"
+msgid "Myanmar (Burmese)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:779
+msgctxt "OnlineTranslator|"
+msgid "Māori"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:781
+msgctxt "OnlineTranslator|"
+msgid "Nepali"
+msgstr "Νεπάλι"
+
+#: src/onlinetranslator/onlinetranslator.cpp:783
+msgctxt "OnlineTranslator|"
+msgid "Niuean"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:785
+msgctxt "OnlineTranslator|"
+msgid "Norwegian"
+msgstr "Νορβηγικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:787
+msgctxt "OnlineTranslator|"
+msgid "Nyanja"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:789
+msgctxt "OnlineTranslator|"
+msgid "Odia"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:791
+msgctxt "OnlineTranslator|"
+msgid "Oromo"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:793
+msgctxt "OnlineTranslator|"
+msgid "Palauan"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:795
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Papiamento"
+msgctxt "OnlineTranslator|"
+msgid "Papiamentu"
 msgstr "Papiamento"
 
-#: src/onlinetranslator/onlinetranslator.cpp:630
+#: src/onlinetranslator/onlinetranslator.cpp:797
 msgctxt "OnlineTranslator|"
 msgid "Pashto"
 msgstr "Παστού"
 
-#: src/onlinetranslator/onlinetranslator.cpp:632
+#: src/onlinetranslator/onlinetranslator.cpp:799
 msgctxt "OnlineTranslator|"
 msgid "Persian"
 msgstr "Περσικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:634
+#: src/onlinetranslator/onlinetranslator.cpp:801
+msgctxt "OnlineTranslator|"
+msgid "Pijin"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:803
 msgctxt "OnlineTranslator|"
 msgid "Polish"
 msgstr "Πολωνικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:636
+#: src/onlinetranslator/onlinetranslator.cpp:805
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Portuguese"
 msgctxt "OnlineTranslator|"
-msgid "Portuguese"
+msgid "Portuguese (Brazilian)"
 msgstr "Πορτογαλικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:638
+#: src/onlinetranslator/onlinetranslator.cpp:807
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Portuguese"
+msgctxt "OnlineTranslator|"
+msgid "Portuguese (Portugal)"
+msgstr "Πορτογαλικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:809
+msgctxt "OnlineTranslator|"
+msgid "Potawatomi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:811
 msgctxt "OnlineTranslator|"
 msgid "Punjabi"
 msgstr "Punjabi"
 
-#: src/onlinetranslator/onlinetranslator.cpp:640
+#: src/onlinetranslator/onlinetranslator.cpp:813
 msgctxt "OnlineTranslator|"
-msgid "Queretaro Otomi"
+msgid "Quechua"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:815
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Queretaro Otomi"
+msgctxt "OnlineTranslator|"
+msgid "Querétaro Otomi"
 msgstr "Queretaro Otomi"
 
-#: src/onlinetranslator/onlinetranslator.cpp:642
+#: src/onlinetranslator/onlinetranslator.cpp:817
 msgctxt "OnlineTranslator|"
 msgid "Romanian"
 msgstr "Ρουμανικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:644
+#: src/onlinetranslator/onlinetranslator.cpp:819
+msgctxt "OnlineTranslator|"
+msgid "Rundi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:821
 msgctxt "OnlineTranslator|"
 msgid "Russian"
 msgstr "Ρωσικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:646
+#: src/onlinetranslator/onlinetranslator.cpp:823
 msgctxt "OnlineTranslator|"
 msgid "Samoan"
 msgstr "Σαμοανικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:648
+#: src/onlinetranslator/onlinetranslator.cpp:825
+msgctxt "OnlineTranslator|"
+msgid "Sango"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:827
+msgctxt "OnlineTranslator|"
+msgid "Sanskrit"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:829
 msgctxt "OnlineTranslator|"
 msgid "Scots Gaelic"
 msgstr "Σκωτική Γαελική"
 
-#: src/onlinetranslator/onlinetranslator.cpp:650
+#: src/onlinetranslator/onlinetranslator.cpp:831
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Cyrillic)"
 msgstr "Σερβικά (Κυριλλικά)"
 
-#: src/onlinetranslator/onlinetranslator.cpp:652
+#: src/onlinetranslator/onlinetranslator.cpp:833
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Latin)"
 msgstr "Σερβικά (Λατινικά)"
 
-#: src/onlinetranslator/onlinetranslator.cpp:654
+#: src/onlinetranslator/onlinetranslator.cpp:835
 msgctxt "OnlineTranslator|"
 msgid "Sesotho"
 msgstr "Sesotho"
 
-#: src/onlinetranslator/onlinetranslator.cpp:656
+#: src/onlinetranslator/onlinetranslator.cpp:837
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Sesotho"
+msgctxt "OnlineTranslator|"
+msgid "Sesotho sa Leboa"
+msgstr "Sesotho"
+
+#: src/onlinetranslator/onlinetranslator.cpp:839
+msgctxt "OnlineTranslator|"
+msgid "Setswana"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:841
 msgctxt "OnlineTranslator|"
 msgid "Shona"
 msgstr "Σόνα"
 
-#: src/onlinetranslator/onlinetranslator.cpp:658
+#: src/onlinetranslator/onlinetranslator.cpp:843
 msgctxt "OnlineTranslator|"
 msgid "Sindhi"
 msgstr "Σίντι"
 
-#: src/onlinetranslator/onlinetranslator.cpp:660
+#: src/onlinetranslator/onlinetranslator.cpp:845
 msgctxt "OnlineTranslator|"
 msgid "Sinhala"
 msgstr "Σινχάλα"
 
-#: src/onlinetranslator/onlinetranslator.cpp:662
+#: src/onlinetranslator/onlinetranslator.cpp:847
 msgctxt "OnlineTranslator|"
 msgid "Slovak"
 msgstr "Σλοβακικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:664
+#: src/onlinetranslator/onlinetranslator.cpp:849
 msgctxt "OnlineTranslator|"
 msgid "Slovenian"
 msgstr "Σλοβένικα"
 
-#: src/onlinetranslator/onlinetranslator.cpp:666
+#: src/onlinetranslator/onlinetranslator.cpp:851
 msgctxt "OnlineTranslator|"
 msgid "Somali"
 msgstr "Σομαλικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:668
+#: src/onlinetranslator/onlinetranslator.cpp:853
 msgctxt "OnlineTranslator|"
 msgid "Spanish"
 msgstr "Ισπανικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:670
+#: src/onlinetranslator/onlinetranslator.cpp:855
+msgctxt "OnlineTranslator|"
+msgid "Sranan Tongo"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:857
 msgctxt "OnlineTranslator|"
 msgid "Sundanese"
 msgstr "Σουνδανέζικα"
 
-#: src/onlinetranslator/onlinetranslator.cpp:672
+#: src/onlinetranslator/onlinetranslator.cpp:859
 msgctxt "OnlineTranslator|"
 msgid "Swahili"
 msgstr "Σουαχίλι"
 
-#: src/onlinetranslator/onlinetranslator.cpp:674
+#: src/onlinetranslator/onlinetranslator.cpp:861
 msgctxt "OnlineTranslator|"
 msgid "Swedish"
 msgstr "Σουηδικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:676
+#: src/onlinetranslator/onlinetranslator.cpp:863
 msgctxt "OnlineTranslator|"
-msgid "Tagalog"
-msgstr "Ταγκαλόγκ"
+msgid "Syriac (Aramaic)"
+msgstr ""
 
-#: src/onlinetranslator/onlinetranslator.cpp:678
+#: src/onlinetranslator/onlinetranslator.cpp:865
 msgctxt "OnlineTranslator|"
 msgid "Tahitian"
 msgstr "Ταϊτιανά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:680
+#: src/onlinetranslator/onlinetranslator.cpp:867
 msgctxt "OnlineTranslator|"
 msgid "Tajik"
 msgstr "Τατζίκ"
 
-#: src/onlinetranslator/onlinetranslator.cpp:682
+#: src/onlinetranslator/onlinetranslator.cpp:869
+msgctxt "OnlineTranslator|"
+msgid "Tamashek (Tuareg)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:871
 msgctxt "OnlineTranslator|"
 msgid "Tamil"
 msgstr "Ταμίλ"
 
-#: src/onlinetranslator/onlinetranslator.cpp:684
+#: src/onlinetranslator/onlinetranslator.cpp:873
 msgctxt "OnlineTranslator|"
 msgid "Tatar"
 msgstr "Ταταρικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:686
+#: src/onlinetranslator/onlinetranslator.cpp:875
 msgctxt "OnlineTranslator|"
 msgid "Telugu"
 msgstr "Τελούγκου"
 
-#: src/onlinetranslator/onlinetranslator.cpp:688
+#: src/onlinetranslator/onlinetranslator.cpp:877
+msgctxt "OnlineTranslator|"
+msgid "Tetum"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:879
 msgctxt "OnlineTranslator|"
 msgid "Thai"
 msgstr "Ταϊλανδικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:690
+#: src/onlinetranslator/onlinetranslator.cpp:881
+msgctxt "OnlineTranslator|"
+msgid "Tibetan"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:883
+msgctxt "OnlineTranslator|"
+msgid "Tigrinya"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:885
+msgctxt "OnlineTranslator|"
+msgid "Tok Pisin"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:887
+msgctxt "OnlineTranslator|"
+msgid "Tokelauan"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:889
 msgctxt "OnlineTranslator|"
 msgid "Tongan"
 msgstr "Tongan"
 
-#: src/onlinetranslator/onlinetranslator.cpp:692
+#: src/onlinetranslator/onlinetranslator.cpp:891
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Tongan"
+msgctxt "OnlineTranslator|"
+msgid "Tsonga"
+msgstr "Tongan"
+
+#: src/onlinetranslator/onlinetranslator.cpp:893
 msgctxt "OnlineTranslator|"
 msgid "Turkish"
 msgstr "Τουρκικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:694
+#: src/onlinetranslator/onlinetranslator.cpp:895
 msgctxt "OnlineTranslator|"
 msgid "Turkmen"
 msgstr "Τουρκμενικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:696
+#: src/onlinetranslator/onlinetranslator.cpp:897
+msgctxt "OnlineTranslator|"
+msgid "Tuvaluan"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:899
+msgctxt "OnlineTranslator|"
+msgid "Twi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:901
 msgctxt "OnlineTranslator|"
 msgid "Udmurt"
 msgstr "Udmurt"
 
-#: src/onlinetranslator/onlinetranslator.cpp:698
-msgctxt "OnlineTranslator|"
-msgid "Uighur"
-msgstr "Ουϊγκούρ"
-
-#: src/onlinetranslator/onlinetranslator.cpp:700
+#: src/onlinetranslator/onlinetranslator.cpp:903
 msgctxt "OnlineTranslator|"
 msgid "Ukrainian"
 msgstr "Ουκρανικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:702
+#: src/onlinetranslator/onlinetranslator.cpp:905
+msgctxt "OnlineTranslator|"
+msgid "Uma"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:907
+msgctxt "OnlineTranslator|"
+msgid "Upper Sorbian"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:909
 msgctxt "OnlineTranslator|"
 msgid "Urdu"
 msgstr "Ούρντου"
 
-#: src/onlinetranslator/onlinetranslator.cpp:704
+#: src/onlinetranslator/onlinetranslator.cpp:911
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Uighur"
 msgctxt "OnlineTranslator|"
-msgid "Uzbek"
-msgstr "Ουζμπεκικά"
+msgid "Uyghur"
+msgstr "Ουϊγκούρ"
 
-#: src/onlinetranslator/onlinetranslator.cpp:706
+#: src/onlinetranslator/onlinetranslator.cpp:913
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Serbian (Cyrillic)"
+msgctxt "OnlineTranslator|"
+msgid "Uzbek (Cyrillic)"
+msgstr "Σερβικά (Κυριλλικά)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:915
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Serbian (Latin)"
+msgctxt "OnlineTranslator|"
+msgid "Uzbek (Latin)"
+msgstr "Σερβικά (Λατινικά)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:917
 msgctxt "OnlineTranslator|"
 msgid "Vietnamese"
 msgstr "Βιετναμέζικα"
 
-#: src/onlinetranslator/onlinetranslator.cpp:708
+#: src/onlinetranslator/onlinetranslator.cpp:919
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Frisian"
+msgctxt "OnlineTranslator|"
+msgid "Wallisian"
+msgstr "Φριζικά"
+
+#: src/onlinetranslator/onlinetranslator.cpp:921
 msgctxt "OnlineTranslator|"
 msgid "Welsh"
 msgstr "Ουαλικά"
 
-#: src/onlinetranslator/onlinetranslator.cpp:710
+#: src/onlinetranslator/onlinetranslator.cpp:923
+msgctxt "OnlineTranslator|"
+msgid "Wolof"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:925
 msgctxt "OnlineTranslator|"
 msgid "Xhosa"
 msgstr "Κόσα"
 
-#: src/onlinetranslator/onlinetranslator.cpp:712
+#: src/onlinetranslator/onlinetranslator.cpp:927
+msgctxt "OnlineTranslator|"
+msgid "Yakut"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:929
 msgctxt "OnlineTranslator|"
 msgid "Yiddish"
 msgstr "Γίντις"
 
-#: src/onlinetranslator/onlinetranslator.cpp:714
+#: src/onlinetranslator/onlinetranslator.cpp:931
 msgctxt "OnlineTranslator|"
 msgid "Yoruba"
 msgstr "Γιορούμπα"
 
-#: src/onlinetranslator/onlinetranslator.cpp:716
+#: src/onlinetranslator/onlinetranslator.cpp:933
 msgctxt "OnlineTranslator|"
 msgid "Yucatec Maya"
 msgstr "Yucatec Maya"
 
-#: src/onlinetranslator/onlinetranslator.cpp:718
+#: src/onlinetranslator/onlinetranslator.cpp:935
 msgctxt "OnlineTranslator|"
 msgid "Zulu"
 msgstr "Ζουλού"
 
-#: src/onlinetranslator/onlinetranslator.cpp:1211
-#: src/onlinetranslator/onlinetranslator.cpp:1220
+#: src/onlinetranslator/onlinetranslator.cpp:1263
+#, qt-format
 msgctxt "OnlineTranslator|"
-msgid ""
-"Error: Engine systems have detected suspicious traffic from your computer "
-"network. Please try your request again later."
+msgid "Instance error: %1"
 msgstr ""
-"Σφάλμα: Τα συστήματα της μηχανής εντόπισαν ύποπτη κυκλοφορία από το δίκτυο "
-"του υπολογιστή σας. Παρακαλώ επαναλάβετε το αίτημά σας αργότερα."
 
-#: src/onlinetranslator/onlinetranslator.cpp:1232
-#: src/onlinetranslator/onlinetranslator.cpp:1343
-#: src/onlinetranslator/onlinetranslator.cpp:1553
-#: src/onlinetranslator/onlinetranslator.cpp:1647
+#: src/onlinetranslator/onlinetranslator.cpp:1277
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
 msgstr "Σφάλμα: Αδύνατη η ανάλυση αυτομάτως εντοπισμένης γλώσσας"
-
-#: src/onlinetranslator/onlinetranslator.cpp:1459
-msgctxt "OnlineTranslator|"
-msgid "Error: Unable to find Bing credentials in web version."
-msgstr "Σφάλμα: Αδύνατη η εύρεση διαπιστευτηρίων Bing στην έκδοση ιστού."
-
-#: src/onlinetranslator/onlinetranslator.cpp:1466
-msgctxt "OnlineTranslator|"
-msgid "Error: Unable to extract Bing key from web version."
-msgstr "Σφάλμα: Αδύνατη η εξαγωγή του κλειδιού Bing από την έκδοση ιστού."
-
-#: src/onlinetranslator/onlinetranslator.cpp:1474
-msgctxt "OnlineTranslator|"
-msgid "Error: Unable to extract Bing token from web version."
-msgstr "Σφάλμα: Αδύνατη η εξαγωγή του αδειοδοτικού Bing από την έκδοση ιστού."
-
-#: src/onlinetranslator/onlinetranslator.cpp:1486
-#: src/onlinetranslator/onlinetranslator.cpp:1495
-msgctxt "OnlineTranslator|"
-msgid "Error: Unable to extract additional Bing information from web version."
-msgstr ""
-"Σφάλμα: Αδύνατη η εξαγωγή επιπρόσθετων πληροφοριών Bing από την διαδικτυακή "
-"έκδοση."
-
-#: src/onlinetranslator/onlinetranslator.cpp:1545
-msgctxt "OnlineTranslator|"
-msgid "Error: Bing return unhandled network error"
-msgstr ""
-
-#: src/onlinetranslator/onlinetts.cpp:64
-#, qt-format
-msgctxt "OnlineTts|"
-msgid "Selected engine %1 does not support voice settings"
-msgstr "Η επιλεγμένη μηχανή %1 δεν υποστηρίζει ρυθμίσεις φωνής"
-
-#: src/onlinetranslator/onlinetts.cpp:69
-#, qt-format
-msgctxt "OnlineTts|"
-msgid "Selected engine %1 does not support emotion settings"
-msgstr "Η επιλεγμένη μηχανή %1 δεν υποστηρίζει ρυθμίσεις συναισθηματισμού"
-
-#: src/onlinetranslator/onlinetts.cpp:130
-#, qt-format
-msgctxt "OnlineTts|"
-msgid "%1 engine does not support TTS"
-msgstr "Η μηχανή %1 δεν υποστηρίζει TTS"
-
-#: src/onlinetranslator/onlinetts.cpp:216
-#, qt-format
-msgctxt "OnlineTts|"
-msgid "Selected language %1 is not supported for %2"
-msgstr "Η επιλεγμένη γλώσσα %1 δεν υποστηρίζεται από το %2"
-
-#: src/onlinetranslator/onlinetts.cpp:228
-#, qt-format
-msgctxt "OnlineTts|"
-msgid "Selected voice %1 is not supported for %2"
-msgstr "Η επιλεγμένη φωνή %1 δεν υποστηρίζεται για το %2"
-
-#: src/onlinetranslator/onlinetts.cpp:240
-#, fuzzy, qt-format
-#| msgctxt "OnlineTts|"
-#| msgid "Selected emotion %1 is not supported for %2"
-msgctxt "OnlineTts|"
-msgid "Selected emotion %1 is not supported by %2"
-msgstr "Ο επιλεγμένος συναισθηματισμός %1 δεν υποστηρίζεται για το %2"
 
 #: src/popupwindow.ui:32
 msgctxt "PopupWindow|"
@@ -1241,17 +1678,17 @@ msgctxt "PopupWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "Αντιγραφή του κειμένου πηγής στο πρόχειρο"
 
-#: src/popupwindow.ui:140
+#: src/popupwindow.ui:158
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "Αντιγραφή όλων των δεδομένων της μετάφρασης στο πρόχειρο"
 
-#: src/popupwindow.ui:151
+#: src/popupwindow.ui:169
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Αντιγραφή της μετάφρασης στο πρόχειρο"
 
-#: src/settings/appsettings.cpp:1234
+#: src/settings/appsettings.cpp:1064
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1293,12 +1730,12 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "Αδύνατη η αφαίρεση του %1 από το %2"
 
-#: src/settings/settingsdialog.cpp:34
+#: src/settings/settingsdialog.cpp:31
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Φορητή λειτουργία"
 
-#: src/settings/settingsdialog.cpp:47
+#: src/settings/settingsdialog.cpp:44
 #, fuzzy, qt-format
 #| msgctxt "SettingsDialog|"
 #| msgid "Use system settings"
@@ -1306,138 +1743,100 @@ msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Χρήση των ρυθμίσεων του συστήματος"
 
-#: src/settings/settingsdialog.cpp:59 src/settings/settingsdialog.cpp:90
-#: src/settings/settingsdialog.cpp:91
+#: src/settings/settingsdialog.cpp:49 src/settings/settingsdialog.cpp:80
+#: src/settings/settingsdialog.cpp:81
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Γλώσσα συστήματος>"
 
-#: src/settings/settingsdialog.cpp:126
+#: src/settings/settingsdialog.cpp:115
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Εικονίδια:"
 
-#: src/settings/settingsdialog.cpp:139
-msgctxt "SettingsDialog|"
-msgid "Happy New Year!"
-msgstr "Καλή χρονιά!"
-
-#: src/settings/settingsdialog.cpp:153
+#: src/settings/settingsdialog.cpp:137
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr ""
 "Τα πεδία των παραμέτρων της οπτικής αναγνώρισης χαρακτήρων (OCR) δεν μπορεί "
 "να είναι κενά."
 
-#: src/settings/settingsdialog.cpp:154
+#: src/settings/settingsdialog.cpp:138
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Επιθυμείτε την απόρριψη των μη έγκυρων παραμέτρων;"
 
-#: src/settings/settingsdialog.cpp:301
+#: src/settings/settingsdialog.cpp:278
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Επιλογή εικονιδίου"
 
-#: src/settings/settingsdialog.cpp:301
+#: src/settings/settingsdialog.cpp:278
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Εικόνες (*.png *.ico *.svg *.jpg);;'Ολα τα αρχεία()"
 
-#: src/settings/settingsdialog.cpp:314
+#: src/settings/settingsdialog.cpp:291
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Επιλογή της διαδρομής γλωσσών οπτικής αναγνώρισης χαρακτήρων (OCR)"
 
-#: src/settings/settingsdialog.cpp:363 src/settings/settingsdialog.ui:1303
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Default"
-msgctxt "SettingsDialog|"
-msgid "Default region"
-msgstr "Εξ ορισμού"
-
-#: src/settings/settingsdialog.cpp:366
-msgctxt "SettingsDialog|"
-msgid "Mandarin (China)"
-msgstr ""
-
-#: src/settings/settingsdialog.cpp:525
+#: src/settings/settingsdialog.cpp:432
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Πίσω"
-
-#: src/settings/settingsdialog.cpp:628
-msgctxt "SettingsDialog|"
-msgid "Nothing to play"
-msgstr "Τίποτα προς αναπαραγωγή"
-
-#: src/settings/settingsdialog.cpp:628
-msgctxt "SettingsDialog|"
-msgid "Playback text is empty"
-msgstr "Το κείμενο προς αναπαραγωγή είναι κενό"
-
-#: src/settings/settingsdialog.cpp:638
-msgctxt "SettingsDialog|"
-msgid "Unable to detect language"
-msgstr "Αδύνατος ο εντοπισμός της γλώσσας"
 
 #: src/settings/settingsdialog.ui:14
 msgctxt "SettingsDialog|"
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
-#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:136
+#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:135
 msgctxt "SettingsDialog|"
 msgid "General"
 msgstr "Γενικά"
 
-#: src/settings/settingsdialog.ui:57
+#: src/settings/settingsdialog.ui:58
 msgctxt "SettingsDialog|"
 msgid "Interface"
 msgstr "Περιβάλλον"
 
-#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:639
+#: src/settings/settingsdialog.ui:67 src/settings/settingsdialog.ui:642
 msgctxt "SettingsDialog|"
 msgid "Translation"
 msgstr "Μετάφραση"
 
-#: src/settings/settingsdialog.ui:81
-msgctxt "SettingsDialog|"
-msgid "Speech synthesis"
-msgstr "Σύνθεση ομιλίας"
-
-#: src/settings/settingsdialog.ui:89
+#: src/settings/settingsdialog.ui:85
 msgctxt "SettingsDialog|"
 msgid "Connection"
 msgstr "Σύνδεση"
 
-#: src/settings/settingsdialog.ui:97
+#: src/settings/settingsdialog.ui:94
 msgctxt "SettingsDialog|"
 msgid "Shortcuts"
 msgstr "Συντομεύσεις"
 
-#: src/settings/settingsdialog.ui:105
+#: src/settings/settingsdialog.ui:103
 msgctxt "SettingsDialog|"
 msgid "About"
 msgstr "Σχετικά"
 
-#: src/settings/settingsdialog.ui:148
+#: src/settings/settingsdialog.ui:147
 msgctxt "SettingsDialog|"
 msgid "Language:"
 msgstr "Γλώσσα:"
 
-#: src/settings/settingsdialog.ui:155
+#: src/settings/settingsdialog.ui:154
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Interface language</p></body></html>"
 msgstr "<html><head/><body><p>Γλώσσα περιβάλλοντος χρήσης</p></body></html>"
 
-#: src/settings/settingsdialog.ui:162
+#: src/settings/settingsdialog.ui:161
 msgctxt "SettingsDialog|"
 msgid "Main window orientation:"
 msgstr "Προσανατολισμός κυρίως παραθύρου:"
 
-#: src/settings/settingsdialog.ui:169
+#: src/settings/settingsdialog.ui:168
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Orientation of the main window layout<br/>When using "
@@ -1450,29 +1849,29 @@ msgstr ""
 "p></body></html>"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:173
+#: src/settings/settingsdialog.ui:172
 msgctxt "SettingsDialog|"
 msgid "Auto"
 msgstr "Αυτόματο"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:178
+#: src/settings/settingsdialog.ui:177
 msgctxt "SettingsDialog|"
 msgid "Portrait"
 msgstr "Πορτραίτο"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:183
+#: src/settings/settingsdialog.ui:182
 msgctxt "SettingsDialog|"
 msgid "Landscape"
 msgstr "Τοπίο"
 
-#: src/settings/settingsdialog.ui:191
+#: src/settings/settingsdialog.ui:190
 msgctxt "SettingsDialog|"
 msgid "Translation mode:"
 msgstr "Λειτουργία μετάφρασης:"
 
-#: src/settings/settingsdialog.ui:198
+#: src/settings/settingsdialog.ui:197
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>A window for translating selected text. If the "
@@ -1483,27 +1882,27 @@ msgstr ""
 "Αν η εφαρμογή είναι ελαχιστοποιημένη, θα χρησιμοποιείται πάντα το κυρίως "
 "παράθυρο.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:202 src/settings/settingsdialog.ui:351
+#: src/settings/settingsdialog.ui:201 src/settings/settingsdialog.ui:350
 msgctxt "SettingsDialog|"
 msgid "Pop-up window"
 msgstr "Αναδυόμενο παράθυρο"
 
-#: src/settings/settingsdialog.ui:207
+#: src/settings/settingsdialog.ui:206
 msgctxt "SettingsDialog|"
 msgid "Main window"
 msgstr "Κεντρικό παράθυρο"
 
-#: src/settings/settingsdialog.ui:212
+#: src/settings/settingsdialog.ui:211
 msgctxt "SettingsDialog|"
 msgid "Notification"
 msgstr "Ειδοποίηση"
 
-#: src/settings/settingsdialog.ui:220
+#: src/settings/settingsdialog.ui:219
 msgctxt "SettingsDialog|"
 msgid "Translation notification timeout:"
 msgstr "Λήξη χρονικού ορίου μετάφρασης:"
 
-#: src/settings/settingsdialog.ui:233
+#: src/settings/settingsdialog.ui:232
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Notification with translation display time</p></body></"
@@ -1512,24 +1911,24 @@ msgstr ""
 "<html><head/><body><p>Ειδοποίηση με χρόνο προβολής της μετάφρασης</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:236 src/settings/settingsdialog.ui:441
+#: src/settings/settingsdialog.ui:235 src/settings/settingsdialog.ui:440
 msgctxt "SettingsDialog|"
 msgid " sec"
 msgstr " δευτ"
 
-#: src/settings/settingsdialog.ui:249
+#: src/settings/settingsdialog.ui:248
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Display icon in the system tray</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Προβολή εικονιδίου στο πλαίσιο συστήματος</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:252
+#: src/settings/settingsdialog.ui:251
 msgctxt "SettingsDialog|"
 msgid "Show tray icon"
 msgstr "Εμφάνιση του εικονιδίου συστήματος"
 
-#: src/settings/settingsdialog.ui:262
+#: src/settings/settingsdialog.ui:261
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Start application minimized to the system tray</p></"
@@ -1538,12 +1937,12 @@ msgstr ""
 "<html><head/><body><p>Εκκλίνηση της εφαρμογής ελαχιστοποιημένης στο πλαίσιο "
 "συστήματος</p></body></html>"
 
-#: src/settings/settingsdialog.ui:265
+#: src/settings/settingsdialog.ui:264
 msgctxt "SettingsDialog|"
 msgid "Start minimized"
 msgstr "Εκκίνηση ελαχιστοποιημένο"
 
-#: src/settings/settingsdialog.ui:272
+#: src/settings/settingsdialog.ui:271
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Run the application at system startup</p></body></html>"
@@ -1551,22 +1950,22 @@ msgstr ""
 "<html><head/><body><p>Εκτέλεση της εφαρμογής κατά την εκκίνηση του "
 "συστήματος</p></body></html>"
 
-#: src/settings/settingsdialog.ui:275
+#: src/settings/settingsdialog.ui:274
 msgctxt "SettingsDialog|"
 msgid "Launch at startup"
 msgstr "Εκτέλεση κατά την έναρξη"
 
-#: src/settings/settingsdialog.ui:308
+#: src/settings/settingsdialog.ui:307
 msgctxt "SettingsDialog|"
 msgid "Font"
 msgstr "Γραμματοσειρά"
 
-#: src/settings/settingsdialog.ui:314
+#: src/settings/settingsdialog.ui:313
 msgctxt "SettingsDialog|"
 msgid "Name:"
 msgstr "Όνομα:"
 
-#: src/settings/settingsdialog.ui:321
+#: src/settings/settingsdialog.ui:320
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Translation and source text font</p></body></html>"
@@ -1574,12 +1973,12 @@ msgstr ""
 "<html><head/><body><p>Γραμματοσειρά μετάφρασης και πηγαίου κειμένου</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:328
+#: src/settings/settingsdialog.ui:327
 msgctxt "SettingsDialog|"
 msgid "Size:"
 msgstr "Μέγεθος:"
 
-#: src/settings/settingsdialog.ui:335
+#: src/settings/settingsdialog.ui:334
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Font size of translation and source text</p></body></"
@@ -1588,47 +1987,47 @@ msgstr ""
 "<html><head/><body><p>Μέγεθος γραμματοσειράς μεταφρασμένου και πηγαίου "
 "κειμένου</p></body></html>"
 
-#: src/settings/settingsdialog.ui:357
+#: src/settings/settingsdialog.ui:356
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window height in pixels</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Ύψος αναδυόμενου παραθύρου σε εικονοστοιχεία</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:367
+#: src/settings/settingsdialog.ui:366
 msgctxt "SettingsDialog|"
 msgid "Width:"
 msgstr "Πλάτος:"
 
-#: src/settings/settingsdialog.ui:374
+#: src/settings/settingsdialog.ui:373
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Πλάτος του αναδυόμενου παραθύρου σε εικονοστοιχεία</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:384
+#: src/settings/settingsdialog.ui:383
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window opacity</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Αδιαφάνεια αναδυόμενου παραθύρου</p></body></html>"
 
-#: src/settings/settingsdialog.ui:411
+#: src/settings/settingsdialog.ui:410
 msgctxt "SettingsDialog|"
 msgid "Opacity:"
 msgstr "Αδιαφάνεια:"
 
-#: src/settings/settingsdialog.ui:418
+#: src/settings/settingsdialog.ui:417
 msgctxt "SettingsDialog|"
 msgid "Show timeout:"
 msgstr "Εμφάνιση χρονικού ορίου:"
 
-#: src/settings/settingsdialog.ui:425
+#: src/settings/settingsdialog.ui:424
 msgctxt "SettingsDialog|"
 msgid "Height:"
 msgstr "Ύψος:"
 
-#: src/settings/settingsdialog.ui:438
+#: src/settings/settingsdialog.ui:437
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The number of seconds after which the window will be "
@@ -1637,53 +2036,53 @@ msgstr ""
 "<html><head/><body><p>Αριθμός δευτερολέπτων μετά του οποίου αν το παράθυρο "
 "χάσει την εστίαση θα καταχωνιαστεί</p></body></html>"
 
-#: src/settings/settingsdialog.ui:461
+#: src/settings/settingsdialog.ui:460
 msgctxt "SettingsDialog|"
 msgid "Language format"
 msgstr "Μορφή γλώσσας"
 
-#: src/settings/settingsdialog.ui:467
+#: src/settings/settingsdialog.ui:466
 msgctxt "SettingsDialog|"
 msgid "Main window:"
 msgstr "Κεντρικό παράθυρο:"
 
-#: src/settings/settingsdialog.ui:474 src/settings/settingsdialog.ui:498
+#: src/settings/settingsdialog.ui:473 src/settings/settingsdialog.ui:497
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Languages text on buttons</p></body></html>"
 msgstr "<html><head/><body><p>Κείμενο γλωσσών στα κουμπιά</p></body></html>"
 
-#: src/settings/settingsdialog.ui:478 src/settings/settingsdialog.ui:502
+#: src/settings/settingsdialog.ui:477 src/settings/settingsdialog.ui:501
 msgctxt "SettingsDialog|"
 msgid "Full name"
 msgstr "Πλήρες όνομα"
 
-#: src/settings/settingsdialog.ui:483 src/settings/settingsdialog.ui:507
+#: src/settings/settingsdialog.ui:482 src/settings/settingsdialog.ui:506
 msgctxt "SettingsDialog|"
 msgid "ISO 639-1 code"
 msgstr "Κωδικός ISO 639-1"
 
-#: src/settings/settingsdialog.ui:491
+#: src/settings/settingsdialog.ui:490
 msgctxt "SettingsDialog|"
 msgid "Pop-up:"
 msgstr "Αναδυόμενο:"
 
-#: src/settings/settingsdialog.ui:518
+#: src/settings/settingsdialog.ui:517
 msgctxt "SettingsDialog|"
 msgid "Tray icon"
 msgstr "Εικονίδιο πλαισίου συστήματος"
 
-#: src/settings/settingsdialog.ui:524
+#: src/settings/settingsdialog.ui:523
 msgctxt "SettingsDialog|"
 msgid "Icon:"
 msgstr "Εικονίδιο:"
 
-#: src/settings/settingsdialog.ui:537
+#: src/settings/settingsdialog.ui:536
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>System tray icon</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Εικονίδιο του πλαισίου συστήματος</p></body></html>"
 
-#: src/settings/settingsdialog.ui:541
+#: src/settings/settingsdialog.ui:540
 msgctxt "SettingsDialog|"
 msgid "Default"
 msgstr "Εξ ορισμού"
@@ -1693,32 +2092,32 @@ msgctxt "SettingsDialog|"
 msgid "Monochrome (dark theme)"
 msgstr "Μονόχρωμο (σκούρο θέμα)"
 
-#: src/settings/settingsdialog.ui:557
+#: src/settings/settingsdialog.ui:558
 msgctxt "SettingsDialog|"
 msgid "Monochrome (light theme)"
 msgstr "Μονόχρωμο (ανοιχτό θέμα)"
 
-#: src/settings/settingsdialog.ui:565
+#: src/settings/settingsdialog.ui:567
 msgctxt "SettingsDialog|"
 msgid "Custom"
 msgstr "Προσαρμοσμένο"
 
-#: src/settings/settingsdialog.ui:579
+#: src/settings/settingsdialog.ui:582
 msgctxt "SettingsDialog|"
 msgid "Custom:"
 msgstr "Προσαρμοσμένο:"
 
-#: src/settings/settingsdialog.ui:591
+#: src/settings/settingsdialog.ui:594
 msgctxt "SettingsDialog|"
 msgid "Path to the icon or icon name from theme"
 msgstr "Διαδρομή εικονιδίου ή όνομα εικονιδίου από το θέμα"
 
-#: src/settings/settingsdialog.ui:601
+#: src/settings/settingsdialog.ui:604
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>Επιλογή εικονιδίου</p></body></html>"
 
-#: src/settings/settingsdialog.ui:645
+#: src/settings/settingsdialog.ui:648
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
@@ -1727,12 +2126,12 @@ msgstr ""
 "<html><head/><body><p>Ενεργοποίηση ή απενεργοποίηση της μεταγραφής της "
 "πηγής</p></body></html>"
 
-#: src/settings/settingsdialog.ui:648
+#: src/settings/settingsdialog.ui:651
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
 msgstr "Ενεργοποίηση της μεταγραφής της πηγής"
 
-#: src/settings/settingsdialog.ui:655
+#: src/settings/settingsdialog.ui:658
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
@@ -1741,12 +2140,12 @@ msgstr ""
 "<html><head/><body><p>Ενεργοποίηση ή απενεργοποίηση της μεταγραφής της "
 "μετάφρασης</p></body></html>"
 
-#: src/settings/settingsdialog.ui:658
+#: src/settings/settingsdialog.ui:661
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
 msgstr "Ενεργοποίηση της μεταγραφής της μετάφρασης"
 
-#: src/settings/settingsdialog.ui:665
+#: src/settings/settingsdialog.ui:668
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
@@ -1755,12 +2154,12 @@ msgstr ""
 "<html><head/><body><p>Ενεργοποίηση ή απενεργοποίηση της μεταγραφής της "
 "πηγής</p></body></html>"
 
-#: src/settings/settingsdialog.ui:668
+#: src/settings/settingsdialog.ui:671
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
 msgstr "Ενεργοποίηση της μεταγραφής της πηγής"
 
-#: src/settings/settingsdialog.ui:675
+#: src/settings/settingsdialog.ui:678
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
@@ -1768,12 +2167,12 @@ msgstr ""
 "<html><head/><body><p>Ενεργοποίηση ή απενεργοποίηση των επιλογών μετάφρασης</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:678
+#: src/settings/settingsdialog.ui:681
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
 msgstr "Ενεργοποίηση των επιλογών μετάφρασης"
 
-#: src/settings/settingsdialog.ui:685
+#: src/settings/settingsdialog.ui:688
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
@@ -1781,12 +2180,12 @@ msgstr ""
 "<html><head/><body><p>Ενεργοποίηση ή απενεργοποίησης των παραδειγμάτων "
 "χρήσης</p></body></html>"
 
-#: src/settings/settingsdialog.ui:688
+#: src/settings/settingsdialog.ui:691
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
 msgstr "Ενεργοποίηση παραδειγμάτων"
 
-#: src/settings/settingsdialog.ui:695
+#: src/settings/settingsdialog.ui:698
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace each sequence of whitespaces (this includes "
@@ -1797,22 +2196,22 @@ msgstr ""
 "(συμπεριλαμβανομένου των χαρακτήρων ASCII '\\t', '\\n', '\\v', '\\f', '\\r', "
 "και ' ') με ένα μόνο κενό στα ερωτήματα</p></body></html>"
 
-#: src/settings/settingsdialog.ui:698
+#: src/settings/settingsdialog.ui:701
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
 msgstr "Απλοποίηση πηγής"
 
-#: src/settings/settingsdialog.ui:708
+#: src/settings/settingsdialog.ui:711
 msgctxt "SettingsDialog|"
 msgid "Automatic language detection"
 msgstr "Αυτόματη ανίχνευση της γλώσσας"
 
-#: src/settings/settingsdialog.ui:714
+#: src/settings/settingsdialog.ui:717
 msgctxt "SettingsDialog|"
 msgid "Primary translation language:"
 msgstr "Πρωτεύουσα γλώσσα μετάφρασης:"
 
-#: src/settings/settingsdialog.ui:721
+#: src/settings/settingsdialog.ui:724
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which text will be translated when "
@@ -1821,12 +2220,12 @@ msgstr ""
 "<html><head/><body><p>Η γλώσσα μετάφρασης κειμένου κατά τον αυτόματο "
 "εντοπισμό</p></body></html>"
 
-#: src/settings/settingsdialog.ui:728
+#: src/settings/settingsdialog.ui:731
 msgctxt "SettingsDialog|"
 msgid "Secondary translation language:"
 msgstr "Δευτερεύουσα γλώσσα μετάφρασης:"
 
-#: src/settings/settingsdialog.ui:735
+#: src/settings/settingsdialog.ui:738
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which the text will be translated if it is "
@@ -1835,7 +2234,7 @@ msgstr ""
 "<html><head/><body><p>Η γλώσσα στην οποία θα γίνει η μετάφραση του κειμένου "
 "αν είναι στην επιλεγμένη γλώσσα ανωτέρω</p></body></html>"
 
-#: src/settings/settingsdialog.ui:742 src/settings/settingsdialog.ui:752
+#: src/settings/settingsdialog.ui:745 src/settings/settingsdialog.ui:755
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
@@ -1845,43 +2244,17 @@ msgstr ""
 "\">Αυτόματο</span> κατά την χρήση οπτικής αναγνώρισης χαρακτήρων (OCR) και "
 "καθολικών συντομεύσεων</p></body></html>"
 
-#: src/settings/settingsdialog.ui:745
+#: src/settings/settingsdialog.ui:748
 msgctxt "SettingsDialog|"
 msgid "Force source language detection"
 msgstr "Εξαναγκασμός ανίχνευσης της γλώσσας πηγής"
 
-#: src/settings/settingsdialog.ui:755
+#: src/settings/settingsdialog.ui:758
 msgctxt "SettingsDialog|"
 msgid "Force translation language detection"
 msgstr "Εξαναγκασμός ανίχνευσης της γλώσσας μετάφρασης"
 
-#: src/settings/settingsdialog.ui:778
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>LibreTranslate instance API key</p><p>Free instances "
-"listed here doesn't require a key, so field can be empty</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Κλειδί API LibreTranslate</p><p>Οι ελεύθερες "
-"υποστάσεις που εμφανίζονται εδώ δεν απαιτούν ένα κλειδί. Μπορείτε να αφήσετε "
-"το πεδίο κενό</p></body></html>"
-
-#: src/settings/settingsdialog.ui:791
-msgctxt "SettingsDialog|"
-msgid "API key:"
-msgstr "Κλειδί API:"
-
-#: src/settings/settingsdialog.ui:804
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>LibreTranslate engine URL</p><p>All instances can be "
-"found here: https://github.com/LibreTranslate/LibreTranslate#mirrors</p></"
-"body></html>"
-msgstr ""
-"<html><head/><body><p>URL της μηχανής LibreTranslate</p><p>Εδώ μπορείτε να "
-"βρείτε όλες τις υποστάσεις: https://github.com/LibreTranslate/"
-"LibreTranslate#mirrors</p></body></html>"
-
-#: src/settings/settingsdialog.ui:844
+#: src/settings/settingsdialog.ui:787
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Lingva engine URL</p><p>All instances can be found "
@@ -1892,12 +2265,12 @@ msgstr ""
 "όλες τις υποστάσεις: https://github.com/TheDavidDelta/lingva-"
 "translate#instances</p></body></html>"
 
-#: src/settings/settingsdialog.ui:898
+#: src/settings/settingsdialog.ui:826
 msgctxt "SettingsDialog|"
 msgid "Languages"
 msgstr "Γλώσσες"
 
-#: src/settings/settingsdialog.ui:904
+#: src/settings/settingsdialog.ui:832
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Loading additional languages will impact both speed "
@@ -1910,24 +2283,24 @@ msgstr ""
 "γλώσσας προς εφαρμογή, και υπάρχουν περισσότερες πιθανότητες ανακρίβειας και "
 "λανθασμένων λέξεων.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:911
+#: src/settings/settingsdialog.ui:839
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
 msgstr "Διαδρομή γλωσσών:"
 
-#: src/settings/settingsdialog.ui:918
+#: src/settings/settingsdialog.ui:846
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Επιλογή της διαδρομής γλωσσών οπτικής αναγνώρισης "
 "χαρακτήρων (OCR)</p></body></html>"
 
-#: src/settings/settingsdialog.ui:928
+#: src/settings/settingsdialog.ui:857
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
 msgstr "<html><head/><body><p>Άνοιγμα του αποθετηρίου GitHub</p></body></html>"
 
-#: src/settings/settingsdialog.ui:931
+#: src/settings/settingsdialog.ui:860
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
@@ -1938,12 +2311,12 @@ msgstr ""
 "\"><span style=\" text-decoration: underline; color:#2980b9;\">Λήψη "
 "περισσότερων</span></a></p></body></html>"
 
-#: src/settings/settingsdialog.ui:941
+#: src/settings/settingsdialog.ui:870
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
 msgstr "Κατάλογος με εκπαιδευμένα πρότυπα"
 
-#: src/settings/settingsdialog.ui:957
+#: src/settings/settingsdialog.ui:886
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
@@ -1952,22 +2325,22 @@ msgstr ""
 "<html><head/><body><p>Αντικατάσταση όλων των μονών διακοπών γραμμής με "
 "διάστημα μετά την αναγνώριση του κειμένου</p></body></html>"
 
-#: src/settings/settingsdialog.ui:960
+#: src/settings/settingsdialog.ui:889
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
 msgstr "Μετατροπή των διακοπών γραμμής"
 
-#: src/settings/settingsdialog.ui:1024
+#: src/settings/settingsdialog.ui:955
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
 msgstr "Σύλληψη οθόνης"
 
-#: src/settings/settingsdialog.ui:1036
+#: src/settings/settingsdialog.ui:967
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
 msgstr "Απομνημόνευση περιοχής:"
 
-#: src/settings/settingsdialog.ui:1043
+#: src/settings/settingsdialog.ui:974
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
@@ -1976,37 +2349,37 @@ msgstr ""
 "<html><head/><body><p>Πότε να απομνημονεύεται η τελευταία επιλεγμένη "
 "περιοχή</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1047
+#: src/settings/settingsdialog.ui:978
 msgctxt "SettingsDialog|"
 msgid "Never"
 msgstr "Ποτέ"
 
-#: src/settings/settingsdialog.ui:1052
+#: src/settings/settingsdialog.ui:983
 msgctxt "SettingsDialog|"
 msgid "Remember last"
 msgstr "Απομνημόνευση του τελευταίου"
 
-#: src/settings/settingsdialog.ui:1057
+#: src/settings/settingsdialog.ui:988
 msgctxt "SettingsDialog|"
 msgid "Remember always"
 msgstr "Απομνημόνευση αέναα"
 
-#: src/settings/settingsdialog.ui:1065
+#: src/settings/settingsdialog.ui:996
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
 msgstr "Καθυστέρηση σύλληψης:"
 
-#: src/settings/settingsdialog.ui:1072
+#: src/settings/settingsdialog.ui:1003
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
 msgstr "Καθυστέρηση πριν την σύλληψη οθόνης"
 
-#: src/settings/settingsdialog.ui:1075
+#: src/settings/settingsdialog.ui:1006
 msgctxt "SettingsDialog|"
 msgid " ms"
 msgstr " ms"
 
-#: src/settings/settingsdialog.ui:1085
+#: src/settings/settingsdialog.ui:1016
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
@@ -2014,12 +2387,12 @@ msgstr ""
 "<html><head/><body><p>Εμφάνιση ενός μεγεθυντικού φακού δίπλα από τον δρομέα</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:1088
+#: src/settings/settingsdialog.ui:1019
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
 msgstr "Εμφάνιση μεγεθυντικού φακού"
 
-#: src/settings/settingsdialog.ui:1098
+#: src/settings/settingsdialog.ui:1029
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
@@ -2028,12 +2401,12 @@ msgstr ""
 "<html><head/><body><p>Τερματισμός σύλληψης του τμήματος κατά το άφημα του "
 "κουμπιού ποντικιού</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1101
+#: src/settings/settingsdialog.ui:1032
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
 msgstr "Επιβεβαίωση κατά το άφημα"
 
-#: src/settings/settingsdialog.ui:1108
+#: src/settings/settingsdialog.ui:1039
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
@@ -2042,162 +2415,63 @@ msgstr ""
 "<html><head/><body><p>Εφαρμογή μιας ελαφριάς θόλωσης στο με επιλεγμένο "
 "τμήμα</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1111
+#: src/settings/settingsdialog.ui:1042
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
 msgstr "Εφαρμογή ελαφριάς μάσκας"
 
-#: src/settings/settingsdialog.ui:1150
-msgctxt "SettingsDialog|"
-msgid "Voice:"
-msgstr "Φωνή:"
-
-#: src/settings/settingsdialog.ui:1163
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Voice of the speech synthesis engine</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Φωνή της μηχανής σύνθεσης ομιλίας</p></body></html>"
-
-#: src/settings/settingsdialog.ui:1167
-msgctxt "SettingsDialog|"
-msgid "Zahar"
-msgstr "Zahar"
-
-#: src/settings/settingsdialog.ui:1172
-msgctxt "SettingsDialog|"
-msgid "Ermil"
-msgstr "Ermil"
-
-#: src/settings/settingsdialog.ui:1177
-msgctxt "SettingsDialog|"
-msgid "Jane"
-msgstr "Jane"
-
-#: src/settings/settingsdialog.ui:1182
-msgctxt "SettingsDialog|"
-msgid "Oksana"
-msgstr "Oksana"
-
-#: src/settings/settingsdialog.ui:1187
-msgctxt "SettingsDialog|"
-msgid "Alyss"
-msgstr "Alyss"
-
-#: src/settings/settingsdialog.ui:1192
-msgctxt "SettingsDialog|"
-msgid "Omazh"
-msgstr "Omazh"
-
-#: src/settings/settingsdialog.ui:1200
-msgctxt "SettingsDialog|"
-msgid "Emotional connotation:"
-msgstr "Συναισθηματική χροιά:"
-
-#: src/settings/settingsdialog.ui:1213
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Voice mood of the speech synthesis engine</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>Φωνητική διάθεση της μηχανής σύνθεσης ομιλίας</p></"
-"body></html>"
-
-#: src/settings/settingsdialog.ui:1217
-msgctxt "SettingsDialog|"
-msgid "Neutral"
-msgstr "Ουδέτερη"
-
-#: src/settings/settingsdialog.ui:1222
-msgctxt "SettingsDialog|"
-msgid "Good"
-msgstr "Καλή"
-
-#: src/settings/settingsdialog.ui:1227
-msgctxt "SettingsDialog|"
-msgid "Evil"
-msgstr "Κακή"
-
-#: src/settings/settingsdialog.ui:1235 src/settings/settingsdialog.ui:1311
-msgctxt "SettingsDialog|"
-msgid "Speech test:"
-msgstr "Έλεγχος ομιλίας:"
-
-#: src/settings/settingsdialog.ui:1244 src/settings/settingsdialog.ui:1273
-msgctxt "SettingsDialog|"
-msgid "<html><head/><body><p>Text to test speech</p></body></html>"
-msgstr "<html><head/><body><p>Κείμενο για έλεγχο ομιλίας</p></body></html>"
-
-#: src/settings/settingsdialog.ui:1247 src/settings/settingsdialog.ui:1276
-msgctxt "SettingsDialog|"
-msgid "This is an example of speech synthesis."
-msgstr "Αυτό είναι ένα παράδειγμα σύνθεσης ομιλίας."
-
-#: src/settings/settingsdialog.ui:1250
-msgctxt "SettingsDialog|"
-msgid "Test voice"
-msgstr "Έλεγχος φωνής"
-
-#: src/settings/settingsdialog.ui:1295
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Version:"
-msgctxt "SettingsDialog|"
-msgid "Region:"
-msgstr "Έκδοση:"
-
-#: src/settings/settingsdialog.ui:1344
+#: src/settings/settingsdialog.ui:1075
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
 msgstr "Διακομιστής διαμεσολαβητή"
 
-#: src/settings/settingsdialog.ui:1350
+#: src/settings/settingsdialog.ui:1081
 msgctxt "SettingsDialog|"
 msgid "Type:"
 msgstr "Τύπος:"
 
-#: src/settings/settingsdialog.ui:1363
+#: src/settings/settingsdialog.ui:1094
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
 msgstr "<html><head/><body><p>Τύπος διαμεσολαβητή</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1367
+#: src/settings/settingsdialog.ui:1098
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
 msgstr "Χρήση των ρυθμίσεων του συστήματος"
 
-#: src/settings/settingsdialog.ui:1377
+#: src/settings/settingsdialog.ui:1108
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
 msgstr "Να μην γίνεται χρήση διαμεσολαβητή"
 
-#: src/settings/settingsdialog.ui:1393
+#: src/settings/settingsdialog.ui:1124
 msgctxt "SettingsDialog|"
 msgid "Host:"
 msgstr "Υπολογιστής:"
 
-#: src/settings/settingsdialog.ui:1403
+#: src/settings/settingsdialog.ui:1134
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr "<html><head/><body><p>Όνομα υπολογιστή διαμεσολαβητή</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1416
+#: src/settings/settingsdialog.ui:1147
 msgctxt "SettingsDialog|"
 msgid "Port:"
 msgstr "Θύρα:"
 
-#: src/settings/settingsdialog.ui:1432
+#: src/settings/settingsdialog.ui:1163
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
 msgstr "<html><head/><body><p>Θύρα διαμεσολαβητή</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1451
+#: src/settings/settingsdialog.ui:1182
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
 msgstr ""
 "Πληροφορία: ο διαμεσολαβητής λειτουργεί μόνο για την μετάφραση κειμένου"
 
-#: src/settings/settingsdialog.ui:1461
+#: src/settings/settingsdialog.ui:1192
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
@@ -2205,17 +2479,17 @@ msgstr ""
 "<html><head/><body><p>Ενεργοποίηση ή απενεργοποίηση ταυτοποίησης</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1464
+#: src/settings/settingsdialog.ui:1195
 msgctxt "SettingsDialog|"
 msgid "Authentication"
 msgstr "Πιστοποίηση"
 
-#: src/settings/settingsdialog.ui:1474
+#: src/settings/settingsdialog.ui:1205
 msgctxt "SettingsDialog|"
 msgid "Username:"
 msgstr "Όνομα χρήστη:"
 
-#: src/settings/settingsdialog.ui:1484
+#: src/settings/settingsdialog.ui:1215
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
@@ -2223,12 +2497,12 @@ msgstr ""
 "<html><head/><body><p>Όνομα χρήστη για την ταυτοποίηση στον διαμεσολαβητή</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:1494
+#: src/settings/settingsdialog.ui:1225
 msgctxt "SettingsDialog|"
 msgid "Password:"
 msgstr "Κωδικός πρόσβασης:"
 
-#: src/settings/settingsdialog.ui:1504
+#: src/settings/settingsdialog.ui:1235
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
@@ -2236,12 +2510,12 @@ msgstr ""
 "<html><head/><body><p>Κωδικός πρόσβασης διαμεσολαβητή για ταυτοποίηση</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1517
+#: src/settings/settingsdialog.ui:1248
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
 msgstr "Πληροφορία: ο κωδικός πρόσβασης αποθηκεύεται αποκρυπτογραφημένος"
 
-#: src/settings/settingsdialog.ui:1553
+#: src/settings/settingsdialog.ui:1284
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
@@ -2249,7 +2523,7 @@ msgstr ""
 "<html><head/><body><p>Εγγραφή των καθολικών συντομεύσεων στο σύστημα</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1556
+#: src/settings/settingsdialog.ui:1287
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Enable global shortcucts"
@@ -2257,29 +2531,29 @@ msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "Ενεργοποίηση των καθολικών συντομεύσεων"
 
-#: src/settings/settingsdialog.ui:1572
+#: src/settings/settingsdialog.ui:1303
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Επαναφορά όλων των συντομεύσεων στις τιμές εξ ορισμού</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:1575
+#: src/settings/settingsdialog.ui:1306
 msgctxt "SettingsDialog|"
 msgid "Reset all"
 msgstr "Επαναφορά όλων"
 
-#: src/settings/settingsdialog.ui:1585
+#: src/settings/settingsdialog.ui:1316
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
 msgstr "Συντόμευση"
 
-#: src/settings/settingsdialog.ui:1591
+#: src/settings/settingsdialog.ui:1322
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
 msgstr "Συνδυασμός πλήκτρων:"
 
-#: src/settings/settingsdialog.ui:1598
+#: src/settings/settingsdialog.ui:1329
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
@@ -2288,53 +2562,53 @@ msgstr ""
 "<html><head/><body><p>Ο συνδυασμός πλήκτρων για την επιλεγμένη ενέργεια</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1605
+#: src/settings/settingsdialog.ui:1336
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Αποδοχή συντόμευσης</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1608
+#: src/settings/settingsdialog.ui:1339
 msgctxt "SettingsDialog|"
 msgid "Accept"
 msgstr "Αποδοχή"
 
-#: src/settings/settingsdialog.ui:1618
+#: src/settings/settingsdialog.ui:1350
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Εκκαθάριση συντόμευσης</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1621
+#: src/settings/settingsdialog.ui:1353
 msgctxt "SettingsDialog|"
 msgid "Clear"
 msgstr "Καθαρισμός"
 
-#: src/settings/settingsdialog.ui:1631
+#: src/settings/settingsdialog.ui:1364
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Επαναφορά συντόμευσης στην εξ ορισμού</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1634
+#: src/settings/settingsdialog.ui:1367
 msgctxt "SettingsDialog|"
 msgid "Reset"
 msgstr "Επαναφορά"
 
-#: src/settings/settingsdialog.ui:1679
+#: src/settings/settingsdialog.ui:1413
 msgctxt "SettingsDialog|"
 msgid "Version:"
 msgstr "Έκδοση:"
 
-#: src/settings/settingsdialog.ui:1689
+#: src/settings/settingsdialog.ui:1423
 msgctxt "SettingsDialog|"
 msgid "License:"
 msgstr "Άδεια χρήσης:"
 
-#: src/settings/settingsdialog.ui:1703
+#: src/settings/settingsdialog.ui:1437
 msgctxt "SettingsDialog|"
 msgid "Source code:"
 msgstr "Πηγαίος κώδικας:"
 
-#: src/settings/settingsdialog.ui:1743
+#: src/settings/settingsdialog.ui:1477
 msgctxt "SettingsDialog|"
 msgid "Flag icons:"
 msgstr "Εικονίδια σημαιών:"
@@ -2460,17 +2734,17 @@ msgctxt "TesseractParametersTableWidget|"
 msgid "Value"
 msgstr "Τιμή"
 
-#: src/speakbuttons.cpp:138
+#: src/speakbuttons.cpp:75
 msgctxt "SpeakButtons|"
 msgid "No text specified"
 msgstr "Δεν έχει καθορισθεί το κείμενο"
 
-#: src/speakbuttons.cpp:138
+#: src/speakbuttons.cpp:75
 msgctxt "SpeakButtons|"
 msgid "Playback text is empty"
 msgstr "Το κείμενο προς αναπαραγωγή είναι κενό"
 
-#: src/speakbuttons.cpp:147
+#: src/speakbuttons.cpp:81
 msgctxt "SpeakButtons|"
 msgid "Unable to generate URLs for TTS"
 msgstr "Αδυναμία δημιουργίας URL για TTS"
@@ -2502,7 +2776,7 @@ msgctxt "TranslationEdit|"
 msgid "translation options:"
 msgstr "επιλογές μετάφρασης:"
 
-#: src/translationedit.cpp:97
+#: src/translationedit.cpp:87
 msgctxt "TranslationEdit|"
 msgid "examples:"
 msgstr "παραδείγματα:"
@@ -2526,6 +2800,241 @@ msgstr "Έξοδος"
 msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Αποτέλεσμα μετάφρασης"
+
+#~ msgctxt "Cli|"
+#~ msgid ""
+#~ "Specify the translator language (by default, the system language is used)."
+#~ msgstr ""
+#~ "Καθορισμός της γλώσσας του μεταφραστή (εξ ορισμού, χρησιμοποιείται η "
+#~ "γλώσσα του συστήματος)."
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Selected source language %1 is not supported for %2"
+#~ msgstr "Η επιλεγμένη γλώσσα πηγής %1 δεν υποστηρίζεται από το %2"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Selected translation language %1 is not supported for %2"
+#~ msgstr "Η επιλεγμένη γλώσσα μετάφρασης %1 δεν υποστηρίζεται από το %2"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Selected ui language %1 is not supported for %2"
+#~ msgstr "Η επιλεγμένη γλώσσα περιβάλλοντος %1 δεν υποστηρίζεται από το %2"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "%1 URL can't be empty."
+#~ msgstr "Το URL του %1 δεν μπορεί να είναι κενό."
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Bengali"
+#~ msgstr "Βεγγαλικά"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Cantonese"
+#~ msgstr "Καντονεζικά"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Klingon"
+#~ msgstr "Klingon"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Levantine Arabic"
+#~ msgstr "Λεβαντινικά Αραβικά"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Maori"
+#~ msgstr "Μαορί"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Myanmar"
+#~ msgstr "Βιρμανικά"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Oriya"
+#~ msgstr "Ορίγια"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Uzbek"
+#~ msgstr "Ουζμπεκικά"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid ""
+#~ "Error: Engine systems have detected suspicious traffic from your computer "
+#~ "network. Please try your request again later."
+#~ msgstr ""
+#~ "Σφάλμα: Τα συστήματα της μηχανής εντόπισαν ύποπτη κυκλοφορία από το "
+#~ "δίκτυο του υπολογιστή σας. Παρακαλώ επαναλάβετε το αίτημά σας αργότερα."
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Error: Unable to find Bing credentials in web version."
+#~ msgstr "Σφάλμα: Αδύνατη η εύρεση διαπιστευτηρίων Bing στην έκδοση ιστού."
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Error: Unable to extract Bing key from web version."
+#~ msgstr "Σφάλμα: Αδύνατη η εξαγωγή του κλειδιού Bing από την έκδοση ιστού."
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Error: Unable to extract Bing token from web version."
+#~ msgstr ""
+#~ "Σφάλμα: Αδύνατη η εξαγωγή του αδειοδοτικού Bing από την έκδοση ιστού."
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid ""
+#~ "Error: Unable to extract additional Bing information from web version."
+#~ msgstr ""
+#~ "Σφάλμα: Αδύνατη η εξαγωγή επιπρόσθετων πληροφοριών Bing από την "
+#~ "διαδικτυακή έκδοση."
+
+#~ msgctxt "OnlineTts|"
+#~ msgid "Selected engine %1 does not support voice settings"
+#~ msgstr "Η επιλεγμένη μηχανή %1 δεν υποστηρίζει ρυθμίσεις φωνής"
+
+#~ msgctxt "OnlineTts|"
+#~ msgid "Selected engine %1 does not support emotion settings"
+#~ msgstr "Η επιλεγμένη μηχανή %1 δεν υποστηρίζει ρυθμίσεις συναισθηματισμού"
+
+#~ msgctxt "OnlineTts|"
+#~ msgid "Selected voice %1 is not supported for %2"
+#~ msgstr "Η επιλεγμένη φωνή %1 δεν υποστηρίζεται για το %2"
+
+#, fuzzy
+#~| msgctxt "OnlineTts|"
+#~| msgid "Selected emotion %1 is not supported for %2"
+#~ msgctxt "OnlineTts|"
+#~ msgid "Selected emotion %1 is not supported by %2"
+#~ msgstr "Ο επιλεγμένος συναισθηματισμός %1 δεν υποστηρίζεται για το %2"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Happy New Year!"
+#~ msgstr "Καλή χρονιά!"
+
+#, fuzzy
+#~| msgctxt "SettingsDialog|"
+#~| msgid "Default"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Default region"
+#~ msgstr "Εξ ορισμού"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Nothing to play"
+#~ msgstr "Τίποτα προς αναπαραγωγή"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Playback text is empty"
+#~ msgstr "Το κείμενο προς αναπαραγωγή είναι κενό"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Unable to detect language"
+#~ msgstr "Αδύνατος ο εντοπισμός της γλώσσας"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Speech synthesis"
+#~ msgstr "Σύνθεση ομιλίας"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>LibreTranslate instance API key</p><p>Free "
+#~ "instances listed here doesn't require a key, so field can be empty</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Κλειδί API LibreTranslate</p><p>Οι ελεύθερες "
+#~ "υποστάσεις που εμφανίζονται εδώ δεν απαιτούν ένα κλειδί. Μπορείτε να "
+#~ "αφήσετε το πεδίο κενό</p></body></html>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "API key:"
+#~ msgstr "Κλειδί API:"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>LibreTranslate engine URL</p><p>All instances can "
+#~ "be found here: https://github.com/LibreTranslate/LibreTranslate#mirrors</"
+#~ "p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>URL της μηχανής LibreTranslate</p><p>Εδώ μπορείτε "
+#~ "να βρείτε όλες τις υποστάσεις: https://github.com/LibreTranslate/"
+#~ "LibreTranslate#mirrors</p></body></html>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Voice:"
+#~ msgstr "Φωνή:"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>Voice of the speech synthesis engine</p></body></"
+#~ "html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Φωνή της μηχανής σύνθεσης ομιλίας</p></body></html>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Zahar"
+#~ msgstr "Zahar"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Ermil"
+#~ msgstr "Ermil"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Jane"
+#~ msgstr "Jane"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Oksana"
+#~ msgstr "Oksana"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Alyss"
+#~ msgstr "Alyss"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Omazh"
+#~ msgstr "Omazh"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Emotional connotation:"
+#~ msgstr "Συναισθηματική χροιά:"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>Voice mood of the speech synthesis engine</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Φωνητική διάθεση της μηχανής σύνθεσης ομιλίας</p></"
+#~ "body></html>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Neutral"
+#~ msgstr "Ουδέτερη"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Good"
+#~ msgstr "Καλή"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Evil"
+#~ msgstr "Κακή"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Speech test:"
+#~ msgstr "Έλεγχος ομιλίας:"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "<html><head/><body><p>Text to test speech</p></body></html>"
+#~ msgstr "<html><head/><body><p>Κείμενο για έλεγχο ομιλίας</p></body></html>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "This is an example of speech synthesis."
+#~ msgstr "Αυτό είναι ένα παράδειγμα σύνθεσης ομιλίας."
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Test voice"
+#~ msgstr "Έλεγχος φωνής"
+
+#, fuzzy
+#~| msgctxt "SettingsDialog|"
+#~| msgid "Version:"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Region:"
+#~ msgstr "Έκδοση:"
 
 #~ msgctxt "QGitTag|"
 #~ msgid "Release number %1 is missing"

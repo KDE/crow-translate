@@ -10,12 +10,12 @@ msgstr ""
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
 
-#: src/cli.cpp:41
+#: src/cli.cpp:40
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Tampilkan semua kode bahasa."
 
-#: src/cli.cpp:42
+#: src/cli.cpp:41
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -24,7 +24,7 @@ msgstr ""
 "Tentukan bahasa sumber (secara bawaan/default, mesin akan menentukan bahasa "
 "dengan sendirinya)."
 
-#: src/cli.cpp:43
+#: src/cli.cpp:42
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
@@ -33,15 +33,7 @@ msgstr ""
 "Tentukan bahasa terjemahan, dipisahkan oleh '+' (secara bawan, bahasa sistem "
 "yang digunakan)."
 
-#: src/cli.cpp:44
-msgctxt "Cli|"
-msgid ""
-"Specify the translator language (by default, the system language is used)."
-msgstr ""
-"Tentukan bahasa penterjemah (secara bawan, bahasa sistem yang akan "
-"digunakan)."
-
-#: src/cli.cpp:45
+#: src/cli.cpp:43
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -55,17 +47,22 @@ msgstr ""
 "Tentukan mesin penterjemah ('google', 'yandex' atau 'bing'), Google yang "
 "digunakan secara bawan."
 
-#: src/cli.cpp:46
+#: src/cli.cpp:44
+msgctxt "Cli|"
+msgid "Specify instance URL. Random instance URL will be used by default."
+msgstr ""
+
+#: src/cli.cpp:45
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Ucapkan terjemahan."
 
-#: src/cli.cpp:47
+#: src/cli.cpp:46
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Ucapkan sumber."
 
-#: src/cli.cpp:48
+#: src/cli.cpp:47
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -73,28 +70,28 @@ msgstr ""
 "Baca teks sumber dari berkas. Argumen akan diimpretasikan sebagai jalur/path "
 "berkas."
 
-#: src/cli.cpp:49
+#: src/cli.cpp:48
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Tambah data stdin pada teks sumber."
 
-#: src/cli.cpp:50
+#: src/cli.cpp:49
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "Jangan mencetak teks apapun ketika menggunakan --%1 atau --%2."
 
-#: src/cli.cpp:51
+#: src/cli.cpp:50
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Cetak hanya terjemahan."
 
-#: src/cli.cpp:52
+#: src/cli.cpp:51
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Cetak hasil output sebagai JSOn."
 
-#: src/cli.cpp:55
+#: src/cli.cpp:54
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -103,12 +100,12 @@ msgstr "Cetak hasil output sebagai JSOn."
 msgctxt "Cli|"
 msgid ""
 "A simple and lightweight translator that allows to translate and speak text "
-"using Google, Yandex, Bing, LibreTranslate and Lingva"
+"using Mozhi"
 msgstr ""
 "Sebuah penterjemah yang mudah dan ringan yang memungkinkan Anda untuk "
 "menterjemahkan dan mengatakan teks menggunakan Google, Yandex dan Bing."
 
-#: src/cli.cpp:56
+#: src/cli.cpp:55
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
@@ -117,13 +114,13 @@ msgstr ""
 "Teks untuk diterjemahkan. Secara bawaan, terjemahan akan dilakukan pada "
 "bahasa sistem."
 
-#: src/cli.cpp:78
+#: src/cli.cpp:77
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Kesalahan: Untuk --%1 Anda harus mementukan --%2 dan/atau pilihan --%3"
 
-#: src/cli.cpp:112
+#: src/cli.cpp:110
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Kesalahan: Tidak ada teks untuk terjemahan"
@@ -133,7 +130,7 @@ msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "Kesalahan: Mesin tidak diketahui"
 
-#: src/cli.cpp:165 src/cli.cpp:258 src/cli.cpp:347
+#: src/cli.cpp:165 src/cli.cpp:248 src/cli.cpp:336
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
@@ -145,25 +142,25 @@ msgctxt "Cli|"
 msgid "%1 - translation options:"
 msgstr "%1 - pilihan terjemahan:"
 
-#: src/cli.cpp:236
+#: src/cli.cpp:230
 #, qt-format
 msgctxt "Cli|"
 msgid "%1 - examples:"
 msgstr "%1 - contoh:"
 
-#: src/cli.cpp:360
+#: src/cli.cpp:349
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Kesalahan: Anda tidak dapa't menggunakan --%1 dengan --%2"
 
-#: src/cli.cpp:376 src/cli.cpp:397
+#: src/cli.cpp:365 src/cli.cpp:386
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Kesalahan: Berkas tidak tersedia: %1"
 
-#: src/cli.cpp:381 src/cli.cpp:402
+#: src/cli.cpp:370 src/cli.cpp:391
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -174,19 +171,19 @@ msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Cari di Forvo.com"
 
-#: src/languagebuttonswidget.cpp:451
+#: src/languagebuttonswidget.cpp:220
 msgctxt "LanguageButtonsWidget|"
 msgid "Window width is larger than screen due to the languages on the panel."
 msgstr ""
 "Lebal kolom (windows) lebih besar dari layar monitor dikarenakan bahasa yang "
 "ada di panel."
 
-#: src/languagebuttonswidget.cpp:452
+#: src/languagebuttonswidget.cpp:221
 msgctxt "LanguageButtonsWidget|"
 msgid "Please reduce added languages."
 msgstr "Silahkan kurangi bahasa yang ditambahkan."
 
-#: src/languagebuttonswidget.cpp:528 src/languagebuttonswidget.cpp:530
+#: src/languagebuttonswidget.cpp:297 src/languagebuttonswidget.cpp:299
 msgctxt "LanguageButtonsWidget|"
 msgid "Auto"
 msgstr "Otomatis"
@@ -256,12 +253,12 @@ msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "Ikon yang ditentukan '%1' tidak valid. Ikon bawaan akan digunakan."
 
-#: src/mainwindow.cpp:898
+#: src/mainwindow.cpp:896
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "Tidak dapat mengatur bahasa OCR"
 
-#: src/mainwindow.cpp:898
+#: src/mainwindow.cpp:896
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -313,22 +310,22 @@ msgctxt "MainWindow|"
 msgid "Translation"
 msgstr "Terjemahan"
 
-#: src/mainwindow.ui:253
+#: src/mainwindow.ui:271
 msgctxt "MainWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Salin terjemahan ke papanklip"
 
-#: src/mainwindow.ui:264
+#: src/mainwindow.ui:282
 msgctxt "MainWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "Salin semua data terjemahan ke papanklip"
 
-#: src/mainwindow.ui:275
+#: src/mainwindow.ui:293
 msgctxt "MainWindow|"
 msgid "Translate screen area with delay"
 msgstr "Terjemahkan area layar dengan jeda"
 
-#: src/mainwindow.ui:286
+#: src/mainwindow.ui:304
 msgctxt "MainWindow|"
 msgid "Application settings"
 msgstr "Pengaturan Aplikasi"
@@ -497,747 +494,1181 @@ msgctxt "SnippingArea|"
 msgid "Esc key"
 msgstr "Tombol Esc"
 
-#: src/onlinetranslator/onlinetranslator.cpp:190
-#, qt-format
+#: src/onlinetranslator/onlinetranslator.cpp:281
+#, fuzzy, qt-format
+#| msgctxt "OnlineTts|"
+#| msgid "Selected language %1 is not supported for %2"
 msgctxt "OnlineTranslator|"
-msgid "Selected source language %1 is not supported for %2"
-msgstr "Bahasa sumber yang dipilih %1 tidak didukung untuk %2"
+msgid "Language detection is not supported for %1"
+msgstr "Bahasa yang dipilih %1 tidak didukung untuk %2"
 
-#: src/onlinetranslator/onlinetranslator.cpp:195
-#, qt-format
+#: src/onlinetranslator/onlinetranslator.cpp:364
+#, fuzzy, qt-format
+#| msgctxt "OnlineTts|"
+#| msgid "%1 engine does not support TTS"
 msgctxt "OnlineTranslator|"
-msgid "Selected translation language %1 is not supported for %2"
-msgstr "Bahasa terjemahan yang dipilih %1 tidak didukung untuk %2"
+msgid "%1 engine does not support TTS"
+msgstr "%1 mesin tidak mendukung TTS"
 
-#: src/onlinetranslator/onlinetranslator.cpp:200
-#, qt-format
-msgctxt "OnlineTranslator|"
-msgid "Selected ui language %1 is not supported for %2"
-msgstr "Bahasa UI yang dipilih %1 tidak didukung untuk %2"
-
-#: src/onlinetranslator/onlinetranslator.cpp:217
-#: src/onlinetranslator/onlinetranslator.cpp:226
-#: src/onlinetranslator/onlinetranslator.cpp:261
-#: src/onlinetranslator/onlinetranslator.cpp:270
-#, qt-format
-msgctxt "OnlineTranslator|"
-msgid "%1 URL can't be empty."
-msgstr ""
-
-#: src/onlinetranslator/onlinetranslator.cpp:468
+#: src/onlinetranslator/onlinetranslator.cpp:505
 msgctxt "OnlineTranslator|"
 msgid "Automatically detect"
 msgstr "Dideteksi secara otomatis"
 
-#: src/onlinetranslator/onlinetranslator.cpp:470
+#: src/onlinetranslator/onlinetranslator.cpp:507
 msgctxt "OnlineTranslator|"
 msgid "Afrikaans"
 msgstr "Afrikanas"
 
-#: src/onlinetranslator/onlinetranslator.cpp:472
+#: src/onlinetranslator/onlinetranslator.cpp:509
 msgctxt "OnlineTranslator|"
 msgid "Albanian"
 msgstr "Bahasa Albania"
 
-#: src/onlinetranslator/onlinetranslator.cpp:474
+#: src/onlinetranslator/onlinetranslator.cpp:511
 msgctxt "OnlineTranslator|"
 msgid "Amharic"
 msgstr "Amharik"
 
-#: src/onlinetranslator/onlinetranslator.cpp:476
+#: src/onlinetranslator/onlinetranslator.cpp:513
 msgctxt "OnlineTranslator|"
 msgid "Arabic"
 msgstr "Arab"
 
-#: src/onlinetranslator/onlinetranslator.cpp:478
+#: src/onlinetranslator/onlinetranslator.cpp:515
 msgctxt "OnlineTranslator|"
 msgid "Armenian"
 msgstr "Armenia"
 
-#: src/onlinetranslator/onlinetranslator.cpp:480
+#: src/onlinetranslator/onlinetranslator.cpp:517
 msgctxt "OnlineTranslator|"
-msgid "Azeerbaijani"
+msgid "Assamese"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:519
+msgctxt "OnlineTranslator|"
+msgid "Aymara"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:521
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Azeerbaijani"
+msgctxt "OnlineTranslator|"
+msgid "Azerbaijani"
 msgstr "Azeerbaijan"
 
-#: src/onlinetranslator/onlinetranslator.cpp:482
+#: src/onlinetranslator/onlinetranslator.cpp:523
 msgctxt "OnlineTranslator|"
-msgid "Basque"
-msgstr "Baskque"
+msgid "Bajan"
+msgstr ""
 
-#: src/onlinetranslator/onlinetranslator.cpp:484
+#: src/onlinetranslator/onlinetranslator.cpp:525
+msgctxt "OnlineTranslator|"
+msgid "Balkan Gipsy"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:527
+msgctxt "OnlineTranslator|"
+msgid "Bambara"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:529
+msgctxt "OnlineTranslator|"
+msgid "Bangla"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:531
 msgctxt "OnlineTranslator|"
 msgid "Bashkir"
 msgstr "Bashkirr"
 
-#: src/onlinetranslator/onlinetranslator.cpp:486
+#: src/onlinetranslator/onlinetranslator.cpp:533
+msgctxt "OnlineTranslator|"
+msgid "Basque"
+msgstr "Baskque"
+
+#: src/onlinetranslator/onlinetranslator.cpp:535
 msgctxt "OnlineTranslator|"
 msgid "Belarusian"
 msgstr "Belarusia"
 
-#: src/onlinetranslator/onlinetranslator.cpp:488
+#: src/onlinetranslator/onlinetranslator.cpp:537
 msgctxt "OnlineTranslator|"
-msgid "Bengali"
-msgstr "Benggala"
+msgid "Bemba"
+msgstr ""
 
-#: src/onlinetranslator/onlinetranslator.cpp:490
+#: src/onlinetranslator/onlinetranslator.cpp:539
+msgctxt "OnlineTranslator|"
+msgid "Bhojpuri"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:541
+msgctxt "OnlineTranslator|"
+msgid "Bislama"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:543
 msgctxt "OnlineTranslator|"
 msgid "Bosnian"
 msgstr "Bosnia"
 
-#: src/onlinetranslator/onlinetranslator.cpp:492
+#: src/onlinetranslator/onlinetranslator.cpp:545
+msgctxt "OnlineTranslator|"
+msgid "Breton"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:547
 msgctxt "OnlineTranslator|"
 msgid "Bulgarian"
 msgstr "Bulgaria"
 
-#: src/onlinetranslator/onlinetranslator.cpp:494
+#: src/onlinetranslator/onlinetranslator.cpp:549
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Chinese (Traditional)"
+msgctxt "OnlineTranslator|"
+msgid "Cantonese (Traditional)"
+msgstr "Cina (tradisional)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:551
 msgctxt "OnlineTranslator|"
 msgid "Catalan"
 msgstr "Katalan"
 
-#: src/onlinetranslator/onlinetranslator.cpp:496
-msgctxt "OnlineTranslator|"
-msgid "Cantonese"
-msgstr "Kanton"
-
-#: src/onlinetranslator/onlinetranslator.cpp:498
+#: src/onlinetranslator/onlinetranslator.cpp:553
 msgctxt "OnlineTranslator|"
 msgid "Cebuano"
 msgstr "Sebuano"
 
-#: src/onlinetranslator/onlinetranslator.cpp:500
+#: src/onlinetranslator/onlinetranslator.cpp:555
 msgctxt "OnlineTranslator|"
-msgid "Chinese (Simplified)"
-msgstr "Bahasa Tiongkok (yang disederhanakan)"
+msgid "Chamorro"
+msgstr ""
 
-#: src/onlinetranslator/onlinetranslator.cpp:502
-msgctxt "OnlineTranslator|"
-msgid "Chinese (Traditional)"
-msgstr "Cina (tradisional)"
-
-#: src/onlinetranslator/onlinetranslator.cpp:504
-msgctxt "OnlineTranslator|"
-msgid "Corsican"
-msgstr "Korsika"
-
-#: src/onlinetranslator/onlinetranslator.cpp:506
-msgctxt "OnlineTranslator|"
-msgid "Croatian"
-msgstr "Kroasia"
-
-#: src/onlinetranslator/onlinetranslator.cpp:508
-msgctxt "OnlineTranslator|"
-msgid "Czech"
-msgstr "Ceko"
-
-#: src/onlinetranslator/onlinetranslator.cpp:510
-msgctxt "OnlineTranslator|"
-msgid "Danish"
-msgstr "Orang Denmark"
-
-#: src/onlinetranslator/onlinetranslator.cpp:512
-msgctxt "OnlineTranslator|"
-msgid "Dutch"
-msgstr "Belanda"
-
-#: src/onlinetranslator/onlinetranslator.cpp:514
-msgctxt "OnlineTranslator|"
-msgid "English"
-msgstr "Inggris"
-
-#: src/onlinetranslator/onlinetranslator.cpp:516
-msgctxt "OnlineTranslator|"
-msgid "Esperanto"
-msgstr "Essperanto"
-
-#: src/onlinetranslator/onlinetranslator.cpp:518
-msgctxt "OnlineTranslator|"
-msgid "Estonian"
-msgstr "Estonia"
-
-#: src/onlinetranslator/onlinetranslator.cpp:520
-msgctxt "OnlineTranslator|"
-msgid "Fijian"
-msgstr "Fiji"
-
-#: src/onlinetranslator/onlinetranslator.cpp:522
-msgctxt "OnlineTranslator|"
-msgid "Filipino"
-msgstr "Filipina"
-
-#: src/onlinetranslator/onlinetranslator.cpp:524
-msgctxt "OnlineTranslator|"
-msgid "Finnish"
-msgstr "Finlandia"
-
-#: src/onlinetranslator/onlinetranslator.cpp:526
-msgctxt "OnlineTranslator|"
-msgid "French"
-msgstr "Perancis"
-
-#: src/onlinetranslator/onlinetranslator.cpp:528
-msgctxt "OnlineTranslator|"
-msgid "Frisian"
-msgstr "Frisia"
-
-#: src/onlinetranslator/onlinetranslator.cpp:530
-msgctxt "OnlineTranslator|"
-msgid "Galician"
-msgstr "Galicia"
-
-#: src/onlinetranslator/onlinetranslator.cpp:532
-msgctxt "OnlineTranslator|"
-msgid "Georgian"
-msgstr "Georgia"
-
-#: src/onlinetranslator/onlinetranslator.cpp:534
-msgctxt "OnlineTranslator|"
-msgid "German"
-msgstr "Jerman"
-
-#: src/onlinetranslator/onlinetranslator.cpp:536
-msgctxt "OnlineTranslator|"
-msgid "Greek"
-msgstr "Yunani"
-
-#: src/onlinetranslator/onlinetranslator.cpp:538
-msgctxt "OnlineTranslator|"
-msgid "Gujarati"
-msgstr "Gujjarati"
-
-#: src/onlinetranslator/onlinetranslator.cpp:540
-msgctxt "OnlineTranslator|"
-msgid "Haitian Creole"
-msgstr "Creole Haiti"
-
-#: src/onlinetranslator/onlinetranslator.cpp:542
-msgctxt "OnlineTranslator|"
-msgid "Hausa"
-msgstr "Hausaa"
-
-#: src/onlinetranslator/onlinetranslator.cpp:544
-msgctxt "OnlineTranslator|"
-msgid "Hawaiian"
-msgstr "Hawaii"
-
-#: src/onlinetranslator/onlinetranslator.cpp:546
-msgctxt "OnlineTranslator|"
-msgid "Hebrew"
-msgstr "Ibrani"
-
-#: src/onlinetranslator/onlinetranslator.cpp:548
-msgctxt "OnlineTranslator|"
-msgid "Hill Mari"
-msgstr "Hilll Mari"
-
-#: src/onlinetranslator/onlinetranslator.cpp:550
-msgctxt "OnlineTranslator|"
-msgid "Hindi"
-msgstr "Hindi India"
-
-#: src/onlinetranslator/onlinetranslator.cpp:552
-msgctxt "OnlineTranslator|"
-msgid "Hmong"
-msgstr "Hmmong"
-
-#: src/onlinetranslator/onlinetranslator.cpp:554
-msgctxt "OnlineTranslator|"
-msgid "Hungarian"
-msgstr "Hongaria"
-
-#: src/onlinetranslator/onlinetranslator.cpp:556
-msgctxt "OnlineTranslator|"
-msgid "Icelandic"
-msgstr "Islandia"
-
-#: src/onlinetranslator/onlinetranslator.cpp:558
-msgctxt "OnlineTranslator|"
-msgid "Igbo"
-msgstr "Igboo"
-
-#: src/onlinetranslator/onlinetranslator.cpp:560
-msgctxt "OnlineTranslator|"
-msgid "Indonesian"
-msgstr "Bahasa Indonesia"
-
-#: src/onlinetranslator/onlinetranslator.cpp:562
-msgctxt "OnlineTranslator|"
-msgid "Irish"
-msgstr "Orang Irlandia"
-
-#: src/onlinetranslator/onlinetranslator.cpp:564
-msgctxt "OnlineTranslator|"
-msgid "Italian"
-msgstr "Italia"
-
-#: src/onlinetranslator/onlinetranslator.cpp:566
-msgctxt "OnlineTranslator|"
-msgid "Japanese"
-msgstr "Jepang"
-
-#: src/onlinetranslator/onlinetranslator.cpp:568
-msgctxt "OnlineTranslator|"
-msgid "Javanese"
-msgstr "Jawa"
-
-#: src/onlinetranslator/onlinetranslator.cpp:570
-msgctxt "OnlineTranslator|"
-msgid "Kannada"
-msgstr "Kannadaa"
-
-#: src/onlinetranslator/onlinetranslator.cpp:572
-msgctxt "OnlineTranslator|"
-msgid "Kazakh"
-msgstr "Kazakhtan"
-
-#: src/onlinetranslator/onlinetranslator.cpp:574
-msgctxt "OnlineTranslator|"
-msgid "Khmer"
-msgstr "Khmerr"
-
-#: src/onlinetranslator/onlinetranslator.cpp:576
-msgctxt "OnlineTranslator|"
-msgid "Kinyarwanda"
-msgstr "Kinyarwandaa"
-
-#: src/onlinetranslator/onlinetranslator.cpp:578
-msgctxt "OnlineTranslator|"
-msgid "Klingon"
-msgstr "Klingonn"
-
-#: src/onlinetranslator/onlinetranslator.cpp:580
-msgctxt "OnlineTranslator|"
-msgid "Klingon (PlqaD)"
-msgstr "Klingon (Plqad)"
-
-#: src/onlinetranslator/onlinetranslator.cpp:582
-msgctxt "OnlineTranslator|"
-msgid "Korean"
-msgstr "Korea"
-
-#: src/onlinetranslator/onlinetranslator.cpp:584
-msgctxt "OnlineTranslator|"
-msgid "Kurdish"
-msgstr "Kurdi"
-
-#: src/onlinetranslator/onlinetranslator.cpp:586
-msgctxt "OnlineTranslator|"
-msgid "Kyrgyz"
-msgstr "Kyrgyzz"
-
-#: src/onlinetranslator/onlinetranslator.cpp:588
-msgctxt "OnlineTranslator|"
-msgid "Lao"
-msgstr "Laos"
-
-#: src/onlinetranslator/onlinetranslator.cpp:590
-msgctxt "OnlineTranslator|"
-msgid "Latin"
-msgstr "Latinn"
-
-#: src/onlinetranslator/onlinetranslator.cpp:592
-msgctxt "OnlineTranslator|"
-msgid "Latvian"
-msgstr "Latvia"
-
-#: src/onlinetranslator/onlinetranslator.cpp:594
-msgctxt "OnlineTranslator|"
-msgid "Levantine Arabic"
-msgstr "Levantine Arabia"
-
-#: src/onlinetranslator/onlinetranslator.cpp:596
-msgctxt "OnlineTranslator|"
-msgid "Lithuanian"
-msgstr "Lithuania"
-
-#: src/onlinetranslator/onlinetranslator.cpp:598
-msgctxt "OnlineTranslator|"
-msgid "Luxembourgish"
-msgstr "Luxembourg"
-
-#: src/onlinetranslator/onlinetranslator.cpp:600
-msgctxt "OnlineTranslator|"
-msgid "Macedonian"
-msgstr "Makedonia"
-
-#: src/onlinetranslator/onlinetranslator.cpp:602
-msgctxt "OnlineTranslator|"
-msgid "Malagasy"
-msgstr "Malagasi"
-
-#: src/onlinetranslator/onlinetranslator.cpp:604
-msgctxt "OnlineTranslator|"
-msgid "Malay"
-msgstr "Melayu"
-
-#: src/onlinetranslator/onlinetranslator.cpp:606
-msgctxt "OnlineTranslator|"
-msgid "Malayalam"
-msgstr "Malayalam"
-
-#: src/onlinetranslator/onlinetranslator.cpp:608
-msgctxt "OnlineTranslator|"
-msgid "Maltese"
-msgstr "Malta"
-
-#: src/onlinetranslator/onlinetranslator.cpp:610
-msgctxt "OnlineTranslator|"
-msgid "Maori"
-msgstr "Maori"
-
-#: src/onlinetranslator/onlinetranslator.cpp:612
-msgctxt "OnlineTranslator|"
-msgid "Marathi"
-msgstr "Marathi"
-
-#: src/onlinetranslator/onlinetranslator.cpp:614
-msgctxt "OnlineTranslator|"
-msgid "Mari"
-msgstr "Hilll Mari"
-
-#: src/onlinetranslator/onlinetranslator.cpp:616
-msgctxt "OnlineTranslator|"
-msgid "Mongolian"
-msgstr "Mongolia"
-
-#: src/onlinetranslator/onlinetranslator.cpp:618
-msgctxt "OnlineTranslator|"
-msgid "Myanmar"
-msgstr "Myanmar"
-
-#: src/onlinetranslator/onlinetranslator.cpp:620
-msgctxt "OnlineTranslator|"
-msgid "Nepali"
-msgstr "Nepal"
-
-#: src/onlinetranslator/onlinetranslator.cpp:622
-msgctxt "OnlineTranslator|"
-msgid "Norwegian"
-msgstr "Norwegia"
-
-#: src/onlinetranslator/onlinetranslator.cpp:624
-msgctxt "OnlineTranslator|"
-msgid "Oriya"
-msgstr "Oriya"
-
-#: src/onlinetranslator/onlinetranslator.cpp:626
+#: src/onlinetranslator/onlinetranslator.cpp:557
 msgctxt "OnlineTranslator|"
 msgid "Chichewa"
 msgstr "Chichewa"
 
-#: src/onlinetranslator/onlinetranslator.cpp:628
+#: src/onlinetranslator/onlinetranslator.cpp:559
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Chinese (Traditional)"
 msgctxt "OnlineTranslator|"
-msgid "Papiamento"
+msgid "Chinese (Literary)"
+msgstr "Cina (tradisional)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:561
+msgctxt "OnlineTranslator|"
+msgid "Chinese (Simplified)"
+msgstr "Bahasa Tiongkok (yang disederhanakan)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:563
+msgctxt "OnlineTranslator|"
+msgid "Chinese (Traditional)"
+msgstr "Cina (tradisional)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:565
+msgctxt "OnlineTranslator|"
+msgid "Chuvash"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:567
+msgctxt "OnlineTranslator|"
+msgid "Comorian (Ngazidja)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:569
+msgctxt "OnlineTranslator|"
+msgid "Coptic"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:571
+msgctxt "OnlineTranslator|"
+msgid "Corsican"
+msgstr "Korsika"
+
+#: src/onlinetranslator/onlinetranslator.cpp:573
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Antigua and Barbuda)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:575
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Bahamas)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:577
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Grenadian)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:579
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Guyanese)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:581
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Jamaican)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:583
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Vincentian)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:585
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Virgin Islands)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:587
+msgctxt "OnlineTranslator|"
+msgid "Creole French (Saint Lucian)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:589
+msgctxt "OnlineTranslator|"
+msgid "Creole French (Seselwa)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:591
+msgctxt "OnlineTranslator|"
+msgid "Creole Portuguese (Upper Guinea)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:593
+msgctxt "OnlineTranslator|"
+msgid "Croatian"
+msgstr "Kroasia"
+
+#: src/onlinetranslator/onlinetranslator.cpp:595
+msgctxt "OnlineTranslator|"
+msgid "Czech"
+msgstr "Ceko"
+
+#: src/onlinetranslator/onlinetranslator.cpp:597
+msgctxt "OnlineTranslator|"
+msgid "Danish"
+msgstr "Orang Denmark"
+
+#: src/onlinetranslator/onlinetranslator.cpp:599
+msgctxt "OnlineTranslator|"
+msgid "Dari"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:601
+msgctxt "OnlineTranslator|"
+msgid "Divehi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:603
+msgctxt "OnlineTranslator|"
+msgid "Dogri"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:605
+msgctxt "OnlineTranslator|"
+msgid "Dutch"
+msgstr "Belanda"
+
+#: src/onlinetranslator/onlinetranslator.cpp:607
+msgctxt "OnlineTranslator|"
+msgid "Dzongkha"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:609
+msgctxt "OnlineTranslator|"
+msgid "Elvish (Sindarin)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:611
+msgctxt "OnlineTranslator|"
+msgid "Emoji"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:613
+msgctxt "OnlineTranslator|"
+msgid "English"
+msgstr "Inggris"
+
+#: src/onlinetranslator/onlinetranslator.cpp:615
+msgctxt "OnlineTranslator|"
+msgid "Esperanto"
+msgstr "Essperanto"
+
+#: src/onlinetranslator/onlinetranslator.cpp:617
+msgctxt "OnlineTranslator|"
+msgid "Estonian"
+msgstr "Estonia"
+
+#: src/onlinetranslator/onlinetranslator.cpp:619
+msgctxt "OnlineTranslator|"
+msgid "Ewe"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:621
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Tagalog"
+msgctxt "OnlineTranslator|"
+msgid "Fanagalo"
+msgstr "Tagalog"
+
+#: src/onlinetranslator/onlinetranslator.cpp:623
+msgctxt "OnlineTranslator|"
+msgid "Faroese"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:625
+msgctxt "OnlineTranslator|"
+msgid "Fijian"
+msgstr "Fiji"
+
+#: src/onlinetranslator/onlinetranslator.cpp:627
+msgctxt "OnlineTranslator|"
+msgid "Filipino"
+msgstr "Filipina"
+
+#: src/onlinetranslator/onlinetranslator.cpp:629
+msgctxt "OnlineTranslator|"
+msgid "Finnish"
+msgstr "Finlandia"
+
+#: src/onlinetranslator/onlinetranslator.cpp:631
+msgctxt "OnlineTranslator|"
+msgid "French"
+msgstr "Perancis"
+
+#: src/onlinetranslator/onlinetranslator.cpp:633
+msgctxt "OnlineTranslator|"
+msgid "French (Canada)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:635
+msgctxt "OnlineTranslator|"
+msgid "Frisian"
+msgstr "Frisia"
+
+#: src/onlinetranslator/onlinetranslator.cpp:637
+msgctxt "OnlineTranslator|"
+msgid "Galician"
+msgstr "Galicia"
+
+#: src/onlinetranslator/onlinetranslator.cpp:639
+msgctxt "OnlineTranslator|"
+msgid "Ganda"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:641
+msgctxt "OnlineTranslator|"
+msgid "Georgian"
+msgstr "Georgia"
+
+#: src/onlinetranslator/onlinetranslator.cpp:643
+msgctxt "OnlineTranslator|"
+msgid "German"
+msgstr "Jerman"
+
+#: src/onlinetranslator/onlinetranslator.cpp:645
+msgctxt "OnlineTranslator|"
+msgid "Greek"
+msgstr "Yunani"
+
+#: src/onlinetranslator/onlinetranslator.cpp:647
+msgctxt "OnlineTranslator|"
+msgid "Greek (Classical)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:649
+msgctxt "OnlineTranslator|"
+msgid "Guarani"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:651
+msgctxt "OnlineTranslator|"
+msgid "Gujarati"
+msgstr "Gujjarati"
+
+#: src/onlinetranslator/onlinetranslator.cpp:653
+msgctxt "OnlineTranslator|"
+msgid "Haitian Creole"
+msgstr "Creole Haiti"
+
+#: src/onlinetranslator/onlinetranslator.cpp:655
+msgctxt "OnlineTranslator|"
+msgid "Hausa"
+msgstr "Hausaa"
+
+#: src/onlinetranslator/onlinetranslator.cpp:657
+msgctxt "OnlineTranslator|"
+msgid "Hawaiian"
+msgstr "Hawaii"
+
+#: src/onlinetranslator/onlinetranslator.cpp:659
+msgctxt "OnlineTranslator|"
+msgid "Hebrew"
+msgstr "Ibrani"
+
+#: src/onlinetranslator/onlinetranslator.cpp:661
+msgctxt "OnlineTranslator|"
+msgid "Hill Mari"
+msgstr "Hilll Mari"
+
+#: src/onlinetranslator/onlinetranslator.cpp:663
+msgctxt "OnlineTranslator|"
+msgid "Hindi"
+msgstr "Hindi India"
+
+#: src/onlinetranslator/onlinetranslator.cpp:665
+msgctxt "OnlineTranslator|"
+msgid "Hmong"
+msgstr "Hmmong"
+
+#: src/onlinetranslator/onlinetranslator.cpp:667
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Hmong"
+msgctxt "OnlineTranslator|"
+msgid "Hmong Daw"
+msgstr "Hmmong"
+
+#: src/onlinetranslator/onlinetranslator.cpp:669
+msgctxt "OnlineTranslator|"
+msgid "Hungarian"
+msgstr "Hongaria"
+
+#: src/onlinetranslator/onlinetranslator.cpp:671
+msgctxt "OnlineTranslator|"
+msgid "Icelandic"
+msgstr "Islandia"
+
+#: src/onlinetranslator/onlinetranslator.cpp:673
+msgctxt "OnlineTranslator|"
+msgid "Igbo"
+msgstr "Igboo"
+
+#: src/onlinetranslator/onlinetranslator.cpp:675
+msgctxt "OnlineTranslator|"
+msgid "Ilocano"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:677
+msgctxt "OnlineTranslator|"
+msgid "Indonesian"
+msgstr "Bahasa Indonesia"
+
+#: src/onlinetranslator/onlinetranslator.cpp:679
+msgctxt "OnlineTranslator|"
+msgid "Inuinnaqtun"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:681
+msgctxt "OnlineTranslator|"
+msgid "Inuktitut"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:683
+msgctxt "OnlineTranslator|"
+msgid "Inuktitut (Greenlandic)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:685
+msgctxt "OnlineTranslator|"
+msgid "Inuktitut (Latin)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:687
+msgctxt "OnlineTranslator|"
+msgid "Irish"
+msgstr "Orang Irlandia"
+
+#: src/onlinetranslator/onlinetranslator.cpp:689
+msgctxt "OnlineTranslator|"
+msgid "Italian"
+msgstr "Italia"
+
+#: src/onlinetranslator/onlinetranslator.cpp:691
+msgctxt "OnlineTranslator|"
+msgid "Japanese"
+msgstr "Jepang"
+
+#: src/onlinetranslator/onlinetranslator.cpp:693
+msgctxt "OnlineTranslator|"
+msgid "Javanese"
+msgstr "Jawa"
+
+#: src/onlinetranslator/onlinetranslator.cpp:695
+msgctxt "OnlineTranslator|"
+msgid "Kabuverdianu"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:697
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Italian"
+msgctxt "OnlineTranslator|"
+msgid "Kabylian"
+msgstr "Italia"
+
+#: src/onlinetranslator/onlinetranslator.cpp:699
+msgctxt "OnlineTranslator|"
+msgid "Kannada"
+msgstr "Kannadaa"
+
+#: src/onlinetranslator/onlinetranslator.cpp:701
+msgctxt "OnlineTranslator|"
+msgid "Kazakh"
+msgstr "Kazakhtan"
+
+#: src/onlinetranslator/onlinetranslator.cpp:703
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Serbian (Latin)"
+msgctxt "OnlineTranslator|"
+msgid "Kazakh (Latin)"
+msgstr "Serbian (Latin)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:705
+msgctxt "OnlineTranslator|"
+msgid "Khmer"
+msgstr "Khmerr"
+
+#: src/onlinetranslator/onlinetranslator.cpp:707
+msgctxt "OnlineTranslator|"
+msgid "Kinyarwanda"
+msgstr "Kinyarwandaa"
+
+#: src/onlinetranslator/onlinetranslator.cpp:709
+msgctxt "OnlineTranslator|"
+msgid "Kirundi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:711
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Klingon (PlqaD)"
+msgctxt "OnlineTranslator|"
+msgid "Klingon (Latin)"
+msgstr "Klingon (Plqad)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:713
+msgctxt "OnlineTranslator|"
+msgid "Konkani"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:715
+msgctxt "OnlineTranslator|"
+msgid "Korean"
+msgstr "Korea"
+
+#: src/onlinetranslator/onlinetranslator.cpp:717
+msgctxt "OnlineTranslator|"
+msgid "Krio"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:719
+msgctxt "OnlineTranslator|"
+msgid "Kurdish (Central)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:721
+msgctxt "OnlineTranslator|"
+msgid "Kurdish (Northern)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:723
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Kurdish"
+msgctxt "OnlineTranslator|"
+msgid "Kurdish (Sorani)"
+msgstr "Kurdi"
+
+#: src/onlinetranslator/onlinetranslator.cpp:725
+msgctxt "OnlineTranslator|"
+msgid "Kyrgyz"
+msgstr "Kyrgyzz"
+
+#: src/onlinetranslator/onlinetranslator.cpp:727
+msgctxt "OnlineTranslator|"
+msgid "Lao"
+msgstr "Laos"
+
+#: src/onlinetranslator/onlinetranslator.cpp:729
+msgctxt "OnlineTranslator|"
+msgid "Latin"
+msgstr "Latinn"
+
+#: src/onlinetranslator/onlinetranslator.cpp:731
+msgctxt "OnlineTranslator|"
+msgid "Latvian"
+msgstr "Latvia"
+
+#: src/onlinetranslator/onlinetranslator.cpp:733
+msgctxt "OnlineTranslator|"
+msgid "Lingala"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:735
+msgctxt "OnlineTranslator|"
+msgid "Lithuanian"
+msgstr "Lithuania"
+
+#: src/onlinetranslator/onlinetranslator.cpp:737
+msgctxt "OnlineTranslator|"
+msgid "Lower Sorbian"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:739
+msgctxt "OnlineTranslator|"
+msgid "Luganda"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:741
+msgctxt "OnlineTranslator|"
+msgid "Luxembourgish"
+msgstr "Luxembourg"
+
+#: src/onlinetranslator/onlinetranslator.cpp:743
+msgctxt "OnlineTranslator|"
+msgid "Macedonian"
+msgstr "Makedonia"
+
+#: src/onlinetranslator/onlinetranslator.cpp:745
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Swahili"
+msgctxt "OnlineTranslator|"
+msgid "Maithili"
+msgstr "Swahili"
+
+#: src/onlinetranslator/onlinetranslator.cpp:747
+msgctxt "OnlineTranslator|"
+msgid "Malagasy"
+msgstr "Malagasi"
+
+#: src/onlinetranslator/onlinetranslator.cpp:749
+msgctxt "OnlineTranslator|"
+msgid "Malay"
+msgstr "Melayu"
+
+#: src/onlinetranslator/onlinetranslator.cpp:751
+msgctxt "OnlineTranslator|"
+msgid "Malayalam"
+msgstr "Malayalam"
+
+#: src/onlinetranslator/onlinetranslator.cpp:753
+msgctxt "OnlineTranslator|"
+msgid "Maltese"
+msgstr "Malta"
+
+#: src/onlinetranslator/onlinetranslator.cpp:755
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Scots Gaelic"
+msgctxt "OnlineTranslator|"
+msgid "Manx Gaelic"
+msgstr "Scots Gaelic"
+
+#: src/onlinetranslator/onlinetranslator.cpp:757
+msgctxt "OnlineTranslator|"
+msgid "Marathi"
+msgstr "Marathi"
+
+#: src/onlinetranslator/onlinetranslator.cpp:759
+msgctxt "OnlineTranslator|"
+msgid "Mari"
+msgstr "Hilll Mari"
+
+#: src/onlinetranslator/onlinetranslator.cpp:761
+msgctxt "OnlineTranslator|"
+msgid "Marshallese"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:763
+msgctxt "OnlineTranslator|"
+msgid "Meiteilon (Manipuri)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:765
+msgctxt "OnlineTranslator|"
+msgid "Mende"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:767
+msgctxt "OnlineTranslator|"
+msgid "Mizo"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:769
+msgctxt "OnlineTranslator|"
+msgid "Mongolian"
+msgstr "Mongolia"
+
+#: src/onlinetranslator/onlinetranslator.cpp:771
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Serbian (Cyrillic)"
+msgctxt "OnlineTranslator|"
+msgid "Mongolian (Cyrillic)"
+msgstr "Serbia (Cyrillic)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:773
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Chinese (Traditional)"
+msgctxt "OnlineTranslator|"
+msgid "Mongolian (Traditional)"
+msgstr "Cina (tradisional)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:775
+msgctxt "OnlineTranslator|"
+msgid "Morisyen"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:777
+msgctxt "OnlineTranslator|"
+msgid "Myanmar (Burmese)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:779
+msgctxt "OnlineTranslator|"
+msgid "Māori"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:781
+msgctxt "OnlineTranslator|"
+msgid "Nepali"
+msgstr "Nepal"
+
+#: src/onlinetranslator/onlinetranslator.cpp:783
+msgctxt "OnlineTranslator|"
+msgid "Niuean"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:785
+msgctxt "OnlineTranslator|"
+msgid "Norwegian"
+msgstr "Norwegia"
+
+#: src/onlinetranslator/onlinetranslator.cpp:787
+msgctxt "OnlineTranslator|"
+msgid "Nyanja"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:789
+msgctxt "OnlineTranslator|"
+msgid "Odia"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:791
+msgctxt "OnlineTranslator|"
+msgid "Oromo"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:793
+msgctxt "OnlineTranslator|"
+msgid "Palauan"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:795
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Papiamento"
+msgctxt "OnlineTranslator|"
+msgid "Papiamentu"
 msgstr "Papiamento"
 
-#: src/onlinetranslator/onlinetranslator.cpp:630
+#: src/onlinetranslator/onlinetranslator.cpp:797
 msgctxt "OnlineTranslator|"
 msgid "Pashto"
 msgstr "Pashto"
 
-#: src/onlinetranslator/onlinetranslator.cpp:632
+#: src/onlinetranslator/onlinetranslator.cpp:799
 msgctxt "OnlineTranslator|"
 msgid "Persian"
 msgstr "Orang Persia"
 
-#: src/onlinetranslator/onlinetranslator.cpp:634
+#: src/onlinetranslator/onlinetranslator.cpp:801
+msgctxt "OnlineTranslator|"
+msgid "Pijin"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:803
 msgctxt "OnlineTranslator|"
 msgid "Polish"
 msgstr "Polandia"
 
-#: src/onlinetranslator/onlinetranslator.cpp:636
+#: src/onlinetranslator/onlinetranslator.cpp:805
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Portuguese"
 msgctxt "OnlineTranslator|"
-msgid "Portuguese"
+msgid "Portuguese (Brazilian)"
 msgstr "Portugis"
 
-#: src/onlinetranslator/onlinetranslator.cpp:638
+#: src/onlinetranslator/onlinetranslator.cpp:807
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Portuguese"
+msgctxt "OnlineTranslator|"
+msgid "Portuguese (Portugal)"
+msgstr "Portugis"
+
+#: src/onlinetranslator/onlinetranslator.cpp:809
+msgctxt "OnlineTranslator|"
+msgid "Potawatomi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:811
 msgctxt "OnlineTranslator|"
 msgid "Punjabi"
 msgstr "Punjabi"
 
-#: src/onlinetranslator/onlinetranslator.cpp:640
+#: src/onlinetranslator/onlinetranslator.cpp:813
 msgctxt "OnlineTranslator|"
-msgid "Queretaro Otomi"
+msgid "Quechua"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:815
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Queretaro Otomi"
+msgctxt "OnlineTranslator|"
+msgid "Querétaro Otomi"
 msgstr "Queretaro Otomi"
 
-#: src/onlinetranslator/onlinetranslator.cpp:642
+#: src/onlinetranslator/onlinetranslator.cpp:817
 msgctxt "OnlineTranslator|"
 msgid "Romanian"
 msgstr "Rumania"
 
-#: src/onlinetranslator/onlinetranslator.cpp:644
+#: src/onlinetranslator/onlinetranslator.cpp:819
+msgctxt "OnlineTranslator|"
+msgid "Rundi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:821
 msgctxt "OnlineTranslator|"
 msgid "Russian"
 msgstr "Rusia"
 
-#: src/onlinetranslator/onlinetranslator.cpp:646
+#: src/onlinetranslator/onlinetranslator.cpp:823
 msgctxt "OnlineTranslator|"
 msgid "Samoan"
 msgstr "Samoa"
 
-#: src/onlinetranslator/onlinetranslator.cpp:648
+#: src/onlinetranslator/onlinetranslator.cpp:825
+msgctxt "OnlineTranslator|"
+msgid "Sango"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:827
+msgctxt "OnlineTranslator|"
+msgid "Sanskrit"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:829
 msgctxt "OnlineTranslator|"
 msgid "Scots Gaelic"
 msgstr "Scots Gaelic"
 
-#: src/onlinetranslator/onlinetranslator.cpp:650
+#: src/onlinetranslator/onlinetranslator.cpp:831
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Cyrillic)"
 msgstr "Serbia (Cyrillic)"
 
-#: src/onlinetranslator/onlinetranslator.cpp:652
+#: src/onlinetranslator/onlinetranslator.cpp:833
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Latin)"
 msgstr "Serbian (Latin)"
 
-#: src/onlinetranslator/onlinetranslator.cpp:654
+#: src/onlinetranslator/onlinetranslator.cpp:835
 msgctxt "OnlineTranslator|"
 msgid "Sesotho"
 msgstr "Sesotho"
 
-#: src/onlinetranslator/onlinetranslator.cpp:656
+#: src/onlinetranslator/onlinetranslator.cpp:837
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Sesotho"
+msgctxt "OnlineTranslator|"
+msgid "Sesotho sa Leboa"
+msgstr "Sesotho"
+
+#: src/onlinetranslator/onlinetranslator.cpp:839
+msgctxt "OnlineTranslator|"
+msgid "Setswana"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:841
 msgctxt "OnlineTranslator|"
 msgid "Shona"
 msgstr "Shona"
 
-#: src/onlinetranslator/onlinetranslator.cpp:658
+#: src/onlinetranslator/onlinetranslator.cpp:843
 msgctxt "OnlineTranslator|"
 msgid "Sindhi"
 msgstr "Sindhi"
 
-#: src/onlinetranslator/onlinetranslator.cpp:660
+#: src/onlinetranslator/onlinetranslator.cpp:845
 msgctxt "OnlineTranslator|"
 msgid "Sinhala"
 msgstr "Sinhala"
 
-#: src/onlinetranslator/onlinetranslator.cpp:662
+#: src/onlinetranslator/onlinetranslator.cpp:847
 msgctxt "OnlineTranslator|"
 msgid "Slovak"
 msgstr "Orang Slovakia"
 
-#: src/onlinetranslator/onlinetranslator.cpp:664
+#: src/onlinetranslator/onlinetranslator.cpp:849
 msgctxt "OnlineTranslator|"
 msgid "Slovenian"
 msgstr "Slovenia"
 
-#: src/onlinetranslator/onlinetranslator.cpp:666
+#: src/onlinetranslator/onlinetranslator.cpp:851
 msgctxt "OnlineTranslator|"
 msgid "Somali"
 msgstr "Somalia"
 
-#: src/onlinetranslator/onlinetranslator.cpp:668
+#: src/onlinetranslator/onlinetranslator.cpp:853
 msgctxt "OnlineTranslator|"
 msgid "Spanish"
 msgstr "Orang Spanyol"
 
-#: src/onlinetranslator/onlinetranslator.cpp:670
+#: src/onlinetranslator/onlinetranslator.cpp:855
+msgctxt "OnlineTranslator|"
+msgid "Sranan Tongo"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:857
 msgctxt "OnlineTranslator|"
 msgid "Sundanese"
 msgstr "Sunda"
 
-#: src/onlinetranslator/onlinetranslator.cpp:672
+#: src/onlinetranslator/onlinetranslator.cpp:859
 msgctxt "OnlineTranslator|"
 msgid "Swahili"
 msgstr "Swahili"
 
-#: src/onlinetranslator/onlinetranslator.cpp:674
+#: src/onlinetranslator/onlinetranslator.cpp:861
 msgctxt "OnlineTranslator|"
 msgid "Swedish"
 msgstr "Orang Swedia"
 
-#: src/onlinetranslator/onlinetranslator.cpp:676
+#: src/onlinetranslator/onlinetranslator.cpp:863
 msgctxt "OnlineTranslator|"
-msgid "Tagalog"
-msgstr "Tagalog"
+msgid "Syriac (Aramaic)"
+msgstr ""
 
-#: src/onlinetranslator/onlinetranslator.cpp:678
+#: src/onlinetranslator/onlinetranslator.cpp:865
 msgctxt "OnlineTranslator|"
 msgid "Tahitian"
 msgstr "Tahitian"
 
-#: src/onlinetranslator/onlinetranslator.cpp:680
+#: src/onlinetranslator/onlinetranslator.cpp:867
 msgctxt "OnlineTranslator|"
 msgid "Tajik"
 msgstr "Tajik"
 
-#: src/onlinetranslator/onlinetranslator.cpp:682
+#: src/onlinetranslator/onlinetranslator.cpp:869
+msgctxt "OnlineTranslator|"
+msgid "Tamashek (Tuareg)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:871
 msgctxt "OnlineTranslator|"
 msgid "Tamil"
 msgstr "Tamil"
 
-#: src/onlinetranslator/onlinetranslator.cpp:684
+#: src/onlinetranslator/onlinetranslator.cpp:873
 msgctxt "OnlineTranslator|"
 msgid "Tatar"
 msgstr "Tatar"
 
-#: src/onlinetranslator/onlinetranslator.cpp:686
+#: src/onlinetranslator/onlinetranslator.cpp:875
 msgctxt "OnlineTranslator|"
 msgid "Telugu"
 msgstr "Telugu"
 
-#: src/onlinetranslator/onlinetranslator.cpp:688
+#: src/onlinetranslator/onlinetranslator.cpp:877
+msgctxt "OnlineTranslator|"
+msgid "Tetum"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:879
 msgctxt "OnlineTranslator|"
 msgid "Thai"
 msgstr "Thai"
 
-#: src/onlinetranslator/onlinetranslator.cpp:690
+#: src/onlinetranslator/onlinetranslator.cpp:881
+msgctxt "OnlineTranslator|"
+msgid "Tibetan"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:883
+msgctxt "OnlineTranslator|"
+msgid "Tigrinya"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:885
+msgctxt "OnlineTranslator|"
+msgid "Tok Pisin"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:887
+msgctxt "OnlineTranslator|"
+msgid "Tokelauan"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:889
 msgctxt "OnlineTranslator|"
 msgid "Tongan"
 msgstr "Tonga"
 
-#: src/onlinetranslator/onlinetranslator.cpp:692
+#: src/onlinetranslator/onlinetranslator.cpp:891
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Tongan"
+msgctxt "OnlineTranslator|"
+msgid "Tsonga"
+msgstr "Tonga"
+
+#: src/onlinetranslator/onlinetranslator.cpp:893
 msgctxt "OnlineTranslator|"
 msgid "Turkish"
 msgstr "Turki"
 
-#: src/onlinetranslator/onlinetranslator.cpp:694
+#: src/onlinetranslator/onlinetranslator.cpp:895
 msgctxt "OnlineTranslator|"
 msgid "Turkmen"
 msgstr "Turkmen"
 
-#: src/onlinetranslator/onlinetranslator.cpp:696
+#: src/onlinetranslator/onlinetranslator.cpp:897
+msgctxt "OnlineTranslator|"
+msgid "Tuvaluan"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:899
+msgctxt "OnlineTranslator|"
+msgid "Twi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:901
 msgctxt "OnlineTranslator|"
 msgid "Udmurt"
 msgstr "Udmurt"
 
-#: src/onlinetranslator/onlinetranslator.cpp:698
-msgctxt "OnlineTranslator|"
-msgid "Uighur"
-msgstr "Uighur"
-
-#: src/onlinetranslator/onlinetranslator.cpp:700
+#: src/onlinetranslator/onlinetranslator.cpp:903
 msgctxt "OnlineTranslator|"
 msgid "Ukrainian"
 msgstr "Ukrainia"
 
-#: src/onlinetranslator/onlinetranslator.cpp:702
+#: src/onlinetranslator/onlinetranslator.cpp:905
+msgctxt "OnlineTranslator|"
+msgid "Uma"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:907
+msgctxt "OnlineTranslator|"
+msgid "Upper Sorbian"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:909
 msgctxt "OnlineTranslator|"
 msgid "Urdu"
 msgstr "Urdu"
 
-#: src/onlinetranslator/onlinetranslator.cpp:704
+#: src/onlinetranslator/onlinetranslator.cpp:911
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Uighur"
 msgctxt "OnlineTranslator|"
-msgid "Uzbek"
-msgstr "Uzbekistan"
+msgid "Uyghur"
+msgstr "Uighur"
 
-#: src/onlinetranslator/onlinetranslator.cpp:706
+#: src/onlinetranslator/onlinetranslator.cpp:913
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Serbian (Cyrillic)"
+msgctxt "OnlineTranslator|"
+msgid "Uzbek (Cyrillic)"
+msgstr "Serbia (Cyrillic)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:915
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Serbian (Latin)"
+msgctxt "OnlineTranslator|"
+msgid "Uzbek (Latin)"
+msgstr "Serbian (Latin)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:917
 msgctxt "OnlineTranslator|"
 msgid "Vietnamese"
 msgstr "Vietnam"
 
-#: src/onlinetranslator/onlinetranslator.cpp:708
+#: src/onlinetranslator/onlinetranslator.cpp:919
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Frisian"
+msgctxt "OnlineTranslator|"
+msgid "Wallisian"
+msgstr "Frisia"
+
+#: src/onlinetranslator/onlinetranslator.cpp:921
 msgctxt "OnlineTranslator|"
 msgid "Welsh"
 msgstr "Welsh"
 
-#: src/onlinetranslator/onlinetranslator.cpp:710
+#: src/onlinetranslator/onlinetranslator.cpp:923
+msgctxt "OnlineTranslator|"
+msgid "Wolof"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:925
 msgctxt "OnlineTranslator|"
 msgid "Xhosa"
 msgstr "Xhosa"
 
-#: src/onlinetranslator/onlinetranslator.cpp:712
+#: src/onlinetranslator/onlinetranslator.cpp:927
+msgctxt "OnlineTranslator|"
+msgid "Yakut"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:929
 msgctxt "OnlineTranslator|"
 msgid "Yiddish"
 msgstr "Yiddis"
 
-#: src/onlinetranslator/onlinetranslator.cpp:714
+#: src/onlinetranslator/onlinetranslator.cpp:931
 msgctxt "OnlineTranslator|"
 msgid "Yoruba"
 msgstr "Yoruba"
 
-#: src/onlinetranslator/onlinetranslator.cpp:716
+#: src/onlinetranslator/onlinetranslator.cpp:933
 msgctxt "OnlineTranslator|"
 msgid "Yucatec Maya"
 msgstr "Yucatec Maya"
 
-#: src/onlinetranslator/onlinetranslator.cpp:718
+#: src/onlinetranslator/onlinetranslator.cpp:935
 msgctxt "OnlineTranslator|"
 msgid "Zulu"
 msgstr "Zulu"
 
-#: src/onlinetranslator/onlinetranslator.cpp:1211
-#: src/onlinetranslator/onlinetranslator.cpp:1220
+#: src/onlinetranslator/onlinetranslator.cpp:1263
+#, qt-format
 msgctxt "OnlineTranslator|"
-msgid ""
-"Error: Engine systems have detected suspicious traffic from your computer "
-"network. Please try your request again later."
+msgid "Instance error: %1"
 msgstr ""
-"GALAT: Sistem mesin telah mendeteksi jalur yang mencurigakan dari jaringan "
-"komputer Anda. Silahkan coba lagi permintaan Anda lain kali."
 
-#: src/onlinetranslator/onlinetranslator.cpp:1232
-#: src/onlinetranslator/onlinetranslator.cpp:1343
-#: src/onlinetranslator/onlinetranslator.cpp:1553
-#: src/onlinetranslator/onlinetranslator.cpp:1647
+#: src/onlinetranslator/onlinetranslator.cpp:1277
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
 msgstr "Kesalahan: Tidak dapat menguraikan bahasa deteksi otomatis"
-
-#: src/onlinetranslator/onlinetranslator.cpp:1459
-msgctxt "OnlineTranslator|"
-msgid "Error: Unable to find Bing credentials in web version."
-msgstr "Kesalahan: Tidak dapat menemukan kredensial Bing di versi web."
-
-#: src/onlinetranslator/onlinetranslator.cpp:1466
-msgctxt "OnlineTranslator|"
-msgid "Error: Unable to extract Bing key from web version."
-msgstr "Kesalahan: Tidak dapat mengekstrak kunci Bing dari versi web."
-
-#: src/onlinetranslator/onlinetranslator.cpp:1474
-msgctxt "OnlineTranslator|"
-msgid "Error: Unable to extract Bing token from web version."
-msgstr "Kesalahan: Tidak dapat mengekstrak token Bing dari versi web."
-
-#: src/onlinetranslator/onlinetranslator.cpp:1486
-#: src/onlinetranslator/onlinetranslator.cpp:1495
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Error: Unable to extract Bing token from web version."
-msgctxt "OnlineTranslator|"
-msgid "Error: Unable to extract additional Bing information from web version."
-msgstr "Kesalahan: Tidak dapat mengekstrak token Bing dari versi web."
-
-#: src/onlinetranslator/onlinetranslator.cpp:1545
-msgctxt "OnlineTranslator|"
-msgid "Error: Bing return unhandled network error"
-msgstr ""
-
-#: src/onlinetranslator/onlinetts.cpp:64
-#, qt-format
-msgctxt "OnlineTts|"
-msgid "Selected engine %1 does not support voice settings"
-msgstr "Mesin yang dipilih %1 tidak mendukung pengaturan suara"
-
-#: src/onlinetranslator/onlinetts.cpp:69
-#, qt-format
-msgctxt "OnlineTts|"
-msgid "Selected engine %1 does not support emotion settings"
-msgstr "Mesin yang dipilih %1 tidak mendukung pengaturan emosi"
-
-#: src/onlinetranslator/onlinetts.cpp:130
-#, qt-format
-msgctxt "OnlineTts|"
-msgid "%1 engine does not support TTS"
-msgstr "%1 mesin tidak mendukung TTS"
-
-#: src/onlinetranslator/onlinetts.cpp:216
-#, qt-format
-msgctxt "OnlineTts|"
-msgid "Selected language %1 is not supported for %2"
-msgstr "Bahasa yang dipilih %1 tidak didukung untuk %2"
-
-#: src/onlinetranslator/onlinetts.cpp:228
-#, qt-format
-msgctxt "OnlineTts|"
-msgid "Selected voice %1 is not supported for %2"
-msgstr "Suara yang dipilih %1 tidak didukung untuk %2"
-
-#: src/onlinetranslator/onlinetts.cpp:240
-#, fuzzy, qt-format
-#| msgctxt "OnlineTts|"
-#| msgid "Selected emotion %1 is not supported for %2"
-msgctxt "OnlineTts|"
-msgid "Selected emotion %1 is not supported by %2"
-msgstr "Emosi yang dipilih %1 tidak didukung untuk %2"
 
 #: src/popupwindow.ui:32
 msgctxt "PopupWindow|"
@@ -1249,17 +1680,17 @@ msgctxt "PopupWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "Salin sumber teks ke papanklip"
 
-#: src/popupwindow.ui:140
+#: src/popupwindow.ui:158
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "Salin semua data terjemahan ke papanklip"
 
-#: src/popupwindow.ui:151
+#: src/popupwindow.ui:169
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Salin terjemahan ke papanklip"
 
-#: src/settings/appsettings.cpp:1234
+#: src/settings/appsettings.cpp:1064
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1308,12 +1739,12 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "Tidak dapat menghapus %1 dari %2"
 
-#: src/settings/settingsdialog.cpp:34
+#: src/settings/settingsdialog.cpp:31
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Mode portabel"
 
-#: src/settings/settingsdialog.cpp:47
+#: src/settings/settingsdialog.cpp:44
 #, fuzzy, qt-format
 #| msgctxt "SettingsDialog|"
 #| msgid "Use system settings"
@@ -1321,136 +1752,98 @@ msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Gunakan pengaturan sistem"
 
-#: src/settings/settingsdialog.cpp:59 src/settings/settingsdialog.cpp:90
-#: src/settings/settingsdialog.cpp:91
+#: src/settings/settingsdialog.cpp:49 src/settings/settingsdialog.cpp:80
+#: src/settings/settingsdialog.cpp:81
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Bahasa sistem>"
 
-#: src/settings/settingsdialog.cpp:126
+#: src/settings/settingsdialog.cpp:115
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Ikon:"
 
-#: src/settings/settingsdialog.cpp:139
-msgctxt "SettingsDialog|"
-msgid "Happy New Year!"
-msgstr "Selamat Tahun Baru!"
-
-#: src/settings/settingsdialog.cpp:153
+#: src/settings/settingsdialog.cpp:137
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "Baris parameter OCR tidak bisa kosong."
 
-#: src/settings/settingsdialog.cpp:154
+#: src/settings/settingsdialog.cpp:138
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Apakah kamu ingin membuang parameter yang tidak valid?"
 
-#: src/settings/settingsdialog.cpp:301
+#: src/settings/settingsdialog.cpp:278
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Pilih ikon"
 
-#: src/settings/settingsdialog.cpp:301
+#: src/settings/settingsdialog.cpp:278
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Gambar (*.png *.svg *.jpg);;semua berkas()"
 
-#: src/settings/settingsdialog.cpp:314
+#: src/settings/settingsdialog.cpp:291
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Pilih jalur/path bahasa OCR"
 
-#: src/settings/settingsdialog.cpp:363 src/settings/settingsdialog.ui:1303
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Default"
-msgctxt "SettingsDialog|"
-msgid "Default region"
-msgstr "Bawaan"
-
-#: src/settings/settingsdialog.cpp:366
-msgctxt "SettingsDialog|"
-msgid "Mandarin (China)"
-msgstr ""
-
-#: src/settings/settingsdialog.cpp:525
+#: src/settings/settingsdialog.cpp:432
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Kembali"
-
-#: src/settings/settingsdialog.cpp:628
-msgctxt "SettingsDialog|"
-msgid "Nothing to play"
-msgstr "Tidak ada yang bisa dijalankan"
-
-#: src/settings/settingsdialog.cpp:628
-msgctxt "SettingsDialog|"
-msgid "Playback text is empty"
-msgstr "Teks pemutaran kosong"
-
-#: src/settings/settingsdialog.cpp:638
-msgctxt "SettingsDialog|"
-msgid "Unable to detect language"
-msgstr "Tidak dapat mendeteksi bahasa"
 
 #: src/settings/settingsdialog.ui:14
 msgctxt "SettingsDialog|"
 msgid "Settings"
 msgstr "Pengaturan"
 
-#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:136
+#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:135
 msgctxt "SettingsDialog|"
 msgid "General"
 msgstr "Umum"
 
-#: src/settings/settingsdialog.ui:57
+#: src/settings/settingsdialog.ui:58
 msgctxt "SettingsDialog|"
 msgid "Interface"
 msgstr "Antarmuka"
 
-#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:639
+#: src/settings/settingsdialog.ui:67 src/settings/settingsdialog.ui:642
 msgctxt "SettingsDialog|"
 msgid "Translation"
 msgstr "Terjemahan"
 
-#: src/settings/settingsdialog.ui:81
-msgctxt "SettingsDialog|"
-msgid "Speech synthesis"
-msgstr "Sintesis ucapan"
-
-#: src/settings/settingsdialog.ui:89
+#: src/settings/settingsdialog.ui:85
 msgctxt "SettingsDialog|"
 msgid "Connection"
 msgstr "Koneksi"
 
-#: src/settings/settingsdialog.ui:97
+#: src/settings/settingsdialog.ui:94
 msgctxt "SettingsDialog|"
 msgid "Shortcuts"
 msgstr "Pintasan"
 
-#: src/settings/settingsdialog.ui:105
+#: src/settings/settingsdialog.ui:103
 msgctxt "SettingsDialog|"
 msgid "About"
 msgstr "Tentang"
 
-#: src/settings/settingsdialog.ui:148
+#: src/settings/settingsdialog.ui:147
 msgctxt "SettingsDialog|"
 msgid "Language:"
 msgstr "Bahasa:"
 
-#: src/settings/settingsdialog.ui:155
+#: src/settings/settingsdialog.ui:154
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Interface language</p></body></html>"
 msgstr "<html><head/><body><p>Antarmuka bahasa</p></body& gt;</html>"
 
-#: src/settings/settingsdialog.ui:162
+#: src/settings/settingsdialog.ui:161
 msgctxt "SettingsDialog|"
 msgid "Main window orientation:"
 msgstr "Orientasi jendela utama:"
 
-#: src/settings/settingsdialog.ui:169
+#: src/settings/settingsdialog.ui:168
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Orientation of the main window layout<br/>When using "
@@ -1462,29 +1855,29 @@ msgstr ""
 "jendela akan cocok dengan orientasi layar</p></body></html>"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:173
+#: src/settings/settingsdialog.ui:172
 msgctxt "SettingsDialog|"
 msgid "Auto"
 msgstr "Otomatis"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:178
+#: src/settings/settingsdialog.ui:177
 msgctxt "SettingsDialog|"
 msgid "Portrait"
 msgstr "Potret"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:183
+#: src/settings/settingsdialog.ui:182
 msgctxt "SettingsDialog|"
 msgid "Landscape"
 msgstr "Lansekap"
 
-#: src/settings/settingsdialog.ui:191
+#: src/settings/settingsdialog.ui:190
 msgctxt "SettingsDialog|"
 msgid "Translation mode:"
 msgstr "Mode terjemahan:"
 
-#: src/settings/settingsdialog.ui:198
+#: src/settings/settingsdialog.ui:197
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>A window for translating selected text. If the "
@@ -1495,27 +1888,27 @@ msgstr ""
 "Jika aplikasi dikecilkan, jendela utama akan selalu digunakan.</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:202 src/settings/settingsdialog.ui:351
+#: src/settings/settingsdialog.ui:201 src/settings/settingsdialog.ui:350
 msgctxt "SettingsDialog|"
 msgid "Pop-up window"
 msgstr "Jendela pop-up"
 
-#: src/settings/settingsdialog.ui:207
+#: src/settings/settingsdialog.ui:206
 msgctxt "SettingsDialog|"
 msgid "Main window"
 msgstr "Jendela utama"
 
-#: src/settings/settingsdialog.ui:212
+#: src/settings/settingsdialog.ui:211
 msgctxt "SettingsDialog|"
 msgid "Notification"
 msgstr "Pemberitahuan"
 
-#: src/settings/settingsdialog.ui:220
+#: src/settings/settingsdialog.ui:219
 msgctxt "SettingsDialog|"
 msgid "Translation notification timeout:"
 msgstr "Batas waktu pemberitahuan terjemahan:"
 
-#: src/settings/settingsdialog.ui:233
+#: src/settings/settingsdialog.ui:232
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Notification with translation display time</p></body></"
@@ -1524,22 +1917,22 @@ msgstr ""
 "<html><head/><body><p>Notifikasi dengan tampilan waktu terjemahan</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:236 src/settings/settingsdialog.ui:441
+#: src/settings/settingsdialog.ui:235 src/settings/settingsdialog.ui:440
 msgctxt "SettingsDialog|"
 msgid " sec"
 msgstr " det"
 
-#: src/settings/settingsdialog.ui:249
+#: src/settings/settingsdialog.ui:248
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Display icon in the system tray</p></body></html>"
 msgstr "<html><head/><body><p>Tampilan ikon di baki sistem</p></body></html>"
 
-#: src/settings/settingsdialog.ui:252
+#: src/settings/settingsdialog.ui:251
 msgctxt "SettingsDialog|"
 msgid "Show tray icon"
 msgstr "Tampilkan ikon baki"
 
-#: src/settings/settingsdialog.ui:262
+#: src/settings/settingsdialog.ui:261
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Start application minimized to the system tray</p></"
@@ -1548,46 +1941,46 @@ msgstr ""
 "<html><head/><body><p>Mulai aplikasi diminimalkan ke baki sistem</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:265
+#: src/settings/settingsdialog.ui:264
 msgctxt "SettingsDialog|"
 msgid "Start minimized"
 msgstr "Mulai diminimalkan"
 
-#: src/settings/settingsdialog.ui:272
+#: src/settings/settingsdialog.ui:271
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Run the application at system startup</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Jalankan aplikasi pada startup sistem</p></body></html>"
 
-#: src/settings/settingsdialog.ui:275
+#: src/settings/settingsdialog.ui:274
 msgctxt "SettingsDialog|"
 msgid "Launch at startup"
 msgstr "Luncurkan saat startup"
 
-#: src/settings/settingsdialog.ui:308
+#: src/settings/settingsdialog.ui:307
 msgctxt "SettingsDialog|"
 msgid "Font"
 msgstr "Font"
 
-#: src/settings/settingsdialog.ui:314
+#: src/settings/settingsdialog.ui:313
 msgctxt "SettingsDialog|"
 msgid "Name:"
 msgstr "Nama:"
 
-#: src/settings/settingsdialog.ui:321
+#: src/settings/settingsdialog.ui:320
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Translation and source text font</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Terjemahan dan font sumber teks</p></body></html>"
 
-#: src/settings/settingsdialog.ui:328
+#: src/settings/settingsdialog.ui:327
 msgctxt "SettingsDialog|"
 msgid "Size:"
 msgstr "Ukuran:"
 
-#: src/settings/settingsdialog.ui:335
+#: src/settings/settingsdialog.ui:334
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Font size of translation and source text</p></body></"
@@ -1596,44 +1989,44 @@ msgstr ""
 "<html><head/><body><p>Ukuran font terjemahan dan sumber teks</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:357
+#: src/settings/settingsdialog.ui:356
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window height in pixels</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Tinggi pop-up window dalam piksel</p></body></html>"
 
-#: src/settings/settingsdialog.ui:367
+#: src/settings/settingsdialog.ui:366
 msgctxt "SettingsDialog|"
 msgid "Width:"
 msgstr "Lebar:"
 
-#: src/settings/settingsdialog.ui:374
+#: src/settings/settingsdialog.ui:373
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Lebar jendela pop-up dalam piksel</p></body></html>"
 
-#: src/settings/settingsdialog.ui:384
+#: src/settings/settingsdialog.ui:383
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window opacity</p></body></html>"
 msgstr "<html><head/><body><p>Opasitas pop-up window</p></body></html>"
 
-#: src/settings/settingsdialog.ui:411
+#: src/settings/settingsdialog.ui:410
 msgctxt "SettingsDialog|"
 msgid "Opacity:"
 msgstr "Opasitas:"
 
-#: src/settings/settingsdialog.ui:418
+#: src/settings/settingsdialog.ui:417
 msgctxt "SettingsDialog|"
 msgid "Show timeout:"
 msgstr ""
 
-#: src/settings/settingsdialog.ui:425
+#: src/settings/settingsdialog.ui:424
 msgctxt "SettingsDialog|"
 msgid "Height:"
 msgstr "Tinggi:"
 
-#: src/settings/settingsdialog.ui:438
+#: src/settings/settingsdialog.ui:437
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid ""
@@ -1647,54 +2040,54 @@ msgstr ""
 "<html><head/><body><p>Bahasa yang akan diterjemahkan ketika deteksi "
 "otomatis</p></body></html>"
 
-#: src/settings/settingsdialog.ui:461
+#: src/settings/settingsdialog.ui:460
 msgctxt "SettingsDialog|"
 msgid "Language format"
 msgstr "Format bahasa"
 
-#: src/settings/settingsdialog.ui:467
+#: src/settings/settingsdialog.ui:466
 msgctxt "SettingsDialog|"
 msgid "Main window:"
 msgstr "Jendela utama:"
 
-#: src/settings/settingsdialog.ui:474 src/settings/settingsdialog.ui:498
+#: src/settings/settingsdialog.ui:473 src/settings/settingsdialog.ui:497
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Languages text on buttons</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Teks bahasa pada\n"
 "tombol</p></body></html>"
 
-#: src/settings/settingsdialog.ui:478 src/settings/settingsdialog.ui:502
+#: src/settings/settingsdialog.ui:477 src/settings/settingsdialog.ui:501
 msgctxt "SettingsDialog|"
 msgid "Full name"
 msgstr "Nama lengkap"
 
-#: src/settings/settingsdialog.ui:483 src/settings/settingsdialog.ui:507
+#: src/settings/settingsdialog.ui:482 src/settings/settingsdialog.ui:506
 msgctxt "SettingsDialog|"
 msgid "ISO 639-1 code"
 msgstr "Kode ISO 639-1"
 
-#: src/settings/settingsdialog.ui:491
+#: src/settings/settingsdialog.ui:490
 msgctxt "SettingsDialog|"
 msgid "Pop-up:"
 msgstr "Pop-up:"
 
-#: src/settings/settingsdialog.ui:518
+#: src/settings/settingsdialog.ui:517
 msgctxt "SettingsDialog|"
 msgid "Tray icon"
 msgstr "Ikon baki"
 
-#: src/settings/settingsdialog.ui:524
+#: src/settings/settingsdialog.ui:523
 msgctxt "SettingsDialog|"
 msgid "Icon:"
 msgstr "Ikon:"
 
-#: src/settings/settingsdialog.ui:537
+#: src/settings/settingsdialog.ui:536
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>System tray icon</p></body></html>"
 msgstr "<html><head/><body><p>Ikon baki sistem</p></body></html>"
 
-#: src/settings/settingsdialog.ui:541
+#: src/settings/settingsdialog.ui:540
 msgctxt "SettingsDialog|"
 msgid "Default"
 msgstr "Bawaan"
@@ -1704,32 +2097,32 @@ msgctxt "SettingsDialog|"
 msgid "Monochrome (dark theme)"
 msgstr "Monochrome (tema gelap)"
 
-#: src/settings/settingsdialog.ui:557
+#: src/settings/settingsdialog.ui:558
 msgctxt "SettingsDialog|"
 msgid "Monochrome (light theme)"
 msgstr "Monochrome (tema cerah)"
 
-#: src/settings/settingsdialog.ui:565
+#: src/settings/settingsdialog.ui:567
 msgctxt "SettingsDialog|"
 msgid "Custom"
 msgstr "Kustom"
 
-#: src/settings/settingsdialog.ui:579
+#: src/settings/settingsdialog.ui:582
 msgctxt "SettingsDialog|"
 msgid "Custom:"
 msgstr "Kustom:"
 
-#: src/settings/settingsdialog.ui:591
+#: src/settings/settingsdialog.ui:594
 msgctxt "SettingsDialog|"
 msgid "Path to the icon or icon name from theme"
 msgstr "Jalur/path ke ikon atau nama ikon dari tema"
 
-#: src/settings/settingsdialog.ui:601
+#: src/settings/settingsdialog.ui:604
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>Pilih ikon</p></body></html>"
 
-#: src/settings/settingsdialog.ui:645
+#: src/settings/settingsdialog.ui:648
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
@@ -1738,12 +2131,12 @@ msgstr ""
 "<html><head/>body><p>Aktifkan atau nonaktifkan transliterasi sumber</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:648
+#: src/settings/settingsdialog.ui:651
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
 msgstr "Aktifkan transliterasi sumber"
 
-#: src/settings/settingsdialog.ui:655
+#: src/settings/settingsdialog.ui:658
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
@@ -1752,12 +2145,12 @@ msgstr ""
 "<html><head/>>><p>Aktifkan atau nonaktifkan transliterasi terjemahan</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:658
+#: src/settings/settingsdialog.ui:661
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
 msgstr "Aktifkan transliterasi terjemahan"
 
-#: src/settings/settingsdialog.ui:665
+#: src/settings/settingsdialog.ui:668
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
@@ -1766,12 +2159,12 @@ msgstr ""
 "<html><head/><body><p>Aktifkan atau nonaktifkan transkripsi sumber</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:668
+#: src/settings/settingsdialog.ui:671
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
 msgstr "Aktifkan transkripsi sumber"
 
-#: src/settings/settingsdialog.ui:675
+#: src/settings/settingsdialog.ui:678
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
@@ -1779,12 +2172,12 @@ msgstr ""
 "<html><head/><body><p>Aktifkan atau nonaktifkan opsi terjemahan</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:678
+#: src/settings/settingsdialog.ui:681
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
 msgstr "Aktifkan opsi terjemahan"
 
-#: src/settings/settingsdialog.ui:685
+#: src/settings/settingsdialog.ui:688
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
@@ -1792,12 +2185,12 @@ msgstr ""
 "<html><head/><body><p>Aktifkan atau nonaktifkan contoh penggunaan</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:688
+#: src/settings/settingsdialog.ui:691
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
 msgstr "Aktifkan contoh"
 
-#: src/settings/settingsdialog.ui:695
+#: src/settings/settingsdialog.ui:698
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace each sequence of whitespaces (this includes "
@@ -1808,22 +2201,22 @@ msgstr ""
 "karakter '\\t', '\\n', '\\v', '\\f', '\\r', and ' ') dengan satu spasi dalam "
 "kueri</p></body></html>"
 
-#: src/settings/settingsdialog.ui:698
+#: src/settings/settingsdialog.ui:701
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
 msgstr "Sederhanakan sumber"
 
-#: src/settings/settingsdialog.ui:708
+#: src/settings/settingsdialog.ui:711
 msgctxt "SettingsDialog|"
 msgid "Automatic language detection"
 msgstr "Deteksi bahasa otomatis"
 
-#: src/settings/settingsdialog.ui:714
+#: src/settings/settingsdialog.ui:717
 msgctxt "SettingsDialog|"
 msgid "Primary translation language:"
 msgstr "Bahasa terjemahan utama:"
 
-#: src/settings/settingsdialog.ui:721
+#: src/settings/settingsdialog.ui:724
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which text will be translated when "
@@ -1832,12 +2225,12 @@ msgstr ""
 "<html><head/><body><p>Bahasa yang akan diterjemahkan ketika deteksi "
 "otomatis</p></body></html>"
 
-#: src/settings/settingsdialog.ui:728
+#: src/settings/settingsdialog.ui:731
 msgctxt "SettingsDialog|"
 msgid "Secondary translation language:"
 msgstr "Bahasa terjemahan sekunder:"
 
-#: src/settings/settingsdialog.ui:735
+#: src/settings/settingsdialog.ui:738
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which the text will be translated if it is "
@@ -1846,7 +2239,7 @@ msgstr ""
 "<html><head/><body><p>Bahasa yang akan diterjemahkan teks jika ada dalam "
 "bahasa yang dipilih di atas</p></body></html>"
 
-#: src/settings/settingsdialog.ui:742 src/settings/settingsdialog.ui:752
+#: src/settings/settingsdialog.ui:745 src/settings/settingsdialog.ui:755
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
@@ -1855,37 +2248,17 @@ msgstr ""
 "<html><head/><body><p>Otomatis beralih ke <span style=\" font-style:italic;"
 "\">Auto</span> saat menggunakan OCR dan pintasan global</p></body></html>"
 
-#: src/settings/settingsdialog.ui:745
+#: src/settings/settingsdialog.ui:748
 msgctxt "SettingsDialog|"
 msgid "Force source language detection"
 msgstr "Paksa deteksi bahasa sumber"
 
-#: src/settings/settingsdialog.ui:755
+#: src/settings/settingsdialog.ui:758
 msgctxt "SettingsDialog|"
 msgid "Force translation language detection"
 msgstr "Paksa deteksi bahasa terjemahan"
 
-#: src/settings/settingsdialog.ui:778
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>LibreTranslate instance API key</p><p>Free instances "
-"listed here doesn't require a key, so field can be empty</p></body></html>"
-msgstr ""
-
-#: src/settings/settingsdialog.ui:791
-msgctxt "SettingsDialog|"
-msgid "API key:"
-msgstr ""
-
-#: src/settings/settingsdialog.ui:804
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>LibreTranslate engine URL</p><p>All instances can be "
-"found here: https://github.com/LibreTranslate/LibreTranslate#mirrors</p></"
-"body></html>"
-msgstr ""
-
-#: src/settings/settingsdialog.ui:844
+#: src/settings/settingsdialog.ui:787
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Lingva engine URL</p><p>All instances can be found "
@@ -1893,12 +2266,12 @@ msgid ""
 "body></html>"
 msgstr ""
 
-#: src/settings/settingsdialog.ui:898
+#: src/settings/settingsdialog.ui:826
 msgctxt "SettingsDialog|"
 msgid "Languages"
 msgstr "Bahasa"
 
-#: src/settings/settingsdialog.ui:904
+#: src/settings/settingsdialog.ui:832
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Loading additional languages will impact both speed "
@@ -1911,22 +2284,22 @@ msgstr ""
 "memutuskan bahasa yang berlaku, dan ada lebih banyak kemungkinan halusinasi "
 "kata-kata salah.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:911
+#: src/settings/settingsdialog.ui:839
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
 msgstr "Jalur/path bahasa:"
 
-#: src/settings/settingsdialog.ui:918
+#: src/settings/settingsdialog.ui:846
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr "<html><head/><body><p>Pilih jalur/path bahasa OCR </p></body></html>"
 
-#: src/settings/settingsdialog.ui:928
+#: src/settings/settingsdialog.ui:857
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
 msgstr "<html><head/><body><p>Buka repositori Github</p></body></html>"
 
-#: src/settings/settingsdialog.ui:931
+#: src/settings/settingsdialog.ui:860
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
@@ -1937,12 +2310,12 @@ msgstr ""
 "\"><span style=\" text-decoration: underline; color:#2980b9;\">Unduh lebih "
 "lagi</span></a></p></body></html>"
 
-#: src/settings/settingsdialog.ui:941
+#: src/settings/settingsdialog.ui:870
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
 msgstr "Direktori dengan model terlatih"
 
-#: src/settings/settingsdialog.ui:957
+#: src/settings/settingsdialog.ui:886
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
@@ -1951,22 +2324,22 @@ msgstr ""
 "<html><head/><body><p>Ganti semua jeda baris dengan spasi setelah pengenalan "
 "teks </p></body></html>"
 
-#: src/settings/settingsdialog.ui:960
+#: src/settings/settingsdialog.ui:889
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
 msgstr "Konversi jeda garis"
 
-#: src/settings/settingsdialog.ui:1024
+#: src/settings/settingsdialog.ui:955
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
 msgstr "Tangkapan Layar"
 
-#: src/settings/settingsdialog.ui:1036
+#: src/settings/settingsdialog.ui:967
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
 msgstr "Ingat wilayah:"
 
-#: src/settings/settingsdialog.ui:1043
+#: src/settings/settingsdialog.ui:974
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
@@ -1975,37 +2348,37 @@ msgstr ""
 "<html><head/><body><p>Kapan untuk mengingat wilayah yang dipilih terakhir</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:1047
+#: src/settings/settingsdialog.ui:978
 msgctxt "SettingsDialog|"
 msgid "Never"
 msgstr "Tidak pernah"
 
-#: src/settings/settingsdialog.ui:1052
+#: src/settings/settingsdialog.ui:983
 msgctxt "SettingsDialog|"
 msgid "Remember last"
 msgstr "Ingat terakhir"
 
-#: src/settings/settingsdialog.ui:1057
+#: src/settings/settingsdialog.ui:988
 msgctxt "SettingsDialog|"
 msgid "Remember always"
 msgstr "Ingat selalu"
 
-#: src/settings/settingsdialog.ui:1065
+#: src/settings/settingsdialog.ui:996
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
 msgstr "Jeda Penangkap:"
 
-#: src/settings/settingsdialog.ui:1072
+#: src/settings/settingsdialog.ui:1003
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
 msgstr "Jeda sebelum tangkapan layar"
 
-#: src/settings/settingsdialog.ui:1075
+#: src/settings/settingsdialog.ui:1006
 msgctxt "SettingsDialog|"
 msgid " ms"
 msgstr " dt"
 
-#: src/settings/settingsdialog.ui:1085
+#: src/settings/settingsdialog.ui:1016
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
@@ -2013,12 +2386,12 @@ msgstr ""
 "<html><head/><body><p>Tunjukkan kaca pembesar di sebelah kursor</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1088
+#: src/settings/settingsdialog.ui:1019
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
 msgstr "Tampilkan pembesar"
 
-#: src/settings/settingsdialog.ui:1098
+#: src/settings/settingsdialog.ui:1029
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
@@ -2027,12 +2400,12 @@ msgstr ""
 "<html><head/><body><p>Selesai menangkap fragmen ketika tombol mouse dilepas "
 "</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1101
+#: src/settings/settingsdialog.ui:1032
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
 msgstr "Konfirmasi pada lepasan"
 
-#: src/settings/settingsdialog.ui:1108
+#: src/settings/settingsdialog.ui:1039
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
@@ -2041,161 +2414,62 @@ msgstr ""
 "<html><head/><body><p>Terapkan sedikit kabut ke bagian yang tidak dipilih </"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:1111
+#: src/settings/settingsdialog.ui:1042
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
 msgstr "Terapkan mask tipis"
 
-#: src/settings/settingsdialog.ui:1150
-msgctxt "SettingsDialog|"
-msgid "Voice:"
-msgstr "Suara:"
-
-#: src/settings/settingsdialog.ui:1163
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Voice of the speech synthesis engine</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Suara dari mesin ucapan sintesis</p></body></html>"
-
-#: src/settings/settingsdialog.ui:1167
-msgctxt "SettingsDialog|"
-msgid "Zahar"
-msgstr "Zahar"
-
-#: src/settings/settingsdialog.ui:1172
-msgctxt "SettingsDialog|"
-msgid "Ermil"
-msgstr "Ermil"
-
-#: src/settings/settingsdialog.ui:1177
-msgctxt "SettingsDialog|"
-msgid "Jane"
-msgstr "Jane"
-
-#: src/settings/settingsdialog.ui:1182
-msgctxt "SettingsDialog|"
-msgid "Oksana"
-msgstr "Oksana"
-
-#: src/settings/settingsdialog.ui:1187
-msgctxt "SettingsDialog|"
-msgid "Alyss"
-msgstr "Alyss"
-
-#: src/settings/settingsdialog.ui:1192
-msgctxt "SettingsDialog|"
-msgid "Omazh"
-msgstr "Omazh"
-
-#: src/settings/settingsdialog.ui:1200
-msgctxt "SettingsDialog|"
-msgid "Emotional connotation:"
-msgstr "Konotasi Emosional:"
-
-#: src/settings/settingsdialog.ui:1213
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Voice mood of the speech synthesis engine</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>Suasana/mood suara dari mesin ucapan sintesis</p></"
-"body></html>"
-
-#: src/settings/settingsdialog.ui:1217
-msgctxt "SettingsDialog|"
-msgid "Neutral"
-msgstr "Netral"
-
-#: src/settings/settingsdialog.ui:1222
-msgctxt "SettingsDialog|"
-msgid "Good"
-msgstr "Baik"
-
-#: src/settings/settingsdialog.ui:1227
-msgctxt "SettingsDialog|"
-msgid "Evil"
-msgstr "Jahat"
-
-#: src/settings/settingsdialog.ui:1235 src/settings/settingsdialog.ui:1311
-msgctxt "SettingsDialog|"
-msgid "Speech test:"
-msgstr "Tes ucapan:"
-
-#: src/settings/settingsdialog.ui:1244 src/settings/settingsdialog.ui:1273
-msgctxt "SettingsDialog|"
-msgid "<html><head/><body><p>Text to test speech</p></body></html>"
-msgstr "<html><head/><body><p>Teks untuk menguji ucapan</p></body></html>"
-
-#: src/settings/settingsdialog.ui:1247 src/settings/settingsdialog.ui:1276
-msgctxt "SettingsDialog|"
-msgid "This is an example of speech synthesis."
-msgstr "Ini adalah contoh ucapan sintesis."
-
-#: src/settings/settingsdialog.ui:1250
-msgctxt "SettingsDialog|"
-msgid "Test voice"
-msgstr "Uji Suara"
-
-#: src/settings/settingsdialog.ui:1295
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Version:"
-msgctxt "SettingsDialog|"
-msgid "Region:"
-msgstr "Versi:"
-
-#: src/settings/settingsdialog.ui:1344
+#: src/settings/settingsdialog.ui:1075
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
 msgstr "Server proxy"
 
-#: src/settings/settingsdialog.ui:1350
+#: src/settings/settingsdialog.ui:1081
 msgctxt "SettingsDialog|"
 msgid "Type:"
 msgstr "Jenis:"
 
-#: src/settings/settingsdialog.ui:1363
+#: src/settings/settingsdialog.ui:1094
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
 msgstr "<html><head/><body><p>Jenis proxy</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1367
+#: src/settings/settingsdialog.ui:1098
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
 msgstr "Gunakan pengaturan sistem"
 
-#: src/settings/settingsdialog.ui:1377
+#: src/settings/settingsdialog.ui:1108
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
 msgstr "Janga'n menggunakan proxy"
 
-#: src/settings/settingsdialog.ui:1393
+#: src/settings/settingsdialog.ui:1124
 msgctxt "SettingsDialog|"
 msgid "Host:"
 msgstr "Host:"
 
-#: src/settings/settingsdialog.ui:1403
+#: src/settings/settingsdialog.ui:1134
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr "<html><head/><body><p>Nama host proxy</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1416
+#: src/settings/settingsdialog.ui:1147
 msgctxt "SettingsDialog|"
 msgid "Port:"
 msgstr "Port:"
 
-#: src/settings/settingsdialog.ui:1432
+#: src/settings/settingsdialog.ui:1163
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
 msgstr "<html><head/><body><p>Port proxy</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1451
+#: src/settings/settingsdialog.ui:1182
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
 msgstr "Informasi: Proxy hanya berfungsi untuk terjemahan teks"
 
-#: src/settings/settingsdialog.ui:1461
+#: src/settings/settingsdialog.ui:1192
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
@@ -2203,41 +2477,41 @@ msgstr ""
 "<html><head/><body><p>Mengaktifkan atau menonaktifkan otentikasi </p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1464
+#: src/settings/settingsdialog.ui:1195
 msgctxt "SettingsDialog|"
 msgid "Authentication"
 msgstr "Autentikasi"
 
-#: src/settings/settingsdialog.ui:1474
+#: src/settings/settingsdialog.ui:1205
 msgctxt "SettingsDialog|"
 msgid "Username:"
 msgstr "Nama pengguna:"
 
-#: src/settings/settingsdialog.ui:1484
+#: src/settings/settingsdialog.ui:1215
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Nama pengguna proxy untuk otentikasi</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1494
+#: src/settings/settingsdialog.ui:1225
 msgctxt "SettingsDialog|"
 msgid "Password:"
 msgstr "Kata sandi:"
 
-#: src/settings/settingsdialog.ui:1504
+#: src/settings/settingsdialog.ui:1235
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Kata sandi proxy untuk otentikasi</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1517
+#: src/settings/settingsdialog.ui:1248
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
 msgstr "Info: Kata sandi disimpan tidak terenkripsi"
 
-#: src/settings/settingsdialog.ui:1553
+#: src/settings/settingsdialog.ui:1284
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
@@ -2245,7 +2519,7 @@ msgstr ""
 "<html><head/><body><p>Daftarkan pintasan global dalam sistem</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1556
+#: src/settings/settingsdialog.ui:1287
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Enable global shortcucts"
@@ -2253,28 +2527,28 @@ msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "Aktifkan pintasan global"
 
-#: src/settings/settingsdialog.ui:1572
+#: src/settings/settingsdialog.ui:1303
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Atur ulang semua pintasan ke bawaan</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1575
+#: src/settings/settingsdialog.ui:1306
 msgctxt "SettingsDialog|"
 msgid "Reset all"
 msgstr "Atur ulang semua"
 
-#: src/settings/settingsdialog.ui:1585
+#: src/settings/settingsdialog.ui:1316
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
 msgstr "Pintasan"
 
-#: src/settings/settingsdialog.ui:1591
+#: src/settings/settingsdialog.ui:1322
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
 msgstr "Urutan utama:"
 
-#: src/settings/settingsdialog.ui:1598
+#: src/settings/settingsdialog.ui:1329
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
@@ -2283,47 +2557,47 @@ msgstr ""
 "<html><head/><body><p>Urutan kunci untuk tindakan yang dipilih</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1605
+#: src/settings/settingsdialog.ui:1336
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Terima pintasan</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1608
+#: src/settings/settingsdialog.ui:1339
 msgctxt "SettingsDialog|"
 msgid "Accept"
 msgstr "Terima"
 
-#: src/settings/settingsdialog.ui:1618
+#: src/settings/settingsdialog.ui:1350
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Hapus pintasan</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1621
+#: src/settings/settingsdialog.ui:1353
 msgctxt "SettingsDialog|"
 msgid "Clear"
 msgstr "Bersihkan"
 
-#: src/settings/settingsdialog.ui:1631
+#: src/settings/settingsdialog.ui:1364
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr "<html><head/><body><p>Reset pintasan ke bawaan</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1634
+#: src/settings/settingsdialog.ui:1367
 msgctxt "SettingsDialog|"
 msgid "Reset"
 msgstr "Set ulang"
 
-#: src/settings/settingsdialog.ui:1679
+#: src/settings/settingsdialog.ui:1413
 msgctxt "SettingsDialog|"
 msgid "Version:"
 msgstr "Versi:"
 
-#: src/settings/settingsdialog.ui:1689
+#: src/settings/settingsdialog.ui:1423
 msgctxt "SettingsDialog|"
 msgid "License:"
 msgstr "Lisensi:"
 
-#: src/settings/settingsdialog.ui:1703
+#: src/settings/settingsdialog.ui:1437
 #, fuzzy
 #| msgctxt "ShortcutsModel|"
 #| msgid "Source text"
@@ -2331,7 +2605,7 @@ msgctxt "SettingsDialog|"
 msgid "Source code:"
 msgstr "Sumber teks"
 
-#: src/settings/settingsdialog.ui:1743
+#: src/settings/settingsdialog.ui:1477
 msgctxt "SettingsDialog|"
 msgid "Flag icons:"
 msgstr "Tandai ikon:"
@@ -2457,17 +2731,17 @@ msgctxt "TesseractParametersTableWidget|"
 msgid "Value"
 msgstr "Nilai"
 
-#: src/speakbuttons.cpp:138
+#: src/speakbuttons.cpp:75
 msgctxt "SpeakButtons|"
 msgid "No text specified"
 msgstr "Tidak ada teks yang ditentukan"
 
-#: src/speakbuttons.cpp:138
+#: src/speakbuttons.cpp:75
 msgctxt "SpeakButtons|"
 msgid "Playback text is empty"
 msgstr "Teks pemutaran kosong"
 
-#: src/speakbuttons.cpp:147
+#: src/speakbuttons.cpp:81
 msgctxt "SpeakButtons|"
 msgid "Unable to generate URLs for TTS"
 msgstr "Tidak dapat menghasilkan URL untuk TTS"
@@ -2498,7 +2772,7 @@ msgctxt "TranslationEdit|"
 msgid "translation options:"
 msgstr "opsi terjemahan:"
 
-#: src/translationedit.cpp:97
+#: src/translationedit.cpp:87
 msgctxt "TranslationEdit|"
 msgid "examples:"
 msgstr "contoh:"
@@ -2522,6 +2796,213 @@ msgstr "Keluar"
 msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Hasil terjemahan"
+
+#~ msgctxt "Cli|"
+#~ msgid ""
+#~ "Specify the translator language (by default, the system language is used)."
+#~ msgstr ""
+#~ "Tentukan bahasa penterjemah (secara bawan, bahasa sistem yang akan "
+#~ "digunakan)."
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Selected source language %1 is not supported for %2"
+#~ msgstr "Bahasa sumber yang dipilih %1 tidak didukung untuk %2"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Selected translation language %1 is not supported for %2"
+#~ msgstr "Bahasa terjemahan yang dipilih %1 tidak didukung untuk %2"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Selected ui language %1 is not supported for %2"
+#~ msgstr "Bahasa UI yang dipilih %1 tidak didukung untuk %2"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Bengali"
+#~ msgstr "Benggala"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Cantonese"
+#~ msgstr "Kanton"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Klingon"
+#~ msgstr "Klingonn"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Levantine Arabic"
+#~ msgstr "Levantine Arabia"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Maori"
+#~ msgstr "Maori"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Myanmar"
+#~ msgstr "Myanmar"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Oriya"
+#~ msgstr "Oriya"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Uzbek"
+#~ msgstr "Uzbekistan"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid ""
+#~ "Error: Engine systems have detected suspicious traffic from your computer "
+#~ "network. Please try your request again later."
+#~ msgstr ""
+#~ "GALAT: Sistem mesin telah mendeteksi jalur yang mencurigakan dari "
+#~ "jaringan komputer Anda. Silahkan coba lagi permintaan Anda lain kali."
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Error: Unable to find Bing credentials in web version."
+#~ msgstr "Kesalahan: Tidak dapat menemukan kredensial Bing di versi web."
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Error: Unable to extract Bing key from web version."
+#~ msgstr "Kesalahan: Tidak dapat mengekstrak kunci Bing dari versi web."
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Error: Unable to extract Bing token from web version."
+#~ msgstr "Kesalahan: Tidak dapat mengekstrak token Bing dari versi web."
+
+#, fuzzy
+#~| msgctxt "OnlineTranslator|"
+#~| msgid "Error: Unable to extract Bing token from web version."
+#~ msgctxt "OnlineTranslator|"
+#~ msgid ""
+#~ "Error: Unable to extract additional Bing information from web version."
+#~ msgstr "Kesalahan: Tidak dapat mengekstrak token Bing dari versi web."
+
+#~ msgctxt "OnlineTts|"
+#~ msgid "Selected engine %1 does not support voice settings"
+#~ msgstr "Mesin yang dipilih %1 tidak mendukung pengaturan suara"
+
+#~ msgctxt "OnlineTts|"
+#~ msgid "Selected engine %1 does not support emotion settings"
+#~ msgstr "Mesin yang dipilih %1 tidak mendukung pengaturan emosi"
+
+#~ msgctxt "OnlineTts|"
+#~ msgid "Selected voice %1 is not supported for %2"
+#~ msgstr "Suara yang dipilih %1 tidak didukung untuk %2"
+
+#, fuzzy
+#~| msgctxt "OnlineTts|"
+#~| msgid "Selected emotion %1 is not supported for %2"
+#~ msgctxt "OnlineTts|"
+#~ msgid "Selected emotion %1 is not supported by %2"
+#~ msgstr "Emosi yang dipilih %1 tidak didukung untuk %2"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Happy New Year!"
+#~ msgstr "Selamat Tahun Baru!"
+
+#, fuzzy
+#~| msgctxt "SettingsDialog|"
+#~| msgid "Default"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Default region"
+#~ msgstr "Bawaan"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Nothing to play"
+#~ msgstr "Tidak ada yang bisa dijalankan"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Playback text is empty"
+#~ msgstr "Teks pemutaran kosong"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Unable to detect language"
+#~ msgstr "Tidak dapat mendeteksi bahasa"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Speech synthesis"
+#~ msgstr "Sintesis ucapan"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Voice:"
+#~ msgstr "Suara:"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>Voice of the speech synthesis engine</p></body></"
+#~ "html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Suara dari mesin ucapan sintesis</p></body></html>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Zahar"
+#~ msgstr "Zahar"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Ermil"
+#~ msgstr "Ermil"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Jane"
+#~ msgstr "Jane"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Oksana"
+#~ msgstr "Oksana"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Alyss"
+#~ msgstr "Alyss"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Omazh"
+#~ msgstr "Omazh"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Emotional connotation:"
+#~ msgstr "Konotasi Emosional:"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>Voice mood of the speech synthesis engine</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Suasana/mood suara dari mesin ucapan sintesis</p></"
+#~ "body></html>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Neutral"
+#~ msgstr "Netral"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Good"
+#~ msgstr "Baik"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Evil"
+#~ msgstr "Jahat"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Speech test:"
+#~ msgstr "Tes ucapan:"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "<html><head/><body><p>Text to test speech</p></body></html>"
+#~ msgstr "<html><head/><body><p>Teks untuk menguji ucapan</p></body></html>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "This is an example of speech synthesis."
+#~ msgstr "Ini adalah contoh ucapan sintesis."
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Test voice"
+#~ msgstr "Uji Suara"
+
+#, fuzzy
+#~| msgctxt "SettingsDialog|"
+#~| msgid "Version:"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Region:"
+#~ msgstr "Versi:"
 
 #~ msgctxt "QGitTag|"
 #~ msgid "Release number %1 is missing"

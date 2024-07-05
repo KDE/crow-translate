@@ -10,32 +10,26 @@ msgstr ""
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
 
-#: src/cli.cpp:41
+#: src/cli.cpp:40
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "顯示所有語言代碼"
 
-#: src/cli.cpp:42
+#: src/cli.cpp:41
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
 msgstr "指定來源語言(預設：引擎將嘗試自行決定語言)"
 
-#: src/cli.cpp:43
+#: src/cli.cpp:42
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
 "language is used)."
 msgstr "指定翻譯語言，以 '+' 分隔(預設：系統語言將被使用)"
 
-#: src/cli.cpp:44
-msgctxt "Cli|"
-msgid ""
-"Specify the translator language (by default, the system language is used)."
-msgstr "指定翻譯語言 (預設使用系統語言)"
-
-#: src/cli.cpp:45
+#: src/cli.cpp:43
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
@@ -44,66 +38,76 @@ msgstr ""
 "指定翻譯引擎 ('google', 'yandex', 'bing', 'libretranslate' 或 'lingva'), 預設"
 "使用Google"
 
-#: src/cli.cpp:46
+#: src/cli.cpp:44
+msgctxt "Cli|"
+msgid "Specify instance URL. Random instance URL will be used by default."
+msgstr ""
+
+#: src/cli.cpp:45
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "朗讀翻譯"
 
-#: src/cli.cpp:47
+#: src/cli.cpp:46
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "朗讀源文"
 
-#: src/cli.cpp:48
+#: src/cli.cpp:47
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
 msgstr "從檔案讀取來源文字。參數將被解釋為檔案路徑。"
 
-#: src/cli.cpp:49
+#: src/cli.cpp:48
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "在來源文字中添加標準輸入資料"
 
-#: src/cli.cpp:50
+#: src/cli.cpp:49
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "當使用 --%1 或 --%2 時不輸出任何文字"
 
-#: src/cli.cpp:51
+#: src/cli.cpp:50
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "只輸出翻譯"
 
-#: src/cli.cpp:52
+#: src/cli.cpp:51
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "將輸出結果列印為 JSON 格式。"
 
-#: src/cli.cpp:55
+#: src/cli.cpp:54
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid ""
+#| "A simple and lightweight translator that allows to translate and speak "
+#| "text using Google, Yandex, Bing, LibreTranslate and Lingva"
 msgctxt "Cli|"
 msgid ""
 "A simple and lightweight translator that allows to translate and speak text "
-"using Google, Yandex, Bing, LibreTranslate and Lingva"
+"using Mozhi"
 msgstr ""
 "一個簡單輕量的翻譯器，可使用 Google, Yandex, Bing, LibreTranslate 和 Lingva "
 "來翻譯和朗讀文字"
 
-#: src/cli.cpp:56
+#: src/cli.cpp:55
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr "輸入要翻譯的文字。預設將翻譯為系統語言。"
 
-#: src/cli.cpp:78
+#: src/cli.cpp:77
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "錯誤： 必須為 --%1 指定 --%2 和/或--%3 選項"
 
-#: src/cli.cpp:112
+#: src/cli.cpp:110
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "錯誤：沒有要翻譯的文字"
@@ -113,7 +117,7 @@ msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "錯誤：未知引擎"
 
-#: src/cli.cpp:165 src/cli.cpp:258 src/cli.cpp:347
+#: src/cli.cpp:165 src/cli.cpp:248 src/cli.cpp:336
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
@@ -125,25 +129,25 @@ msgctxt "Cli|"
 msgid "%1 - translation options:"
 msgstr "%1 - 翻譯選項："
 
-#: src/cli.cpp:236
+#: src/cli.cpp:230
 #, qt-format
 msgctxt "Cli|"
 msgid "%1 - examples:"
 msgstr "%1 - 範例："
 
-#: src/cli.cpp:360
+#: src/cli.cpp:349
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "錯誤：在有 --%2 時不可使用 --%1"
 
-#: src/cli.cpp:376 src/cli.cpp:397
+#: src/cli.cpp:365 src/cli.cpp:386
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "錯誤：檔案不存在： %1"
 
-#: src/cli.cpp:381 src/cli.cpp:402
+#: src/cli.cpp:370 src/cli.cpp:391
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -154,17 +158,17 @@ msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "在 Forvo.com 上搜尋"
 
-#: src/languagebuttonswidget.cpp:451
+#: src/languagebuttonswidget.cpp:220
 msgctxt "LanguageButtonsWidget|"
 msgid "Window width is larger than screen due to the languages on the panel."
 msgstr "面板上的語言使得視窗寬度大於了螢幕寬度。"
 
-#: src/languagebuttonswidget.cpp:452
+#: src/languagebuttonswidget.cpp:221
 msgctxt "LanguageButtonsWidget|"
 msgid "Please reduce added languages."
 msgstr "請減少已添加的語言"
 
-#: src/languagebuttonswidget.cpp:528 src/languagebuttonswidget.cpp:530
+#: src/languagebuttonswidget.cpp:297 src/languagebuttonswidget.cpp:299
 msgctxt "LanguageButtonsWidget|"
 msgid "Auto"
 msgstr "自動"
@@ -234,12 +238,12 @@ msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "指定的圖示 '%1' 無效。將使用預設圖示。"
 
-#: src/mainwindow.cpp:898
+#: src/mainwindow.cpp:896
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "無法設定 OCR 語言"
 
-#: src/mainwindow.cpp:898
+#: src/mainwindow.cpp:896
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -291,22 +295,22 @@ msgctxt "MainWindow|"
 msgid "Translation"
 msgstr "譯文"
 
-#: src/mainwindow.ui:253
+#: src/mainwindow.ui:271
 msgctxt "MainWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "複製譯文到剪貼簿"
 
-#: src/mainwindow.ui:264
+#: src/mainwindow.ui:282
 msgctxt "MainWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "複製全部翻譯到剪貼簿"
 
-#: src/mainwindow.ui:275
+#: src/mainwindow.ui:293
 msgctxt "MainWindow|"
 msgid "Translate screen area with delay"
 msgstr "延遲翻譯螢幕區域"
 
-#: src/mainwindow.ui:286
+#: src/mainwindow.ui:304
 msgctxt "MainWindow|"
 msgid "Application settings"
 msgstr "應用設定"
@@ -475,745 +479,1181 @@ msgctxt "SnippingArea|"
 msgid "Esc key"
 msgstr "Esc 鍵"
 
-#: src/onlinetranslator/onlinetranslator.cpp:190
-#, qt-format
+#: src/onlinetranslator/onlinetranslator.cpp:281
+#, fuzzy, qt-format
+#| msgctxt "OnlineTts|"
+#| msgid "Selected language %1 is not supported for %2"
 msgctxt "OnlineTranslator|"
-msgid "Selected source language %1 is not supported for %2"
-msgstr "選定的來源語言 %1 不支援 %2"
+msgid "Language detection is not supported for %1"
+msgstr "選定的語言 %1 不支援 %2"
 
-#: src/onlinetranslator/onlinetranslator.cpp:195
-#, qt-format
+#: src/onlinetranslator/onlinetranslator.cpp:364
+#, fuzzy, qt-format
+#| msgctxt "OnlineTts|"
+#| msgid "%1 engine does not support TTS"
 msgctxt "OnlineTranslator|"
-msgid "Selected translation language %1 is not supported for %2"
-msgstr "選定的翻譯語言 %1 不支援 %2"
+msgid "%1 engine does not support TTS"
+msgstr "%1 引擎不支援 TTS"
 
-#: src/onlinetranslator/onlinetranslator.cpp:200
-#, qt-format
-msgctxt "OnlineTranslator|"
-msgid "Selected ui language %1 is not supported for %2"
-msgstr "選定的使用介面語言 %1 不支援 %2"
-
-#: src/onlinetranslator/onlinetranslator.cpp:217
-#: src/onlinetranslator/onlinetranslator.cpp:226
-#: src/onlinetranslator/onlinetranslator.cpp:261
-#: src/onlinetranslator/onlinetranslator.cpp:270
-#, qt-format
-msgctxt "OnlineTranslator|"
-msgid "%1 URL can't be empty."
-msgstr "%1 URL 不能空白."
-
-#: src/onlinetranslator/onlinetranslator.cpp:468
+#: src/onlinetranslator/onlinetranslator.cpp:505
 msgctxt "OnlineTranslator|"
 msgid "Automatically detect"
 msgstr "自動偵測"
 
-#: src/onlinetranslator/onlinetranslator.cpp:470
+#: src/onlinetranslator/onlinetranslator.cpp:507
 msgctxt "OnlineTranslator|"
 msgid "Afrikaans"
 msgstr "南非荷蘭語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:472
+#: src/onlinetranslator/onlinetranslator.cpp:509
 msgctxt "OnlineTranslator|"
 msgid "Albanian"
 msgstr "阿爾巴尼亞語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:474
+#: src/onlinetranslator/onlinetranslator.cpp:511
 msgctxt "OnlineTranslator|"
 msgid "Amharic"
 msgstr "阿姆哈拉語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:476
+#: src/onlinetranslator/onlinetranslator.cpp:513
 msgctxt "OnlineTranslator|"
 msgid "Arabic"
 msgstr "阿拉伯語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:478
+#: src/onlinetranslator/onlinetranslator.cpp:515
 msgctxt "OnlineTranslator|"
 msgid "Armenian"
 msgstr "亞美尼亞語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:480
+#: src/onlinetranslator/onlinetranslator.cpp:517
 msgctxt "OnlineTranslator|"
-msgid "Azeerbaijani"
+msgid "Assamese"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:519
+msgctxt "OnlineTranslator|"
+msgid "Aymara"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:521
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Azeerbaijani"
+msgctxt "OnlineTranslator|"
+msgid "Azerbaijani"
 msgstr "亞塞拜然語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:482
+#: src/onlinetranslator/onlinetranslator.cpp:523
 msgctxt "OnlineTranslator|"
-msgid "Basque"
-msgstr "巴斯克語"
+msgid "Bajan"
+msgstr ""
 
-#: src/onlinetranslator/onlinetranslator.cpp:484
+#: src/onlinetranslator/onlinetranslator.cpp:525
+msgctxt "OnlineTranslator|"
+msgid "Balkan Gipsy"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:527
+msgctxt "OnlineTranslator|"
+msgid "Bambara"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:529
+msgctxt "OnlineTranslator|"
+msgid "Bangla"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:531
 msgctxt "OnlineTranslator|"
 msgid "Bashkir"
 msgstr "巴什基爾語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:486
+#: src/onlinetranslator/onlinetranslator.cpp:533
+msgctxt "OnlineTranslator|"
+msgid "Basque"
+msgstr "巴斯克語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:535
 msgctxt "OnlineTranslator|"
 msgid "Belarusian"
 msgstr "白俄羅斯語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:488
+#: src/onlinetranslator/onlinetranslator.cpp:537
 msgctxt "OnlineTranslator|"
-msgid "Bengali"
-msgstr "孟加拉語"
+msgid "Bemba"
+msgstr ""
 
-#: src/onlinetranslator/onlinetranslator.cpp:490
+#: src/onlinetranslator/onlinetranslator.cpp:539
+msgctxt "OnlineTranslator|"
+msgid "Bhojpuri"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:541
+msgctxt "OnlineTranslator|"
+msgid "Bislama"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:543
 msgctxt "OnlineTranslator|"
 msgid "Bosnian"
 msgstr "波斯尼亞語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:492
+#: src/onlinetranslator/onlinetranslator.cpp:545
+msgctxt "OnlineTranslator|"
+msgid "Breton"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:547
 msgctxt "OnlineTranslator|"
 msgid "Bulgarian"
 msgstr "保加利亞語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:494
+#: src/onlinetranslator/onlinetranslator.cpp:549
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Chinese (Traditional)"
+msgctxt "OnlineTranslator|"
+msgid "Cantonese (Traditional)"
+msgstr "繁體中文"
+
+#: src/onlinetranslator/onlinetranslator.cpp:551
 msgctxt "OnlineTranslator|"
 msgid "Catalan"
 msgstr "加泰羅尼亞語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:496
-msgctxt "OnlineTranslator|"
-msgid "Cantonese"
-msgstr "粵語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:498
+#: src/onlinetranslator/onlinetranslator.cpp:553
 msgctxt "OnlineTranslator|"
 msgid "Cebuano"
 msgstr "宿務語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:500
+#: src/onlinetranslator/onlinetranslator.cpp:555
 msgctxt "OnlineTranslator|"
-msgid "Chinese (Simplified)"
-msgstr "簡體中文"
+msgid "Chamorro"
+msgstr ""
 
-#: src/onlinetranslator/onlinetranslator.cpp:502
-msgctxt "OnlineTranslator|"
-msgid "Chinese (Traditional)"
-msgstr "繁體中文"
-
-#: src/onlinetranslator/onlinetranslator.cpp:504
-msgctxt "OnlineTranslator|"
-msgid "Corsican"
-msgstr "科西嘉語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:506
-msgctxt "OnlineTranslator|"
-msgid "Croatian"
-msgstr "克羅埃西亞語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:508
-msgctxt "OnlineTranslator|"
-msgid "Czech"
-msgstr "捷克語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:510
-msgctxt "OnlineTranslator|"
-msgid "Danish"
-msgstr "丹麥語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:512
-msgctxt "OnlineTranslator|"
-msgid "Dutch"
-msgstr "荷蘭語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:514
-msgctxt "OnlineTranslator|"
-msgid "English"
-msgstr "英語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:516
-msgctxt "OnlineTranslator|"
-msgid "Esperanto"
-msgstr "世界語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:518
-msgctxt "OnlineTranslator|"
-msgid "Estonian"
-msgstr "愛沙尼亞語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:520
-msgctxt "OnlineTranslator|"
-msgid "Fijian"
-msgstr "斐濟語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:522
-msgctxt "OnlineTranslator|"
-msgid "Filipino"
-msgstr "菲律賓語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:524
-msgctxt "OnlineTranslator|"
-msgid "Finnish"
-msgstr "芬蘭語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:526
-msgctxt "OnlineTranslator|"
-msgid "French"
-msgstr "法語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:528
-msgctxt "OnlineTranslator|"
-msgid "Frisian"
-msgstr "弗里斯蘭語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:530
-msgctxt "OnlineTranslator|"
-msgid "Galician"
-msgstr "加利西亞語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:532
-msgctxt "OnlineTranslator|"
-msgid "Georgian"
-msgstr "喬治亞語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:534
-msgctxt "OnlineTranslator|"
-msgid "German"
-msgstr "德語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:536
-msgctxt "OnlineTranslator|"
-msgid "Greek"
-msgstr "希臘語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:538
-msgctxt "OnlineTranslator|"
-msgid "Gujarati"
-msgstr "古吉拉特語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:540
-msgctxt "OnlineTranslator|"
-msgid "Haitian Creole"
-msgstr "海地克里奧爾語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:542
-msgctxt "OnlineTranslator|"
-msgid "Hausa"
-msgstr "豪薩語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:544
-msgctxt "OnlineTranslator|"
-msgid "Hawaiian"
-msgstr "夏威夷語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:546
-msgctxt "OnlineTranslator|"
-msgid "Hebrew"
-msgstr "希伯來語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:548
-msgctxt "OnlineTranslator|"
-msgid "Hill Mari"
-msgstr "希爾馬里語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:550
-msgctxt "OnlineTranslator|"
-msgid "Hindi"
-msgstr "印地語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:552
-msgctxt "OnlineTranslator|"
-msgid "Hmong"
-msgstr "苗族語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:554
-msgctxt "OnlineTranslator|"
-msgid "Hungarian"
-msgstr "匈牙利語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:556
-msgctxt "OnlineTranslator|"
-msgid "Icelandic"
-msgstr "冰島語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:558
-msgctxt "OnlineTranslator|"
-msgid "Igbo"
-msgstr "伊博語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:560
-msgctxt "OnlineTranslator|"
-msgid "Indonesian"
-msgstr "印度尼西亞語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:562
-msgctxt "OnlineTranslator|"
-msgid "Irish"
-msgstr "愛爾蘭語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:564
-msgctxt "OnlineTranslator|"
-msgid "Italian"
-msgstr "義大利語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:566
-msgctxt "OnlineTranslator|"
-msgid "Japanese"
-msgstr "日語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:568
-msgctxt "OnlineTranslator|"
-msgid "Javanese"
-msgstr "爪哇語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:570
-msgctxt "OnlineTranslator|"
-msgid "Kannada"
-msgstr "卡納達語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:572
-msgctxt "OnlineTranslator|"
-msgid "Kazakh"
-msgstr "哈薩克語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:574
-msgctxt "OnlineTranslator|"
-msgid "Khmer"
-msgstr "高棉語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:576
-msgctxt "OnlineTranslator|"
-msgid "Kinyarwanda"
-msgstr "盧安達語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:578
-msgctxt "OnlineTranslator|"
-msgid "Klingon"
-msgstr "克林貢語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:580
-msgctxt "OnlineTranslator|"
-msgid "Klingon (PlqaD)"
-msgstr "克林貢語 (PlqaD)"
-
-#: src/onlinetranslator/onlinetranslator.cpp:582
-msgctxt "OnlineTranslator|"
-msgid "Korean"
-msgstr "韓語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:584
-msgctxt "OnlineTranslator|"
-msgid "Kurdish"
-msgstr "庫爾德語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:586
-msgctxt "OnlineTranslator|"
-msgid "Kyrgyz"
-msgstr "吉爾吉斯語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:588
-msgctxt "OnlineTranslator|"
-msgid "Lao"
-msgstr "寮國語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:590
-msgctxt "OnlineTranslator|"
-msgid "Latin"
-msgstr "拉丁語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:592
-msgctxt "OnlineTranslator|"
-msgid "Latvian"
-msgstr "拉脫維亞語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:594
-msgctxt "OnlineTranslator|"
-msgid "Levantine Arabic"
-msgstr "黎凡特阿拉伯語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:596
-msgctxt "OnlineTranslator|"
-msgid "Lithuanian"
-msgstr "立陶宛語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:598
-msgctxt "OnlineTranslator|"
-msgid "Luxembourgish"
-msgstr "盧森堡語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:600
-msgctxt "OnlineTranslator|"
-msgid "Macedonian"
-msgstr "馬其頓語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:602
-msgctxt "OnlineTranslator|"
-msgid "Malagasy"
-msgstr "馬爾加什語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:604
-msgctxt "OnlineTranslator|"
-msgid "Malay"
-msgstr "馬來語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:606
-msgctxt "OnlineTranslator|"
-msgid "Malayalam"
-msgstr "馬拉雅拉姆語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:608
-msgctxt "OnlineTranslator|"
-msgid "Maltese"
-msgstr "馬耳他語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:610
-msgctxt "OnlineTranslator|"
-msgid "Maori"
-msgstr "毛利語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:612
-msgctxt "OnlineTranslator|"
-msgid "Marathi"
-msgstr "馬拉語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:614
-msgctxt "OnlineTranslator|"
-msgid "Mari"
-msgstr "馬里語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:616
-msgctxt "OnlineTranslator|"
-msgid "Mongolian"
-msgstr "蒙古語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:618
-msgctxt "OnlineTranslator|"
-msgid "Myanmar"
-msgstr "緬甸語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:620
-msgctxt "OnlineTranslator|"
-msgid "Nepali"
-msgstr "尼泊爾語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:622
-msgctxt "OnlineTranslator|"
-msgid "Norwegian"
-msgstr "挪威語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:624
-msgctxt "OnlineTranslator|"
-msgid "Oriya"
-msgstr "奧里亞語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:626
+#: src/onlinetranslator/onlinetranslator.cpp:557
 msgctxt "OnlineTranslator|"
 msgid "Chichewa"
 msgstr "奇切瓦語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:628
+#: src/onlinetranslator/onlinetranslator.cpp:559
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Chinese (Traditional)"
 msgctxt "OnlineTranslator|"
-msgid "Papiamento"
+msgid "Chinese (Literary)"
+msgstr "繁體中文"
+
+#: src/onlinetranslator/onlinetranslator.cpp:561
+msgctxt "OnlineTranslator|"
+msgid "Chinese (Simplified)"
+msgstr "簡體中文"
+
+#: src/onlinetranslator/onlinetranslator.cpp:563
+msgctxt "OnlineTranslator|"
+msgid "Chinese (Traditional)"
+msgstr "繁體中文"
+
+#: src/onlinetranslator/onlinetranslator.cpp:565
+msgctxt "OnlineTranslator|"
+msgid "Chuvash"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:567
+msgctxt "OnlineTranslator|"
+msgid "Comorian (Ngazidja)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:569
+msgctxt "OnlineTranslator|"
+msgid "Coptic"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:571
+msgctxt "OnlineTranslator|"
+msgid "Corsican"
+msgstr "科西嘉語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:573
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Antigua and Barbuda)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:575
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Bahamas)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:577
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Grenadian)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:579
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Guyanese)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:581
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Jamaican)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:583
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Vincentian)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:585
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Virgin Islands)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:587
+msgctxt "OnlineTranslator|"
+msgid "Creole French (Saint Lucian)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:589
+msgctxt "OnlineTranslator|"
+msgid "Creole French (Seselwa)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:591
+msgctxt "OnlineTranslator|"
+msgid "Creole Portuguese (Upper Guinea)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:593
+msgctxt "OnlineTranslator|"
+msgid "Croatian"
+msgstr "克羅埃西亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:595
+msgctxt "OnlineTranslator|"
+msgid "Czech"
+msgstr "捷克語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:597
+msgctxt "OnlineTranslator|"
+msgid "Danish"
+msgstr "丹麥語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:599
+msgctxt "OnlineTranslator|"
+msgid "Dari"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:601
+msgctxt "OnlineTranslator|"
+msgid "Divehi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:603
+msgctxt "OnlineTranslator|"
+msgid "Dogri"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:605
+msgctxt "OnlineTranslator|"
+msgid "Dutch"
+msgstr "荷蘭語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:607
+msgctxt "OnlineTranslator|"
+msgid "Dzongkha"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:609
+msgctxt "OnlineTranslator|"
+msgid "Elvish (Sindarin)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:611
+msgctxt "OnlineTranslator|"
+msgid "Emoji"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:613
+msgctxt "OnlineTranslator|"
+msgid "English"
+msgstr "英語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:615
+msgctxt "OnlineTranslator|"
+msgid "Esperanto"
+msgstr "世界語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:617
+msgctxt "OnlineTranslator|"
+msgid "Estonian"
+msgstr "愛沙尼亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:619
+msgctxt "OnlineTranslator|"
+msgid "Ewe"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:621
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Tagalog"
+msgctxt "OnlineTranslator|"
+msgid "Fanagalo"
+msgstr "他加祿語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:623
+msgctxt "OnlineTranslator|"
+msgid "Faroese"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:625
+msgctxt "OnlineTranslator|"
+msgid "Fijian"
+msgstr "斐濟語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:627
+msgctxt "OnlineTranslator|"
+msgid "Filipino"
+msgstr "菲律賓語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:629
+msgctxt "OnlineTranslator|"
+msgid "Finnish"
+msgstr "芬蘭語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:631
+msgctxt "OnlineTranslator|"
+msgid "French"
+msgstr "法語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:633
+msgctxt "OnlineTranslator|"
+msgid "French (Canada)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:635
+msgctxt "OnlineTranslator|"
+msgid "Frisian"
+msgstr "弗里斯蘭語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:637
+msgctxt "OnlineTranslator|"
+msgid "Galician"
+msgstr "加利西亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:639
+msgctxt "OnlineTranslator|"
+msgid "Ganda"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:641
+msgctxt "OnlineTranslator|"
+msgid "Georgian"
+msgstr "喬治亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:643
+msgctxt "OnlineTranslator|"
+msgid "German"
+msgstr "德語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:645
+msgctxt "OnlineTranslator|"
+msgid "Greek"
+msgstr "希臘語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:647
+msgctxt "OnlineTranslator|"
+msgid "Greek (Classical)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:649
+msgctxt "OnlineTranslator|"
+msgid "Guarani"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:651
+msgctxt "OnlineTranslator|"
+msgid "Gujarati"
+msgstr "古吉拉特語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:653
+msgctxt "OnlineTranslator|"
+msgid "Haitian Creole"
+msgstr "海地克里奧爾語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:655
+msgctxt "OnlineTranslator|"
+msgid "Hausa"
+msgstr "豪薩語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:657
+msgctxt "OnlineTranslator|"
+msgid "Hawaiian"
+msgstr "夏威夷語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:659
+msgctxt "OnlineTranslator|"
+msgid "Hebrew"
+msgstr "希伯來語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:661
+msgctxt "OnlineTranslator|"
+msgid "Hill Mari"
+msgstr "希爾馬里語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:663
+msgctxt "OnlineTranslator|"
+msgid "Hindi"
+msgstr "印地語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:665
+msgctxt "OnlineTranslator|"
+msgid "Hmong"
+msgstr "苗族語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:667
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Hmong"
+msgctxt "OnlineTranslator|"
+msgid "Hmong Daw"
+msgstr "苗族語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:669
+msgctxt "OnlineTranslator|"
+msgid "Hungarian"
+msgstr "匈牙利語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:671
+msgctxt "OnlineTranslator|"
+msgid "Icelandic"
+msgstr "冰島語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:673
+msgctxt "OnlineTranslator|"
+msgid "Igbo"
+msgstr "伊博語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:675
+msgctxt "OnlineTranslator|"
+msgid "Ilocano"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:677
+msgctxt "OnlineTranslator|"
+msgid "Indonesian"
+msgstr "印度尼西亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:679
+msgctxt "OnlineTranslator|"
+msgid "Inuinnaqtun"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:681
+msgctxt "OnlineTranslator|"
+msgid "Inuktitut"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:683
+msgctxt "OnlineTranslator|"
+msgid "Inuktitut (Greenlandic)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:685
+msgctxt "OnlineTranslator|"
+msgid "Inuktitut (Latin)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:687
+msgctxt "OnlineTranslator|"
+msgid "Irish"
+msgstr "愛爾蘭語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:689
+msgctxt "OnlineTranslator|"
+msgid "Italian"
+msgstr "義大利語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:691
+msgctxt "OnlineTranslator|"
+msgid "Japanese"
+msgstr "日語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:693
+msgctxt "OnlineTranslator|"
+msgid "Javanese"
+msgstr "爪哇語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:695
+msgctxt "OnlineTranslator|"
+msgid "Kabuverdianu"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:697
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Italian"
+msgctxt "OnlineTranslator|"
+msgid "Kabylian"
+msgstr "義大利語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:699
+msgctxt "OnlineTranslator|"
+msgid "Kannada"
+msgstr "卡納達語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:701
+msgctxt "OnlineTranslator|"
+msgid "Kazakh"
+msgstr "哈薩克語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:703
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Serbian (Latin)"
+msgctxt "OnlineTranslator|"
+msgid "Kazakh (Latin)"
+msgstr "塞爾維亞語（拉丁語）"
+
+#: src/onlinetranslator/onlinetranslator.cpp:705
+msgctxt "OnlineTranslator|"
+msgid "Khmer"
+msgstr "高棉語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:707
+msgctxt "OnlineTranslator|"
+msgid "Kinyarwanda"
+msgstr "盧安達語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:709
+msgctxt "OnlineTranslator|"
+msgid "Kirundi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:711
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Klingon (PlqaD)"
+msgctxt "OnlineTranslator|"
+msgid "Klingon (Latin)"
+msgstr "克林貢語 (PlqaD)"
+
+#: src/onlinetranslator/onlinetranslator.cpp:713
+msgctxt "OnlineTranslator|"
+msgid "Konkani"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:715
+msgctxt "OnlineTranslator|"
+msgid "Korean"
+msgstr "韓語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:717
+msgctxt "OnlineTranslator|"
+msgid "Krio"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:719
+msgctxt "OnlineTranslator|"
+msgid "Kurdish (Central)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:721
+msgctxt "OnlineTranslator|"
+msgid "Kurdish (Northern)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:723
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Kurdish"
+msgctxt "OnlineTranslator|"
+msgid "Kurdish (Sorani)"
+msgstr "庫爾德語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:725
+msgctxt "OnlineTranslator|"
+msgid "Kyrgyz"
+msgstr "吉爾吉斯語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:727
+msgctxt "OnlineTranslator|"
+msgid "Lao"
+msgstr "寮國語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:729
+msgctxt "OnlineTranslator|"
+msgid "Latin"
+msgstr "拉丁語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:731
+msgctxt "OnlineTranslator|"
+msgid "Latvian"
+msgstr "拉脫維亞語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:733
+msgctxt "OnlineTranslator|"
+msgid "Lingala"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:735
+msgctxt "OnlineTranslator|"
+msgid "Lithuanian"
+msgstr "立陶宛語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:737
+msgctxt "OnlineTranslator|"
+msgid "Lower Sorbian"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:739
+msgctxt "OnlineTranslator|"
+msgid "Luganda"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:741
+msgctxt "OnlineTranslator|"
+msgid "Luxembourgish"
+msgstr "盧森堡語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:743
+msgctxt "OnlineTranslator|"
+msgid "Macedonian"
+msgstr "馬其頓語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:745
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Swahili"
+msgctxt "OnlineTranslator|"
+msgid "Maithili"
+msgstr "斯瓦希里語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:747
+msgctxt "OnlineTranslator|"
+msgid "Malagasy"
+msgstr "馬爾加什語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:749
+msgctxt "OnlineTranslator|"
+msgid "Malay"
+msgstr "馬來語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:751
+msgctxt "OnlineTranslator|"
+msgid "Malayalam"
+msgstr "馬拉雅拉姆語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:753
+msgctxt "OnlineTranslator|"
+msgid "Maltese"
+msgstr "馬耳他語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:755
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Scots Gaelic"
+msgctxt "OnlineTranslator|"
+msgid "Manx Gaelic"
+msgstr "蘇格蘭蓋爾語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:757
+msgctxt "OnlineTranslator|"
+msgid "Marathi"
+msgstr "馬拉語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:759
+msgctxt "OnlineTranslator|"
+msgid "Mari"
+msgstr "馬里語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:761
+msgctxt "OnlineTranslator|"
+msgid "Marshallese"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:763
+msgctxt "OnlineTranslator|"
+msgid "Meiteilon (Manipuri)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:765
+msgctxt "OnlineTranslator|"
+msgid "Mende"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:767
+msgctxt "OnlineTranslator|"
+msgid "Mizo"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:769
+msgctxt "OnlineTranslator|"
+msgid "Mongolian"
+msgstr "蒙古語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:771
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Serbian (Cyrillic)"
+msgctxt "OnlineTranslator|"
+msgid "Mongolian (Cyrillic)"
+msgstr "塞爾維亞語（西里爾語）"
+
+#: src/onlinetranslator/onlinetranslator.cpp:773
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Chinese (Traditional)"
+msgctxt "OnlineTranslator|"
+msgid "Mongolian (Traditional)"
+msgstr "繁體中文"
+
+#: src/onlinetranslator/onlinetranslator.cpp:775
+msgctxt "OnlineTranslator|"
+msgid "Morisyen"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:777
+msgctxt "OnlineTranslator|"
+msgid "Myanmar (Burmese)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:779
+msgctxt "OnlineTranslator|"
+msgid "Māori"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:781
+msgctxt "OnlineTranslator|"
+msgid "Nepali"
+msgstr "尼泊爾語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:783
+msgctxt "OnlineTranslator|"
+msgid "Niuean"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:785
+msgctxt "OnlineTranslator|"
+msgid "Norwegian"
+msgstr "挪威語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:787
+msgctxt "OnlineTranslator|"
+msgid "Nyanja"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:789
+msgctxt "OnlineTranslator|"
+msgid "Odia"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:791
+msgctxt "OnlineTranslator|"
+msgid "Oromo"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:793
+msgctxt "OnlineTranslator|"
+msgid "Palauan"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:795
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Papiamento"
+msgctxt "OnlineTranslator|"
+msgid "Papiamentu"
 msgstr "帕皮阿門託語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:630
+#: src/onlinetranslator/onlinetranslator.cpp:797
 msgctxt "OnlineTranslator|"
 msgid "Pashto"
 msgstr "普什圖語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:632
+#: src/onlinetranslator/onlinetranslator.cpp:799
 msgctxt "OnlineTranslator|"
 msgid "Persian"
 msgstr "波斯語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:634
+#: src/onlinetranslator/onlinetranslator.cpp:801
+msgctxt "OnlineTranslator|"
+msgid "Pijin"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:803
 msgctxt "OnlineTranslator|"
 msgid "Polish"
 msgstr "波蘭語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:636
+#: src/onlinetranslator/onlinetranslator.cpp:805
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Portuguese"
 msgctxt "OnlineTranslator|"
-msgid "Portuguese"
+msgid "Portuguese (Brazilian)"
 msgstr "葡萄牙語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:638
+#: src/onlinetranslator/onlinetranslator.cpp:807
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Portuguese"
+msgctxt "OnlineTranslator|"
+msgid "Portuguese (Portugal)"
+msgstr "葡萄牙語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:809
+msgctxt "OnlineTranslator|"
+msgid "Potawatomi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:811
 msgctxt "OnlineTranslator|"
 msgid "Punjabi"
 msgstr "旁遮普語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:640
+#: src/onlinetranslator/onlinetranslator.cpp:813
 msgctxt "OnlineTranslator|"
-msgid "Queretaro Otomi"
+msgid "Quechua"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:815
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Queretaro Otomi"
+msgctxt "OnlineTranslator|"
+msgid "Querétaro Otomi"
 msgstr "克雷塔羅奧托米"
 
-#: src/onlinetranslator/onlinetranslator.cpp:642
+#: src/onlinetranslator/onlinetranslator.cpp:817
 msgctxt "OnlineTranslator|"
 msgid "Romanian"
 msgstr "羅馬尼亞語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:644
+#: src/onlinetranslator/onlinetranslator.cpp:819
+msgctxt "OnlineTranslator|"
+msgid "Rundi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:821
 msgctxt "OnlineTranslator|"
 msgid "Russian"
 msgstr "俄語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:646
+#: src/onlinetranslator/onlinetranslator.cpp:823
 msgctxt "OnlineTranslator|"
 msgid "Samoan"
 msgstr "薩摩亞語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:648
+#: src/onlinetranslator/onlinetranslator.cpp:825
+msgctxt "OnlineTranslator|"
+msgid "Sango"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:827
+msgctxt "OnlineTranslator|"
+msgid "Sanskrit"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:829
 msgctxt "OnlineTranslator|"
 msgid "Scots Gaelic"
 msgstr "蘇格蘭蓋爾語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:650
+#: src/onlinetranslator/onlinetranslator.cpp:831
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Cyrillic)"
 msgstr "塞爾維亞語（西里爾語）"
 
-#: src/onlinetranslator/onlinetranslator.cpp:652
+#: src/onlinetranslator/onlinetranslator.cpp:833
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Latin)"
 msgstr "塞爾維亞語（拉丁語）"
 
-#: src/onlinetranslator/onlinetranslator.cpp:654
+#: src/onlinetranslator/onlinetranslator.cpp:835
 msgctxt "OnlineTranslator|"
 msgid "Sesotho"
 msgstr "塞索托語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:656
+#: src/onlinetranslator/onlinetranslator.cpp:837
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Sesotho"
+msgctxt "OnlineTranslator|"
+msgid "Sesotho sa Leboa"
+msgstr "塞索托語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:839
+msgctxt "OnlineTranslator|"
+msgid "Setswana"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:841
 msgctxt "OnlineTranslator|"
 msgid "Shona"
 msgstr "紹納語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:658
+#: src/onlinetranslator/onlinetranslator.cpp:843
 msgctxt "OnlineTranslator|"
 msgid "Sindhi"
 msgstr "信德語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:660
+#: src/onlinetranslator/onlinetranslator.cpp:845
 msgctxt "OnlineTranslator|"
 msgid "Sinhala"
 msgstr "僧伽羅語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:662
+#: src/onlinetranslator/onlinetranslator.cpp:847
 msgctxt "OnlineTranslator|"
 msgid "Slovak"
 msgstr "斯洛伐克語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:664
+#: src/onlinetranslator/onlinetranslator.cpp:849
 msgctxt "OnlineTranslator|"
 msgid "Slovenian"
 msgstr "斯洛維尼亞語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:666
+#: src/onlinetranslator/onlinetranslator.cpp:851
 msgctxt "OnlineTranslator|"
 msgid "Somali"
 msgstr "索馬利亞語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:668
+#: src/onlinetranslator/onlinetranslator.cpp:853
 msgctxt "OnlineTranslator|"
 msgid "Spanish"
 msgstr "西班牙語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:670
+#: src/onlinetranslator/onlinetranslator.cpp:855
+msgctxt "OnlineTranslator|"
+msgid "Sranan Tongo"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:857
 msgctxt "OnlineTranslator|"
 msgid "Sundanese"
 msgstr "蘇丹語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:672
+#: src/onlinetranslator/onlinetranslator.cpp:859
 msgctxt "OnlineTranslator|"
 msgid "Swahili"
 msgstr "斯瓦希里語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:674
+#: src/onlinetranslator/onlinetranslator.cpp:861
 msgctxt "OnlineTranslator|"
 msgid "Swedish"
 msgstr "瑞典語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:676
+#: src/onlinetranslator/onlinetranslator.cpp:863
 msgctxt "OnlineTranslator|"
-msgid "Tagalog"
-msgstr "他加祿語"
+msgid "Syriac (Aramaic)"
+msgstr ""
 
-#: src/onlinetranslator/onlinetranslator.cpp:678
+#: src/onlinetranslator/onlinetranslator.cpp:865
 msgctxt "OnlineTranslator|"
 msgid "Tahitian"
 msgstr "大溪地語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:680
+#: src/onlinetranslator/onlinetranslator.cpp:867
 msgctxt "OnlineTranslator|"
 msgid "Tajik"
 msgstr "塔吉克語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:682
+#: src/onlinetranslator/onlinetranslator.cpp:869
+msgctxt "OnlineTranslator|"
+msgid "Tamashek (Tuareg)"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:871
 msgctxt "OnlineTranslator|"
 msgid "Tamil"
 msgstr "泰米爾語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:684
+#: src/onlinetranslator/onlinetranslator.cpp:873
 msgctxt "OnlineTranslator|"
 msgid "Tatar"
 msgstr "韃靼語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:686
+#: src/onlinetranslator/onlinetranslator.cpp:875
 msgctxt "OnlineTranslator|"
 msgid "Telugu"
 msgstr "泰盧固語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:688
+#: src/onlinetranslator/onlinetranslator.cpp:877
+msgctxt "OnlineTranslator|"
+msgid "Tetum"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:879
 msgctxt "OnlineTranslator|"
 msgid "Thai"
 msgstr "泰語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:690
+#: src/onlinetranslator/onlinetranslator.cpp:881
+msgctxt "OnlineTranslator|"
+msgid "Tibetan"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:883
+msgctxt "OnlineTranslator|"
+msgid "Tigrinya"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:885
+msgctxt "OnlineTranslator|"
+msgid "Tok Pisin"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:887
+msgctxt "OnlineTranslator|"
+msgid "Tokelauan"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:889
 msgctxt "OnlineTranslator|"
 msgid "Tongan"
 msgstr "湯加語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:692
+#: src/onlinetranslator/onlinetranslator.cpp:891
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Tongan"
+msgctxt "OnlineTranslator|"
+msgid "Tsonga"
+msgstr "湯加語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:893
 msgctxt "OnlineTranslator|"
 msgid "Turkish"
 msgstr "土耳其語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:694
+#: src/onlinetranslator/onlinetranslator.cpp:895
 msgctxt "OnlineTranslator|"
 msgid "Turkmen"
 msgstr "土庫曼語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:696
+#: src/onlinetranslator/onlinetranslator.cpp:897
+msgctxt "OnlineTranslator|"
+msgid "Tuvaluan"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:899
+msgctxt "OnlineTranslator|"
+msgid "Twi"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:901
 msgctxt "OnlineTranslator|"
 msgid "Udmurt"
 msgstr "烏德穆爾特語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:698
-msgctxt "OnlineTranslator|"
-msgid "Uighur"
-msgstr "維吾爾語"
-
-#: src/onlinetranslator/onlinetranslator.cpp:700
+#: src/onlinetranslator/onlinetranslator.cpp:903
 msgctxt "OnlineTranslator|"
 msgid "Ukrainian"
 msgstr "烏克蘭語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:702
+#: src/onlinetranslator/onlinetranslator.cpp:905
+msgctxt "OnlineTranslator|"
+msgid "Uma"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:907
+msgctxt "OnlineTranslator|"
+msgid "Upper Sorbian"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:909
 msgctxt "OnlineTranslator|"
 msgid "Urdu"
 msgstr "烏爾都語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:704
+#: src/onlinetranslator/onlinetranslator.cpp:911
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Uighur"
 msgctxt "OnlineTranslator|"
-msgid "Uzbek"
-msgstr "烏茲別克語"
+msgid "Uyghur"
+msgstr "維吾爾語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:706
+#: src/onlinetranslator/onlinetranslator.cpp:913
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Serbian (Cyrillic)"
+msgctxt "OnlineTranslator|"
+msgid "Uzbek (Cyrillic)"
+msgstr "塞爾維亞語（西里爾語）"
+
+#: src/onlinetranslator/onlinetranslator.cpp:915
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Serbian (Latin)"
+msgctxt "OnlineTranslator|"
+msgid "Uzbek (Latin)"
+msgstr "塞爾維亞語（拉丁語）"
+
+#: src/onlinetranslator/onlinetranslator.cpp:917
 msgctxt "OnlineTranslator|"
 msgid "Vietnamese"
 msgstr "越南語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:708
+#: src/onlinetranslator/onlinetranslator.cpp:919
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Frisian"
+msgctxt "OnlineTranslator|"
+msgid "Wallisian"
+msgstr "弗里斯蘭語"
+
+#: src/onlinetranslator/onlinetranslator.cpp:921
 msgctxt "OnlineTranslator|"
 msgid "Welsh"
 msgstr "威爾士語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:710
+#: src/onlinetranslator/onlinetranslator.cpp:923
+msgctxt "OnlineTranslator|"
+msgid "Wolof"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:925
 msgctxt "OnlineTranslator|"
 msgid "Xhosa"
 msgstr "科薩語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:712
+#: src/onlinetranslator/onlinetranslator.cpp:927
+msgctxt "OnlineTranslator|"
+msgid "Yakut"
+msgstr ""
+
+#: src/onlinetranslator/onlinetranslator.cpp:929
 msgctxt "OnlineTranslator|"
 msgid "Yiddish"
 msgstr "意第緒語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:714
+#: src/onlinetranslator/onlinetranslator.cpp:931
 msgctxt "OnlineTranslator|"
 msgid "Yoruba"
 msgstr "約魯巴語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:716
+#: src/onlinetranslator/onlinetranslator.cpp:933
 msgctxt "OnlineTranslator|"
 msgid "Yucatec Maya"
 msgstr "瑪雅語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:718
+#: src/onlinetranslator/onlinetranslator.cpp:935
 msgctxt "OnlineTranslator|"
 msgid "Zulu"
 msgstr "祖魯語"
 
-#: src/onlinetranslator/onlinetranslator.cpp:1211
-#: src/onlinetranslator/onlinetranslator.cpp:1220
+#: src/onlinetranslator/onlinetranslator.cpp:1263
+#, qt-format
 msgctxt "OnlineTranslator|"
-msgid ""
-"Error: Engine systems have detected suspicious traffic from your computer "
-"network. Please try your request again later."
-msgstr "錯誤：引擎從你的電腦網路偵測到可疑的流量，請稍後重試。"
+msgid "Instance error: %1"
+msgstr ""
 
-#: src/onlinetranslator/onlinetranslator.cpp:1232
-#: src/onlinetranslator/onlinetranslator.cpp:1343
-#: src/onlinetranslator/onlinetranslator.cpp:1553
-#: src/onlinetranslator/onlinetranslator.cpp:1647
+#: src/onlinetranslator/onlinetranslator.cpp:1277
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
 msgstr "錯誤：無法解析自動偵測到的語言"
-
-#: src/onlinetranslator/onlinetranslator.cpp:1459
-msgctxt "OnlineTranslator|"
-msgid "Error: Unable to find Bing credentials in web version."
-msgstr "錯誤：無法在網頁版本中找到 Bing 憑證。"
-
-#: src/onlinetranslator/onlinetranslator.cpp:1466
-msgctxt "OnlineTranslator|"
-msgid "Error: Unable to extract Bing key from web version."
-msgstr "錯誤：無法從 web 版本擷取Bing 金鑰。"
-
-#: src/onlinetranslator/onlinetranslator.cpp:1474
-msgctxt "OnlineTranslator|"
-msgid "Error: Unable to extract Bing token from web version."
-msgstr "錯誤：無法從網頁版本擷取Bing 權杖。"
-
-#: src/onlinetranslator/onlinetranslator.cpp:1486
-#: src/onlinetranslator/onlinetranslator.cpp:1495
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Error: Unable to extract Bing token from web version."
-msgctxt "OnlineTranslator|"
-msgid "Error: Unable to extract additional Bing information from web version."
-msgstr "錯誤：無法從網頁版本擷取Bing 權杖。"
-
-#: src/onlinetranslator/onlinetranslator.cpp:1545
-msgctxt "OnlineTranslator|"
-msgid "Error: Bing return unhandled network error"
-msgstr ""
-
-#: src/onlinetranslator/onlinetts.cpp:64
-#, qt-format
-msgctxt "OnlineTts|"
-msgid "Selected engine %1 does not support voice settings"
-msgstr "選定的引擎 %1 不支援語音設定"
-
-#: src/onlinetranslator/onlinetts.cpp:69
-#, qt-format
-msgctxt "OnlineTts|"
-msgid "Selected engine %1 does not support emotion settings"
-msgstr "選定的引擎 %1 不支援情緒色彩設定"
-
-#: src/onlinetranslator/onlinetts.cpp:130
-#, qt-format
-msgctxt "OnlineTts|"
-msgid "%1 engine does not support TTS"
-msgstr "%1 引擎不支援 TTS"
-
-#: src/onlinetranslator/onlinetts.cpp:216
-#, qt-format
-msgctxt "OnlineTts|"
-msgid "Selected language %1 is not supported for %2"
-msgstr "選定的語言 %1 不支援 %2"
-
-#: src/onlinetranslator/onlinetts.cpp:228
-#, qt-format
-msgctxt "OnlineTts|"
-msgid "Selected voice %1 is not supported for %2"
-msgstr "選定的語音 %1 不支援 %2"
-
-#: src/onlinetranslator/onlinetts.cpp:240
-#, fuzzy, qt-format
-#| msgctxt "OnlineTts|"
-#| msgid "Selected emotion %1 is not supported for %2"
-msgctxt "OnlineTts|"
-msgid "Selected emotion %1 is not supported by %2"
-msgstr "所選的情緒色彩 %1 不支援 %2"
 
 #: src/popupwindow.ui:32
 msgctxt "PopupWindow|"
@@ -1225,17 +1665,17 @@ msgctxt "PopupWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "複製原文到剪貼簿"
 
-#: src/popupwindow.ui:140
+#: src/popupwindow.ui:158
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "複製全部翻譯到剪貼簿"
 
-#: src/popupwindow.ui:151
+#: src/popupwindow.ui:169
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "複製譯文到剪貼簿"
 
-#: src/settings/appsettings.cpp:1234
+#: src/settings/appsettings.cpp:1064
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1284,12 +1724,12 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "無法從 %2 中移除 %1"
 
-#: src/settings/settingsdialog.cpp:34
+#: src/settings/settingsdialog.cpp:31
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "可攜模式"
 
-#: src/settings/settingsdialog.cpp:47
+#: src/settings/settingsdialog.cpp:44
 #, fuzzy, qt-format
 #| msgctxt "SettingsDialog|"
 #| msgid "Use system settings"
@@ -1297,136 +1737,98 @@ msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "使用系統設定"
 
-#: src/settings/settingsdialog.cpp:59 src/settings/settingsdialog.cpp:90
-#: src/settings/settingsdialog.cpp:91
+#: src/settings/settingsdialog.cpp:49 src/settings/settingsdialog.cpp:80
+#: src/settings/settingsdialog.cpp:81
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<系統語言>"
 
-#: src/settings/settingsdialog.cpp:126
+#: src/settings/settingsdialog.cpp:115
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "圖示:"
 
-#: src/settings/settingsdialog.cpp:139
-msgctxt "SettingsDialog|"
-msgid "Happy New Year!"
-msgstr "新年快樂！"
-
-#: src/settings/settingsdialog.cpp:153
+#: src/settings/settingsdialog.cpp:137
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "OCR 參數欄位不能為空。"
 
-#: src/settings/settingsdialog.cpp:154
+#: src/settings/settingsdialog.cpp:138
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "確定要捨棄無效的參數嗎？"
 
-#: src/settings/settingsdialog.cpp:301
+#: src/settings/settingsdialog.cpp:278
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "選擇圖示"
 
-#: src/settings/settingsdialog.cpp:301
+#: src/settings/settingsdialog.cpp:278
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "圖片 (*.png *.ico *.svg *.jpg);;所有檔案()"
 
-#: src/settings/settingsdialog.cpp:314
+#: src/settings/settingsdialog.cpp:291
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "選擇 OCR 語言路徑"
 
-#: src/settings/settingsdialog.cpp:363 src/settings/settingsdialog.ui:1303
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Default"
-msgctxt "SettingsDialog|"
-msgid "Default region"
-msgstr "預設"
-
-#: src/settings/settingsdialog.cpp:366
-msgctxt "SettingsDialog|"
-msgid "Mandarin (China)"
-msgstr ""
-
-#: src/settings/settingsdialog.cpp:525
+#: src/settings/settingsdialog.cpp:432
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "返回"
-
-#: src/settings/settingsdialog.cpp:628
-msgctxt "SettingsDialog|"
-msgid "Nothing to play"
-msgstr "沒有要播放的內容"
-
-#: src/settings/settingsdialog.cpp:628
-msgctxt "SettingsDialog|"
-msgid "Playback text is empty"
-msgstr "發音文字為空"
-
-#: src/settings/settingsdialog.cpp:638
-msgctxt "SettingsDialog|"
-msgid "Unable to detect language"
-msgstr "無法偵測語言"
 
 #: src/settings/settingsdialog.ui:14
 msgctxt "SettingsDialog|"
 msgid "Settings"
 msgstr "設定"
 
-#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:136
+#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:135
 msgctxt "SettingsDialog|"
 msgid "General"
 msgstr "一般"
 
-#: src/settings/settingsdialog.ui:57
+#: src/settings/settingsdialog.ui:58
 msgctxt "SettingsDialog|"
 msgid "Interface"
 msgstr "使用介面"
 
-#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:639
+#: src/settings/settingsdialog.ui:67 src/settings/settingsdialog.ui:642
 msgctxt "SettingsDialog|"
 msgid "Translation"
 msgstr "翻譯"
 
-#: src/settings/settingsdialog.ui:81
-msgctxt "SettingsDialog|"
-msgid "Speech synthesis"
-msgstr "語音合成"
-
-#: src/settings/settingsdialog.ui:89
+#: src/settings/settingsdialog.ui:85
 msgctxt "SettingsDialog|"
 msgid "Connection"
 msgstr "網路連接"
 
-#: src/settings/settingsdialog.ui:97
+#: src/settings/settingsdialog.ui:94
 msgctxt "SettingsDialog|"
 msgid "Shortcuts"
 msgstr "快捷鍵"
 
-#: src/settings/settingsdialog.ui:105
+#: src/settings/settingsdialog.ui:103
 msgctxt "SettingsDialog|"
 msgid "About"
 msgstr "關於"
 
-#: src/settings/settingsdialog.ui:148
+#: src/settings/settingsdialog.ui:147
 msgctxt "SettingsDialog|"
 msgid "Language:"
 msgstr "語言："
 
-#: src/settings/settingsdialog.ui:155
+#: src/settings/settingsdialog.ui:154
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Interface language</p></body></html>"
 msgstr "<html><head/><body><p>使用介面語言</p></body></html>"
 
-#: src/settings/settingsdialog.ui:162
+#: src/settings/settingsdialog.ui:161
 msgctxt "SettingsDialog|"
 msgid "Main window orientation:"
 msgstr "主視窗方向："
 
-#: src/settings/settingsdialog.ui:169
+#: src/settings/settingsdialog.ui:168
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Orientation of the main window layout<br/>When using "
@@ -1437,29 +1839,29 @@ msgstr ""
 "style:italic;\">自動</span>時，視窗方向將會匹配螢幕方向</p></body></html>"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:173
+#: src/settings/settingsdialog.ui:172
 msgctxt "SettingsDialog|"
 msgid "Auto"
 msgstr "自動"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:178
+#: src/settings/settingsdialog.ui:177
 msgctxt "SettingsDialog|"
 msgid "Portrait"
 msgstr "直向"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:183
+#: src/settings/settingsdialog.ui:182
 msgctxt "SettingsDialog|"
 msgid "Landscape"
 msgstr "橫向"
 
-#: src/settings/settingsdialog.ui:191
+#: src/settings/settingsdialog.ui:190
 msgctxt "SettingsDialog|"
 msgid "Translation mode:"
 msgstr "翻譯模式："
 
-#: src/settings/settingsdialog.ui:198
+#: src/settings/settingsdialog.ui:197
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>A window for translating selected text. If the "
@@ -1469,135 +1871,135 @@ msgstr ""
 "<html><head/><body><p>在翻譯選取文字時顯示展示翻譯結果的視窗。如果程式處於最"
 "小化狀態，「主視窗」模式將被選用。</p></body></html>"
 
-#: src/settings/settingsdialog.ui:202 src/settings/settingsdialog.ui:351
+#: src/settings/settingsdialog.ui:201 src/settings/settingsdialog.ui:350
 msgctxt "SettingsDialog|"
 msgid "Pop-up window"
 msgstr "彈出式視窗"
 
-#: src/settings/settingsdialog.ui:207
+#: src/settings/settingsdialog.ui:206
 msgctxt "SettingsDialog|"
 msgid "Main window"
 msgstr "主視窗"
 
-#: src/settings/settingsdialog.ui:212
+#: src/settings/settingsdialog.ui:211
 msgctxt "SettingsDialog|"
 msgid "Notification"
 msgstr "通知"
 
-#: src/settings/settingsdialog.ui:220
+#: src/settings/settingsdialog.ui:219
 msgctxt "SettingsDialog|"
 msgid "Translation notification timeout:"
 msgstr "翻譯通知逾時："
 
-#: src/settings/settingsdialog.ui:233
+#: src/settings/settingsdialog.ui:232
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Notification with translation display time</p></body></"
 "html>"
 msgstr "<html><head/><body><p>翻譯通知顯示時間</p></body></html>"
 
-#: src/settings/settingsdialog.ui:236 src/settings/settingsdialog.ui:441
+#: src/settings/settingsdialog.ui:235 src/settings/settingsdialog.ui:440
 msgctxt "SettingsDialog|"
 msgid " sec"
 msgstr " 秒"
 
-#: src/settings/settingsdialog.ui:249
+#: src/settings/settingsdialog.ui:248
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Display icon in the system tray</p></body></html>"
 msgstr "<html><head/><body><p>在系統匣中顯示圖示</p></body></html>"
 
-#: src/settings/settingsdialog.ui:252
+#: src/settings/settingsdialog.ui:251
 msgctxt "SettingsDialog|"
 msgid "Show tray icon"
 msgstr "顯示系統匣圖示"
 
-#: src/settings/settingsdialog.ui:262
+#: src/settings/settingsdialog.ui:261
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Start application minimized to the system tray</p></"
 "body></html>"
 msgstr "<html><head/><body><p>啟動應用程式時最小化到系統匣</p></body></html>"
 
-#: src/settings/settingsdialog.ui:265
+#: src/settings/settingsdialog.ui:264
 msgctxt "SettingsDialog|"
 msgid "Start minimized"
 msgstr "啟動後最小化"
 
-#: src/settings/settingsdialog.ui:272
+#: src/settings/settingsdialog.ui:271
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Run the application at system startup</p></body></html>"
 msgstr "<html><head/><body><p>在系統啟動時運行應用程式</p></body></html>"
 
-#: src/settings/settingsdialog.ui:275
+#: src/settings/settingsdialog.ui:274
 msgctxt "SettingsDialog|"
 msgid "Launch at startup"
 msgstr "開機時啟動"
 
-#: src/settings/settingsdialog.ui:308
+#: src/settings/settingsdialog.ui:307
 msgctxt "SettingsDialog|"
 msgid "Font"
 msgstr "字型"
 
-#: src/settings/settingsdialog.ui:314
+#: src/settings/settingsdialog.ui:313
 msgctxt "SettingsDialog|"
 msgid "Name:"
 msgstr "字型名："
 
-#: src/settings/settingsdialog.ui:321
+#: src/settings/settingsdialog.ui:320
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Translation and source text font</p></body></html>"
 msgstr "<html><head/><body><p>譯文和原文字型</p></body></html>"
 
-#: src/settings/settingsdialog.ui:328
+#: src/settings/settingsdialog.ui:327
 msgctxt "SettingsDialog|"
 msgid "Size:"
 msgstr "大小："
 
-#: src/settings/settingsdialog.ui:335
+#: src/settings/settingsdialog.ui:334
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Font size of translation and source text</p></body></"
 "html>"
 msgstr "<html><head/><body><p>譯文和原文的字型大小</p></body></html>"
 
-#: src/settings/settingsdialog.ui:357
+#: src/settings/settingsdialog.ui:356
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window height in pixels</p></body></html>"
 msgstr "<html><head/><body><p>彈出視窗高度(單位:像素)</p></body></html>"
 
-#: src/settings/settingsdialog.ui:367
+#: src/settings/settingsdialog.ui:366
 msgctxt "SettingsDialog|"
 msgid "Width:"
 msgstr "寬度："
 
-#: src/settings/settingsdialog.ui:374
+#: src/settings/settingsdialog.ui:373
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
 msgstr "<html><head/><body><p>彈出視窗寬度(單位:像素)</p></body></html>"
 
-#: src/settings/settingsdialog.ui:384
+#: src/settings/settingsdialog.ui:383
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window opacity</p></body></html>"
 msgstr "<html><head/><body><p>彈出視窗不透明度</p></body></html>"
 
-#: src/settings/settingsdialog.ui:411
+#: src/settings/settingsdialog.ui:410
 msgctxt "SettingsDialog|"
 msgid "Opacity:"
 msgstr "透明度："
 
-#: src/settings/settingsdialog.ui:418
+#: src/settings/settingsdialog.ui:417
 msgctxt "SettingsDialog|"
 msgid "Show timeout:"
 msgstr "顯示時間限制:"
 
-#: src/settings/settingsdialog.ui:425
+#: src/settings/settingsdialog.ui:424
 msgctxt "SettingsDialog|"
 msgid "Height:"
 msgstr "高度："
 
-#: src/settings/settingsdialog.ui:438
+#: src/settings/settingsdialog.ui:437
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The number of seconds after which the window will be "
@@ -1606,52 +2008,52 @@ msgstr ""
 "<html><head/><body><p>當視窗失去焦點後，其自動隱藏的時間 (秒) </p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:461
+#: src/settings/settingsdialog.ui:460
 msgctxt "SettingsDialog|"
 msgid "Language format"
 msgstr "語言格式"
 
-#: src/settings/settingsdialog.ui:467
+#: src/settings/settingsdialog.ui:466
 msgctxt "SettingsDialog|"
 msgid "Main window:"
 msgstr "主視窗:"
 
-#: src/settings/settingsdialog.ui:474 src/settings/settingsdialog.ui:498
+#: src/settings/settingsdialog.ui:473 src/settings/settingsdialog.ui:497
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Languages text on buttons</p></body></html>"
 msgstr "<html><head/><body><p>按鈕上的語言文字</p></body></html>"
 
-#: src/settings/settingsdialog.ui:478 src/settings/settingsdialog.ui:502
+#: src/settings/settingsdialog.ui:477 src/settings/settingsdialog.ui:501
 msgctxt "SettingsDialog|"
 msgid "Full name"
 msgstr "全稱"
 
-#: src/settings/settingsdialog.ui:483 src/settings/settingsdialog.ui:507
+#: src/settings/settingsdialog.ui:482 src/settings/settingsdialog.ui:506
 msgctxt "SettingsDialog|"
 msgid "ISO 639-1 code"
 msgstr "ISO 639-1 編碼"
 
-#: src/settings/settingsdialog.ui:491
+#: src/settings/settingsdialog.ui:490
 msgctxt "SettingsDialog|"
 msgid "Pop-up:"
 msgstr "彈出式視窗:"
 
-#: src/settings/settingsdialog.ui:518
+#: src/settings/settingsdialog.ui:517
 msgctxt "SettingsDialog|"
 msgid "Tray icon"
 msgstr "系統匣圖示"
 
-#: src/settings/settingsdialog.ui:524
+#: src/settings/settingsdialog.ui:523
 msgctxt "SettingsDialog|"
 msgid "Icon:"
 msgstr "圖示："
 
-#: src/settings/settingsdialog.ui:537
+#: src/settings/settingsdialog.ui:536
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>System tray icon</p></body></html>"
 msgstr "<html><head/><body><p>系統匣圖示</p></body></html>"
 
-#: src/settings/settingsdialog.ui:541
+#: src/settings/settingsdialog.ui:540
 msgctxt "SettingsDialog|"
 msgid "Default"
 msgstr "預設"
@@ -1661,90 +2063,90 @@ msgctxt "SettingsDialog|"
 msgid "Monochrome (dark theme)"
 msgstr "單色 (暗黑)"
 
-#: src/settings/settingsdialog.ui:557
+#: src/settings/settingsdialog.ui:558
 msgctxt "SettingsDialog|"
 msgid "Monochrome (light theme)"
 msgstr "單色 (明亮)"
 
-#: src/settings/settingsdialog.ui:565
+#: src/settings/settingsdialog.ui:567
 msgctxt "SettingsDialog|"
 msgid "Custom"
 msgstr "自訂"
 
-#: src/settings/settingsdialog.ui:579
+#: src/settings/settingsdialog.ui:582
 msgctxt "SettingsDialog|"
 msgid "Custom:"
 msgstr "自訂："
 
-#: src/settings/settingsdialog.ui:591
+#: src/settings/settingsdialog.ui:594
 msgctxt "SettingsDialog|"
 msgid "Path to the icon or icon name from theme"
 msgstr "圖示的路徑或在主題中的名稱"
 
-#: src/settings/settingsdialog.ui:601
+#: src/settings/settingsdialog.ui:604
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>選擇圖示</p></body></html>"
 
-#: src/settings/settingsdialog.ui:645
+#: src/settings/settingsdialog.ui:648
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
 "html>"
 msgstr "<html><head/><body><p>啟用或禁用原文音譯</p></body></html>"
 
-#: src/settings/settingsdialog.ui:648
+#: src/settings/settingsdialog.ui:651
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
 msgstr "啟用原文音譯"
 
-#: src/settings/settingsdialog.ui:655
+#: src/settings/settingsdialog.ui:658
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
 "body></html>"
 msgstr "<html><head/><body><p>啟用或禁用譯文音譯</p></body></html>"
 
-#: src/settings/settingsdialog.ui:658
+#: src/settings/settingsdialog.ui:661
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
 msgstr "啟用譯文音譯"
 
-#: src/settings/settingsdialog.ui:665
+#: src/settings/settingsdialog.ui:668
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
 "html>"
 msgstr "<html><head/><body><p>啟用或禁用原文轉錄</p></body></html>"
 
-#: src/settings/settingsdialog.ui:668
+#: src/settings/settingsdialog.ui:671
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
 msgstr "啟用原文轉錄"
 
-#: src/settings/settingsdialog.ui:675
+#: src/settings/settingsdialog.ui:678
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
 msgstr "<html><head/><body><p>啟用或禁用翻譯選項</p></body></html>"
 
-#: src/settings/settingsdialog.ui:678
+#: src/settings/settingsdialog.ui:681
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
 msgstr "啟用翻譯選項"
 
-#: src/settings/settingsdialog.ui:685
+#: src/settings/settingsdialog.ui:688
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
 msgstr "<html><head/><body><p>啟用或禁用使用範例</p></body></html>"
 
-#: src/settings/settingsdialog.ui:688
+#: src/settings/settingsdialog.ui:691
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
 msgstr "啟用範例"
 
-#: src/settings/settingsdialog.ui:695
+#: src/settings/settingsdialog.ui:698
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace each sequence of whitespaces (this includes "
@@ -1754,41 +2156,41 @@ msgstr ""
 "<html><head/><body><p>在查詢中用單個空格替換每個空格序列 (包括 ASCII 字元 "
 "'\\t' '\\n' '\\v', '\\f', '\\r', 和 ' ')</p></body></html>"
 
-#: src/settings/settingsdialog.ui:698
+#: src/settings/settingsdialog.ui:701
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
 msgstr "簡化原文格式"
 
-#: src/settings/settingsdialog.ui:708
+#: src/settings/settingsdialog.ui:711
 msgctxt "SettingsDialog|"
 msgid "Automatic language detection"
 msgstr "自動語言偵測"
 
-#: src/settings/settingsdialog.ui:714
+#: src/settings/settingsdialog.ui:717
 msgctxt "SettingsDialog|"
 msgid "Primary translation language:"
 msgstr "主要翻譯語言："
 
-#: src/settings/settingsdialog.ui:721
+#: src/settings/settingsdialog.ui:724
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which text will be translated when "
 "autodetecting</p></body></html>"
 msgstr "<html><head/><body><p>自動偵測到為何種語言時翻譯文字</p></body></html>"
 
-#: src/settings/settingsdialog.ui:728
+#: src/settings/settingsdialog.ui:731
 msgctxt "SettingsDialog|"
 msgid "Secondary translation language:"
 msgstr "次要翻譯語言："
 
-#: src/settings/settingsdialog.ui:735
+#: src/settings/settingsdialog.ui:738
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which the text will be translated if it is "
 "in the language selected above</p></body></html>"
 msgstr "<html><head/><body><p>在上面選定目標語言時翻譯文字</p></body></html>"
 
-#: src/settings/settingsdialog.ui:742 src/settings/settingsdialog.ui:752
+#: src/settings/settingsdialog.ui:745 src/settings/settingsdialog.ui:755
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
@@ -1797,42 +2199,17 @@ msgstr ""
 "<html><head/><body><p>使用 OCR 和全域快捷鍵時，自動切換到<span style=\" font-"
 "style:italic;\">自動</span> 模式</p></body></html>"
 
-#: src/settings/settingsdialog.ui:745
+#: src/settings/settingsdialog.ui:748
 msgctxt "SettingsDialog|"
 msgid "Force source language detection"
 msgstr "強制偵測源語言"
 
-#: src/settings/settingsdialog.ui:755
+#: src/settings/settingsdialog.ui:758
 msgctxt "SettingsDialog|"
 msgid "Force translation language detection"
 msgstr "強制偵測翻譯語言"
 
-#: src/settings/settingsdialog.ui:778
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>LibreTranslate instance API key</p><p>Free instances "
-"listed here doesn't require a key, so field can be empty</p></body></html>"
-msgstr ""
-"<html><head/><body><p>LibreTranslate 實例的API金鑰</p><p>此處列出的免費實例不"
-"需要金鑰，因此欄位可以為空白</p></body></html>"
-
-#: src/settings/settingsdialog.ui:791
-msgctxt "SettingsDialog|"
-msgid "API key:"
-msgstr "API金鑰:"
-
-#: src/settings/settingsdialog.ui:804
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>LibreTranslate engine URL</p><p>All instances can be "
-"found here: https://github.com/LibreTranslate/LibreTranslate#mirrors</p></"
-"body></html>"
-msgstr ""
-"<html><head/><body><p>LibreTranslate 翻譯引擎網址</p><p>所有實例都可以在這裡"
-"找到: https://github.com/LibreTranslate/LibreTranslate#mirrors</p></body></"
-"html>"
-
-#: src/settings/settingsdialog.ui:844
+#: src/settings/settingsdialog.ui:787
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Lingva engine URL</p><p>All instances can be found "
@@ -1842,12 +2219,12 @@ msgstr ""
 "<html><head/><body><p>Lingva 翻譯引擎網址</p><p>所有實例都可以在這裡找到: "
 "https://github.com/TheDavidDelta/lingva-translate#instances</p></body></html>"
 
-#: src/settings/settingsdialog.ui:898
+#: src/settings/settingsdialog.ui:826
 msgctxt "SettingsDialog|"
 msgid "Languages"
 msgstr "語言"
 
-#: src/settings/settingsdialog.ui:904
+#: src/settings/settingsdialog.ui:832
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Loading additional languages will impact both speed "
@@ -1858,22 +2235,22 @@ msgstr ""
 "<html><head/><body><p>載入額外的語言會影響辨識速度和準確性，因為確認適當的語"
 "言需要程式做更多工作，並且這也會增加錯誤詞彙出現的機率</p></body></html>"
 
-#: src/settings/settingsdialog.ui:911
+#: src/settings/settingsdialog.ui:839
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
 msgstr "語言檔案路徑："
 
-#: src/settings/settingsdialog.ui:918
+#: src/settings/settingsdialog.ui:846
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr "<html><head/><body><p>選擇 OCR 語言路徑</p></body></html>"
 
-#: src/settings/settingsdialog.ui:928
+#: src/settings/settingsdialog.ui:857
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
 msgstr "<html><head/><body><p>打開 GitHub 儲存庫</p></body></html>"
 
-#: src/settings/settingsdialog.ui:931
+#: src/settings/settingsdialog.ui:860
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
@@ -1884,12 +2261,12 @@ msgstr ""
 "\"><span style=\" text-decoration: underline; color:#2980b9;\">下載更多</"
 "span></a></p></body></html>"
 
-#: src/settings/settingsdialog.ui:941
+#: src/settings/settingsdialog.ui:870
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
 msgstr "含有訓練模型的目錄"
 
-#: src/settings/settingsdialog.ui:957
+#: src/settings/settingsdialog.ui:886
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
@@ -1897,284 +2274,188 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>辨識文字後用空格替換所有單個換行符號</p></body></html>"
 
-#: src/settings/settingsdialog.ui:960
+#: src/settings/settingsdialog.ui:889
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
 msgstr "轉換換行符號"
 
-#: src/settings/settingsdialog.ui:1024
+#: src/settings/settingsdialog.ui:955
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
 msgstr "螢幕截圖"
 
-#: src/settings/settingsdialog.ui:1036
+#: src/settings/settingsdialog.ui:967
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
 msgstr "記住區域設定："
 
-#: src/settings/settingsdialog.ui:1043
+#: src/settings/settingsdialog.ui:974
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
 "html>"
 msgstr "<html><head/><body><p>選擇何時記住上次選擇的區域</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1047
+#: src/settings/settingsdialog.ui:978
 msgctxt "SettingsDialog|"
 msgid "Never"
 msgstr "從不"
 
-#: src/settings/settingsdialog.ui:1052
+#: src/settings/settingsdialog.ui:983
 msgctxt "SettingsDialog|"
 msgid "Remember last"
 msgstr "記住上一個"
 
-#: src/settings/settingsdialog.ui:1057
+#: src/settings/settingsdialog.ui:988
 msgctxt "SettingsDialog|"
 msgid "Remember always"
 msgstr "總是記住"
 
-#: src/settings/settingsdialog.ui:1065
+#: src/settings/settingsdialog.ui:996
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
 msgstr "截圖延遲："
 
-#: src/settings/settingsdialog.ui:1072
+#: src/settings/settingsdialog.ui:1003
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
 msgstr "螢幕截圖前延遲的時間"
 
-#: src/settings/settingsdialog.ui:1075
+#: src/settings/settingsdialog.ui:1006
 msgctxt "SettingsDialog|"
 msgid " ms"
 msgstr " ms"
 
-#: src/settings/settingsdialog.ui:1085
+#: src/settings/settingsdialog.ui:1016
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
 msgstr "<html><head/><body><p>在滑鼠游標旁顯示放大鏡</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1088
+#: src/settings/settingsdialog.ui:1019
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
 msgstr "顯示放大鏡"
 
-#: src/settings/settingsdialog.ui:1098
+#: src/settings/settingsdialog.ui:1029
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
 "released</p></body></html>"
 msgstr "<html><head/><body><p>釋放滑鼠按鈕時截圖</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1101
+#: src/settings/settingsdialog.ui:1032
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
 msgstr "鬆開時確認"
 
-#: src/settings/settingsdialog.ui:1108
+#: src/settings/settingsdialog.ui:1039
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
 "html>"
 msgstr "<html><head/><body><p>霧化未選取部分</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1111
+#: src/settings/settingsdialog.ui:1042
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
 msgstr "使用明亮遮罩"
 
-#: src/settings/settingsdialog.ui:1150
-msgctxt "SettingsDialog|"
-msgid "Voice:"
-msgstr "語音："
-
-#: src/settings/settingsdialog.ui:1163
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Voice of the speech synthesis engine</p></body></html>"
-msgstr "<html><head/><body><p>語音合成引擎的聲音風格</p></body></html>"
-
-#: src/settings/settingsdialog.ui:1167
-msgctxt "SettingsDialog|"
-msgid "Zahar"
-msgstr "扎哈爾(Zahar)"
-
-#: src/settings/settingsdialog.ui:1172
-msgctxt "SettingsDialog|"
-msgid "Ermil"
-msgstr "埃爾米爾(Ermil)"
-
-#: src/settings/settingsdialog.ui:1177
-msgctxt "SettingsDialog|"
-msgid "Jane"
-msgstr "簡(Jane)"
-
-#: src/settings/settingsdialog.ui:1182
-msgctxt "SettingsDialog|"
-msgid "Oksana"
-msgstr "奧克薩娜(Oksana)"
-
-#: src/settings/settingsdialog.ui:1187
-msgctxt "SettingsDialog|"
-msgid "Alyss"
-msgstr "愛麗絲(Alyss)"
-
-#: src/settings/settingsdialog.ui:1192
-msgctxt "SettingsDialog|"
-msgid "Omazh"
-msgstr "奧馬茲(Omazh)"
-
-#: src/settings/settingsdialog.ui:1200
-msgctxt "SettingsDialog|"
-msgid "Emotional connotation:"
-msgstr "情緒色彩："
-
-#: src/settings/settingsdialog.ui:1213
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Voice mood of the speech synthesis engine</p></body></"
-"html>"
-msgstr "<html><head/><body><p>語音合成引擎的情緒色彩</p></body></html>"
-
-#: src/settings/settingsdialog.ui:1217
-msgctxt "SettingsDialog|"
-msgid "Neutral"
-msgstr "中性"
-
-#: src/settings/settingsdialog.ui:1222
-msgctxt "SettingsDialog|"
-msgid "Good"
-msgstr "良好情緒"
-
-#: src/settings/settingsdialog.ui:1227
-msgctxt "SettingsDialog|"
-msgid "Evil"
-msgstr "糟糕情緒"
-
-#: src/settings/settingsdialog.ui:1235 src/settings/settingsdialog.ui:1311
-msgctxt "SettingsDialog|"
-msgid "Speech test:"
-msgstr "朗讀測試："
-
-#: src/settings/settingsdialog.ui:1244 src/settings/settingsdialog.ui:1273
-msgctxt "SettingsDialog|"
-msgid "<html><head/><body><p>Text to test speech</p></body></html>"
-msgstr "<html><head/><body><p>測試朗讀的文字</p></body></html>"
-
-#: src/settings/settingsdialog.ui:1247 src/settings/settingsdialog.ui:1276
-msgctxt "SettingsDialog|"
-msgid "This is an example of speech synthesis."
-msgstr "這是一句語音合成範例。"
-
-#: src/settings/settingsdialog.ui:1250
-msgctxt "SettingsDialog|"
-msgid "Test voice"
-msgstr "測試語音"
-
-#: src/settings/settingsdialog.ui:1295
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Version:"
-msgctxt "SettingsDialog|"
-msgid "Region:"
-msgstr "版本："
-
-#: src/settings/settingsdialog.ui:1344
+#: src/settings/settingsdialog.ui:1075
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
 msgstr "代理伺服器"
 
-#: src/settings/settingsdialog.ui:1350
+#: src/settings/settingsdialog.ui:1081
 msgctxt "SettingsDialog|"
 msgid "Type:"
 msgstr "類型："
 
-#: src/settings/settingsdialog.ui:1363
+#: src/settings/settingsdialog.ui:1094
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
 msgstr "<html><head/><body><p>代理類型</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1367
+#: src/settings/settingsdialog.ui:1098
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
 msgstr "使用系統設定"
 
-#: src/settings/settingsdialog.ui:1377
+#: src/settings/settingsdialog.ui:1108
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
 msgstr "不使用代理"
 
-#: src/settings/settingsdialog.ui:1393
+#: src/settings/settingsdialog.ui:1124
 msgctxt "SettingsDialog|"
 msgid "Host:"
 msgstr "主機名："
 
-#: src/settings/settingsdialog.ui:1403
+#: src/settings/settingsdialog.ui:1134
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr "<html><head/><body><p>代理主機名</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1416
+#: src/settings/settingsdialog.ui:1147
 msgctxt "SettingsDialog|"
 msgid "Port:"
 msgstr "通訊埠："
 
-#: src/settings/settingsdialog.ui:1432
+#: src/settings/settingsdialog.ui:1163
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
 msgstr "<html><head/><body><p>代理主機通訊埠</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1451
+#: src/settings/settingsdialog.ui:1182
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
 msgstr "資訊：代理設定只對文字翻譯生效"
 
-#: src/settings/settingsdialog.ui:1461
+#: src/settings/settingsdialog.ui:1192
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
 msgstr "<html><head/><body><p>啟用或禁用驗證</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1464
+#: src/settings/settingsdialog.ui:1195
 msgctxt "SettingsDialog|"
 msgid "Authentication"
 msgstr "驗證"
 
-#: src/settings/settingsdialog.ui:1474
+#: src/settings/settingsdialog.ui:1205
 msgctxt "SettingsDialog|"
 msgid "Username:"
 msgstr "用戶名："
 
-#: src/settings/settingsdialog.ui:1484
+#: src/settings/settingsdialog.ui:1215
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
 msgstr "<html><head/><body><p>代理驗證用戶名</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1494
+#: src/settings/settingsdialog.ui:1225
 msgctxt "SettingsDialog|"
 msgid "Password:"
 msgstr "密碼："
 
-#: src/settings/settingsdialog.ui:1504
+#: src/settings/settingsdialog.ui:1235
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
 msgstr "<html><head/><body><p>代理驗證密碼</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1517
+#: src/settings/settingsdialog.ui:1248
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
 msgstr "注：密碼將被加密保存"
 
-#: src/settings/settingsdialog.ui:1553
+#: src/settings/settingsdialog.ui:1284
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
 msgstr "<html><head/><body><p>註冊全域快捷鍵</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1556
+#: src/settings/settingsdialog.ui:1287
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Enable global shortcucts"
@@ -2182,79 +2463,79 @@ msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "啟用全域快捷鍵"
 
-#: src/settings/settingsdialog.ui:1572
+#: src/settings/settingsdialog.ui:1303
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr "<html><head/><body><p>重置所有快捷鍵為預設</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1575
+#: src/settings/settingsdialog.ui:1306
 msgctxt "SettingsDialog|"
 msgid "Reset all"
 msgstr "重置全部"
 
-#: src/settings/settingsdialog.ui:1585
+#: src/settings/settingsdialog.ui:1316
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
 msgstr "快捷鍵"
 
-#: src/settings/settingsdialog.ui:1591
+#: src/settings/settingsdialog.ui:1322
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
 msgstr "按鍵："
 
-#: src/settings/settingsdialog.ui:1598
+#: src/settings/settingsdialog.ui:1329
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
 "html>"
 msgstr "<html><head/><body><p>選定動作的關鍵次序</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1605
+#: src/settings/settingsdialog.ui:1336
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
 msgstr "<html><head/><body><p>接受快捷鍵</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1608
+#: src/settings/settingsdialog.ui:1339
 msgctxt "SettingsDialog|"
 msgid "Accept"
 msgstr "接受"
 
-#: src/settings/settingsdialog.ui:1618
+#: src/settings/settingsdialog.ui:1350
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
 msgstr "<html><head/><body><p>清除快捷鍵</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1621
+#: src/settings/settingsdialog.ui:1353
 msgctxt "SettingsDialog|"
 msgid "Clear"
 msgstr "清除"
 
-#: src/settings/settingsdialog.ui:1631
+#: src/settings/settingsdialog.ui:1364
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr "<html><head/><body><p>重置快捷鍵為預設</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1634
+#: src/settings/settingsdialog.ui:1367
 msgctxt "SettingsDialog|"
 msgid "Reset"
 msgstr "重置"
 
-#: src/settings/settingsdialog.ui:1679
+#: src/settings/settingsdialog.ui:1413
 msgctxt "SettingsDialog|"
 msgid "Version:"
 msgstr "版本："
 
-#: src/settings/settingsdialog.ui:1689
+#: src/settings/settingsdialog.ui:1423
 msgctxt "SettingsDialog|"
 msgid "License:"
 msgstr "許可證："
 
-#: src/settings/settingsdialog.ui:1703
+#: src/settings/settingsdialog.ui:1437
 msgctxt "SettingsDialog|"
 msgid "Source code:"
 msgstr "原始碼："
 
-#: src/settings/settingsdialog.ui:1743
+#: src/settings/settingsdialog.ui:1477
 msgctxt "SettingsDialog|"
 msgid "Flag icons:"
 msgstr "旗幟圖示："
@@ -2380,17 +2661,17 @@ msgctxt "TesseractParametersTableWidget|"
 msgid "Value"
 msgstr "值"
 
-#: src/speakbuttons.cpp:138
+#: src/speakbuttons.cpp:75
 msgctxt "SpeakButtons|"
 msgid "No text specified"
 msgstr "未指定文字"
 
-#: src/speakbuttons.cpp:138
+#: src/speakbuttons.cpp:75
 msgctxt "SpeakButtons|"
 msgid "Playback text is empty"
 msgstr "發音文字為空"
 
-#: src/speakbuttons.cpp:147
+#: src/speakbuttons.cpp:81
 msgctxt "SpeakButtons|"
 msgid "Unable to generate URLs for TTS"
 msgstr "無法為 TTS 生成 URL"
@@ -2420,7 +2701,7 @@ msgctxt "TranslationEdit|"
 msgid "translation options:"
 msgstr "翻譯選項："
 
-#: src/translationedit.cpp:97
+#: src/translationedit.cpp:87
 msgctxt "TranslationEdit|"
 msgid "examples:"
 msgstr "範例："
@@ -2444,6 +2725,233 @@ msgstr "退出"
 msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "翻譯結果"
+
+#~ msgctxt "Cli|"
+#~ msgid ""
+#~ "Specify the translator language (by default, the system language is used)."
+#~ msgstr "指定翻譯語言 (預設使用系統語言)"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Selected source language %1 is not supported for %2"
+#~ msgstr "選定的來源語言 %1 不支援 %2"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Selected translation language %1 is not supported for %2"
+#~ msgstr "選定的翻譯語言 %1 不支援 %2"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Selected ui language %1 is not supported for %2"
+#~ msgstr "選定的使用介面語言 %1 不支援 %2"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "%1 URL can't be empty."
+#~ msgstr "%1 URL 不能空白."
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Bengali"
+#~ msgstr "孟加拉語"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Cantonese"
+#~ msgstr "粵語"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Klingon"
+#~ msgstr "克林貢語"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Levantine Arabic"
+#~ msgstr "黎凡特阿拉伯語"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Maori"
+#~ msgstr "毛利語"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Myanmar"
+#~ msgstr "緬甸語"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Oriya"
+#~ msgstr "奧里亞語"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Uzbek"
+#~ msgstr "烏茲別克語"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid ""
+#~ "Error: Engine systems have detected suspicious traffic from your computer "
+#~ "network. Please try your request again later."
+#~ msgstr "錯誤：引擎從你的電腦網路偵測到可疑的流量，請稍後重試。"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Error: Unable to find Bing credentials in web version."
+#~ msgstr "錯誤：無法在網頁版本中找到 Bing 憑證。"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Error: Unable to extract Bing key from web version."
+#~ msgstr "錯誤：無法從 web 版本擷取Bing 金鑰。"
+
+#~ msgctxt "OnlineTranslator|"
+#~ msgid "Error: Unable to extract Bing token from web version."
+#~ msgstr "錯誤：無法從網頁版本擷取Bing 權杖。"
+
+#, fuzzy
+#~| msgctxt "OnlineTranslator|"
+#~| msgid "Error: Unable to extract Bing token from web version."
+#~ msgctxt "OnlineTranslator|"
+#~ msgid ""
+#~ "Error: Unable to extract additional Bing information from web version."
+#~ msgstr "錯誤：無法從網頁版本擷取Bing 權杖。"
+
+#~ msgctxt "OnlineTts|"
+#~ msgid "Selected engine %1 does not support voice settings"
+#~ msgstr "選定的引擎 %1 不支援語音設定"
+
+#~ msgctxt "OnlineTts|"
+#~ msgid "Selected engine %1 does not support emotion settings"
+#~ msgstr "選定的引擎 %1 不支援情緒色彩設定"
+
+#~ msgctxt "OnlineTts|"
+#~ msgid "Selected voice %1 is not supported for %2"
+#~ msgstr "選定的語音 %1 不支援 %2"
+
+#, fuzzy
+#~| msgctxt "OnlineTts|"
+#~| msgid "Selected emotion %1 is not supported for %2"
+#~ msgctxt "OnlineTts|"
+#~ msgid "Selected emotion %1 is not supported by %2"
+#~ msgstr "所選的情緒色彩 %1 不支援 %2"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Happy New Year!"
+#~ msgstr "新年快樂！"
+
+#, fuzzy
+#~| msgctxt "SettingsDialog|"
+#~| msgid "Default"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Default region"
+#~ msgstr "預設"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Nothing to play"
+#~ msgstr "沒有要播放的內容"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Playback text is empty"
+#~ msgstr "發音文字為空"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Unable to detect language"
+#~ msgstr "無法偵測語言"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Speech synthesis"
+#~ msgstr "語音合成"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>LibreTranslate instance API key</p><p>Free "
+#~ "instances listed here doesn't require a key, so field can be empty</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>LibreTranslate 實例的API金鑰</p><p>此處列出的免費實"
+#~ "例不需要金鑰，因此欄位可以為空白</p></body></html>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "API key:"
+#~ msgstr "API金鑰:"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>LibreTranslate engine URL</p><p>All instances can "
+#~ "be found here: https://github.com/LibreTranslate/LibreTranslate#mirrors</"
+#~ "p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>LibreTranslate 翻譯引擎網址</p><p>所有實例都可以在這"
+#~ "裡找到: https://github.com/LibreTranslate/LibreTranslate#mirrors</p></"
+#~ "body></html>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Voice:"
+#~ msgstr "語音："
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>Voice of the speech synthesis engine</p></body></"
+#~ "html>"
+#~ msgstr "<html><head/><body><p>語音合成引擎的聲音風格</p></body></html>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Zahar"
+#~ msgstr "扎哈爾(Zahar)"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Ermil"
+#~ msgstr "埃爾米爾(Ermil)"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Jane"
+#~ msgstr "簡(Jane)"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Oksana"
+#~ msgstr "奧克薩娜(Oksana)"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Alyss"
+#~ msgstr "愛麗絲(Alyss)"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Omazh"
+#~ msgstr "奧馬茲(Omazh)"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Emotional connotation:"
+#~ msgstr "情緒色彩："
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>Voice mood of the speech synthesis engine</p></"
+#~ "body></html>"
+#~ msgstr "<html><head/><body><p>語音合成引擎的情緒色彩</p></body></html>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Neutral"
+#~ msgstr "中性"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Good"
+#~ msgstr "良好情緒"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Evil"
+#~ msgstr "糟糕情緒"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Speech test:"
+#~ msgstr "朗讀測試："
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "<html><head/><body><p>Text to test speech</p></body></html>"
+#~ msgstr "<html><head/><body><p>測試朗讀的文字</p></body></html>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "This is an example of speech synthesis."
+#~ msgstr "這是一句語音合成範例。"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Test voice"
+#~ msgstr "測試語音"
+
+#, fuzzy
+#~| msgctxt "SettingsDialog|"
+#~| msgid "Version:"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Region:"
+#~ msgstr "版本："
 
 #~ msgctxt "QGitTag|"
 #~ msgid "Release number %1 is missing"
