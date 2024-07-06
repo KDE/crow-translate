@@ -9,7 +9,7 @@ cmake_minimum_required(VERSION 3.16.0)
 
 project(crow-translate
     VERSION 2.11.1
-    DESCRIPTION "A simple and lightweight translator that allows to translate and speak text using Mozhi"
+    DESCRIPTION "A translator that allows to translate and speak text using Mozhi"
     HOMEPAGE_URL https://apps.kde.org/crow-translate
     LANGUAGES CXX
 )

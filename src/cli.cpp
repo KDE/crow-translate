@@ -41,7 +41,7 @@ void Cli::process(const QCoreApplication &app)
     const QCommandLineOption source({"s", "source"}, tr("Specify the source language (by default, engine will try to determine the language on its own)."), QStringLiteral("code"), QStringLiteral("auto"));
     const QCommandLineOption translation({"t", "translation"}, tr("Specify the translation language(s), splitted by '+' (by default, the system language is used)."), QStringLiteral("code"), QStringLiteral("auto"));
     const QCommandLineOption engine({"e", "engine"}, tr("Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' or 'lingva'), Google is used by default."), QStringLiteral("engine"), QStringLiteral("google"));
-    const QCommandLineOption url({"u", "url"}, tr("Specify instance URL. Random instance URL will be used by default."), QStringLiteral("URL"), AppSettings::randomInstanceUrl());
+    const QCommandLineOption url({"u", "url"}, tr("Specify Mozhi instance URL. Random instance URL will be used by default."), QStringLiteral("URL"), AppSettings::randomInstanceUrl());
     const QCommandLineOption speakTranslation({"p", "speak-translation"}, tr("Speak the translation."));
     const QCommandLineOption speakSource({"u", "speak-source"}, tr("Speak the source."));
     const QCommandLineOption file({"f", "file"}, tr("Read source text from files. Arguments will be interpreted as file paths."));
@@ -51,7 +51,7 @@ void Cli::process(const QCoreApplication &app)
     const QCommandLineOption json({"j", "json"}, tr("Print output formatted as JSON."));
 
     QCommandLineParser parser;
-    parser.setApplicationDescription(tr("A simple and lightweight translator that allows to translate and speak text using Mozhi"));
+    parser.setApplicationDescription(tr("A translator that allows to translate and speak text using Mozhi"));
     parser.addPositionalArgument(QStringLiteral("text"), tr("Text to translate. By default, the translation will be done to the system language."));
     parser.addHelpOption();
     parser.addVersionOption();

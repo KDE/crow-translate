@@ -3,7 +3,7 @@
 
 # ![Crow Translate logo](data/icons/app/48-apps-crow-translate.png) Crow Translate
 
-**Crow Translate** is a simple and lightweight translator written in **C++ / Qt** that allows you to translate and speak text using [Mozhi](https://codeberg.org/aryak/mozhi).
+**Crow Translate** is a translator written in **C++ / Qt** that allows you to translate and speak text using [Mozhi](https://codeberg.org/aryak/mozhi).
 
 ## Content
 
@@ -42,7 +42,6 @@
 ## Features
 
 - Translate and speak text from screen or selection
-- Low memory consumption (~20MB)
 - Highly customizable shortcuts
 - Command-line interface with rich options
 - D-Bus API
@@ -91,7 +90,7 @@ The program also has a console interface.
 | `-s, --source <code>`      | Specify the source language (by default, engine will try to determine the language on its own)                                         |
 | `-t, --translation <code>` | Specify the translation language(s), splitted by '+' (by default, the system language is used)                                         |
 | `-e, --engine <engine>`    | Specify the translator engine ('google', 'yandex', 'deepl', 'duckduckgo', 'libre', 'mymemory' or 'reverso'), Google is used by default |
-| `-u, --url <URL>`          | Specify instance URL, random instance URL will be used by default.                                                                     |
+| `-u, --url <URL>`          | Specify Mozhi instance URL, random instance URL will be used by default.                                                               |
 | `-p, --speak-translation`  | Speak the translation                                                                                                                  |
 | `-u, --speak-source`       | Speak the source                                                                                                                       |
 | `-f, --file`               | Read source text from files. Arguments will be interpreted as file paths                                                               |
