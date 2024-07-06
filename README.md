@@ -30,7 +30,7 @@
 **Plasma Mobile**
 
 <p align="center">
-  <img src="https://invent.kde.org/websites/product-screenshots/-/raw/master/crow-translate/main-mobile-landscape.png"alt="Main"/>
+  <img src="https://invent.kde.org/websites/product-screenshots/-/raw/master/crow-translate/main-mobile.png"alt="Main"/>
 </p>
 
 **Windows 10**
