@@ -82,6 +82,19 @@ SettingsDialog::SettingsDialog(MainWindow *parent)
     connect(ui->windowModeComboBox, qOverload<int>(&QComboBox::currentIndexChanged), ui->popupOpacityLabel, &QSlider::setDisabled);
     connect(ui->windowModeComboBox, qOverload<int>(&QComboBox::currentIndexChanged), ui->popupOpacitySlider, &QSlider::setDisabled);
 
+#ifndef Q_OS_UNIX
+    // Add information about icons
+    auto *iconsTitleLabel = new QLabel(this);
+    iconsTitleLabel->setText(tr("Icons:"));
+
+    auto *iconsLabel = new QLabel(this);
+    iconsLabel->setText("<a href=\"https://invent.kde.org/frameworks/breeze-icons\">Breeze</a>");
+    iconsLabel->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
+    iconsLabel->setOpenExternalLinks(true);
+
+    qobject_cast<QFormLayout *>(ui->aboutGroupBox->layout())->addRow(iconsTitleLabel, iconsLabel);
+#endif
+
     loadSettings();
 }
 
