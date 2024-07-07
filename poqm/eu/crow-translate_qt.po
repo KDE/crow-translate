@@ -44,7 +44,8 @@ msgstr ""
 
 #: src/cli.cpp:44
 msgctxt "Cli|"
-msgid "Specify instance URL. Random instance URL will be used by default."
+msgid ""
+"Specify Mozhi instance URL. Random instance URL will be used by default."
 msgstr ""
 
 #: src/cli.cpp:45
@@ -93,9 +94,7 @@ msgstr "Inprimatu irteera JSON formatuan."
 #| "A simple and lightweight translator that allows to translate and speak "
 #| "text using Google, Yandex, Bing, LibreTranslate and Lingva"
 msgctxt "Cli|"
-msgid ""
-"A simple and lightweight translator that allows to translate and speak text "
-"using Mozhi"
+msgid "A translator that allows to translate and speak text using Mozhi"
 msgstr ""
 "Testuak itzultzeko eta ahozkatzeko Google, Yandex, Bing, LibreTranslate eta "
 "Lingva erabiliz aukera ematen duen itzultzaile sinple eta arina"
@@ -1738,32 +1737,37 @@ msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Sistema-hizkuntza>"
 
-#: src/settings/settingsdialog.cpp:97
+#: src/settings/settingsdialog.cpp:88
+msgctxt "SettingsDialog|"
+msgid "Icons:"
+msgstr "Ikonoak:"
+
+#: src/settings/settingsdialog.cpp:110
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "OCR parametroen eremuak ezin dira hutsik egon."
 
-#: src/settings/settingsdialog.cpp:98
+#: src/settings/settingsdialog.cpp:111
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Parametro baliogabeak baztertu nahi dituzu?"
 
-#: src/settings/settingsdialog.cpp:238
+#: src/settings/settingsdialog.cpp:251
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Aukeratu ikonoa"
 
-#: src/settings/settingsdialog.cpp:238
+#: src/settings/settingsdialog.cpp:251
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Irudiak (*.png *.ico *.svg *.jpg);;Fitxategi guztiak ()"
 
-#: src/settings/settingsdialog.cpp:251
+#: src/settings/settingsdialog.cpp:264
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Aukeratu OCR hizkuntzen bidea"
 
-#: src/settings/settingsdialog.cpp:392
+#: src/settings/settingsdialog.cpp:405
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Atzera"
@@ -2580,11 +2584,6 @@ msgstr "Iturburu kodea:"
 msgctxt "SettingsDialog|"
 msgid "Translation backend:"
 msgstr "Itzulpen modua:"
-
-#: src/settings/settingsdialog.ui:1477
-msgctxt "SettingsDialog|"
-msgid "Icons:"
-msgstr "Ikonoak:"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:21
 msgctxt "ShortcutsModel|"

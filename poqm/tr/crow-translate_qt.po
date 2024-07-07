@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-07-05 14:35+0300\n"
+"PO-Revision-Date: 2024-07-07 00:35+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -42,8 +42,12 @@ msgstr ""
 "veya “lingva”). Öntanımlı olarak Google kullanılır."
 
 #: src/cli.cpp:44
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid "Specify instance URL. Random instance URL will be used by default."
 msgctxt "Cli|"
-msgid "Specify instance URL. Random instance URL will be used by default."
+msgid ""
+"Specify Mozhi instance URL. Random instance URL will be used by default."
 msgstr "Örnek URL’sini belirt (Öntanımlı: Rastgele URL)."
 
 #: src/cli.cpp:45
@@ -84,10 +88,13 @@ msgid "Print output formatted as JSON."
 msgstr "Çıktıyı JSON olarak biçimlendir."
 
 #: src/cli.cpp:54
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid ""
+#| "A simple and lightweight translator that allows to translate and speak "
+#| "text using Mozhi"
 msgctxt "Cli|"
-msgid ""
-"A simple and lightweight translator that allows to translate and speak text "
-"using Mozhi"
+msgid "A translator that allows to translate and speak text using Mozhi"
 msgstr ""
 "Mozhi kullanarak metinlerin çevrilmesine ve seslendirilmesine olanak tanıyan "
 "basit ve hafif bir çevirmen."
@@ -122,17 +129,11 @@ msgid "Error: %1"
 msgstr "Hata: %1"
 
 #: src/cli.cpp:219
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "translation options:"
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "Çeviri seçenekleri:"
 
 #: src/cli.cpp:230
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "examples:"
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "Örnekler:"
@@ -1658,32 +1659,37 @@ msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Sistem Dili>"
 
-#: src/settings/settingsdialog.cpp:97
+#: src/settings/settingsdialog.cpp:88
+msgctxt "SettingsDialog|"
+msgid "Icons:"
+msgstr "Simgeler:"
+
+#: src/settings/settingsdialog.cpp:110
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "OKT parametresi boş olamaz."
 
-#: src/settings/settingsdialog.cpp:98
+#: src/settings/settingsdialog.cpp:111
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Geçersiz parametreleri atmak istiyor musunuz?"
 
-#: src/settings/settingsdialog.cpp:238
+#: src/settings/settingsdialog.cpp:251
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Simge Seç"
 
-#: src/settings/settingsdialog.cpp:238
+#: src/settings/settingsdialog.cpp:251
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Görseller (*.png *.ico *.svg *.jpg);;Tüm dosyalar()"
 
-#: src/settings/settingsdialog.cpp:251
+#: src/settings/settingsdialog.cpp:264
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "OKT Dilleri Yolunu Seç"
 
-#: src/settings/settingsdialog.cpp:392
+#: src/settings/settingsdialog.cpp:405
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Geri"
@@ -2494,17 +2500,9 @@ msgid "Source code:"
 msgstr "Kaynak kodu:"
 
 #: src/settings/settingsdialog.ui:1457
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation backend:"
-msgstr "Çeviri kipi:"
-
-#: src/settings/settingsdialog.ui:1477
-msgctxt "SettingsDialog|"
-msgid "Icons:"
-msgstr "Simgeler:"
+msgstr "Çeviri arka ucu:"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:21
 msgctxt "ShortcutsModel|"

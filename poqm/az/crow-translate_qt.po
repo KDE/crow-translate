@@ -44,7 +44,8 @@ msgstr ""
 
 #: src/cli.cpp:44
 msgctxt "Cli|"
-msgid "Specify instance URL. Random instance URL will be used by default."
+msgid ""
+"Specify Mozhi instance URL. Random instance URL will be used by default."
 msgstr ""
 
 #: src/cli.cpp:45
@@ -93,9 +94,7 @@ msgstr "Çıxarışı JSON formatında çap etmək."
 #| "A simple and lightweight translator that allows to translate and speak "
 #| "text using Google, Yandex, Bing, LibreTranslate and Lingva"
 msgctxt "Cli|"
-msgid ""
-"A simple and lightweight translator that allows to translate and speak text "
-"using Mozhi"
+msgid "A translator that allows to translate and speak text using Mozhi"
 msgstr ""
 "Google, Yandex, Bing LibreTranslate və Lingva istifadə edərək mətnləri "
 "tərcümə etməyə və səsləndirməyə imkan verən sadə və yüngül bir tərcüməçi"
@@ -1738,32 +1737,37 @@ msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<System language>"
 
-#: src/settings/settingsdialog.cpp:97
+#: src/settings/settingsdialog.cpp:88
+msgctxt "SettingsDialog|"
+msgid "Icons:"
+msgstr "Nişanlar:"
+
+#: src/settings/settingsdialog.cpp:110
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "OCR parametrləri sahəs boş ola bilməz."
 
-#: src/settings/settingsdialog.cpp:98
+#: src/settings/settingsdialog.cpp:111
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Yararsız pararmetrləri ləğv etmək istəyirsiniz?"
 
-#: src/settings/settingsdialog.cpp:238
+#: src/settings/settingsdialog.cpp:251
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Nişan seçin"
 
-#: src/settings/settingsdialog.cpp:238
+#: src/settings/settingsdialog.cpp:251
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Şəkillər (*.png *.ico *.svg *.jpg);;Bütün fayllar()"
 
-#: src/settings/settingsdialog.cpp:251
+#: src/settings/settingsdialog.cpp:264
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "OCR dilləri yolunu seçin"
 
-#: src/settings/settingsdialog.cpp:392
+#: src/settings/settingsdialog.cpp:405
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Geriyə"
@@ -2580,11 +2584,6 @@ msgstr "Mənbə kodu:"
 msgctxt "SettingsDialog|"
 msgid "Translation backend:"
 msgstr "Tərcümə rejimi:"
-
-#: src/settings/settingsdialog.ui:1477
-msgctxt "SettingsDialog|"
-msgid "Icons:"
-msgstr "Nişanlar:"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:21
 msgctxt "ShortcutsModel|"

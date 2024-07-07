@@ -40,7 +40,8 @@ msgstr ""
 
 #: src/cli.cpp:44
 msgctxt "Cli|"
-msgid "Specify instance URL. Random instance URL will be used by default."
+msgid ""
+"Specify Mozhi instance URL. Random instance URL will be used by default."
 msgstr ""
 
 #: src/cli.cpp:45
@@ -87,9 +88,7 @@ msgstr "將輸出結果列印為 JSON 格式。"
 #| "A simple and lightweight translator that allows to translate and speak "
 #| "text using Google, Yandex, Bing, LibreTranslate and Lingva"
 msgctxt "Cli|"
-msgid ""
-"A simple and lightweight translator that allows to translate and speak text "
-"using Mozhi"
+msgid "A translator that allows to translate and speak text using Mozhi"
 msgstr ""
 "一個簡單輕量的翻譯器，可使用 Google, Yandex, Bing, LibreTranslate 和 Lingva "
 "來翻譯和朗讀文字"
@@ -1747,32 +1746,37 @@ msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<系統語言>"
 
-#: src/settings/settingsdialog.cpp:97
+#: src/settings/settingsdialog.cpp:88
+msgctxt "SettingsDialog|"
+msgid "Icons:"
+msgstr "圖示:"
+
+#: src/settings/settingsdialog.cpp:110
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "OCR 參數欄位不能為空。"
 
-#: src/settings/settingsdialog.cpp:98
+#: src/settings/settingsdialog.cpp:111
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "確定要捨棄無效的參數嗎？"
 
-#: src/settings/settingsdialog.cpp:238
+#: src/settings/settingsdialog.cpp:251
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "選擇圖示"
 
-#: src/settings/settingsdialog.cpp:238
+#: src/settings/settingsdialog.cpp:251
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "圖片 (*.png *.ico *.svg *.jpg);;所有檔案()"
 
-#: src/settings/settingsdialog.cpp:251
+#: src/settings/settingsdialog.cpp:264
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "選擇 OCR 語言路徑"
 
-#: src/settings/settingsdialog.cpp:392
+#: src/settings/settingsdialog.cpp:405
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "返回"
@@ -2541,11 +2545,6 @@ msgstr "原始碼："
 msgctxt "SettingsDialog|"
 msgid "Translation backend:"
 msgstr "翻譯模式："
-
-#: src/settings/settingsdialog.ui:1477
-msgctxt "SettingsDialog|"
-msgid "Icons:"
-msgstr "圖示:"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:21
 msgctxt "ShortcutsModel|"

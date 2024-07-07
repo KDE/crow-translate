@@ -41,7 +41,8 @@ msgstr ""
 
 #: src/cli.cpp:44
 msgctxt "Cli|"
-msgid "Specify instance URL. Random instance URL will be used by default."
+msgid ""
+"Specify Mozhi instance URL. Random instance URL will be used by default."
 msgstr ""
 
 #: src/cli.cpp:45
@@ -88,9 +89,7 @@ msgstr "إخراج الطباعة بتنسيق JSON."
 #| "A simple and lightweight translator that allows to translate and speak "
 #| "text using Google, Yandex, Bing, LibreTranslate and Lingva"
 msgctxt "Cli|"
-msgid ""
-"A simple and lightweight translator that allows to translate and speak text "
-"using Mozhi"
+msgid "A translator that allows to translate and speak text using Mozhi"
 msgstr ""
 "مترجم بسيط وخفيف الوزن يسمح بترجمة النص والتحدث به باستخدام Google و Yandex "
 "و Bing و LibreTranslate و Lingva"
@@ -1737,32 +1736,37 @@ msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<System language>"
 
-#: src/settings/settingsdialog.cpp:97
+#: src/settings/settingsdialog.cpp:88
+msgctxt "SettingsDialog|"
+msgid "Icons:"
+msgstr "الأيقونات:"
+
+#: src/settings/settingsdialog.cpp:110
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "لا يمكن أن تكون حقول معلمة OCR فارغة."
 
-#: src/settings/settingsdialog.cpp:98
+#: src/settings/settingsdialog.cpp:111
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "هل تريد تجاهل المعلمات غير صالحة؟"
 
-#: src/settings/settingsdialog.cpp:238
+#: src/settings/settingsdialog.cpp:251
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "اختر أيقونة"
 
-#: src/settings/settingsdialog.cpp:238
+#: src/settings/settingsdialog.cpp:251
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "الصور (*.png *.ico *.svg *.jpg);جميع الملفات()"
 
-#: src/settings/settingsdialog.cpp:251
+#: src/settings/settingsdialog.cpp:264
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "حدد مسار اللغات OCR"
 
-#: src/settings/settingsdialog.cpp:392
+#: src/settings/settingsdialog.cpp:405
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "الرجوع"
@@ -2555,11 +2559,6 @@ msgstr "الكود المصدر:"
 msgctxt "SettingsDialog|"
 msgid "Translation backend:"
 msgstr "وضع الترجمة:"
-
-#: src/settings/settingsdialog.ui:1477
-msgctxt "SettingsDialog|"
-msgid "Icons:"
-msgstr "الأيقونات:"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:21
 msgctxt "ShortcutsModel|"
