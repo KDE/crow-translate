@@ -51,7 +51,7 @@ void Cli::process(const QCoreApplication &app)
     const QCommandLineOption json({"j", "json"}, tr("Print output formatted as JSON."));
 
     QCommandLineParser parser;
-    parser.setApplicationDescription(tr("A translator that allows to translate and speak text using Mozhi"));
+    parser.setApplicationDescription(tr("Application that allows to translate and speak text using Mozhi"));
     parser.addPositionalArgument(QStringLiteral("text"), tr("Text to translate. By default, the translation will be done to the system language."));
     parser.addHelpOption();
     parser.addVersionOption();

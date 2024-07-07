@@ -3,7 +3,7 @@
 
 # ![Crow Translate logo](data/icons/app/48-apps-crow-translate.png) Crow Translate
 
-**Crow Translate** is a translator written in **C++ / Qt** that allows you to translate and speak text using [Mozhi](https://codeberg.org/aryak/mozhi).
+Application written in **C++ / Qt** that allows you to translate and speak text using [Mozhi](https://codeberg.org/aryak/mozhi).
 
 ## Content
 
