@@ -100,23 +100,23 @@ if(WIN32 OR APPLE)
 endif()
 
 set(APP_ICONS
-    data/icons/app/128-apps-crow-translate.png
-    data/icons/app/16-apps-crow-translate.png
-    data/icons/app/22-apps-crow-translate.png
-    data/icons/app/256-apps-crow-translate.png
-    data/icons/app/32-apps-crow-translate.png
-    data/icons/app/48-apps-crow-translate.png
-    data/icons/app/512-apps-crow-translate.png
-    data/icons/app/64-apps-crow-translate.png
+    data/icons/app/128-apps-${APPLICATION_ID}.png
+    data/icons/app/16-apps-${APPLICATION_ID}.png
+    data/icons/app/22-apps-${APPLICATION_ID}.png
+    data/icons/app/256-apps-${APPLICATION_ID}.png
+    data/icons/app/32-apps-${APPLICATION_ID}.png
+    data/icons/app/48-apps-${APPLICATION_ID}.png
+    data/icons/app/512-apps-${APPLICATION_ID}.png
+    data/icons/app/64-apps-${APPLICATION_ID}.png
 )
 
 if(WIN32)
     # Those sizes needed only for Windows, for details see:
     # https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/icon-theme-color
     list(APPEND APP_ICONS
-        data/icons/app/44-apps-crow-translate.png
-        data/icons/app/150-apps-crow-translate.png
-        data/icons/app/310-apps-crow-translate.png
+        data/icons/app/44-apps-${APPLICATION_ID}.png
+        data/icons/app/150-apps-${APPLICATION_ID}.png
+        data/icons/app/310-apps-${APPLICATION_ID}.png
     )
 endif()
 
@@ -258,15 +258,15 @@ if(UNIX AND NOT APPLE)
 
     ecm_install_icons(ICONS
         ${APP_ICONS}
-        data/icons/app/sc-apps-crow-translate.svg
-        data/icons/app/16-status-crow-translate-tray-dark.png
-        data/icons/app/16-status-crow-translate-tray-light.png
-        data/icons/app/22-status-crow-translate-tray-dark.png
-        data/icons/app/22-status-crow-translate-tray-light.png
-        data/icons/app/24-status-crow-translate-tray-dark.png
-        data/icons/app/24-status-crow-translate-tray-light.png
-        data/icons/app/sc-status-crow-translate-tray-dark.svg
-        data/icons/app/sc-status-crow-translate-tray-light.svg
+        data/icons/app/sc-apps-${APPLICATION_ID}.svg
+        data/icons/app/16-status-${APPLICATION_ID}-tray-dark.png
+        data/icons/app/16-status-${APPLICATION_ID}-tray-light.png
+        data/icons/app/22-status-${APPLICATION_ID}-tray-dark.png
+        data/icons/app/22-status-${APPLICATION_ID}-tray-light.png
+        data/icons/app/24-status-${APPLICATION_ID}-tray-dark.png
+        data/icons/app/24-status-${APPLICATION_ID}-tray-light.png
+        data/icons/app/sc-status-${APPLICATION_ID}-tray-dark.svg
+        data/icons/app/sc-status-${APPLICATION_ID}-tray-light.svg
         DESTINATION ${KDE_INSTALL_ICONDIR}
     )
 elseif(APPLE)

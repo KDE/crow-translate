@@ -37,7 +37,7 @@ SettingsDialog::SettingsDialog(MainWindow *parent)
 
     connect(ui->dialogButtonBox->button(QDialogButtonBox::RestoreDefaults), &QPushButton::clicked, this, &SettingsDialog::restoreDefaults);
     connect(ui->globalShortcutsCheckBox, &QCheckBox::toggled, ui->shortcutsTreeView->model(), &ShortcutsModel::setGlobalShortuctsEnabled);
-    ui->logoLabel->setPixmap(QIcon::fromTheme(QStringLiteral("crow-translate")).pixmap(512, 512));
+    ui->logoLabel->setPixmap(QIcon::fromTheme(QStringLiteral(APPLICATION_ID)).pixmap(512, 512));
     ui->versionLabel->setText(QCoreApplication::applicationVersion());
 
 #ifdef WITH_PORTABLE_MODE

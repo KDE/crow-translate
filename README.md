@@ -1,7 +1,7 @@
 <!-- SPDX-FileCopyrightText: none -->
 <!-- SPDX-License-Identifier: CC0-1.0 -->
 
-# ![Crow Translate logo](data/icons/app/48-apps-crow-translate.png) Crow Translate
+# ![Crow Translate logo](data/icons/app/48-apps-org.kde.CrowTranslate.png) Crow Translate
 
 Application written in **C++ / Qt** that allows you to translate and speak text using [Mozhi](https://codeberg.org/aryak/mozhi).
 

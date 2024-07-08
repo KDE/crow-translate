@@ -62,11 +62,11 @@ QString TrayIcon::trayIconName(AppSettings::IconType type)
 {
     switch (type) {
     case AppSettings::DefaultIcon:
-        return QStringLiteral("crow-translate-tray");
+        return QStringLiteral(APPLICATION_ID "-tray");
     case AppSettings::DarkIcon:
-        return QStringLiteral("crow-translate-tray-dark");
+        return QStringLiteral(APPLICATION_ID "-tray-dark");
     case AppSettings::LightIcon:
-        return QStringLiteral("crow-translate-tray-light");
+        return QStringLiteral(APPLICATION_ID "-tray-light");
     default:
         return {};
     }
