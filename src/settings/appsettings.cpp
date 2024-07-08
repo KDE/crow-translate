@@ -189,7 +189,7 @@ void AppSettings::setStartMinimized(bool minimized)
 
 bool AppSettings::defaultStartMinimized()
 {
-    return true;
+    return false;
 }
 
 bool AppSettings::isAutostartEnabled() const
