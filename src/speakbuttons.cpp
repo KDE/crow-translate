@@ -45,7 +45,7 @@ void SpeakButtons::setMediaPlayer(QMediaPlayer *mediaPlayer)
 
     m_mediaPlayer = mediaPlayer;
     if (m_mediaPlayer->playlist() == nullptr)
-        m_mediaPlayer->setPlaylist(new QMediaPlaylist);
+        m_mediaPlayer->setPlaylist(new QMediaPlaylist(m_mediaPlayer));
 
     connect(m_mediaPlayer, &QMediaPlayer::positionChanged, this, &SpeakButtons::onPlayerPositionChanged);
     connect(m_mediaPlayer, &QMediaPlayer::stateChanged, this, &SpeakButtons::loadPlayerState);

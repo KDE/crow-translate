@@ -22,7 +22,7 @@ using namespace std::chrono_literals;
 LanguageButtonsWidget::LanguageButtonsWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::LanguageButtonsWidget)
-    , m_buttonGroup(new QButtonGroup)
+    , m_buttonGroup(new QButtonGroup(this))
 {
     ui->setupUi(this);
     addButton(OnlineTranslator::Auto);

@@ -100,8 +100,8 @@ MainWindow::MainWindow(QWidget *parent)
     m_screenCaptureTimer->setSingleShot(true);
 
     // Setup players for speak buttons
-    ui->sourceSpeakButtons->setMediaPlayer(new QMediaPlayer);
-    ui->translationSpeakButtons->setMediaPlayer(new QMediaPlayer);
+    ui->sourceSpeakButtons->setMediaPlayer(new QMediaPlayer(this));
+    ui->translationSpeakButtons->setMediaPlayer(new QMediaPlayer(this));
 
     // State machine to handle translator signals async
     buildStateMachine();
