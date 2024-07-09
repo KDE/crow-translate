@@ -62,11 +62,11 @@ void AppSettings::applyLocale(const QLocale &locale)
 {
     const QLocale newLocale = locale == defaultLocale() ? QLocale::system() : locale;
     QLocale::setDefault(newLocale);
-    if (!loadLocale(locale.name())) {
-        if (!loadLocale(locale.bcp47Name())) {
-            const int index = locale.name().indexOf(QLatin1Char('_'));
+    if (!loadLocale(newLocale.name())) {
+        if (!loadLocale(newLocale.bcp47Name())) {
+            const int index = newLocale.name().indexOf(QLatin1Char('_'));
             if (index > 0) {
-                loadLocale(locale.name().left(index));
+                loadLocale(newLocale.name().left(index));
             }
         }
     }
@@ -94,7 +94,9 @@ bool AppSettings::loadLocale(const QString &localeDirName)
 
 QLocale AppSettings::defaultLocale()
 {
-    return QLocale::c(); // C locale is used as the system language on apply
+     // We never apply "C" locale and just use it as a special value for <System language>
+     // We can't use QLocale::system() because it will be indistinguishable from QLocale constructed for this language
+    return QLocale::c();
 }
 
 Qt::ScreenOrientation AppSettings::mainWindowOrientation() const
