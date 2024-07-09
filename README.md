@@ -13,6 +13,7 @@ Application written in **C++ / Qt** that allows you to translate and speak text 
 - [CLI commands](#cli-commands)
 - [D-Bus API](#d-bus-api)
 - [Global shortcuts in Wayland](#global-shortcuts-in-wayland)
+- [OCR](#ocr)
 - [Dependencies](#dependencies)
 - [Icons](#icons)
 - [Installation](#installation)
@@ -161,6 +162,12 @@ qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow translateSelection
 ```
 
 You can set a hotkey for this command in GNOME system settings.
+
+## OCR
+
+The application can translate text from the screen using [Tesseract](https://github.com/tesseract-ocr/tesseract). To recognize text, you need to additionally install trained models and select at least one model in the settings. Choose only the models for the languages you need. The more models there are, the worse the performance and quality of OCR.
+
+You can manually download models from the [tessdata_fast](https://github.com/tesseract-ocr/tessdata_fast) repository or install the `org.kde.CrowTranslate.tessdata` extension if you use the app from [Flatpak](https://flatpak.org).
 
 ## Dependencies
 
