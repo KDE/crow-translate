@@ -41,8 +41,6 @@ AppSettings::AppSettings(QObject *parent)
 void AppSettings::setupLocalization() const
 {
     applyLocale(locale());
-    QCoreApplication::installTranslator(&s_appTranslator);
-    QCoreApplication::installTranslator(&s_qtTranslator);
 }
 
 QLocale AppSettings::locale() const
@@ -65,13 +63,17 @@ void AppSettings::applyLocale(const QLocale &locale)
     if (!loadLocale(newLocale.name())) {
         if (!loadLocale(newLocale.bcp47Name())) {
             const int index = newLocale.name().indexOf(QLatin1Char('_'));
-            if (index > 0) {
-                loadLocale(newLocale.name().left(index));
+            if (index == -1 || !loadLocale(newLocale.name().left(index))) {
+                QCoreApplication::removeTranslator(&s_appTranslator);
             }
         }
     }
 
-    s_qtTranslator.load(newLocale, QStringLiteral("qt"), QStringLiteral("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    if (s_qtTranslator.load(newLocale, QStringLiteral("qt"), QStringLiteral("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
+        QCoreApplication::installTranslator(&s_qtTranslator);
+    } else {
+        QCoreApplication::removeTranslator(&s_appTranslator);
+    }
 }
 
 // Code adapted from ECM QM loader.
@@ -89,13 +91,14 @@ bool AppSettings::loadLocale(const QString &localeDirName)
         return false;
     }
 
+    QCoreApplication::installTranslator(&s_appTranslator);
     return true;
 }
 
 QLocale AppSettings::defaultLocale()
 {
-     // We never apply "C" locale and just use it as a special value for <System language>
-     // We can't use QLocale::system() because it will be indistinguishable from QLocale constructed for this language
+    // We never apply "C" locale and just use it as a special value for <System language>
+    // We can't use QLocale::system() because it will be indistinguishable from QLocale constructed for this language
     return QLocale::c();
 }
 
