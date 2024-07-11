@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-07-08 11:42+0200\n"
+"PO-Revision-Date: 2024-07-09 17:13+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -37,8 +37,8 @@ msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
 "language is used)."
 msgstr ""
-"Précisez langue(s) de traduction, divisée par '+' (par défaut, la langue du "
-"système est utilisée)."
+"Précisez la ou les langue(s) de traduction, séparée par le signe « + » (Par "
+"défaut, la langue du système est utilisée)."
 
 #: src/cli.cpp:43
 msgctxt "Cli|"
@@ -46,8 +46,9 @@ msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
 "or 'lingva'), Google is used by default."
 msgstr ""
-"Spécifiez le moteur du traducteur ('google', 'yandex', 'bing', "
-"'libretranslate' ou 'lingva'), Google est utilisé par défaut."
+"Spécifiez le moteur du traducteur (« Google », « Yandex », « Bing » "
+"« Libretranslate » ou « Lingva »). Par défaut, le moteur « Google » est "
+"utilisé."
 
 #: src/cli.cpp:44
 msgctxt "Cli|"
@@ -73,7 +74,7 @@ msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
 msgstr ""
 "Lire le texte source à partir de fichiers. Les arguments seront interprétés "
-"comme des chemins de fichiers."
+"comme des emplacements de fichiers."
 
 #: src/cli.cpp:48
 msgctxt "Cli|"
@@ -97,16 +98,11 @@ msgid "Print output formatted as JSON."
 msgstr "Imprimer la sortie formatée en JSON."
 
 #: src/cli.cpp:54
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "A simple and lightweight translator that allows to translate and speak "
-#| "text using Google, Yandex, Bing, LibreTranslate and Lingva"
 msgctxt "Cli|"
 msgid "Application that allows to translate and speak text using Mozhi"
 msgstr ""
-"Un traducteur simple et léger qui permet de traduire et de parler du texte "
-"en utilisant Google, Yandex, Bing, LibreTranslate et Lingva"
+"Une application permettant la traduction et l'énoncé de texte en utilisant "
+"Mozhi."
 
 #: src/cli.cpp:55
 msgctxt "Cli|"
@@ -239,13 +235,14 @@ msgstr "Impossible de traduire le texte"
 #: src/mainwindow.cpp:867
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
-msgstr "Icône de la barre d'état invalide"
+msgstr "Icône de la barre d'état non valable"
 
 #: src/mainwindow.cpp:867
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
-msgstr "L'icône spécifiée '%1' est invalide. L'icône par défaut sera utilisé."
+msgstr ""
+"L'icône spécifiée « %1 » est non valable. L'icône par défaut sera utilisée."
 
 #: src/mainwindow.cpp:896
 msgctxt "Ocr|"
@@ -328,7 +325,7 @@ msgstr "Paramètres de l'application"
 #, qt-format
 msgctxt "Ocr|"
 msgid "%1 is not a valid Tesseract parameter name."
-msgstr "%1 n'est pas un nom de paramètre Tesseract valide."
+msgstr "%1 n'est pas un nom de paramètre « Tesseract » valable."
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 msgctxt "AbstractScreenGrabber|"
@@ -355,7 +352,7 @@ msgstr "Impossible d'attendre que le socket soit prêt: %1."
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:92
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Timeout reading from pipe."
-msgstr "Délai d'attente de lecture depuis le tuyau."
+msgstr "Délai d'attente pour la lecture depuis le pipeline."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:98
 #, qt-format
@@ -371,7 +368,7 @@ msgstr "Impossible de s'abonner à la réponse du portail xdg-desktop-."
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:76
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
-msgstr "Réception d'un chemin vide depuis le portail xdg-desktop-."
+msgstr "Réception d'un emplacement vide depuis « xdg-desktop-portal »."
 
 #: src/ocr/snippingarea.cpp:73
 msgctxt "SnippingArea|"
@@ -382,7 +379,7 @@ msgstr "Impossible de découper la zone de l'écran"
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
-msgstr "Réception d'une image invalide de l'écran %1."
+msgstr "Réception d'une image non valable de l'écran %1."
 
 #: src/ocr/snippingarea.cpp:626
 msgctxt "SnippingArea|"
@@ -406,7 +403,7 @@ msgstr "Relâcher le clic gauche"
 #: src/ocr/snippingarea.cpp:834 src/ocr/snippingarea.cpp:836
 msgctxt "SnippingArea|"
 msgid "Enter"
-msgstr "Entrer"
+msgstr "Saisir"
 
 #: src/ocr/snippingarea.cpp:836
 msgctxt "SnippingArea|"
@@ -1681,7 +1678,7 @@ msgstr "Les champs du paramètre OCR ne peuvent pas être vides."
 #: src/settings/settingsdialog.cpp:111
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
-msgstr "Voulez-vous rejeter les paramètres non valides ?"
+msgstr "Voulez-vous rejeter les paramètres non valables ?"
 
 #: src/settings/settingsdialog.cpp:251
 msgctxt "SettingsDialog|"
@@ -1696,7 +1693,9 @@ msgstr "Images (*.png *.ico *.svg *.jpg);;Tous fichiers()"
 #: src/settings/settingsdialog.cpp:264
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
-msgstr "Sélectionner le chemin des langues OCR"
+msgstr ""
+"Sélectionner l'emplacement des langues pour la reconnaissance optique de "
+"caractères (OCR)"
 
 #: src/settings/settingsdialog.cpp:405
 msgctxt "SettingsDialog|"
@@ -1843,7 +1842,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:251
 msgctxt "SettingsDialog|"
 msgid "Show tray icon"
-msgstr "Montrer l'icône de notification"
+msgstr "Afficher l'icône de notification"
 
 #: src/settings/settingsdialog.ui:261
 msgctxt "SettingsDialog|"
@@ -2027,7 +2026,7 @@ msgstr "Personnaliser:"
 #: src/settings/settingsdialog.ui:594
 msgctxt "SettingsDialog|"
 msgid "Path to the icon or icon name from theme"
-msgstr "Chemin vers le nom de l'icône ou de l'icône depuis le thème"
+msgstr "Emplacement du nom de l'icône ou de l'icône depuis le thème"
 
 #: src/settings/settingsdialog.ui:604
 msgctxt "SettingsDialog|"
@@ -2109,9 +2108,9 @@ msgid ""
 "the ASCII characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' ') with a "
 "single space in queries</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Remplacer chaque séquence d'espaces blancs (cela "
-"inclut les caractères ASCII '\\t', '\\n', '\\v', '\\f', '\\r', and ' ') avec "
-"un seul espace dans les requêtes</p></body></html>"
+"<html><head/><body><p>Remplacer chaque séquence d'espaces blancs (Cela "
+"inclut les caractères ASCII « \\t », « \\n », « \\v », « \\f », « \\r » et "
+"«  ») avec un seul espace présent dans les requêtes</p></body></html>"
 
 #: src/settings/settingsdialog.ui:701
 msgctxt "SettingsDialog|"
@@ -2203,19 +2202,19 @@ msgstr ""
 #: src/settings/settingsdialog.ui:839
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
-msgstr "Chemin des langues :"
+msgstr "Emplacement des langues :"
 
 #: src/settings/settingsdialog.ui:846
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Sélectionnez le chemin des langues OCR</p></body></"
-"html>"
+"<html><head/><body><p>Sélectionnez l'emplacement des langues pour la "
+"reconnaissance optique de caractères (OCR)</p></body></html>"
 
 #: src/settings/settingsdialog.ui:857
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
-msgstr "<html><head/><body><p>Ouvrir le référentiel GitHub</p></body></html>"
+msgstr "<html><head/><body><p>Ouvrir le dépôt GitHub</p></body></html>"
 
 #: src/settings/settingsdialog.ui:860
 msgctxt "SettingsDialog|"
@@ -2231,7 +2230,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:870
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
-msgstr "Répertoire avec modèles formés"
+msgstr "Dossier avec modèles entraînés"
 
 #: src/settings/settingsdialog.ui:886
 msgctxt "SettingsDialog|"
@@ -2339,7 +2338,7 @@ msgstr "Appliquer un masque léger"
 #: src/settings/settingsdialog.ui:1075
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
-msgstr "Serveur proxy"
+msgstr "Serveur mandataire"
 
 #: src/settings/settingsdialog.ui:1081
 msgctxt "SettingsDialog|"
@@ -2349,7 +2348,7 @@ msgstr "Type:"
 #: src/settings/settingsdialog.ui:1094
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
-msgstr "<html><head/><body><p>Type de proxy</p></body></html>"
+msgstr "<html><head/><body><p>Type de serveur mandataire</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1098
 msgctxt "SettingsDialog|"
@@ -2359,7 +2358,7 @@ msgstr "Utiliser les paramètres du système"
 #: src/settings/settingsdialog.ui:1108
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
-msgstr "Ne pas utiliser un proxy"
+msgstr "Ne pas utiliser un serveur mandataire"
 
 #: src/settings/settingsdialog.ui:1124
 msgctxt "SettingsDialog|"
@@ -2369,7 +2368,8 @@ msgstr "Hôte :"
 #: src/settings/settingsdialog.ui:1134
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
-msgstr "<html><head/><body><p>Nom d'hôte proxy</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Nom d'hôte du serveur mandataire</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1147
 msgctxt "SettingsDialog|"
@@ -2379,12 +2379,14 @@ msgstr "Port :"
 #: src/settings/settingsdialog.ui:1163
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
-msgstr "<html><head/><body><p>Port du Proxy</p></body></html>"
+msgstr "<html><head/><body><p>Port du serveur mandataire</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1182
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
-msgstr "Info : le proxy ne fonctionne que pour la traduction de texte"
+msgstr ""
+"Information : le serveur mandataire ne fonctionne que pour la traduction de "
+"texte"
 
 #: src/settings/settingsdialog.ui:1192
 msgctxt "SettingsDialog|"
@@ -2409,8 +2411,8 @@ msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Nom d'utilisateur Proxy pour l'authentification</p></"
-"body></html>"
+"<html><head/><body><p>Nom d'utilisateur pour l'authentification sur le "
+"serveur mandataire</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1225
 msgctxt "SettingsDialog|"
@@ -2422,13 +2424,13 @@ msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Mot de passe proxy pour authentification</p></body></"
-"html>"
+"<html><head/><body><p>Mot de passe du serveur mandataire pour "
+"authentification</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1248
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
-msgstr "Info: le mot de passe est enregistré non crypté"
+msgstr "Information : le mot de passe est enregistré de façon non chiffré"
 
 #: src/settings/settingsdialog.ui:1284
 msgctxt "SettingsDialog|"
@@ -2554,12 +2556,12 @@ msgstr "Arrêter la lecture du texte"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:71
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause text speaking"
-msgstr "Parler / en pause lecture texte"
+msgstr "Parler / mettre en pause la lecture du texte"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:38
 msgctxt "ShortcutsModel|"
 msgid "Show main window"
-msgstr "Montrer la fenêtre principale"
+msgstr "Afficher la fenêtre principale"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:41
 msgctxt "ShortcutsModel|"
@@ -2619,7 +2621,7 @@ msgstr "Traduction"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause speaking"
-msgstr "Parler / faire une pause"
+msgstr "Parler / mettre en pause l'énoncé"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:80
 msgctxt "ShortcutsModel|"
@@ -2664,7 +2666,7 @@ msgstr "Incapable de générer URLs pour TTS"
 #: src/speakbuttons.ui:24
 msgctxt "SpeakButtons|"
 msgid "Speak / pause text speaking"
-msgstr "Parler / en pause lecture texte"
+msgstr "Parler / mettre en pause la lecture du texte"
 
 #: src/speakbuttons.ui:34
 msgctxt "SpeakButtons|"
