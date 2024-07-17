@@ -42,14 +42,14 @@ Application written in **C++ / Qt** that allows you to translate and speak text 
 
 ## Features
 
-- [Multiple translation engines](https://codeberg.org/aryak/mozhi#supported-engines) provided by Mozhi (some instances can disable specific engines)*.
+- [Multiple translation engines](https://codeberg.org/aryak/mozhi#supported-engines) provided by Mozhi (some instances can disable specific engines)*
 - Translate and speak text from screen or selection
 - Highly customizable shortcuts
 - Command-line interface with rich options
 - D-Bus API
 - Cross-platform
 
-> :warning: *While Mozhi acts as a proxy to protect your privacy, the third-party services it uses may store and analyze the text you send. 
+:warning: *While Mozhi acts as a proxy to protect your privacy, the third-party services it uses may store and analyze the text you send. 
 
 ## Default keyboard shortcuts
 
