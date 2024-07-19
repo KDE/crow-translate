@@ -851,7 +851,6 @@ void MainWindow::loadMainWindowSettings()
         messageBox.setInformativeText(tr("While Mozhi acts as a proxy to protect your privacy, the third-party services it uses may store and analyze the text you send."));
 
         QCheckBox dontShowAgainCheckBox(tr("Don't show again"));
-        dontShowAgainCheckBox.setChecked(true);
         messageBox.setCheckBox(&dontShowAgainCheckBox);
         messageBox.exec();
 
