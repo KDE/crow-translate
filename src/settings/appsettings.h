@@ -327,6 +327,9 @@ public:
     void setCheckedButton(LanguageButtonsType type, int id);
 
     // Main window settings
+    bool isShowPrivacyPopup() const;
+    void setShowPrivacyPopup(bool show);
+
     QByteArray mainWindowGeometry() const;
     void setMainWindowGeometry(const QByteArray &geometry);
 

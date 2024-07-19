@@ -829,7 +829,7 @@ void MainWindow::setupRequestStateButtons(QState *state) const
 // These settings are loaded only at startup and cannot be configured in the settings dialog
 void MainWindow::loadMainWindowSettings()
 {
-    const AppSettings settings;
+    AppSettings settings;
     ui->autoTranslateCheckBox->setChecked(settings.isAutoTranslateEnabled());
     ui->engineComboBox->setCurrentIndex(settings.currentEngine());
     ui->sourceLanguagesWidget->setLanguages(settings.languages(AppSettings::Source));
@@ -841,6 +841,21 @@ void MainWindow::loadMainWindowSettings()
     if (!settings.isShowTrayIcon() || !settings.isStartMinimized()) {
         show();
         ui->sourceEdit->setFocus();
+    }
+
+    if (settings.isShowPrivacyPopup()) {
+        QMessageBox messageBox;
+        messageBox.setIcon(QMessageBox::Warning);
+        messageBox.setWindowTitle(APPLICATION_NAME);
+        messageBox.setText(tr("This application uses %1 to provide translations.").arg(QStringLiteral("<a href=\"https://codeberg.org/aryak/mozhi\">Mozhi</a>")));
+        messageBox.setInformativeText(tr("While Mozhi acts as a proxy to protect your privacy, the third-party services it uses may store and analyze the text you send."));
+
+        QCheckBox dontShowAgainCheckBox(tr("Don't show again"));
+        dontShowAgainCheckBox.setChecked(true);
+        messageBox.setCheckBox(&dontShowAgainCheckBox);
+        messageBox.exec();
+
+        settings.setShowPrivacyPopup(!dontShowAgainCheckBox.isChecked());
     }
 }
 

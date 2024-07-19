@@ -1097,6 +1097,16 @@ void AppSettings::setCheckedButton(LanguageButtonsType type, int id)
     m_settings->setValue(QStringLiteral("Buttons/Checked%1").arg(typeEnum.valueToKey(type)), id);
 }
 
+bool AppSettings::isShowPrivacyPopup() const
+{
+    return m_settings->value(QStringLiteral("MainWindow/ShowPrivacyPopup"), true).toBool();
+}
+
+void AppSettings::setShowPrivacyPopup(bool show)
+{
+    m_settings->setValue(QStringLiteral("MainWindow/ShowPrivacyPopup"), show);
+}
+
 QByteArray AppSettings::mainWindowGeometry() const
 {
     return m_settings->value(QStringLiteral("MainWindow/WindowGeometry")).toByteArray();
