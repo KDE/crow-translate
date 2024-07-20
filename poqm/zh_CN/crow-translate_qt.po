@@ -216,23 +216,41 @@ msgctxt "MainWindow|"
 msgid "Unable to translate text"
 msgstr "无法翻译文字"
 
-#: src/mainwindow.cpp:867
+#: src/mainwindow.cpp:850
+#, qt-format
+msgctxt "MainWindow|"
+msgid "This application uses %1 to provide translations."
+msgstr ""
+
+#: src/mainwindow.cpp:851
+msgctxt "MainWindow|"
+msgid ""
+"While Mozhi acts as a proxy to protect your privacy, the third-party "
+"services it uses may store and analyze the text you send."
+msgstr ""
+
+#: src/mainwindow.cpp:853
+msgctxt "MainWindow|"
+msgid "Don't show again"
+msgstr ""
+
+#: src/mainwindow.cpp:882
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "无效的托盘图标"
 
-#: src/mainwindow.cpp:867
+#: src/mainwindow.cpp:882
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "指定的图标 '%1' 无效。将使用默认图标。"
 
-#: src/mainwindow.cpp:896
+#: src/mainwindow.cpp:911
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "无法设定 OCR 语言"
 
-#: src/mainwindow.cpp:896
+#: src/mainwindow.cpp:911
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"

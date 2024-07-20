@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-07-18 22:28+0200\n"
+"PO-Revision-Date: 2024-07-19 08:07+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -219,24 +219,42 @@ msgctxt "MainWindow|"
 msgid "Unable to translate text"
 msgstr "Kan inte översätta text"
 
-#: src/mainwindow.cpp:867
+#: src/mainwindow.cpp:850
+#, qt-format
+msgctxt "MainWindow|"
+msgid "This application uses %1 to provide translations."
+msgstr ""
+
+#: src/mainwindow.cpp:851
+msgctxt "MainWindow|"
+msgid ""
+"While Mozhi acts as a proxy to protect your privacy, the third-party "
+"services it uses may store and analyze the text you send."
+msgstr ""
+
+#: src/mainwindow.cpp:853
+msgctxt "MainWindow|"
+msgid "Don't show again"
+msgstr ""
+
+#: src/mainwindow.cpp:882
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Ogiltig ikon för systembricka"
 
-#: src/mainwindow.cpp:867
+#: src/mainwindow.cpp:882
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr ""
 "Den angivna ikonen '%1' är ogiltig. Standardikonen kommer att användas."
 
-#: src/mainwindow.cpp:896
+#: src/mainwindow.cpp:911
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "Kan inte ställa in språk för optisk teckenigenkänning"
 
-#: src/mainwindow.cpp:896
+#: src/mainwindow.cpp:911
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -892,7 +910,7 @@ msgstr "Hmong"
 #: src/onlinetranslator.cpp:667
 msgctxt "OnlineTranslator|"
 msgid "Hmong Daw"
-msgstr ""
+msgstr "Hmong daw"
 
 #: src/onlinetranslator.cpp:669
 msgctxt "OnlineTranslator|"
@@ -922,7 +940,7 @@ msgstr "Indonesiska"
 #: src/onlinetranslator.cpp:679
 msgctxt "OnlineTranslator|"
 msgid "Inuinnaqtun"
-msgstr ""
+msgstr "Inuinnaqtun"
 
 #: src/onlinetranslator.cpp:681
 msgctxt "OnlineTranslator|"
@@ -932,12 +950,12 @@ msgstr "Inuktitut"
 #: src/onlinetranslator.cpp:683
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Greenlandic)"
-msgstr ""
+msgstr "Inuktitut (grönländska)"
 
 #: src/onlinetranslator.cpp:685
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Latin)"
-msgstr ""
+msgstr "Inuktitut (latinskt)"
 
 #: src/onlinetranslator.cpp:687
 msgctxt "OnlineTranslator|"
@@ -1017,22 +1035,22 @@ msgstr "Koreanska"
 #: src/onlinetranslator.cpp:717
 msgctxt "OnlineTranslator|"
 msgid "Krio"
-msgstr ""
+msgstr "Krio"
 
 #: src/onlinetranslator.cpp:719
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Central)"
-msgstr ""
+msgstr "Kurdiska (central)"
 
 #: src/onlinetranslator.cpp:721
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Northern)"
-msgstr ""
+msgstr "Kurdiska (nord)"
 
 #: src/onlinetranslator.cpp:723
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Sorani)"
-msgstr ""
+msgstr "Kurdiska (sorani)"
 
 #: src/onlinetranslator.cpp:725
 msgctxt "OnlineTranslator|"
@@ -1067,12 +1085,12 @@ msgstr "Litauiska"
 #: src/onlinetranslator.cpp:737
 msgctxt "OnlineTranslator|"
 msgid "Lower Sorbian"
-msgstr ""
+msgstr "Lågsorbiska"
 
 #: src/onlinetranslator.cpp:739
 msgctxt "OnlineTranslator|"
 msgid "Luganda"
-msgstr ""
+msgstr "Luganda"
 
 #: src/onlinetranslator.cpp:741
 msgctxt "OnlineTranslator|"
@@ -1112,7 +1130,7 @@ msgstr "Maltesiska"
 #: src/onlinetranslator.cpp:755
 msgctxt "OnlineTranslator|"
 msgid "Manx Gaelic"
-msgstr ""
+msgstr "Manx"
 
 #: src/onlinetranslator.cpp:757
 msgctxt "OnlineTranslator|"
@@ -1122,27 +1140,27 @@ msgstr "Marathi"
 #: src/onlinetranslator.cpp:759
 msgctxt "OnlineTranslator|"
 msgid "Mari"
-msgstr ""
+msgstr "Mari"
 
 #: src/onlinetranslator.cpp:761
 msgctxt "OnlineTranslator|"
 msgid "Marshallese"
-msgstr ""
+msgstr "Marshallesiska"
 
 #: src/onlinetranslator.cpp:763
 msgctxt "OnlineTranslator|"
 msgid "Meiteilon (Manipuri)"
-msgstr ""
+msgstr "Meitei (manipuri)"
 
 #: src/onlinetranslator.cpp:765
 msgctxt "OnlineTranslator|"
 msgid "Mende"
-msgstr ""
+msgstr "Mende"
 
 #: src/onlinetranslator.cpp:767
 msgctxt "OnlineTranslator|"
 msgid "Mizo"
-msgstr ""
+msgstr "Mizo"
 
 #: src/onlinetranslator.cpp:769
 msgctxt "OnlineTranslator|"
@@ -1162,27 +1180,27 @@ msgstr "Mongoliska (traditionell)"
 #: src/onlinetranslator.cpp:775
 msgctxt "OnlineTranslator|"
 msgid "Morisyen"
-msgstr ""
+msgstr "Mauritisk kreoliska"
 
 #: src/onlinetranslator.cpp:777
 msgctxt "OnlineTranslator|"
 msgid "Myanmar (Burmese)"
-msgstr ""
+msgstr "Burmesiska"
 
 #: src/onlinetranslator.cpp:779
 msgctxt "OnlineTranslator|"
 msgid "Māori"
-msgstr ""
+msgstr "Maori"
 
 #: src/onlinetranslator.cpp:781
 msgctxt "OnlineTranslator|"
 msgid "Nepali"
-msgstr "Nepalesiska"
+msgstr "Nepali"
 
 #: src/onlinetranslator.cpp:783
 msgctxt "OnlineTranslator|"
 msgid "Niuean"
-msgstr ""
+msgstr "Niueanska"
 
 #: src/onlinetranslator.cpp:785
 msgctxt "OnlineTranslator|"
@@ -1207,12 +1225,12 @@ msgstr "Oromo"
 #: src/onlinetranslator.cpp:793
 msgctxt "OnlineTranslator|"
 msgid "Palauan"
-msgstr ""
+msgstr "Palauiska"
 
 #: src/onlinetranslator.cpp:795
 msgctxt "OnlineTranslator|"
 msgid "Papiamentu"
-msgstr ""
+msgstr "Papiamento"
 
 #: src/onlinetranslator.cpp:797
 msgctxt "OnlineTranslator|"
@@ -1227,7 +1245,7 @@ msgstr "Persiska"
 #: src/onlinetranslator.cpp:801
 msgctxt "OnlineTranslator|"
 msgid "Pijin"
-msgstr ""
+msgstr "Pijin"
 
 #: src/onlinetranslator.cpp:803
 msgctxt "OnlineTranslator|"
@@ -1247,7 +1265,7 @@ msgstr "Portugisiska (Portugal)"
 #: src/onlinetranslator.cpp:809
 msgctxt "OnlineTranslator|"
 msgid "Potawatomi"
-msgstr ""
+msgstr "Potawatomi"
 
 #: src/onlinetranslator.cpp:811
 msgctxt "OnlineTranslator|"
@@ -1257,12 +1275,12 @@ msgstr "Punjabi"
 #: src/onlinetranslator.cpp:813
 msgctxt "OnlineTranslator|"
 msgid "Quechua"
-msgstr ""
+msgstr "Quechua"
 
 #: src/onlinetranslator.cpp:815
 msgctxt "OnlineTranslator|"
 msgid "Querétaro Otomi"
-msgstr ""
+msgstr "Querétaro Otomi"
 
 #: src/onlinetranslator.cpp:817
 msgctxt "OnlineTranslator|"
@@ -1272,7 +1290,7 @@ msgstr "Rumänska"
 #: src/onlinetranslator.cpp:819
 msgctxt "OnlineTranslator|"
 msgid "Rundi"
-msgstr ""
+msgstr "Kirundi"
 
 #: src/onlinetranslator.cpp:821
 msgctxt "OnlineTranslator|"
@@ -1282,12 +1300,12 @@ msgstr "Ryska"
 #: src/onlinetranslator.cpp:823
 msgctxt "OnlineTranslator|"
 msgid "Samoan"
-msgstr ""
+msgstr "Samoanska"
 
 #: src/onlinetranslator.cpp:825
 msgctxt "OnlineTranslator|"
 msgid "Sango"
-msgstr ""
+msgstr "Sango"
 
 #: src/onlinetranslator.cpp:827
 msgctxt "OnlineTranslator|"
@@ -1297,7 +1315,7 @@ msgstr "Sanskrit"
 #: src/onlinetranslator.cpp:829
 msgctxt "OnlineTranslator|"
 msgid "Scots Gaelic"
-msgstr ""
+msgstr "Skotsk gaeliska"
 
 #: src/onlinetranslator.cpp:831
 msgctxt "OnlineTranslator|"
@@ -1312,17 +1330,17 @@ msgstr "Serbiska (latinskt)"
 #: src/onlinetranslator.cpp:835
 msgctxt "OnlineTranslator|"
 msgid "Sesotho"
-msgstr ""
+msgstr "Sesotho"
 
 #: src/onlinetranslator.cpp:837
 msgctxt "OnlineTranslator|"
 msgid "Sesotho sa Leboa"
-msgstr ""
+msgstr "Nordsotho"
 
 #: src/onlinetranslator.cpp:839
 msgctxt "OnlineTranslator|"
 msgid "Setswana"
-msgstr ""
+msgstr "Setswana"
 
 #: src/onlinetranslator.cpp:841
 msgctxt "OnlineTranslator|"
@@ -1362,7 +1380,7 @@ msgstr "Spanska"
 #: src/onlinetranslator.cpp:855
 msgctxt "OnlineTranslator|"
 msgid "Sranan Tongo"
-msgstr ""
+msgstr "Sranan"
 
 #: src/onlinetranslator.cpp:857
 msgctxt "OnlineTranslator|"
@@ -1382,12 +1400,12 @@ msgstr "Svenska"
 #: src/onlinetranslator.cpp:863
 msgctxt "OnlineTranslator|"
 msgid "Syriac (Aramaic)"
-msgstr ""
+msgstr "Syriska (arameiska)"
 
 #: src/onlinetranslator.cpp:865
 msgctxt "OnlineTranslator|"
 msgid "Tahitian"
-msgstr ""
+msgstr "Tahitiska"
 
 #: src/onlinetranslator.cpp:867
 msgctxt "OnlineTranslator|"
@@ -1397,7 +1415,7 @@ msgstr "Tadzjikiska"
 #: src/onlinetranslator.cpp:869
 msgctxt "OnlineTranslator|"
 msgid "Tamashek (Tuareg)"
-msgstr ""
+msgstr "Tamasheg"
 
 #: src/onlinetranslator.cpp:871
 msgctxt "OnlineTranslator|"
@@ -1417,7 +1435,7 @@ msgstr "Telugu"
 #: src/onlinetranslator.cpp:877
 msgctxt "OnlineTranslator|"
 msgid "Tetum"
-msgstr ""
+msgstr "Tetum"
 
 #: src/onlinetranslator.cpp:879
 msgctxt "OnlineTranslator|"
@@ -1432,7 +1450,7 @@ msgstr "Tibetanska"
 #: src/onlinetranslator.cpp:883
 msgctxt "OnlineTranslator|"
 msgid "Tigrinya"
-msgstr ""
+msgstr "Tigrinska"
 
 #: src/onlinetranslator.cpp:885
 msgctxt "OnlineTranslator|"
@@ -1442,17 +1460,17 @@ msgstr "Tok Pisin"
 #: src/onlinetranslator.cpp:887
 msgctxt "OnlineTranslator|"
 msgid "Tokelauan"
-msgstr ""
+msgstr "Tokelauanska"
 
 #: src/onlinetranslator.cpp:889
 msgctxt "OnlineTranslator|"
 msgid "Tongan"
-msgstr ""
+msgstr "Tonganska"
 
 #: src/onlinetranslator.cpp:891
 msgctxt "OnlineTranslator|"
 msgid "Tsonga"
-msgstr ""
+msgstr "Tsonga"
 
 #: src/onlinetranslator.cpp:893
 msgctxt "OnlineTranslator|"
@@ -1467,17 +1485,17 @@ msgstr "Turkmenska"
 #: src/onlinetranslator.cpp:897
 msgctxt "OnlineTranslator|"
 msgid "Tuvaluan"
-msgstr ""
+msgstr "Tuvaluanska"
 
 #: src/onlinetranslator.cpp:899
 msgctxt "OnlineTranslator|"
 msgid "Twi"
-msgstr ""
+msgstr "Twi"
 
 #: src/onlinetranslator.cpp:901
 msgctxt "OnlineTranslator|"
 msgid "Udmurt"
-msgstr ""
+msgstr "Udmurtiska"
 
 #: src/onlinetranslator.cpp:903
 msgctxt "OnlineTranslator|"
@@ -1487,12 +1505,12 @@ msgstr "Ukrainska"
 #: src/onlinetranslator.cpp:905
 msgctxt "OnlineTranslator|"
 msgid "Uma"
-msgstr ""
+msgstr "Uma"
 
 #: src/onlinetranslator.cpp:907
 msgctxt "OnlineTranslator|"
 msgid "Upper Sorbian"
-msgstr ""
+msgstr "Högsorbiska"
 
 #: src/onlinetranslator.cpp:909
 msgctxt "OnlineTranslator|"
@@ -1502,7 +1520,7 @@ msgstr "Urdu"
 #: src/onlinetranslator.cpp:911
 msgctxt "OnlineTranslator|"
 msgid "Uyghur"
-msgstr ""
+msgstr "Uiguriska"
 
 #: src/onlinetranslator.cpp:913
 msgctxt "OnlineTranslator|"
@@ -1522,7 +1540,7 @@ msgstr "Vietnamesiska"
 #: src/onlinetranslator.cpp:919
 msgctxt "OnlineTranslator|"
 msgid "Wallisian"
-msgstr ""
+msgstr "Walliska"
 
 #: src/onlinetranslator.cpp:921
 msgctxt "OnlineTranslator|"
@@ -1557,7 +1575,7 @@ msgstr "Yoruba"
 #: src/onlinetranslator.cpp:933
 msgctxt "OnlineTranslator|"
 msgid "Yucatec Maya"
-msgstr ""
+msgstr "Yukatek"
 
 #: src/onlinetranslator.cpp:935
 msgctxt "OnlineTranslator|"
