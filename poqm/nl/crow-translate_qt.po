@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-07-08 16:22+0200\n"
+"PO-Revision-Date: 2024-07-20 10:40+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Language: nl\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: src/cli.cpp:40
 msgctxt "Cli|"
@@ -232,7 +232,7 @@ msgstr "De tekst kan niet worden vertaald"
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
-msgstr ""
+msgstr "Deze toepassing gebruikt %1 om vertalingen te leveren."
 
 #: src/mainwindow.cpp:851
 msgctxt "MainWindow|"
@@ -240,18 +240,21 @@ msgid ""
 "While Mozhi acts as a proxy to protect your privacy, the third-party "
 "services it uses may store and analyze the text you send."
 msgstr ""
+"Terwijl Mozhi acteert als een proxy om uw privacy te beschermen, kunnen de "
+"services van de derde partij die het gebruikt de tekst die verzendt opslaan "
+"en analyseren."
 
 #: src/mainwindow.cpp:853
 msgctxt "MainWindow|"
 msgid "Don't show again"
-msgstr ""
+msgstr "Niet opnieuw tonen"
 
-#: src/mainwindow.cpp:882
+#: src/mainwindow.cpp:881
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Ongeldig systeemvakpictogram"
 
-#: src/mainwindow.cpp:882
+#: src/mainwindow.cpp:881
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
@@ -259,12 +262,12 @@ msgstr ""
 "Het opgegeven pictogram, %1, is ongeldig. Het standaardpictogram wordt "
 "gebruikt."
 
-#: src/mainwindow.cpp:911
+#: src/mainwindow.cpp:910
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "De ocr-talen kunnen niet worden ingesteld"
 
-#: src/mainwindow.cpp:911
+#: src/mainwindow.cpp:910
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
