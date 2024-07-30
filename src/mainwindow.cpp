@@ -110,6 +110,14 @@ MainWindow::MainWindow(QWidget *parent)
     // App settings
     loadAppSettings();
     loadMainWindowSettings();
+
+    // Listen for changes and save settings, should be done only after loading to avoid loop
+    connect(ui->sourceLanguagesWidget, &LanguageButtonsWidget::languagesChanged, this, [](const QVector<OnlineTranslator::Language> &languages) {
+        AppSettings().setLanguages(AppSettings::Source, languages);
+    });
+    connect(ui->translationLanguagesWidget, &LanguageButtonsWidget::languagesChanged, this, [](const QVector<OnlineTranslator::Language> &languages) {
+        AppSettings().setLanguages(AppSettings::Translation, languages);
+    });
 }
 
 MainWindow::~MainWindow()
@@ -118,8 +126,6 @@ MainWindow::~MainWindow()
     settings.setMainWindowGeometry(saveGeometry());
     settings.setAutoTranslateEnabled(ui->autoTranslateCheckBox->isChecked());
     settings.setCurrentEngine(currentEngine());
-    settings.setLanguages(AppSettings::Source, ui->sourceLanguagesWidget->languages());
-    settings.setLanguages(AppSettings::Translation, ui->translationLanguagesWidget->languages());
     settings.setCheckedButton(AppSettings::Source, ui->sourceLanguagesWidget->checkedId());
     settings.setCheckedButton(AppSettings::Translation, ui->translationLanguagesWidget->checkedId());
     delete ui;
