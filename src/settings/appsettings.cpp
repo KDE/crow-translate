@@ -535,6 +535,9 @@ QStringList AppSettings::instanceUrls()
         QStringLiteral("https://mozhi.ducks.party"),
         QStringLiteral("https://mozhi.frontendfriendly.xyz"),
         QStringLiteral("https://mozhi.pussthecat.org"),
+        QStringLiteral("https://mo.zorby.top"),
+        QStringLiteral("https://mozhi.adminforge.de"),
+        QStringLiteral("https://translate.privacyredirect.com"),
     };
 }
 
