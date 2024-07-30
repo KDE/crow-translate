@@ -95,8 +95,8 @@ The program also has a console interface.
 | `-t, --translation <code>` | Specify the translation language(s), splitted by '+' (by default, the system language is used)                                         |
 | `-e, --engine <engine>`    | Specify the translator engine ('google', 'yandex', 'deepl', 'duckduckgo', 'libre', 'mymemory' or 'reverso'), Google is used by default |
 | `-u, --url <URL>`          | Specify Mozhi instance URL, random instance URL will be used by default.                                                               |
-| `-p, --speak-translation`  | Speak the translation                                                                                                                  |
-| `-u, --speak-source`       | Speak the source                                                                                                                       |
+| `-r, --speak-translation`  | Speak the translation                                                                                                                  |
+| `-o, --speak-source`       | Speak the source                                                                                                                       |
 | `-f, --file`               | Read source text from files. Arguments will be interpreted as file paths                                                               |
 | `-i, --stdin`              | Add stdin data to source text                                                                                                          |
 | `-a, --audio-only`         | Print text only for speaking when using `--speak-translation` or `--speak-source`                                                      |

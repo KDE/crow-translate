@@ -42,8 +42,8 @@ void Cli::process(const QCoreApplication &app)
     const QCommandLineOption translation({"t", "translation"}, tr("Specify the translation language(s), splitted by '+' (by default, the system language is used)."), QStringLiteral("code"), QStringLiteral("auto"));
     const QCommandLineOption engine({"e", "engine"}, tr("Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' or 'lingva'), Google is used by default."), QStringLiteral("engine"), QStringLiteral("google"));
     const QCommandLineOption url({"u", "url"}, tr("Specify Mozhi instance URL. Random instance URL will be used by default."), QStringLiteral("URL"), AppSettings::randomInstanceUrl());
-    const QCommandLineOption speakTranslation({"p", "speak-translation"}, tr("Speak the translation."));
-    const QCommandLineOption speakSource({"u", "speak-source"}, tr("Speak the source."));
+    const QCommandLineOption speakTranslation({"r", "speak-translation"}, tr("Speak the translation."));
+    const QCommandLineOption speakSource({"o", "speak-source"}, tr("Speak the source."));
     const QCommandLineOption file({"f", "file"}, tr("Read source text from files. Arguments will be interpreted as file paths."));
     const QCommandLineOption readStdin({"i", "stdin"}, tr("Add stdin data to source text."));
     const QCommandLineOption audioOnly({"a", "audio-only"}, tr("Do not print any text when using --%1 or --%2.").arg(speakSource.names().at(1), speakTranslation.names().at(1)));
