@@ -850,11 +850,18 @@ void MainWindow::loadMainWindowSettings()
     }
 
     if (settings.isShowPrivacyPopup()) {
+        const QString href = QStringLiteral("<a href=\"%1\">%2</a>");
+        const QString mozhiLink = href.arg(QStringLiteral("https://codeberg.org/aryak/mozhi"), QStringLiteral("Mozhi"));
+        const QString instanceLink = href.arg(settings.instanceUrl(), settings.instanceUrl());
         QMessageBox messageBox;
         messageBox.setIcon(QMessageBox::Warning);
         messageBox.setWindowTitle(APPLICATION_NAME);
-        messageBox.setText(tr("This application uses %1 to provide translations.").arg(QStringLiteral("<a href=\"https://codeberg.org/aryak/mozhi\">Mozhi</a>")));
-        messageBox.setInformativeText(tr("While Mozhi acts as a proxy to protect your privacy, the third-party services it uses may store and analyze the text you send."));
+        messageBox.setText(tr("This application uses %1 to provide translations.").arg(mozhiLink));
+        messageBox.setInformativeText(tr("While Mozhi acts as a proxy to protect your privacy,"
+                                         " the third-party services it uses may store and analyze"
+                                         " the text you send. We randomly assigned you instance %1,"
+                                         " but you can change it in the translation settings.")
+                                          .arg(instanceLink));
 
         QCheckBox dontShowAgainCheckBox(tr("Don't show again"));
         messageBox.setCheckBox(&dontShowAgainCheckBox);
