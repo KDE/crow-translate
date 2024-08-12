@@ -1,6 +1,7 @@
 [Desktop Entry]
 Actions=TranslateSelectedText;SpeakSelection;SpeakTranslatedSelection;StopSpeaking;Open;CopyTranslatedSelection;TranslateScreenArea;RecognizeScreenArea;
 Name=Crow Translate
+Name[be]=Crow Translate
 Name[ca]=Crow Translate
 Name[ca@valencia]=Crow Translate
 Name[en_GB]=Crow Translate
@@ -17,6 +18,7 @@ Name[tr]=Crow Çeviri
 Name[uk]=Crow Translate
 Name[x-test]=xxCrow Translatexx
 GenericName=Translator
+GenericName[be]=Перакладчык
 GenericName[ca]=Traductor
 GenericName[ca@valencia]=Traductor
 GenericName[cs]=Překladatel
@@ -34,6 +36,7 @@ GenericName[tr]=Çevirmen
 GenericName[uk]=Перекладач
 GenericName[x-test]=xxTranslatorxx
 Comment=A simple and lightweight translator that allows to translate and speak the selected text using Mozhi
+Comment[be]=Просты і лёгкаважны перакладчык, які можа перакладаць і вымаўляць абраны тэкст з дапамогай Mozhi
 Comment[ca]=Un traductor senzill i lleuger que permet traduir i pronunciar el text seleccionat utilitzant Mozhi
 Comment[ca@valencia]=Un traductor senzill i lleuger que permet traduir i llegir el text seleccionat utilitzant Mozhi
 Comment[en_GB]=A simple and lightweight translator that allows to translate and speak the selected text using Mozhi
@@ -50,6 +53,7 @@ Comment[tr]=Mozhi kullanarak metinleri çevirmenize ve seslendirmenize olanak ta
 Comment[uk]=Проста і невибаглива до ресурсів програма для перекладу, яка дає вам змогу перекладати і озвучувати позначені фрагменти тексту за допомогою Mozhi
 Comment[x-test]=xxA simple and lightweight translator that allows to translate and speak the selected text using Mozhixx
 Keywords=google;yandex;deepl;duckduckgo;libre';mymemory;reverso;text-to-speech;
+Keywords[be]=google;yandex;deepl;duckduckgo;libre';mymemory;reverso;text-to-speech;
 Keywords[ca]=google;yandex;deepl;duckduckgo;libre;mymemory;reverso;text-to-speech;text a veu;
 Keywords[ca@valencia]=google;yandex;deepl;duckduckgo;libre;mymemory;reverso;text-to-speech;text a veu;
 Keywords[en_GB]=google;yandex;deepl;duckduckgo;libre';mymemory;reverso;text-to-speech;
@@ -78,6 +82,7 @@ X-Purism-FormFactor=Workstation;Mobile;
 [Desktop Action TranslateSelectedText]
 Exec=@QT_BIN_DIR@/qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow translateSelection
 Name=Translate selected text
+Name[be]=Перакласці абраны тэкст
 Name[ca]=Tradueix el text seleccionat
 Name[ca@valencia]=Traduïx el text seleccionat
 Name[en_GB]=Translate selected text
@@ -98,6 +103,7 @@ X-KDE-Shortcuts=Ctrl+Alt+E
 [Desktop Action SpeakSelection]
 Exec=@QT_BIN_DIR@/qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow speakSelection
 Name=Speak selected text
+Name[be]=Вымавіць абраны тэкст
 Name[ca]=Pronuncia el text seleccionat
 Name[ca@valencia]=Llig el text seleccionat
 Name[en_GB]=Speak selected text
@@ -118,6 +124,7 @@ X-KDE-Shortcuts=Ctrl+Alt+S
 [Desktop Action SpeakTranslatedSelection]
 Exec=@QT_BIN_DIR@/qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow speakTranslatedSelection
 Name=Speak translation of selected text
+Name[be]=Вымавіць пераклад абранага тэксту
 Name[ca]=Pronuncia la traducció del text seleccionat
 Name[ca@valencia]=Llig la traducció del text seleccionat
 Name[en_GB]=Speak translation of selected text
@@ -138,6 +145,7 @@ X-KDE-Shortcuts=Ctrl+Alt+F
 [Desktop Action StopSpeaking]
 Exec=@QT_BIN_DIR@/qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow stopSpeaking
 Name=Stop text speaking
+Name[be]=Спыніць вымаўленне тэксту
 Name[ca]=Atura la pronunciació del text
 Name[ca@valencia]=Para la pronunciació del text
 Name[en_GB]=Stop text speaking
@@ -158,6 +166,7 @@ X-KDE-Shortcuts=Ctrl+Alt+G
 [Desktop Action Open]
 Exec=@QT_BIN_DIR@/qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow open
 Name=Show main window
+Name[be]=Паказаць галоўнае акно
 Name[ca]=Mostra la finestra principal
 Name[ca@valencia]=Mostra la finestra principal
 Name[cs]=Zobrazit hlavní okno
@@ -179,6 +188,7 @@ X-KDE-Shortcuts=Ctrl+Alt+C
 [Desktop Action CopyTranslatedSelection]
 Exec=@QT_BIN_DIR@/qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow copyTranslatedSelection
 Name=Translate selected text and copy to clipboard
+Name[be]=Перакласці абраны тэкст і скапіяваць у буфер абмену
 Name[ca]=Tradueix el text seleccionat i el copia al porta-retalls
 Name[ca@valencia]=Traduïx el text seleccionat i el copia a dins del porta-retalls
 Name[en_GB]=Translate selected text and copy to clipboard
@@ -198,6 +208,7 @@ Name[x-test]=xxTranslate selected text and copy to clipboardxx
 [Desktop Action RecognizeScreenArea]
 Exec=@QT_BIN_DIR@/qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow recognizeScreenArea
 Name=Recognize text in screen area
+Name[be]=Распазнаць тэкст у вобласці экрана
 Name[ca]=Reconeix text en una àrea de la pantalla
 Name[ca@valencia]=Reconeix text en una àrea de la pantalla
 Name[en_GB]=Recognise text in screen area
@@ -218,6 +229,7 @@ X-KDE-Shortcuts=Ctrl+Alt+I
 [Desktop Action TranslateScreenArea]
 Exec=@QT_BIN_DIR@/qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow translateScreenArea
 Name=Translate text in screen area
+Name[be]=Перакласці тэкст у вобласці экрана
 Name[ca]=Tradueix text en una àrea de la pantalla
 Name[ca@valencia]=Traduïx text en una àrea de la pantalla
 Name[en_GB]=Translate text in screen area
