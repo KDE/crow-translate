@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-07-20 16:06+0200\n"
+"PO-Revision-Date: 2024-08-11 18:00+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -47,7 +47,7 @@ msgid ""
 "or 'lingva'), Google is used by default."
 msgstr ""
 "Spécifiez le moteur du traducteur (« Google », « Yandex », « Bing » "
-"« Libretranslate » ou « Lingva »). Par défaut, le moteur « Google » est "
+"« LibreTranslate » ou « Lingva »). Par défaut, le moteur « Google » est "
 "utilisé."
 
 #: src/cli.cpp:44
@@ -61,12 +61,12 @@ msgstr ""
 #: src/cli.cpp:45
 msgctxt "Cli|"
 msgid "Speak the translation."
-msgstr "Ecoutez la traduction."
+msgstr "Écoutez la traduction."
 
 #: src/cli.cpp:46
 msgctxt "Cli|"
 msgid "Speak the source."
-msgstr "Ecoutez la source."
+msgstr "Écoutez la source."
 
 #: src/cli.cpp:47
 msgctxt "Cli|"
@@ -148,7 +148,7 @@ msgstr "exemples :"
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
-msgstr "Erreur: Vous pouvez'ne pas utiliser --%1 avec --%2"
+msgstr "Erreur: Vous ne pouvez pas utiliser --%1 avec --%2"
 
 #: src/cli.cpp:374 src/cli.cpp:395
 #, qt-format
@@ -239,11 +239,7 @@ msgid "This application uses %1 to provide translations."
 msgstr "Cette application utilise %1 pour fournir des traductions."
 
 #: src/mainwindow.cpp:860
-#, fuzzy, qt-format
-#| msgctxt "MainWindow|"
-#| msgid ""
-#| "While Mozhi acts as a proxy to protect your privacy, the third-party "
-#| "services it uses may store and analyze the text you send."
+#, qt-format
 msgctxt "MainWindow|"
 msgid ""
 "While Mozhi acts as a proxy to protect your privacy, the third-party "
@@ -252,7 +248,8 @@ msgid ""
 msgstr ""
 "Bien que Mozhi agisse en tant que serveur mandataire pour protéger votre vie "
 "privée, les services tiers qu'il utilise peuvent enregistrer et analyser le "
-"texte que vous envoyez."
+"texte que vous envoyez. Nous vous avons attribué l'instance %1 au hasard, "
+"mais vous pouvez la modifier dans les paramètres de traduction."
 
 #: src/mainwindow.cpp:866
 msgctxt "MainWindow|"
@@ -1407,7 +1404,7 @@ msgstr "Sranan Tongo"
 #: src/onlinetranslator.cpp:857
 msgctxt "OnlineTranslator|"
 msgid "Sundanese"
-msgstr "Sundanese"
+msgstr "Soudanais"
 
 #: src/onlinetranslator.cpp:859
 msgctxt "OnlineTranslator|"
@@ -1502,7 +1499,7 @@ msgstr "Turc"
 #: src/onlinetranslator.cpp:895
 msgctxt "OnlineTranslator|"
 msgid "Turkmen"
-msgstr "Turkmen"
+msgstr "Turkmène"
 
 #: src/onlinetranslator.cpp:897
 msgctxt "OnlineTranslator|"
@@ -1562,7 +1559,7 @@ msgstr "Vietnamien"
 #: src/onlinetranslator.cpp:919
 msgctxt "OnlineTranslator|"
 msgid "Wallisian"
-msgstr "Wallisian"
+msgstr "Wallisien"
 
 #: src/onlinetranslator.cpp:921
 msgctxt "OnlineTranslator|"
@@ -2184,8 +2181,8 @@ msgid ""
 "italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Basculer automatiquement sur <span style=\" font-style:"
-"italic;\">Auto</span> lors de l'utilisation d'OCR et de raccourcis globaux</"
-"p></body></html>"
+"italic;\">Auto</span> lors de l'utilisation d'un logiciel « OCR » et de "
+"raccourcis globaux</p></body></html>"
 
 #: src/settings/settingsdialog.ui:748
 msgctxt "SettingsDialog|"
