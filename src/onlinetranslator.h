@@ -569,6 +569,14 @@ public:
      */
     static Language language(const QString &langCode);
 
+    /**
+     * @brief Checks if the engine supports automatic language detection.
+     *
+     * @param engine engine
+     * @return true if the engine supports it.
+     */
+    static bool isSupportsAutodetection(Engine engine);
+
 signals:
     /**
      * @brief Translation finished

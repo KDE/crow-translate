@@ -272,24 +272,13 @@ void OnlineTranslator::translate(const QString &text, Engine engine, Language tr
 {
     abort();
 
-    switch (engine) {
-    case Yandex:
-    case Deepl:
-    case LibreTranslate:
-    case Reverso:
-        if (sourceLang == Auto) {
-            resetData(InstanceError, tr("Language detection is not supported for %1").arg(QMetaEnum::fromType<OnlineTranslator::Engine>().valueToKey(engine)));
-            emit finished();
-            return;
-        }
-        [[fallthrough]];
-    case Google:
-    case Duckduckgo:
-    case Mymemory:
-        resetData();
-        break;
+    if (sourceLang == Auto && !isSupportsAutodetection(engine)) {
+        resetData(InstanceError, tr("Language detection is not supported for %1").arg(QMetaEnum::fromType<OnlineTranslator::Engine>().valueToKey(engine)));
+        emit finished();
+        return;
     }
 
+    resetData();
     m_onlyDetectLanguage = false;
     m_source = text;
     m_sourceLang = sourceLang;
@@ -1235,6 +1224,23 @@ OnlineTranslator::Language OnlineTranslator::language(const QLocale &locale)
 OnlineTranslator::Language OnlineTranslator::language(const QString &langCode)
 {
     return s_genericLanguageCodes.key(langCode, NoLanguage);
+}
+
+bool OnlineTranslator::isSupportsAutodetection(Engine engine)
+{
+    switch (engine) {
+    case Deepl:
+    case Reverso:
+        return false;
+    case LibreTranslate:
+    case Yandex:
+    case Google:
+    case Duckduckgo:
+    case Mymemory:
+        return true;
+    }
+
+    Q_UNREACHABLE();
 }
 
 void OnlineTranslator::skipGarbageText()
