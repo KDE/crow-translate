@@ -444,7 +444,7 @@ void MainWindow::copyTranslationToClipboard()
 
 void MainWindow::forceSourceAutodetect()
 {
-    if (m_forceSourceAutodetect) {
+    if (m_forceSourceAutodetect && OnlineTranslator::isSupportsAutodetection(currentEngine())) {
         bool before = m_listenForContentChanges;
         m_listenForContentChanges = false;
 
