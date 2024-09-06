@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component type="desktop-application">
   <id>org.kde.CrowTranslate</id>
+  <replaces>
+    <id>io.crow_translate.CrowTranslate</id>
+  </replaces>
+  <provides>
+    <id>io.crow_translate.CrowTranslate.desktop</id>
+  </provides>
   <name>Crow Translate</name>
   <name xml:lang="be">Crow Translate</name>
   <name xml:lang="ca">Crow Translate</name>
