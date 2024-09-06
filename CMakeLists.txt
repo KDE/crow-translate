@@ -64,7 +64,12 @@ if(CMAKE_CXX_CLANG_TIDY)
     file(WRITE ${CMAKE_BINARY_DIR}/.clang-tidy "Checks: '-*,llvm-twine-local'")
 endif()
 
-option(WITH_PORTABLE_MODE "Enable portable functionality" OFF)
+if(WIN32)
+    # Allow portable mode on Windows by default
+    option(WITH_PORTABLE_MODE "Enable portable functionality" ON)
+else()
+    option(WITH_PORTABLE_MODE "Enable portable functionality" OFF)
+endif()
 option(WITH_KWAYLAND "Use KWayland for better Wayland integration" ON)
 
 find_package(ECM 5.83 REQUIRED NO_MODULE)
