@@ -61,15 +61,6 @@ if(WIN32)
     set(CMAKE_INSTALL_DATAROOTDIR "bin/data")
 endif()
 
-if(CMAKE_CXX_CLANG_TIDY)
-    # Exclude generated files
-    # We generate a dummy .clang-tidy file in the binary directory that disables
-    # all clang-tidy checks except one that will never match. This one check is
-    # necessary; clang-tidy reports an error when no checks are enabled.
-    # https://gitlab.kitware.com/cmake/cmake/-/issues/19772
-    file(WRITE ${CMAKE_BINARY_DIR}/.clang-tidy "Checks: '-*,llvm-twine-local'")
-endif()
-
 if(WIN32)
     # Include portable mode on Windows by default
     option(WITH_PORTABLE_MODE "Enable portable functionality" ON)
