@@ -65,7 +65,7 @@ if(CMAKE_CXX_CLANG_TIDY)
 endif()
 
 if(WIN32)
-    # Allow portable mode on Windows by default
+    # Include portable mode on Windows by default
     option(WITH_PORTABLE_MODE "Enable portable functionality" ON)
 else()
     option(WITH_PORTABLE_MODE "Enable portable functionality" OFF)
