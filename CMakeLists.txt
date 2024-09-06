@@ -55,6 +55,12 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_WIN32_EXECUTABLE ON)
 
+if(WIN32)
+    # KDEInstallDirs takes this variable from GNUInstallDir which points to "share",
+    # but it's incorrect for Windows, so set it explicitly
+    set(CMAKE_INSTALL_DATAROOTDIR "bin/data")
+endif()
+
 if(CMAKE_CXX_CLANG_TIDY)
     # Exclude generated files
     # We generate a dummy .clang-tidy file in the binary directory that disables
