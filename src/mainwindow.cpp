@@ -854,7 +854,7 @@ void MainWindow::loadMainWindowSettings()
         const QString mozhiLink = href.arg(QStringLiteral("https://codeberg.org/aryak/mozhi"), QStringLiteral("Mozhi"));
         const QString instanceLink = href.arg(settings.instanceUrl(), settings.instanceUrl());
         QMessageBox messageBox;
-        messageBox.setIcon(QMessageBox::Warning);
+        messageBox.setIcon(QMessageBox::Information);
         messageBox.setWindowTitle(APPLICATION_NAME);
         messageBox.setText(tr("This application uses %1 to provide translations.").arg(mozhiLink));
         messageBox.setInformativeText(tr("While Mozhi acts as a proxy to protect your privacy,"
