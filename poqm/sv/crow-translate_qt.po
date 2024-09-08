@@ -226,41 +226,49 @@ msgid "This application uses %1 to provide translations."
 msgstr "Programmet använder %1 för att tillhandahålla översättningar."
 
 #: src/mainwindow.cpp:860
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MainWindow|"
+#| msgid ""
+#| "While Mozhi acts as a proxy to protect your privacy, the third-party "
+#| "services it uses may store and analyze the text you send. We randomly "
+#| "assigned you instance %1, but you can change it in the translation "
+#| "settings."
 msgctxt "MainWindow|"
 msgid ""
 "While Mozhi acts as a proxy to protect your privacy, the third-party "
 "services it uses may store and analyze the text you send. We randomly "
-"assigned you instance %1, but you can change it in the translation settings."
+"assigned you instance %1, but you can change it in the translation settings. "
+"It's adviced to pick an instance that is close to you geographically for "
+"faster translations. See instance details in the link above."
 msgstr ""
 "Medan Mozhi fungerar som en proxy för att skydda din integritet, kan de "
 "tredjepartstjänster som den använder lagra och analysera texten du skickar. "
 "Vi tilldelade dig slumpmässigt instans %1, men det går att ändra i "
 "översättningsinställningarna."
 
-#: src/mainwindow.cpp:866
+#: src/mainwindow.cpp:869
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "Visa inte igen"
 
-#: src/mainwindow.cpp:894
+#: src/mainwindow.cpp:897
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Ogiltig ikon för systembricka"
 
-#: src/mainwindow.cpp:894
+#: src/mainwindow.cpp:897
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr ""
 "Den angivna ikonen '%1' är ogiltig. Standardikonen kommer att användas."
 
-#: src/mainwindow.cpp:923
+#: src/mainwindow.cpp:926
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "Kan inte ställa in språk för optisk teckenigenkänning"
 
-#: src/mainwindow.cpp:923
+#: src/mainwindow.cpp:926
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -312,22 +320,22 @@ msgctxt "MainWindow|"
 msgid "Translation"
 msgstr "Översättning"
 
-#: src/mainwindow.ui:265
+#: src/mainwindow.ui:259
 msgctxt "MainWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Kopiera översättning till klippbordet"
 
-#: src/mainwindow.ui:276
+#: src/mainwindow.ui:270
 msgctxt "MainWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "Kopiera all översättningsdata till klippbordet"
 
-#: src/mainwindow.ui:287
+#: src/mainwindow.ui:281
 msgctxt "MainWindow|"
 msgid "Translate screen area with delay"
 msgstr "Översätt skärmområde med fördröjning"
 
-#: src/mainwindow.ui:298
+#: src/mainwindow.ui:292
 msgctxt "MainWindow|"
 msgid "Application settings"
 msgstr "Programinställningar"

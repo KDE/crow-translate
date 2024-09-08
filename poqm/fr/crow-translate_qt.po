@@ -239,41 +239,49 @@ msgid "This application uses %1 to provide translations."
 msgstr "Cette application utilise %1 pour fournir des traductions."
 
 #: src/mainwindow.cpp:860
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MainWindow|"
+#| msgid ""
+#| "While Mozhi acts as a proxy to protect your privacy, the third-party "
+#| "services it uses may store and analyze the text you send. We randomly "
+#| "assigned you instance %1, but you can change it in the translation "
+#| "settings."
 msgctxt "MainWindow|"
 msgid ""
 "While Mozhi acts as a proxy to protect your privacy, the third-party "
 "services it uses may store and analyze the text you send. We randomly "
-"assigned you instance %1, but you can change it in the translation settings."
+"assigned you instance %1, but you can change it in the translation settings. "
+"It's adviced to pick an instance that is close to you geographically for "
+"faster translations. See instance details in the link above."
 msgstr ""
 "Bien que Mozhi agisse en tant que serveur mandataire pour protéger votre vie "
 "privée, les services tiers qu'il utilise peuvent enregistrer et analyser le "
 "texte que vous envoyez. Nous vous avons attribué l'instance %1 au hasard, "
 "mais vous pouvez la modifier dans les paramètres de traduction."
 
-#: src/mainwindow.cpp:866
+#: src/mainwindow.cpp:869
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "Ne plus afficher"
 
-#: src/mainwindow.cpp:894
+#: src/mainwindow.cpp:897
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Icône de la barre d'état non valable"
 
-#: src/mainwindow.cpp:894
+#: src/mainwindow.cpp:897
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr ""
 "L'icône spécifiée « %1 » est non valable. L'icône par défaut sera utilisée."
 
-#: src/mainwindow.cpp:923
+#: src/mainwindow.cpp:926
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "Impossible de définir les langues OCR"
 
-#: src/mainwindow.cpp:923
+#: src/mainwindow.cpp:926
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -325,22 +333,22 @@ msgctxt "MainWindow|"
 msgid "Translation"
 msgstr "Traduction"
 
-#: src/mainwindow.ui:265
+#: src/mainwindow.ui:259
 msgctxt "MainWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Copier la traduction dans le presse-papiers"
 
-#: src/mainwindow.ui:276
+#: src/mainwindow.ui:270
 msgctxt "MainWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "Copier toutes les données de traduction dans le presse-papiers"
 
-#: src/mainwindow.ui:287
+#: src/mainwindow.ui:281
 msgctxt "MainWindow|"
 msgid "Translate screen area with delay"
 msgstr "Traduire la zone de l'écran avec délai"
 
-#: src/mainwindow.ui:298
+#: src/mainwindow.ui:292
 msgctxt "MainWindow|"
 msgid "Application settings"
 msgstr "Paramètres de l'application"
