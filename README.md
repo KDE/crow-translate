@@ -158,7 +158,7 @@ KDE have a convenient feature to define shortcuts in `.desktop` file and import 
 
 Open Settings -> Keyboard -> Shortcuts -> Add new -> Application, select "Crow Translate" and press Ok.
 
-If you migrating from 2.x, you will need to remove older entry first since the application `.desktop` file changed.
+If you migrating from 2.x, you will need to remove older entry from the settings first. It's because the application `.desktop` file changed.
 
 This method will also work for X11.
 
