@@ -154,7 +154,13 @@ Wayland doesn't provide API for global shortcuts and you need to register them b
 
 ### KDE
 
-KDE have a convenient feature to define shortcuts in .desktop file and import them in settings. These shortcuts are already enabled and should work by default.
+KDE have a convenient feature to define shortcuts in `.desktop` file and import them in settings. We already defined these shortcuts in the `.desktop` file, you just need to activate it in settings.
+
+Open Settings -> Keyboard -> Shortcuts -> Add new -> Application, select "Crow Translate" and press Ok.
+
+If you migrating from 2.x, you will need to remove older entry first since the application `.desktop` file changed.
+
+This method will also work for X11.
 
 ### GNOME
 
