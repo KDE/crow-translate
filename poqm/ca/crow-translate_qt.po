@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: crow-translate\n"
-"PO-Revision-Date: 2024-08-01 10:11+0200\n"
+"PO-Revision-Date: 2024-09-08 11:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/cli.cpp:40
@@ -239,13 +239,7 @@ msgid "This application uses %1 to provide translations."
 msgstr "Aquesta aplicació utilitza %1 per a proporcionar traduccions."
 
 #: src/mainwindow.cpp:860
-#, fuzzy, qt-format
-#| msgctxt "MainWindow|"
-#| msgid ""
-#| "While Mozhi acts as a proxy to protect your privacy, the third-party "
-#| "services it uses may store and analyze the text you send. We randomly "
-#| "assigned you instance %1, but you can change it in the translation "
-#| "settings."
+#, qt-format
 msgctxt "MainWindow|"
 msgid ""
 "While Mozhi acts as a proxy to protect your privacy, the third-party "
@@ -257,7 +251,9 @@ msgstr ""
 "Si bé Mozhi actua com a servidor intermediari per a protegir la vostra "
 "privadesa, els serveis de tercers que utilitza poden emmagatzemar i "
 "analitzar el text que envieu. Us hem assignat aleatòriament la instància %1, "
-"però podeu canviar-la a la configuració de traducció."
+"però podeu canviar-la a la configuració de traducció. S'aconsella triar una "
+"instància que sigui geogràficament pròxima per a fer més ràpides les "
+"traduccions. Vegeu els detalls de les instàncies a l'enllaç anterior."
 
 #: src/mainwindow.cpp:869
 msgctxt "MainWindow|"
