@@ -239,7 +239,7 @@ const QMap<OnlineTranslator::Language, QString> OnlineTranslator::s_genericLangu
     {Zulu, QStringLiteral("zu")}};
 
 const QMap<OnlineTranslator::Language, QString> OnlineTranslator::s_googleLanguageCodes = {
-    {ChineseSimplified, QStringLiteral("zn-CN")},
+    {ChineseSimplified, QStringLiteral("zh-CN")},
     {Hebrew, QStringLiteral("iw")}};
 
 const QMap<OnlineTranslator::Language, QString> OnlineTranslator::s_yandexLanguageCodes = {
