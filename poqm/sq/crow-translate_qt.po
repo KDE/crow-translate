@@ -45,7 +45,8 @@ msgstr ""
 #: src/cli.cpp:44
 msgctxt "Cli|"
 msgid ""
-"Specify Mozhi instance URL. Random instance URL will be used by default."
+"Specify Mozhi instance URL. Instance URL from the app settings will be used "
+"by default."
 msgstr ""
 
 #: src/cli.cpp:45
@@ -114,23 +115,39 @@ msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Gabim: Për --%1 duhet të specifikoni --%2 dhe/ose --%3 opsione"
 
-#: src/cli.cpp:110
+#: src/cli.cpp:92
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Unknown language code: %1"
+msgctxt "Cli|"
+msgid "Error: Unknown source language code '%1'"
+msgstr "Kodi i gjuhës i panjohur: %1"
+
+#: src/cli.cpp:100
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Unknown language code: %1"
+msgctxt "Cli|"
+msgid "Error: Unknown translation language code '%1'"
+msgstr "Kodi i gjuhës i panjohur: %1"
+
+#: src/cli.cpp:124
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Gabim: Nuk ka asnjë tekst për përkthim"
 
-#: src/cli.cpp:130
+#: src/cli.cpp:144
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "Gabim: Motor i panjohur"
 
-#: src/cli.cpp:165 src/cli.cpp:257 src/cli.cpp:345
+#: src/cli.cpp:179 src/cli.cpp:271 src/cli.cpp:361
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Gabim: %1"
 
-#: src/cli.cpp:219
+#: src/cli.cpp:233
 #, fuzzy
 #| msgctxt "TranslationEdit|"
 #| msgid "translation options:"
@@ -138,7 +155,7 @@ msgctxt "Cli|"
 msgid "translation options:"
 msgstr "opsionet e përkthimit:"
 
-#: src/cli.cpp:230
+#: src/cli.cpp:244
 #, fuzzy
 #| msgctxt "TranslationEdit|"
 #| msgid "examples:"
@@ -146,19 +163,19 @@ msgctxt "Cli|"
 msgid "examples:"
 msgstr "shembuj:"
 
-#: src/cli.cpp:358
+#: src/cli.cpp:374
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Gabim: Ju s'mund ta përdorni --%1 me --%2"
 
-#: src/cli.cpp:374 src/cli.cpp:395
+#: src/cli.cpp:390 src/cli.cpp:411
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Gabim: Skedari nuk ekziston: %1"
 
-#: src/cli.cpp:379 src/cli.cpp:400
+#: src/cli.cpp:395 src/cli.cpp:416
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"

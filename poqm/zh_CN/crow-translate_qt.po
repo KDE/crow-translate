@@ -46,7 +46,8 @@ msgstr ""
 #: src/cli.cpp:44
 msgctxt "Cli|"
 msgid ""
-"Specify Mozhi instance URL. Random instance URL will be used by default."
+"Specify Mozhi instance URL. Instance URL from the app settings will be used "
+"by default."
 msgstr ""
 
 #: src/cli.cpp:45
@@ -104,45 +105,61 @@ msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "错误： 您必须为 --%1 指定 --%2 和/或--%3 选项"
 
-#: src/cli.cpp:110
+#: src/cli.cpp:92
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Unknown language code: %1"
+msgctxt "Cli|"
+msgid "Error: Unknown source language code '%1'"
+msgstr "未知的语言代码： %1"
+
+#: src/cli.cpp:100
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Unknown language code: %1"
+msgctxt "Cli|"
+msgid "Error: Unknown translation language code '%1'"
+msgstr "未知的语言代码： %1"
+
+#: src/cli.cpp:124
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "错误：没有要翻译的文本"
 
-#: src/cli.cpp:130
+#: src/cli.cpp:144
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "错误：未知引擎"
 
-#: src/cli.cpp:165 src/cli.cpp:257 src/cli.cpp:345
+#: src/cli.cpp:179 src/cli.cpp:271 src/cli.cpp:361
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "错误：%1"
 
-#: src/cli.cpp:219
+#: src/cli.cpp:233
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr ""
 
-#: src/cli.cpp:230
+#: src/cli.cpp:244
 msgctxt "Cli|"
 msgid "examples:"
 msgstr ""
 
-#: src/cli.cpp:358
+#: src/cli.cpp:374
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "错误：您不能同时使用 --%1 和 --%2"
 
-#: src/cli.cpp:374 src/cli.cpp:395
+#: src/cli.cpp:390 src/cli.cpp:411
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "错误：文件不存在： %1"
 
-#: src/cli.cpp:379 src/cli.cpp:400
+#: src/cli.cpp:395 src/cli.cpp:416
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"

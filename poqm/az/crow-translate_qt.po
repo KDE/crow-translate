@@ -45,7 +45,8 @@ msgstr ""
 #: src/cli.cpp:44
 msgctxt "Cli|"
 msgid ""
-"Specify Mozhi instance URL. Random instance URL will be used by default."
+"Specify Mozhi instance URL. Instance URL from the app settings will be used "
+"by default."
 msgstr ""
 
 #: src/cli.cpp:45
@@ -112,23 +113,39 @@ msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Xəta: --%1 üçün --%2 və/və ya --%3 seçimlərini göstərməlisiniz"
 
-#: src/cli.cpp:110
+#: src/cli.cpp:92
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Unknown language code: %1"
+msgctxt "Cli|"
+msgid "Error: Unknown source language code '%1'"
+msgstr "Bilinməyən dil kodu: %1"
+
+#: src/cli.cpp:100
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Unknown language code: %1"
+msgctxt "Cli|"
+msgid "Error: Unknown translation language code '%1'"
+msgstr "Bilinməyən dil kodu: %1"
+
+#: src/cli.cpp:124
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Xəta: Tərcümə üçün mətn yoxdur"
 
-#: src/cli.cpp:130
+#: src/cli.cpp:144
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "Xəta: Bilinməyən mühərrik"
 
-#: src/cli.cpp:165 src/cli.cpp:257 src/cli.cpp:345
+#: src/cli.cpp:179 src/cli.cpp:271 src/cli.cpp:361
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Xəta: %1"
 
-#: src/cli.cpp:219
+#: src/cli.cpp:233
 #, fuzzy
 #| msgctxt "TranslationEdit|"
 #| msgid "translation options:"
@@ -136,7 +153,7 @@ msgctxt "Cli|"
 msgid "translation options:"
 msgstr "tərcümə seçimləri:"
 
-#: src/cli.cpp:230
+#: src/cli.cpp:244
 #, fuzzy
 #| msgctxt "TranslationEdit|"
 #| msgid "examples:"
@@ -144,19 +161,19 @@ msgctxt "Cli|"
 msgid "examples:"
 msgstr "nümunələr:"
 
-#: src/cli.cpp:358
+#: src/cli.cpp:374
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Xəta: Siz, --%1, --%2 ilə istifadə edə bilıməzsiniz"
 
-#: src/cli.cpp:374 src/cli.cpp:395
+#: src/cli.cpp:390 src/cli.cpp:411
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Xəta: Mövcud olmayan fayl: %1"
 
-#: src/cli.cpp:379 src/cli.cpp:400
+#: src/cli.cpp:395 src/cli.cpp:416
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"

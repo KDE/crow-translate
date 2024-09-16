@@ -46,9 +46,14 @@ msgstr ""
 "ali 'lingva'), privzeto se uporablja Google."
 
 #: src/cli.cpp:44
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid ""
+#| "Specify Mozhi instance URL. Random instance URL will be used by default."
 msgctxt "Cli|"
 msgid ""
-"Specify Mozhi instance URL. Random instance URL will be used by default."
+"Specify Mozhi instance URL. Instance URL from the app settings will be used "
+"by default."
 msgstr ""
 "Določite URL pojavka Mozhi. Privzeto bo uporabljen naključni URL pojavka."
 
@@ -110,45 +115,61 @@ msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Napaka: Za --%1 morate podati možnosti --%2 in/ali --%3"
 
-#: src/cli.cpp:110
+#: src/cli.cpp:92
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Unknown language code: %1"
+msgctxt "Cli|"
+msgid "Error: Unknown source language code '%1'"
+msgstr "Koda neznanega jezika: %1"
+
+#: src/cli.cpp:100
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Unknown language code: %1"
+msgctxt "Cli|"
+msgid "Error: Unknown translation language code '%1'"
+msgstr "Koda neznanega jezika: %1"
+
+#: src/cli.cpp:124
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Napaka: ni besedila za prevod"
 
-#: src/cli.cpp:130
+#: src/cli.cpp:144
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "Napaka: Neznan stroj"
 
-#: src/cli.cpp:165 src/cli.cpp:257 src/cli.cpp:345
+#: src/cli.cpp:179 src/cli.cpp:271 src/cli.cpp:361
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Napaka: %1"
 
-#: src/cli.cpp:219
+#: src/cli.cpp:233
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "možnosti prevoda:"
 
-#: src/cli.cpp:230
+#: src/cli.cpp:244
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "primeri:"
 
-#: src/cli.cpp:358
+#: src/cli.cpp:374
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Napaka: ne morete uporabiti --%1 z --%2"
 
-#: src/cli.cpp:374 src/cli.cpp:395
+#: src/cli.cpp:390 src/cli.cpp:411
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Napaka: datoteka ne obstaja: %1"
 
-#: src/cli.cpp:379 src/cli.cpp:400
+#: src/cli.cpp:395 src/cli.cpp:416
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
