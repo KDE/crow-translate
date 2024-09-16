@@ -41,7 +41,7 @@ void Cli::process(const QCoreApplication &app)
     const QCommandLineOption source({"s", "source"}, tr("Specify the source language (by default, engine will try to determine the language on its own)."), QStringLiteral("code"), QStringLiteral("auto"));
     const QCommandLineOption translation({"t", "translation"}, tr("Specify the translation language(s), splitted by '+' (by default, the system language is used)."), QStringLiteral("code"), QStringLiteral("auto"));
     const QCommandLineOption engine({"e", "engine"}, tr("Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' or 'lingva'), Google is used by default."), QStringLiteral("engine"), QStringLiteral("google"));
-    const QCommandLineOption url({"u", "url"}, tr("Specify Mozhi instance URL. Random instance URL will be used by default."), QStringLiteral("URL"), AppSettings::randomInstanceUrl());
+    const QCommandLineOption url({"u", "url"}, tr("Specify Mozhi instance URL. Instance URL from the app settings will be used by default."), QStringLiteral("URL"), AppSettings().instanceUrl());
     const QCommandLineOption speakTranslation({"r", "speak-translation"}, tr("Speak the translation."));
     const QCommandLineOption speakSource({"o", "speak-source"}, tr("Speak the source."));
     const QCommandLineOption file({"f", "file"}, tr("Read source text from files. Arguments will be interpreted as file paths."));
@@ -75,7 +75,7 @@ void Cli::process(const QCoreApplication &app)
 
     if (parser.isSet(audioOnly) && !parser.isSet(speakSource) && !parser.isSet(speakTranslation)) {
         qCritical() << tr("Error: For --%1 you must specify --%2 and/or --%3 options").arg(audioOnly.names().at(1), speakSource.names().at(1), speakTranslation.names().at(1)) << '\n';
-        parser.showHelp();
+        parser.showHelp(1);
     }
 
     // Only show language codes
@@ -85,10 +85,24 @@ void Cli::process(const QCoreApplication &app)
         return;
     }
 
+    // Source language
+    const QString sourceLangCode = parser.value(source);
+    m_sourceLang = OnlineTranslator::language(sourceLangCode);
+    if (m_sourceLang == OnlineTranslator::NoLanguage) {
+        qCritical() << tr("Error: Unknown source language code '%1'").arg(sourceLangCode) << '\n';
+        parser.showHelp(1);
+    }
+
     // Translation languages
-    m_sourceLang = OnlineTranslator::language(parser.value(source));
-    for (const QString &langCode : parser.value(translation).split('+'))
-        m_translationLanguages << OnlineTranslator::language(langCode);
+    for (const QString &langCode : parser.value(translation).split('+')) {
+        const OnlineTranslator::Language lang = OnlineTranslator::language(langCode);
+        if (lang == OnlineTranslator::NoLanguage) {
+            qCritical() << tr("Error: Unknown translation language code '%1'").arg(langCode) << '\n';
+            parser.showHelp(1);
+        }
+
+        m_translationLanguages.append(lang);
+    }
 
     // Source text
     if (parser.isSet(file)) {
@@ -108,7 +122,7 @@ void Cli::process(const QCoreApplication &app)
 
     if (m_sourceText.isEmpty()) {
         qCritical() << tr("Error: There is no text for translation") << '\n';
-        parser.showHelp();
+        parser.showHelp(1);
     }
 
     m_translator->setInstanceUrl(parser.value(url));
@@ -128,7 +142,7 @@ void Cli::process(const QCoreApplication &app)
         m_engine = OnlineTranslator::Duckduckgo;
     } else {
         qCritical() << tr("Error: Unknown engine") << '\n';
-        parser.showHelp();
+        parser.showHelp(1);
     }
 
     // Audio options
@@ -297,6 +311,7 @@ void Cli::buildTranslationStateMachine()
     for (OnlineTranslator::Language lang : qAsConst(m_translationLanguages)) {
         auto *requestTranslationState = nextTranslationState;
         auto *parseDataState = new QState(m_stateMachine);
+        auto *printDataState = new QState(m_stateMachine);
         auto *speakSourceText = new QState(m_stateMachine);
         auto *speakTranslation = new QState(m_stateMachine);
         nextTranslationState = new QState(m_stateMachine);
@@ -308,13 +323,14 @@ void Cli::buildTranslationStateMachine()
             connect(requestTranslationState, &QState::entered, this, &Cli::requestTranslation);
             connect(parseDataState, &QState::entered, this, &Cli::parseTranslation);
             if (!m_audioOnly)
-                connect(parseDataState, &QState::entered, this, &Cli::printTranslation);
+                connect(printDataState, &QState::entered, this, &Cli::printTranslation);
 
             requestTranslationState->setProperty(s_langProperty, lang);
         }
 
         requestTranslationState->addTransition(m_translator, &OnlineTranslator::finished, parseDataState);
-        parseDataState->addTransition(speakSourceText);
+        parseDataState->addTransition(printDataState);
+        printDataState->addTransition(speakSourceText);
 
         if (m_speakSource) {
             connect(speakSourceText, &QState::entered, this, &Cli::speakSource);
@@ -356,7 +372,7 @@ void Cli::checkIncompatibleOptions(QCommandLineParser &parser, const QCommandLin
 {
     if (parser.isSet(option1) && parser.isSet(option2)) {
         qCritical() << tr("Error: You can't use --%1 with --%2").arg(option1.names().at(1), option2.names().at(1)) << '\n';
-        parser.showHelp();
+        parser.showHelp(1);
     }
 }
 
