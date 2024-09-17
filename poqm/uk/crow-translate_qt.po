@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-09-08 09:02+0300\n"
+"PO-Revision-Date: 2024-09-16 18:21+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -51,17 +51,13 @@ msgstr ""
 "'lingva'), Google використовується за замовчуванням."
 
 #: src/cli.cpp:44
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify Mozhi instance URL. Random instance URL will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
-"Вказати адресу екземпляра Mozhi. Типово буде використано випадкову адресу "
-"екземпляра."
+"Вказати адресу екземпляра Mozhi. Типово буде використано адресу екземпляра "
+"із параметрів програми."
 
 #: src/cli.cpp:45
 msgctxt "Cli|"
@@ -122,20 +118,16 @@ msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Помилка: Для --%1 необхідно вказати --%2 та/або --%3 параметри "
 
 #: src/cli.cpp:92
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
-msgstr "Невідомий код мови: %1"
+msgstr "Помилка: невідомий код початкової мови «%1»"
 
 #: src/cli.cpp:100
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
-msgstr "Невідомий код мови: %1"
+msgstr "Помилка: невідомий код мови перекладу «%1»"
 
 #: src/cli.cpp:124
 msgctxt "Cli|"

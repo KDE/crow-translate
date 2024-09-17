@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-09-08 23:07+0300\n"
+"PO-Revision-Date: 2024-09-16 12:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -42,15 +42,13 @@ msgstr ""
 "veya “lingva”). Öntanımlı olarak Google kullanılır."
 
 #: src/cli.cpp:44
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify Mozhi instance URL. Random instance URL will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
-msgstr "Mozhi örneği URL’sini belirt (Öntanımlı: Rastgele URL)."
+msgstr ""
+"Mozhi örneği URL’sini belirtin. Öntanımlı olarak, uygulama ayarlarındaki "
+"örnek URL’si kullanılır."
 
 #: src/cli.cpp:45
 msgctxt "Cli|"
@@ -110,20 +108,16 @@ msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Hata: --%1 için --%2 ve/veya --%3 seçeneklerini belirtmelisiniz."
 
 #: src/cli.cpp:92
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
-msgstr "Bilinmeyen dil kodu: %1"
+msgstr "Hata: Bilinmeyen kaynak dil kodu “%1”"
 
 #: src/cli.cpp:100
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
-msgstr "Bilinmeyen dil kodu: %1"
+msgstr "Hata: Bilinmeyen çeviri dili kodu “%1”"
 
 #: src/cli.cpp:124
 msgctxt "Cli|"

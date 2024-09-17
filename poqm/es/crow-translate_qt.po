@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-09-09 00:12+0200\n"
+"PO-Revision-Date: 2024-09-16 11:50+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Language: es-ES\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.1\n"
 
 #: src/cli.cpp:40
 msgctxt "Cli|"
@@ -51,17 +51,13 @@ msgstr ""
 "predeterminada."
 
 #: src/cli.cpp:44
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify Mozhi instance URL. Random instance URL will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
-"Especificar la URL de la instancia de Mozhi. De forma predeterminada se usa "
-"una URL de instancia aleatoria."
+"Especificar la URL de la instancia de Mozhi. Se usará de forma "
+"predeterminada la URL de instancia de las preferencias de la aplicación."
 
 #: src/cli.cpp:45
 msgctxt "Cli|"
@@ -123,20 +119,16 @@ msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Error: Para --%1 debe especificar las opciones --%2 y/o --%3"
 
 #: src/cli.cpp:92
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
-msgstr "Código de idioma desconocido: %1"
+msgstr "Error: Código de idioma de origen «%1» desconocido"
 
 #: src/cli.cpp:100
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
-msgstr "Código de idioma desconocido: %1"
+msgstr "Error: Código de idioma de traducción «%1» desconocido"
 
 #: src/cli.cpp:124
 msgctxt "Cli|"
