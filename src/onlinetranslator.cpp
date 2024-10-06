@@ -168,7 +168,6 @@ const QMap<OnlineTranslator::Language, QString> OnlineTranslator::s_genericLangu
     {Papiamentu, QStringLiteral("pap")},
     {Pashto, QStringLiteral("ps")},
     {Persian, QStringLiteral("fa")},
-    {Persian, QStringLiteral("per")},
     {Pijin, QStringLiteral("pis")},
     {Polish, QStringLiteral("pl")},
     {PortugueseBrazilian, QStringLiteral("pt")},
