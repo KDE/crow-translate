@@ -645,7 +645,6 @@ private:
     QString m_translationTranslit;
     QString m_errorString;
 
-    // Self-hosted Mozhi settings
     QString m_instanceUrl;
 
     QVector<TranslationOptions> m_translationOptions;
