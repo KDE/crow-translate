@@ -9,6 +9,7 @@
 #include "ui_settingsdialog.h"
 
 #include "instancepinger.h"
+#include "instancepingerdialog.h"
 #include "mainwindow.h"
 #include "qhotkey.h"
 #include "screenwatcher.h"
@@ -17,7 +18,6 @@
 #include "ocr/ocr.h"
 #include "shortcutsmodel/shortcutitem.h"
 #include "shortcutsmodel/shortcutsmodel.h"
-#include "instancepingerdialog.h"
 
 #include <QDate>
 #include <QFileDialog>
@@ -263,19 +263,18 @@ void SettingsDialog::setCustomTrayIconPreview(const QString &iconPath)
 void SettingsDialog::detectFastestInstance()
 {
     ui->detectFastestButton->setEnabled(false);
-    InstancePingerDialog *instancePingerDialog = new InstancePingerDialog(this);
+    InstancePingerDialog instancePingerDialog;
 
-    connect(instancePingerDialog, &InstancePingerDialog::canceled, [this]() {
+    connect(&instancePingerDialog, &InstancePingerDialog::canceled, [this]() {
         ui->detectFastestButton->setEnabled(true);
     });
 
-    connect(instancePingerDialog, &InstancePingerDialog::finished, [this, instancePingerDialog]() {
-        ui->mozhiUrlComboBox->setCurrentText(instancePingerDialog->getUrl());
+    connect(&instancePingerDialog, &InstancePingerDialog::finished, [&]() {
+        ui->mozhiUrlComboBox->setCurrentText(instancePingerDialog.getUrl());
         ui->detectFastestButton->setEnabled(true);
-        instancePingerDialog->deleteLater();
     });
 
-    instancePingerDialog->exec();
+    instancePingerDialog.exec();
 }
 
 void SettingsDialog::selectOcrLanguagesPath()

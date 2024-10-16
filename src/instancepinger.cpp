@@ -46,7 +46,8 @@ const QStringList &InstancePinger::instanceUrls()
     return s_instanceUrls;
 }
 
-const QString &InstancePinger::defaultInstance() {
+const QString &InstancePinger::defaultInstance()
+{
     return s_instanceUrls.first();
 }
 

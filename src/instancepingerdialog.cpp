@@ -3,10 +3,11 @@
 #include "cmake.h"
 #include "instancepinger.h"
 
-#include <QEventLoop>
 #include <QDebug>
+#include <QEventLoop>
 
-InstancePingerDialog::InstancePingerDialog(QWidget *parent) {
+InstancePingerDialog::InstancePingerDialog(QWidget *parent)
+{
     // Setting range to 0, 0 works as busy widget
     setRange(0, 0);
     setLabelText(tr("Detecting fastes instance..."));
@@ -14,17 +15,14 @@ InstancePingerDialog::InstancePingerDialog(QWidget *parent) {
 
     InstancePinger *pinger = new InstancePinger(this);
 
-    connect(this, &InstancePingerDialog::canceled, [&]() {
-        pinger->deleteLater();
-    });
-
     connect(pinger, &InstancePinger::finished, [this](const QString &url) {
         m_url = url;
         accept();
     });
 }
 
-QString InstancePingerDialog::getUrl() const {
+QString InstancePingerDialog::getUrl() const
+{
     if (m_url.isEmpty()) {
         return InstancePinger::defaultInstance();
     }

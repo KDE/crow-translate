@@ -7,8 +7,8 @@
 
 #include "cli.h"
 #include "cmake.h"
-#include "mainwindow.h"
 #include "instancepingerdialog.h"
+#include "mainwindow.h"
 #include "singleapplication.h"
 
 #ifdef Q_OS_UNIX
