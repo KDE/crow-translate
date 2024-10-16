@@ -1,8 +1,6 @@
 #ifndef INSTANCEPINGERDIALOG_H
 #define INSTANCEPINGERDIALOG_H
 
-#include "instancepinger.h"
-
 #include <QProgressDialog>
 
 class InstancePingerDialog : public QProgressDialog
@@ -12,11 +10,10 @@ class InstancePingerDialog : public QProgressDialog
 public:
     InstancePingerDialog(QWidget *parent = nullptr);
 
-    void start();
+    QString getUrl() const;
 
-signals:
-    void finished(const QString &url);
-    void canceled(const QString &url);
+private:
+    QString m_url;
 };
 
 #endif // INSTANCEPINGERDIALOG_H

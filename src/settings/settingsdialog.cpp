@@ -263,21 +263,19 @@ void SettingsDialog::setCustomTrayIconPreview(const QString &iconPath)
 void SettingsDialog::detectFastestInstance()
 {
     ui->detectFastestButton->setEnabled(false);
-    InstancePingerDialog instancePingerDialog(this);
+    InstancePingerDialog *instancePingerDialog = new InstancePingerDialog(this);
 
-    connect(&instancePingerDialog, &InstancePingerDialog::finished, [this](const QString &url) {
-        ui->mozhiUrlComboBox->setCurrentText(url);
+    connect(instancePingerDialog, &InstancePingerDialog::canceled, [this]() {
         ui->detectFastestButton->setEnabled(true);
     });
 
-    connect(&instancePingerDialog, &InstancePingerDialog::canceled, [this](const QString &url) {
-        if (ui->mozhiUrlComboBox->currentText().isEmpty()) {
-            ui->mozhiUrlComboBox->setCurrentText(url);
-            ui->detectFastestButton->setEnabled(true);
-        }
+    connect(instancePingerDialog, &InstancePingerDialog::finished, [this, instancePingerDialog]() {
+        ui->mozhiUrlComboBox->setCurrentText(instancePingerDialog->getUrl());
+        ui->detectFastestButton->setEnabled(true);
+        instancePingerDialog->deleteLater();
     });
 
-    instancePingerDialog.start();
+    instancePingerDialog->exec();
 }
 
 void SettingsDialog::selectOcrLanguagesPath()

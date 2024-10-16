@@ -1,29 +1,33 @@
 #include "instancepingerdialog.h"
 
 #include "cmake.h"
+#include "instancepinger.h"
 
 #include <QEventLoop>
+#include <QDebug>
 
 InstancePingerDialog::InstancePingerDialog(QWidget *parent) {
     // Setting range to 0, 0 works as busy widget
     setRange(0, 0);
     setLabelText(tr("Detecting fastes instance..."));
     setWindowTitle(APPLICATION_NAME);
-    setModal(true);
-    show();
+
+    InstancePinger *pinger = new InstancePinger(this);
+
+    connect(this, &InstancePingerDialog::canceled, [&]() {
+        pinger->deleteLater();
+    });
+
+    connect(pinger, &InstancePinger::finished, [this](const QString &url) {
+        m_url = url;
+        accept();
+    });
 }
 
-void InstancePingerDialog::start() {
-    QEventLoop loop;
-    InstancePinger pinger(this);
-    connect(this, &InstancePingerDialog::canceled, &loop, [&]() {
-        emit canceled(InstancePinger::defaultInstance());
-        loop.quit();
-    });
-    connect(&pinger, &InstancePinger::finished, &loop, &QEventLoop::quit);
-    connect(&pinger, &InstancePinger::finished, [&](const QString &url) {
-        emit finished(url);
-        loop.quit();
-    });
-    loop.exec();
+QString InstancePingerDialog::getUrl() const {
+    if (m_url.isEmpty()) {
+        return InstancePinger::defaultInstance();
+    }
+
+    return m_url;
 }

@@ -56,13 +56,8 @@ int launchGui(int argc, char *argv[])
     settings.setupLocalization();
     if (settings.instanceUrl().isEmpty()) {
         InstancePingerDialog instancePingerDialog;
-        QObject::connect(&instancePingerDialog, &InstancePingerDialog::finished, [&](const QString &url) {
-            settings.setInstanceUrl(url);
-        });
-        QObject::connect(&instancePingerDialog, &InstancePingerDialog::canceled, [&](const QString &url) {
-            settings.setInstanceUrl(url);
-        });
-        instancePingerDialog.start();
+        instancePingerDialog.exec();
+        settings.setInstanceUrl(instancePingerDialog.getUrl());
     }
 
     MainWindow window;
