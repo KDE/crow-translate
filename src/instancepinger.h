@@ -23,7 +23,7 @@ class InstancePinger : public QObject
 public:
     explicit InstancePinger(QObject *parent = nullptr);
 
-    static QStringList instanceUrls();
+    static const QStringList &instanceUrls();
 
 signals:
     void finished(QString);

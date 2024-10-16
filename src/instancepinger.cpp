@@ -41,7 +41,7 @@ InstancePinger::InstancePinger(QObject *parent)
     pingNextUrl();
 }
 
-QStringList InstancePinger::instanceUrls()
+const QStringList &InstancePinger::instanceUrls()
 {
     return s_instanceUrls;
 }

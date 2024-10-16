@@ -524,7 +524,7 @@ void AppSettings::setBestInstance()
     InstancePinger pinger;
     QEventLoop loop;
     connect(&pinger, &InstancePinger::finished, &loop, &QEventLoop::quit);
-    connect(&pinger, &InstancePinger::finished, [this](QString url) {
+    connect(&pinger, &InstancePinger::finished, [this](const QString &url) {
         setInstanceUrl(url);
     });
     loop.exec();
