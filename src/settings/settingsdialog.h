@@ -46,6 +46,7 @@ private slots:
     void onTrayIconTypeChanged(int type);
     void selectCustomTrayIcon();
     void setCustomTrayIconPreview(const QString &iconPath);
+    void detectFastestInstance();
 
     void selectOcrLanguagesPath();
     void onOcrLanguagesPathChanged(const QString &path);

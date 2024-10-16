@@ -859,10 +859,8 @@ void MainWindow::loadMainWindowSettings()
         messageBox.setText(tr("This application uses %1 to provide translations.").arg(mozhiLink));
         messageBox.setInformativeText(tr("While Mozhi acts as a proxy to protect your privacy,"
                                          " the third-party services it uses may store and analyze"
-                                         " the text you send. We randomly assigned you instance %1,"
+                                         " the text you send. Your instance right now is '%1',"
                                          " but you can change it in the translation settings."
-                                         " It's adviced to pick an instance that is close to you"
-                                         " geographically for faster translations."
                                          " See instance details in the link above.")
                                           .arg(instanceLink));
 

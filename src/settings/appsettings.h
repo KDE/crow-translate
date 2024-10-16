@@ -177,8 +177,7 @@ public:
 
     QString instanceUrl() const;
     void setInstanceUrl(const QString &url);
-    static QString randomInstanceUrl();
-    static QStringList instanceUrls();
+    void setBestInstance();
 
     // Connection settings
     QNetworkProxy::ProxyType proxyType() const;

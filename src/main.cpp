@@ -51,7 +51,11 @@ int launchGui(int argc, char *argv[])
 
     SingleApplication app(argc, argv);
 
-    AppSettings().setupLocalization();
+    AppSettings settings;
+    settings.setupLocalization();
+    if (settings.instanceUrl().isEmpty()) {
+        settings.setBestInstance();
+    }
 
     MainWindow window;
 

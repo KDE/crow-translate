@@ -8,6 +8,7 @@
 #include "settingsdialog.h"
 #include "ui_settingsdialog.h"
 
+#include "instancepinger.h"
 #include "mainwindow.h"
 #include "qhotkey.h"
 #include "screenwatcher.h"
@@ -62,7 +63,7 @@ SettingsDialog::SettingsDialog(MainWindow *parent)
     ui->ocrLanguagesListWidget->addLanguages(parent->ocr()->availableLanguages());
 
     // Set all avaialble instances
-    ui->mozhiUrlComboBox->addItems(AppSettings::instanceUrls());
+    ui->mozhiUrlComboBox->addItems(InstancePinger::instanceUrls());
 
     // Sort languages in comboboxes alphabetically
     ui->primaryLangComboBox->model()->sort(0);
@@ -258,6 +259,17 @@ void SettingsDialog::setCustomTrayIconPreview(const QString &iconPath)
     ui->customTrayIconButton->setIcon(TrayIcon::customTrayIcon(iconPath));
 }
 
+void SettingsDialog::detectFastestInstance()
+{
+    auto *pinger = new InstancePinger(this);
+    ui->detectFastestButton->setEnabled(false);
+    connect(pinger, &InstancePinger::finished, [this, pinger](QString url) {
+        ui->mozhiUrlComboBox->setCurrentText(url);
+        ui->detectFastestButton->setEnabled(true);
+        pinger->deleteLater();
+    });
+}
+
 void SettingsDialog::selectOcrLanguagesPath()
 {
     const QString path = ui->ocrLanguagesPathEdit->text().left(ui->ocrLanguagesPathEdit->text().lastIndexOf(QDir::separator()));
@@ -362,8 +374,7 @@ void SettingsDialog::restoreDefaults()
     ui->forceSourceAutodetectCheckBox->setChecked(AppSettings::defaultForceSourceAutodetect());
     ui->forceTranslationAutodetectCheckBox->setChecked(AppSettings::defaultForceTranslationAutodetect());
 
-    // Instance settings
-    ui->mozhiUrlComboBox->setCurrentText(AppSettings::randomInstanceUrl());
+    // We don't reset the picked instance
 
     // OCR
     ui->convertLineBreaksCheckBox->setChecked(AppSettings::defaultConvertLineBreaks());

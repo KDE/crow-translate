@@ -8,6 +8,7 @@
 #include "appsettings.h"
 
 #include "cmake.h"
+#include "instancepinger.h"
 #include "languagebuttonswidget.h"
 #include "trayicon.h"
 
@@ -508,7 +509,7 @@ bool AppSettings::defaultForceTranslationAutodetect()
 
 QString AppSettings::instanceUrl() const
 {
-    return m_settings->value(QStringLiteral("Translation/InstanceUrl"), randomInstanceUrl()).toString();
+    return m_settings->value(QStringLiteral("Translation/InstanceUrl")).toString();
 }
 
 void AppSettings::setInstanceUrl(const QString &url)
@@ -516,29 +517,17 @@ void AppSettings::setInstanceUrl(const QString &url)
     m_settings->setValue(QStringLiteral("Translation/InstanceUrl"), url);
 }
 
-QString AppSettings::randomInstanceUrl()
+void AppSettings::setBestInstance()
 {
-    // Pick random instance by default to spread load
-    QStringList urls = AppSettings::instanceUrls();
-    int randomNumber = QRandomGenerator::global()->bounded(urls.size());
-    return urls[randomNumber];
-}
+    qInfo() << tr("Detecting fastest instance");
 
-QStringList AppSettings::instanceUrls()
-{
-    return {
-        QStringLiteral("https://mozhi.aryak.me"),
-        QStringLiteral("https://translate.bus-hit.me"),
-        QStringLiteral("https://nyc1.mz.ggtyler.dev"),
-        QStringLiteral("https://translate.projectsegfau.lt"),
-        QStringLiteral("https://translate.nerdvpn.de"),
-        QStringLiteral("https://mozhi.ducks.party"),
-        QStringLiteral("https://mozhi.frontendfriendly.xyz"),
-        QStringLiteral("https://mozhi.pussthecat.org"),
-        QStringLiteral("https://mo.zorby.top"),
-        QStringLiteral("https://mozhi.adminforge.de"),
-        QStringLiteral("https://translate.privacyredirect.com"),
-    };
+    InstancePinger pinger;
+    QEventLoop loop;
+    connect(&pinger, &InstancePinger::finished, &loop, &QEventLoop::quit);
+    connect(&pinger, &InstancePinger::finished, [this](QString url) {
+        setInstanceUrl(url);
+    });
+    loop.exec();
 }
 
 QNetworkProxy::ProxyType AppSettings::proxyType() const
