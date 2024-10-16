@@ -174,6 +174,7 @@ add_executable(${PROJECT_NAME}
     src/transitions/translatorerrortransition.cpp
     src/translationedit.cpp
     src/trayicon.cpp
+    src/instancepingerdialog.cpp
 )
 
 if(UNIX AND NOT APPLE)

@@ -17,6 +17,7 @@
 #include "ocr/ocr.h"
 #include "shortcutsmodel/shortcutitem.h"
 #include "shortcutsmodel/shortcutsmodel.h"
+#include "instancepingerdialog.h"
 
 #include <QDate>
 #include <QFileDialog>
@@ -261,13 +262,22 @@ void SettingsDialog::setCustomTrayIconPreview(const QString &iconPath)
 
 void SettingsDialog::detectFastestInstance()
 {
-    auto *pinger = new InstancePinger(this);
     ui->detectFastestButton->setEnabled(false);
-    connect(pinger, &InstancePinger::finished, [this, pinger](QString url) {
+    InstancePingerDialog instancePingerDialog(this);
+
+    connect(&instancePingerDialog, &InstancePingerDialog::finished, [this](const QString &url) {
         ui->mozhiUrlComboBox->setCurrentText(url);
         ui->detectFastestButton->setEnabled(true);
-        pinger->deleteLater();
     });
+
+    connect(&instancePingerDialog, &InstancePingerDialog::canceled, [this](const QString &url) {
+        if (ui->mozhiUrlComboBox->currentText().isEmpty()) {
+            ui->mozhiUrlComboBox->setCurrentText(url);
+            ui->detectFastestButton->setEnabled(true);
+        }
+    });
+
+    instancePingerDialog.start();
 }
 
 void SettingsDialog::selectOcrLanguagesPath()

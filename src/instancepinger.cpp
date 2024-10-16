@@ -46,6 +46,10 @@ const QStringList &InstancePinger::instanceUrls()
     return s_instanceUrls;
 }
 
+const QString &InstancePinger::defaultInstance() {
+    return s_instanceUrls.first();
+}
+
 void InstancePinger::pingNextUrl()
 {
     if (m_currentIndex >= s_instanceUrls.size()) {

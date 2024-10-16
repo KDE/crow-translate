@@ -24,6 +24,7 @@ public:
     explicit InstancePinger(QObject *parent = nullptr);
 
     static const QStringList &instanceUrls();
+    static const QString &defaultInstance();
 
 signals:
     void finished(QString);

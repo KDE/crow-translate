@@ -8,6 +8,7 @@
 #include "cli.h"
 #include "cmake.h"
 #include "mainwindow.h"
+#include "instancepingerdialog.h"
 #include "singleapplication.h"
 
 #ifdef Q_OS_UNIX
@@ -54,7 +55,14 @@ int launchGui(int argc, char *argv[])
     AppSettings settings;
     settings.setupLocalization();
     if (settings.instanceUrl().isEmpty()) {
-        settings.setBestInstance();
+        InstancePingerDialog instancePingerDialog;
+        QObject::connect(&instancePingerDialog, &InstancePingerDialog::finished, [&](const QString &url) {
+            settings.setInstanceUrl(url);
+        });
+        QObject::connect(&instancePingerDialog, &InstancePingerDialog::canceled, [&](const QString &url) {
+            settings.setInstanceUrl(url);
+        });
+        instancePingerDialog.start();
     }
 
     MainWindow window;
