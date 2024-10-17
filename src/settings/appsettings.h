@@ -175,9 +175,8 @@ public:
     void setForceTranslationAutodetect(bool force);
     static bool defaultForceTranslationAutodetect();
 
-    QString instanceUrl() const;
-    void setInstanceUrl(const QString &url);
-    void setBestInstance();
+    QString instance() const;
+    void setInstance(const QString &url);
 
     // Connection settings
     QNetworkProxy::ProxyType proxyType() const;

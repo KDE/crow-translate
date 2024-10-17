@@ -333,7 +333,7 @@ QList<QMediaContent> OnlineTranslator::generateUrls(const QString &text, OnlineT
             const int splitIndex = OnlineTranslator::getSplitIndex(unparsedText, s_TtsLimit); // Split the part by special symbol
 
             // Generate URL API for add it to the playlist
-            QUrl apiUrl(QStringLiteral("%1/api/tts").arg(m_instanceUrl));
+            QUrl apiUrl(QStringLiteral("%1/api/tts").arg(m_instance));
             const QString query = QStringLiteral("engine=%1&lang=%2&text=%3").arg(engineString, langString, QString(QUrl::toPercentEncoding(unparsedText.left(splitIndex))));
             apiUrl.setQuery(query);
             media.append(apiUrl);
@@ -476,14 +476,14 @@ void OnlineTranslator::setExamplesEnabled(bool enable)
     m_examplesEnabled = enable;
 }
 
-const QString &OnlineTranslator::instanceUrl()
+const QString &OnlineTranslator::instance()
 {
-    return m_instanceUrl;
+    return m_instance;
 }
 
-void OnlineTranslator::setInstanceUrl(QString url)
+void OnlineTranslator::setInstance(QString url)
 {
-    m_instanceUrl = qMove(url);
+    m_instance = qMove(url);
 }
 
 QString OnlineTranslator::languageName(Language lang)
@@ -1252,7 +1252,7 @@ void OnlineTranslator::requestTranslate()
     const QString sourceText = sender()->property(s_textProperty).toString();
 
     // Generate API url
-    QUrl url(m_instanceUrl + "/api/translate");
+    QUrl url(m_instance + "/api/translate");
     url.setQuery(QStringLiteral("engine=%1&from=%2&to=%3&text=%4").arg(QString(QMetaEnum::fromType<OnlineTranslator::Engine>().valueToKey(m_engine)).toLower(), languageApiCode(m_engine, m_sourceLang), languageApiCode(m_engine, m_translationLang), QUrl::toPercentEncoding(sourceText)));
 
     m_currentReply = m_networkManager->get(QNetworkRequest(url));

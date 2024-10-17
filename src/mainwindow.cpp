@@ -852,7 +852,7 @@ void MainWindow::loadMainWindowSettings()
     if (settings.isShowPrivacyPopup()) {
         const QString href = QStringLiteral("<a href=\"%1\">%2</a>");
         const QString mozhiLink = href.arg(QStringLiteral("https://codeberg.org/aryak/mozhi"), QStringLiteral("Mozhi"));
-        const QString instanceLink = href.arg(settings.instanceUrl(), settings.instanceUrl());
+        const QString instanceLink = href.arg(settings.instance(), settings.instance());
         QMessageBox messageBox;
         messageBox.setIcon(QMessageBox::Information);
         messageBox.setWindowTitle(APPLICATION_NAME);
@@ -915,7 +915,7 @@ void MainWindow::loadAppSettings()
     m_forceTranslationAutodetect = settings.isForceTranslationAutodetect();
 
     // Instance settings
-    m_translator->setInstanceUrl(settings.instanceUrl());
+    m_translator->setInstance(settings.instance());
 
     // OCR settings
     if (const QByteArray languages = settings.ocrLanguagesString(), path = settings.ocrLanguagesPath(); !m_ocr->init(languages, path, settings.tesseractParameters())) {

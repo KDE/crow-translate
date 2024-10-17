@@ -9,6 +9,7 @@
 #include "ui_settingsdialog.h"
 
 #include "instancepinger.h"
+#include "instancepingerdialog.h"
 #include "mainwindow.h"
 #include "qhotkey.h"
 #include "screenwatcher.h"
@@ -63,7 +64,7 @@ SettingsDialog::SettingsDialog(MainWindow *parent)
     ui->ocrLanguagesListWidget->addLanguages(parent->ocr()->availableLanguages());
 
     // Set all avaialble instances
-    ui->mozhiUrlComboBox->addItems(InstancePinger::instanceUrls());
+    ui->mozhiUrlComboBox->addItems(InstancePinger::instances());
 
     // Sort languages in comboboxes alphabetically
     ui->primaryLangComboBox->model()->sort(0);
@@ -164,7 +165,7 @@ void SettingsDialog::accept()
     settings.setForceTranslationAutodetect(ui->forceTranslationAutodetectCheckBox->isChecked());
 
     // Instance settings
-    settings.setInstanceUrl(ui->mozhiUrlComboBox->currentText());
+    settings.setInstance(ui->mozhiUrlComboBox->currentText());
 
     // OCR
     settings.setConvertLineBreaks(ui->convertLineBreaksCheckBox->isChecked());
@@ -261,13 +262,19 @@ void SettingsDialog::setCustomTrayIconPreview(const QString &iconPath)
 
 void SettingsDialog::detectFastestInstance()
 {
-    auto *pinger = new InstancePinger(this);
     ui->detectFastestButton->setEnabled(false);
-    connect(pinger, &InstancePinger::finished, [this, pinger](QString url) {
-        ui->mozhiUrlComboBox->setCurrentText(url);
+
+    auto *dialog = new InstancePingerDialog(this);
+    connect(dialog, &InstancePingerDialog::canceled, dialog, [this, dialog]() {
         ui->detectFastestButton->setEnabled(true);
-        pinger->deleteLater();
+        dialog->deleteLater();
     });
+    connect(dialog, &InstancePingerDialog::accepted, [this, dialog]() {
+        ui->mozhiUrlComboBox->setCurrentText(dialog->fastestUrl());
+        ui->detectFastestButton->setEnabled(true);
+        dialog->deleteLater();
+    });
+    dialog->show();
 }
 
 void SettingsDialog::selectOcrLanguagesPath()
@@ -473,7 +480,7 @@ void SettingsDialog::loadSettings()
     ui->forceTranslationAutodetectCheckBox->setChecked(settings.isForceTranslationAutodetect());
 
     // Instance settings
-    ui->mozhiUrlComboBox->setCurrentText(settings.instanceUrl());
+    ui->mozhiUrlComboBox->setCurrentText(settings.instance());
 
     // OCR
     ui->convertLineBreaksCheckBox->setChecked(settings.isConvertLineBreaks());

@@ -8,7 +8,6 @@
 #include "appsettings.h"
 
 #include "cmake.h"
-#include "instancepinger.h"
 #include "languagebuttonswidget.h"
 #include "trayicon.h"
 
@@ -507,27 +506,14 @@ bool AppSettings::defaultForceTranslationAutodetect()
     return true;
 }
 
-QString AppSettings::instanceUrl() const
+QString AppSettings::instance() const
 {
-    return m_settings->value(QStringLiteral("Translation/InstanceUrl")).toString();
+    return m_settings->value(QStringLiteral("Translation/Instance")).toString();
 }
 
-void AppSettings::setInstanceUrl(const QString &url)
+void AppSettings::setInstance(const QString &url)
 {
-    m_settings->setValue(QStringLiteral("Translation/InstanceUrl"), url);
-}
-
-void AppSettings::setBestInstance()
-{
-    qInfo() << tr("Detecting fastest instance");
-
-    InstancePinger pinger;
-    QEventLoop loop;
-    connect(&pinger, &InstancePinger::finished, &loop, &QEventLoop::quit);
-    connect(&pinger, &InstancePinger::finished, [this](const QString &url) {
-        setInstanceUrl(url);
-    });
-    loop.exec();
+    m_settings->setValue(QStringLiteral("Translation/Instance"), url);
 }
 
 QNetworkProxy::ProxyType AppSettings::proxyType() const

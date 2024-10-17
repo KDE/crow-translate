@@ -7,13 +7,11 @@
 
 #include "instancepinger.h"
 
-#include <QElapsedTimer>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QTimer>
-#include <qglobal.h>
 
-const QStringList InstancePinger::s_instanceUrls = {
+const QStringList InstancePinger::s_instances = {
     QStringLiteral("https://mozhi.aryak.me"),
     QStringLiteral("https://translate.bus-hit.me"),
     QStringLiteral("https://nyc1.mz.ggtyler.dev"),
@@ -32,34 +30,48 @@ const QStringList InstancePinger::s_instanceUrls = {
 InstancePinger::InstancePinger(QObject *parent)
     : QObject(parent)
     , m_networkManager(new QNetworkAccessManager(this))
-    , m_elapsedTimer(new QElapsedTimer)
-    , m_timeoutTimer(new QTimer)
+    , m_timeoutTimer(new QTimer(this))
 {
     m_timeoutTimer->setSingleShot(true);
     connect(m_timeoutTimer, &QTimer::timeout, this, &InstancePinger::timeout);
+}
 
+void InstancePinger::detectFastest()
+{
+    m_fastestUrl.clear();
+    m_bestTime = s_maxTimeout;
+    m_currentIndex = 0;
     pingNextUrl();
 }
 
-const QStringList &InstancePinger::instanceUrls()
+const QString &InstancePinger::fastestInstance() const
 {
-    return s_instanceUrls;
+    return m_fastestUrl;
+}
+
+const QStringList &InstancePinger::instances()
+{
+    return s_instances;
 }
 
 void InstancePinger::pingNextUrl()
 {
-    if (m_currentIndex >= s_instanceUrls.size()) {
+    if (m_currentIndex >= s_instances.size()) {
         // End of the loop, cleanup and return the obtained results
-        const QString bestUrl = m_bestUrl.isEmpty() ? s_instanceUrls.first() : qMove(m_bestUrl);
-        qInfo() << tr("Best instance URL is '%1' with time %2 ms").arg(bestUrl).arg(m_bestTime);
+        if (m_fastestUrl.isEmpty()) {
+            // If unable to detect, just pick the default instance.
+            m_fastestUrl = s_instances.first();
+        }
+        qInfo() << tr("Best instance URL is '%1' with time %2 ms").arg(m_fastestUrl).arg(m_bestTime);
         m_currentReply->deleteLater();
-        emit finished(bestUrl);
+        emit finished();
         return;
     }
 
-    QString url = s_instanceUrls.at(m_currentIndex++);
+    emit processingInstance(m_currentIndex);
+    QString url = s_instances.at(m_currentIndex++);
 
-    m_elapsedTimer->restart();
+    m_elapsedTimer.restart();
     m_currentReply = m_networkManager->get(QNetworkRequest(url));
     m_timeoutTimer->start(qMin(m_bestTime, s_maxTimeout));
 
@@ -80,14 +92,14 @@ void InstancePinger::reactOnResponse()
     m_timeoutTimer->stop();
 
     const QString url = m_currentReply->url().toString();
-    auto responseTime = static_cast<int>(m_elapsedTimer->elapsed());
+    auto responseTime = static_cast<int>(m_elapsedTimer.elapsed());
 
     switch (m_currentReply->error()) {
     case QNetworkReply::NoError:
         qInfo() << tr("Ping to '%1' successful, response time: %2 ms").arg(url).arg(responseTime);
         if (responseTime < m_bestTime) {
             m_bestTime = responseTime;
-            m_bestUrl = url;
+            m_fastestUrl = url;
         }
         break;
     case QNetworkReply::OperationCanceledError:

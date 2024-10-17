@@ -8,6 +8,7 @@
 #ifndef INSTANCEPINGER_H
 #define INSTANCEPINGER_H
 
+#include <QElapsedTimer>
 #include <QList>
 #include <QPointer>
 
@@ -23,10 +24,14 @@ class InstancePinger : public QObject
 public:
     explicit InstancePinger(QObject *parent = nullptr);
 
-    static const QStringList &instanceUrls();
+    void detectFastest();
+    const QString &fastestInstance() const;
+
+    static const QStringList &instances();
 
 signals:
-    void finished(QString);
+    void finished();
+    void processingInstance(size_t instanceIndex);
 
 private slots:
     void timeout();
@@ -35,14 +40,14 @@ private slots:
 private:
     void pingNextUrl();
 
-    static const QStringList s_instanceUrls;
+    static const QStringList s_instances;
     static constexpr int s_maxTimeout = 2000;
 
     QNetworkAccessManager *m_networkManager;
-    QElapsedTimer *m_elapsedTimer;
+    QElapsedTimer m_elapsedTimer;
     QTimer *m_timeoutTimer;
     QPointer<QNetworkReply> m_currentReply;
-    QString m_bestUrl;
+    QString m_fastestUrl;
     int m_bestTime = s_maxTimeout;
     size_t m_currentIndex = 0;
 };

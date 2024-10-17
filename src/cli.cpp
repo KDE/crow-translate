@@ -7,6 +7,7 @@
 
 #include "cli.h"
 
+#include "instancepinger.h"
 #include "settings/appsettings.h"
 #include "transitions/playerstoppedtransition.h"
 
@@ -43,7 +44,7 @@ void Cli::process(const QCoreApplication &app)
     const QCommandLineOption source({"s", "source"}, tr("Specify the source language (by default, engine will try to determine the language on its own)."), QStringLiteral("code"), QStringLiteral("auto"));
     const QCommandLineOption translation({"t", "translation"}, tr("Specify the translation language(s), splitted by '+' (by default, the system language is used)."), QStringLiteral("code"), QStringLiteral("auto"));
     const QCommandLineOption engine({"e", "engine"}, tr("Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' or 'lingva'), Google is used by default."), QStringLiteral("engine"), QStringLiteral("google"));
-    const QCommandLineOption url({"u", "url"}, tr("Specify Mozhi instance URL. Instance URL from the app settings will be used by default."), QStringLiteral("URL"), settings.instanceUrl());
+    const QCommandLineOption url({"u", "url"}, tr("Specify Mozhi instance URL. Instance URL from the app settings will be used by default."), QStringLiteral("URL"), settings.instance());
     const QCommandLineOption speakTranslation({"r", "speak-translation"}, tr("Speak the translation."));
     const QCommandLineOption speakSource({"o", "speak-source"}, tr("Speak the source."));
     const QCommandLineOption file({"f", "file"}, tr("Read source text from files. Arguments will be interpreted as file paths."));
@@ -127,12 +128,20 @@ void Cli::process(const QCoreApplication &app)
         parser.showHelp(1);
     }
 
-    QString instanceUrl = parser.value(url);
-    if (instanceUrl.isEmpty()) {
-        settings.setBestInstance();
-        instanceUrl = settings.instanceUrl();
+    QString instance = parser.value(url);
+    if (instance.isEmpty()) {
+        qInfo() << tr("Detecting fastest instance");
+
+        InstancePinger pinger;
+        QEventLoop loop;
+        connect(&pinger, &InstancePinger::finished, &loop, &QEventLoop::quit);
+        pinger.detectFastest();
+        loop.exec();
+
+        settings.setInstance(pinger.fastestInstance());
+        instance = pinger.fastestInstance();
     }
-    m_translator->setInstanceUrl(instanceUrl);
+    m_translator->setInstance(instance);
 
     // Engine
     if (parser.value(engine) == QLatin1String("deepl")) {

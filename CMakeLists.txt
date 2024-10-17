@@ -138,6 +138,7 @@ add_executable(${PROJECT_NAME}
     src/cli.cpp
     src/contextmenu.cpp
     src/instancepinger.cpp
+    src/instancepingerdialog.cpp
     src/languagebuttonswidget.cpp
     src/languagebuttonswidget.ui
     src/main.cpp

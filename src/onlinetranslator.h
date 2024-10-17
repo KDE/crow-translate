@@ -526,16 +526,16 @@ public:
      *
      * @return Mozhi instance url
      */
-    const QString &instanceUrl();
+    const QString &instance();
 
     /**
-     * @brief Set the URL engine
+     * @brief Sets the instance URL
      *
      * You need to call this function to specify the URL of an instance for Mozhi.
      *
      * @param url Mozhi instance url
      */
-    void setInstanceUrl(QString url);
+    void setInstance(QString url);
 
     /**
      * @brief Language name
@@ -645,7 +645,7 @@ private:
     QString m_translationTranslit;
     QString m_errorString;
 
-    QString m_instanceUrl;
+    QString m_instance;
 
     QVector<TranslationOptions> m_translationOptions;
     QVector<TranslationExample> m_examples;

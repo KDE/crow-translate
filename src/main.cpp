@@ -7,6 +7,7 @@
 
 #include "cli.h"
 #include "cmake.h"
+#include "instancepingerdialog.h"
 #include "mainwindow.h"
 #include "singleapplication.h"
 
@@ -53,8 +54,10 @@ int launchGui(int argc, char *argv[])
 
     AppSettings settings;
     settings.setupLocalization();
-    if (settings.instanceUrl().isEmpty()) {
-        settings.setBestInstance();
+    if (settings.instance().isEmpty()) {
+        InstancePingerDialog instancePingerDialog;
+        instancePingerDialog.exec();
+        settings.setInstance(instancePingerDialog.fastestUrl());
     }
 
     MainWindow window;
