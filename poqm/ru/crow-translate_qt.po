@@ -11,12 +11,12 @@ msgstr ""
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
 
-#: src/cli.cpp:40
+#: src/cli.cpp:42
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Показать все языковые коды."
 
-#: src/cli.cpp:41
+#: src/cli.cpp:43
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -25,7 +25,7 @@ msgstr ""
 "Укажите исходный язык (по умолчанию движок попытается определить язык "
 "самостоятельно)."
 
-#: src/cli.cpp:42
+#: src/cli.cpp:44
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
@@ -34,7 +34,7 @@ msgstr ""
 "Укажите язык(и) перевода, разделенные '+' (по умолчанию используется "
 "системный язык)."
 
-#: src/cli.cpp:43
+#: src/cli.cpp:45
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
@@ -43,24 +43,24 @@ msgstr ""
 "Укажите движок переводчика ('google', 'yandex', 'bing', 'libretranslate' или "
 "'lingva'), Google используется по умолчанию."
 
-#: src/cli.cpp:44
+#: src/cli.cpp:46
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
 
-#: src/cli.cpp:45
+#: src/cli.cpp:47
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Озвучить перевод."
 
-#: src/cli.cpp:46
+#: src/cli.cpp:48
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Озвучить исходный текст."
 
-#: src/cli.cpp:47
+#: src/cli.cpp:49
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -68,28 +68,28 @@ msgstr ""
 "Считать исходный текст из файлов. Аргументы будут интерпретироваться как "
 "пути к файлам."
 
-#: src/cli.cpp:48
+#: src/cli.cpp:50
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Добавить данные стандартного ввода в исходный текст."
 
-#: src/cli.cpp:49
+#: src/cli.cpp:51
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "Не печатать текст при использовании --%1 или --%2."
 
-#: src/cli.cpp:50
+#: src/cli.cpp:52
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Печатать только переводы."
 
-#: src/cli.cpp:51
+#: src/cli.cpp:53
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Печатать вывод в формате JSON."
 
-#: src/cli.cpp:54
+#: src/cli.cpp:56
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -101,7 +101,7 @@ msgstr ""
 "Простой и легковесный переводчик, который позволяет переводить и озвучивать "
 "текст с помощью Google, Yandex, Bing, LibreTranslate и Lingva"
 
-#: src/cli.cpp:55
+#: src/cli.cpp:57
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
@@ -109,13 +109,13 @@ msgid ""
 msgstr ""
 "Текст для перевода. По умолчанию перевод будет выполнен на язык системы."
 
-#: src/cli.cpp:77
+#: src/cli.cpp:79
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Ошибка: Для --%1 необходимо указать --%2 и/или --%3 параметры"
 
-#: src/cli.cpp:92
+#: src/cli.cpp:94
 #, fuzzy, qt-format
 #| msgctxt "AppSettings|"
 #| msgid "Unknown language code: %1"
@@ -123,7 +123,7 @@ msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "Неизвестный код языка:%1"
 
-#: src/cli.cpp:100
+#: src/cli.cpp:102
 #, fuzzy, qt-format
 #| msgctxt "AppSettings|"
 #| msgid "Unknown language code: %1"
@@ -131,23 +131,23 @@ msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "Неизвестный код языка:%1"
 
-#: src/cli.cpp:124
+#: src/cli.cpp:126
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Ошибка: Нет текста для перевода"
 
-#: src/cli.cpp:144
+#: src/cli.cpp:151
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "Ошибка: Неизвестный движок"
 
-#: src/cli.cpp:179 src/cli.cpp:271 src/cli.cpp:361
+#: src/cli.cpp:186 src/cli.cpp:278 src/cli.cpp:368
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Ошибка: %1"
 
-#: src/cli.cpp:233
+#: src/cli.cpp:240
 #, fuzzy
 #| msgctxt "TranslationEdit|"
 #| msgid "translation options:"
@@ -155,7 +155,7 @@ msgctxt "Cli|"
 msgid "translation options:"
 msgstr "варианты перевода:"
 
-#: src/cli.cpp:244
+#: src/cli.cpp:251
 #, fuzzy
 #| msgctxt "TranslationEdit|"
 #| msgid "examples:"
@@ -163,19 +163,19 @@ msgctxt "Cli|"
 msgid "examples:"
 msgstr "примеры:"
 
-#: src/cli.cpp:374
+#: src/cli.cpp:381
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Ошибка: вы не можете использовать --%1 с --%2"
 
-#: src/cli.cpp:390 src/cli.cpp:411
+#: src/cli.cpp:397 src/cli.cpp:418
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Ошибка: Файл не существует: %1"
 
-#: src/cli.cpp:395 src/cli.cpp:416
+#: src/cli.cpp:402 src/cli.cpp:423
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -185,6 +185,30 @@ msgstr "Ошибка: Невозможно открыть файл: %1"
 msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Поиск на Forvo.com"
+
+#: src/instancepinger.cpp:54
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Best instance URL is '%1' with time %2 ms"
+msgstr ""
+
+#: src/instancepinger.cpp:72
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Ping to '%1' takes longer then %2 ms"
+msgstr ""
+
+#: src/instancepinger.cpp:87
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Ping to '%1' successful, response time: %2 ms"
+msgstr ""
+
+#: src/instancepinger.cpp:99
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Ping to '%1' failed, error: %2"
+msgstr ""
 
 #: src/languagebuttonswidget.cpp:220
 msgctxt "LanguageButtonsWidget|"
@@ -227,13 +251,13 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Текущие языки:"
 
-#: src/main.cpp:65
+#: src/main.cpp:69
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr "Сервис D-Bus %1 уже зарегистрирован другим приложением"
 
-#: src/main.cpp:90
+#: src/main.cpp:94
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
@@ -260,35 +284,34 @@ msgstr ""
 msgctxt "MainWindow|"
 msgid ""
 "While Mozhi acts as a proxy to protect your privacy, the third-party "
-"services it uses may store and analyze the text you send. We randomly "
-"assigned you instance %1, but you can change it in the translation settings. "
-"It's adviced to pick an instance that is close to you geographically for "
-"faster translations. See instance details in the link above."
+"services it uses may store and analyze the text you send. Your instance "
+"right now is '%1', but you can change it in the translation settings. See "
+"instance details in the link above."
 msgstr ""
 
-#: src/mainwindow.cpp:869
+#: src/mainwindow.cpp:867
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr ""
 
-#: src/mainwindow.cpp:897
+#: src/mainwindow.cpp:895
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Недействительный значок для трея"
 
-#: src/mainwindow.cpp:897
+#: src/mainwindow.cpp:895
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr ""
 "Указанный значок '%1' недействителен. Будет использован значок по умолчанию."
 
-#: src/mainwindow.cpp:926
+#: src/mainwindow.cpp:924
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "Не удалось задать языки OCR"
 
-#: src/mainwindow.cpp:926
+#: src/mainwindow.cpp:924
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -1721,7 +1744,12 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Скопировать перевод в буфер обмена"
 
-#: src/settings/appsettings.cpp:1072
+#: src/settings/appsettings.cpp:522
+msgctxt "AppSettings|"
+msgid "Detecting fastest instance"
+msgstr ""
+
+#: src/settings/appsettings.cpp:1061
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1761,54 +1789,54 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "Не удалось удалить %1 из %2"
 
-#: src/settings/settingsdialog.cpp:31
+#: src/settings/settingsdialog.cpp:32
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Портативный режим"
 
-#: src/settings/settingsdialog.cpp:44
+#: src/settings/settingsdialog.cpp:45
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Использовать %1 для хранения настроек"
 
-#: src/settings/settingsdialog.cpp:49 src/settings/settingsdialog.cpp:53
-#: src/settings/settingsdialog.cpp:54
+#: src/settings/settingsdialog.cpp:50 src/settings/settingsdialog.cpp:54
+#: src/settings/settingsdialog.cpp:55
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Язык системы>"
 
-#: src/settings/settingsdialog.cpp:88
+#: src/settings/settingsdialog.cpp:89
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Значки:"
 
-#: src/settings/settingsdialog.cpp:110
+#: src/settings/settingsdialog.cpp:111
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "Поля настроек OCR не могут быть пустыми."
 
-#: src/settings/settingsdialog.cpp:111
+#: src/settings/settingsdialog.cpp:112
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Вы хотите отменить неверные параметры?"
 
-#: src/settings/settingsdialog.cpp:251
+#: src/settings/settingsdialog.cpp:252
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Выберите значок"
 
-#: src/settings/settingsdialog.cpp:251
+#: src/settings/settingsdialog.cpp:252
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Изображения (*.png *.ico *.svg *.jpg);;Все файлы()"
 
-#: src/settings/settingsdialog.cpp:264
+#: src/settings/settingsdialog.cpp:276
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Выберите путь к языкам OCR"
 
-#: src/settings/settingsdialog.cpp:405
+#: src/settings/settingsdialog.cpp:416
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Назад"
@@ -2276,21 +2304,28 @@ msgstr "Принудительное определение языка пере�
 
 #: src/settings/settingsdialog.ui:787
 msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Lingva engine URL</p><p>All instances can be found "
-"here: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
-"body></html>"
+msgid "Mozhi instance URL"
 msgstr ""
-"<html><head/><body><p>Lingva engine URL</p><p>Все экземпляры можно найти "
-"здесь: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
-"body></html>"
 
-#: src/settings/settingsdialog.ui:826
+#: src/settings/settingsdialog.ui:800
+msgctxt "SettingsDialog|"
+msgid "Automatically pick the fastest instance based on the ping"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:803
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Speech test:"
+msgctxt "SettingsDialog|"
+msgid "Detect fastest"
+msgstr "Тест речи:"
+
+#: src/settings/settingsdialog.ui:836
 msgctxt "SettingsDialog|"
 msgid "Languages"
 msgstr "Языки"
 
-#: src/settings/settingsdialog.ui:832
+#: src/settings/settingsdialog.ui:842
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Loading additional languages will impact both speed "
@@ -2303,22 +2338,22 @@ msgstr ""
 "чтобы выбрать подходящий язык, и есть больше шансов вызвать смазывание "
 "определения слов.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:839
+#: src/settings/settingsdialog.ui:849
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
 msgstr "Путь к языкам:"
 
-#: src/settings/settingsdialog.ui:846
+#: src/settings/settingsdialog.ui:856
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr "<html><head/><body><p>Выбрать путь к языкам OCR</p></body></html>"
 
-#: src/settings/settingsdialog.ui:857
+#: src/settings/settingsdialog.ui:867
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
 msgstr "<html><head/><body><p>Открыть репозиторий GitHub</p></body></html>"
 
-#: src/settings/settingsdialog.ui:860
+#: src/settings/settingsdialog.ui:870
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
@@ -2329,12 +2364,12 @@ msgstr ""
 "\"><span style=\" text-decoration: underline; color: # 2980b9;\">Загрузить "
 "еще</span></a></p></body></html>"
 
-#: src/settings/settingsdialog.ui:870
+#: src/settings/settingsdialog.ui:880
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
 msgstr "Каталог с обученными моделями"
 
-#: src/settings/settingsdialog.ui:886
+#: src/settings/settingsdialog.ui:896
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
@@ -2343,22 +2378,22 @@ msgstr ""
 "<html><head/><body><p>Заменить все одинарные разрывы строк пробелом после "
 "распознавания текста</p></body></html>"
 
-#: src/settings/settingsdialog.ui:889
+#: src/settings/settingsdialog.ui:899
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
 msgstr "Преобразовывать переносы строк"
 
-#: src/settings/settingsdialog.ui:955
+#: src/settings/settingsdialog.ui:965
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
 msgstr "Захват экрана"
 
-#: src/settings/settingsdialog.ui:967
+#: src/settings/settingsdialog.ui:977
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
 msgstr "Запоминать регион:"
 
-#: src/settings/settingsdialog.ui:974
+#: src/settings/settingsdialog.ui:984
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
@@ -2367,37 +2402,37 @@ msgstr ""
 "<html><head/><body><p>Когда следует помнить последний выделенный регион</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:978
+#: src/settings/settingsdialog.ui:988
 msgctxt "SettingsDialog|"
 msgid "Never"
 msgstr "Никогда"
 
-#: src/settings/settingsdialog.ui:983
+#: src/settings/settingsdialog.ui:993
 msgctxt "SettingsDialog|"
 msgid "Remember last"
 msgstr "До выхода из программы"
 
-#: src/settings/settingsdialog.ui:988
+#: src/settings/settingsdialog.ui:998
 msgctxt "SettingsDialog|"
 msgid "Remember always"
 msgstr "Всегда"
 
-#: src/settings/settingsdialog.ui:996
+#: src/settings/settingsdialog.ui:1006
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
 msgstr "Задержка захвата:"
 
-#: src/settings/settingsdialog.ui:1003
+#: src/settings/settingsdialog.ui:1013
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
 msgstr "Задержка перед захватом экрана"
 
-#: src/settings/settingsdialog.ui:1006
+#: src/settings/settingsdialog.ui:1016
 msgctxt "SettingsDialog|"
 msgid " ms"
 msgstr " мс"
 
-#: src/settings/settingsdialog.ui:1016
+#: src/settings/settingsdialog.ui:1026
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
@@ -2405,12 +2440,12 @@ msgstr ""
 "<html><head/><body><p>Показать экранную лупу рядом с курсором</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1019
+#: src/settings/settingsdialog.ui:1029
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
 msgstr "Отображать лупу"
 
-#: src/settings/settingsdialog.ui:1029
+#: src/settings/settingsdialog.ui:1039
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
@@ -2419,12 +2454,12 @@ msgstr ""
 "<html><head/><body><p>Завершать захват фрагмента, когда кнопка мыши "
 "отпущена</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1032
+#: src/settings/settingsdialog.ui:1042
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
 msgstr "Подтверждать по нажатию"
 
-#: src/settings/settingsdialog.ui:1039
+#: src/settings/settingsdialog.ui:1049
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
@@ -2433,79 +2468,79 @@ msgstr ""
 "<html><head/><body><p>Накладывать легкое осветление на невыделенную часть</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:1042
+#: src/settings/settingsdialog.ui:1052
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
 msgstr "Использовать светлый фон"
 
-#: src/settings/settingsdialog.ui:1075
+#: src/settings/settingsdialog.ui:1085
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
 msgstr "Прокси сервер"
 
-#: src/settings/settingsdialog.ui:1081
+#: src/settings/settingsdialog.ui:1091
 msgctxt "SettingsDialog|"
 msgid "Type:"
 msgstr "Тип:"
 
-#: src/settings/settingsdialog.ui:1094
+#: src/settings/settingsdialog.ui:1104
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
 msgstr "<html><head/><body><p>Тип прокси</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1098
+#: src/settings/settingsdialog.ui:1108
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
 msgstr "Использовать настройки системы"
 
-#: src/settings/settingsdialog.ui:1108
+#: src/settings/settingsdialog.ui:1118
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
 msgstr "Не использовать прокси"
 
-#: src/settings/settingsdialog.ui:1124
+#: src/settings/settingsdialog.ui:1134
 msgctxt "SettingsDialog|"
 msgid "Host:"
 msgstr "Хост:"
 
-#: src/settings/settingsdialog.ui:1134
+#: src/settings/settingsdialog.ui:1144
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr "<html><head/><body><p>Имя хоста прокси</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1147
+#: src/settings/settingsdialog.ui:1157
 msgctxt "SettingsDialog|"
 msgid "Port:"
 msgstr "Порт:"
 
-#: src/settings/settingsdialog.ui:1163
+#: src/settings/settingsdialog.ui:1173
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
 msgstr "<html><head/><body><p>Порт прокси</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1182
+#: src/settings/settingsdialog.ui:1192
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
 msgstr "Информация: прокси работает только для перевода текста"
 
-#: src/settings/settingsdialog.ui:1192
+#: src/settings/settingsdialog.ui:1202
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Включить или отключить аутентификацию</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1195
+#: src/settings/settingsdialog.ui:1205
 msgctxt "SettingsDialog|"
 msgid "Authentication"
 msgstr "Аутентификация"
 
-#: src/settings/settingsdialog.ui:1205
+#: src/settings/settingsdialog.ui:1215
 msgctxt "SettingsDialog|"
 msgid "Username:"
 msgstr "Имя пользователя:"
 
-#: src/settings/settingsdialog.ui:1215
+#: src/settings/settingsdialog.ui:1225
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
@@ -2513,24 +2548,24 @@ msgstr ""
 "<html><head/><body><p>Имя пользователя прокси для аутентификации</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1225
+#: src/settings/settingsdialog.ui:1235
 msgctxt "SettingsDialog|"
 msgid "Password:"
 msgstr "Пароль:"
 
-#: src/settings/settingsdialog.ui:1235
+#: src/settings/settingsdialog.ui:1245
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Пароль прокси для аутентификации</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1248
+#: src/settings/settingsdialog.ui:1258
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
 msgstr "Информация: пароль хранится в незашифрованном виде"
 
-#: src/settings/settingsdialog.ui:1284
+#: src/settings/settingsdialog.ui:1294
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
@@ -2538,34 +2573,34 @@ msgstr ""
 "<html><head/><body><p>Регистрировать глобальные комбинации клавиш в системе</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:1287
+#: src/settings/settingsdialog.ui:1297
 msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "Включить глобальные комбинации клавиш"
 
-#: src/settings/settingsdialog.ui:1303
+#: src/settings/settingsdialog.ui:1313
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Сбросить все комбинации клавиш на по умолчанию</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1306
+#: src/settings/settingsdialog.ui:1316
 msgctxt "SettingsDialog|"
 msgid "Reset all"
 msgstr "Сбросить всё"
 
-#: src/settings/settingsdialog.ui:1316
+#: src/settings/settingsdialog.ui:1326
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
 msgstr "Комбинация"
 
-#: src/settings/settingsdialog.ui:1322
+#: src/settings/settingsdialog.ui:1332
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
 msgstr "Комбинация клавиш:"
 
-#: src/settings/settingsdialog.ui:1329
+#: src/settings/settingsdialog.ui:1339
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
@@ -2574,54 +2609,54 @@ msgstr ""
 "<html><head/><body><p>Комбинация клавиш для выбранного действия</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1336
+#: src/settings/settingsdialog.ui:1346
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Принять комбинацию клавиш</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1339
+#: src/settings/settingsdialog.ui:1349
 msgctxt "SettingsDialog|"
 msgid "Accept"
 msgstr "Принять"
 
-#: src/settings/settingsdialog.ui:1350
+#: src/settings/settingsdialog.ui:1360
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Очистить комбинацию клавиш</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1353
+#: src/settings/settingsdialog.ui:1363
 msgctxt "SettingsDialog|"
 msgid "Clear"
 msgstr "Очистить"
 
-#: src/settings/settingsdialog.ui:1364
+#: src/settings/settingsdialog.ui:1374
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Сбросить комбинацию клавиш по умолчанию</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1367
+#: src/settings/settingsdialog.ui:1377
 msgctxt "SettingsDialog|"
 msgid "Reset"
 msgstr "Сбросить"
 
-#: src/settings/settingsdialog.ui:1413
+#: src/settings/settingsdialog.ui:1423
 msgctxt "SettingsDialog|"
 msgid "Version:"
 msgstr "Версия:"
 
-#: src/settings/settingsdialog.ui:1423
+#: src/settings/settingsdialog.ui:1433
 msgctxt "SettingsDialog|"
 msgid "License:"
 msgstr "Лицензия:"
 
-#: src/settings/settingsdialog.ui:1437
+#: src/settings/settingsdialog.ui:1447
 msgctxt "SettingsDialog|"
 msgid "Source code:"
 msgstr "Исходный код:"
 
-#: src/settings/settingsdialog.ui:1457
+#: src/settings/settingsdialog.ui:1467
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Translation mode:"
@@ -2814,6 +2849,16 @@ msgstr "Выход"
 msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Результат перевода"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>Lingva engine URL</p><p>All instances can be found "
+#~ "here: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Lingva engine URL</p><p>Все экземпляры можно найти "
+#~ "здесь: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
+#~ "body></html>"
 
 #~ msgctxt "Cli|"
 #~ msgid "%1 - translation options:"
@@ -3031,10 +3076,6 @@ msgstr "Результат перевода"
 #~ msgctxt "SettingsDialog|"
 #~ msgid "Evil"
 #~ msgstr "Злой"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Speech test:"
-#~ msgstr "Тест речи:"
 
 #~ msgctxt "SettingsDialog|"
 #~ msgid "<html><head/><body><p>Text to test speech</p></body></html>"

@@ -10,12 +10,12 @@ msgstr ""
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
 
-#: src/cli.cpp:40
+#: src/cli.cpp:42
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Erakutsi hizkuntza-kode guztiak."
 
-#: src/cli.cpp:41
+#: src/cli.cpp:43
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -24,7 +24,7 @@ msgstr ""
 "Zehaztu iturburu-hizkuntza (berez, motorrak hizkuntza bere kabuz zehazten "
 "saiatuko da)."
 
-#: src/cli.cpp:42
+#: src/cli.cpp:44
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
@@ -33,7 +33,7 @@ msgstr ""
 "Zehaztu itzulpen hizkuntza(k), '+' bidez banatuta (berez, sistemaren "
 "hizkuntza erabiltzen da)."
 
-#: src/cli.cpp:43
+#: src/cli.cpp:45
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
@@ -42,24 +42,24 @@ msgstr ""
 "Zehaztu itzultzaile-motorra ('google', 'yandex', 'bing', 'libretranslate' "
 "edo 'lingva'), berez Google erabiltzen du."
 
-#: src/cli.cpp:44
+#: src/cli.cpp:46
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
 
-#: src/cli.cpp:45
+#: src/cli.cpp:47
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Ahozkatu itzulpena."
 
-#: src/cli.cpp:46
+#: src/cli.cpp:48
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Ahozkatu iturburua."
 
-#: src/cli.cpp:47
+#: src/cli.cpp:49
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -67,28 +67,28 @@ msgstr ""
 "Irakurri iturburu-testua fitxategietatik. Argumentuak fitxategi-bide gisa "
 "interpretatuko dira."
 
-#: src/cli.cpp:48
+#: src/cli.cpp:50
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Gehitu sarrera estandar (STDIN) datuak iturburu-testuan."
 
-#: src/cli.cpp:49
+#: src/cli.cpp:51
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "Ez inprimatu testurik --%1 or --%2 erabiltzean."
 
-#: src/cli.cpp:50
+#: src/cli.cpp:52
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Inprimatu itzulpenak soilik."
 
-#: src/cli.cpp:51
+#: src/cli.cpp:53
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Inprimatu irteera JSON formatuan."
 
-#: src/cli.cpp:54
+#: src/cli.cpp:56
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -100,20 +100,20 @@ msgstr ""
 "Testuak itzultzeko eta ahozkatzeko Google, Yandex, Bing, LibreTranslate eta "
 "Lingva erabiliz aukera ematen duen itzultzaile sinple eta arina"
 
-#: src/cli.cpp:55
+#: src/cli.cpp:57
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr "Itzultzeko testua. Berez, itzulpena sistemaren hizkuntzara egingo da."
 
-#: src/cli.cpp:77
+#: src/cli.cpp:79
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Errorea: --%1-rentzat --%2 edota --%3 aukerak zehaztu behar dituzu"
 
-#: src/cli.cpp:92
+#: src/cli.cpp:94
 #, fuzzy, qt-format
 #| msgctxt "AppSettings|"
 #| msgid "Unknown language code: %1"
@@ -121,7 +121,7 @@ msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "Hizkuntza-kode ezezaguna: %1"
 
-#: src/cli.cpp:100
+#: src/cli.cpp:102
 #, fuzzy, qt-format
 #| msgctxt "AppSettings|"
 #| msgid "Unknown language code: %1"
@@ -129,23 +129,23 @@ msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "Hizkuntza-kode ezezaguna: %1"
 
-#: src/cli.cpp:124
+#: src/cli.cpp:126
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Errorea: ez dago testurik itzultzeko"
 
-#: src/cli.cpp:144
+#: src/cli.cpp:151
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "Errorea: motor ezezaguna"
 
-#: src/cli.cpp:179 src/cli.cpp:271 src/cli.cpp:361
+#: src/cli.cpp:186 src/cli.cpp:278 src/cli.cpp:368
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Errorea: %1"
 
-#: src/cli.cpp:233
+#: src/cli.cpp:240
 #, fuzzy
 #| msgctxt "TranslationEdit|"
 #| msgid "translation options:"
@@ -153,7 +153,7 @@ msgctxt "Cli|"
 msgid "translation options:"
 msgstr "itzultzeko aukerak:"
 
-#: src/cli.cpp:244
+#: src/cli.cpp:251
 #, fuzzy
 #| msgctxt "TranslationEdit|"
 #| msgid "examples:"
@@ -161,19 +161,19 @@ msgctxt "Cli|"
 msgid "examples:"
 msgstr "adibideak:"
 
-#: src/cli.cpp:374
+#: src/cli.cpp:381
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Errorea:ezin duzu --%1 erabili --%2-rekin"
 
-#: src/cli.cpp:390 src/cli.cpp:411
+#: src/cli.cpp:397 src/cli.cpp:418
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Errorea: fitxategia ez da existitzen: %1"
 
-#: src/cli.cpp:395 src/cli.cpp:416
+#: src/cli.cpp:402 src/cli.cpp:423
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -183,6 +183,30 @@ msgstr "Errorea: ezin da fitxategia ireki: %1"
 msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Bilatu Forvo.com-en"
+
+#: src/instancepinger.cpp:54
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Best instance URL is '%1' with time %2 ms"
+msgstr ""
+
+#: src/instancepinger.cpp:72
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Ping to '%1' takes longer then %2 ms"
+msgstr ""
+
+#: src/instancepinger.cpp:87
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Ping to '%1' successful, response time: %2 ms"
+msgstr ""
+
+#: src/instancepinger.cpp:99
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Ping to '%1' failed, error: %2"
+msgstr ""
 
 #: src/languagebuttonswidget.cpp:220
 msgctxt "LanguageButtonsWidget|"
@@ -226,13 +250,13 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Uneko hizkuntzak:"
 
-#: src/main.cpp:65
+#: src/main.cpp:69
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr "D-Bus %1 zerbitzua beste aplikazio batek erregistratu du jada"
 
-#: src/main.cpp:90
+#: src/main.cpp:94
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
@@ -259,35 +283,34 @@ msgstr ""
 msgctxt "MainWindow|"
 msgid ""
 "While Mozhi acts as a proxy to protect your privacy, the third-party "
-"services it uses may store and analyze the text you send. We randomly "
-"assigned you instance %1, but you can change it in the translation settings. "
-"It's adviced to pick an instance that is close to you geographically for "
-"faster translations. See instance details in the link above."
+"services it uses may store and analyze the text you send. Your instance "
+"right now is '%1', but you can change it in the translation settings. See "
+"instance details in the link above."
 msgstr ""
 
-#: src/mainwindow.cpp:869
+#: src/mainwindow.cpp:867
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr ""
 
-#: src/mainwindow.cpp:897
+#: src/mainwindow.cpp:895
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Baliogabeko erretiluko ikonoa"
 
-#: src/mainwindow.cpp:897
+#: src/mainwindow.cpp:895
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr ""
 "Zehaztutako '%1' ikonoa baliogabea da. Lehenetsitako ikonoa erabiliko da."
 
-#: src/mainwindow.cpp:926
+#: src/mainwindow.cpp:924
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "Ezin dira ezarri OCR hizkuntzak"
 
-#: src/mainwindow.cpp:926
+#: src/mainwindow.cpp:924
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -1719,7 +1742,12 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Kopiatu itzulpena arbelean"
 
-#: src/settings/appsettings.cpp:1072
+#: src/settings/appsettings.cpp:522
+msgctxt "AppSettings|"
+msgid "Detecting fastest instance"
+msgstr ""
+
+#: src/settings/appsettings.cpp:1061
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1759,54 +1787,54 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "Ezin da %1 kendu %2-tik"
 
-#: src/settings/settingsdialog.cpp:31
+#: src/settings/settingsdialog.cpp:32
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Modu eramangarria"
 
-#: src/settings/settingsdialog.cpp:44
+#: src/settings/settingsdialog.cpp:45
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Erabili %1 ezarpenak gordetzeko"
 
-#: src/settings/settingsdialog.cpp:49 src/settings/settingsdialog.cpp:53
-#: src/settings/settingsdialog.cpp:54
+#: src/settings/settingsdialog.cpp:50 src/settings/settingsdialog.cpp:54
+#: src/settings/settingsdialog.cpp:55
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Sistema-hizkuntza>"
 
-#: src/settings/settingsdialog.cpp:88
+#: src/settings/settingsdialog.cpp:89
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Ikonoak:"
 
-#: src/settings/settingsdialog.cpp:110
+#: src/settings/settingsdialog.cpp:111
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "OCR parametroen eremuak ezin dira hutsik egon."
 
-#: src/settings/settingsdialog.cpp:111
+#: src/settings/settingsdialog.cpp:112
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Parametro baliogabeak baztertu nahi dituzu?"
 
-#: src/settings/settingsdialog.cpp:251
+#: src/settings/settingsdialog.cpp:252
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Aukeratu ikonoa"
 
-#: src/settings/settingsdialog.cpp:251
+#: src/settings/settingsdialog.cpp:252
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Irudiak (*.png *.ico *.svg *.jpg);;Fitxategi guztiak ()"
 
-#: src/settings/settingsdialog.cpp:264
+#: src/settings/settingsdialog.cpp:276
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Aukeratu OCR hizkuntzen bidea"
 
-#: src/settings/settingsdialog.cpp:405
+#: src/settings/settingsdialog.cpp:416
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Atzera"
@@ -2273,21 +2301,28 @@ msgstr "Behartu itzulpen-hizkuntza detektatzen"
 
 #: src/settings/settingsdialog.ui:787
 msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Lingva engine URL</p><p>All instances can be found "
-"here: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
-"body></html>"
+msgid "Mozhi instance URL"
 msgstr ""
-"<html><head/><body><p>Lingva engine URL</p><p>Kasu guztiak hemen aurki "
-"daitezke:: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
-"body></html>"
 
-#: src/settings/settingsdialog.ui:826
+#: src/settings/settingsdialog.ui:800
+msgctxt "SettingsDialog|"
+msgid "Automatically pick the fastest instance based on the ping"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:803
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Speech test:"
+msgctxt "SettingsDialog|"
+msgid "Detect fastest"
+msgstr "Hizketa proba:"
+
+#: src/settings/settingsdialog.ui:836
 msgctxt "SettingsDialog|"
 msgid "Languages"
 msgstr "Hizkuntzak"
 
-#: src/settings/settingsdialog.ui:832
+#: src/settings/settingsdialog.ui:842
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Loading additional languages will impact both speed "
@@ -2300,22 +2335,22 @@ msgstr ""
 "hizkuntza erabakitzeko eta hitz okerrak asmatzeko aukera gehiago baitago.</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:839
+#: src/settings/settingsdialog.ui:849
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
 msgstr "Hizkuntzen bidea:"
 
-#: src/settings/settingsdialog.ui:846
+#: src/settings/settingsdialog.ui:856
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr "<html><head/><body><p>Hautatu OCR hizkuntzen bidea</p></body></html>"
 
-#: src/settings/settingsdialog.ui:857
+#: src/settings/settingsdialog.ui:867
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
 msgstr "<html><head/><body><p>Ireki GitHub biltegia</p></body></html>"
 
-#: src/settings/settingsdialog.ui:860
+#: src/settings/settingsdialog.ui:870
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
@@ -2326,12 +2361,12 @@ msgstr ""
 "\"><span style=\" text-decoration: underline; color:#2980b9;\">Deskargatu "
 "gehiago</span></a></p></body></html>"
 
-#: src/settings/settingsdialog.ui:870
+#: src/settings/settingsdialog.ui:880
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
 msgstr "Trebatutako ereduen direktorioa"
 
-#: src/settings/settingsdialog.ui:886
+#: src/settings/settingsdialog.ui:896
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
@@ -2340,22 +2375,22 @@ msgstr ""
 "<html><head/><body><p>Ordeztu lerro-jauzi guztiak zuriune batekin testua "
 "ezagutu ondoren</p></body></html>"
 
-#: src/settings/settingsdialog.ui:889
+#: src/settings/settingsdialog.ui:899
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
 msgstr "Bihurtu lerro-jauziak"
 
-#: src/settings/settingsdialog.ui:955
+#: src/settings/settingsdialog.ui:965
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
 msgstr "Pantaila-argazkia"
 
-#: src/settings/settingsdialog.ui:967
+#: src/settings/settingsdialog.ui:977
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
 msgstr "Gogoratu zona:"
 
-#: src/settings/settingsdialog.ui:974
+#: src/settings/settingsdialog.ui:984
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
@@ -2364,49 +2399,49 @@ msgstr ""
 "<html><head/><body><p>Noiz gogoratu hautatutako azken eskualdea</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:978
+#: src/settings/settingsdialog.ui:988
 msgctxt "SettingsDialog|"
 msgid "Never"
 msgstr "Inoiz ez"
 
-#: src/settings/settingsdialog.ui:983
+#: src/settings/settingsdialog.ui:993
 msgctxt "SettingsDialog|"
 msgid "Remember last"
 msgstr "Gogoratu azkena"
 
-#: src/settings/settingsdialog.ui:988
+#: src/settings/settingsdialog.ui:998
 msgctxt "SettingsDialog|"
 msgid "Remember always"
 msgstr "Gogoratu beti"
 
-#: src/settings/settingsdialog.ui:996
+#: src/settings/settingsdialog.ui:1006
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
 msgstr "Hartzeko atzerapena:"
 
-#: src/settings/settingsdialog.ui:1003
+#: src/settings/settingsdialog.ui:1013
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
 msgstr "Pantaila-argazkia egin aurretik atzeratu"
 
-#: src/settings/settingsdialog.ui:1006
+#: src/settings/settingsdialog.ui:1016
 msgctxt "SettingsDialog|"
 msgid " ms"
 msgstr " ms"
 
-#: src/settings/settingsdialog.ui:1016
+#: src/settings/settingsdialog.ui:1026
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Erakutsi lupa bat kurtsorearen ondoan</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1019
+#: src/settings/settingsdialog.ui:1029
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
 msgstr "Erakutsi lupa"
 
-#: src/settings/settingsdialog.ui:1029
+#: src/settings/settingsdialog.ui:1039
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
@@ -2415,12 +2450,12 @@ msgstr ""
 "<html><head/><body><p>Amaitu zatia harrapatzen saguaren botoia askatzen "
 "denean</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1032
+#: src/settings/settingsdialog.ui:1042
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
 msgstr "Berretsi kaleratzean"
 
-#: src/settings/settingsdialog.ui:1039
+#: src/settings/settingsdialog.ui:1049
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
@@ -2429,79 +2464,79 @@ msgstr ""
 "<html><head/><body><p>Aplikatu laino txiki bat hautatu gabeko zatian</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1042
+#: src/settings/settingsdialog.ui:1052
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
 msgstr "Aplikatu maskara argia"
 
-#: src/settings/settingsdialog.ui:1075
+#: src/settings/settingsdialog.ui:1085
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
 msgstr "Proxy zerbitzaria"
 
-#: src/settings/settingsdialog.ui:1081
+#: src/settings/settingsdialog.ui:1091
 msgctxt "SettingsDialog|"
 msgid "Type:"
 msgstr "Mota:"
 
-#: src/settings/settingsdialog.ui:1094
+#: src/settings/settingsdialog.ui:1104
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
 msgstr "<html><head/><body><p>Proxy mota</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1098
+#: src/settings/settingsdialog.ui:1108
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
 msgstr "Erabili sistemaren ezarpenak"
 
-#: src/settings/settingsdialog.ui:1108
+#: src/settings/settingsdialog.ui:1118
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
 msgstr "Ez erabili proxyrik"
 
-#: src/settings/settingsdialog.ui:1124
+#: src/settings/settingsdialog.ui:1134
 msgctxt "SettingsDialog|"
 msgid "Host:"
 msgstr "Ostalaria:"
 
-#: src/settings/settingsdialog.ui:1134
+#: src/settings/settingsdialog.ui:1144
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr "<html><head/><body><p>Proxyaren ostalari izena</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1147
+#: src/settings/settingsdialog.ui:1157
 msgctxt "SettingsDialog|"
 msgid "Port:"
 msgstr "Ataka:"
 
-#: src/settings/settingsdialog.ui:1163
+#: src/settings/settingsdialog.ui:1173
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
 msgstr "<html><head/><body><p>Proxy ataka</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1182
+#: src/settings/settingsdialog.ui:1192
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
 msgstr "Informazioa: proxyak testu-itzulpenerako soilik funtzionatzen du"
 
-#: src/settings/settingsdialog.ui:1192
+#: src/settings/settingsdialog.ui:1202
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Gaitu edo desgaitu autentifikazioa</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1195
+#: src/settings/settingsdialog.ui:1205
 msgctxt "SettingsDialog|"
 msgid "Authentication"
 msgstr "Autentifikazioa"
 
-#: src/settings/settingsdialog.ui:1205
+#: src/settings/settingsdialog.ui:1215
 msgctxt "SettingsDialog|"
 msgid "Username:"
 msgstr "Erabiltzaile izena:"
 
-#: src/settings/settingsdialog.ui:1215
+#: src/settings/settingsdialog.ui:1225
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
@@ -2509,24 +2544,24 @@ msgstr ""
 "<html><head/><body><p>Proxyren erabiltzaile-izena autentifikaziorako</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1225
+#: src/settings/settingsdialog.ui:1235
 msgctxt "SettingsDialog|"
 msgid "Password:"
 msgstr "Pasahitza:"
 
-#: src/settings/settingsdialog.ui:1235
+#: src/settings/settingsdialog.ui:1245
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Autentifikaziorako proxy pasahitza</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1248
+#: src/settings/settingsdialog.ui:1258
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
 msgstr "Informazioa: pasahitza zifratu gabe gordetzen da"
 
-#: src/settings/settingsdialog.ui:1284
+#: src/settings/settingsdialog.ui:1294
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
@@ -2534,34 +2569,34 @@ msgstr ""
 "<html><head/><body><p>Erregistratu lasterbide orokorrak sisteman</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1287
+#: src/settings/settingsdialog.ui:1297
 msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "Gaitu lasterbide orokorrak"
 
-#: src/settings/settingsdialog.ui:1303
+#: src/settings/settingsdialog.ui:1313
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Berrezarri lasterbide guztiak lehenespenetara</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1306
+#: src/settings/settingsdialog.ui:1316
 msgctxt "SettingsDialog|"
 msgid "Reset all"
 msgstr "Berrezarri dena"
 
-#: src/settings/settingsdialog.ui:1316
+#: src/settings/settingsdialog.ui:1326
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
 msgstr "Lasterbidea"
 
-#: src/settings/settingsdialog.ui:1322
+#: src/settings/settingsdialog.ui:1332
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
 msgstr "Gako-sekuentzia:"
 
-#: src/settings/settingsdialog.ui:1329
+#: src/settings/settingsdialog.ui:1339
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
@@ -2570,53 +2605,53 @@ msgstr ""
 "<html><head/><body><p>Hautatutako ekintzaren gako-sekuentzia</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1336
+#: src/settings/settingsdialog.ui:1346
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Onartu lasterbidea</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1339
+#: src/settings/settingsdialog.ui:1349
 msgctxt "SettingsDialog|"
 msgid "Accept"
 msgstr "Onartu"
 
-#: src/settings/settingsdialog.ui:1350
+#: src/settings/settingsdialog.ui:1360
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Garbitu lasterbidea</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1353
+#: src/settings/settingsdialog.ui:1363
 msgctxt "SettingsDialog|"
 msgid "Clear"
 msgstr "Garbitu"
 
-#: src/settings/settingsdialog.ui:1364
+#: src/settings/settingsdialog.ui:1374
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Berrezarri lasterbidea lehenespenera</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1367
+#: src/settings/settingsdialog.ui:1377
 msgctxt "SettingsDialog|"
 msgid "Reset"
 msgstr "Berrezarri"
 
-#: src/settings/settingsdialog.ui:1413
+#: src/settings/settingsdialog.ui:1423
 msgctxt "SettingsDialog|"
 msgid "Version:"
 msgstr "Bertsioa:"
 
-#: src/settings/settingsdialog.ui:1423
+#: src/settings/settingsdialog.ui:1433
 msgctxt "SettingsDialog|"
 msgid "License:"
 msgstr "Lizentzia:"
 
-#: src/settings/settingsdialog.ui:1437
+#: src/settings/settingsdialog.ui:1447
 msgctxt "SettingsDialog|"
 msgid "Source code:"
 msgstr "Iturburu kodea:"
 
-#: src/settings/settingsdialog.ui:1457
+#: src/settings/settingsdialog.ui:1467
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Translation mode:"
@@ -2810,6 +2845,16 @@ msgstr "Irten"
 msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Itzulpenaren emaitza"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>Lingva engine URL</p><p>All instances can be found "
+#~ "here: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Lingva engine URL</p><p>Kasu guztiak hemen aurki "
+#~ "daitezke:: https://github.com/TheDavidDelta/lingva-translate#instances</"
+#~ "p></body></html>"
 
 #~ msgctxt "Cli|"
 #~ msgid "%1 - translation options:"
@@ -3029,10 +3074,6 @@ msgstr "Itzulpenaren emaitza"
 #~ msgctxt "SettingsDialog|"
 #~ msgid "Evil"
 #~ msgstr "Maltzurra"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Speech test:"
-#~ msgstr "Hizketa proba:"
 
 #~ msgctxt "SettingsDialog|"
 #~ msgid "<html><head/><body><p>Text to test speech</p></body></html>"

@@ -17,12 +17,12 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 24.08.1\n"
 
-#: src/cli.cpp:40
+#: src/cli.cpp:42
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Mostrar los códigos de todos los idiomas."
 
-#: src/cli.cpp:41
+#: src/cli.cpp:43
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -31,7 +31,7 @@ msgstr ""
 "Especificar el idioma origen (de forma predeterminada, el traductor tratará "
 "de determinar el idioma por sí mismo)."
 
-#: src/cli.cpp:42
+#: src/cli.cpp:44
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
@@ -40,7 +40,7 @@ msgstr ""
 "Especificar los idiomas de traducción separados por «+» (de forma "
 "predeterminada, se usa el idioma del sistema)."
 
-#: src/cli.cpp:43
+#: src/cli.cpp:45
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
@@ -50,7 +50,7 @@ msgstr ""
 "«libretranslate» o «lingva»). Google es el que se usa de manera "
 "predeterminada."
 
-#: src/cli.cpp:44
+#: src/cli.cpp:46
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
@@ -59,17 +59,17 @@ msgstr ""
 "Especificar la URL de la instancia de Mozhi. Se usará de forma "
 "predeterminada la URL de instancia de las preferencias de la aplicación."
 
-#: src/cli.cpp:45
+#: src/cli.cpp:47
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Leer la traducción."
 
-#: src/cli.cpp:46
+#: src/cli.cpp:48
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Leer el texto original."
 
-#: src/cli.cpp:47
+#: src/cli.cpp:49
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -77,33 +77,33 @@ msgstr ""
 "Leer el texto original de archivos. Los argumentos se interpretarán como "
 "rutas de archivos."
 
-#: src/cli.cpp:48
+#: src/cli.cpp:50
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Añadir los datos de la entrada estándar al texto original."
 
-#: src/cli.cpp:49
+#: src/cli.cpp:51
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "No mostrar ningún texto al usar --%1 o --%2."
 
-#: src/cli.cpp:50
+#: src/cli.cpp:52
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Mostrar solo traducciones."
 
-#: src/cli.cpp:51
+#: src/cli.cpp:53
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Mostrar la salida en formato JSON."
 
-#: src/cli.cpp:54
+#: src/cli.cpp:56
 msgctxt "Cli|"
 msgid "Application that allows to translate and speak text using Mozhi"
 msgstr "Aplicación que permite traducir y leer texto usando Mozhi"
 
-#: src/cli.cpp:55
+#: src/cli.cpp:57
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
@@ -112,63 +112,63 @@ msgstr ""
 "Texto que se traducirá. De forma predeterminada, se traducirá al idioma del "
 "sistema."
 
-#: src/cli.cpp:77
+#: src/cli.cpp:79
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Error: Para --%1 debe especificar las opciones --%2 y/o --%3"
 
-#: src/cli.cpp:92
+#: src/cli.cpp:94
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "Error: Código de idioma de origen «%1» desconocido"
 
-#: src/cli.cpp:100
+#: src/cli.cpp:102
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "Error: Código de idioma de traducción «%1» desconocido"
 
-#: src/cli.cpp:124
+#: src/cli.cpp:126
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Error: No existe texto para traducir"
 
-#: src/cli.cpp:144
+#: src/cli.cpp:151
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "Error: Motor de traducción desconocido"
 
-#: src/cli.cpp:179 src/cli.cpp:271 src/cli.cpp:361
+#: src/cli.cpp:186 src/cli.cpp:278 src/cli.cpp:368
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Error: %1"
 
-#: src/cli.cpp:233
+#: src/cli.cpp:240
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "opciones de traducción:"
 
-#: src/cli.cpp:244
+#: src/cli.cpp:251
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "ejemplos:"
 
-#: src/cli.cpp:374
+#: src/cli.cpp:381
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Error: No puede usar --%1 con --%2"
 
-#: src/cli.cpp:390 src/cli.cpp:411
+#: src/cli.cpp:397 src/cli.cpp:418
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Error: El archivo no existe: %1"
 
-#: src/cli.cpp:395 src/cli.cpp:416
+#: src/cli.cpp:402 src/cli.cpp:423
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -178,6 +178,30 @@ msgstr "Error: No se puede abrir el archivo: %1"
 msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Buscar en Forvo.com"
+
+#: src/instancepinger.cpp:54
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Best instance URL is '%1' with time %2 ms"
+msgstr ""
+
+#: src/instancepinger.cpp:72
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Ping to '%1' takes longer then %2 ms"
+msgstr ""
+
+#: src/instancepinger.cpp:87
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Ping to '%1' successful, response time: %2 ms"
+msgstr ""
+
+#: src/instancepinger.cpp:99
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Ping to '%1' failed, error: %2"
+msgstr ""
 
 #: src/languagebuttonswidget.cpp:220
 msgctxt "LanguageButtonsWidget|"
@@ -222,13 +246,13 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Idiomas actuales:"
 
-#: src/main.cpp:65
+#: src/main.cpp:69
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr "El servicio %1 de D-Bus ya está registrado por otra aplicación"
 
-#: src/main.cpp:90
+#: src/main.cpp:94
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
@@ -251,14 +275,21 @@ msgid "This application uses %1 to provide translations."
 msgstr "Esta aplicación usa %1 para proporcionar traducciones."
 
 #: src/mainwindow.cpp:860
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MainWindow|"
+#| msgid ""
+#| "While Mozhi acts as a proxy to protect your privacy, the third-party "
+#| "services it uses may store and analyze the text you send. We randomly "
+#| "assigned you instance %1, but you can change it in the translation "
+#| "settings. It's adviced to pick an instance that is close to you "
+#| "geographically for faster translations. See instance details in the link "
+#| "above."
 msgctxt "MainWindow|"
 msgid ""
 "While Mozhi acts as a proxy to protect your privacy, the third-party "
-"services it uses may store and analyze the text you send. We randomly "
-"assigned you instance %1, but you can change it in the translation settings. "
-"It's adviced to pick an instance that is close to you geographically for "
-"faster translations. See instance details in the link above."
+"services it uses may store and analyze the text you send. Your instance "
+"right now is '%1', but you can change it in the translation settings. See "
+"instance details in the link above."
 msgstr ""
 "Aunque Mozhi actúa como proxy para proteger su privacidad, los servicios de "
 "terceras partes que usa pueden almacenar y analizar el texto que envíe. De "
@@ -267,28 +298,28 @@ msgstr ""
 "geográficamente próxima a usted para obtener traducciones más rápidas. "
 "Consulte los detalles de la instancia en el enlace anterior."
 
-#: src/mainwindow.cpp:869
+#: src/mainwindow.cpp:867
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "No volver a mostrar"
 
-#: src/mainwindow.cpp:897
+#: src/mainwindow.cpp:895
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Icono de bandeja de sistema no válido"
 
-#: src/mainwindow.cpp:897
+#: src/mainwindow.cpp:895
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "El icono «%1» indicado no es válido. Se usará el icono predeterminado."
 
-#: src/mainwindow.cpp:926
+#: src/mainwindow.cpp:924
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "No se pueden establecer los idiomas de OCR"
 
-#: src/mainwindow.cpp:926
+#: src/mainwindow.cpp:924
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -1647,7 +1678,12 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Copiar la traducción al portapapeles"
 
-#: src/settings/appsettings.cpp:1072
+#: src/settings/appsettings.cpp:522
+msgctxt "AppSettings|"
+msgid "Detecting fastest instance"
+msgstr ""
+
+#: src/settings/appsettings.cpp:1061
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1688,54 +1724,54 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "No se puede eliminar %1 de %2"
 
-#: src/settings/settingsdialog.cpp:31
+#: src/settings/settingsdialog.cpp:32
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Modo portable"
 
-#: src/settings/settingsdialog.cpp:44
+#: src/settings/settingsdialog.cpp:45
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Usar %1 para almacenar la configuración"
 
-#: src/settings/settingsdialog.cpp:49 src/settings/settingsdialog.cpp:53
-#: src/settings/settingsdialog.cpp:54
+#: src/settings/settingsdialog.cpp:50 src/settings/settingsdialog.cpp:54
+#: src/settings/settingsdialog.cpp:55
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Idioma del sistema>"
 
-#: src/settings/settingsdialog.cpp:88
+#: src/settings/settingsdialog.cpp:89
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Iconos:"
 
-#: src/settings/settingsdialog.cpp:110
+#: src/settings/settingsdialog.cpp:111
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "Los campos de parámetros de OCR no pueden estar vacíos."
 
-#: src/settings/settingsdialog.cpp:111
+#: src/settings/settingsdialog.cpp:112
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "¿Desea descartar los parámetros no válidos?"
 
-#: src/settings/settingsdialog.cpp:251
+#: src/settings/settingsdialog.cpp:252
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Seleccionar icono"
 
-#: src/settings/settingsdialog.cpp:251
+#: src/settings/settingsdialog.cpp:252
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Imágenes (*.png *.ico *.svg *.jpg);;Todos los archivos (*)"
 
-#: src/settings/settingsdialog.cpp:264
+#: src/settings/settingsdialog.cpp:276
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Seleccionar ruta de idiomas para OCR"
 
-#: src/settings/settingsdialog.cpp:405
+#: src/settings/settingsdialog.cpp:416
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Volver"
@@ -2210,21 +2246,28 @@ msgstr "Forzar detección del idioma de traducción"
 
 #: src/settings/settingsdialog.ui:787
 msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Lingva engine URL</p><p>All instances can be found "
-"here: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
-"body></html>"
+msgid "Mozhi instance URL"
 msgstr ""
-"<html><head/><body><p>URL del motor Lingva</p><p>Todas las instancias se "
-"pueden encontrar aquí: https://github.com/TheDavidDelta/lingva-"
-"translate#instances</p></body></html>"
 
-#: src/settings/settingsdialog.ui:826
+#: src/settings/settingsdialog.ui:800
+msgctxt "SettingsDialog|"
+msgid "Automatically pick the fastest instance based on the ping"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:803
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Speech test:"
+msgctxt "SettingsDialog|"
+msgid "Detect fastest"
+msgstr "Prueba de voz:"
+
+#: src/settings/settingsdialog.ui:836
 msgctxt "SettingsDialog|"
 msgid "Languages"
 msgstr "Idiomas"
 
-#: src/settings/settingsdialog.ui:832
+#: src/settings/settingsdialog.ui:842
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Loading additional languages will impact both speed "
@@ -2237,23 +2280,23 @@ msgstr ""
 "el idioma aplicable y hay más posibilidades de confundir palabras "
 "incorrectas.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:839
+#: src/settings/settingsdialog.ui:849
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
 msgstr "Ruta de idiomas:"
 
-#: src/settings/settingsdialog.ui:846
+#: src/settings/settingsdialog.ui:856
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Seleccione la ruta de idiomas de OCR</p></body></html>"
 
-#: src/settings/settingsdialog.ui:857
+#: src/settings/settingsdialog.ui:867
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
 msgstr "<html><head/><body><p>Abrir el repositorio de GitHub</p></body></html>"
 
-#: src/settings/settingsdialog.ui:860
+#: src/settings/settingsdialog.ui:870
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
@@ -2264,12 +2307,12 @@ msgstr ""
 "\"><span style=\" text-decoration: underline; color:#2980b9;\">Descargar "
 "más</span></a></p></body></html>"
 
-#: src/settings/settingsdialog.ui:870
+#: src/settings/settingsdialog.ui:880
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
 msgstr "Directorio con modelos entrenados"
 
-#: src/settings/settingsdialog.ui:886
+#: src/settings/settingsdialog.ui:896
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
@@ -2278,22 +2321,22 @@ msgstr ""
 "<html><head/><body><p>Sustituir todos los saltos de línea sencillos por un "
 "espacio después del reconocimiento de texto</p></body></html>"
 
-#: src/settings/settingsdialog.ui:889
+#: src/settings/settingsdialog.ui:899
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
 msgstr "Convertir saltos de línea"
 
-#: src/settings/settingsdialog.ui:955
+#: src/settings/settingsdialog.ui:965
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
 msgstr "Captura de pantalla"
 
-#: src/settings/settingsdialog.ui:967
+#: src/settings/settingsdialog.ui:977
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
 msgstr "Recordar región:"
 
-#: src/settings/settingsdialog.ui:974
+#: src/settings/settingsdialog.ui:984
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
@@ -2302,49 +2345,49 @@ msgstr ""
 "<html><head/><body><p>Cuándo se debe recordar la última región seleccionada</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:978
+#: src/settings/settingsdialog.ui:988
 msgctxt "SettingsDialog|"
 msgid "Never"
 msgstr "Nunca"
 
-#: src/settings/settingsdialog.ui:983
+#: src/settings/settingsdialog.ui:993
 msgctxt "SettingsDialog|"
 msgid "Remember last"
 msgstr "Recordar la última"
 
-#: src/settings/settingsdialog.ui:988
+#: src/settings/settingsdialog.ui:998
 msgctxt "SettingsDialog|"
 msgid "Remember always"
 msgstr "Recordar siempre"
 
-#: src/settings/settingsdialog.ui:996
+#: src/settings/settingsdialog.ui:1006
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
 msgstr "Demora de captura:"
 
-#: src/settings/settingsdialog.ui:1003
+#: src/settings/settingsdialog.ui:1013
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
 msgstr "Demora antes de capturar la pantalla"
 
-#: src/settings/settingsdialog.ui:1006
+#: src/settings/settingsdialog.ui:1016
 msgctxt "SettingsDialog|"
 msgid " ms"
 msgstr " ms"
 
-#: src/settings/settingsdialog.ui:1016
+#: src/settings/settingsdialog.ui:1026
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Mostrar una lupa al lado del cursor</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1019
+#: src/settings/settingsdialog.ui:1029
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
 msgstr "Mostrar lupa"
 
-#: src/settings/settingsdialog.ui:1029
+#: src/settings/settingsdialog.ui:1039
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
@@ -2353,12 +2396,12 @@ msgstr ""
 "<html><head/><body><p>Terminar la captura del fragmento al liberar el botón "
 "del ratón</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1032
+#: src/settings/settingsdialog.ui:1042
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
 msgstr "Confirmar al soltar"
 
-#: src/settings/settingsdialog.ui:1039
+#: src/settings/settingsdialog.ui:1049
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
@@ -2367,79 +2410,79 @@ msgstr ""
 "<html><head/><body><p>Aplicar una ligera niebla a la parte no seleccionada</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:1042
+#: src/settings/settingsdialog.ui:1052
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
 msgstr "Aplicar máscara de luz"
 
-#: src/settings/settingsdialog.ui:1075
+#: src/settings/settingsdialog.ui:1085
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
 msgstr "Servidor proxy"
 
-#: src/settings/settingsdialog.ui:1081
+#: src/settings/settingsdialog.ui:1091
 msgctxt "SettingsDialog|"
 msgid "Type:"
 msgstr "Tipo:"
 
-#: src/settings/settingsdialog.ui:1094
+#: src/settings/settingsdialog.ui:1104
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
 msgstr "<html><head/><body><p>Tipo de proxy</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1098
+#: src/settings/settingsdialog.ui:1108
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
 msgstr "Usar la configuración del sistema"
 
-#: src/settings/settingsdialog.ui:1108
+#: src/settings/settingsdialog.ui:1118
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
 msgstr "No usar un proxy"
 
-#: src/settings/settingsdialog.ui:1124
+#: src/settings/settingsdialog.ui:1134
 msgctxt "SettingsDialog|"
 msgid "Host:"
 msgstr "Anfitrión:"
 
-#: src/settings/settingsdialog.ui:1134
+#: src/settings/settingsdialog.ui:1144
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr "<html><head/><body><p>Nombre de la máquina del proxy</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1147
+#: src/settings/settingsdialog.ui:1157
 msgctxt "SettingsDialog|"
 msgid "Port:"
 msgstr "Puerto:"
 
-#: src/settings/settingsdialog.ui:1163
+#: src/settings/settingsdialog.ui:1173
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
 msgstr "<html><head/><body><p>Puerto del proxy</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1182
+#: src/settings/settingsdialog.ui:1192
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
 msgstr "Información: el proxy funciona solo para la traducción de texto"
 
-#: src/settings/settingsdialog.ui:1192
+#: src/settings/settingsdialog.ui:1202
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Activar o desactivar la autenticación</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1195
+#: src/settings/settingsdialog.ui:1205
 msgctxt "SettingsDialog|"
 msgid "Authentication"
 msgstr "Autenticación"
 
-#: src/settings/settingsdialog.ui:1205
+#: src/settings/settingsdialog.ui:1215
 msgctxt "SettingsDialog|"
 msgid "Username:"
 msgstr "Nombre de usuario:"
 
-#: src/settings/settingsdialog.ui:1215
+#: src/settings/settingsdialog.ui:1225
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
@@ -2447,12 +2490,12 @@ msgstr ""
 "<html><head/><body><p>Nombre de usuario del proxy para autenticación</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1225
+#: src/settings/settingsdialog.ui:1235
 msgctxt "SettingsDialog|"
 msgid "Password:"
 msgstr "Contraseña:"
 
-#: src/settings/settingsdialog.ui:1235
+#: src/settings/settingsdialog.ui:1245
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
@@ -2460,12 +2503,12 @@ msgstr ""
 "<html><head/><body><p>Contraseña del proxy para autentificación</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1248
+#: src/settings/settingsdialog.ui:1258
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
 msgstr "Información: la contraseña se guarda sin cifrar"
 
-#: src/settings/settingsdialog.ui:1284
+#: src/settings/settingsdialog.ui:1294
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
@@ -2473,34 +2516,34 @@ msgstr ""
 "<html><head/><body><p>Registrar los atajos de teclado globales en el "
 "sistema</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1287
+#: src/settings/settingsdialog.ui:1297
 msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "Activar atajos de teclado globales"
 
-#: src/settings/settingsdialog.ui:1303
+#: src/settings/settingsdialog.ui:1313
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Restablecer todos los atajos de teclado a los valores "
 "predeterminados</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1306
+#: src/settings/settingsdialog.ui:1316
 msgctxt "SettingsDialog|"
 msgid "Reset all"
 msgstr "Reiniciar todos"
 
-#: src/settings/settingsdialog.ui:1316
+#: src/settings/settingsdialog.ui:1326
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
 msgstr "Atajo de teclado"
 
-#: src/settings/settingsdialog.ui:1322
+#: src/settings/settingsdialog.ui:1332
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
 msgstr "Secuencia de teclas:"
 
-#: src/settings/settingsdialog.ui:1329
+#: src/settings/settingsdialog.ui:1339
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
@@ -2509,54 +2552,54 @@ msgstr ""
 "<html><head/><body><p>Secuencia de teclas para la acción seleccionada</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1336
+#: src/settings/settingsdialog.ui:1346
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Aceptar el atajo de teclado</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1339
+#: src/settings/settingsdialog.ui:1349
 msgctxt "SettingsDialog|"
 msgid "Accept"
 msgstr "Aceptar"
 
-#: src/settings/settingsdialog.ui:1350
+#: src/settings/settingsdialog.ui:1360
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Borrar el atajo de teclado</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1353
+#: src/settings/settingsdialog.ui:1363
 msgctxt "SettingsDialog|"
 msgid "Clear"
 msgstr "Borrar"
 
-#: src/settings/settingsdialog.ui:1364
+#: src/settings/settingsdialog.ui:1374
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Restablecer el atajo de teclado al valor "
 "predeterminado</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1367
+#: src/settings/settingsdialog.ui:1377
 msgctxt "SettingsDialog|"
 msgid "Reset"
 msgstr "Reiniciar"
 
-#: src/settings/settingsdialog.ui:1413
+#: src/settings/settingsdialog.ui:1423
 msgctxt "SettingsDialog|"
 msgid "Version:"
 msgstr "Versión:"
 
-#: src/settings/settingsdialog.ui:1423
+#: src/settings/settingsdialog.ui:1433
 msgctxt "SettingsDialog|"
 msgid "License:"
 msgstr "Licencia:"
 
-#: src/settings/settingsdialog.ui:1437
+#: src/settings/settingsdialog.ui:1447
 msgctxt "SettingsDialog|"
 msgid "Source code:"
 msgstr "Código fuente:"
 
-#: src/settings/settingsdialog.ui:1457
+#: src/settings/settingsdialog.ui:1467
 msgctxt "SettingsDialog|"
 msgid "Translation backend:"
 msgstr "Motor de traducción:"
@@ -2747,6 +2790,16 @@ msgstr "Salir"
 msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Resultado de la traducción"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>Lingva engine URL</p><p>All instances can be found "
+#~ "here: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>URL del motor Lingva</p><p>Todas las instancias se "
+#~ "pueden encontrar aquí: https://github.com/TheDavidDelta/lingva-"
+#~ "translate#instances</p></body></html>"
 
 #~ msgctxt "Cli|"
 #~ msgid "%1 - translation options:"
@@ -2972,10 +3025,6 @@ msgstr "Resultado de la traducción"
 #~ msgctxt "SettingsDialog|"
 #~ msgid "Evil"
 #~ msgstr "Malvado"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Speech test:"
-#~ msgstr "Prueba de voz:"
 
 #~ msgctxt "SettingsDialog|"
 #~ msgid "<html><head/><body><p>Text to test speech</p></body></html>"

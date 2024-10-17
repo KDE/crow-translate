@@ -10,12 +10,12 @@ msgstr ""
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
 
-#: src/cli.cpp:40
+#: src/cli.cpp:42
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Προβολή όλων των κωδικών γλωσσών."
 
-#: src/cli.cpp:41
+#: src/cli.cpp:43
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -24,7 +24,7 @@ msgstr ""
 "Καθορισμός της πηγαίας γλώσσας (εξ ορισμού, η μηχανή θα προσπαθήσει να "
 "εντοπίσει την γλώσσα αυτομάτως)."
 
-#: src/cli.cpp:42
+#: src/cli.cpp:44
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
@@ -33,7 +33,7 @@ msgstr ""
 "Καθορισμός των γλωσσών μετάφρασης, διαχωρισμένων με '+' (εξ ορισμού, "
 "χρησιμοποιείται η γλώσσα του συστήματος)."
 
-#: src/cli.cpp:43
+#: src/cli.cpp:45
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
@@ -42,24 +42,24 @@ msgstr ""
 "Καθορισμός της μηχανής μετάφρασης ('google', 'yandex', 'bing', "
 "'libretranslate' ή 'lingva')·η Google είναι η εξ ορισμού μηχανή."
 
-#: src/cli.cpp:44
+#: src/cli.cpp:46
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
 
-#: src/cli.cpp:45
+#: src/cli.cpp:47
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Εκφώνηση της μετάφρασης."
 
-#: src/cli.cpp:46
+#: src/cli.cpp:48
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Εκφώνηση της πηγής."
 
-#: src/cli.cpp:47
+#: src/cli.cpp:49
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -67,28 +67,28 @@ msgstr ""
 "Ανάγνωση πηγαίου κειμένου από αρχεία. Τα ορίσματα θα ερμηνευτούν ως "
 "διαδρομές αρχείων."
 
-#: src/cli.cpp:48
+#: src/cli.cpp:50
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Προσθήκη των δεδομένων stdin στο κείμενο πηγής."
 
-#: src/cli.cpp:49
+#: src/cli.cpp:51
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "Να μην γίνεται εκτύπωση κειμένου με την χρήση --%1 ή --%2."
 
-#: src/cli.cpp:50
+#: src/cli.cpp:52
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Εκτύπωση μόνο των μεταφράσεων."
 
-#: src/cli.cpp:51
+#: src/cli.cpp:53
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Εκτύπωση της εξόδου σε μορφή JSON."
 
-#: src/cli.cpp:54
+#: src/cli.cpp:56
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -101,7 +101,7 @@ msgstr ""
 "εκφώνηση κειμένου από τους ιστότοπους Google, Yandex, Bing, LibreTranslate "
 "και Lingva"
 
-#: src/cli.cpp:55
+#: src/cli.cpp:57
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
@@ -110,13 +110,13 @@ msgstr ""
 "Κείμενο προς μετάφραση. Εξ ορισμού, το κείμενο θα μεταφραστεί στην γλώσσα "
 "του συστήματος."
 
-#: src/cli.cpp:77
+#: src/cli.cpp:79
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Σφάλμα: Για --%1 πρέπει να καθορίσετε --%2 και/ή --%3 επιλογές"
 
-#: src/cli.cpp:92
+#: src/cli.cpp:94
 #, fuzzy, qt-format
 #| msgctxt "AppSettings|"
 #| msgid "Unknown language code: %1"
@@ -124,7 +124,7 @@ msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "Άγνωστος κωδικός γλώσσας: %1"
 
-#: src/cli.cpp:100
+#: src/cli.cpp:102
 #, fuzzy, qt-format
 #| msgctxt "AppSettings|"
 #| msgid "Unknown language code: %1"
@@ -132,23 +132,23 @@ msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "Άγνωστος κωδικός γλώσσας: %1"
 
-#: src/cli.cpp:124
+#: src/cli.cpp:126
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Σφάλμα: δεν υπάρχει κείμενο προς μετάφραση"
 
-#: src/cli.cpp:144
+#: src/cli.cpp:151
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "Σφάλμα: Άγνωστή μηχανή"
 
-#: src/cli.cpp:179 src/cli.cpp:271 src/cli.cpp:361
+#: src/cli.cpp:186 src/cli.cpp:278 src/cli.cpp:368
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Σφάλμα: %1"
 
-#: src/cli.cpp:233
+#: src/cli.cpp:240
 #, fuzzy
 #| msgctxt "TranslationEdit|"
 #| msgid "translation options:"
@@ -156,7 +156,7 @@ msgctxt "Cli|"
 msgid "translation options:"
 msgstr "επιλογές μετάφρασης:"
 
-#: src/cli.cpp:244
+#: src/cli.cpp:251
 #, fuzzy
 #| msgctxt "TranslationEdit|"
 #| msgid "examples:"
@@ -164,19 +164,19 @@ msgctxt "Cli|"
 msgid "examples:"
 msgstr "παραδείγματα:"
 
-#: src/cli.cpp:374
+#: src/cli.cpp:381
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Σφάλμα: Δεν μπορείτε να χρησιμοποιήσετε --%1 με --%2"
 
-#: src/cli.cpp:390 src/cli.cpp:411
+#: src/cli.cpp:397 src/cli.cpp:418
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Σφάλμα: Το αρχείο δεν υπάρχει: %1"
 
-#: src/cli.cpp:395 src/cli.cpp:416
+#: src/cli.cpp:402 src/cli.cpp:423
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -186,6 +186,30 @@ msgstr "Σφάλμα: Αδύνατο το άνοιγμα του αρχείου: 
 msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Αναζήτηση στο Forvo.com"
+
+#: src/instancepinger.cpp:54
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Best instance URL is '%1' with time %2 ms"
+msgstr ""
+
+#: src/instancepinger.cpp:72
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Ping to '%1' takes longer then %2 ms"
+msgstr ""
+
+#: src/instancepinger.cpp:87
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Ping to '%1' successful, response time: %2 ms"
+msgstr ""
+
+#: src/instancepinger.cpp:99
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Ping to '%1' failed, error: %2"
+msgstr ""
 
 #: src/languagebuttonswidget.cpp:220
 msgctxt "LanguageButtonsWidget|"
@@ -236,13 +260,13 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Τρέχουσες γλώσσες:"
 
-#: src/main.cpp:65
+#: src/main.cpp:69
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr "Η υπηρεσία D-Bus %1 είναι ήδη εγγεγραμμένη από μια άλλη εφαρμογή"
 
-#: src/main.cpp:90
+#: src/main.cpp:94
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
@@ -269,23 +293,22 @@ msgstr ""
 msgctxt "MainWindow|"
 msgid ""
 "While Mozhi acts as a proxy to protect your privacy, the third-party "
-"services it uses may store and analyze the text you send. We randomly "
-"assigned you instance %1, but you can change it in the translation settings. "
-"It's adviced to pick an instance that is close to you geographically for "
-"faster translations. See instance details in the link above."
+"services it uses may store and analyze the text you send. Your instance "
+"right now is '%1', but you can change it in the translation settings. See "
+"instance details in the link above."
 msgstr ""
 
-#: src/mainwindow.cpp:869
+#: src/mainwindow.cpp:867
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr ""
 
-#: src/mainwindow.cpp:897
+#: src/mainwindow.cpp:895
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Μη έγκυρο εικονίδιο πλαισίου συστήματος"
 
-#: src/mainwindow.cpp:897
+#: src/mainwindow.cpp:895
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
@@ -293,12 +316,12 @@ msgstr ""
 "Το καθορισμένο εικονίδιο '%1' δεν είναι έγκυρο. Θα χρησιμοποιηθεί το "
 "εικονίδιο εξ ορισμού."
 
-#: src/mainwindow.cpp:926
+#: src/mainwindow.cpp:924
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "Αδύνατος ο ορισμός γλωσσών οπτικής αναγνώρισης χαρακτήρων (OCR)"
 
-#: src/mainwindow.cpp:926
+#: src/mainwindow.cpp:924
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -1730,7 +1753,12 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Αντιγραφή της μετάφρασης στο πρόχειρο"
 
-#: src/settings/appsettings.cpp:1072
+#: src/settings/appsettings.cpp:522
+msgctxt "AppSettings|"
+msgid "Detecting fastest instance"
+msgstr ""
+
+#: src/settings/appsettings.cpp:1061
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1772,12 +1800,12 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "Αδύνατη η αφαίρεση του %1 από το %2"
 
-#: src/settings/settingsdialog.cpp:31
+#: src/settings/settingsdialog.cpp:32
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Φορητή λειτουργία"
 
-#: src/settings/settingsdialog.cpp:44
+#: src/settings/settingsdialog.cpp:45
 #, fuzzy, qt-format
 #| msgctxt "SettingsDialog|"
 #| msgid "Use system settings"
@@ -1785,45 +1813,45 @@ msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Χρήση των ρυθμίσεων του συστήματος"
 
-#: src/settings/settingsdialog.cpp:49 src/settings/settingsdialog.cpp:53
-#: src/settings/settingsdialog.cpp:54
+#: src/settings/settingsdialog.cpp:50 src/settings/settingsdialog.cpp:54
+#: src/settings/settingsdialog.cpp:55
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Γλώσσα συστήματος>"
 
-#: src/settings/settingsdialog.cpp:88
+#: src/settings/settingsdialog.cpp:89
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Εικονίδια:"
 
-#: src/settings/settingsdialog.cpp:110
+#: src/settings/settingsdialog.cpp:111
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr ""
 "Τα πεδία των παραμέτρων της οπτικής αναγνώρισης χαρακτήρων (OCR) δεν μπορεί "
 "να είναι κενά."
 
-#: src/settings/settingsdialog.cpp:111
+#: src/settings/settingsdialog.cpp:112
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Επιθυμείτε την απόρριψη των μη έγκυρων παραμέτρων;"
 
-#: src/settings/settingsdialog.cpp:251
+#: src/settings/settingsdialog.cpp:252
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Επιλογή εικονιδίου"
 
-#: src/settings/settingsdialog.cpp:251
+#: src/settings/settingsdialog.cpp:252
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Εικόνες (*.png *.ico *.svg *.jpg);;'Ολα τα αρχεία()"
 
-#: src/settings/settingsdialog.cpp:264
+#: src/settings/settingsdialog.cpp:276
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Επιλογή της διαδρομής γλωσσών οπτικής αναγνώρισης χαρακτήρων (OCR)"
 
-#: src/settings/settingsdialog.cpp:405
+#: src/settings/settingsdialog.cpp:416
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Πίσω"
@@ -2298,21 +2326,28 @@ msgstr "Εξαναγκασμός ανίχνευσης της γλώσσας με
 
 #: src/settings/settingsdialog.ui:787
 msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Lingva engine URL</p><p>All instances can be found "
-"here: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
-"body></html>"
+msgid "Mozhi instance URL"
 msgstr ""
-"<html><head/><body><p>URL της μηχανής Lingva</p><p>Εδώ μπορείτε να βρείτε "
-"όλες τις υποστάσεις: https://github.com/TheDavidDelta/lingva-"
-"translate#instances</p></body></html>"
 
-#: src/settings/settingsdialog.ui:826
+#: src/settings/settingsdialog.ui:800
+msgctxt "SettingsDialog|"
+msgid "Automatically pick the fastest instance based on the ping"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:803
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Speech test:"
+msgctxt "SettingsDialog|"
+msgid "Detect fastest"
+msgstr "Έλεγχος ομιλίας:"
+
+#: src/settings/settingsdialog.ui:836
 msgctxt "SettingsDialog|"
 msgid "Languages"
 msgstr "Γλώσσες"
 
-#: src/settings/settingsdialog.ui:832
+#: src/settings/settingsdialog.ui:842
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Loading additional languages will impact both speed "
@@ -2325,24 +2360,24 @@ msgstr ""
 "γλώσσας προς εφαρμογή, και υπάρχουν περισσότερες πιθανότητες ανακρίβειας και "
 "λανθασμένων λέξεων.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:839
+#: src/settings/settingsdialog.ui:849
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
 msgstr "Διαδρομή γλωσσών:"
 
-#: src/settings/settingsdialog.ui:846
+#: src/settings/settingsdialog.ui:856
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Επιλογή της διαδρομής γλωσσών οπτικής αναγνώρισης "
 "χαρακτήρων (OCR)</p></body></html>"
 
-#: src/settings/settingsdialog.ui:857
+#: src/settings/settingsdialog.ui:867
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
 msgstr "<html><head/><body><p>Άνοιγμα του αποθετηρίου GitHub</p></body></html>"
 
-#: src/settings/settingsdialog.ui:860
+#: src/settings/settingsdialog.ui:870
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
@@ -2353,12 +2388,12 @@ msgstr ""
 "\"><span style=\" text-decoration: underline; color:#2980b9;\">Λήψη "
 "περισσότερων</span></a></p></body></html>"
 
-#: src/settings/settingsdialog.ui:870
+#: src/settings/settingsdialog.ui:880
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
 msgstr "Κατάλογος με εκπαιδευμένα πρότυπα"
 
-#: src/settings/settingsdialog.ui:886
+#: src/settings/settingsdialog.ui:896
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
@@ -2367,22 +2402,22 @@ msgstr ""
 "<html><head/><body><p>Αντικατάσταση όλων των μονών διακοπών γραμμής με "
 "διάστημα μετά την αναγνώριση του κειμένου</p></body></html>"
 
-#: src/settings/settingsdialog.ui:889
+#: src/settings/settingsdialog.ui:899
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
 msgstr "Μετατροπή των διακοπών γραμμής"
 
-#: src/settings/settingsdialog.ui:955
+#: src/settings/settingsdialog.ui:965
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
 msgstr "Σύλληψη οθόνης"
 
-#: src/settings/settingsdialog.ui:967
+#: src/settings/settingsdialog.ui:977
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
 msgstr "Απομνημόνευση περιοχής:"
 
-#: src/settings/settingsdialog.ui:974
+#: src/settings/settingsdialog.ui:984
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
@@ -2391,37 +2426,37 @@ msgstr ""
 "<html><head/><body><p>Πότε να απομνημονεύεται η τελευταία επιλεγμένη "
 "περιοχή</p></body></html>"
 
-#: src/settings/settingsdialog.ui:978
+#: src/settings/settingsdialog.ui:988
 msgctxt "SettingsDialog|"
 msgid "Never"
 msgstr "Ποτέ"
 
-#: src/settings/settingsdialog.ui:983
+#: src/settings/settingsdialog.ui:993
 msgctxt "SettingsDialog|"
 msgid "Remember last"
 msgstr "Απομνημόνευση του τελευταίου"
 
-#: src/settings/settingsdialog.ui:988
+#: src/settings/settingsdialog.ui:998
 msgctxt "SettingsDialog|"
 msgid "Remember always"
 msgstr "Απομνημόνευση αέναα"
 
-#: src/settings/settingsdialog.ui:996
+#: src/settings/settingsdialog.ui:1006
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
 msgstr "Καθυστέρηση σύλληψης:"
 
-#: src/settings/settingsdialog.ui:1003
+#: src/settings/settingsdialog.ui:1013
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
 msgstr "Καθυστέρηση πριν την σύλληψη οθόνης"
 
-#: src/settings/settingsdialog.ui:1006
+#: src/settings/settingsdialog.ui:1016
 msgctxt "SettingsDialog|"
 msgid " ms"
 msgstr " ms"
 
-#: src/settings/settingsdialog.ui:1016
+#: src/settings/settingsdialog.ui:1026
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
@@ -2429,12 +2464,12 @@ msgstr ""
 "<html><head/><body><p>Εμφάνιση ενός μεγεθυντικού φακού δίπλα από τον δρομέα</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:1019
+#: src/settings/settingsdialog.ui:1029
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
 msgstr "Εμφάνιση μεγεθυντικού φακού"
 
-#: src/settings/settingsdialog.ui:1029
+#: src/settings/settingsdialog.ui:1039
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
@@ -2443,12 +2478,12 @@ msgstr ""
 "<html><head/><body><p>Τερματισμός σύλληψης του τμήματος κατά το άφημα του "
 "κουμπιού ποντικιού</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1032
+#: src/settings/settingsdialog.ui:1042
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
 msgstr "Επιβεβαίωση κατά το άφημα"
 
-#: src/settings/settingsdialog.ui:1039
+#: src/settings/settingsdialog.ui:1049
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
@@ -2457,63 +2492,63 @@ msgstr ""
 "<html><head/><body><p>Εφαρμογή μιας ελαφριάς θόλωσης στο με επιλεγμένο "
 "τμήμα</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1042
+#: src/settings/settingsdialog.ui:1052
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
 msgstr "Εφαρμογή ελαφριάς μάσκας"
 
-#: src/settings/settingsdialog.ui:1075
+#: src/settings/settingsdialog.ui:1085
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
 msgstr "Διακομιστής διαμεσολαβητή"
 
-#: src/settings/settingsdialog.ui:1081
+#: src/settings/settingsdialog.ui:1091
 msgctxt "SettingsDialog|"
 msgid "Type:"
 msgstr "Τύπος:"
 
-#: src/settings/settingsdialog.ui:1094
+#: src/settings/settingsdialog.ui:1104
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
 msgstr "<html><head/><body><p>Τύπος διαμεσολαβητή</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1098
+#: src/settings/settingsdialog.ui:1108
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
 msgstr "Χρήση των ρυθμίσεων του συστήματος"
 
-#: src/settings/settingsdialog.ui:1108
+#: src/settings/settingsdialog.ui:1118
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
 msgstr "Να μην γίνεται χρήση διαμεσολαβητή"
 
-#: src/settings/settingsdialog.ui:1124
+#: src/settings/settingsdialog.ui:1134
 msgctxt "SettingsDialog|"
 msgid "Host:"
 msgstr "Υπολογιστής:"
 
-#: src/settings/settingsdialog.ui:1134
+#: src/settings/settingsdialog.ui:1144
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr "<html><head/><body><p>Όνομα υπολογιστή διαμεσολαβητή</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1147
+#: src/settings/settingsdialog.ui:1157
 msgctxt "SettingsDialog|"
 msgid "Port:"
 msgstr "Θύρα:"
 
-#: src/settings/settingsdialog.ui:1163
+#: src/settings/settingsdialog.ui:1173
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
 msgstr "<html><head/><body><p>Θύρα διαμεσολαβητή</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1182
+#: src/settings/settingsdialog.ui:1192
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
 msgstr ""
 "Πληροφορία: ο διαμεσολαβητής λειτουργεί μόνο για την μετάφραση κειμένου"
 
-#: src/settings/settingsdialog.ui:1192
+#: src/settings/settingsdialog.ui:1202
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
@@ -2521,17 +2556,17 @@ msgstr ""
 "<html><head/><body><p>Ενεργοποίηση ή απενεργοποίηση ταυτοποίησης</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1195
+#: src/settings/settingsdialog.ui:1205
 msgctxt "SettingsDialog|"
 msgid "Authentication"
 msgstr "Πιστοποίηση"
 
-#: src/settings/settingsdialog.ui:1205
+#: src/settings/settingsdialog.ui:1215
 msgctxt "SettingsDialog|"
 msgid "Username:"
 msgstr "Όνομα χρήστη:"
 
-#: src/settings/settingsdialog.ui:1215
+#: src/settings/settingsdialog.ui:1225
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
@@ -2539,12 +2574,12 @@ msgstr ""
 "<html><head/><body><p>Όνομα χρήστη για την ταυτοποίηση στον διαμεσολαβητή</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:1225
+#: src/settings/settingsdialog.ui:1235
 msgctxt "SettingsDialog|"
 msgid "Password:"
 msgstr "Κωδικός πρόσβασης:"
 
-#: src/settings/settingsdialog.ui:1235
+#: src/settings/settingsdialog.ui:1245
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
@@ -2552,12 +2587,12 @@ msgstr ""
 "<html><head/><body><p>Κωδικός πρόσβασης διαμεσολαβητή για ταυτοποίηση</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1248
+#: src/settings/settingsdialog.ui:1258
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
 msgstr "Πληροφορία: ο κωδικός πρόσβασης αποθηκεύεται αποκρυπτογραφημένος"
 
-#: src/settings/settingsdialog.ui:1284
+#: src/settings/settingsdialog.ui:1294
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
@@ -2565,7 +2600,7 @@ msgstr ""
 "<html><head/><body><p>Εγγραφή των καθολικών συντομεύσεων στο σύστημα</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1287
+#: src/settings/settingsdialog.ui:1297
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Enable global shortcucts"
@@ -2573,29 +2608,29 @@ msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "Ενεργοποίηση των καθολικών συντομεύσεων"
 
-#: src/settings/settingsdialog.ui:1303
+#: src/settings/settingsdialog.ui:1313
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Επαναφορά όλων των συντομεύσεων στις τιμές εξ ορισμού</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:1306
+#: src/settings/settingsdialog.ui:1316
 msgctxt "SettingsDialog|"
 msgid "Reset all"
 msgstr "Επαναφορά όλων"
 
-#: src/settings/settingsdialog.ui:1316
+#: src/settings/settingsdialog.ui:1326
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
 msgstr "Συντόμευση"
 
-#: src/settings/settingsdialog.ui:1322
+#: src/settings/settingsdialog.ui:1332
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
 msgstr "Συνδυασμός πλήκτρων:"
 
-#: src/settings/settingsdialog.ui:1329
+#: src/settings/settingsdialog.ui:1339
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
@@ -2604,53 +2639,53 @@ msgstr ""
 "<html><head/><body><p>Ο συνδυασμός πλήκτρων για την επιλεγμένη ενέργεια</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1336
+#: src/settings/settingsdialog.ui:1346
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Αποδοχή συντόμευσης</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1339
+#: src/settings/settingsdialog.ui:1349
 msgctxt "SettingsDialog|"
 msgid "Accept"
 msgstr "Αποδοχή"
 
-#: src/settings/settingsdialog.ui:1350
+#: src/settings/settingsdialog.ui:1360
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Εκκαθάριση συντόμευσης</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1353
+#: src/settings/settingsdialog.ui:1363
 msgctxt "SettingsDialog|"
 msgid "Clear"
 msgstr "Καθαρισμός"
 
-#: src/settings/settingsdialog.ui:1364
+#: src/settings/settingsdialog.ui:1374
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Επαναφορά συντόμευσης στην εξ ορισμού</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1367
+#: src/settings/settingsdialog.ui:1377
 msgctxt "SettingsDialog|"
 msgid "Reset"
 msgstr "Επαναφορά"
 
-#: src/settings/settingsdialog.ui:1413
+#: src/settings/settingsdialog.ui:1423
 msgctxt "SettingsDialog|"
 msgid "Version:"
 msgstr "Έκδοση:"
 
-#: src/settings/settingsdialog.ui:1423
+#: src/settings/settingsdialog.ui:1433
 msgctxt "SettingsDialog|"
 msgid "License:"
 msgstr "Άδεια χρήσης:"
 
-#: src/settings/settingsdialog.ui:1437
+#: src/settings/settingsdialog.ui:1447
 msgctxt "SettingsDialog|"
 msgid "Source code:"
 msgstr "Πηγαίος κώδικας:"
 
-#: src/settings/settingsdialog.ui:1457
+#: src/settings/settingsdialog.ui:1467
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Translation mode:"
@@ -2845,6 +2880,16 @@ msgstr "Έξοδος"
 msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Αποτέλεσμα μετάφρασης"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<html><head/><body><p>Lingva engine URL</p><p>All instances can be found "
+#~ "here: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>URL της μηχανής Lingva</p><p>Εδώ μπορείτε να βρείτε "
+#~ "όλες τις υποστάσεις: https://github.com/TheDavidDelta/lingva-"
+#~ "translate#instances</p></body></html>"
 
 #~ msgctxt "Cli|"
 #~ msgid "%1 - translation options:"
@@ -3069,10 +3114,6 @@ msgstr "Αποτέλεσμα μετάφρασης"
 #~ msgctxt "SettingsDialog|"
 #~ msgid "Evil"
 #~ msgstr "Κακή"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Speech test:"
-#~ msgstr "Έλεγχος ομιλίας:"
 
 #~ msgctxt "SettingsDialog|"
 #~ msgid "<html><head/><body><p>Text to test speech</p></body></html>"
