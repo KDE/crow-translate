@@ -10,12 +10,12 @@ msgstr ""
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
 
-#: src/cli.cpp:42
+#: src/cli.cpp:43
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Tampilkan semua kode bahasa."
 
-#: src/cli.cpp:43
+#: src/cli.cpp:44
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -24,7 +24,7 @@ msgstr ""
 "Tentukan bahasa sumber (secara bawaan/default, mesin akan menentukan bahasa "
 "dengan sendirinya)."
 
-#: src/cli.cpp:44
+#: src/cli.cpp:45
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
@@ -33,7 +33,7 @@ msgstr ""
 "Tentukan bahasa terjemahan, dipisahkan oleh '+' (secara bawan, bahasa sistem "
 "yang digunakan)."
 
-#: src/cli.cpp:45
+#: src/cli.cpp:46
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -47,24 +47,24 @@ msgstr ""
 "Tentukan mesin penterjemah ('google', 'yandex' atau 'bing'), Google yang "
 "digunakan secara bawan."
 
-#: src/cli.cpp:46
+#: src/cli.cpp:47
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
 
-#: src/cli.cpp:47
+#: src/cli.cpp:48
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Ucapkan terjemahan."
 
-#: src/cli.cpp:48
+#: src/cli.cpp:49
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Ucapkan sumber."
 
-#: src/cli.cpp:49
+#: src/cli.cpp:50
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -72,28 +72,28 @@ msgstr ""
 "Baca teks sumber dari berkas. Argumen akan diimpretasikan sebagai jalur/path "
 "berkas."
 
-#: src/cli.cpp:50
+#: src/cli.cpp:51
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Tambah data stdin pada teks sumber."
 
-#: src/cli.cpp:51
+#: src/cli.cpp:52
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "Jangan mencetak teks apapun ketika menggunakan --%1 atau --%2."
 
-#: src/cli.cpp:52
+#: src/cli.cpp:53
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Cetak hanya terjemahan."
 
-#: src/cli.cpp:53
+#: src/cli.cpp:54
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Cetak hasil output sebagai JSOn."
 
-#: src/cli.cpp:56
+#: src/cli.cpp:57
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -105,7 +105,7 @@ msgstr ""
 "Sebuah penterjemah yang mudah dan ringan yang memungkinkan Anda untuk "
 "menterjemahkan dan mengatakan teks menggunakan Google, Yandex dan Bing."
 
-#: src/cli.cpp:57
+#: src/cli.cpp:58
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
@@ -114,13 +114,13 @@ msgstr ""
 "Teks untuk diterjemahkan. Secara bawaan, terjemahan akan dilakukan pada "
 "bahasa sistem."
 
-#: src/cli.cpp:79
+#: src/cli.cpp:80
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Kesalahan: Untuk --%1 Anda harus mementukan --%2 dan/atau pilihan --%3"
 
-#: src/cli.cpp:94
+#: src/cli.cpp:95
 #, fuzzy, qt-format
 #| msgctxt "AppSettings|"
 #| msgid "Unknown language code: %1"
@@ -128,7 +128,7 @@ msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "Kode bahasa yang tidak diketahui: %1"
 
-#: src/cli.cpp:102
+#: src/cli.cpp:103
 #, fuzzy, qt-format
 #| msgctxt "AppSettings|"
 #| msgid "Unknown language code: %1"
@@ -136,23 +136,31 @@ msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "Kode bahasa yang tidak diketahui: %1"
 
-#: src/cli.cpp:126
+#: src/cli.cpp:127
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Kesalahan: Tidak ada teks untuk terjemahan"
 
-#: src/cli.cpp:151
+#: src/cli.cpp:133
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Speech test:"
+msgctxt "Cli|"
+msgid "Detecting fastest instance"
+msgstr "Tes ucapan:"
+
+#: src/cli.cpp:160
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "Kesalahan: Mesin tidak diketahui"
 
-#: src/cli.cpp:186 src/cli.cpp:278 src/cli.cpp:368
+#: src/cli.cpp:195 src/cli.cpp:287 src/cli.cpp:377
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Kesalahan: %1"
 
-#: src/cli.cpp:240
+#: src/cli.cpp:249
 #, fuzzy
 #| msgctxt "TranslationEdit|"
 #| msgid "translation options:"
@@ -160,7 +168,7 @@ msgctxt "Cli|"
 msgid "translation options:"
 msgstr "opsi terjemahan:"
 
-#: src/cli.cpp:251
+#: src/cli.cpp:260
 #, fuzzy
 #| msgctxt "TranslationEdit|"
 #| msgid "examples:"
@@ -168,19 +176,19 @@ msgctxt "Cli|"
 msgid "examples:"
 msgstr "contoh:"
 
-#: src/cli.cpp:381
+#: src/cli.cpp:390
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Kesalahan: Anda tidak dapa't menggunakan --%1 dengan --%2"
 
-#: src/cli.cpp:397 src/cli.cpp:418
+#: src/cli.cpp:406 src/cli.cpp:427
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Kesalahan: Berkas tidak tersedia: %1"
 
-#: src/cli.cpp:402 src/cli.cpp:423
+#: src/cli.cpp:411 src/cli.cpp:432
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -191,28 +199,36 @@ msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Cari di Forvo.com"
 
-#: src/instancepinger.cpp:54
+#: src/instancepinger.cpp:65
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Best instance URL is '%1' with time %2 ms"
 msgstr ""
 
-#: src/instancepinger.cpp:72
+#: src/instancepinger.cpp:84
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' takes longer then %2 ms"
 msgstr ""
 
-#: src/instancepinger.cpp:87
+#: src/instancepinger.cpp:99
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' successful, response time: %2 ms"
 msgstr ""
 
-#: src/instancepinger.cpp:99
+#: src/instancepinger.cpp:111
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' failed, error: %2"
+msgstr ""
+
+#: src/instancepingerdialog.cpp:23
+#, qt-format
+msgctxt "InstancePingerDialog|"
+msgid ""
+"Detecting fastest instance.\n"
+"Checking '%1'"
 msgstr ""
 
 #: src/languagebuttonswidget.cpp:220
@@ -264,13 +280,13 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Bahasa saat ini:"
 
-#: src/main.cpp:69
+#: src/main.cpp:72
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr "Layanan D-Bus %1 sudah dahulu teregistrasi oleh aplikasi lain"
 
-#: src/main.cpp:94
+#: src/main.cpp:97
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
@@ -1755,12 +1771,7 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Salin terjemahan ke papanklip"
 
-#: src/settings/appsettings.cpp:522
-msgctxt "AppSettings|"
-msgid "Detecting fastest instance"
-msgstr ""
-
-#: src/settings/appsettings.cpp:1061
+#: src/settings/appsettings.cpp:1047
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1809,12 +1820,12 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "Tidak dapat menghapus %1 dari %2"
 
-#: src/settings/settingsdialog.cpp:32
+#: src/settings/settingsdialog.cpp:33
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Mode portabel"
 
-#: src/settings/settingsdialog.cpp:45
+#: src/settings/settingsdialog.cpp:46
 #, fuzzy, qt-format
 #| msgctxt "SettingsDialog|"
 #| msgid "Use system settings"
@@ -1822,43 +1833,43 @@ msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Gunakan pengaturan sistem"
 
-#: src/settings/settingsdialog.cpp:50 src/settings/settingsdialog.cpp:54
-#: src/settings/settingsdialog.cpp:55
+#: src/settings/settingsdialog.cpp:51 src/settings/settingsdialog.cpp:55
+#: src/settings/settingsdialog.cpp:56
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Bahasa sistem>"
 
-#: src/settings/settingsdialog.cpp:89
+#: src/settings/settingsdialog.cpp:90
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Ikon:"
 
-#: src/settings/settingsdialog.cpp:111
+#: src/settings/settingsdialog.cpp:112
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "Baris parameter OCR tidak bisa kosong."
 
-#: src/settings/settingsdialog.cpp:112
+#: src/settings/settingsdialog.cpp:113
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Apakah kamu ingin membuang parameter yang tidak valid?"
 
-#: src/settings/settingsdialog.cpp:252
+#: src/settings/settingsdialog.cpp:253
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Pilih ikon"
 
-#: src/settings/settingsdialog.cpp:252
+#: src/settings/settingsdialog.cpp:253
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Gambar (*.png *.svg *.jpg);;semua berkas()"
 
-#: src/settings/settingsdialog.cpp:276
+#: src/settings/settingsdialog.cpp:283
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Pilih jalur/path bahasa OCR"
 
-#: src/settings/settingsdialog.cpp:416
+#: src/settings/settingsdialog.cpp:423
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Kembali"

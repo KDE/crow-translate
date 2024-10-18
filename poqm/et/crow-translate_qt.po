@@ -10,19 +10,19 @@ msgstr ""
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
 
-#: src/cli.cpp:42
+#: src/cli.cpp:43
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Kuva kõiki keelekoode."
 
-#: src/cli.cpp:43
+#: src/cli.cpp:44
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
 msgstr "Määra lähtekeel (vaikimisi tuvastab tõlkemootor lähtekeele ise)."
 
-#: src/cli.cpp:44
+#: src/cli.cpp:45
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Vali tõlkekeel(ed), eraldajaks '+' (vaikimisi kasutame süsteemi keelt)."
 
-#: src/cli.cpp:45
+#: src/cli.cpp:46
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
@@ -39,51 +39,51 @@ msgstr ""
 "Palun vali tõlkemootor ('google', 'yandex', 'bing', 'libretranslate' või "
 "'lingva'), vaikimisi on kasutusel Google."
 
-#: src/cli.cpp:46
+#: src/cli.cpp:47
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
 
-#: src/cli.cpp:47
+#: src/cli.cpp:48
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Loe tõlge ette."
 
-#: src/cli.cpp:48
+#: src/cli.cpp:49
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Loe lähtetekst ette."
 
-#: src/cli.cpp:49
+#: src/cli.cpp:50
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
 msgstr "Loe lähteteksti failist. Argumente tõlgendame faili asukohana."
 
-#: src/cli.cpp:50
+#: src/cli.cpp:51
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Lisa standardsisendi andmed lähtetekstile."
 
-#: src/cli.cpp:51
+#: src/cli.cpp:52
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "--%1 ja --%2 kasutamisel ära väljasta mitte mingit teksti."
 
-#: src/cli.cpp:52
+#: src/cli.cpp:53
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Trüki vaid tõlked."
 
-#: src/cli.cpp:53
+#: src/cli.cpp:54
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Näita väljundit JSON-vormingus."
 
-#: src/cli.cpp:56
+#: src/cli.cpp:57
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -95,20 +95,20 @@ msgstr ""
 "Lihtne ja tõhus tõlkerakendus, mis kasutades Google, Yandexi, Bingi, "
 "Libretranslate ja Lingva teenuseid võimaldab sul tõlkida ja kuulata tekste"
 
-#: src/cli.cpp:57
+#: src/cli.cpp:58
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr "Tõlgitav tekst. Vakimisi tõlgime süsteemi põhikeelde."
 
-#: src/cli.cpp:79
+#: src/cli.cpp:80
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Viga: --%1 jaoks pead sa valima --%2 ja/või --%3 valikud"
 
-#: src/cli.cpp:94
+#: src/cli.cpp:95
 #, fuzzy, qt-format
 #| msgctxt "AppSettings|"
 #| msgid "Unknown language code: %1"
@@ -116,7 +116,7 @@ msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "Tundmatu keelekood: %1"
 
-#: src/cli.cpp:102
+#: src/cli.cpp:103
 #, fuzzy, qt-format
 #| msgctxt "AppSettings|"
 #| msgid "Unknown language code: %1"
@@ -124,23 +124,31 @@ msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "Tundmatu keelekood: %1"
 
-#: src/cli.cpp:126
+#: src/cli.cpp:127
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Viga: Tõlketekst puudub"
 
-#: src/cli.cpp:151
+#: src/cli.cpp:133
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Speech test:"
+msgctxt "Cli|"
+msgid "Detecting fastest instance"
+msgstr "Kõnelemise testlause:"
+
+#: src/cli.cpp:160
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "Viga: Tundmatu tõlkemootor"
 
-#: src/cli.cpp:186 src/cli.cpp:278 src/cli.cpp:368
+#: src/cli.cpp:195 src/cli.cpp:287 src/cli.cpp:377
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Viga: %1"
 
-#: src/cli.cpp:240
+#: src/cli.cpp:249
 #, fuzzy
 #| msgctxt "TranslationEdit|"
 #| msgid "translation options:"
@@ -148,7 +156,7 @@ msgctxt "Cli|"
 msgid "translation options:"
 msgstr "tõlkevalikud:"
 
-#: src/cli.cpp:251
+#: src/cli.cpp:260
 #, fuzzy
 #| msgctxt "TranslationEdit|"
 #| msgid "examples:"
@@ -156,19 +164,19 @@ msgctxt "Cli|"
 msgid "examples:"
 msgstr "näited:"
 
-#: src/cli.cpp:381
+#: src/cli.cpp:390
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Viga: sa ei saa kasutada --%1 koos --%2"
 
-#: src/cli.cpp:397 src/cli.cpp:418
+#: src/cli.cpp:406 src/cli.cpp:427
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Viga: Faili pole olemas: %1"
 
-#: src/cli.cpp:402 src/cli.cpp:423
+#: src/cli.cpp:411 src/cli.cpp:432
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -179,28 +187,36 @@ msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Otsi Forvo.com saidist"
 
-#: src/instancepinger.cpp:54
+#: src/instancepinger.cpp:65
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Best instance URL is '%1' with time %2 ms"
 msgstr ""
 
-#: src/instancepinger.cpp:72
+#: src/instancepinger.cpp:84
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' takes longer then %2 ms"
 msgstr ""
 
-#: src/instancepinger.cpp:87
+#: src/instancepinger.cpp:99
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' successful, response time: %2 ms"
 msgstr ""
 
-#: src/instancepinger.cpp:99
+#: src/instancepinger.cpp:111
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' failed, error: %2"
+msgstr ""
+
+#: src/instancepingerdialog.cpp:23
+#, qt-format
+msgctxt "InstancePingerDialog|"
+msgid ""
+"Detecting fastest instance.\n"
+"Checking '%1'"
 msgstr ""
 
 #: src/languagebuttonswidget.cpp:220
@@ -244,13 +260,13 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Kasutusel keeled:"
 
-#: src/main.cpp:69
+#: src/main.cpp:72
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr "D-Bus'i teenus %1 on juba ühe teise rakenduse poolt registreeritud"
 
-#: src/main.cpp:94
+#: src/main.cpp:97
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
@@ -1735,12 +1751,7 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Kopeeri tõlge lõikelauale"
 
-#: src/settings/appsettings.cpp:522
-msgctxt "AppSettings|"
-msgid "Detecting fastest instance"
-msgstr ""
-
-#: src/settings/appsettings.cpp:1061
+#: src/settings/appsettings.cpp:1047
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1781,54 +1792,54 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "Eemaldamine ei õnnestu: %1 %2'st"
 
-#: src/settings/settingsdialog.cpp:32
+#: src/settings/settingsdialog.cpp:33
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Kaasaskantava rakenduse režiim"
 
-#: src/settings/settingsdialog.cpp:45
+#: src/settings/settingsdialog.cpp:46
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Seadistuste salvestamiseks kasuta %1"
 
-#: src/settings/settingsdialog.cpp:50 src/settings/settingsdialog.cpp:54
-#: src/settings/settingsdialog.cpp:55
+#: src/settings/settingsdialog.cpp:51 src/settings/settingsdialog.cpp:55
+#: src/settings/settingsdialog.cpp:56
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Süsteemi keel>"
 
-#: src/settings/settingsdialog.cpp:89
+#: src/settings/settingsdialog.cpp:90
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Ikoonid:"
 
-#: src/settings/settingsdialog.cpp:111
+#: src/settings/settingsdialog.cpp:112
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "Optilise tekstituvastuse parameetrite väljad ei saa olla tühjad."
 
-#: src/settings/settingsdialog.cpp:112
+#: src/settings/settingsdialog.cpp:113
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Kas soovid eemaldada vigased parameetrid?"
 
-#: src/settings/settingsdialog.cpp:252
+#: src/settings/settingsdialog.cpp:253
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Vali ikoon"
 
-#: src/settings/settingsdialog.cpp:252
+#: src/settings/settingsdialog.cpp:253
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Pildid (*.png *.ico *.svg *.jpg);;Kõik failid()"
 
-#: src/settings/settingsdialog.cpp:276
+#: src/settings/settingsdialog.cpp:283
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Vali optilise tekstituvastuse keelemudelite asukoht"
 
-#: src/settings/settingsdialog.cpp:416
+#: src/settings/settingsdialog.cpp:423
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Tagasi"

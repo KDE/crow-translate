@@ -19,12 +19,12 @@ msgstr ""
 "X-Generator: Lokalize 24.08.0\n"
 "X-Qt-Contexts: true\n"
 
-#: src/cli.cpp:42
+#: src/cli.cpp:43
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Mostra tots els codis d'idioma."
 
-#: src/cli.cpp:43
+#: src/cli.cpp:44
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -33,7 +33,7 @@ msgstr ""
 "Especifiqueu l'idioma d'origen (de manera predeterminada, el motor intentarà "
 "determinar l'idioma per si mateix)."
 
-#: src/cli.cpp:44
+#: src/cli.cpp:45
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
@@ -42,7 +42,7 @@ msgstr ""
 "Especifica l'/els idiomes de traducció, dividit per «+» (de manera "
 "predeterminada, s'utilitza l'idioma del sistema)."
 
-#: src/cli.cpp:45
+#: src/cli.cpp:46
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
@@ -51,7 +51,7 @@ msgstr ""
 "Especifica el motor del traductor («google», «yandex», «bing», "
 "«libretranslate» o «lingva»), s'utilitza Google de manera predeterminada."
 
-#: src/cli.cpp:46
+#: src/cli.cpp:47
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
@@ -60,17 +60,17 @@ msgstr ""
 "Especifica l'URL de la instància de Mozhi. De manera predeterminada "
 "s'utilitzarà l'URL de la instància a la configuració de l'aplicació."
 
-#: src/cli.cpp:47
+#: src/cli.cpp:48
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Llig la traducció."
 
-#: src/cli.cpp:48
+#: src/cli.cpp:49
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Llig l'origen."
 
-#: src/cli.cpp:49
+#: src/cli.cpp:50
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -78,33 +78,33 @@ msgstr ""
 "Llig el text d'origen a partir de fitxers. Els arguments s'interpretaran com "
 "a camins de fitxer."
 
-#: src/cli.cpp:50
+#: src/cli.cpp:51
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Afig les dades de «stdin» al text d'origen."
 
-#: src/cli.cpp:51
+#: src/cli.cpp:52
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "No imprimix cap text quan s'utilitza --%1 o --%2."
 
-#: src/cli.cpp:52
+#: src/cli.cpp:53
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Imprimix només les traduccions."
 
-#: src/cli.cpp:53
+#: src/cli.cpp:54
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Imprimix l'eixida amb format JSON."
 
-#: src/cli.cpp:56
+#: src/cli.cpp:57
 msgctxt "Cli|"
 msgid "Application that allows to translate and speak text using Mozhi"
 msgstr "Una aplicació que permet traduir i llegir text utilitzant Mozhi"
 
-#: src/cli.cpp:57
+#: src/cli.cpp:58
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
@@ -113,64 +113,69 @@ msgstr ""
 "Text a traduir. De manera predeterminada, la traducció es farà a l'idioma "
 "del sistema."
 
-#: src/cli.cpp:79
+#: src/cli.cpp:80
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr ""
 "S'ha produït un error: Per a --%1 cal especificar les opcions --%2 i/o --%3"
 
-#: src/cli.cpp:94
+#: src/cli.cpp:95
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "S'ha produït un error: Codi d'idioma d'origen %1 desconegut"
 
-#: src/cli.cpp:102
+#: src/cli.cpp:103
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "S'ha produït un error: Codi d'idioma de traducció %1 desconegut"
 
-#: src/cli.cpp:126
+#: src/cli.cpp:127
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "S'ha produït un error: No hi ha text a traduir"
 
-#: src/cli.cpp:151
+#: src/cli.cpp:133
+msgctxt "Cli|"
+msgid "Detecting fastest instance"
+msgstr ""
+
+#: src/cli.cpp:160
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "S'ha produït un error: Motor desconegut"
 
-#: src/cli.cpp:186 src/cli.cpp:278 src/cli.cpp:368
+#: src/cli.cpp:195 src/cli.cpp:287 src/cli.cpp:377
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "S'ha produït un error: %1"
 
-#: src/cli.cpp:240
+#: src/cli.cpp:249
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "opcions de traducció:"
 
-#: src/cli.cpp:251
+#: src/cli.cpp:260
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "exemples:"
 
-#: src/cli.cpp:381
+#: src/cli.cpp:390
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "S'ha produït un error: No es pot utilitzar --%1 amb --%2"
 
-#: src/cli.cpp:397 src/cli.cpp:418
+#: src/cli.cpp:406 src/cli.cpp:427
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "S'ha produït un error: El fitxer no existix: %1"
 
-#: src/cli.cpp:402 src/cli.cpp:423
+#: src/cli.cpp:411 src/cli.cpp:432
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -181,28 +186,36 @@ msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Busca a Forvo.com"
 
-#: src/instancepinger.cpp:54
+#: src/instancepinger.cpp:65
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Best instance URL is '%1' with time %2 ms"
 msgstr ""
 
-#: src/instancepinger.cpp:72
+#: src/instancepinger.cpp:84
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' takes longer then %2 ms"
 msgstr ""
 
-#: src/instancepinger.cpp:87
+#: src/instancepinger.cpp:99
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' successful, response time: %2 ms"
 msgstr ""
 
-#: src/instancepinger.cpp:99
+#: src/instancepinger.cpp:111
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' failed, error: %2"
+msgstr ""
+
+#: src/instancepingerdialog.cpp:23
+#, qt-format
+msgctxt "InstancePingerDialog|"
+msgid ""
+"Detecting fastest instance.\n"
+"Checking '%1'"
 msgstr ""
 
 #: src/languagebuttonswidget.cpp:220
@@ -248,13 +261,13 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Idiomes actuals:"
 
-#: src/main.cpp:69
+#: src/main.cpp:72
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr "El servei de D-Bus %1 ja està registrat per una altra aplicació"
 
-#: src/main.cpp:94
+#: src/main.cpp:97
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
@@ -1685,12 +1698,7 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Copia la traducció al porta-retalls"
 
-#: src/settings/appsettings.cpp:522
-msgctxt "AppSettings|"
-msgid "Detecting fastest instance"
-msgstr ""
-
-#: src/settings/appsettings.cpp:1061
+#: src/settings/appsettings.cpp:1047
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1730,54 +1738,54 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "No s'ha pogut eliminar %1 de %2"
 
-#: src/settings/settingsdialog.cpp:32
+#: src/settings/settingsdialog.cpp:33
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Mode portàtil"
 
-#: src/settings/settingsdialog.cpp:45
+#: src/settings/settingsdialog.cpp:46
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Utilitza %1 per a emmagatzemar la configuració"
 
-#: src/settings/settingsdialog.cpp:50 src/settings/settingsdialog.cpp:54
-#: src/settings/settingsdialog.cpp:55
+#: src/settings/settingsdialog.cpp:51 src/settings/settingsdialog.cpp:55
+#: src/settings/settingsdialog.cpp:56
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Idioma del sistema>"
 
-#: src/settings/settingsdialog.cpp:89
+#: src/settings/settingsdialog.cpp:90
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Icones:"
 
-#: src/settings/settingsdialog.cpp:111
+#: src/settings/settingsdialog.cpp:112
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "Els camps dels paràmetres d'OCR no poden estar buits."
 
-#: src/settings/settingsdialog.cpp:112
+#: src/settings/settingsdialog.cpp:113
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Voleu descartar els paràmetres no vàlids?"
 
-#: src/settings/settingsdialog.cpp:252
+#: src/settings/settingsdialog.cpp:253
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Seleccioneu una icona"
 
-#: src/settings/settingsdialog.cpp:252
+#: src/settings/settingsdialog.cpp:253
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Imatges (*.png *.ico *.svg *.jpg);;Tots els fitxers()"
 
-#: src/settings/settingsdialog.cpp:276
+#: src/settings/settingsdialog.cpp:283
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Seleccioneu el camí dels idiomes d'OCR"
 
-#: src/settings/settingsdialog.cpp:416
+#: src/settings/settingsdialog.cpp:423
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Arrere"

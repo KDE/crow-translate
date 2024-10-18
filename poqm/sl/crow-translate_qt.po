@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-09-16 07:06+0200\n"
+"PO-Revision-Date: 2024-10-17 07:16+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -15,19 +15,19 @@ msgstr ""
 "%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.5\n"
 
-#: src/cli.cpp:42
+#: src/cli.cpp:43
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Prikaži vse jezikovne kode."
 
-#: src/cli.cpp:43
+#: src/cli.cpp:44
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
 msgstr "Določi izvorni jezik (privzeto bo stroj poskušal sam določiti jezik)."
 
-#: src/cli.cpp:44
+#: src/cli.cpp:45
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
@@ -36,7 +36,7 @@ msgstr ""
 "Določi jezik(-e) prevoda, razdeljen z '+' (privzeto je uporabljen sistemski "
 "jezik)."
 
-#: src/cli.cpp:45
+#: src/cli.cpp:46
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
@@ -45,7 +45,7 @@ msgstr ""
 "Določite prevajalski mehanizem ('google', 'yandex', 'bing', 'libretranslate' "
 "ali 'lingva'), privzeto se uporablja Google."
 
-#: src/cli.cpp:46
+#: src/cli.cpp:47
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
@@ -54,17 +54,17 @@ msgstr ""
 "Določite URL pojavka Mozhi. Privzeto bo uporabljen URL pojavka iz nastavitev "
 "aplikacije."
 
-#: src/cli.cpp:47
+#: src/cli.cpp:48
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Izgovorite prevod."
 
-#: src/cli.cpp:48
+#: src/cli.cpp:49
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Povej vir."
 
-#: src/cli.cpp:49
+#: src/cli.cpp:50
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -72,97 +72,105 @@ msgstr ""
 "Branje izvornega besedila iz datotek. Argumenti bodo interpretirani kot poti "
 "do datotek."
 
-#: src/cli.cpp:50
+#: src/cli.cpp:51
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Izvornemu besedilu dodajte podatke stdin."
 
-#: src/cli.cpp:51
+#: src/cli.cpp:52
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "Pri uporabi --%1 ali --%2 ne natisnite nobenega besedila."
 
-#: src/cli.cpp:52
+#: src/cli.cpp:53
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Natisni samo prevode."
 
-#: src/cli.cpp:53
+#: src/cli.cpp:54
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Izpis tiskanja, oblikovan kot JSON."
 
-#: src/cli.cpp:56
+#: src/cli.cpp:57
 msgctxt "Cli|"
 msgid "Application that allows to translate and speak text using Mozhi"
 msgstr ""
 "Aplikacija, ki omogoča prevajanje in izgovorjavo besedila z uporabo Mozhi"
 
-#: src/cli.cpp:57
+#: src/cli.cpp:58
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr "Besedilo za prevod. Privzeto bo prevod izveden v sistemski jezik."
 
-#: src/cli.cpp:79
+#: src/cli.cpp:80
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Napaka: Za --%1 morate podati možnosti --%2 in/ali --%3"
 
-#: src/cli.cpp:94
+#: src/cli.cpp:95
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "Napaka: Koda neznanega izvirnega jezika: '%1'"
 
-#: src/cli.cpp:102
+#: src/cli.cpp:103
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "Napaka: Koda neznanega jezika prevoda: '%1'"
 
-#: src/cli.cpp:126
+#: src/cli.cpp:127
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Napaka: ni besedila za prevod"
 
-#: src/cli.cpp:151
+#: src/cli.cpp:133
+#, fuzzy
+#| msgctxt "AppSettings|"
+#| msgid "Detecting fastest instance"
+msgctxt "Cli|"
+msgid "Detecting fastest instance"
+msgstr "Zaznavanje najhitrejšega pojavka"
+
+#: src/cli.cpp:160
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "Napaka: Neznan stroj"
 
-#: src/cli.cpp:186 src/cli.cpp:278 src/cli.cpp:368
+#: src/cli.cpp:195 src/cli.cpp:287 src/cli.cpp:377
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Napaka: %1"
 
-#: src/cli.cpp:240
+#: src/cli.cpp:249
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "možnosti prevoda:"
 
-#: src/cli.cpp:251
+#: src/cli.cpp:260
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "primeri:"
 
-#: src/cli.cpp:381
+#: src/cli.cpp:390
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Napaka: ne morete uporabiti --%1 z --%2"
 
-#: src/cli.cpp:397 src/cli.cpp:418
+#: src/cli.cpp:406 src/cli.cpp:427
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Napaka: datoteka ne obstaja: %1"
 
-#: src/cli.cpp:402 src/cli.cpp:423
+#: src/cli.cpp:411 src/cli.cpp:432
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -173,29 +181,39 @@ msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Iščite na Forvo.com"
 
-#: src/instancepinger.cpp:54
+#: src/instancepinger.cpp:65
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Best instance URL is '%1' with time %2 ms"
-msgstr ""
+msgstr "URL najboljšega pojavka je '%1' s časom %2 ms"
 
-#: src/instancepinger.cpp:72
+#: src/instancepinger.cpp:84
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' takes longer then %2 ms"
-msgstr ""
-
-#: src/instancepinger.cpp:87
-#, qt-format
-msgctxt "InstancePinger|"
-msgid "Ping to '%1' successful, response time: %2 ms"
-msgstr ""
+msgstr "Ping do '%1' traja dlje kot %2 ms"
 
 #: src/instancepinger.cpp:99
 #, qt-format
 msgctxt "InstancePinger|"
+msgid "Ping to '%1' successful, response time: %2 ms"
+msgstr "Ping do '%1' uspešen, odzivni čas: %2 ms"
+
+#: src/instancepinger.cpp:111
+#, qt-format
+msgctxt "InstancePinger|"
 msgid "Ping to '%1' failed, error: %2"
-msgstr ""
+msgstr "Ping do '%1' ni uspel, napaka: %2"
+
+#: src/instancepingerdialog.cpp:23
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Detecting fastest instance"
+msgctxt "InstancePingerDialog|"
+msgid ""
+"Detecting fastest instance.\n"
+"Checking '%1'"
+msgstr "Zaznavanje najhitrejšega pojavka"
 
 #: src/languagebuttonswidget.cpp:220
 msgctxt "LanguageButtonsWidget|"
@@ -238,13 +256,13 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Trenutni jeziki:"
 
-#: src/main.cpp:69
+#: src/main.cpp:72
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr "Storitev D-Bus %1 je že registrirana v drugi aplikaciji"
 
-#: src/main.cpp:94
+#: src/main.cpp:97
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
@@ -267,15 +285,7 @@ msgid "This application uses %1 to provide translations."
 msgstr "Ta aplikacija uporablja %1 za zagotavljanje prevodov."
 
 #: src/mainwindow.cpp:860
-#, fuzzy, qt-format
-#| msgctxt "MainWindow|"
-#| msgid ""
-#| "While Mozhi acts as a proxy to protect your privacy, the third-party "
-#| "services it uses may store and analyze the text you send. We randomly "
-#| "assigned you instance %1, but you can change it in the translation "
-#| "settings. It's adviced to pick an instance that is close to you "
-#| "geographically for faster translations. See instance details in the link "
-#| "above."
+#, qt-format
 msgctxt "MainWindow|"
 msgid ""
 "While Mozhi acts as a proxy to protect your privacy, the third-party "
@@ -284,11 +294,9 @@ msgid ""
 "instance details in the link above."
 msgstr ""
 "Medtem ko Mozhi deluje kot posrednik za zaščito vaše zasebnosti, lahko "
-"storitve tretjih oseb, ki jih uporablja, shranjujejo in analizirajo "
-"besedilo, ki ga pošiljate. Slučajnostno vam dodeljujemo pojavek %1, a ga "
-"lahko spremenite v nastavitvah prevajanja. Priporočamo, da izberete pojavek, "
-"ki vam je geografsko blizu za hitrejše prevajanje. Poglejte podrobnosti "
-"pojavka v povezavi zgoraj."
+"storitve tretjih oseb, ki jih uporablja, shranijo in analizirajo besedilo, "
+"ki ga pošljete. Vaš trenutni pojavek je '%1', vendar ga lahko spremenite v "
+"nastavitvah prevajanja. Oglejte si podrobnosti pojavka na zgornji povezavi."
 
 #: src/mainwindow.cpp:867
 msgctxt "MainWindow|"
@@ -1670,12 +1678,7 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Kopiraj prevod na odložišče"
 
-#: src/settings/appsettings.cpp:522
-msgctxt "AppSettings|"
-msgid "Detecting fastest instance"
-msgstr ""
-
-#: src/settings/appsettings.cpp:1061
+#: src/settings/appsettings.cpp:1047
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1715,54 +1718,54 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "Ni mogoče odstraniti %1 iz %2"
 
-#: src/settings/settingsdialog.cpp:32
+#: src/settings/settingsdialog.cpp:33
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Prenosni način"
 
-#: src/settings/settingsdialog.cpp:45
+#: src/settings/settingsdialog.cpp:46
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Za shranjevanje nastavitev uporabite %1"
 
-#: src/settings/settingsdialog.cpp:50 src/settings/settingsdialog.cpp:54
-#: src/settings/settingsdialog.cpp:55
+#: src/settings/settingsdialog.cpp:51 src/settings/settingsdialog.cpp:55
+#: src/settings/settingsdialog.cpp:56
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Sistemski jezik>"
 
-#: src/settings/settingsdialog.cpp:89
+#: src/settings/settingsdialog.cpp:90
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Ikone:"
 
-#: src/settings/settingsdialog.cpp:111
+#: src/settings/settingsdialog.cpp:112
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "Polja parametrov OCR ne smejo biti prazna."
 
-#: src/settings/settingsdialog.cpp:112
+#: src/settings/settingsdialog.cpp:113
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Ali želite zavreči neveljavne parametre?"
 
-#: src/settings/settingsdialog.cpp:252
+#: src/settings/settingsdialog.cpp:253
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Izberi ikono"
 
-#: src/settings/settingsdialog.cpp:252
+#: src/settings/settingsdialog.cpp:253
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Slike (*.png *.ico *.svg *.jpg);;Vse datoteke()"
 
-#: src/settings/settingsdialog.cpp:276
+#: src/settings/settingsdialog.cpp:283
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Izberite pot jezikov OCR"
 
-#: src/settings/settingsdialog.cpp:416
+#: src/settings/settingsdialog.cpp:423
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Nazaj"
@@ -1805,7 +1808,7 @@ msgstr "O tem"
 #: src/settings/settingsdialog.ui:147
 msgctxt "SettingsDialog|"
 msgid "Language:"
-msgstr "jezik:"
+msgstr "Jezik:"
 
 #: src/settings/settingsdialog.ui:154
 msgctxt "SettingsDialog|"
@@ -2227,20 +2230,17 @@ msgstr "Vsili zaznavanje jezika prevoda"
 #: src/settings/settingsdialog.ui:787
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
-msgstr ""
+msgstr "URL pojavka Mozhi"
 
 #: src/settings/settingsdialog.ui:800
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
-msgstr ""
+msgstr "Samodejno izberi najhitrejši pojavek na osnovi pinga"
 
 #: src/settings/settingsdialog.ui:803
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Speech test:"
 msgctxt "SettingsDialog|"
 msgid "Detect fastest"
-msgstr "Preizkus govora:"
+msgstr "Zaznaj najhitrejšega"
 
 #: src/settings/settingsdialog.ui:836
 msgctxt "SettingsDialog|"

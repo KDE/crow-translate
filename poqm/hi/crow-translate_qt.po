@@ -10,12 +10,12 @@ msgstr ""
 "X-Language: hi\n"
 "X-Qt-Contexts: true\n"
 
-#: src/cli.cpp:42
+#: src/cli.cpp:43
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "सभी भाषा कोड प्रदर्शित करें।"
 
-#: src/cli.cpp:43
+#: src/cli.cpp:44
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -24,7 +24,7 @@ msgstr ""
 "स्रोत भाषा निर्दिष्ट करें (डिफ़ॉल्ट रूप से, इंजन भाषा को स्वयं निर्धारित करने का प्रयास "
 "करेगा)।"
 
-#: src/cli.cpp:44
+#: src/cli.cpp:45
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
@@ -33,7 +33,7 @@ msgstr ""
 "अनुवाद भाषा निर्दिष्ट करें, '+' से विभाजित (डिफ़ॉल्ट रूप से, सिस्टम भाषा का उपयोग किया "
 "जाता है)।"
 
-#: src/cli.cpp:45
+#: src/cli.cpp:46
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -47,51 +47,51 @@ msgstr ""
 "अनुवादक इंजन ('google', 'yandex' या 'bing') निर्दिष्ट करें, Google डिफ़ॉल्ट रूप से "
 "उपयोग किया जाता है।"
 
-#: src/cli.cpp:46
+#: src/cli.cpp:47
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
 
-#: src/cli.cpp:47
+#: src/cli.cpp:48
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "अनुवाद बोलो।"
 
-#: src/cli.cpp:48
+#: src/cli.cpp:49
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "स्रोत बोलो।"
 
-#: src/cli.cpp:49
+#: src/cli.cpp:50
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
 msgstr "फ़ाइलों से स्रोत पाठ पढ़ें। तर्कों की व्याख्या फ़ाइल पथ के रूप में की जाएगी।"
 
-#: src/cli.cpp:50
+#: src/cli.cpp:51
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "स्रोत पाठ में stdin डेटा जोड़ें।"
 
-#: src/cli.cpp:51
+#: src/cli.cpp:52
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "उपयोग करते समय कोई भी टेक्स्ट प्रिंट न करें --%1 या --%2."
 
-#: src/cli.cpp:52
+#: src/cli.cpp:53
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "केवल अनुवाद प्रिंट करें।"
 
-#: src/cli.cpp:53
+#: src/cli.cpp:54
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "प्रिंट आउटपुट को JSON के रूप में स्वरूपित किया गया।"
 
-#: src/cli.cpp:56
+#: src/cli.cpp:57
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -103,20 +103,20 @@ msgstr ""
 "एक सरल और हल्का अनुवादक जो Google, यांडेक्स और बिंग का उपयोग करके टेक्स्ट का अनुवाद और "
 "बोलने की अनुमति देता है।"
 
-#: src/cli.cpp:57
+#: src/cli.cpp:58
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr "अनुवाद करने के लिए पाठ। डिफ़ॉल्ट रूप से, अनुवाद सिस्टम भाषा में किया जाएगा।"
 
-#: src/cli.cpp:79
+#: src/cli.cpp:80
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "त्रुटि: के लिए --%1 आपको निर्दिष्ट करना होगा --%2 और/या --%3 विकल्प"
 
-#: src/cli.cpp:94
+#: src/cli.cpp:95
 #, fuzzy, qt-format
 #| msgctxt "AppSettings|"
 #| msgid "Unknown language code: %1"
@@ -124,7 +124,7 @@ msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "यह भाषा कोड अज्ञात है: %1"
 
-#: src/cli.cpp:102
+#: src/cli.cpp:103
 #, fuzzy, qt-format
 #| msgctxt "AppSettings|"
 #| msgid "Unknown language code: %1"
@@ -132,23 +132,31 @@ msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "यह भाषा कोड अज्ञात है: %1"
 
-#: src/cli.cpp:126
+#: src/cli.cpp:127
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "त्रुटि: अनुवाद के लिए कोई टेक्स्ट नहीं है"
 
-#: src/cli.cpp:151
+#: src/cli.cpp:133
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Speech test:"
+msgctxt "Cli|"
+msgid "Detecting fastest instance"
+msgstr "उच्चारण परीक्षण:"
+
+#: src/cli.cpp:160
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "त्रुटि: अज्ञात इंजन"
 
-#: src/cli.cpp:186 src/cli.cpp:278 src/cli.cpp:368
+#: src/cli.cpp:195 src/cli.cpp:287 src/cli.cpp:377
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "त्रुटि: %1"
 
-#: src/cli.cpp:240
+#: src/cli.cpp:249
 #, fuzzy
 #| msgctxt "TranslationEdit|"
 #| msgid "translation options:"
@@ -156,7 +164,7 @@ msgctxt "Cli|"
 msgid "translation options:"
 msgstr "अनुवाद विकल्प:"
 
-#: src/cli.cpp:251
+#: src/cli.cpp:260
 #, fuzzy
 #| msgctxt "TranslationEdit|"
 #| msgid "examples:"
@@ -164,19 +172,19 @@ msgctxt "Cli|"
 msgid "examples:"
 msgstr "उदाहरण:"
 
-#: src/cli.cpp:381
+#: src/cli.cpp:390
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "त्रुटि: उपयोग 'नहीं किया जा सकता --%1 साथ --%2"
 
-#: src/cli.cpp:397 src/cli.cpp:418
+#: src/cli.cpp:406 src/cli.cpp:427
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "त्रुटि: फ़ाइल मौजूद नहीं है: %1"
 
-#: src/cli.cpp:402 src/cli.cpp:423
+#: src/cli.cpp:411 src/cli.cpp:432
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -187,28 +195,36 @@ msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Forvo.com पर खोजें"
 
-#: src/instancepinger.cpp:54
+#: src/instancepinger.cpp:65
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Best instance URL is '%1' with time %2 ms"
 msgstr ""
 
-#: src/instancepinger.cpp:72
+#: src/instancepinger.cpp:84
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' takes longer then %2 ms"
 msgstr ""
 
-#: src/instancepinger.cpp:87
+#: src/instancepinger.cpp:99
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' successful, response time: %2 ms"
 msgstr ""
 
-#: src/instancepinger.cpp:99
+#: src/instancepinger.cpp:111
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' failed, error: %2"
+msgstr ""
+
+#: src/instancepingerdialog.cpp:23
+#, qt-format
+msgctxt "InstancePingerDialog|"
+msgid ""
+"Detecting fastest instance.\n"
+"Checking '%1'"
 msgstr ""
 
 #: src/languagebuttonswidget.cpp:220
@@ -258,13 +274,13 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "वर्तमान भाषाएं:"
 
-#: src/main.cpp:69
+#: src/main.cpp:72
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr "डी-बस सेवा %1 पहले से ही किसी अन्य एप्लिकेशन द्वारा पंजीकृत है"
 
-#: src/main.cpp:94
+#: src/main.cpp:97
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
@@ -1749,12 +1765,7 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "अनुवाद को क्लिपबोर्ड पर कॉपी करें"
 
-#: src/settings/appsettings.cpp:522
-msgctxt "AppSettings|"
-msgid "Detecting fastest instance"
-msgstr ""
-
-#: src/settings/appsettings.cpp:1061
+#: src/settings/appsettings.cpp:1047
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1803,12 +1814,12 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "%1 से %2 हटाने में असमर्थ "
 
-#: src/settings/settingsdialog.cpp:32
+#: src/settings/settingsdialog.cpp:33
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "पोर्टेबल मोड"
 
-#: src/settings/settingsdialog.cpp:45
+#: src/settings/settingsdialog.cpp:46
 #, fuzzy, qt-format
 #| msgctxt "SettingsDialog|"
 #| msgid "Use system settings"
@@ -1816,43 +1827,43 @@ msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "सिस्टम सेटिंग्स का प्रयोग करें"
 
-#: src/settings/settingsdialog.cpp:50 src/settings/settingsdialog.cpp:54
-#: src/settings/settingsdialog.cpp:55
+#: src/settings/settingsdialog.cpp:51 src/settings/settingsdialog.cpp:55
+#: src/settings/settingsdialog.cpp:56
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<System language>"
 
-#: src/settings/settingsdialog.cpp:89
+#: src/settings/settingsdialog.cpp:90
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "प्रतीक:"
 
-#: src/settings/settingsdialog.cpp:111
+#: src/settings/settingsdialog.cpp:112
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "OCR पैरामीटर फ़ील्ड खाली नहीं हो सकतीं।"
 
-#: src/settings/settingsdialog.cpp:112
+#: src/settings/settingsdialog.cpp:113
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "क्या आप अमान्य पैरामीटर को त्यागना चाहते हैं?"
 
-#: src/settings/settingsdialog.cpp:252
+#: src/settings/settingsdialog.cpp:253
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "आइकन चुनें"
 
-#: src/settings/settingsdialog.cpp:252
+#: src/settings/settingsdialog.cpp:253
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "इमेजिस (*.png *.ico *.svg *.jpg);;सभी फाइलें()"
 
-#: src/settings/settingsdialog.cpp:276
+#: src/settings/settingsdialog.cpp:283
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "OCR भाषा पथ चुनें"
 
-#: src/settings/settingsdialog.cpp:416
+#: src/settings/settingsdialog.cpp:423
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "वापस"

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-09-16 12:12+0300\n"
+"PO-Revision-Date: 2024-10-18 01:42+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -13,26 +13,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 24.11.70\n"
 
-#: src/cli.cpp:42
+#: src/cli.cpp:43
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Tüm dil kodlarını görüntüle."
 
-#: src/cli.cpp:43
+#: src/cli.cpp:44
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
 msgstr "Kaynak dili belirt (Öntanımlı: Kendiliğinden algılama)."
 
-#: src/cli.cpp:44
+#: src/cli.cpp:45
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
 "language is used)."
 msgstr "Çeviri dillerini “+” ile ayırıp belirt (Öntanımlı: Sistem dili)."
 
-#: src/cli.cpp:45
+#: src/cli.cpp:46
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
@@ -41,7 +41,7 @@ msgstr ""
 "Çeviri işletkesini belirt (“google”, “yandex”, “bing”, “libretranslate”\n"
 "veya “lingva”). Öntanımlı olarak Google kullanılır."
 
-#: src/cli.cpp:46
+#: src/cli.cpp:47
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
@@ -50,114 +50,122 @@ msgstr ""
 "Mozhi örneği URL’sini belirtin. Öntanımlı olarak, uygulama ayarlarındaki "
 "örnek URL’si kullanılır."
 
-#: src/cli.cpp:47
+#: src/cli.cpp:48
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Çeviriyi konuş."
 
-#: src/cli.cpp:48
+#: src/cli.cpp:49
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Kaynağı konuş."
 
-#: src/cli.cpp:49
+#: src/cli.cpp:50
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
 msgstr "Kaynak metni dosyadan oku. Argümanlar, dosya yolu olarak yorumlanır."
 
-#: src/cli.cpp:50
+#: src/cli.cpp:51
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Kaynak metne stdin verisini ekle."
 
-#: src/cli.cpp:51
+#: src/cli.cpp:52
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "--%1 veya --%2 kullanırken herhangi bir metin yazdırma."
 
-#: src/cli.cpp:52
+#: src/cli.cpp:53
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Yalnızca çevirileri yazdır."
 
-#: src/cli.cpp:53
+#: src/cli.cpp:54
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Çıktıyı JSON olarak biçimlendir."
 
-#: src/cli.cpp:56
+#: src/cli.cpp:57
 msgctxt "Cli|"
 msgid "Application that allows to translate and speak text using Mozhi"
 msgstr ""
 "Mozhi kullanarak metinleri çevirmeye ve seslendirmeye olanak tanıyan bir "
 "uygulama"
 
-#: src/cli.cpp:57
+#: src/cli.cpp:58
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr "Çevrilecek metin. Öntanımlı olarak çeviri sistem diline yapılacaktır."
 
-#: src/cli.cpp:79
+#: src/cli.cpp:80
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Hata: --%1 için --%2 ve/veya --%3 seçeneklerini belirtmelisiniz."
 
-#: src/cli.cpp:94
+#: src/cli.cpp:95
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "Hata: Bilinmeyen kaynak dil kodu “%1”"
 
-#: src/cli.cpp:102
+#: src/cli.cpp:103
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "Hata: Bilinmeyen çeviri dili kodu “%1”"
 
-#: src/cli.cpp:126
+#: src/cli.cpp:127
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Hata: Çevrilecek metin yok."
 
-#: src/cli.cpp:151
+#: src/cli.cpp:133
+#, fuzzy
+#| msgctxt "AppSettings|"
+#| msgid "Detecting fastest instance"
+msgctxt "Cli|"
+msgid "Detecting fastest instance"
+msgstr "En hızlı örnek algılanıyor"
+
+#: src/cli.cpp:160
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "Hata: Bilinmeyen işletke."
 
-#: src/cli.cpp:186 src/cli.cpp:278 src/cli.cpp:368
+#: src/cli.cpp:195 src/cli.cpp:287 src/cli.cpp:377
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Hata: %1"
 
-#: src/cli.cpp:240
+#: src/cli.cpp:249
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "Çeviri seçenekleri:"
 
-#: src/cli.cpp:251
+#: src/cli.cpp:260
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "Örnekler:"
 
-#: src/cli.cpp:381
+#: src/cli.cpp:390
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Hata: --%2 ile --%1 kullanamazsınız."
 
-#: src/cli.cpp:397 src/cli.cpp:418
+#: src/cli.cpp:406 src/cli.cpp:427
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Hata: Dosya yok: %1"
 
-#: src/cli.cpp:402 src/cli.cpp:423
+#: src/cli.cpp:411 src/cli.cpp:432
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -168,29 +176,39 @@ msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Forvo.com’da Ara"
 
-#: src/instancepinger.cpp:54
+#: src/instancepinger.cpp:65
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Best instance URL is '%1' with time %2 ms"
-msgstr ""
+msgstr "En iyi örnek URL’si, %2 ms’lik değerle “%1”"
 
-#: src/instancepinger.cpp:72
+#: src/instancepinger.cpp:84
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' takes longer then %2 ms"
-msgstr ""
-
-#: src/instancepinger.cpp:87
-#, qt-format
-msgctxt "InstancePinger|"
-msgid "Ping to '%1' successful, response time: %2 ms"
-msgstr ""
+msgstr "“%1” pinglemesi, %2 ms’den daha uzun sürüyor"
 
 #: src/instancepinger.cpp:99
 #, qt-format
 msgctxt "InstancePinger|"
+msgid "Ping to '%1' successful, response time: %2 ms"
+msgstr "“%1” pinglemesi başarılı, yanıt süresi: %2 ms"
+
+#: src/instancepinger.cpp:111
+#, qt-format
+msgctxt "InstancePinger|"
 msgid "Ping to '%1' failed, error: %2"
-msgstr ""
+msgstr "“%1” pinglemesi başarısız, hata: %2"
+
+#: src/instancepingerdialog.cpp:23
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Detecting fastest instance"
+msgctxt "InstancePingerDialog|"
+msgid ""
+"Detecting fastest instance.\n"
+"Checking '%1'"
+msgstr "En hızlı örnek algılanıyor"
 
 #: src/languagebuttonswidget.cpp:220
 msgctxt "LanguageButtonsWidget|"
@@ -233,14 +251,14 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Geçerli diller:"
 
-#: src/main.cpp:69
+#: src/main.cpp:72
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr ""
 "D-Bus hizmeti %1, halihazırda başka bir uygulama tarafından kaydedilmiş"
 
-#: src/main.cpp:94
+#: src/main.cpp:97
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
@@ -263,15 +281,7 @@ msgid "This application uses %1 to provide translations."
 msgstr "Bu uygulama, çeviriler sağlamak için %1 kullanır."
 
 #: src/mainwindow.cpp:860
-#, fuzzy, qt-format
-#| msgctxt "MainWindow|"
-#| msgid ""
-#| "While Mozhi acts as a proxy to protect your privacy, the third-party "
-#| "services it uses may store and analyze the text you send. We randomly "
-#| "assigned you instance %1, but you can change it in the translation "
-#| "settings. It's adviced to pick an instance that is close to you "
-#| "geographically for faster translations. See instance details in the link "
-#| "above."
+#, qt-format
 msgctxt "MainWindow|"
 msgid ""
 "While Mozhi acts as a proxy to protect your privacy, the third-party "
@@ -279,12 +289,10 @@ msgid ""
 "right now is '%1', but you can change it in the translation settings. See "
 "instance details in the link above."
 msgstr ""
-"Mozhi, gizliliğinizi korumak adına bir vekil olarak davranırken, kullandığı "
-"üçüncü parti hizmetlerin bazıları gönderdiğiniz metinleri depolayabilir ve "
-"çözümleyebilir. Size rastgele %1 örneğini atadık; ancak bunu çeviri "
-"ayarlarından değiştirebilirsiniz. Daha hızlı çeviri üretimi için size "
-"coğrafi olarak daha yakın bir konumu seçmeniz önerilir. Örnek ayrıntıları "
-"üzerine ayrıntılı bilgiyi yukarıdaki bağlantıda bulabilirsiniz."
+"Mozhi gizliliğinizi korumak için bir vekil görevi görürken, kullandığı "
+"üçüncü taraf hizmetler gönderdiğiniz metni depolayabilir ve çözümleyebilir. "
+"Şu anki örneğiniz “%1”; ancak bunu çeviri ayarlarından değiştirebilirsiniz. "
+"Yukarıdaki bağlantıdan örnek ayrıntılarına bakın."
 
 #: src/mainwindow.cpp:867
 msgctxt "MainWindow|"
@@ -1666,12 +1674,7 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Çeviriyi panoya kopyala"
 
-#: src/settings/appsettings.cpp:522
-msgctxt "AppSettings|"
-msgid "Detecting fastest instance"
-msgstr ""
-
-#: src/settings/appsettings.cpp:1061
+#: src/settings/appsettings.cpp:1047
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1713,54 +1716,54 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "%2 içinden %1 kaldırılamıyor."
 
-#: src/settings/settingsdialog.cpp:32
+#: src/settings/settingsdialog.cpp:33
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Taşınabilir kip"
 
-#: src/settings/settingsdialog.cpp:45
+#: src/settings/settingsdialog.cpp:46
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Ayarları depolamak için %1 kullan"
 
-#: src/settings/settingsdialog.cpp:50 src/settings/settingsdialog.cpp:54
-#: src/settings/settingsdialog.cpp:55
+#: src/settings/settingsdialog.cpp:51 src/settings/settingsdialog.cpp:55
+#: src/settings/settingsdialog.cpp:56
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Sistem Dili>"
 
-#: src/settings/settingsdialog.cpp:89
+#: src/settings/settingsdialog.cpp:90
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Simgeler:"
 
-#: src/settings/settingsdialog.cpp:111
+#: src/settings/settingsdialog.cpp:112
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "OKT parametresi boş olamaz."
 
-#: src/settings/settingsdialog.cpp:112
+#: src/settings/settingsdialog.cpp:113
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Geçersiz parametreleri atmak istiyor musunuz?"
 
-#: src/settings/settingsdialog.cpp:252
+#: src/settings/settingsdialog.cpp:253
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Simge Seç"
 
-#: src/settings/settingsdialog.cpp:252
+#: src/settings/settingsdialog.cpp:253
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Görseller (*.png *.ico *.svg *.jpg);;Tüm dosyalar()"
 
-#: src/settings/settingsdialog.cpp:276
+#: src/settings/settingsdialog.cpp:283
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "OKT Dilleri Yolunu Seç"
 
-#: src/settings/settingsdialog.cpp:416
+#: src/settings/settingsdialog.cpp:423
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Geri"
@@ -2229,20 +2232,17 @@ msgstr "Çeviri dili algılamasını zorla"
 #: src/settings/settingsdialog.ui:787
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
-msgstr ""
+msgstr "Mozhi örneği URL’si"
 
 #: src/settings/settingsdialog.ui:800
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
-msgstr ""
+msgstr "Pinge bakarak en hızlı örneği kendiliğinden seç"
 
 #: src/settings/settingsdialog.ui:803
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Speech test:"
 msgctxt "SettingsDialog|"
 msgid "Detect fastest"
-msgstr "Konuşma sınaması:"
+msgstr "En hızlıyı algıla"
 
 #: src/settings/settingsdialog.ui:836
 msgctxt "SettingsDialog|"
