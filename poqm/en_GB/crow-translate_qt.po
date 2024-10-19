@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-09-15 10:53+0100\n"
+"PO-Revision-Date: 2024-10-18 18:50+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: src/cli.cpp:43
 msgctxt "Cli|"
@@ -46,16 +46,13 @@ msgstr ""
 "or 'lingva'), Google is used by default."
 
 #: src/cli.cpp:47
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify Mozhi instance URL. Random instance URL will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
-"Specify Mozhi instance URL. Random instance URL will be used by default."
+"Specify Mozhi instance URL. Instance URL from the app settings will be used "
+"by default."
 
 #: src/cli.cpp:48
 msgctxt "Cli|"
@@ -116,20 +113,16 @@ msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Error: For --%1 you must specify --%2 and/or --%3 options"
 
 #: src/cli.cpp:95
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
-msgstr "Unknown language code: %1"
+msgstr "Error: Unknown source language code '%1'"
 
 #: src/cli.cpp:103
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
-msgstr "Unknown language code: %1"
+msgstr "Error: Unknown translation language code '%1'"
 
 #: src/cli.cpp:127
 msgctxt "Cli|"
@@ -139,7 +132,7 @@ msgstr "Error: There is no text for translation"
 #: src/cli.cpp:133
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
-msgstr ""
+msgstr "Detecting fastest instance"
 
 #: src/cli.cpp:160
 msgctxt "Cli|"
@@ -189,25 +182,25 @@ msgstr "Search on Forvo.com"
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Best instance URL is '%1' with time %2 ms"
-msgstr ""
+msgstr "Best instance URL is '%1' with time %2 ms"
 
 #: src/instancepinger.cpp:84
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' takes longer then %2 ms"
-msgstr ""
+msgstr "Ping to '%1' takes longer then %2 ms"
 
 #: src/instancepinger.cpp:99
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' successful, response time: %2 ms"
-msgstr ""
+msgstr "Ping to '%1' successful, response time: %2 ms"
 
 #: src/instancepinger.cpp:111
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' failed, error: %2"
-msgstr ""
+msgstr "Ping to '%1' failed, error: %2"
 
 #: src/instancepingerdialog.cpp:23
 #, qt-format
@@ -216,6 +209,8 @@ msgid ""
 "Detecting fastest instance.\n"
 "Checking '%1'"
 msgstr ""
+"Detecting fastest instance.\n"
+"Checking '%1'"
 
 #: src/languagebuttonswidget.cpp:220
 msgctxt "LanguageButtonsWidget|"
@@ -287,15 +282,7 @@ msgid "This application uses %1 to provide translations."
 msgstr "This application uses %1 to provide translations."
 
 #: src/mainwindow.cpp:860
-#, fuzzy, qt-format
-#| msgctxt "MainWindow|"
-#| msgid ""
-#| "While Mozhi acts as a proxy to protect your privacy, the third-party "
-#| "services it uses may store and analyze the text you send. We randomly "
-#| "assigned you instance %1, but you can change it in the translation "
-#| "settings. It's adviced to pick an instance that is close to you "
-#| "geographically for faster translations. See instance details in the link "
-#| "above."
+#, qt-format
 msgctxt "MainWindow|"
 msgid ""
 "While Mozhi acts as a proxy to protect your privacy, the third-party "
@@ -304,10 +291,9 @@ msgid ""
 "instance details in the link above."
 msgstr ""
 "While Mozhi acts as a proxy to protect your privacy, the third-party "
-"services it uses may store and analyse the text you send. We randomly "
-"assigned you instance %1, but you can change it in the translation settings. "
-"It's advised to pick an instance that is close to you geographically for "
-"faster translations. See instance details in the link above."
+"services it uses may store and analyse the text you send. Your instance "
+"right now is '%1', but you can change it in the translation settings. See "
+"instance details in the link above."
 
 #: src/mainwindow.cpp:867
 msgctxt "MainWindow|"
@@ -2239,17 +2225,17 @@ msgstr "Force translation language detection"
 #: src/settings/settingsdialog.ui:787
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
-msgstr ""
+msgstr "Mozhi instance URL"
 
 #: src/settings/settingsdialog.ui:800
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
-msgstr ""
+msgstr "Automatically pick the fastest instance based on the ping"
 
 #: src/settings/settingsdialog.ui:803
 msgctxt "SettingsDialog|"
 msgid "Detect fastest"
-msgstr ""
+msgstr "Detect fastest"
 
 #: src/settings/settingsdialog.ui:836
 msgctxt "SettingsDialog|"
