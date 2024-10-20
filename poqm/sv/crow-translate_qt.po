@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-09-16 20:09+0200\n"
+"PO-Revision-Date: 2024-10-19 16:38+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: src/cli.cpp:43
 msgctxt "Cli|"
@@ -128,7 +128,7 @@ msgstr "Fel: Det finns ingen text att översätta"
 #: src/cli.cpp:133
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
-msgstr ""
+msgstr "Detekterar snabbaste instans"
 
 #: src/cli.cpp:160
 msgctxt "Cli|"
@@ -178,25 +178,25 @@ msgstr "Sök på Forvo.com"
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Best instance URL is '%1' with time %2 ms"
-msgstr ""
+msgstr "Bästa instanswebbadress är '%1' med tiden %2 ms"
 
 #: src/instancepinger.cpp:84
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' takes longer then %2 ms"
-msgstr ""
+msgstr "Ping till '%1' tar längre tid än %2 ms"
 
 #: src/instancepinger.cpp:99
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' successful, response time: %2 ms"
-msgstr ""
+msgstr "Ping till '%1' lyckades, svarstid: %2 ms"
 
 #: src/instancepinger.cpp:111
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' failed, error: %2"
-msgstr ""
+msgstr "Ping till '%1' misslyckades, fel: %2"
 
 #: src/instancepingerdialog.cpp:23
 #, qt-format
@@ -205,6 +205,8 @@ msgid ""
 "Detecting fastest instance.\n"
 "Checking '%1'"
 msgstr ""
+"Detekterar snabbaste instans.\n"
+"Kontrollerar '%1'"
 
 #: src/languagebuttonswidget.cpp:220
 msgctxt "LanguageButtonsWidget|"
@@ -276,15 +278,7 @@ msgid "This application uses %1 to provide translations."
 msgstr "Programmet använder %1 för att tillhandahålla översättningar."
 
 #: src/mainwindow.cpp:860
-#, fuzzy, qt-format
-#| msgctxt "MainWindow|"
-#| msgid ""
-#| "While Mozhi acts as a proxy to protect your privacy, the third-party "
-#| "services it uses may store and analyze the text you send. We randomly "
-#| "assigned you instance %1, but you can change it in the translation "
-#| "settings. It's adviced to pick an instance that is close to you "
-#| "geographically for faster translations. See instance details in the link "
-#| "above."
+#, qt-format
 msgctxt "MainWindow|"
 msgid ""
 "While Mozhi acts as a proxy to protect your privacy, the third-party "
@@ -294,10 +288,8 @@ msgid ""
 msgstr ""
 "Medan Mozhi fungerar som en proxy för att skydda din integritet, kan de "
 "tredjepartstjänster som den använder lagra och analysera texten du skickar. "
-"Vi tilldelade dig slumpmässigt instans %1, men det går att ändra i "
-"översättningsinställningarna. Det rekommenderas att välja en instans som "
-"ligger nära dig geografiskt för snabbare översättningar. Se "
-"instansinformationen i länken ovan."
+"Din instans just nu är '%1', men du kan ändra den i "
+"översättningsinställningarna. Se instansinformationen i länken ovan."
 
 #: src/mainwindow.cpp:867
 msgctxt "MainWindow|"
@@ -2236,17 +2228,17 @@ msgstr "Tvinga detektering av översättningsspråk"
 #: src/settings/settingsdialog.ui:787
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
-msgstr ""
+msgstr "Mozhi-instanswebbadress"
 
 #: src/settings/settingsdialog.ui:800
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
-msgstr ""
+msgstr "Välj automatiskt den snabbaste instansen baserat på ping"
 
 #: src/settings/settingsdialog.ui:803
 msgctxt "SettingsDialog|"
 msgid "Detect fastest"
-msgstr ""
+msgstr "Detektera snabbaste"
 
 #: src/settings/settingsdialog.ui:836
 msgctxt "SettingsDialog|"
