@@ -72,7 +72,7 @@ void AppSettings::applyLocale(const QLocale &locale)
     if (s_qtTranslator.load(newLocale, QStringLiteral("qt"), QStringLiteral("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
         QCoreApplication::installTranslator(&s_qtTranslator);
     } else {
-        QCoreApplication::removeTranslator(&s_appTranslator);
+        QCoreApplication::removeTranslator(&s_qtTranslator);
     }
 }
 
