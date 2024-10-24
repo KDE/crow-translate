@@ -293,6 +293,21 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="3.1.0" date="2024-10-24">
+      <description>
+        <p>Changelog:</p>
+        <ul>
+          <li>Automate fastest Mozhi instance selection.</li>
+          <li>Automatically assign the fastest instance on the first startup instead of selecting it randomly.</li>
+          <li>CLI: By default, use the instance from settings.</li>
+          <li>CLI: Verify language codes.</li>
+          <li>CLI: Do not print empty translations on error.</li>
+          <li>CLI: The --help command returns exit code 1.</li>
+          <li>Fix language codes for Persian and Chinese Simplified.</li>
+          <li>Fix loading of Qt translations.</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.0.0" date="2024-09-04">
       <description>
         <p>Changelog:</p>

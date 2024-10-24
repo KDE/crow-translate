@@ -8,7 +8,7 @@
 cmake_minimum_required(VERSION 3.16.0)
 
 project(crow-translate
-    VERSION 3.0.0
+    VERSION 3.1.0
     DESCRIPTION "Application that allows to translate and speak text using Mozhi"
     HOMEPAGE_URL https://apps.kde.org/crow-translate
     LANGUAGES CXX
