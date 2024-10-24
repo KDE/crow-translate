@@ -207,7 +207,7 @@ This project uses the following external libraries, which included as git submod
 
 ## Installation
 
-Downloads are available on the [KDE downloads](https://download.kde.org/stable/crow-translate) page. Also check out the [webpage](https://apps.kde.org/crow-translate) for other installation methods.
+Downloads are available on the [KDE downloads](https://download.kde.org/stable/crow-translate) page. Also check out the [webpage](https://apps.kde.org/crowtranslate) for other installation methods.
 
 **Note:** On Linux to make the application look native on a non-KDE desktop environment, you need to configure Qt applications styling. This can be done by using [qt5ct](https://github.com/RomanVolak/qt5ct) or [adwaita-qt5](https://github.com/FedoraQt/adwaita-qt) or [qtstyleplugins](https://github.com/qt/qtstyleplugins). Please check the appropriate installation guide for your distribution.
 
