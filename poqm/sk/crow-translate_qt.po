@@ -1,0 +1,2685 @@
+# translation of crow-translate_qt.po to Slovak
+# Roman Paholik <wizzardsk@gmail.com>, 2024.
+msgid ""
+msgstr ""
+"Project-Id-Version: crow-translate_qt\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-11-07 22:21+0100\n"
+"PO-Revision-Date: 2017-11-01 11:06+0100\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: src/cli.cpp:43
+msgctxt "Cli|"
+msgid "Display all language codes."
+msgstr ""
+
+#: src/cli.cpp:44
+msgctxt "Cli|"
+msgid ""
+"Specify the source language (by default, engine will try to determine the "
+"language on its own)."
+msgstr ""
+
+#: src/cli.cpp:45
+msgctxt "Cli|"
+msgid ""
+"Specify the translation language(s), splitted by '+' (by default, the system "
+"language is used)."
+msgstr ""
+
+#: src/cli.cpp:46
+msgctxt "Cli|"
+msgid ""
+"Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
+"or 'lingva'), Google is used by default."
+msgstr ""
+
+#: src/cli.cpp:47
+msgctxt "Cli|"
+msgid ""
+"Specify Mozhi instance URL. Instance URL from the app settings will be used "
+"by default."
+msgstr ""
+
+#: src/cli.cpp:48
+msgctxt "Cli|"
+msgid "Speak the translation."
+msgstr ""
+
+#: src/cli.cpp:49
+msgctxt "Cli|"
+msgid "Speak the source."
+msgstr ""
+
+#: src/cli.cpp:50
+msgctxt "Cli|"
+msgid ""
+"Read source text from files. Arguments will be interpreted as file paths."
+msgstr ""
+
+#: src/cli.cpp:51
+msgctxt "Cli|"
+msgid "Add stdin data to source text."
+msgstr ""
+
+#: src/cli.cpp:52
+#, qt-format
+msgctxt "Cli|"
+msgid "Do not print any text when using --%1 or --%2."
+msgstr ""
+
+#: src/cli.cpp:53
+msgctxt "Cli|"
+msgid "Print only translations."
+msgstr ""
+
+#: src/cli.cpp:54
+msgctxt "Cli|"
+msgid "Print output formatted as JSON."
+msgstr ""
+
+#: src/cli.cpp:57
+msgctxt "Cli|"
+msgid "Application that allows to translate and speak text using Mozhi"
+msgstr ""
+
+#: src/cli.cpp:58
+msgctxt "Cli|"
+msgid ""
+"Text to translate. By default, the translation will be done to the system "
+"language."
+msgstr ""
+
+#: src/cli.cpp:80
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
+msgstr ""
+
+#: src/cli.cpp:95
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: Unknown source language code '%1'"
+msgstr ""
+
+#: src/cli.cpp:103
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: Unknown translation language code '%1'"
+msgstr ""
+
+#: src/cli.cpp:127
+msgctxt "Cli|"
+msgid "Error: There is no text for translation"
+msgstr ""
+
+#: src/cli.cpp:133
+msgctxt "Cli|"
+msgid "Detecting fastest instance"
+msgstr ""
+
+#: src/cli.cpp:160
+msgctxt "Cli|"
+msgid "Error: Unknown engine"
+msgstr ""
+
+#: src/cli.cpp:195 src/cli.cpp:287 src/cli.cpp:377
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: %1"
+msgstr ""
+
+#: src/cli.cpp:249
+msgctxt "Cli|"
+msgid "translation options:"
+msgstr ""
+
+#: src/cli.cpp:260
+msgctxt "Cli|"
+msgid "examples:"
+msgstr ""
+
+#: src/cli.cpp:390
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: You can't use --%1 with --%2"
+msgstr ""
+
+#: src/cli.cpp:406 src/cli.cpp:427
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: File does not exist: %1"
+msgstr ""
+
+#: src/cli.cpp:411 src/cli.cpp:432
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: Unable to open file: %1"
+msgstr ""
+
+#: src/contextmenu.h:39
+msgctxt "ContextMenu|"
+msgid "Search on Forvo.com"
+msgstr ""
+
+#: src/instancepinger.cpp:65
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Best instance URL is '%1' with time %2 ms"
+msgstr ""
+
+#: src/instancepinger.cpp:84
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Ping to '%1' takes longer then %2 ms"
+msgstr ""
+
+#: src/instancepinger.cpp:99
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Ping to '%1' successful, response time: %2 ms"
+msgstr ""
+
+#: src/instancepinger.cpp:111
+#, qt-format
+msgctxt "InstancePinger|"
+msgid "Ping to '%1' failed, error: %2"
+msgstr ""
+
+#: src/instancepingerdialog.cpp:23
+#, qt-format
+msgctxt "InstancePingerDialog|"
+msgid ""
+"Detecting fastest instance.\n"
+"Checking '%1'"
+msgstr ""
+
+#: src/languagebuttonswidget.cpp:220
+msgctxt "LanguageButtonsWidget|"
+msgid "Window width is larger than screen due to the languages on the panel."
+msgstr ""
+
+#: src/languagebuttonswidget.cpp:221
+msgctxt "LanguageButtonsWidget|"
+msgid "Please reduce added languages."
+msgstr ""
+
+#: src/languagebuttonswidget.cpp:297 src/languagebuttonswidget.cpp:299
+msgctxt "LanguageButtonsWidget|"
+msgid "Auto"
+msgstr ""
+
+#: src/languagebuttonswidget.ui:32
+msgctxt "LanguageButtonsWidget|"
+msgid "Edit languages"
+msgstr ""
+
+#: src/languagesdialog.cpp:23
+#, qt-format
+msgctxt "LanguagesDialog|"
+msgid "Filter (%1)"
+msgstr ""
+
+#: src/languagesdialog.ui:14
+msgctxt "LanguagesDialog|"
+msgid "Edit languages"
+msgstr ""
+
+#: src/languagesdialog.ui:91
+msgctxt "LanguagesDialog|"
+msgid "Available languages:"
+msgstr ""
+
+#: src/languagesdialog.ui:104
+msgctxt "LanguagesDialog|"
+msgid "Current languages:"
+msgstr ""
+
+#: src/main.cpp:72
+#, qt-format
+msgctxt "D-Bus|"
+msgid "D-Bus service %1 is already registered by another application"
+msgstr ""
+
+#: src/main.cpp:97
+#, qt-format
+msgctxt "D-Bus|"
+msgid "Unable to register D-Bus object for %1"
+msgstr ""
+
+#: src/mainwindow.cpp:386
+msgctxt "MainWindow|"
+msgid "Unable to detect language"
+msgstr ""
+
+#: src/mainwindow.cpp:438
+msgctxt "MainWindow|"
+msgid "Unable to translate text"
+msgstr ""
+
+#: src/mainwindow.cpp:859
+#, qt-format
+msgctxt "MainWindow|"
+msgid "This application uses %1 to provide translations."
+msgstr ""
+
+#: src/mainwindow.cpp:860
+#, qt-format
+msgctxt "MainWindow|"
+msgid ""
+"While Mozhi acts as a proxy to protect your privacy, the third-party "
+"services it uses may store and analyze the text you send. Your instance "
+"right now is '%1', but you can change it in the translation settings. See "
+"instance details in the link above."
+msgstr ""
+
+#: src/mainwindow.cpp:867
+msgctxt "MainWindow|"
+msgid "Don't show again"
+msgstr ""
+
+#: src/mainwindow.cpp:895
+msgctxt "TrayIcon|"
+msgid "Invalid tray icon"
+msgstr ""
+
+#: src/mainwindow.cpp:895
+#, qt-format
+msgctxt "TrayIcon|"
+msgid "The specified icon '%1' is invalid. The default icon will be used."
+msgstr ""
+
+#: src/mainwindow.cpp:924
+msgctxt "Ocr|"
+msgid "Unable to set OCR languages"
+msgstr ""
+
+#: src/mainwindow.cpp:924
+#, qt-format
+msgctxt "Ocr|"
+msgid "Unable to initialize Tesseract with %1"
+msgstr ""
+
+#: src/mainwindow.ui:36
+msgctxt "MainWindow|"
+msgid "Copy source text to the clipboard"
+msgstr ""
+
+#: src/mainwindow.ui:47
+msgctxt "MainWindow|"
+msgid "Recognize screen area with delay"
+msgstr ""
+
+#. The text should be short to fit in portrait orientation on phones.
+#: src/mainwindow.ui:64
+msgctxt "MainWindow|"
+msgid "Auto-translation"
+msgstr ""
+
+#: src/mainwindow.ui:76
+msgctxt "MainWindow|"
+msgid "Cancel"
+msgstr ""
+
+#: src/mainwindow.ui:87
+msgctxt "MainWindow|"
+msgid "Swap languages"
+msgstr ""
+
+#: src/mainwindow.ui:111
+msgctxt "MainWindow|"
+msgid "Source"
+msgstr ""
+
+#: src/mainwindow.ui:118
+msgctxt "MainWindow|"
+msgid "Clear"
+msgstr ""
+
+#: src/mainwindow.ui:135
+msgctxt "MainWindow|"
+msgid "Translate"
+msgstr ""
+
+#: src/mainwindow.ui:163
+msgctxt "MainWindow|"
+msgid "Translation"
+msgstr ""
+
+#: src/mainwindow.ui:259
+msgctxt "MainWindow|"
+msgid "Copy translation to the clipboard"
+msgstr ""
+
+#: src/mainwindow.ui:270
+msgctxt "MainWindow|"
+msgid "Copy all translation data to the clipboard"
+msgstr ""
+
+#: src/mainwindow.ui:281
+msgctxt "MainWindow|"
+msgid "Translate screen area with delay"
+msgstr ""
+
+#: src/mainwindow.ui:292
+msgctxt "MainWindow|"
+msgid "Application settings"
+msgstr ""
+
+#: src/ocr/ocr.cpp:136
+#, qt-format
+msgctxt "Ocr|"
+msgid "%1 is not a valid Tesseract parameter name."
+msgstr ""
+
+#: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
+msgctxt "AbstractScreenGrabber|"
+msgid "Unable to grab screen"
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:47
+msgctxt "WaylandGnomeScreenGrabber|"
+msgid "GNOME failed to take screenshot."
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:43
+#, qt-format
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to create pipe: %1."
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:87
+#, qt-format
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to wait for socket readiness: %1."
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:92
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Timeout reading from pipe."
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:98
+#, qt-format
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to read data from socket: %1."
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:56
+msgctxt "WaylandPortalScreenGrabber|"
+msgid "Unable to subscribe to response from xdg-desktop-portal."
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:76
+msgctxt "WaylandPortalScreenGrabber|"
+msgid "Received an empty path from xdg-desktop-portal."
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:73
+msgctxt "SnippingArea|"
+msgid "Unable to snip screen area"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:74
+#, qt-format
+msgctxt "SnippingArea|"
+msgid "Received an invalid image of screen %1."
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:626
+msgctxt "SnippingArea|"
+msgid ""
+"Click and drag to draw a selection rectangle,\n"
+"or press Esc to quit"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:832
+msgctxt "SnippingArea|"
+msgid "Confirm:"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:834
+msgctxt "SnippingArea|"
+msgid "Release left-click"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:834 src/ocr/snippingarea.cpp:836
+msgctxt "SnippingArea|"
+msgid "Enter"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:836
+msgctxt "SnippingArea|"
+msgid "Double-click"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:838
+msgctxt "SnippingArea|"
+msgid "Create new selection rectangle:"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:839
+msgctxt "SnippingArea|"
+msgid "Drag outside selection rectangle"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:839
+msgctxt "SnippingArea|"
+msgid "+ Shift: Magnifier"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:842
+msgctxt "SnippingArea|"
+msgid "Move selection rectangle:"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:843
+msgctxt "SnippingArea|"
+msgid "Drag inside selection rectangle"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:843
+msgctxt "SnippingArea|"
+msgid "Arrow keys"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:843
+msgctxt "SnippingArea|"
+msgid "+ Shift: Move in 1 pixel steps"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:845
+msgctxt "SnippingArea|"
+msgid "Resize selection rectangle:"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:846
+msgctxt "SnippingArea|"
+msgid "Drag handles"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:846
+msgctxt "SnippingArea|"
+msgid "Arrow keys + Alt"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:846
+msgctxt "SnippingArea|"
+msgid "+ Shift: Resize in 1 pixel steps"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:848
+msgctxt "SnippingArea|"
+msgid "Reset selection:"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:849
+msgctxt "SnippingArea|"
+msgid "Right-click"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:852
+msgctxt "SnippingArea|"
+msgid "Cancel:"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:853
+msgctxt "SnippingArea|"
+msgid "Esc key"
+msgstr ""
+
+#: src/onlinetranslator.cpp:275
+#, qt-format
+msgctxt "OnlineTranslator|"
+msgid "Language detection is not supported for %1"
+msgstr ""
+
+#: src/onlinetranslator.cpp:352
+#, qt-format
+msgctxt "OnlineTranslator|"
+msgid "%1 engine does not support TTS"
+msgstr ""
+
+#: src/onlinetranslator.cpp:493
+msgctxt "OnlineTranslator|"
+msgid "Automatically detect"
+msgstr ""
+
+#: src/onlinetranslator.cpp:495
+msgctxt "OnlineTranslator|"
+msgid "Afrikaans"
+msgstr ""
+
+#: src/onlinetranslator.cpp:497
+msgctxt "OnlineTranslator|"
+msgid "Albanian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:499
+msgctxt "OnlineTranslator|"
+msgid "Amharic"
+msgstr ""
+
+#: src/onlinetranslator.cpp:501
+msgctxt "OnlineTranslator|"
+msgid "Arabic"
+msgstr ""
+
+#: src/onlinetranslator.cpp:503
+msgctxt "OnlineTranslator|"
+msgid "Armenian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:505
+msgctxt "OnlineTranslator|"
+msgid "Assamese"
+msgstr ""
+
+#: src/onlinetranslator.cpp:507
+msgctxt "OnlineTranslator|"
+msgid "Aymara"
+msgstr ""
+
+#: src/onlinetranslator.cpp:509
+msgctxt "OnlineTranslator|"
+msgid "Azerbaijani"
+msgstr ""
+
+#: src/onlinetranslator.cpp:511
+msgctxt "OnlineTranslator|"
+msgid "Bajan"
+msgstr ""
+
+#: src/onlinetranslator.cpp:513
+msgctxt "OnlineTranslator|"
+msgid "Balkan Gipsy"
+msgstr ""
+
+#: src/onlinetranslator.cpp:515
+msgctxt "OnlineTranslator|"
+msgid "Bambara"
+msgstr ""
+
+#: src/onlinetranslator.cpp:517
+msgctxt "OnlineTranslator|"
+msgid "Bangla"
+msgstr ""
+
+#: src/onlinetranslator.cpp:519
+msgctxt "OnlineTranslator|"
+msgid "Bashkir"
+msgstr ""
+
+#: src/onlinetranslator.cpp:521
+msgctxt "OnlineTranslator|"
+msgid "Basque"
+msgstr ""
+
+#: src/onlinetranslator.cpp:523
+msgctxt "OnlineTranslator|"
+msgid "Belarusian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:525
+msgctxt "OnlineTranslator|"
+msgid "Bemba"
+msgstr ""
+
+#: src/onlinetranslator.cpp:527
+msgctxt "OnlineTranslator|"
+msgid "Bhojpuri"
+msgstr ""
+
+#: src/onlinetranslator.cpp:529
+msgctxt "OnlineTranslator|"
+msgid "Bislama"
+msgstr ""
+
+#: src/onlinetranslator.cpp:531
+msgctxt "OnlineTranslator|"
+msgid "Bosnian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:533
+msgctxt "OnlineTranslator|"
+msgid "Breton"
+msgstr ""
+
+#: src/onlinetranslator.cpp:535
+msgctxt "OnlineTranslator|"
+msgid "Bulgarian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:537
+msgctxt "OnlineTranslator|"
+msgid "Cantonese (Traditional)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:539
+msgctxt "OnlineTranslator|"
+msgid "Catalan"
+msgstr ""
+
+#: src/onlinetranslator.cpp:541
+msgctxt "OnlineTranslator|"
+msgid "Cebuano"
+msgstr ""
+
+#: src/onlinetranslator.cpp:543
+msgctxt "OnlineTranslator|"
+msgid "Chamorro"
+msgstr ""
+
+#: src/onlinetranslator.cpp:545
+msgctxt "OnlineTranslator|"
+msgid "Chichewa"
+msgstr ""
+
+#: src/onlinetranslator.cpp:547
+msgctxt "OnlineTranslator|"
+msgid "Chinese (Literary)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:549
+msgctxt "OnlineTranslator|"
+msgid "Chinese (Simplified)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:551
+msgctxt "OnlineTranslator|"
+msgid "Chinese (Traditional)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:553
+msgctxt "OnlineTranslator|"
+msgid "Chuvash"
+msgstr ""
+
+#: src/onlinetranslator.cpp:555
+msgctxt "OnlineTranslator|"
+msgid "Comorian (Ngazidja)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:557
+msgctxt "OnlineTranslator|"
+msgid "Coptic"
+msgstr ""
+
+#: src/onlinetranslator.cpp:559
+msgctxt "OnlineTranslator|"
+msgid "Corsican"
+msgstr ""
+
+#: src/onlinetranslator.cpp:561
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Antigua and Barbuda)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:563
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Bahamas)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:565
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Grenadian)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:567
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Guyanese)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:569
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Jamaican)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:571
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Vincentian)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:573
+msgctxt "OnlineTranslator|"
+msgid "Creole English (Virgin Islands)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:575
+msgctxt "OnlineTranslator|"
+msgid "Creole French (Saint Lucian)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:577
+msgctxt "OnlineTranslator|"
+msgid "Creole French (Seselwa)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:579
+msgctxt "OnlineTranslator|"
+msgid "Creole Portuguese (Upper Guinea)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:581
+msgctxt "OnlineTranslator|"
+msgid "Croatian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:583
+msgctxt "OnlineTranslator|"
+msgid "Czech"
+msgstr ""
+
+#: src/onlinetranslator.cpp:585
+msgctxt "OnlineTranslator|"
+msgid "Danish"
+msgstr ""
+
+#: src/onlinetranslator.cpp:587
+msgctxt "OnlineTranslator|"
+msgid "Dari"
+msgstr ""
+
+#: src/onlinetranslator.cpp:589
+msgctxt "OnlineTranslator|"
+msgid "Divehi"
+msgstr ""
+
+#: src/onlinetranslator.cpp:591
+msgctxt "OnlineTranslator|"
+msgid "Dogri"
+msgstr ""
+
+#: src/onlinetranslator.cpp:593
+msgctxt "OnlineTranslator|"
+msgid "Dutch"
+msgstr ""
+
+#: src/onlinetranslator.cpp:595
+msgctxt "OnlineTranslator|"
+msgid "Dzongkha"
+msgstr ""
+
+#: src/onlinetranslator.cpp:597
+msgctxt "OnlineTranslator|"
+msgid "Elvish (Sindarin)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:599
+msgctxt "OnlineTranslator|"
+msgid "Emoji"
+msgstr ""
+
+#: src/onlinetranslator.cpp:601
+msgctxt "OnlineTranslator|"
+msgid "English"
+msgstr ""
+
+#: src/onlinetranslator.cpp:603
+msgctxt "OnlineTranslator|"
+msgid "Esperanto"
+msgstr ""
+
+#: src/onlinetranslator.cpp:605
+msgctxt "OnlineTranslator|"
+msgid "Estonian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:607
+msgctxt "OnlineTranslator|"
+msgid "Ewe"
+msgstr ""
+
+#: src/onlinetranslator.cpp:609
+msgctxt "OnlineTranslator|"
+msgid "Fanagalo"
+msgstr ""
+
+#: src/onlinetranslator.cpp:611
+msgctxt "OnlineTranslator|"
+msgid "Faroese"
+msgstr ""
+
+#: src/onlinetranslator.cpp:613
+msgctxt "OnlineTranslator|"
+msgid "Fijian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:615
+msgctxt "OnlineTranslator|"
+msgid "Filipino"
+msgstr ""
+
+#: src/onlinetranslator.cpp:617
+msgctxt "OnlineTranslator|"
+msgid "Finnish"
+msgstr ""
+
+#: src/onlinetranslator.cpp:619
+msgctxt "OnlineTranslator|"
+msgid "French"
+msgstr ""
+
+#: src/onlinetranslator.cpp:621
+msgctxt "OnlineTranslator|"
+msgid "French (Canada)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:623
+msgctxt "OnlineTranslator|"
+msgid "Frisian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:625
+msgctxt "OnlineTranslator|"
+msgid "Galician"
+msgstr ""
+
+#: src/onlinetranslator.cpp:627
+msgctxt "OnlineTranslator|"
+msgid "Ganda"
+msgstr ""
+
+#: src/onlinetranslator.cpp:629
+msgctxt "OnlineTranslator|"
+msgid "Georgian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:631
+msgctxt "OnlineTranslator|"
+msgid "German"
+msgstr ""
+
+#: src/onlinetranslator.cpp:633
+msgctxt "OnlineTranslator|"
+msgid "Greek"
+msgstr ""
+
+#: src/onlinetranslator.cpp:635
+msgctxt "OnlineTranslator|"
+msgid "Greek (Classical)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:637
+msgctxt "OnlineTranslator|"
+msgid "Guarani"
+msgstr ""
+
+#: src/onlinetranslator.cpp:639
+msgctxt "OnlineTranslator|"
+msgid "Gujarati"
+msgstr ""
+
+#: src/onlinetranslator.cpp:641
+msgctxt "OnlineTranslator|"
+msgid "Haitian Creole"
+msgstr ""
+
+#: src/onlinetranslator.cpp:643
+msgctxt "OnlineTranslator|"
+msgid "Hausa"
+msgstr ""
+
+#: src/onlinetranslator.cpp:645
+msgctxt "OnlineTranslator|"
+msgid "Hawaiian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:647
+msgctxt "OnlineTranslator|"
+msgid "Hebrew"
+msgstr ""
+
+#: src/onlinetranslator.cpp:649
+msgctxt "OnlineTranslator|"
+msgid "Hill Mari"
+msgstr ""
+
+#: src/onlinetranslator.cpp:651
+msgctxt "OnlineTranslator|"
+msgid "Hindi"
+msgstr ""
+
+#: src/onlinetranslator.cpp:653
+msgctxt "OnlineTranslator|"
+msgid "Hmong"
+msgstr ""
+
+#: src/onlinetranslator.cpp:655
+msgctxt "OnlineTranslator|"
+msgid "Hmong Daw"
+msgstr ""
+
+#: src/onlinetranslator.cpp:657
+msgctxt "OnlineTranslator|"
+msgid "Hungarian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:659
+msgctxt "OnlineTranslator|"
+msgid "Icelandic"
+msgstr ""
+
+#: src/onlinetranslator.cpp:661
+msgctxt "OnlineTranslator|"
+msgid "Igbo"
+msgstr ""
+
+#: src/onlinetranslator.cpp:663
+msgctxt "OnlineTranslator|"
+msgid "Ilocano"
+msgstr ""
+
+#: src/onlinetranslator.cpp:665
+msgctxt "OnlineTranslator|"
+msgid "Indonesian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:667
+msgctxt "OnlineTranslator|"
+msgid "Inuinnaqtun"
+msgstr ""
+
+#: src/onlinetranslator.cpp:669
+msgctxt "OnlineTranslator|"
+msgid "Inuktitut"
+msgstr ""
+
+#: src/onlinetranslator.cpp:671
+msgctxt "OnlineTranslator|"
+msgid "Inuktitut (Greenlandic)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:673
+msgctxt "OnlineTranslator|"
+msgid "Inuktitut (Latin)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:675
+msgctxt "OnlineTranslator|"
+msgid "Irish"
+msgstr ""
+
+#: src/onlinetranslator.cpp:677
+msgctxt "OnlineTranslator|"
+msgid "Italian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:679
+msgctxt "OnlineTranslator|"
+msgid "Japanese"
+msgstr ""
+
+#: src/onlinetranslator.cpp:681
+msgctxt "OnlineTranslator|"
+msgid "Javanese"
+msgstr ""
+
+#: src/onlinetranslator.cpp:683
+msgctxt "OnlineTranslator|"
+msgid "Kabuverdianu"
+msgstr ""
+
+#: src/onlinetranslator.cpp:685
+msgctxt "OnlineTranslator|"
+msgid "Kabylian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:687
+msgctxt "OnlineTranslator|"
+msgid "Kannada"
+msgstr ""
+
+#: src/onlinetranslator.cpp:689
+msgctxt "OnlineTranslator|"
+msgid "Kazakh"
+msgstr ""
+
+#: src/onlinetranslator.cpp:691
+msgctxt "OnlineTranslator|"
+msgid "Kazakh (Latin)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:693
+msgctxt "OnlineTranslator|"
+msgid "Khmer"
+msgstr ""
+
+#: src/onlinetranslator.cpp:695
+msgctxt "OnlineTranslator|"
+msgid "Kinyarwanda"
+msgstr ""
+
+#: src/onlinetranslator.cpp:697
+msgctxt "OnlineTranslator|"
+msgid "Kirundi"
+msgstr ""
+
+#: src/onlinetranslator.cpp:699
+msgctxt "OnlineTranslator|"
+msgid "Klingon (Latin)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:701
+msgctxt "OnlineTranslator|"
+msgid "Konkani"
+msgstr ""
+
+#: src/onlinetranslator.cpp:703
+msgctxt "OnlineTranslator|"
+msgid "Korean"
+msgstr ""
+
+#: src/onlinetranslator.cpp:705
+msgctxt "OnlineTranslator|"
+msgid "Krio"
+msgstr ""
+
+#: src/onlinetranslator.cpp:707
+msgctxt "OnlineTranslator|"
+msgid "Kurdish (Central)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:709
+msgctxt "OnlineTranslator|"
+msgid "Kurdish (Northern)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:711
+msgctxt "OnlineTranslator|"
+msgid "Kurdish (Sorani)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:713
+msgctxt "OnlineTranslator|"
+msgid "Kyrgyz"
+msgstr ""
+
+#: src/onlinetranslator.cpp:715
+msgctxt "OnlineTranslator|"
+msgid "Lao"
+msgstr ""
+
+#: src/onlinetranslator.cpp:717
+msgctxt "OnlineTranslator|"
+msgid "Latin"
+msgstr ""
+
+#: src/onlinetranslator.cpp:719
+msgctxt "OnlineTranslator|"
+msgid "Latvian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:721
+msgctxt "OnlineTranslator|"
+msgid "Lingala"
+msgstr ""
+
+#: src/onlinetranslator.cpp:723
+msgctxt "OnlineTranslator|"
+msgid "Lithuanian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:725
+msgctxt "OnlineTranslator|"
+msgid "Lower Sorbian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:727
+msgctxt "OnlineTranslator|"
+msgid "Luganda"
+msgstr ""
+
+#: src/onlinetranslator.cpp:729
+msgctxt "OnlineTranslator|"
+msgid "Luxembourgish"
+msgstr ""
+
+#: src/onlinetranslator.cpp:731
+msgctxt "OnlineTranslator|"
+msgid "Macedonian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:733
+msgctxt "OnlineTranslator|"
+msgid "Maithili"
+msgstr ""
+
+#: src/onlinetranslator.cpp:735
+msgctxt "OnlineTranslator|"
+msgid "Malagasy"
+msgstr ""
+
+#: src/onlinetranslator.cpp:737
+msgctxt "OnlineTranslator|"
+msgid "Malay"
+msgstr ""
+
+#: src/onlinetranslator.cpp:739
+msgctxt "OnlineTranslator|"
+msgid "Malayalam"
+msgstr ""
+
+#: src/onlinetranslator.cpp:741
+msgctxt "OnlineTranslator|"
+msgid "Maltese"
+msgstr ""
+
+#: src/onlinetranslator.cpp:743
+msgctxt "OnlineTranslator|"
+msgid "Manx Gaelic"
+msgstr ""
+
+#: src/onlinetranslator.cpp:745
+msgctxt "OnlineTranslator|"
+msgid "Marathi"
+msgstr ""
+
+#: src/onlinetranslator.cpp:747
+msgctxt "OnlineTranslator|"
+msgid "Mari"
+msgstr ""
+
+#: src/onlinetranslator.cpp:749
+msgctxt "OnlineTranslator|"
+msgid "Marshallese"
+msgstr ""
+
+#: src/onlinetranslator.cpp:751
+msgctxt "OnlineTranslator|"
+msgid "Meiteilon (Manipuri)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:753
+msgctxt "OnlineTranslator|"
+msgid "Mende"
+msgstr ""
+
+#: src/onlinetranslator.cpp:755
+msgctxt "OnlineTranslator|"
+msgid "Mizo"
+msgstr ""
+
+#: src/onlinetranslator.cpp:757
+msgctxt "OnlineTranslator|"
+msgid "Mongolian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:759
+msgctxt "OnlineTranslator|"
+msgid "Mongolian (Cyrillic)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:761
+msgctxt "OnlineTranslator|"
+msgid "Mongolian (Traditional)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:763
+msgctxt "OnlineTranslator|"
+msgid "Morisyen"
+msgstr ""
+
+#: src/onlinetranslator.cpp:765
+msgctxt "OnlineTranslator|"
+msgid "Myanmar (Burmese)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:767
+msgctxt "OnlineTranslator|"
+msgid "Māori"
+msgstr ""
+
+#: src/onlinetranslator.cpp:769
+msgctxt "OnlineTranslator|"
+msgid "Nepali"
+msgstr ""
+
+#: src/onlinetranslator.cpp:771
+msgctxt "OnlineTranslator|"
+msgid "Niuean"
+msgstr ""
+
+#: src/onlinetranslator.cpp:773
+msgctxt "OnlineTranslator|"
+msgid "Norwegian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:775
+msgctxt "OnlineTranslator|"
+msgid "Nyanja"
+msgstr ""
+
+#: src/onlinetranslator.cpp:777
+msgctxt "OnlineTranslator|"
+msgid "Odia"
+msgstr ""
+
+#: src/onlinetranslator.cpp:779
+msgctxt "OnlineTranslator|"
+msgid "Oromo"
+msgstr ""
+
+#: src/onlinetranslator.cpp:781
+msgctxt "OnlineTranslator|"
+msgid "Palauan"
+msgstr ""
+
+#: src/onlinetranslator.cpp:783
+msgctxt "OnlineTranslator|"
+msgid "Papiamentu"
+msgstr ""
+
+#: src/onlinetranslator.cpp:785
+msgctxt "OnlineTranslator|"
+msgid "Pashto"
+msgstr ""
+
+#: src/onlinetranslator.cpp:787
+msgctxt "OnlineTranslator|"
+msgid "Persian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:789
+msgctxt "OnlineTranslator|"
+msgid "Pijin"
+msgstr ""
+
+#: src/onlinetranslator.cpp:791
+msgctxt "OnlineTranslator|"
+msgid "Polish"
+msgstr ""
+
+#: src/onlinetranslator.cpp:793
+msgctxt "OnlineTranslator|"
+msgid "Portuguese (Brazilian)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:795
+msgctxt "OnlineTranslator|"
+msgid "Portuguese (Portugal)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:797
+msgctxt "OnlineTranslator|"
+msgid "Potawatomi"
+msgstr ""
+
+#: src/onlinetranslator.cpp:799
+msgctxt "OnlineTranslator|"
+msgid "Punjabi"
+msgstr ""
+
+#: src/onlinetranslator.cpp:801
+msgctxt "OnlineTranslator|"
+msgid "Quechua"
+msgstr ""
+
+#: src/onlinetranslator.cpp:803
+msgctxt "OnlineTranslator|"
+msgid "Querétaro Otomi"
+msgstr ""
+
+#: src/onlinetranslator.cpp:805
+msgctxt "OnlineTranslator|"
+msgid "Romanian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:807
+msgctxt "OnlineTranslator|"
+msgid "Rundi"
+msgstr ""
+
+#: src/onlinetranslator.cpp:809
+msgctxt "OnlineTranslator|"
+msgid "Russian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:811
+msgctxt "OnlineTranslator|"
+msgid "Samoan"
+msgstr ""
+
+#: src/onlinetranslator.cpp:813
+msgctxt "OnlineTranslator|"
+msgid "Sango"
+msgstr ""
+
+#: src/onlinetranslator.cpp:815
+msgctxt "OnlineTranslator|"
+msgid "Sanskrit"
+msgstr ""
+
+#: src/onlinetranslator.cpp:817
+msgctxt "OnlineTranslator|"
+msgid "Scots Gaelic"
+msgstr ""
+
+#: src/onlinetranslator.cpp:819
+msgctxt "OnlineTranslator|"
+msgid "Serbian (Cyrillic)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:821
+msgctxt "OnlineTranslator|"
+msgid "Serbian (Latin)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:823
+msgctxt "OnlineTranslator|"
+msgid "Sesotho"
+msgstr ""
+
+#: src/onlinetranslator.cpp:825
+msgctxt "OnlineTranslator|"
+msgid "Sesotho sa Leboa"
+msgstr ""
+
+#: src/onlinetranslator.cpp:827
+msgctxt "OnlineTranslator|"
+msgid "Setswana"
+msgstr ""
+
+#: src/onlinetranslator.cpp:829
+msgctxt "OnlineTranslator|"
+msgid "Shona"
+msgstr ""
+
+#: src/onlinetranslator.cpp:831
+msgctxt "OnlineTranslator|"
+msgid "Sindhi"
+msgstr ""
+
+#: src/onlinetranslator.cpp:833
+msgctxt "OnlineTranslator|"
+msgid "Sinhala"
+msgstr ""
+
+#: src/onlinetranslator.cpp:835
+msgctxt "OnlineTranslator|"
+msgid "Slovak"
+msgstr ""
+
+#: src/onlinetranslator.cpp:837
+msgctxt "OnlineTranslator|"
+msgid "Slovenian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:839
+msgctxt "OnlineTranslator|"
+msgid "Somali"
+msgstr ""
+
+#: src/onlinetranslator.cpp:841
+msgctxt "OnlineTranslator|"
+msgid "Spanish"
+msgstr ""
+
+#: src/onlinetranslator.cpp:843
+msgctxt "OnlineTranslator|"
+msgid "Sranan Tongo"
+msgstr ""
+
+#: src/onlinetranslator.cpp:845
+msgctxt "OnlineTranslator|"
+msgid "Sundanese"
+msgstr ""
+
+#: src/onlinetranslator.cpp:847
+msgctxt "OnlineTranslator|"
+msgid "Swahili"
+msgstr ""
+
+#: src/onlinetranslator.cpp:849
+msgctxt "OnlineTranslator|"
+msgid "Swedish"
+msgstr ""
+
+#: src/onlinetranslator.cpp:851
+msgctxt "OnlineTranslator|"
+msgid "Syriac (Aramaic)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:853
+msgctxt "OnlineTranslator|"
+msgid "Tahitian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:855
+msgctxt "OnlineTranslator|"
+msgid "Tajik"
+msgstr ""
+
+#: src/onlinetranslator.cpp:857
+msgctxt "OnlineTranslator|"
+msgid "Tamashek (Tuareg)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:859
+msgctxt "OnlineTranslator|"
+msgid "Tamil"
+msgstr ""
+
+#: src/onlinetranslator.cpp:861
+msgctxt "OnlineTranslator|"
+msgid "Tatar"
+msgstr ""
+
+#: src/onlinetranslator.cpp:863
+msgctxt "OnlineTranslator|"
+msgid "Telugu"
+msgstr ""
+
+#: src/onlinetranslator.cpp:865
+msgctxt "OnlineTranslator|"
+msgid "Tetum"
+msgstr ""
+
+#: src/onlinetranslator.cpp:867
+msgctxt "OnlineTranslator|"
+msgid "Thai"
+msgstr ""
+
+#: src/onlinetranslator.cpp:869
+msgctxt "OnlineTranslator|"
+msgid "Tibetan"
+msgstr ""
+
+#: src/onlinetranslator.cpp:871
+msgctxt "OnlineTranslator|"
+msgid "Tigrinya"
+msgstr ""
+
+#: src/onlinetranslator.cpp:873
+msgctxt "OnlineTranslator|"
+msgid "Tok Pisin"
+msgstr ""
+
+#: src/onlinetranslator.cpp:875
+msgctxt "OnlineTranslator|"
+msgid "Tokelauan"
+msgstr ""
+
+#: src/onlinetranslator.cpp:877
+msgctxt "OnlineTranslator|"
+msgid "Tongan"
+msgstr ""
+
+#: src/onlinetranslator.cpp:879
+msgctxt "OnlineTranslator|"
+msgid "Tsonga"
+msgstr ""
+
+#: src/onlinetranslator.cpp:881
+msgctxt "OnlineTranslator|"
+msgid "Turkish"
+msgstr ""
+
+#: src/onlinetranslator.cpp:883
+msgctxt "OnlineTranslator|"
+msgid "Turkmen"
+msgstr ""
+
+#: src/onlinetranslator.cpp:885
+msgctxt "OnlineTranslator|"
+msgid "Tuvaluan"
+msgstr ""
+
+#: src/onlinetranslator.cpp:887
+msgctxt "OnlineTranslator|"
+msgid "Twi"
+msgstr ""
+
+#: src/onlinetranslator.cpp:889
+msgctxt "OnlineTranslator|"
+msgid "Udmurt"
+msgstr ""
+
+#: src/onlinetranslator.cpp:891
+msgctxt "OnlineTranslator|"
+msgid "Ukrainian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:893
+msgctxt "OnlineTranslator|"
+msgid "Uma"
+msgstr ""
+
+#: src/onlinetranslator.cpp:895
+msgctxt "OnlineTranslator|"
+msgid "Upper Sorbian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:897
+msgctxt "OnlineTranslator|"
+msgid "Urdu"
+msgstr ""
+
+#: src/onlinetranslator.cpp:899
+msgctxt "OnlineTranslator|"
+msgid "Uyghur"
+msgstr ""
+
+#: src/onlinetranslator.cpp:901
+msgctxt "OnlineTranslator|"
+msgid "Uzbek (Cyrillic)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:903
+msgctxt "OnlineTranslator|"
+msgid "Uzbek (Latin)"
+msgstr ""
+
+#: src/onlinetranslator.cpp:905
+msgctxt "OnlineTranslator|"
+msgid "Vietnamese"
+msgstr ""
+
+#: src/onlinetranslator.cpp:907
+msgctxt "OnlineTranslator|"
+msgid "Wallisian"
+msgstr ""
+
+#: src/onlinetranslator.cpp:909
+msgctxt "OnlineTranslator|"
+msgid "Welsh"
+msgstr ""
+
+#: src/onlinetranslator.cpp:911
+msgctxt "OnlineTranslator|"
+msgid "Wolof"
+msgstr ""
+
+#: src/onlinetranslator.cpp:913
+msgctxt "OnlineTranslator|"
+msgid "Xhosa"
+msgstr ""
+
+#: src/onlinetranslator.cpp:915
+msgctxt "OnlineTranslator|"
+msgid "Yakut"
+msgstr ""
+
+#: src/onlinetranslator.cpp:917
+msgctxt "OnlineTranslator|"
+msgid "Yiddish"
+msgstr ""
+
+#: src/onlinetranslator.cpp:919
+msgctxt "OnlineTranslator|"
+msgid "Yoruba"
+msgstr ""
+
+#: src/onlinetranslator.cpp:921
+msgctxt "OnlineTranslator|"
+msgid "Yucatec Maya"
+msgstr ""
+
+#: src/onlinetranslator.cpp:923
+msgctxt "OnlineTranslator|"
+msgid "Zulu"
+msgstr ""
+
+#: src/onlinetranslator.cpp:1268
+#, qt-format
+msgctxt "OnlineTranslator|"
+msgid "Instance error: %1"
+msgstr ""
+
+#: src/onlinetranslator.cpp:1282
+msgctxt "OnlineTranslator|"
+msgid "Error: Unable to parse autodetected language"
+msgstr ""
+
+#: src/popupwindow.ui:32
+msgctxt "PopupWindow|"
+msgid "Swap languages"
+msgstr ""
+
+#: src/popupwindow.ui:64
+msgctxt "PopupWindow|"
+msgid "Copy source text to the clipboard"
+msgstr ""
+
+#: src/popupwindow.ui:158
+msgctxt "PopupWindow|"
+msgid "Copy all translation data to the clipboard"
+msgstr ""
+
+#: src/popupwindow.ui:169
+msgctxt "PopupWindow|"
+msgid "Copy translation to the clipboard"
+msgstr ""
+
+#: src/settings/appsettings.cpp:1047
+#, qt-format
+msgctxt "AppSettings|"
+msgid "Unknown language code: %1"
+msgstr ""
+
+#: src/settings/autostartmanager/abstractautostartmanager.cpp:44
+msgctxt "AbstractAutostartManager|"
+msgid "Unable to apply autostart settings"
+msgstr ""
+
+#: src/settings/autostartmanager/portalautostartmanager.cpp:35
+#, qt-format
+msgctxt "PortalAutostartManager|"
+msgid "Allow %1 to manage autostart setting for itself."
+msgstr ""
+
+#: src/settings/autostartmanager/portalautostartmanager.cpp:54
+msgctxt "PortalAutostartManager|"
+msgid "Unable to subscribe to response from xdg-desktop-portal."
+msgstr ""
+
+#: src/settings/autostartmanager/unixautostartmanager.cpp:35
+#, qt-format
+msgctxt "UnixAutostartManager|"
+msgid "Unable to create %1"
+msgstr ""
+
+#: src/settings/autostartmanager/unixautostartmanager.cpp:42
+#, qt-format
+msgctxt "UnixAutostartManager|"
+msgid "Unable to copy %1 to %2"
+msgstr ""
+
+#: src/settings/autostartmanager/unixautostartmanager.cpp:47
+#, qt-format
+msgctxt "UnixAutostartManager|"
+msgid "Unable to remove %1 from %2"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:33
+msgctxt "SettingsDialog|"
+msgid "Portable mode"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:46
+#, qt-format
+msgctxt "SettingsDialog|"
+msgid "Use %1 to store settings"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:51 src/settings/settingsdialog.cpp:55
+#: src/settings/settingsdialog.cpp:56
+msgctxt "SettingsDialog|"
+msgid "<System language>"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:90
+msgctxt "SettingsDialog|"
+msgid "Icons:"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:112
+msgctxt "SettingsDialog|"
+msgid "The OCR parameter fields can not be empty."
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:113
+msgctxt "SettingsDialog|"
+msgid "Do you want to discard the invalid parameters?"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:253
+msgctxt "SettingsDialog|"
+msgid "Select icon"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:253
+msgctxt "SettingsDialog|"
+msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:283
+msgctxt "SettingsDialog|"
+msgid "Select OCR languages path"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:423
+msgctxt "SettingsDialog|"
+msgid "Back"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:14
+msgctxt "SettingsDialog|"
+msgid "Settings"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:135
+msgctxt "SettingsDialog|"
+msgid "General"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:58
+msgctxt "SettingsDialog|"
+msgid "Interface"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:67 src/settings/settingsdialog.ui:642
+msgctxt "SettingsDialog|"
+msgid "Translation"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:85
+msgctxt "SettingsDialog|"
+msgid "Connection"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:94
+msgctxt "SettingsDialog|"
+msgid "Shortcuts"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:103
+msgctxt "SettingsDialog|"
+msgid "About"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:147
+msgctxt "SettingsDialog|"
+msgid "Language:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:154
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Interface language</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:161
+msgctxt "SettingsDialog|"
+msgid "Main window orientation:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:168
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Orientation of the main window layout<br/>When using "
+"<span style=\" font-style:italic;\">Auto</span>, the window orientation will "
+"match the screen orientation</p></body></html>"
+msgstr ""
+
+#. Orientation
+#: src/settings/settingsdialog.ui:172
+msgctxt "SettingsDialog|"
+msgid "Auto"
+msgstr ""
+
+#. Orientation
+#: src/settings/settingsdialog.ui:177
+msgctxt "SettingsDialog|"
+msgid "Portrait"
+msgstr ""
+
+#. Orientation
+#: src/settings/settingsdialog.ui:182
+msgctxt "SettingsDialog|"
+msgid "Landscape"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:190
+msgctxt "SettingsDialog|"
+msgid "Translation mode:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:197
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>A window for translating selected text. If the "
+"application is minimized, the main window will always be used.</p></body></"
+"html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:201 src/settings/settingsdialog.ui:350
+msgctxt "SettingsDialog|"
+msgid "Pop-up window"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:206
+msgctxt "SettingsDialog|"
+msgid "Main window"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:211
+msgctxt "SettingsDialog|"
+msgid "Notification"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:219
+msgctxt "SettingsDialog|"
+msgid "Translation notification timeout:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:232
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Notification with translation display time</p></body></"
+"html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:235 src/settings/settingsdialog.ui:440
+msgctxt "SettingsDialog|"
+msgid " sec"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:248
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Display icon in the system tray</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:251
+msgctxt "SettingsDialog|"
+msgid "Show tray icon"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:261
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Start application minimized to the system tray</p></"
+"body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:264
+msgctxt "SettingsDialog|"
+msgid "Start minimized"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:271
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Run the application at system startup</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:274
+msgctxt "SettingsDialog|"
+msgid "Launch at startup"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:307
+msgctxt "SettingsDialog|"
+msgid "Font"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:313
+msgctxt "SettingsDialog|"
+msgid "Name:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:320
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Translation and source text font</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:327
+msgctxt "SettingsDialog|"
+msgid "Size:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:334
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Font size of translation and source text</p></body></"
+"html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:356
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Pop-up window height in pixels</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:366
+msgctxt "SettingsDialog|"
+msgid "Width:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:373
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:383
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Pop-up window opacity</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:410
+msgctxt "SettingsDialog|"
+msgid "Opacity:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:417
+msgctxt "SettingsDialog|"
+msgid "Show timeout:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:424
+msgctxt "SettingsDialog|"
+msgid "Height:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:437
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>The number of seconds after which the window will be "
+"hidden if it has no focus</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:460
+msgctxt "SettingsDialog|"
+msgid "Language format"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:466
+msgctxt "SettingsDialog|"
+msgid "Main window:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:473 src/settings/settingsdialog.ui:497
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Languages text on buttons</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:477 src/settings/settingsdialog.ui:501
+msgctxt "SettingsDialog|"
+msgid "Full name"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:482 src/settings/settingsdialog.ui:506
+msgctxt "SettingsDialog|"
+msgid "ISO 639-1 code"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:490
+msgctxt "SettingsDialog|"
+msgid "Pop-up:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:517
+msgctxt "SettingsDialog|"
+msgid "Tray icon"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:523
+msgctxt "SettingsDialog|"
+msgid "Icon:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:536
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>System tray icon</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:540
+msgctxt "SettingsDialog|"
+msgid "Default"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:549
+msgctxt "SettingsDialog|"
+msgid "Monochrome (dark theme)"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:558
+msgctxt "SettingsDialog|"
+msgid "Monochrome (light theme)"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:567
+msgctxt "SettingsDialog|"
+msgid "Custom"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:582
+msgctxt "SettingsDialog|"
+msgid "Custom:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:594
+msgctxt "SettingsDialog|"
+msgid "Path to the icon or icon name from theme"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:604
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Select icon</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:648
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable source transliteration</p></body></"
+"html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:651
+msgctxt "SettingsDialog|"
+msgid "Enable source transliteration"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:658
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable translation transliteration</p></"
+"body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:661
+msgctxt "SettingsDialog|"
+msgid "Enable translation transliteration"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:668
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable source transcription</p></body></"
+"html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:671
+msgctxt "SettingsDialog|"
+msgid "Enable source transcription"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:678
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable translation options</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:681
+msgctxt "SettingsDialog|"
+msgid "Enable translation options"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:688
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable usage examples</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:691
+msgctxt "SettingsDialog|"
+msgid "Enable examples"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:698
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Replace each sequence of whitespaces (this includes "
+"the ASCII characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' ') with a "
+"single space in queries</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:701
+msgctxt "SettingsDialog|"
+msgid "Simplify source"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:711
+msgctxt "SettingsDialog|"
+msgid "Automatic language detection"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:717
+msgctxt "SettingsDialog|"
+msgid "Primary translation language:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:724
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Language to which text will be translated when "
+"autodetecting</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:731
+msgctxt "SettingsDialog|"
+msgid "Secondary translation language:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:738
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Language to which the text will be translated if it is "
+"in the language selected above</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:745 src/settings/settingsdialog.ui:755
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Automatically switch to <span style=\" font-style:"
+"italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:748
+msgctxt "SettingsDialog|"
+msgid "Force source language detection"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:758
+msgctxt "SettingsDialog|"
+msgid "Force translation language detection"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:787
+msgctxt "SettingsDialog|"
+msgid "Mozhi instance URL"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:800
+msgctxt "SettingsDialog|"
+msgid "Automatically pick the fastest instance based on the ping"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:803
+msgctxt "SettingsDialog|"
+msgid "Detect fastest"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:836
+msgctxt "SettingsDialog|"
+msgid "Languages"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:842
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Loading additional languages will impact both speed "
+"and accuracy, as there is more work to do to decide on the applicable "
+"language, and there is more chance of hallucinating incorrect words.</p></"
+"body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:849
+msgctxt "SettingsDialog|"
+msgid "Languages path:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:856
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:867
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:870
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
+"\"><span style=\" text-decoration: underline; color:#2980b9;\">Download "
+"more</span></a></p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:880
+msgctxt "SettingsDialog|"
+msgid "Directory with trained models"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:896
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Replace all single line breaks with a space after text "
+"recognition</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:899
+msgctxt "SettingsDialog|"
+msgid "Convert line breaks"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:965
+msgctxt "SettingsDialog|"
+msgid "Screen capture"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:977
+msgctxt "SettingsDialog|"
+msgid "Remember region:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:984
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>When to remember the last selected region</p></body></"
+"html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:988
+msgctxt "SettingsDialog|"
+msgid "Never"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:993
+msgctxt "SettingsDialog|"
+msgid "Remember last"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:998
+msgctxt "SettingsDialog|"
+msgid "Remember always"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1006
+msgctxt "SettingsDialog|"
+msgid "Capture delay:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1013
+msgctxt "SettingsDialog|"
+msgid "Delay before screen capture"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1016
+msgctxt "SettingsDialog|"
+msgid " ms"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1026
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1029
+msgctxt "SettingsDialog|"
+msgid "Show magnifier"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1039
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Finish capturing the fragment when the mouse button is "
+"released</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1042
+msgctxt "SettingsDialog|"
+msgid "Confirm on release"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1049
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
+"html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1052
+msgctxt "SettingsDialog|"
+msgid "Apply light mask"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1085
+msgctxt "SettingsDialog|"
+msgid "Proxy server"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1091
+msgctxt "SettingsDialog|"
+msgid "Type:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1104
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Proxy type</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1108
+msgctxt "SettingsDialog|"
+msgid "Use system settings"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1118
+msgctxt "SettingsDialog|"
+msgid "Don't use a proxy"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1134
+msgctxt "SettingsDialog|"
+msgid "Host:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1144
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Proxy host name</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1157
+msgctxt "SettingsDialog|"
+msgid "Port:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1173
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Proxy port</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1192
+msgctxt "SettingsDialog|"
+msgid "Info: the proxy works only for text translation"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1202
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable authentication</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1205
+msgctxt "SettingsDialog|"
+msgid "Authentication"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1215
+msgctxt "SettingsDialog|"
+msgid "Username:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1225
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Proxy username for authentication</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1235
+msgctxt "SettingsDialog|"
+msgid "Password:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1245
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Proxy password for authentication</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1258
+msgctxt "SettingsDialog|"
+msgid "Info: the password is saved unencrypted"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1294
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Register global shortcuts in system</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1297
+msgctxt "SettingsDialog|"
+msgid "Enable global shortcuts"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1313
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1316
+msgctxt "SettingsDialog|"
+msgid "Reset all"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1326
+msgctxt "SettingsDialog|"
+msgid "Shortcut"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1332
+msgctxt "SettingsDialog|"
+msgid "Key sequence:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1339
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>The key sequence for the selected action</p></body></"
+"html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1346
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1349
+msgctxt "SettingsDialog|"
+msgid "Accept"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1360
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1363
+msgctxt "SettingsDialog|"
+msgid "Clear"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1374
+msgctxt "SettingsDialog|"
+msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1377
+msgctxt "SettingsDialog|"
+msgid "Reset"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1423
+msgctxt "SettingsDialog|"
+msgid "Version:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1433
+msgctxt "SettingsDialog|"
+msgid "License:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1447
+msgctxt "SettingsDialog|"
+msgid "Source code:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1467
+msgctxt "SettingsDialog|"
+msgid "Translation backend:"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:21
+msgctxt "ShortcutsModel|"
+msgid "Global"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:23
+msgctxt "ShortcutsModel|"
+msgid "Translate selected text"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:26
+msgctxt "ShortcutsModel|"
+msgid "Speak selected text"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:29
+msgctxt "ShortcutsModel|"
+msgid "Speak translation of selected text"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:32
+msgctxt "ShortcutsModel|"
+msgid "Stop text speaking"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:35
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:71
+msgctxt "ShortcutsModel|"
+msgid "Speak / pause text speaking"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:38
+msgctxt "ShortcutsModel|"
+msgid "Show main window"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:41
+msgctxt "ShortcutsModel|"
+msgid "Translate selected text and copy to clipboard"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:44
+msgctxt "ShortcutsModel|"
+msgid "Recognize text in screen area"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:47
+msgctxt "ShortcutsModel|"
+msgid "Translate text in screen area"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:50
+msgctxt "ShortcutsModel|"
+msgid "Recognize text in screen area with delay"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:53
+msgctxt "ShortcutsModel|"
+msgid "Translate text in screen area with delay"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:57
+msgctxt "ShortcutsModel|"
+msgid "Main window"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
+msgctxt "ShortcutsModel|"
+msgid "Translate"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:62
+msgctxt "ShortcutsModel|"
+msgid "Swap languages"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:65
+msgctxt "ShortcutsModel|"
+msgid "Close window"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:69
+msgctxt "ShortcutsModel|"
+msgid "Source text"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:75
+msgctxt "ShortcutsModel|"
+msgid "Translation"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
+msgctxt "ShortcutsModel|"
+msgid "Speak / pause speaking"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:80
+msgctxt "ShortcutsModel|"
+msgid "Copy to clipboard"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:126
+msgctxt "ShortcutsModel|"
+msgid "Description"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:128
+msgctxt "ShortcutsModel|"
+msgid "Shortcut"
+msgstr ""
+
+#: src/settings/tesseractparameterstablewidget.cpp:16
+msgctxt "TesseractParametersTableWidget|"
+msgid "Property"
+msgstr ""
+
+#: src/settings/tesseractparameterstablewidget.cpp:16
+msgctxt "TesseractParametersTableWidget|"
+msgid "Value"
+msgstr ""
+
+#: src/speakbuttons.cpp:75
+msgctxt "SpeakButtons|"
+msgid "No text specified"
+msgstr ""
+
+#: src/speakbuttons.cpp:75
+msgctxt "SpeakButtons|"
+msgid "Playback text is empty"
+msgstr ""
+
+#: src/speakbuttons.cpp:81
+msgctxt "SpeakButtons|"
+msgid "Unable to generate URLs for TTS"
+msgstr ""
+
+#: src/speakbuttons.ui:24
+msgctxt "SpeakButtons|"
+msgid "Speak / pause text speaking"
+msgstr ""
+
+#: src/speakbuttons.ui:34
+msgctxt "SpeakButtons|"
+msgid "Stop text speaking"
+msgstr ""
+
+#: src/transitions/ocruninitializedtransition.cpp:28
+msgctxt "Ocr|"
+msgid "OCR languages are not loaded"
+msgstr ""
+
+#: src/transitions/ocruninitializedtransition.cpp:28
+msgctxt "Ocr|"
+msgid "You should set at least one OCR language in the application settings"
+msgstr ""
+
+#: src/translationedit.cpp:62
+msgctxt "TranslationEdit|"
+msgid "translation options:"
+msgstr ""
+
+#: src/translationedit.cpp:87
+msgctxt "TranslationEdit|"
+msgid "examples:"
+msgstr ""
+
+#: src/trayicon.cpp:19 src/trayicon.cpp:44
+msgctxt "TrayIcon|"
+msgid "Show window"
+msgstr ""
+
+#: src/trayicon.cpp:20 src/trayicon.cpp:45
+msgctxt "TrayIcon|"
+msgid "Settings"
+msgstr ""
+
+#: src/trayicon.cpp:21 src/trayicon.cpp:46
+msgctxt "TrayIcon|"
+msgid "Quit"
+msgstr ""
+
+#: src/trayicon.cpp:51
+msgctxt "TrayIcon|"
+msgid "Translation result"
+msgstr ""
