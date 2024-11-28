@@ -177,6 +177,7 @@ void SettingsDialog::accept()
     settings.setConfirmOnRelease(ui->confirmOnReleaseCheckBox->isChecked());
     settings.setApplyLightMask(ui->applyLightMaskCheckBox->isChecked());
     settings.setTesseractParameters(ui->tesseractParametersTableWidget->parameters());
+    settings.setOcrNegate(ui->negateOcrCheckBox->isChecked());
 
     // Connection settings
     settings.setProxyType(static_cast<QNetworkProxy::ProxyType>(ui->proxyTypeComboBox->currentIndex()));
@@ -393,6 +394,7 @@ void SettingsDialog::restoreDefaults()
     ui->confirmOnReleaseCheckBox->setChecked(AppSettings::defaultConfirmOnRelease());
     ui->applyLightMaskCheckBox->setChecked(AppSettings::defaultApplyLightMask());
     ui->tesseractParametersTableWidget->setParameters(AppSettings::defaultTesseractParameters());
+    ui->negateOcrCheckBox->setChecked(AppSettings::defaultOcrNegate());
 
     // Connection settings
     ui->proxyTypeComboBox->setCurrentIndex(AppSettings::defaultProxyType());
@@ -492,6 +494,7 @@ void SettingsDialog::loadSettings()
     ui->confirmOnReleaseCheckBox->setChecked(settings.isConfirmOnRelease());
     ui->applyLightMaskCheckBox->setChecked(settings.isApplyLightMask());
     ui->tesseractParametersTableWidget->setParameters(settings.tesseractParameters());
+    ui->negateOcrCheckBox->setChecked(settings.isOcrNegate());
 
     // Connection settings
     ui->proxyTypeComboBox->setCurrentIndex(settings.proxyType());

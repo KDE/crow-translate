@@ -69,6 +69,7 @@ public slots:
     Q_SCRIPTABLE void translateScreenArea();
     Q_SCRIPTABLE void delayedRecognizeScreenArea();
     Q_SCRIPTABLE void delayedTranslateScreenArea();
+    Q_SCRIPTABLE void toggleOcrNegate();
 
     // Main window shortcuts
     Q_SCRIPTABLE void clearText();
@@ -165,6 +166,7 @@ private:
     QHotkey *m_translateScreenAreaHotkey;
     QHotkey *m_delayedRecognizeScreenAreaHotkey;
     QHotkey *m_delayedTranslateScreenAreaHotkey;
+    QHotkey *m_toggleOcrNegateHotkey;
     QShortcut *m_closeWindowsShortcut;
 
     QStateMachine *m_stateMachine;

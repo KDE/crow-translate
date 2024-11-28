@@ -53,6 +53,7 @@ MainWindow::MainWindow(QWidget *parent)
     , m_translateScreenAreaHotkey(new QHotkey(this))
     , m_delayedRecognizeScreenAreaHotkey(new QHotkey(this))
     , m_delayedTranslateScreenAreaHotkey(new QHotkey(this))
+    , m_toggleOcrNegateHotkey(new QHotkey(this))
     , m_closeWindowsShortcut(new QShortcut(this))
     , m_stateMachine(new QStateMachine(this))
     , m_translator(new OnlineTranslator(this))
@@ -87,6 +88,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_translateScreenAreaHotkey, &QHotkey::activated, this, &MainWindow::translateScreenArea);
     connect(m_delayedRecognizeScreenAreaHotkey, &QHotkey::activated, this, &MainWindow::delayedRecognizeScreenArea);
     connect(m_delayedTranslateScreenAreaHotkey, &QHotkey::activated, this, &MainWindow::delayedTranslateScreenArea);
+    connect(m_toggleOcrNegateHotkey, &QHotkey::activated, this, &MainWindow::toggleOcrNegate);
 
     // Source and translation logic
     connect(ui->sourceLanguagesWidget, &LanguageButtonsWidget::buttonChecked, this, &MainWindow::checkLanguageButton);
@@ -257,6 +259,15 @@ Q_SCRIPTABLE void MainWindow::delayedRecognizeScreenArea()
 Q_SCRIPTABLE void MainWindow::delayedTranslateScreenArea()
 {
     emit delayedTranslateScreenAreaRequested();
+}
+
+Q_SCRIPTABLE void MainWindow::toggleOcrNegate()
+{
+    constexpr int timeout = 500;
+    AppSettings settings;
+    const bool negate = settings.toggleOcrNegate();
+    m_snippingArea->setNegateOcrImage(negate);
+    m_trayIcon->showMessage(tr("Toggled OCR image negate"), tr("OCR image negate has changed to %1").arg(negate), QSystemTrayIcon::Information, timeout);
 }
 
 void MainWindow::clearText()
@@ -934,6 +945,7 @@ void MainWindow::loadAppSettings()
     m_snippingArea->setCaptureOnRelese(settings.isConfirmOnRelease());
     m_snippingArea->setShowMagnifier(settings.isShowMagnifier());
     m_snippingArea->setApplyLightMask(settings.isApplyLightMask());
+    m_snippingArea->setNegateOcrImage(settings.isOcrNegate());
 
     // Connection
     if (const QNetworkProxy::ProxyType proxyType = settings.proxyType(); proxyType == QNetworkProxy::DefaultProxy) {
@@ -964,6 +976,7 @@ void MainWindow::loadAppSettings()
         m_translateScreenAreaHotkey->setShortcut(settings.translateScreenAreaShortcut(), true);
         m_delayedRecognizeScreenAreaHotkey->setShortcut(settings.delayedRecognizeScreenAreaShortcut(), true);
         m_delayedTranslateScreenAreaHotkey->setShortcut(settings.delayedTranslateScreenAreaShortcut(), true);
+        m_toggleOcrNegateHotkey->setShortcut(settings.toggleOcrNegateShortcut(), true);
     } else {
         m_translateSelectionHotkey->setRegistered(false);
         m_speakSelectionHotkey->setRegistered(false);
@@ -976,6 +989,7 @@ void MainWindow::loadAppSettings()
         m_translateScreenAreaHotkey->setRegistered(false);
         m_delayedRecognizeScreenAreaHotkey->setRegistered(false);
         m_delayedTranslateScreenAreaHotkey->setRegistered(false);
+        m_toggleOcrNegateHotkey->setRegistered(false);
     }
 
     // Window shortcuts

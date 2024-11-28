@@ -31,6 +31,7 @@ public:
 
     void setCaptureOnRelese(bool onRelease);
     void setShowMagnifier(bool show);
+    void setNegateOcrImage(bool negate);
     void setApplyLightMask(bool apply);
     void setRegionRememberType(AppSettings::RegionRememberType type);
     void setCropRegion(QRect region);
@@ -150,6 +151,7 @@ private:
     int m_bottomHelpGridLeftWidth = 0;
 
     bool m_showMagnifier = AppSettings::defaultShowMagnifier();
+    bool m_negateOcrImage = AppSettings::defaultOcrNegate();
     bool m_confirmOnRelease = AppSettings::defaultConfirmOnRelease();
     AppSettings::RegionRememberType m_regionRememberType = AppSettings::defaultRegionRememberType();
 

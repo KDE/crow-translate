@@ -252,6 +252,9 @@ public:
     void setDelayedTranslateScreenAreaShortcut(const QKeySequence &shortcut);
     static QKeySequence defaultDelayedTranslateScreenAreaShortcut();
 
+    QKeySequence toggleOcrNegateShortcut() const;
+    void setToggleOcrNegateShortcut(const QKeySequence &shortcut);
+
     // Window shortcuts
     QKeySequence translateShortcut() const;
     void setTranslateShortcut(const QKeySequence &shortcut);
@@ -316,6 +319,11 @@ public:
 
     QRect cropRegion() const;
     void setCropRegion(QRect rect);
+
+    bool isOcrNegate() const;
+    void setOcrNegate(bool negate);
+    static bool defaultOcrNegate();
+    bool toggleOcrNegate();
 
     // Buttons
     QVector<OnlineTranslator::Language> languages(LanguageButtonsType type) const;

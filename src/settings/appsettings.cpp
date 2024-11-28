@@ -876,6 +876,16 @@ QKeySequence AppSettings::defaultCopyTranslationShortcut()
     return QKeySequence(QStringLiteral("Ctrl+Shift+C"));
 }
 
+QKeySequence AppSettings::toggleOcrNegateShortcut() const
+{
+    return m_settings->value(QStringLiteral("Shortcuts/ToggleOcrNegate")).value<QKeySequence>();
+}
+
+void AppSettings::setToggleOcrNegateShortcut(const QKeySequence &shortcut)
+{
+    m_settings->setValue(QStringLiteral("Shortcuts/ToggleOcrNegate"), shortcut);
+}
+
 bool AppSettings::isConvertLineBreaks() const
 {
     return m_settings->value(QStringLiteral("OCR/ConvertLineBreaks"), defaultConvertLineBreaks()).toBool();
@@ -1030,6 +1040,28 @@ QRect AppSettings::cropRegion() const
 void AppSettings::setCropRegion(QRect rect)
 {
     m_settings->setValue(QStringLiteral("OCR/CropRegion"), rect);
+}
+
+bool AppSettings::isOcrNegate() const
+{
+    return m_settings->value(QStringLiteral("OCR/Negate"), defaultOcrNegate()).toBool();
+}
+
+void AppSettings::setOcrNegate(bool negate)
+{
+    m_settings->setValue(QStringLiteral("OCR/Negate"), negate);
+}
+
+bool AppSettings::defaultOcrNegate()
+{
+    return false;
+}
+
+bool AppSettings::toggleOcrNegate()
+{
+    const bool inverted = !isOcrNegate();
+    setOcrNegate(inverted);
+    return inverted;
 }
 
 QVector<OnlineTranslator::Language> AppSettings::languages(LanguageButtonsType type) const

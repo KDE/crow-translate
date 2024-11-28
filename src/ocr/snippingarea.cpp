@@ -48,6 +48,11 @@ void SnippingArea::setShowMagnifier(bool show)
     m_showMagnifier = show;
 }
 
+void SnippingArea::setNegateOcrImage(bool negate)
+{
+    m_negateOcrImage = negate;
+}
+
 void SnippingArea::setApplyLightMask(bool apply)
 {
     m_maskColor = apply ? QColor(255, 255, 255, 100) : QColor();
@@ -876,7 +881,14 @@ void SnippingArea::acceptSelection()
         // Until Qt 5.10 there was no way to get the screen with the current cursor
         const qreal dpi = QGuiApplication::primaryScreen()->logicalDotsPerInch();
 #endif
-        emit snipped(selectedPixmap(), static_cast<int>(dpi));
+
+        if (m_negateOcrImage) {
+            QImage image = selectedPixmap().toImage();
+            image.invertPixels();
+            emit snipped(QPixmap::fromImage(image), static_cast<int>(dpi));
+        } else {
+            emit snipped(selectedPixmap(), static_cast<int>(dpi));
+        }
     }
     hide();
     releaseKeyboard();

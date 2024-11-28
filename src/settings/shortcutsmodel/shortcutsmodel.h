@@ -64,6 +64,7 @@ private:
     ShortcutItem *m_translateScreenAreaShortcut;
     ShortcutItem *m_delayedRecognizeScreenAreaShortcut;
     ShortcutItem *m_delayedTranslateScreenAreaShortcut;
+    ShortcutItem *m_toggleOcrNegateShortcut;
 
     // Window shortcuts
     ShortcutItem *m_translateShortcut;

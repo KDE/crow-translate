@@ -53,6 +53,8 @@ ShortcutsModel::ShortcutsModel(QObject *parent)
     m_delayedTranslateScreenAreaShortcut = new ShortcutItem(tr("Translate text in screen area with delay"), QStringLiteral("transform-crop"), m_globalShortcuts);
     m_delayedTranslateScreenAreaShortcut->setDefaultShortcut(AppSettings::defaultDelayedTranslateScreenAreaShortcut());
 
+    m_toggleOcrNegateShortcut = new ShortcutItem(tr("Toggle color inversion for OCR"), QStringLiteral("transform-crop"), m_globalShortcuts);
+
     // Window shortcuts
     auto *windowShortcuts = new ShortcutItem(tr("Main window"), m_rootItem);
 
@@ -199,6 +201,7 @@ void ShortcutsModel::loadShortcuts(const AppSettings &settings)
     m_translateScreenAreaShortcut->setShortcut(settings.translateScreenAreaShortcut());
     m_delayedRecognizeScreenAreaShortcut->setShortcut(settings.delayedRecognizeScreenAreaShortcut());
     m_delayedTranslateScreenAreaShortcut->setShortcut(settings.delayedTranslateScreenAreaShortcut());
+    m_toggleOcrNegateShortcut->setShortcut(settings.toggleOcrNegateShortcut());
 
     // Window shortcuts
     m_translateShortcut->setShortcut(settings.translateShortcut());
@@ -227,6 +230,7 @@ void ShortcutsModel::saveShortcuts(AppSettings &settings) const
     settings.setTranslateScreenAreaShortcut(m_translateScreenAreaShortcut->shortcut());
     settings.setDelayedRecognizeScreenAreaShortcut(m_delayedRecognizeScreenAreaShortcut->shortcut());
     settings.setDelayedTranslateScreenAreaShortcut(m_delayedTranslateScreenAreaShortcut->shortcut());
+    settings.setToggleOcrNegateShortcut(m_toggleOcrNegateShortcut->shortcut());
 
     // Window shortcuts
     settings.setTranslateShortcut(m_translateShortcut->shortcut());

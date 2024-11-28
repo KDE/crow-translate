@@ -42,15 +42,14 @@
        <enum>QListView::Adjust</enum>
       </property>
       <property name="currentRow">
-       <number>0</number>
+       <number>-1</number>
       </property>
       <item>
        <property name="text">
         <string>General</string>
        </property>
        <property name="icon">
-        <iconset theme="preferences-system">
-         <normaloff>.</normaloff>.</iconset>
+        <iconset theme="preferences-system"/>
        </property>
       </item>
       <item>
@@ -58,8 +57,7 @@
         <string>Interface</string>
        </property>
        <property name="icon">
-        <iconset theme="preferences-desktop-theme">
-         <normaloff>.</normaloff>.</iconset>
+        <iconset theme="preferences-desktop-theme"/>
        </property>
       </item>
       <item>
@@ -67,8 +65,7 @@
         <string>Translation</string>
        </property>
        <property name="icon">
-        <iconset theme="preferences-desktop-locale">
-         <normaloff>.</normaloff>.</iconset>
+        <iconset theme="preferences-desktop-locale"/>
        </property>
       </item>
       <item>
@@ -76,8 +73,7 @@
         <string notr="true">OCR</string>
        </property>
        <property name="icon">
-        <iconset theme="scanner">
-         <normaloff>.</normaloff>.</iconset>
+        <iconset theme="scanner"/>
        </property>
       </item>
       <item>
@@ -85,8 +81,7 @@
         <string>Connection</string>
        </property>
        <property name="icon">
-        <iconset theme="preferences-system-network">
-         <normaloff>.</normaloff>.</iconset>
+        <iconset theme="preferences-system-network"/>
        </property>
       </item>
       <item>
@@ -94,8 +89,7 @@
         <string>Shortcuts</string>
        </property>
        <property name="icon">
-        <iconset theme="preferences-desktop-keyboard">
-         <normaloff>.</normaloff>.</iconset>
+        <iconset theme="preferences-desktop-keyboard"/>
        </property>
       </item>
       <item>
@@ -103,8 +97,7 @@
         <string>About</string>
        </property>
        <property name="icon">
-        <iconset theme="dialog-information">
-         <normaloff>.</normaloff>.</iconset>
+        <iconset theme="dialog-information"/>
        </property>
       </item>
      </widget>
@@ -118,7 +111,7 @@
          <x>0</x>
          <y>0</y>
          <width>637</width>
-         <height>608</height>
+         <height>606</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -540,8 +533,7 @@
                    <string>Default</string>
                   </property>
                   <property name="icon">
-                   <iconset theme="org.kde.CrowTranslate-tray">
-                    <normaloff>.</normaloff>.</iconset>
+                   <iconset theme="org.kde.CrowTranslate-tray"/>
                   </property>
                  </item>
                  <item>
@@ -549,8 +541,7 @@
                    <string>Monochrome (dark theme)</string>
                   </property>
                   <property name="icon">
-                   <iconset theme="org.kde.CrowTranslate-tray-light">
-                    <normaloff>.</normaloff>.</iconset>
+                   <iconset theme="org.kde.CrowTranslate-tray-light"/>
                   </property>
                  </item>
                  <item>
@@ -558,8 +549,7 @@
                    <string>Monochrome (light theme)</string>
                   </property>
                   <property name="icon">
-                   <iconset theme="org.kde.CrowTranslate-tray-dark">
-                    <normaloff>.</normaloff>.</iconset>
+                   <iconset theme="org.kde.CrowTranslate-tray-dark"/>
                   </property>
                  </item>
                  <item>
@@ -567,8 +557,7 @@
                    <string>Custom</string>
                   </property>
                   <property name="icon">
-                   <iconset theme="folder">
-                    <normaloff>.</normaloff>.</iconset>
+                   <iconset theme="folder"/>
                   </property>
                  </item>
                 </widget>
@@ -856,8 +845,7 @@
                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select OCR languages path&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                  <property name="icon">
-                  <iconset theme="folder">
-                   <normaloff>.</normaloff>.</iconset>
+                  <iconset theme="folder"/>
                  </property>
                 </widget>
                </item>
@@ -920,8 +908,7 @@
                    <item>
                     <widget class="QToolButton" name="tesseractParametersAddButton">
                      <property name="icon">
-                      <iconset theme="list-add">
-                       <normaloff>.</normaloff>.</iconset>
+                      <iconset theme="list-add"/>
                      </property>
                     </widget>
                    </item>
@@ -931,8 +918,7 @@
                       <bool>false</bool>
                      </property>
                      <property name="icon">
-                      <iconset theme="list-remove">
-                       <normaloff>.</normaloff>.</iconset>
+                      <iconset theme="list-remove"/>
                      </property>
                     </widget>
                    </item>
@@ -964,7 +950,7 @@
               <property name="title">
                <string>Screen capture</string>
               </property>
-              <layout class="QFormLayout" name="formLayout_6">
+              <layout class="QGridLayout" name="gridLayout">
                <item row="0" column="0">
                 <widget class="QLabel" name="rememverRegionLabel">
                  <property name="sizePolicy">
@@ -978,7 +964,7 @@
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
+               <item row="0" column="1" colspan="2">
                 <widget class="QComboBox" name="rememberRegionComboBox">
                  <property name="toolTip">
                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When to remember the last selected region&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -1007,7 +993,7 @@
                  </property>
                 </widget>
                </item>
-               <item row="1" column="1">
+               <item row="1" column="1" colspan="2">
                 <widget class="QSpinBox" name="captureDelaySpinBox">
                  <property name="toolTip">
                   <string>Delay before screen capture</string>
@@ -1020,13 +1006,23 @@
                  </property>
                 </widget>
                </item>
-               <item row="2" column="0" colspan="2">
+               <item row="2" column="0">
                 <widget class="QCheckBox" name="showMagnifierCheckBox">
                  <property name="toolTip">
                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show a magnifier next to the cursor&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                  <property name="text">
                   <string>Show magnifier</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QCheckBox" name="negateOcrCheckBox">
+                 <property name="toolTip">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Negate (invert) the image before OCR. Use for bright text on dark background.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="text">
+                  <string>Negate OCR</string>
                  </property>
                 </widget>
                </item>
@@ -1349,8 +1345,7 @@
                   <string>Accept</string>
                  </property>
                  <property name="icon">
-                  <iconset theme="dialog-ok-apply">
-                   <normaloff>.</normaloff>.</iconset>
+                  <iconset theme="dialog-ok-apply"/>
                  </property>
                 </widget>
                </item>
@@ -1363,8 +1358,7 @@
                   <string>Clear</string>
                  </property>
                  <property name="icon">
-                  <iconset theme="edit-clear-all">
-                   <normaloff>.</normaloff>.</iconset>
+                  <iconset theme="edit-clear-all"/>
                  </property>
                 </widget>
                </item>
@@ -1377,8 +1371,7 @@
                   <string>Reset</string>
                  </property>
                  <property name="icon">
-                  <iconset theme="view-refresh">
-                   <normaloff>.</normaloff>.</iconset>
+                  <iconset theme="view-refresh"/>
                  </property>
                 </widget>
                </item>
@@ -1395,7 +1388,7 @@
             </sizepolicy>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout">
-            <item alignment="Qt::AlignHCenter">
+            <item>
              <widget class="QLabel" name="logoLabel">
               <property name="maximumSize">
                <size>
