@@ -265,23 +265,34 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "Objekta D-Bus ni mogoče registrirati za %1"
 
-#: src/mainwindow.cpp:386
+#: src/mainwindow.cpp:270
+msgctxt "MainWindow|"
+msgid "Toggled OCR image negate"
+msgstr ""
+
+#: src/mainwindow.cpp:270
+#, qt-format
+msgctxt "MainWindow|"
+msgid "OCR image negate has changed to %1"
+msgstr ""
+
+#: src/mainwindow.cpp:397
 msgctxt "MainWindow|"
 msgid "Unable to detect language"
 msgstr "Jezika ni mogoče zaznati"
 
-#: src/mainwindow.cpp:438
+#: src/mainwindow.cpp:449
 msgctxt "MainWindow|"
 msgid "Unable to translate text"
 msgstr "Ni mogoče prevesti besedila"
 
-#: src/mainwindow.cpp:859
+#: src/mainwindow.cpp:870
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "Ta aplikacija uporablja %1 za zagotavljanje prevodov."
 
-#: src/mainwindow.cpp:860
+#: src/mainwindow.cpp:871
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -295,28 +306,28 @@ msgstr ""
 "ki ga pošljete. Vaš trenutni pojavek je '%1', vendar ga lahko spremenite v "
 "nastavitvah prevajanja. Oglejte si podrobnosti pojavka na zgornji povezavi."
 
-#: src/mainwindow.cpp:867
+#: src/mainwindow.cpp:878
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "Ne kaži več"
 
-#: src/mainwindow.cpp:895
+#: src/mainwindow.cpp:906
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Neveljavna ikona v pladnju"
 
-#: src/mainwindow.cpp:895
+#: src/mainwindow.cpp:906
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "Podana ikona '%1' ni veljavna. Uporabljena bo privzeta ikona."
 
-#: src/mainwindow.cpp:924
+#: src/mainwindow.cpp:935
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "Ni mogoče nastaviti jezikov OCR"
 
-#: src/mainwindow.cpp:924
+#: src/mainwindow.cpp:935
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -437,18 +448,18 @@ msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
 msgstr "Prejeta prazna pot iz xdg-desktop-portal."
 
-#: src/ocr/snippingarea.cpp:73
+#: src/ocr/snippingarea.cpp:78
 msgctxt "SnippingArea|"
 msgid "Unable to snip screen area"
 msgstr "Območja zaslona ni mogoče izrezati"
 
-#: src/ocr/snippingarea.cpp:74
+#: src/ocr/snippingarea.cpp:79
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
 msgstr "Prejeta je neveljavna slika zaslona %1."
 
-#: src/ocr/snippingarea.cpp:626
+#: src/ocr/snippingarea.cpp:631
 msgctxt "SnippingArea|"
 msgid ""
 "Click and drag to draw a selection rectangle,\n"
@@ -457,97 +468,97 @@ msgstr ""
 "Kliknite in povlecite, da narišete izbirni pravokotnik, ali pritisnite Esc, "
 "da zapustite"
 
-#: src/ocr/snippingarea.cpp:832
+#: src/ocr/snippingarea.cpp:837
 msgctxt "SnippingArea|"
 msgid "Confirm:"
 msgstr "Potrdi:"
 
-#: src/ocr/snippingarea.cpp:834
+#: src/ocr/snippingarea.cpp:839
 msgctxt "SnippingArea|"
 msgid "Release left-click"
 msgstr "Spustite levi klik"
 
-#: src/ocr/snippingarea.cpp:834 src/ocr/snippingarea.cpp:836
+#: src/ocr/snippingarea.cpp:839 src/ocr/snippingarea.cpp:841
 msgctxt "SnippingArea|"
 msgid "Enter"
 msgstr "Vnesi"
 
-#: src/ocr/snippingarea.cpp:836
+#: src/ocr/snippingarea.cpp:841
 msgctxt "SnippingArea|"
 msgid "Double-click"
 msgstr "Dvojni klik"
 
-#: src/ocr/snippingarea.cpp:838
+#: src/ocr/snippingarea.cpp:843
 msgctxt "SnippingArea|"
 msgid "Create new selection rectangle:"
 msgstr "Ustvari nov izbirni pravokotnik:"
 
-#: src/ocr/snippingarea.cpp:839
+#: src/ocr/snippingarea.cpp:844
 msgctxt "SnippingArea|"
 msgid "Drag outside selection rectangle"
 msgstr "Povlecite zunaj izbirnega pravokotnika"
 
-#: src/ocr/snippingarea.cpp:839
+#: src/ocr/snippingarea.cpp:844
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
 msgstr "+ Shift: lupa"
 
-#: src/ocr/snippingarea.cpp:842
+#: src/ocr/snippingarea.cpp:847
 msgctxt "SnippingArea|"
 msgid "Move selection rectangle:"
 msgstr "Premakni izbirni pravokotnik:"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "Drag inside selection rectangle"
 msgstr "Povlecite znotraj izbirnega pravokotnika"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "Arrow keys"
 msgstr "Smerne tipke"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "+ Shift: Move in 1 pixel steps"
 msgstr "+ Shift: premikanje v korakih po 1 slikovno piko"
 
-#: src/ocr/snippingarea.cpp:845
+#: src/ocr/snippingarea.cpp:850
 msgctxt "SnippingArea|"
 msgid "Resize selection rectangle:"
 msgstr "Spremeni velikost izbirnega pravokotnika:"
 
-#: src/ocr/snippingarea.cpp:846
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "Drag handles"
 msgstr "Povleci ročaje"
 
-#: src/ocr/snippingarea.cpp:846
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "Arrow keys + Alt"
 msgstr "Puščične tipke + Alt"
 
-#: src/ocr/snippingarea.cpp:846
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "+ Shift: Resize in 1 pixel steps"
 msgstr "+ Shift: Spremenite velikost v korakih po 1 slikovno piko"
 
-#: src/ocr/snippingarea.cpp:848
+#: src/ocr/snippingarea.cpp:853
 msgctxt "SnippingArea|"
 msgid "Reset selection:"
 msgstr "Ponastavi izbiro:"
 
-#: src/ocr/snippingarea.cpp:849
+#: src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Right-click"
 msgstr "Desni klik"
 
-#: src/ocr/snippingarea.cpp:852
+#: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "Cancel:"
 msgstr "Prekliči:"
 
-#: src/ocr/snippingarea.cpp:853
+#: src/ocr/snippingarea.cpp:858
 msgctxt "SnippingArea|"
 msgid "Esc key"
 msgstr "Tipka Esc"
@@ -1675,7 +1686,7 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Kopiraj prevod na odložišče"
 
-#: src/settings/appsettings.cpp:1047
+#: src/settings/appsettings.cpp:1079
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1747,22 +1758,22 @@ msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Ali želite zavreči neveljavne parametre?"
 
-#: src/settings/settingsdialog.cpp:253
+#: src/settings/settingsdialog.cpp:254
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Izberi ikono"
 
-#: src/settings/settingsdialog.cpp:253
+#: src/settings/settingsdialog.cpp:254
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Slike (*.png *.ico *.svg *.jpg);;Vse datoteke()"
 
-#: src/settings/settingsdialog.cpp:283
+#: src/settings/settingsdialog.cpp:284
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Izberite pot jezikov OCR"
 
-#: src/settings/settingsdialog.cpp:423
+#: src/settings/settingsdialog.cpp:425
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Nazaj"
@@ -1772,52 +1783,52 @@ msgctxt "SettingsDialog|"
 msgid "Settings"
 msgstr "Nastavitve"
 
-#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:135
+#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:128
 msgctxt "SettingsDialog|"
 msgid "General"
 msgstr "Splošno"
 
-#: src/settings/settingsdialog.ui:58
+#: src/settings/settingsdialog.ui:57
 msgctxt "SettingsDialog|"
 msgid "Interface"
 msgstr "Vmesnik"
 
-#: src/settings/settingsdialog.ui:67 src/settings/settingsdialog.ui:642
+#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:631
 msgctxt "SettingsDialog|"
 msgid "Translation"
 msgstr "Prevod"
 
-#: src/settings/settingsdialog.ui:85
+#: src/settings/settingsdialog.ui:81
 msgctxt "SettingsDialog|"
 msgid "Connection"
 msgstr "Povezava"
 
-#: src/settings/settingsdialog.ui:94
+#: src/settings/settingsdialog.ui:89
 msgctxt "SettingsDialog|"
 msgid "Shortcuts"
 msgstr "Bližnjice"
 
-#: src/settings/settingsdialog.ui:103
+#: src/settings/settingsdialog.ui:97
 msgctxt "SettingsDialog|"
 msgid "About"
 msgstr "O tem"
 
-#: src/settings/settingsdialog.ui:147
+#: src/settings/settingsdialog.ui:140
 msgctxt "SettingsDialog|"
 msgid "Language:"
 msgstr "Jezik:"
 
-#: src/settings/settingsdialog.ui:154
+#: src/settings/settingsdialog.ui:147
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Interface language</p></body></html>"
 msgstr "<html><head/><body><p>Jezik vmesnika</p></body></html>"
 
-#: src/settings/settingsdialog.ui:161
+#: src/settings/settingsdialog.ui:154
 msgctxt "SettingsDialog|"
 msgid "Main window orientation:"
 msgstr "Orientacija glavnega okna:"
 
-#: src/settings/settingsdialog.ui:168
+#: src/settings/settingsdialog.ui:161
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Orientation of the main window layout<br/>When using "
@@ -1829,29 +1840,29 @@ msgstr ""
 "orientacija okna ujemala z usmerjenost zaslona</p></body></html>"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:172
+#: src/settings/settingsdialog.ui:165
 msgctxt "SettingsDialog|"
 msgid "Auto"
 msgstr "Avto"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:177
+#: src/settings/settingsdialog.ui:170
 msgctxt "SettingsDialog|"
 msgid "Portrait"
 msgstr "Portret"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:182
+#: src/settings/settingsdialog.ui:175
 msgctxt "SettingsDialog|"
 msgid "Landscape"
 msgstr "Pokrajina"
 
-#: src/settings/settingsdialog.ui:190
+#: src/settings/settingsdialog.ui:183
 msgctxt "SettingsDialog|"
 msgid "Translation mode:"
 msgstr "Način prevajanja:"
 
-#: src/settings/settingsdialog.ui:197
+#: src/settings/settingsdialog.ui:190
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>A window for translating selected text. If the "
@@ -1861,27 +1872,27 @@ msgstr ""
 "<html><head/><body><p>Okno za prevajanje izbranega besedila. Če je "
 "aplikacija pomanjšana, bo vedno uporabljeno glavno okno.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:201 src/settings/settingsdialog.ui:350
+#: src/settings/settingsdialog.ui:194 src/settings/settingsdialog.ui:343
 msgctxt "SettingsDialog|"
 msgid "Pop-up window"
 msgstr "Pojavno okno"
 
-#: src/settings/settingsdialog.ui:206
+#: src/settings/settingsdialog.ui:199
 msgctxt "SettingsDialog|"
 msgid "Main window"
 msgstr "Glavno okno"
 
-#: src/settings/settingsdialog.ui:211
+#: src/settings/settingsdialog.ui:204
 msgctxt "SettingsDialog|"
 msgid "Notification"
 msgstr "Obvestilo"
 
-#: src/settings/settingsdialog.ui:219
+#: src/settings/settingsdialog.ui:212
 msgctxt "SettingsDialog|"
 msgid "Translation notification timeout:"
 msgstr "Časovna omejitev obvestila o prevodu:"
 
-#: src/settings/settingsdialog.ui:232
+#: src/settings/settingsdialog.ui:225
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Notification with translation display time</p></body></"
@@ -1889,23 +1900,23 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Obvestilo s časom prikaza prevoda</p></body></html>"
 
-#: src/settings/settingsdialog.ui:235 src/settings/settingsdialog.ui:440
+#: src/settings/settingsdialog.ui:228 src/settings/settingsdialog.ui:433
 msgctxt "SettingsDialog|"
 msgid " sec"
 msgstr " sek"
 
-#: src/settings/settingsdialog.ui:248
+#: src/settings/settingsdialog.ui:241
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Display icon in the system tray</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Ikona zaslona v sistemskem pladnju</p></body></html>"
 
-#: src/settings/settingsdialog.ui:251
+#: src/settings/settingsdialog.ui:244
 msgctxt "SettingsDialog|"
 msgid "Show tray icon"
 msgstr "Pokaži ikono pladnja"
 
-#: src/settings/settingsdialog.ui:261
+#: src/settings/settingsdialog.ui:254
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Start application minimized to the system tray</p></"
@@ -1914,46 +1925,46 @@ msgstr ""
 "<html><head/><body><p>Zaženi aplikacijo, pomanjšano v sistemskem pladnju</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:264
+#: src/settings/settingsdialog.ui:257
 msgctxt "SettingsDialog|"
 msgid "Start minimized"
 msgstr "Začetek strnjen"
 
-#: src/settings/settingsdialog.ui:271
+#: src/settings/settingsdialog.ui:264
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Run the application at system startup</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Zaženi aplikacijo ob zagonu sistema</p></body></html>"
 
-#: src/settings/settingsdialog.ui:274
+#: src/settings/settingsdialog.ui:267
 msgctxt "SettingsDialog|"
 msgid "Launch at startup"
 msgstr "Zagon ob zagonu"
 
-#: src/settings/settingsdialog.ui:307
+#: src/settings/settingsdialog.ui:300
 msgctxt "SettingsDialog|"
 msgid "Font"
 msgstr "Pisava"
 
-#: src/settings/settingsdialog.ui:313
+#: src/settings/settingsdialog.ui:306
 msgctxt "SettingsDialog|"
 msgid "Name:"
 msgstr "Ime:"
 
-#: src/settings/settingsdialog.ui:320
+#: src/settings/settingsdialog.ui:313
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Translation and source text font</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Pisava prevoda in izvornega besedila</p></body></html>"
 
-#: src/settings/settingsdialog.ui:327
+#: src/settings/settingsdialog.ui:320
 msgctxt "SettingsDialog|"
 msgid "Size:"
 msgstr "Velikost:"
 
-#: src/settings/settingsdialog.ui:334
+#: src/settings/settingsdialog.ui:327
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Font size of translation and source text</p></body></"
@@ -1962,46 +1973,46 @@ msgstr ""
 "<html><head/><body><p>Velikost pisave prevoda in izvornega besedila</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:356
+#: src/settings/settingsdialog.ui:349
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window height in pixels</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Višina pojavnega okna v slikovnih pikah</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:366
+#: src/settings/settingsdialog.ui:359
 msgctxt "SettingsDialog|"
 msgid "Width:"
 msgstr "Širina:"
 
-#: src/settings/settingsdialog.ui:373
+#: src/settings/settingsdialog.ui:366
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Širina pojavnega okna v slikovnih pikah</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:383
+#: src/settings/settingsdialog.ui:376
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window opacity</p></body></html>"
 msgstr "<html><head/><body><p>Neprosojnost pojavnega okna</p></body></html>"
 
-#: src/settings/settingsdialog.ui:410
+#: src/settings/settingsdialog.ui:403
 msgctxt "SettingsDialog|"
 msgid "Opacity:"
 msgstr "Neprosojnost:"
 
-#: src/settings/settingsdialog.ui:417
+#: src/settings/settingsdialog.ui:410
 msgctxt "SettingsDialog|"
 msgid "Show timeout:"
 msgstr "Pokaži časovno omejitev:"
 
-#: src/settings/settingsdialog.ui:424
+#: src/settings/settingsdialog.ui:417
 msgctxt "SettingsDialog|"
 msgid "Height:"
 msgstr "Višina:"
 
-#: src/settings/settingsdialog.ui:437
+#: src/settings/settingsdialog.ui:430
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The number of seconds after which the window will be "
@@ -2010,87 +2021,87 @@ msgstr ""
 "<html><head/><body><p>Število sekund, po katerem bo okno skrito, če ni v "
 "fokusu</p></body></html>"
 
-#: src/settings/settingsdialog.ui:460
+#: src/settings/settingsdialog.ui:453
 msgctxt "SettingsDialog|"
 msgid "Language format"
 msgstr "Jezikovni format"
 
-#: src/settings/settingsdialog.ui:466
+#: src/settings/settingsdialog.ui:459
 msgctxt "SettingsDialog|"
 msgid "Main window:"
 msgstr "Glavno okno:"
 
-#: src/settings/settingsdialog.ui:473 src/settings/settingsdialog.ui:497
+#: src/settings/settingsdialog.ui:466 src/settings/settingsdialog.ui:490
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Languages text on buttons</p></body></html>"
 msgstr "<html><head/><body><p>Jeziki besedila na gumbih</p></body></html>"
 
-#: src/settings/settingsdialog.ui:477 src/settings/settingsdialog.ui:501
+#: src/settings/settingsdialog.ui:470 src/settings/settingsdialog.ui:494
 msgctxt "SettingsDialog|"
 msgid "Full name"
 msgstr "Polno ime"
 
-#: src/settings/settingsdialog.ui:482 src/settings/settingsdialog.ui:506
+#: src/settings/settingsdialog.ui:475 src/settings/settingsdialog.ui:499
 msgctxt "SettingsDialog|"
 msgid "ISO 639-1 code"
 msgstr "Koda ISO 639-1"
 
-#: src/settings/settingsdialog.ui:490
+#: src/settings/settingsdialog.ui:483
 msgctxt "SettingsDialog|"
 msgid "Pop-up:"
 msgstr "Pojavno okno:"
 
-#: src/settings/settingsdialog.ui:517
+#: src/settings/settingsdialog.ui:510
 msgctxt "SettingsDialog|"
 msgid "Tray icon"
 msgstr "Ikona pladnja"
 
-#: src/settings/settingsdialog.ui:523
+#: src/settings/settingsdialog.ui:516
 msgctxt "SettingsDialog|"
 msgid "Icon:"
 msgstr "Ikona:"
 
-#: src/settings/settingsdialog.ui:536
+#: src/settings/settingsdialog.ui:529
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>System tray icon</p></body></html>"
 msgstr "<html><head/><body><p>Ikona sistemskega pladnja</p></body></html>"
 
-#: src/settings/settingsdialog.ui:540
+#: src/settings/settingsdialog.ui:533
 msgctxt "SettingsDialog|"
 msgid "Default"
 msgstr "Privzeto"
 
-#: src/settings/settingsdialog.ui:549
+#: src/settings/settingsdialog.ui:541
 msgctxt "SettingsDialog|"
 msgid "Monochrome (dark theme)"
 msgstr "Enobarvno (temna tema)"
 
-#: src/settings/settingsdialog.ui:558
+#: src/settings/settingsdialog.ui:549
 msgctxt "SettingsDialog|"
 msgid "Monochrome (light theme)"
 msgstr "Enobarvno (svetla tema)"
 
-#: src/settings/settingsdialog.ui:567
+#: src/settings/settingsdialog.ui:557
 msgctxt "SettingsDialog|"
 msgid "Custom"
 msgstr "Po meri"
 
-#: src/settings/settingsdialog.ui:582
+#: src/settings/settingsdialog.ui:571
 msgctxt "SettingsDialog|"
 msgid "Custom:"
 msgstr "Po meri:"
 
-#: src/settings/settingsdialog.ui:594
+#: src/settings/settingsdialog.ui:583
 msgctxt "SettingsDialog|"
 msgid "Path to the icon or icon name from theme"
 msgstr "Pot do ikone ali ime ikone iz teme"
 
-#: src/settings/settingsdialog.ui:604
+#: src/settings/settingsdialog.ui:593
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>Izberi ikono</p></body></html>"
 
-#: src/settings/settingsdialog.ui:648
+#: src/settings/settingsdialog.ui:637
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
@@ -2099,12 +2110,12 @@ msgstr ""
 "<html><head/><body><p>Omogoči ali onemogoči izvorno prečrkovanje</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:651
+#: src/settings/settingsdialog.ui:640
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
 msgstr "Omogoči izvorno prečrkovanje"
 
-#: src/settings/settingsdialog.ui:658
+#: src/settings/settingsdialog.ui:647
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
@@ -2113,12 +2124,12 @@ msgstr ""
 "<html><head/><body><p>Omogočanje ali onemogočanje transkripcije prevoda</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:661
+#: src/settings/settingsdialog.ui:650
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
 msgstr "Omogoči prečrkovanje prevoda"
 
-#: src/settings/settingsdialog.ui:668
+#: src/settings/settingsdialog.ui:657
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
@@ -2126,12 +2137,12 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Omogoči ali onemogoči izvorni prepis</p></body></html>"
 
-#: src/settings/settingsdialog.ui:671
+#: src/settings/settingsdialog.ui:660
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
 msgstr "Omogoči izvorni prepis"
 
-#: src/settings/settingsdialog.ui:678
+#: src/settings/settingsdialog.ui:667
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
@@ -2139,24 +2150,24 @@ msgstr ""
 "<html><head/><body><p>Omogoči ali onemogoči možnosti prevajanja</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:681
+#: src/settings/settingsdialog.ui:670
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
 msgstr "Omogoči možnosti prevajanja"
 
-#: src/settings/settingsdialog.ui:688
+#: src/settings/settingsdialog.ui:677
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Omogoči ali onemogoči primere uporabe</p></body></html>"
 
-#: src/settings/settingsdialog.ui:691
+#: src/settings/settingsdialog.ui:680
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
 msgstr "Omogoči primere"
 
-#: src/settings/settingsdialog.ui:698
+#: src/settings/settingsdialog.ui:687
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace each sequence of whitespaces (this includes "
@@ -2167,22 +2178,22 @@ msgstr ""
 "znake ASCII '\\\\t', '\\\\n', '\\\\v', '\\\\f', '\\ \\r' in ' ') z enim "
 "presledkom v poizvedbah</p></body></html>"
 
-#: src/settings/settingsdialog.ui:701
+#: src/settings/settingsdialog.ui:690
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
 msgstr "Poenostavi vir"
 
-#: src/settings/settingsdialog.ui:711
+#: src/settings/settingsdialog.ui:700
 msgctxt "SettingsDialog|"
 msgid "Automatic language detection"
 msgstr "Samodejno zaznavanje jezika"
 
-#: src/settings/settingsdialog.ui:717
+#: src/settings/settingsdialog.ui:706
 msgctxt "SettingsDialog|"
 msgid "Primary translation language:"
 msgstr "Primarni jezik prevoda:"
 
-#: src/settings/settingsdialog.ui:724
+#: src/settings/settingsdialog.ui:713
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which text will be translated when "
@@ -2191,12 +2202,12 @@ msgstr ""
 "<html><head/><body><p>Jezik, v katerega bo besedilo prevedeno pri samodejnem "
 "zaznavanju</p></body></html>"
 
-#: src/settings/settingsdialog.ui:731
+#: src/settings/settingsdialog.ui:720
 msgctxt "SettingsDialog|"
 msgid "Secondary translation language:"
 msgstr "Sekundarni jezik prevoda:"
 
-#: src/settings/settingsdialog.ui:738
+#: src/settings/settingsdialog.ui:727
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which the text will be translated if it is "
@@ -2205,7 +2216,7 @@ msgstr ""
 "<html><head/><body><p>Jezik, v katerega bo besedilo prevedeno, če je v "
 "zgoraj izbranem jeziku</p></body></html>"
 
-#: src/settings/settingsdialog.ui:745 src/settings/settingsdialog.ui:755
+#: src/settings/settingsdialog.ui:734 src/settings/settingsdialog.ui:744
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
@@ -2214,37 +2225,37 @@ msgstr ""
 "<html><head/><body><p>Samodejno preklopi na <span style=\" font-style:italic;"
 "\">Samodejno</span> pri uporabi OCR in globalnih bližnjic</p></body></html>"
 
-#: src/settings/settingsdialog.ui:748
+#: src/settings/settingsdialog.ui:737
 msgctxt "SettingsDialog|"
 msgid "Force source language detection"
 msgstr "Vsili zaznavanje izvornega jezika"
 
-#: src/settings/settingsdialog.ui:758
+#: src/settings/settingsdialog.ui:747
 msgctxt "SettingsDialog|"
 msgid "Force translation language detection"
 msgstr "Vsili zaznavanje jezika prevoda"
 
-#: src/settings/settingsdialog.ui:787
+#: src/settings/settingsdialog.ui:776
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
 msgstr "URL pojavka Mozhi"
 
-#: src/settings/settingsdialog.ui:800
+#: src/settings/settingsdialog.ui:789
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
 msgstr "Samodejno izberi najhitrejši pojavek na osnovi pinga"
 
-#: src/settings/settingsdialog.ui:803
+#: src/settings/settingsdialog.ui:792
 msgctxt "SettingsDialog|"
 msgid "Detect fastest"
 msgstr "Zaznaj najhitrejšega"
 
-#: src/settings/settingsdialog.ui:836
+#: src/settings/settingsdialog.ui:825
 msgctxt "SettingsDialog|"
 msgid "Languages"
 msgstr "Jeziki"
 
-#: src/settings/settingsdialog.ui:842
+#: src/settings/settingsdialog.ui:831
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Loading additional languages will impact both speed "
@@ -2257,22 +2268,22 @@ msgstr ""
 "jeziku in obstaja večja možnost haluciniranja napačnih besed.</p ></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:849
+#: src/settings/settingsdialog.ui:838
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
 msgstr "Jezikovna pot:"
 
-#: src/settings/settingsdialog.ui:856
+#: src/settings/settingsdialog.ui:845
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr "<html><head/><body><p>Izberite pot jezikov OCR</p></body></html>"
 
-#: src/settings/settingsdialog.ui:867
+#: src/settings/settingsdialog.ui:855
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
 msgstr "<html><head/><body><p>Odpri repozitorij GitHub</p></body></html>"
 
-#: src/settings/settingsdialog.ui:870
+#: src/settings/settingsdialog.ui:858
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
@@ -2283,12 +2294,12 @@ msgstr ""
 "\"><span style=\"text-decoration: underline; color:#2980b9;\" >Prenesi več</"
 "span></a></p></body></html>"
 
-#: src/settings/settingsdialog.ui:880
+#: src/settings/settingsdialog.ui:868
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
 msgstr "Imenik z usposobljenimi modeli"
 
-#: src/settings/settingsdialog.ui:896
+#: src/settings/settingsdialog.ui:884
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
@@ -2297,22 +2308,22 @@ msgstr ""
 "<html><head/><body><p>Zamenjaj vse posamezne prelome vrstic s presledkom po "
 "prepoznavanju besedila</p></body></html>"
 
-#: src/settings/settingsdialog.ui:899
+#: src/settings/settingsdialog.ui:887
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
 msgstr "Pretvori prelome vrstic"
 
-#: src/settings/settingsdialog.ui:965
+#: src/settings/settingsdialog.ui:951
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
 msgstr "Zajem zaslona"
 
-#: src/settings/settingsdialog.ui:977
+#: src/settings/settingsdialog.ui:963
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
 msgstr "Zapomni si regijo:"
 
-#: src/settings/settingsdialog.ui:984
+#: src/settings/settingsdialog.ui:970
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
@@ -2321,48 +2332,67 @@ msgstr ""
 "<html><head/><body><p>Kdaj si zapomniti zadnjo izbrano regijo</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:988
+#: src/settings/settingsdialog.ui:974
 msgctxt "SettingsDialog|"
 msgid "Never"
 msgstr "Nikoli"
 
-#: src/settings/settingsdialog.ui:993
+#: src/settings/settingsdialog.ui:979
 msgctxt "SettingsDialog|"
 msgid "Remember last"
 msgstr "Zapomni si zadnje"
 
-#: src/settings/settingsdialog.ui:998
+#: src/settings/settingsdialog.ui:984
 msgctxt "SettingsDialog|"
 msgid "Remember always"
 msgstr "Zapomni si vedno"
 
-#: src/settings/settingsdialog.ui:1006
+#: src/settings/settingsdialog.ui:992
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
 msgstr "Zakasnitev zajema:"
 
-#: src/settings/settingsdialog.ui:1013
+#: src/settings/settingsdialog.ui:999
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
 msgstr "Zakasnitev pred zajemom zaslona"
 
-#: src/settings/settingsdialog.ui:1016
+#: src/settings/settingsdialog.ui:1002
 msgctxt "SettingsDialog|"
 msgid " ms"
 msgstr " ms"
 
-#: src/settings/settingsdialog.ui:1026
+#: src/settings/settingsdialog.ui:1012
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
 msgstr "<html><head/><body><p>Pokaži lupo poleg kazalca</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1029
+#: src/settings/settingsdialog.ui:1015
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
 msgstr "Prikaži lupo"
 
-#: src/settings/settingsdialog.ui:1039
+#: src/settings/settingsdialog.ui:1022
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid ""
+#| "<html><head/><body><p>Replace all single line breaks with a space after "
+#| "text recognition</p></body></html>"
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
+"text on dark background.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Zamenjaj vse posamezne prelome vrstic s presledkom po "
+"prepoznavanju besedila</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1025
+msgctxt "SettingsDialog|"
+msgid "Negate OCR"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1035
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
@@ -2371,91 +2401,91 @@ msgstr ""
 "<html><head/><body><p>Dokončajte zajem fragmenta, ko spustite gumb miške</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:1042
+#: src/settings/settingsdialog.ui:1038
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
 msgstr "Potrdi ob sprostitvi"
 
-#: src/settings/settingsdialog.ui:1049
+#: src/settings/settingsdialog.ui:1045
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
 "html>"
 msgstr "<html><head/><body><p>Rahlo zameglite neizbrani del</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1052
+#: src/settings/settingsdialog.ui:1048
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
 msgstr "Uveljavi svetlo masko"
 
-#: src/settings/settingsdialog.ui:1085
+#: src/settings/settingsdialog.ui:1081
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
 msgstr "Posredni strežnik"
 
-#: src/settings/settingsdialog.ui:1091
+#: src/settings/settingsdialog.ui:1087
 msgctxt "SettingsDialog|"
 msgid "Type:"
 msgstr "Tip:"
 
-#: src/settings/settingsdialog.ui:1104
+#: src/settings/settingsdialog.ui:1100
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
 msgstr "<html><head/><body><p>Vrsta posrednika</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1108
+#: src/settings/settingsdialog.ui:1104
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
 msgstr "Uporabi sistemske nastavitve"
 
-#: src/settings/settingsdialog.ui:1118
+#: src/settings/settingsdialog.ui:1114
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
 msgstr "Ne uporabljaj posrednika"
 
-#: src/settings/settingsdialog.ui:1134
+#: src/settings/settingsdialog.ui:1130
 msgctxt "SettingsDialog|"
 msgid "Host:"
 msgstr "Gostitelj:"
 
-#: src/settings/settingsdialog.ui:1144
+#: src/settings/settingsdialog.ui:1140
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr "<html><head/><body><p>Ime posrednega strežnika</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1157
+#: src/settings/settingsdialog.ui:1153
 msgctxt "SettingsDialog|"
 msgid "Port:"
 msgstr "Vrata:"
 
-#: src/settings/settingsdialog.ui:1173
+#: src/settings/settingsdialog.ui:1169
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
 msgstr "<html><head/><body><p>Vrata posrednika</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1192
+#: src/settings/settingsdialog.ui:1188
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
 msgstr "Info: posrednik deluje samo za prevajanje besedila"
 
-#: src/settings/settingsdialog.ui:1202
+#: src/settings/settingsdialog.ui:1198
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Omogoči ali onemogoči avtentikacijo</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1205
+#: src/settings/settingsdialog.ui:1201
 msgctxt "SettingsDialog|"
 msgid "Authentication"
 msgstr "Avtentikacija"
 
-#: src/settings/settingsdialog.ui:1215
+#: src/settings/settingsdialog.ui:1211
 msgctxt "SettingsDialog|"
 msgid "Username:"
 msgstr "Uporabniško ime:"
 
-#: src/settings/settingsdialog.ui:1225
+#: src/settings/settingsdialog.ui:1221
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
@@ -2463,24 +2493,24 @@ msgstr ""
 "<html><head/><body><p>Uporabniško ime posrednika za avtentikacijo</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1235
+#: src/settings/settingsdialog.ui:1231
 msgctxt "SettingsDialog|"
 msgid "Password:"
 msgstr "Geslo:"
 
-#: src/settings/settingsdialog.ui:1245
+#: src/settings/settingsdialog.ui:1241
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Geslo posrednika za avtentikacijo</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1258
+#: src/settings/settingsdialog.ui:1254
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
 msgstr "Info: geslo je shranjeno nešifrirano"
 
-#: src/settings/settingsdialog.ui:1294
+#: src/settings/settingsdialog.ui:1290
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
@@ -2488,33 +2518,33 @@ msgstr ""
 "<html><head/><body><p>Registracija globalnih bližnjic v sistemu</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1297
+#: src/settings/settingsdialog.ui:1293
 msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "Omogoči globalne bližnjice"
 
-#: src/settings/settingsdialog.ui:1313
+#: src/settings/settingsdialog.ui:1309
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Ponastavi vse bližnjice na privzete</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1316
+#: src/settings/settingsdialog.ui:1312
 msgctxt "SettingsDialog|"
 msgid "Reset all"
 msgstr "Ponastavi vse"
 
-#: src/settings/settingsdialog.ui:1326
+#: src/settings/settingsdialog.ui:1322
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
 msgstr "Bližnjica"
 
-#: src/settings/settingsdialog.ui:1332
+#: src/settings/settingsdialog.ui:1328
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
 msgstr "Zaporedje tipk:"
 
-#: src/settings/settingsdialog.ui:1339
+#: src/settings/settingsdialog.ui:1335
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
@@ -2522,53 +2552,53 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Zaporedje tipk za izbrano dejanje</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1346
+#: src/settings/settingsdialog.ui:1342
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Sprejmi bližnjico</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1349
+#: src/settings/settingsdialog.ui:1345
 msgctxt "SettingsDialog|"
 msgid "Accept"
 msgstr "Sprejmi"
 
-#: src/settings/settingsdialog.ui:1360
+#: src/settings/settingsdialog.ui:1355
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Počisti bližnjico</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1363
+#: src/settings/settingsdialog.ui:1358
 msgctxt "SettingsDialog|"
 msgid "Clear"
 msgstr "Očisti"
 
-#: src/settings/settingsdialog.ui:1374
+#: src/settings/settingsdialog.ui:1368
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Ponastavi bližnjico na privzeto</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1377
+#: src/settings/settingsdialog.ui:1371
 msgctxt "SettingsDialog|"
 msgid "Reset"
 msgstr "Ponastavi"
 
-#: src/settings/settingsdialog.ui:1423
+#: src/settings/settingsdialog.ui:1416
 msgctxt "SettingsDialog|"
 msgid "Version:"
 msgstr "Različica:"
 
-#: src/settings/settingsdialog.ui:1433
+#: src/settings/settingsdialog.ui:1426
 msgctxt "SettingsDialog|"
 msgid "License:"
 msgstr "Licenca:"
 
-#: src/settings/settingsdialog.ui:1447
+#: src/settings/settingsdialog.ui:1440
 msgctxt "SettingsDialog|"
 msgid "Source code:"
 msgstr "Izvorna koda:"
 
-#: src/settings/settingsdialog.ui:1467
+#: src/settings/settingsdialog.ui:1460
 msgctxt "SettingsDialog|"
 msgid "Translation backend:"
 msgstr "Zaledje prevajanja:"
@@ -2599,7 +2629,7 @@ msgid "Stop text speaking"
 msgstr "Ustavi govor besedila"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:35
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:71
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:73
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause text speaking"
 msgstr "Izgovori/začasno ustavi govorjenje besedila"
@@ -2634,52 +2664,57 @@ msgctxt "ShortcutsModel|"
 msgid "Translate text in screen area with delay"
 msgstr "Prevedi besedilo v območju zaslona z zakasnitvijo"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:57
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:56
+msgctxt "ShortcutsModel|"
+msgid "Toggle color inversion for OCR"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
 msgid "Main window"
 msgstr "Glavno okno"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:61
 msgctxt "ShortcutsModel|"
 msgid "Translate"
 msgstr "Prevedi"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:62
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:64
 msgctxt "ShortcutsModel|"
 msgid "Swap languages"
 msgstr "Premenjaj jezike"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:65
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:67
 msgctxt "ShortcutsModel|"
 msgid "Close window"
 msgstr "Zapri okno"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:69
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:71
 msgctxt "ShortcutsModel|"
 msgid "Source text"
 msgstr "Izvorno besedilo"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:75
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
 msgctxt "ShortcutsModel|"
 msgid "Translation"
 msgstr "Prevod"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:79
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause speaking"
 msgstr "Govori / začasno ustavi govor"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:80
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:82
 msgctxt "ShortcutsModel|"
 msgid "Copy to clipboard"
 msgstr "Kopiraj na odložišče"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:126
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:128
 msgctxt "ShortcutsModel|"
 msgid "Description"
 msgstr "Opis"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:128
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:130
 msgctxt "ShortcutsModel|"
 msgid "Shortcut"
 msgstr "Bližnjica"

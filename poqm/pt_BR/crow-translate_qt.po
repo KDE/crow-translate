@@ -278,23 +278,34 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "Não foi possível registrar objeto D-Bus para %1"
 
-#: src/mainwindow.cpp:386
+#: src/mainwindow.cpp:270
+msgctxt "MainWindow|"
+msgid "Toggled OCR image negate"
+msgstr ""
+
+#: src/mainwindow.cpp:270
+#, qt-format
+msgctxt "MainWindow|"
+msgid "OCR image negate has changed to %1"
+msgstr ""
+
+#: src/mainwindow.cpp:397
 msgctxt "MainWindow|"
 msgid "Unable to detect language"
 msgstr "Não foi possível detectar o idioma"
 
-#: src/mainwindow.cpp:438
+#: src/mainwindow.cpp:449
 msgctxt "MainWindow|"
 msgid "Unable to translate text"
 msgstr "Não foi possível traduzir o texto"
 
-#: src/mainwindow.cpp:859
+#: src/mainwindow.cpp:870
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr ""
 
-#: src/mainwindow.cpp:860
+#: src/mainwindow.cpp:871
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -304,28 +315,28 @@ msgid ""
 "instance details in the link above."
 msgstr ""
 
-#: src/mainwindow.cpp:867
+#: src/mainwindow.cpp:878
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr ""
 
-#: src/mainwindow.cpp:895
+#: src/mainwindow.cpp:906
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Ícone da área de notificação inválido"
 
-#: src/mainwindow.cpp:895
+#: src/mainwindow.cpp:906
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "O ícone especificado '%1' é inválido. O ícone padrão será usado."
 
-#: src/mainwindow.cpp:924
+#: src/mainwindow.cpp:935
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "Não foi possível definir idiomas OCR"
 
-#: src/mainwindow.cpp:924
+#: src/mainwindow.cpp:935
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -446,18 +457,18 @@ msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
 msgstr "Caminho vazio recebido de xdg-desktop-portal."
 
-#: src/ocr/snippingarea.cpp:73
+#: src/ocr/snippingarea.cpp:78
 msgctxt "SnippingArea|"
 msgid "Unable to snip screen area"
 msgstr "Não é possível recortar área da tela"
 
-#: src/ocr/snippingarea.cpp:74
+#: src/ocr/snippingarea.cpp:79
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
 msgstr "Foi recebida uma imagem inválida da tela %1."
 
-#: src/ocr/snippingarea.cpp:626
+#: src/ocr/snippingarea.cpp:631
 msgctxt "SnippingArea|"
 msgid ""
 "Click and drag to draw a selection rectangle,\n"
@@ -466,97 +477,97 @@ msgstr ""
 "Clique e arraste para desenhar um retângulo de seleção,\n"
 "ou pressione Esc para sair"
 
-#: src/ocr/snippingarea.cpp:832
+#: src/ocr/snippingarea.cpp:837
 msgctxt "SnippingArea|"
 msgid "Confirm:"
 msgstr "Confirmar:"
 
-#: src/ocr/snippingarea.cpp:834
+#: src/ocr/snippingarea.cpp:839
 msgctxt "SnippingArea|"
 msgid "Release left-click"
 msgstr "Soltar botão esquerdo"
 
-#: src/ocr/snippingarea.cpp:834 src/ocr/snippingarea.cpp:836
+#: src/ocr/snippingarea.cpp:839 src/ocr/snippingarea.cpp:841
 msgctxt "SnippingArea|"
 msgid "Enter"
 msgstr "Enter"
 
-#: src/ocr/snippingarea.cpp:836
+#: src/ocr/snippingarea.cpp:841
 msgctxt "SnippingArea|"
 msgid "Double-click"
 msgstr "Clique duplo"
 
-#: src/ocr/snippingarea.cpp:838
+#: src/ocr/snippingarea.cpp:843
 msgctxt "SnippingArea|"
 msgid "Create new selection rectangle:"
 msgstr "Criar novo retângulo de seleção:"
 
-#: src/ocr/snippingarea.cpp:839
+#: src/ocr/snippingarea.cpp:844
 msgctxt "SnippingArea|"
 msgid "Drag outside selection rectangle"
 msgstr "Arraste para fora do retângulo de seleção"
 
-#: src/ocr/snippingarea.cpp:839
+#: src/ocr/snippingarea.cpp:844
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
 msgstr "+ Shift: Lupa"
 
-#: src/ocr/snippingarea.cpp:842
+#: src/ocr/snippingarea.cpp:847
 msgctxt "SnippingArea|"
 msgid "Move selection rectangle:"
 msgstr "Mover retângulo de seleção:"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "Drag inside selection rectangle"
 msgstr "Arrastar para dentro do retângulo de seleção"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "Arrow keys"
 msgstr "Teclas de seta"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "+ Shift: Move in 1 pixel steps"
 msgstr "+ Shift: Mover em 1 pixel"
 
-#: src/ocr/snippingarea.cpp:845
+#: src/ocr/snippingarea.cpp:850
 msgctxt "SnippingArea|"
 msgid "Resize selection rectangle:"
 msgstr "Redimensionar retângulo de seleção:"
 
-#: src/ocr/snippingarea.cpp:846
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "Drag handles"
 msgstr "Alças de arrasto"
 
-#: src/ocr/snippingarea.cpp:846
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "Arrow keys + Alt"
 msgstr "Teclas de seta + Alt"
 
-#: src/ocr/snippingarea.cpp:846
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "+ Shift: Resize in 1 pixel steps"
 msgstr "+ Shift: Redimensionar em 1 pixel"
 
-#: src/ocr/snippingarea.cpp:848
+#: src/ocr/snippingarea.cpp:853
 msgctxt "SnippingArea|"
 msgid "Reset selection:"
 msgstr "Redefinir seleção:"
 
-#: src/ocr/snippingarea.cpp:849
+#: src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Right-click"
 msgstr "Clique direito"
 
-#: src/ocr/snippingarea.cpp:852
+#: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "Cancel:"
 msgstr "Cancelar:"
 
-#: src/ocr/snippingarea.cpp:853
+#: src/ocr/snippingarea.cpp:858
 msgctxt "SnippingArea|"
 msgid "Esc key"
 msgstr "Tecla Esc"
@@ -1757,7 +1768,7 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Copiar tradução para a área de transferência"
 
-#: src/settings/appsettings.cpp:1047
+#: src/settings/appsettings.cpp:1079
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1830,22 +1841,22 @@ msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Você quer descartar os parâmetros inválidos?"
 
-#: src/settings/settingsdialog.cpp:253
+#: src/settings/settingsdialog.cpp:254
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Selecione o ícone"
 
-#: src/settings/settingsdialog.cpp:253
+#: src/settings/settingsdialog.cpp:254
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Imagens (*.png *.ico *.svg *.jpg);;Todos os arquivos()"
 
-#: src/settings/settingsdialog.cpp:283
+#: src/settings/settingsdialog.cpp:284
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Selecione o caminho dos idiomas OCR"
 
-#: src/settings/settingsdialog.cpp:423
+#: src/settings/settingsdialog.cpp:425
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Voltar"
@@ -1855,52 +1866,52 @@ msgctxt "SettingsDialog|"
 msgid "Settings"
 msgstr "Configurações"
 
-#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:135
+#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:128
 msgctxt "SettingsDialog|"
 msgid "General"
 msgstr "Geral"
 
-#: src/settings/settingsdialog.ui:58
+#: src/settings/settingsdialog.ui:57
 msgctxt "SettingsDialog|"
 msgid "Interface"
 msgstr "Interface"
 
-#: src/settings/settingsdialog.ui:67 src/settings/settingsdialog.ui:642
+#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:631
 msgctxt "SettingsDialog|"
 msgid "Translation"
 msgstr "Tradução"
 
-#: src/settings/settingsdialog.ui:85
+#: src/settings/settingsdialog.ui:81
 msgctxt "SettingsDialog|"
 msgid "Connection"
 msgstr "Conexão"
 
-#: src/settings/settingsdialog.ui:94
+#: src/settings/settingsdialog.ui:89
 msgctxt "SettingsDialog|"
 msgid "Shortcuts"
 msgstr "Atalhos"
 
-#: src/settings/settingsdialog.ui:103
+#: src/settings/settingsdialog.ui:97
 msgctxt "SettingsDialog|"
 msgid "About"
 msgstr "Sobre"
 
-#: src/settings/settingsdialog.ui:147
+#: src/settings/settingsdialog.ui:140
 msgctxt "SettingsDialog|"
 msgid "Language:"
 msgstr "Idioma:"
 
-#: src/settings/settingsdialog.ui:154
+#: src/settings/settingsdialog.ui:147
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Interface language</p></body></html>"
 msgstr "<html><head/><body><p>Idioma da interface</p></body></html>"
 
-#: src/settings/settingsdialog.ui:161
+#: src/settings/settingsdialog.ui:154
 msgctxt "SettingsDialog|"
 msgid "Main window orientation:"
 msgstr "Orientação da janela principal:"
 
-#: src/settings/settingsdialog.ui:168
+#: src/settings/settingsdialog.ui:161
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Orientation of the main window layout<br/>When using "
@@ -1912,29 +1923,29 @@ msgstr ""
 "janela corresponderá à orientação da tela</p></body></html>"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:172
+#: src/settings/settingsdialog.ui:165
 msgctxt "SettingsDialog|"
 msgid "Auto"
 msgstr "Automático"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:177
+#: src/settings/settingsdialog.ui:170
 msgctxt "SettingsDialog|"
 msgid "Portrait"
 msgstr "Retrato"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:182
+#: src/settings/settingsdialog.ui:175
 msgctxt "SettingsDialog|"
 msgid "Landscape"
 msgstr "Paisagem"
 
-#: src/settings/settingsdialog.ui:190
+#: src/settings/settingsdialog.ui:183
 msgctxt "SettingsDialog|"
 msgid "Translation mode:"
 msgstr "Modo de tradução:"
 
-#: src/settings/settingsdialog.ui:197
+#: src/settings/settingsdialog.ui:190
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>A window for translating selected text. If the "
@@ -1945,27 +1956,27 @@ msgstr ""
 "aplicação estiver minimizada, a janela principal sempre será usada.</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:201 src/settings/settingsdialog.ui:350
+#: src/settings/settingsdialog.ui:194 src/settings/settingsdialog.ui:343
 msgctxt "SettingsDialog|"
 msgid "Pop-up window"
 msgstr "Janela pop-up"
 
-#: src/settings/settingsdialog.ui:206
+#: src/settings/settingsdialog.ui:199
 msgctxt "SettingsDialog|"
 msgid "Main window"
 msgstr "Janela principal"
 
-#: src/settings/settingsdialog.ui:211
+#: src/settings/settingsdialog.ui:204
 msgctxt "SettingsDialog|"
 msgid "Notification"
 msgstr "Notificação"
 
-#: src/settings/settingsdialog.ui:219
+#: src/settings/settingsdialog.ui:212
 msgctxt "SettingsDialog|"
 msgid "Translation notification timeout:"
 msgstr "Tempo de notificação da tradução:"
 
-#: src/settings/settingsdialog.ui:232
+#: src/settings/settingsdialog.ui:225
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Notification with translation display time</p></body></"
@@ -1974,23 +1985,23 @@ msgstr ""
 "<html><head/><body><p>Notificação com o tempo de exibição da tradução</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:235 src/settings/settingsdialog.ui:440
+#: src/settings/settingsdialog.ui:228 src/settings/settingsdialog.ui:433
 msgctxt "SettingsDialog|"
 msgid " sec"
 msgstr " seg."
 
-#: src/settings/settingsdialog.ui:248
+#: src/settings/settingsdialog.ui:241
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Display icon in the system tray</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Exibir ícone na bandeja do sistema</p></body></html>"
 
-#: src/settings/settingsdialog.ui:251
+#: src/settings/settingsdialog.ui:244
 msgctxt "SettingsDialog|"
 msgid "Show tray icon"
 msgstr "Mostrar ícone na bandeja"
 
-#: src/settings/settingsdialog.ui:261
+#: src/settings/settingsdialog.ui:254
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Start application minimized to the system tray</p></"
@@ -1999,12 +2010,12 @@ msgstr ""
 "<html><head/><body><p>Iniciar o aplicativo minimizado na bandeja do sistema</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:264
+#: src/settings/settingsdialog.ui:257
 msgctxt "SettingsDialog|"
 msgid "Start minimized"
 msgstr "Minimizar na inicialização"
 
-#: src/settings/settingsdialog.ui:271
+#: src/settings/settingsdialog.ui:264
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Run the application at system startup</p></body></html>"
@@ -2012,34 +2023,34 @@ msgstr ""
 "<html><head/><body><p>Executar o aplicativo na inicialização do sistema</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:274
+#: src/settings/settingsdialog.ui:267
 msgctxt "SettingsDialog|"
 msgid "Launch at startup"
 msgstr "Executar na inicialização"
 
-#: src/settings/settingsdialog.ui:307
+#: src/settings/settingsdialog.ui:300
 msgctxt "SettingsDialog|"
 msgid "Font"
 msgstr "Fonte"
 
-#: src/settings/settingsdialog.ui:313
+#: src/settings/settingsdialog.ui:306
 msgctxt "SettingsDialog|"
 msgid "Name:"
 msgstr "Nome:"
 
-#: src/settings/settingsdialog.ui:320
+#: src/settings/settingsdialog.ui:313
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Translation and source text font</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Fonte da tradução e texto de origem</p></body></html>"
 
-#: src/settings/settingsdialog.ui:327
+#: src/settings/settingsdialog.ui:320
 msgctxt "SettingsDialog|"
 msgid "Size:"
 msgstr "Tamanho:"
 
-#: src/settings/settingsdialog.ui:334
+#: src/settings/settingsdialog.ui:327
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Font size of translation and source text</p></body></"
@@ -2048,44 +2059,44 @@ msgstr ""
 "<html><head/><body><p>Tamanho da fonte da tradução e do texto fonte</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:356
+#: src/settings/settingsdialog.ui:349
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window height in pixels</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Altura da janela pop-up em pixels</p></body></html>"
 
-#: src/settings/settingsdialog.ui:366
+#: src/settings/settingsdialog.ui:359
 msgctxt "SettingsDialog|"
 msgid "Width:"
 msgstr "Largura:"
 
-#: src/settings/settingsdialog.ui:373
+#: src/settings/settingsdialog.ui:366
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Largura da janela pop-up em pixels</p></body></html>"
 
-#: src/settings/settingsdialog.ui:383
+#: src/settings/settingsdialog.ui:376
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window opacity</p></body></html>"
 msgstr "<html><head/><body><p>Opacidade da janela pop-up</p></body></html>"
 
-#: src/settings/settingsdialog.ui:410
+#: src/settings/settingsdialog.ui:403
 msgctxt "SettingsDialog|"
 msgid "Opacity:"
 msgstr "Opacidade:"
 
-#: src/settings/settingsdialog.ui:417
+#: src/settings/settingsdialog.ui:410
 msgctxt "SettingsDialog|"
 msgid "Show timeout:"
 msgstr "Mostrar tempo limite:"
 
-#: src/settings/settingsdialog.ui:424
+#: src/settings/settingsdialog.ui:417
 msgctxt "SettingsDialog|"
 msgid "Height:"
 msgstr "Altura:"
 
-#: src/settings/settingsdialog.ui:437
+#: src/settings/settingsdialog.ui:430
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The number of seconds after which the window will be "
@@ -2094,87 +2105,87 @@ msgstr ""
 "<html><head/><body><p>O número de segundos após os quais a janela ficará "
 "oculta se não tiver foco</p></body></html>"
 
-#: src/settings/settingsdialog.ui:460
+#: src/settings/settingsdialog.ui:453
 msgctxt "SettingsDialog|"
 msgid "Language format"
 msgstr "Formato do idioma"
 
-#: src/settings/settingsdialog.ui:466
+#: src/settings/settingsdialog.ui:459
 msgctxt "SettingsDialog|"
 msgid "Main window:"
 msgstr "Janela principal:"
 
-#: src/settings/settingsdialog.ui:473 src/settings/settingsdialog.ui:497
+#: src/settings/settingsdialog.ui:466 src/settings/settingsdialog.ui:490
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Languages text on buttons</p></body></html>"
 msgstr "<html><head/><body><p>Texto de idiomas nos botões</p></body></html>"
 
-#: src/settings/settingsdialog.ui:477 src/settings/settingsdialog.ui:501
+#: src/settings/settingsdialog.ui:470 src/settings/settingsdialog.ui:494
 msgctxt "SettingsDialog|"
 msgid "Full name"
 msgstr "Nome completo"
 
-#: src/settings/settingsdialog.ui:482 src/settings/settingsdialog.ui:506
+#: src/settings/settingsdialog.ui:475 src/settings/settingsdialog.ui:499
 msgctxt "SettingsDialog|"
 msgid "ISO 639-1 code"
 msgstr "Código ISO 639-1"
 
-#: src/settings/settingsdialog.ui:490
+#: src/settings/settingsdialog.ui:483
 msgctxt "SettingsDialog|"
 msgid "Pop-up:"
 msgstr "Popup:"
 
-#: src/settings/settingsdialog.ui:517
+#: src/settings/settingsdialog.ui:510
 msgctxt "SettingsDialog|"
 msgid "Tray icon"
 msgstr "Ícone da bandeja"
 
-#: src/settings/settingsdialog.ui:523
+#: src/settings/settingsdialog.ui:516
 msgctxt "SettingsDialog|"
 msgid "Icon:"
 msgstr "Ícone:"
 
-#: src/settings/settingsdialog.ui:536
+#: src/settings/settingsdialog.ui:529
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>System tray icon</p></body></html>"
 msgstr "<html><head/><body><p>Ícone da bandeja do sistema</p></body></html>"
 
-#: src/settings/settingsdialog.ui:540
+#: src/settings/settingsdialog.ui:533
 msgctxt "SettingsDialog|"
 msgid "Default"
 msgstr "Padrão"
 
-#: src/settings/settingsdialog.ui:549
+#: src/settings/settingsdialog.ui:541
 msgctxt "SettingsDialog|"
 msgid "Monochrome (dark theme)"
 msgstr "Monocromático (tema escuro)"
 
-#: src/settings/settingsdialog.ui:558
+#: src/settings/settingsdialog.ui:549
 msgctxt "SettingsDialog|"
 msgid "Monochrome (light theme)"
 msgstr "Monocromático (tema claro)"
 
-#: src/settings/settingsdialog.ui:567
+#: src/settings/settingsdialog.ui:557
 msgctxt "SettingsDialog|"
 msgid "Custom"
 msgstr "Personalizado"
 
-#: src/settings/settingsdialog.ui:582
+#: src/settings/settingsdialog.ui:571
 msgctxt "SettingsDialog|"
 msgid "Custom:"
 msgstr "Personalizado:"
 
-#: src/settings/settingsdialog.ui:594
+#: src/settings/settingsdialog.ui:583
 msgctxt "SettingsDialog|"
 msgid "Path to the icon or icon name from theme"
 msgstr "Caminho para o ícone ou nome do ícone do tema"
 
-#: src/settings/settingsdialog.ui:604
+#: src/settings/settingsdialog.ui:593
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>Selecionar ícone</p></body></html>"
 
-#: src/settings/settingsdialog.ui:648
+#: src/settings/settingsdialog.ui:637
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
@@ -2183,12 +2194,12 @@ msgstr ""
 "<html><head/><body><p>Habilitar ou desativar a transliteração da origem</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:651
+#: src/settings/settingsdialog.ui:640
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
 msgstr "Habilitar transliteração da origem"
 
-#: src/settings/settingsdialog.ui:658
+#: src/settings/settingsdialog.ui:647
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
@@ -2197,12 +2208,12 @@ msgstr ""
 "<html><head/><body><p>Habilitar ou desativar a transliteração de tradução</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:661
+#: src/settings/settingsdialog.ui:650
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
 msgstr "Habilitar transliteração de tradução"
 
-#: src/settings/settingsdialog.ui:668
+#: src/settings/settingsdialog.ui:657
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
@@ -2211,12 +2222,12 @@ msgstr ""
 "<html><head/><body><p>Habilitar ou desativar a transcrição da origem</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:671
+#: src/settings/settingsdialog.ui:660
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
 msgstr "Habilitar transcrição da fonte"
 
-#: src/settings/settingsdialog.ui:678
+#: src/settings/settingsdialog.ui:667
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
@@ -2224,12 +2235,12 @@ msgstr ""
 "<html><head/><body><p>Habilitar ou desativar opções de tradução</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:681
+#: src/settings/settingsdialog.ui:670
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
 msgstr "Habilitar opções de tradução"
 
-#: src/settings/settingsdialog.ui:688
+#: src/settings/settingsdialog.ui:677
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
@@ -2237,12 +2248,12 @@ msgstr ""
 "<html><head/><body><p>Habilitar ou desativar os exemplos de utilização</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:691
+#: src/settings/settingsdialog.ui:680
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
 msgstr "Habilitar exemplos"
 
-#: src/settings/settingsdialog.ui:698
+#: src/settings/settingsdialog.ui:687
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace each sequence of whitespaces (this includes "
@@ -2253,22 +2264,22 @@ msgstr ""
 "inclui os caracteres ASCII '\\t', '\\n', '\\v', '\\f', '\\r', e ' ') com um "
 "único espaço nas consultas</p></body></html>"
 
-#: src/settings/settingsdialog.ui:701
+#: src/settings/settingsdialog.ui:690
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
 msgstr "Simplificar fonte"
 
-#: src/settings/settingsdialog.ui:711
+#: src/settings/settingsdialog.ui:700
 msgctxt "SettingsDialog|"
 msgid "Automatic language detection"
 msgstr "Detecção automática de idioma"
 
-#: src/settings/settingsdialog.ui:717
+#: src/settings/settingsdialog.ui:706
 msgctxt "SettingsDialog|"
 msgid "Primary translation language:"
 msgstr "Idioma de tradução principal:"
 
-#: src/settings/settingsdialog.ui:724
+#: src/settings/settingsdialog.ui:713
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which text will be translated when "
@@ -2277,12 +2288,12 @@ msgstr ""
 "<html><head/><body><p>Idioma para o qual o texto será traduzido durante a "
 "autodetecção</p></body></html>"
 
-#: src/settings/settingsdialog.ui:731
+#: src/settings/settingsdialog.ui:720
 msgctxt "SettingsDialog|"
 msgid "Secondary translation language:"
 msgstr "Idioma de tradução secundário:"
 
-#: src/settings/settingsdialog.ui:738
+#: src/settings/settingsdialog.ui:727
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which the text will be translated if it is "
@@ -2291,7 +2302,7 @@ msgstr ""
 "<html><head/><body><p>Idioma para o qual o texto será traduzido se estiver "
 "no idioma selecionado acima</p></body></html>"
 
-#: src/settings/settingsdialog.ui:745 src/settings/settingsdialog.ui:755
+#: src/settings/settingsdialog.ui:734 src/settings/settingsdialog.ui:744
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
@@ -2301,27 +2312,27 @@ msgstr ""
 "italic;\">Automático</span> quando usar atalhos globais e OCR</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:748
+#: src/settings/settingsdialog.ui:737
 msgctxt "SettingsDialog|"
 msgid "Force source language detection"
 msgstr "Forçar detecção de idioma de origem"
 
-#: src/settings/settingsdialog.ui:758
+#: src/settings/settingsdialog.ui:747
 msgctxt "SettingsDialog|"
 msgid "Force translation language detection"
 msgstr "Forçar detecção do idioma de tradução"
 
-#: src/settings/settingsdialog.ui:787
+#: src/settings/settingsdialog.ui:776
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
 msgstr ""
 
-#: src/settings/settingsdialog.ui:800
+#: src/settings/settingsdialog.ui:789
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
 msgstr ""
 
-#: src/settings/settingsdialog.ui:803
+#: src/settings/settingsdialog.ui:792
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Speech test:"
@@ -2329,12 +2340,12 @@ msgctxt "SettingsDialog|"
 msgid "Detect fastest"
 msgstr "Teste de pronuncia:"
 
-#: src/settings/settingsdialog.ui:836
+#: src/settings/settingsdialog.ui:825
 msgctxt "SettingsDialog|"
 msgid "Languages"
 msgstr "Idiomas"
 
-#: src/settings/settingsdialog.ui:842
+#: src/settings/settingsdialog.ui:831
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Loading additional languages will impact both speed "
@@ -2347,23 +2358,23 @@ msgstr ""
 "sobre o idioma aplicável, e há mais possibilidade de surgirem palavras "
 "incorretas.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:849
+#: src/settings/settingsdialog.ui:838
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
 msgstr "Caminho do idioma:"
 
-#: src/settings/settingsdialog.ui:856
+#: src/settings/settingsdialog.ui:845
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Selecione o caminho dos idiomas OCR</p></body></html>"
 
-#: src/settings/settingsdialog.ui:867
+#: src/settings/settingsdialog.ui:855
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
 msgstr "<html><head/><body><p>Abrir repositório no GitHub</p></body></html>"
 
-#: src/settings/settingsdialog.ui:870
+#: src/settings/settingsdialog.ui:858
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
@@ -2374,12 +2385,12 @@ msgstr ""
 "\"><span style=\" text-decoration: underline; color:#2980b9;\">Baixar mais</"
 "span></a></p></body></html>"
 
-#: src/settings/settingsdialog.ui:880
+#: src/settings/settingsdialog.ui:868
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
 msgstr "Pasta com modelos treinados"
 
-#: src/settings/settingsdialog.ui:896
+#: src/settings/settingsdialog.ui:884
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
@@ -2388,22 +2399,22 @@ msgstr ""
 "<html><head/><body><p>Substitua todas as quebras de linha simples por um "
 "espaço após reconhecimento de texto</p></body></html>"
 
-#: src/settings/settingsdialog.ui:899
+#: src/settings/settingsdialog.ui:887
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
 msgstr "Converter quebras de linha"
 
-#: src/settings/settingsdialog.ui:965
+#: src/settings/settingsdialog.ui:951
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
 msgstr "Capturar tela"
 
-#: src/settings/settingsdialog.ui:977
+#: src/settings/settingsdialog.ui:963
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
 msgstr "Lembrar região:"
 
-#: src/settings/settingsdialog.ui:984
+#: src/settings/settingsdialog.ui:970
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
@@ -2412,49 +2423,68 @@ msgstr ""
 "<html><head/><body><p>Quando lembrar a última região selecionada</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:988
+#: src/settings/settingsdialog.ui:974
 msgctxt "SettingsDialog|"
 msgid "Never"
 msgstr "Nunca"
 
-#: src/settings/settingsdialog.ui:993
+#: src/settings/settingsdialog.ui:979
 msgctxt "SettingsDialog|"
 msgid "Remember last"
 msgstr "Lembrar última"
 
-#: src/settings/settingsdialog.ui:998
+#: src/settings/settingsdialog.ui:984
 msgctxt "SettingsDialog|"
 msgid "Remember always"
 msgstr "Lembrar sempre"
 
-#: src/settings/settingsdialog.ui:1006
+#: src/settings/settingsdialog.ui:992
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
 msgstr "Atraso de captura:"
 
-#: src/settings/settingsdialog.ui:1013
+#: src/settings/settingsdialog.ui:999
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
 msgstr "Atraso antes da captura de tela"
 
-#: src/settings/settingsdialog.ui:1016
+#: src/settings/settingsdialog.ui:1002
 msgctxt "SettingsDialog|"
 msgid " ms"
 msgstr " ms"
 
-#: src/settings/settingsdialog.ui:1026
+#: src/settings/settingsdialog.ui:1012
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Mostrar uma lupa próximo ao cursor</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1029
+#: src/settings/settingsdialog.ui:1015
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
 msgstr "Mostrar lupa"
 
-#: src/settings/settingsdialog.ui:1039
+#: src/settings/settingsdialog.ui:1022
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid ""
+#| "<html><head/><body><p>Replace all single line breaks with a space after "
+#| "text recognition</p></body></html>"
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
+"text on dark background.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Substitua todas as quebras de linha simples por um "
+"espaço após reconhecimento de texto</p></body></html>"
+
+#: src/settings/settingsdialog.ui:1025
+msgctxt "SettingsDialog|"
+msgid "Negate OCR"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1035
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
@@ -2463,12 +2493,12 @@ msgstr ""
 "<html><head/><body><p>Termine de capturar o fragmento quando o botão do "
 "mouse for liberado</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1042
+#: src/settings/settingsdialog.ui:1038
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
 msgstr "Confirmar ao liberar"
 
-#: src/settings/settingsdialog.ui:1049
+#: src/settings/settingsdialog.ui:1045
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
@@ -2477,80 +2507,80 @@ msgstr ""
 "<html><head/><body><p>Aplicar um pequeno desfoque na parte não selecionada</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:1052
+#: src/settings/settingsdialog.ui:1048
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
 msgstr "Aplicar máscara de luz"
 
-#: src/settings/settingsdialog.ui:1085
+#: src/settings/settingsdialog.ui:1081
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
 msgstr "Servidor proxy"
 
-#: src/settings/settingsdialog.ui:1091
+#: src/settings/settingsdialog.ui:1087
 msgctxt "SettingsDialog|"
 msgid "Type:"
 msgstr "Tipo:"
 
-#: src/settings/settingsdialog.ui:1104
+#: src/settings/settingsdialog.ui:1100
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
 msgstr "<html><head/><body><p>Tipo de proxy</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1108
+#: src/settings/settingsdialog.ui:1104
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
 msgstr "Use as configurações do sistema"
 
-#: src/settings/settingsdialog.ui:1118
+#: src/settings/settingsdialog.ui:1114
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
 msgstr "Não usar um proxy"
 
-#: src/settings/settingsdialog.ui:1134
+#: src/settings/settingsdialog.ui:1130
 msgctxt "SettingsDialog|"
 msgid "Host:"
 msgstr "Endereço:"
 
-#: src/settings/settingsdialog.ui:1144
+#: src/settings/settingsdialog.ui:1140
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr "<html><head/><body><p>Nome do endereço de proxy</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1157
+#: src/settings/settingsdialog.ui:1153
 msgctxt "SettingsDialog|"
 msgid "Port:"
 msgstr "Porta:"
 
-#: src/settings/settingsdialog.ui:1173
+#: src/settings/settingsdialog.ui:1169
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
 msgstr "<html><head/><body><p>Porta do proxy</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1192
+#: src/settings/settingsdialog.ui:1188
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
 msgstr ""
 "Nota: As configurações de proxy são válidas apenas para tradução de texto"
 
-#: src/settings/settingsdialog.ui:1202
+#: src/settings/settingsdialog.ui:1198
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Ative ou desative a autenticação</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1205
+#: src/settings/settingsdialog.ui:1201
 msgctxt "SettingsDialog|"
 msgid "Authentication"
 msgstr "Autenticação"
 
-#: src/settings/settingsdialog.ui:1215
+#: src/settings/settingsdialog.ui:1211
 msgctxt "SettingsDialog|"
 msgid "Username:"
 msgstr "Nome de usuário:"
 
-#: src/settings/settingsdialog.ui:1225
+#: src/settings/settingsdialog.ui:1221
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
@@ -2558,58 +2588,58 @@ msgstr ""
 "<html><head/><body><p>Nome de usuário do proxy para autenticação</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1235
+#: src/settings/settingsdialog.ui:1231
 msgctxt "SettingsDialog|"
 msgid "Password:"
 msgstr "Senha:"
 
-#: src/settings/settingsdialog.ui:1245
+#: src/settings/settingsdialog.ui:1241
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Senha do proxy para autenticação</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1258
+#: src/settings/settingsdialog.ui:1254
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
 msgstr "Nota: a senha é salva sem criptografia"
 
-#: src/settings/settingsdialog.ui:1294
+#: src/settings/settingsdialog.ui:1290
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Registrar atalhos globais no sistema</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1297
+#: src/settings/settingsdialog.ui:1293
 msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "Ativar atalhos globais"
 
-#: src/settings/settingsdialog.ui:1313
+#: src/settings/settingsdialog.ui:1309
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Restaurar todos os atalhos para o padrão</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1316
+#: src/settings/settingsdialog.ui:1312
 msgctxt "SettingsDialog|"
 msgid "Reset all"
 msgstr "Restaurar padrões"
 
-#: src/settings/settingsdialog.ui:1326
+#: src/settings/settingsdialog.ui:1322
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
 msgstr "Atalho"
 
-#: src/settings/settingsdialog.ui:1332
+#: src/settings/settingsdialog.ui:1328
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
 msgstr "Sequência de teclas:"
 
-#: src/settings/settingsdialog.ui:1339
+#: src/settings/settingsdialog.ui:1335
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
@@ -2618,52 +2648,52 @@ msgstr ""
 "<html><head/><body><p>A sequência de teclas para a ação selecionada</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1346
+#: src/settings/settingsdialog.ui:1342
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Aceitar atalho</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1349
+#: src/settings/settingsdialog.ui:1345
 msgctxt "SettingsDialog|"
 msgid "Accept"
 msgstr "Aceitar"
 
-#: src/settings/settingsdialog.ui:1360
+#: src/settings/settingsdialog.ui:1355
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Limpar atalho</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1363
+#: src/settings/settingsdialog.ui:1358
 msgctxt "SettingsDialog|"
 msgid "Clear"
 msgstr "Limpar"
 
-#: src/settings/settingsdialog.ui:1374
+#: src/settings/settingsdialog.ui:1368
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr "<html><head/><body><p>Restaurar atalho para o padrão</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1377
+#: src/settings/settingsdialog.ui:1371
 msgctxt "SettingsDialog|"
 msgid "Reset"
 msgstr "Resetar"
 
-#: src/settings/settingsdialog.ui:1423
+#: src/settings/settingsdialog.ui:1416
 msgctxt "SettingsDialog|"
 msgid "Version:"
 msgstr "Versão:"
 
-#: src/settings/settingsdialog.ui:1433
+#: src/settings/settingsdialog.ui:1426
 msgctxt "SettingsDialog|"
 msgid "License:"
 msgstr "Licença:"
 
-#: src/settings/settingsdialog.ui:1447
+#: src/settings/settingsdialog.ui:1440
 msgctxt "SettingsDialog|"
 msgid "Source code:"
 msgstr "Código fonte:"
 
-#: src/settings/settingsdialog.ui:1467
+#: src/settings/settingsdialog.ui:1460
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Translation mode:"
@@ -2697,7 +2727,7 @@ msgid "Stop text speaking"
 msgstr "Parar a pronúncia do texto"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:35
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:71
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:73
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause text speaking"
 msgstr "Falar / pausar texto falado"
@@ -2732,52 +2762,57 @@ msgctxt "ShortcutsModel|"
 msgid "Translate text in screen area with delay"
 msgstr "Traduzir texto na área da tela com atraso"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:57
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:56
+msgctxt "ShortcutsModel|"
+msgid "Toggle color inversion for OCR"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
 msgid "Main window"
 msgstr "Janela principal"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:61
 msgctxt "ShortcutsModel|"
 msgid "Translate"
 msgstr "Traduzir"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:62
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:64
 msgctxt "ShortcutsModel|"
 msgid "Swap languages"
 msgstr "Alternar idiomas"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:65
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:67
 msgctxt "ShortcutsModel|"
 msgid "Close window"
 msgstr "Fechar janela"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:69
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:71
 msgctxt "ShortcutsModel|"
 msgid "Source text"
 msgstr "Texto original"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:75
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
 msgctxt "ShortcutsModel|"
 msgid "Translation"
 msgstr "Tradução"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:79
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause speaking"
 msgstr "Falar / pausar fala"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:80
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:82
 msgctxt "ShortcutsModel|"
 msgid "Copy to clipboard"
 msgstr "Copiar para a área de transferência"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:126
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:128
 msgctxt "ShortcutsModel|"
 msgid "Description"
 msgstr "Descrição"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:128
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:130
 msgctxt "ShortcutsModel|"
 msgid "Shortcut"
 msgstr "Atalho"

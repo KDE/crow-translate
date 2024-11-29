@@ -272,23 +272,34 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "%1에 대한 D-Bus 개체를 등록할 수 없습니다"
 
-#: src/mainwindow.cpp:386
+#: src/mainwindow.cpp:270
+msgctxt "MainWindow|"
+msgid "Toggled OCR image negate"
+msgstr ""
+
+#: src/mainwindow.cpp:270
+#, qt-format
+msgctxt "MainWindow|"
+msgid "OCR image negate has changed to %1"
+msgstr ""
+
+#: src/mainwindow.cpp:397
 msgctxt "MainWindow|"
 msgid "Unable to detect language"
 msgstr "언어를 검색할 수 없습니다"
 
-#: src/mainwindow.cpp:438
+#: src/mainwindow.cpp:449
 msgctxt "MainWindow|"
 msgid "Unable to translate text"
 msgstr "텍스트를 번역할 수 없습니다"
 
-#: src/mainwindow.cpp:859
+#: src/mainwindow.cpp:870
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr ""
 
-#: src/mainwindow.cpp:860
+#: src/mainwindow.cpp:871
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -298,28 +309,28 @@ msgid ""
 "instance details in the link above."
 msgstr ""
 
-#: src/mainwindow.cpp:867
+#: src/mainwindow.cpp:878
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr ""
 
-#: src/mainwindow.cpp:895
+#: src/mainwindow.cpp:906
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "잘못된 트레이 아이콘"
 
-#: src/mainwindow.cpp:895
+#: src/mainwindow.cpp:906
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "지정한 아이콘 '%1' 이(가) 잘못되었습니다. 기본 아이콘이 사용됩니다."
 
-#: src/mainwindow.cpp:924
+#: src/mainwindow.cpp:935
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "OCR 언어를 설정할 수 없습니다"
 
-#: src/mainwindow.cpp:924
+#: src/mainwindow.cpp:935
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -440,18 +451,18 @@ msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
 msgstr "xdg-desktop-portal에서 빈 경로를 수신했습니다."
 
-#: src/ocr/snippingarea.cpp:73
+#: src/ocr/snippingarea.cpp:78
 msgctxt "SnippingArea|"
 msgid "Unable to snip screen area"
 msgstr "화면 영역을 생략할 수 없습니다"
 
-#: src/ocr/snippingarea.cpp:74
+#: src/ocr/snippingarea.cpp:79
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
 msgstr "%1 화면의 잘못된 이미지를 받았습니다."
 
-#: src/ocr/snippingarea.cpp:626
+#: src/ocr/snippingarea.cpp:631
 msgctxt "SnippingArea|"
 msgid ""
 "Click and drag to draw a selection rectangle,\n"
@@ -460,97 +471,97 @@ msgstr ""
 "클릭하여 드래그하여 선택 사각형을 그립니다,\n"
 "종료하려면 Esc 키를 누르십시오"
 
-#: src/ocr/snippingarea.cpp:832
+#: src/ocr/snippingarea.cpp:837
 msgctxt "SnippingArea|"
 msgid "Confirm:"
 msgstr "확인:"
 
-#: src/ocr/snippingarea.cpp:834
+#: src/ocr/snippingarea.cpp:839
 msgctxt "SnippingArea|"
 msgid "Release left-click"
 msgstr "왼쪽 클릭 해제"
 
-#: src/ocr/snippingarea.cpp:834 src/ocr/snippingarea.cpp:836
+#: src/ocr/snippingarea.cpp:839 src/ocr/snippingarea.cpp:841
 msgctxt "SnippingArea|"
 msgid "Enter"
 msgstr "입력"
 
-#: src/ocr/snippingarea.cpp:836
+#: src/ocr/snippingarea.cpp:841
 msgctxt "SnippingArea|"
 msgid "Double-click"
 msgstr "두 번 클릭"
 
-#: src/ocr/snippingarea.cpp:838
+#: src/ocr/snippingarea.cpp:843
 msgctxt "SnippingArea|"
 msgid "Create new selection rectangle:"
 msgstr "새 선택 사각형 만들기:"
 
-#: src/ocr/snippingarea.cpp:839
+#: src/ocr/snippingarea.cpp:844
 msgctxt "SnippingArea|"
 msgid "Drag outside selection rectangle"
 msgstr "선택 영역 밖으로 끌어다 놓기 사각형"
 
-#: src/ocr/snippingarea.cpp:839
+#: src/ocr/snippingarea.cpp:844
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
 msgstr "+ Shift: 돋보기"
 
-#: src/ocr/snippingarea.cpp:842
+#: src/ocr/snippingarea.cpp:847
 msgctxt "SnippingArea|"
 msgid "Move selection rectangle:"
 msgstr "선택 사각형 이동:"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "Drag inside selection rectangle"
 msgstr "선택 사각형 안으로 끌어오기"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "Arrow keys"
 msgstr "화살표 키"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "+ Shift: Move in 1 pixel steps"
 msgstr "+ Shift: 1픽셀 단위로 이동"
 
-#: src/ocr/snippingarea.cpp:845
+#: src/ocr/snippingarea.cpp:850
 msgctxt "SnippingArea|"
 msgid "Resize selection rectangle:"
 msgstr "선택 사각형 크기 조정:"
 
-#: src/ocr/snippingarea.cpp:846
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "Drag handles"
 msgstr "핸들 끌기"
 
-#: src/ocr/snippingarea.cpp:846
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "Arrow keys + Alt"
 msgstr "화살표 키 + Alt"
 
-#: src/ocr/snippingarea.cpp:846
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "+ Shift: Resize in 1 pixel steps"
 msgstr "+ Shift: 1픽셀 단위로 크기 조정"
 
-#: src/ocr/snippingarea.cpp:848
+#: src/ocr/snippingarea.cpp:853
 msgctxt "SnippingArea|"
 msgid "Reset selection:"
 msgstr "선택 재설정:"
 
-#: src/ocr/snippingarea.cpp:849
+#: src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Right-click"
 msgstr "오른쪽 클릭"
 
-#: src/ocr/snippingarea.cpp:852
+#: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "Cancel:"
 msgstr "취소:"
 
-#: src/ocr/snippingarea.cpp:853
+#: src/ocr/snippingarea.cpp:858
 msgctxt "SnippingArea|"
 msgid "Esc key"
 msgstr "Esc 키"
@@ -1751,7 +1762,7 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "번역을 클립보드로 복사"
 
-#: src/settings/appsettings.cpp:1047
+#: src/settings/appsettings.cpp:1079
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1823,22 +1834,22 @@ msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "잘못된 매개변수를 삭제하시겠습니까?"
 
-#: src/settings/settingsdialog.cpp:253
+#: src/settings/settingsdialog.cpp:254
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "아이콘 선택"
 
-#: src/settings/settingsdialog.cpp:253
+#: src/settings/settingsdialog.cpp:254
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "이미지 (*.png *.ico *.svg *.jpg);;모든 파일()"
 
-#: src/settings/settingsdialog.cpp:283
+#: src/settings/settingsdialog.cpp:284
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "OCR 언어 경로 선택"
 
-#: src/settings/settingsdialog.cpp:423
+#: src/settings/settingsdialog.cpp:425
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "뒤로"
@@ -1848,52 +1859,52 @@ msgctxt "SettingsDialog|"
 msgid "Settings"
 msgstr "설정"
 
-#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:135
+#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:128
 msgctxt "SettingsDialog|"
 msgid "General"
 msgstr "일반"
 
-#: src/settings/settingsdialog.ui:58
+#: src/settings/settingsdialog.ui:57
 msgctxt "SettingsDialog|"
 msgid "Interface"
 msgstr "인터페이스"
 
-#: src/settings/settingsdialog.ui:67 src/settings/settingsdialog.ui:642
+#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:631
 msgctxt "SettingsDialog|"
 msgid "Translation"
 msgstr "번역"
 
-#: src/settings/settingsdialog.ui:85
+#: src/settings/settingsdialog.ui:81
 msgctxt "SettingsDialog|"
 msgid "Connection"
 msgstr "연결"
 
-#: src/settings/settingsdialog.ui:94
+#: src/settings/settingsdialog.ui:89
 msgctxt "SettingsDialog|"
 msgid "Shortcuts"
 msgstr "단축키"
 
-#: src/settings/settingsdialog.ui:103
+#: src/settings/settingsdialog.ui:97
 msgctxt "SettingsDialog|"
 msgid "About"
 msgstr "정보"
 
-#: src/settings/settingsdialog.ui:147
+#: src/settings/settingsdialog.ui:140
 msgctxt "SettingsDialog|"
 msgid "Language:"
 msgstr "언어:"
 
-#: src/settings/settingsdialog.ui:154
+#: src/settings/settingsdialog.ui:147
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Interface language</p></body></html>"
 msgstr "<html><head/><body><p>인터페이스 언어</p></body></html>"
 
-#: src/settings/settingsdialog.ui:161
+#: src/settings/settingsdialog.ui:154
 msgctxt "SettingsDialog|"
 msgid "Main window orientation:"
 msgstr "기본 창 방향:"
 
-#: src/settings/settingsdialog.ui:168
+#: src/settings/settingsdialog.ui:161
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Orientation of the main window layout<br/>When using "
@@ -1905,29 +1916,29 @@ msgstr ""
 "body></html>"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:172
+#: src/settings/settingsdialog.ui:165
 msgctxt "SettingsDialog|"
 msgid "Auto"
 msgstr "자동"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:177
+#: src/settings/settingsdialog.ui:170
 msgctxt "SettingsDialog|"
 msgid "Portrait"
 msgstr "세로"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:182
+#: src/settings/settingsdialog.ui:175
 msgctxt "SettingsDialog|"
 msgid "Landscape"
 msgstr "가로"
 
-#: src/settings/settingsdialog.ui:190
+#: src/settings/settingsdialog.ui:183
 msgctxt "SettingsDialog|"
 msgid "Translation mode:"
 msgstr "번역 모드:"
 
-#: src/settings/settingsdialog.ui:197
+#: src/settings/settingsdialog.ui:190
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>A window for translating selected text. If the "
@@ -1937,49 +1948,49 @@ msgstr ""
 "<html><head/><body><p>선택한 텍스트를 번역하기 위한 창입니다. 응용 프로그램"
 "을 최소화하면 기본 창이 항상 사용됩니다.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:201 src/settings/settingsdialog.ui:350
+#: src/settings/settingsdialog.ui:194 src/settings/settingsdialog.ui:343
 msgctxt "SettingsDialog|"
 msgid "Pop-up window"
 msgstr "팝업 창"
 
-#: src/settings/settingsdialog.ui:206
+#: src/settings/settingsdialog.ui:199
 msgctxt "SettingsDialog|"
 msgid "Main window"
 msgstr "기본 창"
 
-#: src/settings/settingsdialog.ui:211
+#: src/settings/settingsdialog.ui:204
 msgctxt "SettingsDialog|"
 msgid "Notification"
 msgstr "알림"
 
-#: src/settings/settingsdialog.ui:219
+#: src/settings/settingsdialog.ui:212
 msgctxt "SettingsDialog|"
 msgid "Translation notification timeout:"
 msgstr "번역 알림 시간 초과:"
 
-#: src/settings/settingsdialog.ui:232
+#: src/settings/settingsdialog.ui:225
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Notification with translation display time</p></body></"
 "html>"
 msgstr "<html><head/><body><p>번역 표시 시간이 포함된 알림</p></body></html>"
 
-#: src/settings/settingsdialog.ui:235 src/settings/settingsdialog.ui:440
+#: src/settings/settingsdialog.ui:228 src/settings/settingsdialog.ui:433
 msgctxt "SettingsDialog|"
 msgid " sec"
 msgstr " 초"
 
-#: src/settings/settingsdialog.ui:248
+#: src/settings/settingsdialog.ui:241
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Display icon in the system tray</p></body></html>"
 msgstr "<html><head/><body><p>시스템 트레이에 아이콘 표시</p></body></html>"
 
-#: src/settings/settingsdialog.ui:251
+#: src/settings/settingsdialog.ui:244
 msgctxt "SettingsDialog|"
 msgid "Show tray icon"
 msgstr "트레이 아이콘 표시"
 
-#: src/settings/settingsdialog.ui:261
+#: src/settings/settingsdialog.ui:254
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Start application minimized to the system tray</p></"
@@ -1988,45 +1999,45 @@ msgstr ""
 "<html><head/><body><p>시스템 트레이로 최소화된 시작 응용 프로그램</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:264
+#: src/settings/settingsdialog.ui:257
 msgctxt "SettingsDialog|"
 msgid "Start minimized"
 msgstr "최소화로 시작"
 
-#: src/settings/settingsdialog.ui:271
+#: src/settings/settingsdialog.ui:264
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Run the application at system startup</p></body></html>"
 msgstr ""
 "<html><head/><body><p>시스템 시작 시 응용 프로그램 실행</p></body></html>"
 
-#: src/settings/settingsdialog.ui:274
+#: src/settings/settingsdialog.ui:267
 msgctxt "SettingsDialog|"
 msgid "Launch at startup"
 msgstr "시작 시 실행"
 
-#: src/settings/settingsdialog.ui:307
+#: src/settings/settingsdialog.ui:300
 msgctxt "SettingsDialog|"
 msgid "Font"
 msgstr "글꼴"
 
-#: src/settings/settingsdialog.ui:313
+#: src/settings/settingsdialog.ui:306
 msgctxt "SettingsDialog|"
 msgid "Name:"
 msgstr "이름:"
 
-#: src/settings/settingsdialog.ui:320
+#: src/settings/settingsdialog.ui:313
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Translation and source text font</p></body></html>"
 msgstr "<html><head/><body><p>번역 및 원본 텍스트 글꼴</p></body></html>"
 
-#: src/settings/settingsdialog.ui:327
+#: src/settings/settingsdialog.ui:320
 msgctxt "SettingsDialog|"
 msgid "Size:"
 msgstr "크기:"
 
-#: src/settings/settingsdialog.ui:334
+#: src/settings/settingsdialog.ui:327
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Font size of translation and source text</p></body></"
@@ -2034,42 +2045,42 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>번역 및 원본 텍스트의 글꼴 크기</p></body></html>"
 
-#: src/settings/settingsdialog.ui:356
+#: src/settings/settingsdialog.ui:349
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window height in pixels</p></body></html>"
 msgstr "<html><head/><body><p>픽셀 단위의 팝업 창 높이</p></body></html>"
 
-#: src/settings/settingsdialog.ui:366
+#: src/settings/settingsdialog.ui:359
 msgctxt "SettingsDialog|"
 msgid "Width:"
 msgstr "너비:"
 
-#: src/settings/settingsdialog.ui:373
+#: src/settings/settingsdialog.ui:366
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
 msgstr "<html><head/><body><p>팝업 창 너비 (픽셀)</p></body></html>"
 
-#: src/settings/settingsdialog.ui:383
+#: src/settings/settingsdialog.ui:376
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window opacity</p></body></html>"
 msgstr "<html><head/><body><p>팝업 창 불투명도</p></body></html>"
 
-#: src/settings/settingsdialog.ui:410
+#: src/settings/settingsdialog.ui:403
 msgctxt "SettingsDialog|"
 msgid "Opacity:"
 msgstr "불투명도:"
 
-#: src/settings/settingsdialog.ui:417
+#: src/settings/settingsdialog.ui:410
 msgctxt "SettingsDialog|"
 msgid "Show timeout:"
 msgstr "시간 초과 표시:"
 
-#: src/settings/settingsdialog.ui:424
+#: src/settings/settingsdialog.ui:417
 msgctxt "SettingsDialog|"
 msgid "Height:"
 msgstr "높이:"
 
-#: src/settings/settingsdialog.ui:437
+#: src/settings/settingsdialog.ui:430
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The number of seconds after which the window will be "
@@ -2078,111 +2089,111 @@ msgstr ""
 "<html><head/><body><p>포커스가 없는 경우 창을 숨길 때까지의 시간 (초)</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:460
+#: src/settings/settingsdialog.ui:453
 msgctxt "SettingsDialog|"
 msgid "Language format"
 msgstr "언어 형식"
 
-#: src/settings/settingsdialog.ui:466
+#: src/settings/settingsdialog.ui:459
 msgctxt "SettingsDialog|"
 msgid "Main window:"
 msgstr "기본 창:"
 
-#: src/settings/settingsdialog.ui:473 src/settings/settingsdialog.ui:497
+#: src/settings/settingsdialog.ui:466 src/settings/settingsdialog.ui:490
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Languages text on buttons</p></body></html>"
 msgstr "<html><head/><body><p>버튼의 언어 텍스트</p></body></html>"
 
-#: src/settings/settingsdialog.ui:477 src/settings/settingsdialog.ui:501
+#: src/settings/settingsdialog.ui:470 src/settings/settingsdialog.ui:494
 msgctxt "SettingsDialog|"
 msgid "Full name"
 msgstr "전체 이름"
 
-#: src/settings/settingsdialog.ui:482 src/settings/settingsdialog.ui:506
+#: src/settings/settingsdialog.ui:475 src/settings/settingsdialog.ui:499
 msgctxt "SettingsDialog|"
 msgid "ISO 639-1 code"
 msgstr "ISO 639-1 코드"
 
-#: src/settings/settingsdialog.ui:490
+#: src/settings/settingsdialog.ui:483
 msgctxt "SettingsDialog|"
 msgid "Pop-up:"
 msgstr "팝업:"
 
-#: src/settings/settingsdialog.ui:517
+#: src/settings/settingsdialog.ui:510
 msgctxt "SettingsDialog|"
 msgid "Tray icon"
 msgstr "트레이 아이콘"
 
-#: src/settings/settingsdialog.ui:523
+#: src/settings/settingsdialog.ui:516
 msgctxt "SettingsDialog|"
 msgid "Icon:"
 msgstr "아이콘:"
 
-#: src/settings/settingsdialog.ui:536
+#: src/settings/settingsdialog.ui:529
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>System tray icon</p></body></html>"
 msgstr "<html><head/><body><p>시스템 트레이 아이콘</p></body></html>"
 
-#: src/settings/settingsdialog.ui:540
+#: src/settings/settingsdialog.ui:533
 msgctxt "SettingsDialog|"
 msgid "Default"
 msgstr "기본값"
 
-#: src/settings/settingsdialog.ui:549
+#: src/settings/settingsdialog.ui:541
 msgctxt "SettingsDialog|"
 msgid "Monochrome (dark theme)"
 msgstr "단색 (어두운 테마)"
 
-#: src/settings/settingsdialog.ui:558
+#: src/settings/settingsdialog.ui:549
 msgctxt "SettingsDialog|"
 msgid "Monochrome (light theme)"
 msgstr "단색 (밝은 테마)"
 
-#: src/settings/settingsdialog.ui:567
+#: src/settings/settingsdialog.ui:557
 msgctxt "SettingsDialog|"
 msgid "Custom"
 msgstr "사용자 지정"
 
-#: src/settings/settingsdialog.ui:582
+#: src/settings/settingsdialog.ui:571
 msgctxt "SettingsDialog|"
 msgid "Custom:"
 msgstr "사용자 지정:"
 
-#: src/settings/settingsdialog.ui:594
+#: src/settings/settingsdialog.ui:583
 msgctxt "SettingsDialog|"
 msgid "Path to the icon or icon name from theme"
 msgstr "테마에서 아이콘 또는 아이콘 이름의 경로"
 
-#: src/settings/settingsdialog.ui:604
+#: src/settings/settingsdialog.ui:593
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>아이콘 선택</p></body></html>"
 
-#: src/settings/settingsdialog.ui:648
+#: src/settings/settingsdialog.ui:637
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
 "html>"
 msgstr "<html><head/><body><p>원본 변환 사용 또는 사용 안 함</p></body></html>"
 
-#: src/settings/settingsdialog.ui:651
+#: src/settings/settingsdialog.ui:640
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
 msgstr "원본 변환 사용"
 
-#: src/settings/settingsdialog.ui:658
+#: src/settings/settingsdialog.ui:647
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
 "body></html>"
 msgstr "<html><head/><body><p>번역 변환 사용 또는 사용 안 함</p></body></html>"
 
-#: src/settings/settingsdialog.ui:661
+#: src/settings/settingsdialog.ui:650
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
 msgstr "번역 변환 사용"
 
-#: src/settings/settingsdialog.ui:668
+#: src/settings/settingsdialog.ui:657
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
@@ -2190,34 +2201,34 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>원본 문자 변환 사용 또는 사용 안 함</p></body></html>"
 
-#: src/settings/settingsdialog.ui:671
+#: src/settings/settingsdialog.ui:660
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
 msgstr "원본 표기 사용"
 
-#: src/settings/settingsdialog.ui:678
+#: src/settings/settingsdialog.ui:667
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
 msgstr "<html><head/><body><p>번역 옵션 사용 또는 사용 안 함</p></body></html>"
 
-#: src/settings/settingsdialog.ui:681
+#: src/settings/settingsdialog.ui:670
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
 msgstr "번역 옵션 사용"
 
-#: src/settings/settingsdialog.ui:688
+#: src/settings/settingsdialog.ui:677
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
 msgstr "<html><head/><body><p>사용 예제 사용 또는 사용 안 함</p></body></html>"
 
-#: src/settings/settingsdialog.ui:691
+#: src/settings/settingsdialog.ui:680
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
 msgstr "예제 사용"
 
-#: src/settings/settingsdialog.ui:698
+#: src/settings/settingsdialog.ui:687
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace each sequence of whitespaces (this includes "
@@ -2227,22 +2238,22 @@ msgstr ""
 "<html><head/><body><p>각 공백 시퀀스(ASCII 문자 포함 '\\t', '\\n', '\\v', "
 "'\\f', '\\r', 및 ' ')를 쿼리의 단일 공백으로 바꿉니다</p></body></html>"
 
-#: src/settings/settingsdialog.ui:701
+#: src/settings/settingsdialog.ui:690
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
 msgstr "원본 단순화"
 
-#: src/settings/settingsdialog.ui:711
+#: src/settings/settingsdialog.ui:700
 msgctxt "SettingsDialog|"
 msgid "Automatic language detection"
 msgstr "자동 언어 감지"
 
-#: src/settings/settingsdialog.ui:717
+#: src/settings/settingsdialog.ui:706
 msgctxt "SettingsDialog|"
 msgid "Primary translation language:"
 msgstr "기본 번역 언어:"
 
-#: src/settings/settingsdialog.ui:724
+#: src/settings/settingsdialog.ui:713
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which text will be translated when "
@@ -2250,12 +2261,12 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>자동 검색 시 텍스트를 번역할 언어</p></body></html>"
 
-#: src/settings/settingsdialog.ui:731
+#: src/settings/settingsdialog.ui:720
 msgctxt "SettingsDialog|"
 msgid "Secondary translation language:"
 msgstr "보조 번역 언어:"
 
-#: src/settings/settingsdialog.ui:738
+#: src/settings/settingsdialog.ui:727
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which the text will be translated if it is "
@@ -2264,7 +2275,7 @@ msgstr ""
 "<html><head/><body><p>위에서 선택한 언어로 텍스트를 번역할 언어</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:745 src/settings/settingsdialog.ui:755
+#: src/settings/settingsdialog.ui:734 src/settings/settingsdialog.ui:744
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
@@ -2273,27 +2284,27 @@ msgstr ""
 "<html><head/><body><p>자동으로 전환 <span style=\" font-style:italic;\">자동"
 "</span> OCR 및 전역 단축키를 사용하는 경우</p></body></html>"
 
-#: src/settings/settingsdialog.ui:748
+#: src/settings/settingsdialog.ui:737
 msgctxt "SettingsDialog|"
 msgid "Force source language detection"
 msgstr "원본 언어 감지 강제 적용"
 
-#: src/settings/settingsdialog.ui:758
+#: src/settings/settingsdialog.ui:747
 msgctxt "SettingsDialog|"
 msgid "Force translation language detection"
 msgstr "번역 언어 감지 강제 적용"
 
-#: src/settings/settingsdialog.ui:787
+#: src/settings/settingsdialog.ui:776
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
 msgstr ""
 
-#: src/settings/settingsdialog.ui:800
+#: src/settings/settingsdialog.ui:789
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
 msgstr ""
 
-#: src/settings/settingsdialog.ui:803
+#: src/settings/settingsdialog.ui:792
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Speech test:"
@@ -2301,12 +2312,12 @@ msgctxt "SettingsDialog|"
 msgid "Detect fastest"
 msgstr "음성 테스트:"
 
-#: src/settings/settingsdialog.ui:836
+#: src/settings/settingsdialog.ui:825
 msgctxt "SettingsDialog|"
 msgid "Languages"
 msgstr "언어"
 
-#: src/settings/settingsdialog.ui:842
+#: src/settings/settingsdialog.ui:831
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Loading additional languages will impact both speed "
@@ -2318,22 +2329,22 @@ msgstr ""
 "업이 필요하고 잘못된 단어를 환각으로 볼 가능성이 높기 때문에 속도와 정확성 모"
 "두에 영향을 미칩니다.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:849
+#: src/settings/settingsdialog.ui:838
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
 msgstr "언어 경로:"
 
-#: src/settings/settingsdialog.ui:856
+#: src/settings/settingsdialog.ui:845
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr "<html><head/><body><p>OCR 언어 경로 선택</p></body></html>"
 
-#: src/settings/settingsdialog.ui:867
+#: src/settings/settingsdialog.ui:855
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
 msgstr "<html><head/><body><p>GitHub 리포지토리 열기</p></body></html>"
 
-#: src/settings/settingsdialog.ui:870
+#: src/settings/settingsdialog.ui:858
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
@@ -2344,12 +2355,12 @@ msgstr ""
 "\"><span style=\" text-decoration: underline; color:#2980b9;\">추가 다운로드"
 "</span></a></p></body></html>"
 
-#: src/settings/settingsdialog.ui:880
+#: src/settings/settingsdialog.ui:868
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
 msgstr "훈련된 모델이 있는 디렉터리"
 
-#: src/settings/settingsdialog.ui:896
+#: src/settings/settingsdialog.ui:884
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
@@ -2358,22 +2369,22 @@ msgstr ""
 "<html><head/><body><p>텍스트 인식 후 모든 단일 줄 바꿈을 공백으로 바꿉니다</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:899
+#: src/settings/settingsdialog.ui:887
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
 msgstr "줄 바꿈 변환"
 
-#: src/settings/settingsdialog.ui:965
+#: src/settings/settingsdialog.ui:951
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
 msgstr "화면 캡처"
 
-#: src/settings/settingsdialog.ui:977
+#: src/settings/settingsdialog.ui:963
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
 msgstr "지역 기억:"
 
-#: src/settings/settingsdialog.ui:984
+#: src/settings/settingsdialog.ui:970
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
@@ -2382,48 +2393,67 @@ msgstr ""
 "<html><head/><body><p>마지막으로 선택한 영역을 기억해야 하는 시기</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:988
+#: src/settings/settingsdialog.ui:974
 msgctxt "SettingsDialog|"
 msgid "Never"
 msgstr "안함"
 
-#: src/settings/settingsdialog.ui:993
+#: src/settings/settingsdialog.ui:979
 msgctxt "SettingsDialog|"
 msgid "Remember last"
 msgstr "최근 기억"
 
-#: src/settings/settingsdialog.ui:998
+#: src/settings/settingsdialog.ui:984
 msgctxt "SettingsDialog|"
 msgid "Remember always"
 msgstr "항상 기억"
 
-#: src/settings/settingsdialog.ui:1006
+#: src/settings/settingsdialog.ui:992
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
 msgstr "캡처 지연:"
 
-#: src/settings/settingsdialog.ui:1013
+#: src/settings/settingsdialog.ui:999
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
 msgstr "화면 캡처 전 지연"
 
-#: src/settings/settingsdialog.ui:1016
+#: src/settings/settingsdialog.ui:1002
 msgctxt "SettingsDialog|"
 msgid " ms"
 msgstr " ms"
 
-#: src/settings/settingsdialog.ui:1026
+#: src/settings/settingsdialog.ui:1012
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
 msgstr "<html><head/><body><p>커서 옆에 돋보기 표시</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1029
+#: src/settings/settingsdialog.ui:1015
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
 msgstr "돋보기 표시"
 
-#: src/settings/settingsdialog.ui:1039
+#: src/settings/settingsdialog.ui:1022
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid ""
+#| "<html><head/><body><p>Replace all single line breaks with a space after "
+#| "text recognition</p></body></html>"
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
+"text on dark background.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>텍스트 인식 후 모든 단일 줄 바꿈을 공백으로 바꿉니다</"
+"p></body></html>"
+
+#: src/settings/settingsdialog.ui:1025
+msgctxt "SettingsDialog|"
+msgid "Negate OCR"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1035
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
@@ -2431,12 +2461,12 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>마우스 버튼을 놓으면 조각 캡처 완료</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1042
+#: src/settings/settingsdialog.ui:1038
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
 msgstr "릴리스 시 확인"
 
-#: src/settings/settingsdialog.ui:1049
+#: src/settings/settingsdialog.ui:1045
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
@@ -2445,184 +2475,184 @@ msgstr ""
 "<html><head/><body><p>선택하지 않은 부분에 안개를 약간 끼웁니다</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1052
+#: src/settings/settingsdialog.ui:1048
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
 msgstr "밝은 마스크 적용"
 
-#: src/settings/settingsdialog.ui:1085
+#: src/settings/settingsdialog.ui:1081
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
 msgstr "프록시 서버"
 
-#: src/settings/settingsdialog.ui:1091
+#: src/settings/settingsdialog.ui:1087
 msgctxt "SettingsDialog|"
 msgid "Type:"
 msgstr "유형:"
 
-#: src/settings/settingsdialog.ui:1104
+#: src/settings/settingsdialog.ui:1100
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
 msgstr "<html><head/><body><p>프록시 유형</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1108
+#: src/settings/settingsdialog.ui:1104
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
 msgstr "시스템 설정 사용"
 
-#: src/settings/settingsdialog.ui:1118
+#: src/settings/settingsdialog.ui:1114
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
 msgstr "프록시 사용 안 함"
 
-#: src/settings/settingsdialog.ui:1134
+#: src/settings/settingsdialog.ui:1130
 msgctxt "SettingsDialog|"
 msgid "Host:"
 msgstr "호스트:"
 
-#: src/settings/settingsdialog.ui:1144
+#: src/settings/settingsdialog.ui:1140
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr "<html><head/><body><p>프록시 호스트 이름</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1157
+#: src/settings/settingsdialog.ui:1153
 msgctxt "SettingsDialog|"
 msgid "Port:"
 msgstr "포트:"
 
-#: src/settings/settingsdialog.ui:1173
+#: src/settings/settingsdialog.ui:1169
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
 msgstr "<html><head/><body><p>프록시 포트</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1192
+#: src/settings/settingsdialog.ui:1188
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
 msgstr "정보: 프록시는 텍스트 번역에만 작동합니다"
 
-#: src/settings/settingsdialog.ui:1202
+#: src/settings/settingsdialog.ui:1198
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
 msgstr "<html><head/><body><p>인증 사용 또는 사용 안 함</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1205
+#: src/settings/settingsdialog.ui:1201
 msgctxt "SettingsDialog|"
 msgid "Authentication"
 msgstr "인증"
 
-#: src/settings/settingsdialog.ui:1215
+#: src/settings/settingsdialog.ui:1211
 msgctxt "SettingsDialog|"
 msgid "Username:"
 msgstr "사용자 이름:"
 
-#: src/settings/settingsdialog.ui:1225
+#: src/settings/settingsdialog.ui:1221
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
 msgstr "<html><head/><body><p>인증을 위한 프록시 사용자 이름</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1235
+#: src/settings/settingsdialog.ui:1231
 msgctxt "SettingsDialog|"
 msgid "Password:"
 msgstr "암호:"
 
-#: src/settings/settingsdialog.ui:1245
+#: src/settings/settingsdialog.ui:1241
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
 msgstr "<html><head/><body><p>인증을 위한 프록시 암호</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1258
+#: src/settings/settingsdialog.ui:1254
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
 msgstr "정보: 암호화되지 않은 상태로 암호가 저장됩니다"
 
-#: src/settings/settingsdialog.ui:1294
+#: src/settings/settingsdialog.ui:1290
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
 msgstr "<html><head/><body><p>시스템에 전역 단축키 등록</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1297
+#: src/settings/settingsdialog.ui:1293
 msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "전역 단축키 사용"
 
-#: src/settings/settingsdialog.ui:1313
+#: src/settings/settingsdialog.ui:1309
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
 "<html><head/><body><p>모든 단축키를 기본값으로 재설정</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1316
+#: src/settings/settingsdialog.ui:1312
 msgctxt "SettingsDialog|"
 msgid "Reset all"
 msgstr "모두 재설정"
 
-#: src/settings/settingsdialog.ui:1326
+#: src/settings/settingsdialog.ui:1322
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
 msgstr "단축키"
 
-#: src/settings/settingsdialog.ui:1332
+#: src/settings/settingsdialog.ui:1328
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
 msgstr "키 시퀀스:"
 
-#: src/settings/settingsdialog.ui:1339
+#: src/settings/settingsdialog.ui:1335
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
 "html>"
 msgstr "<html><head/><body><p>선택한 작업의 키 시퀀스</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1346
+#: src/settings/settingsdialog.ui:1342
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
 msgstr "<html><head/><body><p>단축키 수락</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1349
+#: src/settings/settingsdialog.ui:1345
 msgctxt "SettingsDialog|"
 msgid "Accept"
 msgstr "수락"
 
-#: src/settings/settingsdialog.ui:1360
+#: src/settings/settingsdialog.ui:1355
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
 msgstr "<html><head/><body><p>단축키 지우기</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1363
+#: src/settings/settingsdialog.ui:1358
 msgctxt "SettingsDialog|"
 msgid "Clear"
 msgstr "지우기"
 
-#: src/settings/settingsdialog.ui:1374
+#: src/settings/settingsdialog.ui:1368
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr "<html><head/><body><p>단축키를 기본값으로 재설정</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1377
+#: src/settings/settingsdialog.ui:1371
 msgctxt "SettingsDialog|"
 msgid "Reset"
 msgstr "재설정"
 
-#: src/settings/settingsdialog.ui:1423
+#: src/settings/settingsdialog.ui:1416
 msgctxt "SettingsDialog|"
 msgid "Version:"
 msgstr "버전:"
 
-#: src/settings/settingsdialog.ui:1433
+#: src/settings/settingsdialog.ui:1426
 msgctxt "SettingsDialog|"
 msgid "License:"
 msgstr "라이선스:"
 
-#: src/settings/settingsdialog.ui:1447
+#: src/settings/settingsdialog.ui:1440
 msgctxt "SettingsDialog|"
 msgid "Source code:"
 msgstr "원본 코드:"
 
-#: src/settings/settingsdialog.ui:1467
+#: src/settings/settingsdialog.ui:1460
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Translation mode:"
@@ -2656,7 +2686,7 @@ msgid "Stop text speaking"
 msgstr "텍스트 말하기 중지"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:35
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:71
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:73
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause text speaking"
 msgstr "말하기 / 텍스트 말하기 일시 중지"
@@ -2691,52 +2721,57 @@ msgctxt "ShortcutsModel|"
 msgid "Translate text in screen area with delay"
 msgstr "지연이 있는 화면 영역의 텍스트 번역"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:57
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:56
+msgctxt "ShortcutsModel|"
+msgid "Toggle color inversion for OCR"
+msgstr ""
+
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
 msgid "Main window"
 msgstr "기본 창"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:61
 msgctxt "ShortcutsModel|"
 msgid "Translate"
 msgstr "번역"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:62
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:64
 msgctxt "ShortcutsModel|"
 msgid "Swap languages"
 msgstr "언어 교환"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:65
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:67
 msgctxt "ShortcutsModel|"
 msgid "Close window"
 msgstr "창 닫기"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:69
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:71
 msgctxt "ShortcutsModel|"
 msgid "Source text"
 msgstr "원본 텍스트"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:75
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
 msgctxt "ShortcutsModel|"
 msgid "Translation"
 msgstr "번역"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:79
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause speaking"
 msgstr "말하기 / 말하기 일시 중지"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:80
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:82
 msgctxt "ShortcutsModel|"
 msgid "Copy to clipboard"
 msgstr "클립보드에 복사"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:126
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:128
 msgctxt "ShortcutsModel|"
 msgid "Description"
 msgstr "설명"
 
-#: src/settings/shortcutsmodel/shortcutsmodel.cpp:128
+#: src/settings/shortcutsmodel/shortcutsmodel.cpp:130
 msgctxt "ShortcutsModel|"
 msgid "Shortcut"
 msgstr "단축키"
