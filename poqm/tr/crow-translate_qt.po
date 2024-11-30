@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-11-01 20:14+0300\n"
+"PO-Revision-Date: 2024-11-29 15:48+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #: src/cli.cpp:43
 msgctxt "Cli|"
@@ -264,13 +264,13 @@ msgstr "%1 için D-Bus nesnesi kaydedilemiyor"
 #: src/mainwindow.cpp:270
 msgctxt "MainWindow|"
 msgid "Toggled OCR image negate"
-msgstr ""
+msgstr "OCR görseli negatifi açıldı/kapatıldı"
 
 #: src/mainwindow.cpp:270
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR image negate has changed to %1"
-msgstr ""
+msgstr "OCR görseli negatifi %1 olarak değiştirildi"
 
 #: src/mainwindow.cpp:397
 msgctxt "MainWindow|"
@@ -2377,23 +2377,18 @@ msgid "Show magnifier"
 msgstr "Büyüteci göster"
 
 #: src/settings/settingsdialog.ui:1022
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "<html><head/><body><p>Replace all single line breaks with a space after "
-#| "text recognition</p></body></html>"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
 "text on dark background.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Metin tanıma sonrasında tüm tek satır sonlarını "
-"boşlukla değiştirin.</p></body></html>"
+"<html><head/><body><p>OCR öncesi görseli negatife çevirin. Koyu arka plan "
+"üzerinde açık renkli metin için kullanın.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1025
 msgctxt "SettingsDialog|"
 msgid "Negate OCR"
-msgstr ""
+msgstr "OCR’yi Negatif Yap"
 
 #: src/settings/settingsdialog.ui:1035
 msgctxt "SettingsDialog|"
@@ -2673,7 +2668,7 @@ msgstr "Ekran Alanındaki Metni Gecikmeyle Çevir"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:56
 msgctxt "ShortcutsModel|"
 msgid "Toggle color inversion for OCR"
-msgstr ""
+msgstr "OCR için rengi tersine çevirmeyi aç/kapat"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"

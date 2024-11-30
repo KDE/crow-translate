@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: crow-translate\n"
-"PO-Revision-Date: 2024-10-18 10:56+0200\n"
+"PO-Revision-Date: 2024-11-29 09:46+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/cli.cpp:43
@@ -277,13 +277,13 @@ msgstr "No s'ha pogut registrar l'objecte del D-Bus per a %1"
 #: src/mainwindow.cpp:270
 msgctxt "MainWindow|"
 msgid "Toggled OCR image negate"
-msgstr ""
+msgstr "Commuta el negatiu de la imatge OCR"
 
 #: src/mainwindow.cpp:270
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR image negate has changed to %1"
-msgstr ""
+msgstr "El negatiu de la imatge OCR ha canviat a %1"
 
 #: src/mainwindow.cpp:397
 msgctxt "MainWindow|"
@@ -2399,23 +2399,18 @@ msgid "Show magnifier"
 msgstr "Mostra la lupa"
 
 #: src/settings/settingsdialog.ui:1022
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "<html><head/><body><p>Replace all single line breaks with a space after "
-#| "text recognition</p></body></html>"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
 "text on dark background.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Substitueix tots els salts de línia simples per un "
-"espai després del reconeixement de text</p></body></html>"
+"<html><head/><body><p>Fa el negatiu (inversió) de la imatge abans de l'OCR. "
+"Use-ho per a text clar sobre fons fosc.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1025
 msgctxt "SettingsDialog|"
 msgid "Negate OCR"
-msgstr ""
+msgstr "Negatiu de l'OCR"
 
 #: src/settings/settingsdialog.ui:1035
 msgctxt "SettingsDialog|"
@@ -2699,7 +2694,7 @@ msgstr "Tradueix text en una àrea de la pantalla amb un retard"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:56
 msgctxt "ShortcutsModel|"
 msgid "Toggle color inversion for OCR"
-msgstr ""
+msgstr "Commuta la inversió de color per a l'OCR"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
@@ -2825,366 +2820,3 @@ msgstr "Surt"
 msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Resultat de la traducció"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid ""
-#~ "<html><head/><body><p>Lingva engine URL</p><p>All instances can be found "
-#~ "here: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
-#~ "body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>URL del motor Lingva</p><p>Totes les instàncies es "
-#~ "poden trobar aquí: https://github.com/TheDavidDelta/lingva-"
-#~ "translate#instances</p></body></html>"
-
-#~ msgctxt "Cli|"
-#~ msgid "%1 - translation options:"
-#~ msgstr "%1 - opcions de traducció:"
-
-#~ msgctxt "Cli|"
-#~ msgid "%1 - examples:"
-#~ msgstr "%1 - exemples:"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Flag icons:"
-#~ msgstr "Icones de banderes:"
-
-#~ msgctxt "Cli|"
-#~ msgid ""
-#~ "Specify the translator language (by default, the system language is used)."
-#~ msgstr ""
-#~ "Especifica l'idioma del traductor (de manera predeterminada, s'utilitza "
-#~ "l'idioma del sistema)."
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Selected source language %1 is not supported for %2"
-#~ msgstr "L'idioma origen seleccionat %1 no està implementat a %2"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Selected translation language %1 is not supported for %2"
-#~ msgstr "L'idioma de traducció seleccionat %1 no està implementat a %2"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Selected ui language %1 is not supported for %2"
-#~ msgstr "L'idioma seleccionat de la IU %1 no està implementat a %2"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "%1 URL can't be empty."
-#~ msgstr "L'URL %1 no pot estar buit."
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Bengali"
-#~ msgstr "Bengalí"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Cantonese"
-#~ msgstr "Cantonès"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Klingon"
-#~ msgstr "Klíngon"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Levantine Arabic"
-#~ msgstr "Àrab llevantí"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Maori"
-#~ msgstr "Maori"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Myanmar"
-#~ msgstr "Myanmar"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Oriya"
-#~ msgstr "Oriya"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Uzbek"
-#~ msgstr "Uzbek"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid ""
-#~ "Error: Engine systems have detected suspicious traffic from your computer "
-#~ "network. Please try your request again later."
-#~ msgstr ""
-#~ "Error: Els sistemes del motor han detectat trànsit sospitós des de la "
-#~ "xarxa d'aquest ordinador. Torneu-ho a provar més tard."
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Error: Unable to find Bing credentials in web version."
-#~ msgstr ""
-#~ "Error: No s'han pogut trobar les credencials de Bing en la versió web."
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Error: Unable to extract Bing key from web version."
-#~ msgstr "Error: No s'ha pogut extreure la clau de Bing de la versió web."
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Error: Unable to extract Bing token from web version."
-#~ msgstr ""
-#~ "Error: No s'ha pogut extreure el testimoni de Bing de la versió web."
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid ""
-#~ "Error: Unable to extract additional Bing information from web version."
-#~ msgstr ""
-#~ "Error: No s'ha pogut extreure la informació addicional de Bing de la "
-#~ "versió web."
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Error: Bing return unhandled network error"
-#~ msgstr "Error: Bing retorna un error no gestionat de xarxa"
-
-#~ msgctxt "OnlineTts|"
-#~ msgid "Selected engine %1 does not support voice settings"
-#~ msgstr "El motor seleccionat %1 no permet la configuració de la veu"
-
-#~ msgctxt "OnlineTts|"
-#~ msgid "Selected engine %1 does not support emotion settings"
-#~ msgstr "El motor seleccionat %1 no permet la configuració de les emocions"
-
-#~ msgctxt "OnlineTts|"
-#~ msgid "Selected voice %1 is not supported for %2"
-#~ msgstr "La veu seleccionada %1 no està implementada a %2"
-
-#~ msgctxt "OnlineTts|"
-#~ msgid "Selected emotion %1 is not supported by %2"
-#~ msgstr "L'emoció seleccionada %1 no és compatible amb %2"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Happy New Year!"
-#~ msgstr "Bon any nou!"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Default region"
-#~ msgstr "Regió predeterminada"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Mandarin (China)"
-#~ msgstr "Mandarí (Xina)"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Nothing to play"
-#~ msgstr "Res a reproduir"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Playback text is empty"
-#~ msgstr "El text a reproduir és buit"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Unable to detect language"
-#~ msgstr "No s'ha pogut detectar l'idioma"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Speech synthesis"
-#~ msgstr "Síntesi de veu"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid ""
-#~ "<html><head/><body><p>LibreTranslate instance API key</p><p>Free "
-#~ "instances listed here doesn't require a key, so field can be empty</p></"
-#~ "body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Clau de l'API de la instància del LibreTranslate</"
-#~ "p><p>Les instàncies lliures llistades aquí no requereixen cap clau, de "
-#~ "manera que el camp pot estar buit</p></body></html>"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "API key:"
-#~ msgstr "Clau de l'API:"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid ""
-#~ "<html><head/><body><p>LibreTranslate engine URL</p><p>All instances can "
-#~ "be found here: https://github.com/LibreTranslate/LibreTranslate#mirrors</"
-#~ "p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>URL del motor LibreTranslate</p><p>Totes les "
-#~ "instàncies es poden trobar aquí: https://github.com/LibreTranslate/"
-#~ "LibreTranslate#mirrors</p></body></html>"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Voice:"
-#~ msgstr "Veu:"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid ""
-#~ "<html><head/><body><p>Voice of the speech synthesis engine</p></body></"
-#~ "html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Veu del motor de síntesi de veu</p></body></html>"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Zahar"
-#~ msgstr "Zahar"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Ermil"
-#~ msgstr "Ermil"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Jane"
-#~ msgstr "Jane"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Oksana"
-#~ msgstr "Oksana"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Alyss"
-#~ msgstr "Alyss"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Omazh"
-#~ msgstr "Omazh"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Emotional connotation:"
-#~ msgstr "Connotació emocional:"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid ""
-#~ "<html><head/><body><p>Voice mood of the speech synthesis engine</p></"
-#~ "body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Estat d'ànim de la veu del motor de síntesi de veu</"
-#~ "p></body></html>"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Neutral"
-#~ msgstr "Neutre"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Good"
-#~ msgstr "Bo"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Evil"
-#~ msgstr "Demoníac"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "<html><head/><body><p>Text to test speech</p></body></html>"
-#~ msgstr "<html><head/><body><p>Text per a provar la veu</p></body></html>"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "This is an example of speech synthesis."
-#~ msgstr "Aquest és un exemple de síntesi de veu."
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Test voice"
-#~ msgstr "Prova la veu"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Region:"
-#~ msgstr "Regió:"
-
-#~ msgctxt "QGitTag|"
-#~ msgid "Release number %1 is missing"
-#~ msgstr "Manca el número de versió %1"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Updates"
-#~ msgstr "Actualitzacions"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Check for updates:"
-#~ msgstr "Comprova si hi ha actualitzacions:"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Every day"
-#~ msgstr "Cada dia"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Every week"
-#~ msgstr "Cada setmana"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Every month"
-#~ msgstr "Cada mes"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Check now"
-#~ msgstr "Comprova-ho ara"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Check for updates now"
-#~ msgstr "Comprova ara si hi ha actualitzacions"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Checking for updates..."
-#~ msgstr "S'està comprovant si hi ha actualitzacions..."
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Update available!"
-#~ msgstr "Actualització disponible!"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "No updates available."
-#~ msgstr "No hi ha cap actualització disponible."
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Changelog:"
-#~ msgstr "Registre de canvis:"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Unable to write file"
-#~ msgstr "No s'ha pogut escriure al fitxer"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Downloading is complete"
-#~ msgstr "S'ha completat la baixada"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Exit the program and run the installer"
-#~ msgstr "Surt del programa i executa l'instal·lador"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Install"
-#~ msgstr "Instal·la"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Download the installer to the Downloads folder"
-#~ msgstr "Baixa l'instal·lador a la carpeta de Baixades"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Download"
-#~ msgstr "Baixa"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid ""
-#~ "<html><head/><body><p>A new version of Crow Translate is available! "
-#~ "Updates add functionality and improve the stability of the application. "
-#~ "Most often.<br/>You can also download the release manually from this <a "
-#~ "href=\"https://download.kde.org/stable/crow-translate\">link</a>.</p></"
-#~ "body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Hi ha disponible una nova versió de Crow Translate! "
-#~ "Les actualitzacions afegeixen funcionalitat i milloren l'estabilitat de "
-#~ "l'aplicació. Normalment.<br/>També podeu baixar manualment la versió des "
-#~ "d'aquest <a href=\"https://download.kde.org/stable/crow-translate"
-#~ "\">enllaç</a>.</p></body></html>"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Close this window"
-#~ msgstr "Tanca aquesta finestra"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Update later"
-#~ msgstr "Actualitza més tard"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Cancel download"
-#~ msgstr "Cancel·la la baixada"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Cancel"
-#~ msgstr "Cancel·la"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Current version:"
-#~ msgstr "Versió actual:"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Available version:"
-#~ msgstr "Versió disponible:"

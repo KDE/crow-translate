@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-10-18 11:00+0200\n"
+"PO-Revision-Date: 2024-11-29 10:57+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Language: nl\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: src/cli.cpp:43
 msgctxt "Cli|"
@@ -273,13 +273,13 @@ msgstr "Het D-Bus-object bij %1 kan niet worden vastgelegd"
 #: src/mainwindow.cpp:270
 msgctxt "MainWindow|"
 msgid "Toggled OCR image negate"
-msgstr ""
+msgstr "Geïnverteerde OCR-afbeelding omgeschakeld"
 
 #: src/mainwindow.cpp:270
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR image negate has changed to %1"
-msgstr ""
+msgstr "Geïnverteerde OCR-afbeelding is gewijzigd naar %1"
 
 #: src/mainwindow.cpp:397
 msgctxt "MainWindow|"
@@ -2383,23 +2383,18 @@ msgid "Show magnifier"
 msgstr "Vergrootglas tonen"
 
 #: src/settings/settingsdialog.ui:1022
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "<html><head/><body><p>Replace all single line breaks with a space after "
-#| "text recognition</p></body></html>"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
 "text on dark background.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Vervang alle enters door een spatie in "
-"tekstherkenning</p></body></html>"
+"<html><head/><body><p>Inverteer de afbeelding voor OCR toepassen. Gebruikt "
+"voor heldere tekst op donkere achtergrond</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1025
 msgctxt "SettingsDialog|"
 msgid "Negate OCR"
-msgstr ""
+msgstr "OCR inverteren"
 
 #: src/settings/settingsdialog.ui:1035
 msgctxt "SettingsDialog|"
@@ -2681,7 +2676,7 @@ msgstr "Tekst binnen schermgebied vertalen na wachttijd"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:56
 msgctxt "ShortcutsModel|"
 msgid "Toggle color inversion for OCR"
-msgstr ""
+msgstr "Kleur inverteren voor OCR omschakelen"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
