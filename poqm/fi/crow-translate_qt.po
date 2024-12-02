@@ -1,19 +1,24 @@
 # SPDX-FileCopyrightText: 2024 Oskari Lavinto
 # SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2024 Tommi Nieminen <translator@legisign.org>
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2024-11-13 16:57+0200\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Language: fi\n"
-"X-Source-Language: en\n"
+"X-Generator: Lokalize 23.08.5\n"
 "X-Qt-Contexts: true\n"
 
 #: src/cli.cpp:43
 msgctxt "Cli|"
 msgid "Display all language codes."
-msgstr "Näytä kaikkien kielten koodit."
+msgstr "Näytä kaikki kielikoodit."
 
 #: src/cli.cpp:44
 msgctxt "Cli|"
@@ -21,8 +26,7 @@ msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
 msgstr ""
-"Määritä lähdekieli (oletusarvoisesti puhesyntetisaattori pyrkii päättelemään "
-"kielen itse)."
+"Määritä lähdekieli (oletuksena moottori pyrkii päättelemään kielen itse)."
 
 #: src/cli.cpp:45
 msgctxt "Cli|"
@@ -30,7 +34,7 @@ msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
 "language is used)."
 msgstr ""
-"Määritä käännöskielet, erotettuna '+' (oletusarvoisesti käytetään "
+"Määritä käännöskielet +-merkein erotettuna (oletuksena käytetään "
 "järjestelmän kieltä)."
 
 #: src/cli.cpp:46
@@ -39,8 +43,8 @@ msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
 "or 'lingva'), Google is used by default."
 msgstr ""
-"Määritä käännösmoottori ('google', 'yandex', 'bing', 'libretranslate' tai "
-"'lingva'), Googlea käytetään oletusarvoisesti."
+"Määritä käännösmoottori (”google”, ”yandex”, ”bing”, ”libretranslate” tai "
+"”lingva”); oletuksena käytetään Googlea."
 
 #: src/cli.cpp:47
 msgctxt "Cli|"
@@ -48,33 +52,35 @@ msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
+"Anna Mozhi-ilmentymän verkko-osoite. Oletuksena käytetään ilmentymän "
+"osoitetta sovelluksen asetuksista."
 
 #: src/cli.cpp:48
 msgctxt "Cli|"
 msgid "Speak the translation."
-msgstr "Lue käännös ääneen."
+msgstr "Puhu käännös."
 
 #: src/cli.cpp:49
 msgctxt "Cli|"
 msgid "Speak the source."
-msgstr "Lue lähde ääneen."
+msgstr "Puhu lähdeteksti."
 
 #: src/cli.cpp:50
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
-msgstr "Lue lähdeteksti tiedostoista. Argumentit tulkitaan tiedostopolukuina."
+msgstr "Lue lähdeteksti tiedostoista. Parametriksi tulkitaan tiedostopoluiksi."
 
 #: src/cli.cpp:51
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
-msgstr "Lisää stdin-tiedot lähdetekstiin."
+msgstr "Lisää vakiosyötevirran data lähdetekstiin."
 
 #: src/cli.cpp:52
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
-msgstr "Älä tulosta tekstiä käytettäessä --%1 tai --%2."
+msgstr "Käytettäessä --%1 tai --%2 älä tulosta mitään."
 
 #: src/cli.cpp:53
 msgctxt "Cli|"
@@ -87,16 +93,9 @@ msgid "Print output formatted as JSON."
 msgstr "Tulosteen muoto on JSON."
 
 #: src/cli.cpp:57
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "A simple and lightweight translator that allows to translate and speak "
-#| "text using Google, Yandex, Bing, LibreTranslate and Lingva"
 msgctxt "Cli|"
 msgid "Application that allows to translate and speak text using Mozhi"
-msgstr ""
-"Yksinkertainen ja kevyt kääntäjä, joka mahdollistaa tekstin käännöksen ja "
-"lausunnan käyttäen Googlea, Yandexia, Bingiä, LibreTranslatea ja Lingvaa"
+msgstr "Sovellus, joka Mozhilla kääntää ja puhuu tekstiä"
 
 #: src/cli.cpp:58
 msgctxt "Cli|"
@@ -112,20 +111,16 @@ msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Virhe: --%1 on määritettävä --%2 ja/tai --%3 valinnat"
 
 #: src/cli.cpp:95
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
-msgstr "Tuntematon kielen koodi: %1"
+msgstr "Virhe: tuntematon kielikoodi ”%1”"
 
 #: src/cli.cpp:103
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
-msgstr "Tuntematon kielen koodi: %1"
+msgstr "Virhe: tuntematon käännöskielikoodi ”%1”"
 
 #: src/cli.cpp:127
 msgctxt "Cli|"
@@ -133,12 +128,9 @@ msgid "Error: There is no text for translation"
 msgstr "Virhe: käännettävää tekstiä ei ole"
 
 #: src/cli.cpp:133
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Speech test:"
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
-msgstr "Ääneen luennan kokeilu:"
+msgstr "Selvitetään nopeita ilmentymää"
 
 #: src/cli.cpp:160
 msgctxt "Cli|"
@@ -152,17 +144,11 @@ msgid "Error: %1"
 msgstr "Virhe: %1"
 
 #: src/cli.cpp:249
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "translation options:"
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "käännösvalinnat:"
 
 #: src/cli.cpp:260
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "examples:"
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "esimerkkejä:"
@@ -194,25 +180,25 @@ msgstr "Etsi Forvo.com-sivustolta"
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Best instance URL is '%1' with time %2 ms"
-msgstr ""
+msgstr "Nopeimman ilmentymän osoite on ”%1”, vasteaika %2 ms"
 
 #: src/instancepinger.cpp:84
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' takes longer then %2 ms"
-msgstr ""
+msgstr "Ping osoitteeseen ”%1” kestää yli %2 ms"
 
 #: src/instancepinger.cpp:99
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' successful, response time: %2 ms"
-msgstr ""
+msgstr "Ping osoitteeseen ”%1” onnistui, vasteaika: %2 ms"
 
 #: src/instancepinger.cpp:111
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' failed, error: %2"
-msgstr ""
+msgstr "Osoitteen ”%1” pingaus epäonnistui, virhe: %2"
 
 #: src/instancepingerdialog.cpp:23
 #, qt-format
@@ -221,6 +207,8 @@ msgid ""
 "Detecting fastest instance.\n"
 "Checking '%1'"
 msgstr ""
+"Selvitetään nopeinta ilmentymää.\n"
+"Kokeillaan ”%1”"
 
 #: src/languagebuttonswidget.cpp:220
 msgctxt "LanguageButtonsWidget|"
@@ -300,7 +288,7 @@ msgstr "Kieltä ei voi kääntää"
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
-msgstr ""
+msgstr "Käännökset sovellukselle tarjoaa %1."
 
 #: src/mainwindow.cpp:871
 #, qt-format
@@ -311,11 +299,15 @@ msgid ""
 "right now is '%1', but you can change it in the translation settings. See "
 "instance details in the link above."
 msgstr ""
+"Vaikka Mozhi välittäjänä suojaa yksityisyytesi, sen käyttämät kolmannen "
+"osapuolen palvelut voivat tallettaa ja tutkia lähettämääsi tekstiä. "
+"Ilmentymäsi on ”%1”, mutta sitä voi käännösasetuksista muuttaa. Ilmentymän "
+"tiedot löytyvät yllä olevasta linkistä."
 
 #: src/mainwindow.cpp:878
 msgctxt "MainWindow|"
 msgid "Don't show again"
-msgstr ""
+msgstr "Älä näytä enää"
 
 #: src/mainwindow.cpp:906
 msgctxt "TrayIcon|"
@@ -570,20 +562,16 @@ msgid "Esc key"
 msgstr "Esc-näppäin"
 
 #: src/onlinetranslator.cpp:275
-#, fuzzy, qt-format
-#| msgctxt "OnlineTts|"
-#| msgid "Selected language %1 is not supported for %2"
+#, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Language detection is not supported for %1"
-msgstr "%2 ei tue valittua kieltä %1"
+msgstr "%1 ei tue kielentunnistusta"
 
 #: src/onlinetranslator.cpp:352
-#, fuzzy, qt-format
-#| msgctxt "OnlineTts|"
-#| msgid "%1 engine does not support TTS"
+#, qt-format
 msgctxt "OnlineTranslator|"
 msgid "%1 engine does not support TTS"
-msgstr "%1 puhesyntetisaattori ei tue TTS:ää"
+msgstr "%1-moottori ei tue TTS:ää"
 
 #: src/onlinetranslator.cpp:493
 msgctxt "OnlineTranslator|"
@@ -618,17 +606,14 @@ msgstr "armenia"
 #: src/onlinetranslator.cpp:505
 msgctxt "OnlineTranslator|"
 msgid "Assamese"
-msgstr ""
+msgstr "assami"
 
 #: src/onlinetranslator.cpp:507
 msgctxt "OnlineTranslator|"
 msgid "Aymara"
-msgstr ""
+msgstr "aimara"
 
 #: src/onlinetranslator.cpp:509
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Azeerbaijani"
 msgctxt "OnlineTranslator|"
 msgid "Azerbaijani"
 msgstr "azeri"
@@ -636,22 +621,22 @@ msgstr "azeri"
 #: src/onlinetranslator.cpp:511
 msgctxt "OnlineTranslator|"
 msgid "Bajan"
-msgstr ""
+msgstr "bajan"
 
 #: src/onlinetranslator.cpp:513
 msgctxt "OnlineTranslator|"
 msgid "Balkan Gipsy"
-msgstr ""
+msgstr "Balkaninromani"
 
 #: src/onlinetranslator.cpp:515
 msgctxt "OnlineTranslator|"
 msgid "Bambara"
-msgstr ""
+msgstr "bambara"
 
 #: src/onlinetranslator.cpp:517
 msgctxt "OnlineTranslator|"
 msgid "Bangla"
-msgstr ""
+msgstr "bengali"
 
 #: src/onlinetranslator.cpp:519
 msgctxt "OnlineTranslator|"
@@ -671,17 +656,17 @@ msgstr "valkovenäjä"
 #: src/onlinetranslator.cpp:525
 msgctxt "OnlineTranslator|"
 msgid "Bemba"
-msgstr ""
+msgstr "bemba"
 
 #: src/onlinetranslator.cpp:527
 msgctxt "OnlineTranslator|"
 msgid "Bhojpuri"
-msgstr ""
+msgstr "bhojpuri"
 
 #: src/onlinetranslator.cpp:529
 msgctxt "OnlineTranslator|"
 msgid "Bislama"
-msgstr ""
+msgstr "bislama"
 
 #: src/onlinetranslator.cpp:531
 msgctxt "OnlineTranslator|"
@@ -691,7 +676,7 @@ msgstr "bosnia"
 #: src/onlinetranslator.cpp:533
 msgctxt "OnlineTranslator|"
 msgid "Breton"
-msgstr ""
+msgstr "bretoni"
 
 #: src/onlinetranslator.cpp:535
 msgctxt "OnlineTranslator|"
@@ -699,12 +684,9 @@ msgid "Bulgarian"
 msgstr "bulgaria"
 
 #: src/onlinetranslator.cpp:537
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Chinese (Traditional)"
 msgctxt "OnlineTranslator|"
 msgid "Cantonese (Traditional)"
-msgstr "kiina (perinteinen)"
+msgstr "kanton (perinteinen)"
 
 #: src/onlinetranslator.cpp:539
 msgctxt "OnlineTranslator|"
@@ -719,7 +701,7 @@ msgstr "cebuano"
 #: src/onlinetranslator.cpp:543
 msgctxt "OnlineTranslator|"
 msgid "Chamorro"
-msgstr ""
+msgstr "tšamorro"
 
 #: src/onlinetranslator.cpp:545
 msgctxt "OnlineTranslator|"
@@ -727,12 +709,9 @@ msgid "Chichewa"
 msgstr "chichewa"
 
 #: src/onlinetranslator.cpp:547
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Chinese (Traditional)"
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Literary)"
-msgstr "kiina (perinteinen)"
+msgstr "kiina (kirjallinen)"
 
 #: src/onlinetranslator.cpp:549
 msgctxt "OnlineTranslator|"
@@ -747,17 +726,17 @@ msgstr "kiina (perinteinen)"
 #: src/onlinetranslator.cpp:553
 msgctxt "OnlineTranslator|"
 msgid "Chuvash"
-msgstr ""
+msgstr "tšuvassi"
 
 #: src/onlinetranslator.cpp:555
 msgctxt "OnlineTranslator|"
 msgid "Comorian (Ngazidja)"
-msgstr ""
+msgstr "komori (ngazidja)"
 
 #: src/onlinetranslator.cpp:557
 msgctxt "OnlineTranslator|"
 msgid "Coptic"
-msgstr ""
+msgstr "kopti"
 
 #: src/onlinetranslator.cpp:559
 msgctxt "OnlineTranslator|"
@@ -767,52 +746,52 @@ msgstr "korsika"
 #: src/onlinetranslator.cpp:561
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Antigua and Barbuda)"
-msgstr ""
+msgstr "kreolienglanti (Antigua ja Barbuda)"
 
 #: src/onlinetranslator.cpp:563
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Bahamas)"
-msgstr ""
+msgstr "kreolienglanti (Bahama)"
 
 #: src/onlinetranslator.cpp:565
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Grenadian)"
-msgstr ""
+msgstr "kreolienglanti (Grenada)"
 
 #: src/onlinetranslator.cpp:567
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Guyanese)"
-msgstr ""
+msgstr "kreolienglanti (Guyana)"
 
 #: src/onlinetranslator.cpp:569
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Jamaican)"
-msgstr ""
+msgstr "kreolienglanti (Jamaika)"
 
 #: src/onlinetranslator.cpp:571
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Vincentian)"
-msgstr ""
+msgstr "kreolienglanti (Saint Vincent)"
 
 #: src/onlinetranslator.cpp:573
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Virgin Islands)"
-msgstr ""
+msgstr "kreolienglanti (Neitsytsaaret)"
 
 #: src/onlinetranslator.cpp:575
 msgctxt "OnlineTranslator|"
 msgid "Creole French (Saint Lucian)"
-msgstr ""
+msgstr "kreolienglanti (Saint Lucia)"
 
 #: src/onlinetranslator.cpp:577
 msgctxt "OnlineTranslator|"
 msgid "Creole French (Seselwa)"
-msgstr ""
+msgstr "kreolienglanti (Seselwa)"
 
 #: src/onlinetranslator.cpp:579
 msgctxt "OnlineTranslator|"
 msgid "Creole Portuguese (Upper Guinea)"
-msgstr ""
+msgstr "kreoliportugali (Ylä-Guinea)"
 
 #: src/onlinetranslator.cpp:581
 msgctxt "OnlineTranslator|"
@@ -832,17 +811,17 @@ msgstr "tanska"
 #: src/onlinetranslator.cpp:587
 msgctxt "OnlineTranslator|"
 msgid "Dari"
-msgstr ""
+msgstr "dari"
 
 #: src/onlinetranslator.cpp:589
 msgctxt "OnlineTranslator|"
 msgid "Divehi"
-msgstr ""
+msgstr "divehi"
 
 #: src/onlinetranslator.cpp:591
 msgctxt "OnlineTranslator|"
 msgid "Dogri"
-msgstr ""
+msgstr "dogri"
 
 #: src/onlinetranslator.cpp:593
 msgctxt "OnlineTranslator|"
@@ -852,17 +831,17 @@ msgstr "hollanti"
 #: src/onlinetranslator.cpp:595
 msgctxt "OnlineTranslator|"
 msgid "Dzongkha"
-msgstr ""
+msgstr "dzongkha"
 
 #: src/onlinetranslator.cpp:597
 msgctxt "OnlineTranslator|"
 msgid "Elvish (Sindarin)"
-msgstr ""
+msgstr "haltiakieli (sindar)"
 
 #: src/onlinetranslator.cpp:599
 msgctxt "OnlineTranslator|"
 msgid "Emoji"
-msgstr ""
+msgstr "emoji"
 
 #: src/onlinetranslator.cpp:601
 msgctxt "OnlineTranslator|"
@@ -882,20 +861,17 @@ msgstr "viro"
 #: src/onlinetranslator.cpp:607
 msgctxt "OnlineTranslator|"
 msgid "Ewe"
-msgstr ""
+msgstr "ewe"
 
 #: src/onlinetranslator.cpp:609
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Tagalog"
 msgctxt "OnlineTranslator|"
 msgid "Fanagalo"
-msgstr "tagalog"
+msgstr "fanagalo"
 
 #: src/onlinetranslator.cpp:611
 msgctxt "OnlineTranslator|"
 msgid "Faroese"
-msgstr ""
+msgstr "fääri"
 
 #: src/onlinetranslator.cpp:613
 msgctxt "OnlineTranslator|"
@@ -920,7 +896,7 @@ msgstr "ranska"
 #: src/onlinetranslator.cpp:621
 msgctxt "OnlineTranslator|"
 msgid "French (Canada)"
-msgstr ""
+msgstr "ranska (Kanada)"
 
 #: src/onlinetranslator.cpp:623
 msgctxt "OnlineTranslator|"
@@ -935,7 +911,7 @@ msgstr "galicia"
 #: src/onlinetranslator.cpp:627
 msgctxt "OnlineTranslator|"
 msgid "Ganda"
-msgstr ""
+msgstr "ganda"
 
 #: src/onlinetranslator.cpp:629
 msgctxt "OnlineTranslator|"
@@ -955,12 +931,12 @@ msgstr "kreikka"
 #: src/onlinetranslator.cpp:635
 msgctxt "OnlineTranslator|"
 msgid "Greek (Classical)"
-msgstr ""
+msgstr "kreikka (klassinen)"
 
 #: src/onlinetranslator.cpp:637
 msgctxt "OnlineTranslator|"
 msgid "Guarani"
-msgstr ""
+msgstr "guarani"
 
 #: src/onlinetranslator.cpp:639
 msgctxt "OnlineTranslator|"
@@ -1003,9 +979,6 @@ msgid "Hmong"
 msgstr "hmong"
 
 #: src/onlinetranslator.cpp:655
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Hmong"
 msgctxt "OnlineTranslator|"
 msgid "Hmong Daw"
 msgstr "hmong"
@@ -1028,7 +1001,7 @@ msgstr "igbo"
 #: src/onlinetranslator.cpp:663
 msgctxt "OnlineTranslator|"
 msgid "Ilocano"
-msgstr ""
+msgstr "ilocano"
 
 #: src/onlinetranslator.cpp:665
 msgctxt "OnlineTranslator|"
@@ -1038,22 +1011,22 @@ msgstr "indonesia"
 #: src/onlinetranslator.cpp:667
 msgctxt "OnlineTranslator|"
 msgid "Inuinnaqtun"
-msgstr ""
+msgstr "inuinnaqtun"
 
 #: src/onlinetranslator.cpp:669
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut"
-msgstr ""
+msgstr "inuktitut"
 
 #: src/onlinetranslator.cpp:671
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Greenlandic)"
-msgstr ""
+msgstr "inuktitut (Grönlanti)"
 
 #: src/onlinetranslator.cpp:673
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Latin)"
-msgstr ""
+msgstr "inuktitut (latinalainen)"
 
 #: src/onlinetranslator.cpp:675
 msgctxt "OnlineTranslator|"
@@ -1078,15 +1051,12 @@ msgstr "jaava"
 #: src/onlinetranslator.cpp:683
 msgctxt "OnlineTranslator|"
 msgid "Kabuverdianu"
-msgstr ""
+msgstr "kabuverdianu"
 
 #: src/onlinetranslator.cpp:685
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Italian"
 msgctxt "OnlineTranslator|"
 msgid "Kabylian"
-msgstr "italia"
+msgstr "kabyli"
 
 #: src/onlinetranslator.cpp:687
 msgctxt "OnlineTranslator|"
@@ -1099,12 +1069,9 @@ msgid "Kazakh"
 msgstr "kazakki"
 
 #: src/onlinetranslator.cpp:691
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Serbian (Latin)"
 msgctxt "OnlineTranslator|"
 msgid "Kazakh (Latin)"
-msgstr "serbia (latinalainen)"
+msgstr "kazakki (latinalainen)"
 
 #: src/onlinetranslator.cpp:693
 msgctxt "OnlineTranslator|"
@@ -1119,20 +1086,17 @@ msgstr "ruanda"
 #: src/onlinetranslator.cpp:697
 msgctxt "OnlineTranslator|"
 msgid "Kirundi"
-msgstr ""
+msgstr "kirundi"
 
 #: src/onlinetranslator.cpp:699
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Klingon (PlqaD)"
 msgctxt "OnlineTranslator|"
 msgid "Klingon (Latin)"
-msgstr "klingoni (pIqaD)"
+msgstr "klingoni (latinalainen)"
 
 #: src/onlinetranslator.cpp:701
 msgctxt "OnlineTranslator|"
 msgid "Konkani"
-msgstr ""
+msgstr "konkani"
 
 #: src/onlinetranslator.cpp:703
 msgctxt "OnlineTranslator|"
@@ -1142,25 +1106,22 @@ msgstr "korea"
 #: src/onlinetranslator.cpp:705
 msgctxt "OnlineTranslator|"
 msgid "Krio"
-msgstr ""
+msgstr "krio"
 
 #: src/onlinetranslator.cpp:707
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Central)"
-msgstr ""
+msgstr "kurdi (keskinen)"
 
 #: src/onlinetranslator.cpp:709
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Northern)"
-msgstr ""
+msgstr "kurdi (pohjoinen)"
 
 #: src/onlinetranslator.cpp:711
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Kurdish"
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Sorani)"
-msgstr "kurdi"
+msgstr "kurdi (sorani)"
 
 #: src/onlinetranslator.cpp:713
 msgctxt "OnlineTranslator|"
@@ -1185,7 +1146,7 @@ msgstr "latvia"
 #: src/onlinetranslator.cpp:721
 msgctxt "OnlineTranslator|"
 msgid "Lingala"
-msgstr ""
+msgstr "lingala"
 
 #: src/onlinetranslator.cpp:723
 msgctxt "OnlineTranslator|"
@@ -1195,12 +1156,12 @@ msgstr "liettua"
 #: src/onlinetranslator.cpp:725
 msgctxt "OnlineTranslator|"
 msgid "Lower Sorbian"
-msgstr ""
+msgstr "alasorbi"
 
 #: src/onlinetranslator.cpp:727
 msgctxt "OnlineTranslator|"
 msgid "Luganda"
-msgstr ""
+msgstr "luganda"
 
 #: src/onlinetranslator.cpp:729
 msgctxt "OnlineTranslator|"
@@ -1213,12 +1174,9 @@ msgid "Macedonian"
 msgstr "makedonia"
 
 #: src/onlinetranslator.cpp:733
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Swahili"
 msgctxt "OnlineTranslator|"
 msgid "Maithili"
-msgstr "swahili"
+msgstr "maithili"
 
 #: src/onlinetranslator.cpp:735
 msgctxt "OnlineTranslator|"
@@ -1241,12 +1199,9 @@ msgid "Maltese"
 msgstr "malta"
 
 #: src/onlinetranslator.cpp:743
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Scots Gaelic"
 msgctxt "OnlineTranslator|"
 msgid "Manx Gaelic"
-msgstr "gaeli"
+msgstr "manxingaeli"
 
 #: src/onlinetranslator.cpp:745
 msgctxt "OnlineTranslator|"
@@ -1261,22 +1216,22 @@ msgstr "mari"
 #: src/onlinetranslator.cpp:749
 msgctxt "OnlineTranslator|"
 msgid "Marshallese"
-msgstr ""
+msgstr "marshall"
 
 #: src/onlinetranslator.cpp:751
 msgctxt "OnlineTranslator|"
 msgid "Meiteilon (Manipuri)"
-msgstr ""
+msgstr "meiteilon (Manipuri)"
 
 #: src/onlinetranslator.cpp:753
 msgctxt "OnlineTranslator|"
 msgid "Mende"
-msgstr ""
+msgstr "mende"
 
 #: src/onlinetranslator.cpp:755
 msgctxt "OnlineTranslator|"
 msgid "Mizo"
-msgstr ""
+msgstr "mizo"
 
 #: src/onlinetranslator.cpp:757
 msgctxt "OnlineTranslator|"
@@ -1284,35 +1239,29 @@ msgid "Mongolian"
 msgstr "mongolia"
 
 #: src/onlinetranslator.cpp:759
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Serbian (Cyrillic)"
 msgctxt "OnlineTranslator|"
 msgid "Mongolian (Cyrillic)"
-msgstr "serbia (kyrillinen)"
+msgstr "mongoli (kyrillinen)"
 
 #: src/onlinetranslator.cpp:761
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Chinese (Traditional)"
 msgctxt "OnlineTranslator|"
 msgid "Mongolian (Traditional)"
-msgstr "kiina (perinteinen)"
+msgstr "mongoli (perinteinen)"
 
 #: src/onlinetranslator.cpp:763
 msgctxt "OnlineTranslator|"
 msgid "Morisyen"
-msgstr ""
+msgstr "morisyen"
 
 #: src/onlinetranslator.cpp:765
 msgctxt "OnlineTranslator|"
 msgid "Myanmar (Burmese)"
-msgstr ""
+msgstr "myanmar (burma)"
 
 #: src/onlinetranslator.cpp:767
 msgctxt "OnlineTranslator|"
 msgid "Māori"
-msgstr ""
+msgstr "māori"
 
 #: src/onlinetranslator.cpp:769
 msgctxt "OnlineTranslator|"
@@ -1322,7 +1271,7 @@ msgstr "nepali"
 #: src/onlinetranslator.cpp:771
 msgctxt "OnlineTranslator|"
 msgid "Niuean"
-msgstr ""
+msgstr "niue"
 
 #: src/onlinetranslator.cpp:773
 msgctxt "OnlineTranslator|"
@@ -1332,27 +1281,24 @@ msgstr "norja"
 #: src/onlinetranslator.cpp:775
 msgctxt "OnlineTranslator|"
 msgid "Nyanja"
-msgstr ""
+msgstr "nyanja"
 
 #: src/onlinetranslator.cpp:777
 msgctxt "OnlineTranslator|"
 msgid "Odia"
-msgstr ""
+msgstr "odia"
 
 #: src/onlinetranslator.cpp:779
 msgctxt "OnlineTranslator|"
 msgid "Oromo"
-msgstr ""
+msgstr "oromo"
 
 #: src/onlinetranslator.cpp:781
 msgctxt "OnlineTranslator|"
 msgid "Palauan"
-msgstr ""
+msgstr "palau"
 
 #: src/onlinetranslator.cpp:783
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Papiamento"
 msgctxt "OnlineTranslator|"
 msgid "Papiamentu"
 msgstr "papiamentu"
@@ -1370,7 +1316,7 @@ msgstr "farsi"
 #: src/onlinetranslator.cpp:789
 msgctxt "OnlineTranslator|"
 msgid "Pijin"
-msgstr ""
+msgstr "piji"
 
 #: src/onlinetranslator.cpp:791
 msgctxt "OnlineTranslator|"
@@ -1378,25 +1324,19 @@ msgid "Polish"
 msgstr "puola"
 
 #: src/onlinetranslator.cpp:793
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Portuguese"
 msgctxt "OnlineTranslator|"
 msgid "Portuguese (Brazilian)"
-msgstr "portugali"
+msgstr "portugali (Brasilia)"
 
 #: src/onlinetranslator.cpp:795
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Portuguese"
 msgctxt "OnlineTranslator|"
 msgid "Portuguese (Portugal)"
-msgstr "portugali"
+msgstr "portugali (Portugali)"
 
 #: src/onlinetranslator.cpp:797
 msgctxt "OnlineTranslator|"
 msgid "Potawatomi"
-msgstr ""
+msgstr "potawatomi"
 
 #: src/onlinetranslator.cpp:799
 msgctxt "OnlineTranslator|"
@@ -1406,12 +1346,9 @@ msgstr "pandžabi"
 #: src/onlinetranslator.cpp:801
 msgctxt "OnlineTranslator|"
 msgid "Quechua"
-msgstr ""
+msgstr "ketšua"
 
 #: src/onlinetranslator.cpp:803
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Queretaro Otomi"
 msgctxt "OnlineTranslator|"
 msgid "Querétaro Otomi"
 msgstr "querétaro otomi"
@@ -1424,7 +1361,7 @@ msgstr "romania"
 #: src/onlinetranslator.cpp:807
 msgctxt "OnlineTranslator|"
 msgid "Rundi"
-msgstr ""
+msgstr "rundi"
 
 #: src/onlinetranslator.cpp:809
 msgctxt "OnlineTranslator|"
@@ -1439,12 +1376,12 @@ msgstr "samoa"
 #: src/onlinetranslator.cpp:813
 msgctxt "OnlineTranslator|"
 msgid "Sango"
-msgstr ""
+msgstr "sango"
 
 #: src/onlinetranslator.cpp:815
 msgctxt "OnlineTranslator|"
 msgid "Sanskrit"
-msgstr ""
+msgstr "sanskriitti"
 
 #: src/onlinetranslator.cpp:817
 msgctxt "OnlineTranslator|"
@@ -1467,17 +1404,14 @@ msgid "Sesotho"
 msgstr "sesotho"
 
 #: src/onlinetranslator.cpp:825
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Sesotho"
 msgctxt "OnlineTranslator|"
 msgid "Sesotho sa Leboa"
-msgstr "sesotho"
+msgstr "sesotho sa leboa"
 
 #: src/onlinetranslator.cpp:827
 msgctxt "OnlineTranslator|"
 msgid "Setswana"
-msgstr ""
+msgstr "tswana"
 
 #: src/onlinetranslator.cpp:829
 msgctxt "OnlineTranslator|"
@@ -1517,7 +1451,7 @@ msgstr "espanja"
 #: src/onlinetranslator.cpp:843
 msgctxt "OnlineTranslator|"
 msgid "Sranan Tongo"
-msgstr ""
+msgstr "sranantongo"
 
 #: src/onlinetranslator.cpp:845
 msgctxt "OnlineTranslator|"
@@ -1537,7 +1471,7 @@ msgstr "ruotsi"
 #: src/onlinetranslator.cpp:851
 msgctxt "OnlineTranslator|"
 msgid "Syriac (Aramaic)"
-msgstr ""
+msgstr "syyria (aramea)"
 
 #: src/onlinetranslator.cpp:853
 msgctxt "OnlineTranslator|"
@@ -1552,7 +1486,7 @@ msgstr "tadžikki"
 #: src/onlinetranslator.cpp:857
 msgctxt "OnlineTranslator|"
 msgid "Tamashek (Tuareg)"
-msgstr ""
+msgstr "tamašek (tuaregi)"
 
 #: src/onlinetranslator.cpp:859
 msgctxt "OnlineTranslator|"
@@ -1572,7 +1506,7 @@ msgstr "telugu"
 #: src/onlinetranslator.cpp:865
 msgctxt "OnlineTranslator|"
 msgid "Tetum"
-msgstr ""
+msgstr "tetum"
 
 #: src/onlinetranslator.cpp:867
 msgctxt "OnlineTranslator|"
@@ -1582,22 +1516,22 @@ msgstr "thai"
 #: src/onlinetranslator.cpp:869
 msgctxt "OnlineTranslator|"
 msgid "Tibetan"
-msgstr ""
+msgstr "tiibet"
 
 #: src/onlinetranslator.cpp:871
 msgctxt "OnlineTranslator|"
 msgid "Tigrinya"
-msgstr ""
+msgstr "tigrinja"
 
 #: src/onlinetranslator.cpp:873
 msgctxt "OnlineTranslator|"
 msgid "Tok Pisin"
-msgstr ""
+msgstr "tokpisin"
 
 #: src/onlinetranslator.cpp:875
 msgctxt "OnlineTranslator|"
 msgid "Tokelauan"
-msgstr ""
+msgstr "tokelau"
 
 #: src/onlinetranslator.cpp:877
 msgctxt "OnlineTranslator|"
@@ -1605,12 +1539,9 @@ msgid "Tongan"
 msgstr "tonga"
 
 #: src/onlinetranslator.cpp:879
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Tongan"
 msgctxt "OnlineTranslator|"
 msgid "Tsonga"
-msgstr "tonga"
+msgstr "tsonga"
 
 #: src/onlinetranslator.cpp:881
 msgctxt "OnlineTranslator|"
@@ -1625,12 +1556,12 @@ msgstr "turkmeeni"
 #: src/onlinetranslator.cpp:885
 msgctxt "OnlineTranslator|"
 msgid "Tuvaluan"
-msgstr ""
+msgstr "tuvalu"
 
 #: src/onlinetranslator.cpp:887
 msgctxt "OnlineTranslator|"
 msgid "Twi"
-msgstr ""
+msgstr "twi"
 
 #: src/onlinetranslator.cpp:889
 msgctxt "OnlineTranslator|"
@@ -1645,12 +1576,12 @@ msgstr "ukraina"
 #: src/onlinetranslator.cpp:893
 msgctxt "OnlineTranslator|"
 msgid "Uma"
-msgstr ""
+msgstr "uma"
 
 #: src/onlinetranslator.cpp:895
 msgctxt "OnlineTranslator|"
 msgid "Upper Sorbian"
-msgstr ""
+msgstr "yläsorbi"
 
 #: src/onlinetranslator.cpp:897
 msgctxt "OnlineTranslator|"
@@ -1658,28 +1589,19 @@ msgid "Urdu"
 msgstr "urdu"
 
 #: src/onlinetranslator.cpp:899
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Uighur"
 msgctxt "OnlineTranslator|"
 msgid "Uyghur"
 msgstr "uiguuri"
 
 #: src/onlinetranslator.cpp:901
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Serbian (Cyrillic)"
 msgctxt "OnlineTranslator|"
 msgid "Uzbek (Cyrillic)"
-msgstr "serbia (kyrillinen)"
+msgstr "uzbekki (kyrillinen)"
 
 #: src/onlinetranslator.cpp:903
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Serbian (Latin)"
 msgctxt "OnlineTranslator|"
 msgid "Uzbek (Latin)"
-msgstr "serbia (latinalainen)"
+msgstr "uzbekki (latinalainen)"
 
 #: src/onlinetranslator.cpp:905
 msgctxt "OnlineTranslator|"
@@ -1687,12 +1609,9 @@ msgid "Vietnamese"
 msgstr "vietnam"
 
 #: src/onlinetranslator.cpp:907
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Frisian"
 msgctxt "OnlineTranslator|"
 msgid "Wallisian"
-msgstr "friisi"
+msgstr "wallis"
 
 #: src/onlinetranslator.cpp:909
 msgctxt "OnlineTranslator|"
@@ -1702,7 +1621,7 @@ msgstr "kymri"
 #: src/onlinetranslator.cpp:911
 msgctxt "OnlineTranslator|"
 msgid "Wolof"
-msgstr ""
+msgstr "wolof"
 
 #: src/onlinetranslator.cpp:913
 msgctxt "OnlineTranslator|"
@@ -1712,7 +1631,7 @@ msgstr "xhosa"
 #: src/onlinetranslator.cpp:915
 msgctxt "OnlineTranslator|"
 msgid "Yakut"
-msgstr ""
+msgstr "jakuutti"
 
 #: src/onlinetranslator.cpp:917
 msgctxt "OnlineTranslator|"
@@ -1738,7 +1657,7 @@ msgstr "zulu"
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Instance error: %1"
-msgstr ""
+msgstr "Ilmentymävirhe: %1"
 
 #: src/onlinetranslator.cpp:1282
 msgctxt "OnlineTranslator|"
@@ -2317,20 +2236,17 @@ msgstr "Pakota käännöskielen tunnistus"
 #: src/settings/settingsdialog.ui:776
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
-msgstr ""
+msgstr "Mozhi-ilmentymän verkko-osoite"
 
 #: src/settings/settingsdialog.ui:789
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
-msgstr ""
+msgstr "Poimi pingauksen perusteella automaattisesti nopein ilmentymä"
 
 #: src/settings/settingsdialog.ui:792
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Speech test:"
 msgctxt "SettingsDialog|"
 msgid "Detect fastest"
-msgstr "Ääneen luennan kokeilu:"
+msgstr "Selvitä nopein"
 
 #: src/settings/settingsdialog.ui:825
 msgctxt "SettingsDialog|"
@@ -2685,12 +2601,9 @@ msgid "Source code:"
 msgstr "Lähdekoodi:"
 
 #: src/settings/settingsdialog.ui:1460
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation backend:"
-msgstr "Käännöstila:"
+msgstr "Käännösjärjestelmä:"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:21
 msgctxt "ShortcutsModel|"
@@ -2705,23 +2618,23 @@ msgstr "Käännä valittu teksti"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:26
 msgctxt "ShortcutsModel|"
 msgid "Speak selected text"
-msgstr "Lue valittu teksti ääneen"
+msgstr "Puhu valittu teksti"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:29
 msgctxt "ShortcutsModel|"
 msgid "Speak translation of selected text"
-msgstr "Lue valitun tekstin käännös ääneen"
+msgstr "Puhu valitun tekstin käännös"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:32
 msgctxt "ShortcutsModel|"
 msgid "Stop text speaking"
-msgstr "Lopeta tekstin ääneen luku"
+msgstr "Lopeta puhuminen"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:35
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:73
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause text speaking"
-msgstr "Lue/pysäytä tekstin ääneen luku"
+msgstr "Puhu teksti tai keskeytä puhuminen"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:38
 msgctxt "ShortcutsModel|"
@@ -2791,7 +2704,7 @@ msgstr "Käännös"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:79
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause speaking"
-msgstr "Lue/pysäytä ääneen luku"
+msgstr "Puhu tai keskeytä puhuminen"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:82
 msgctxt "ShortcutsModel|"
@@ -2836,12 +2749,12 @@ msgstr "Ei voi luoda URL-osoitteita TTS:lle"
 #: src/speakbuttons.ui:24
 msgctxt "SpeakButtons|"
 msgid "Speak / pause text speaking"
-msgstr "Lue/pysäytä tekstin ääneen luku"
+msgstr "Puhu teksti tai keskeytä puhuminen"
 
 #: src/speakbuttons.ui:34
 msgctxt "SpeakButtons|"
 msgid "Stop text speaking"
-msgstr "Lopeta tekstin ääneen luku"
+msgstr "Lopeta puhuminen"
 
 #: src/transitions/ocruninitializedtransition.cpp:28
 msgctxt "Ocr|"

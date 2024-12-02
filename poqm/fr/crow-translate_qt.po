@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-10-19 17:32+0200\n"
+"PO-Revision-Date: 2024-11-30 17:21+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.11.90\n"
 "X-Language: fr\n"
 "X-Qt-Contexts: true\n"
 "X-Source-Language: en\n"
@@ -278,12 +278,16 @@ msgstr "Impossible d'inscrire D-Bus objet pour %1"
 msgctxt "MainWindow|"
 msgid "Toggled OCR image negate"
 msgstr ""
+"Activer / Désactiver l'inversion de l'image pour la reconnaissance optique "
+"de caractères"
 
 #: src/mainwindow.cpp:270
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR image negate has changed to %1"
 msgstr ""
+"L'inversion de l'image pour la reconnaissance optique de caractères a été "
+"modifiée à %1"
 
 #: src/mainwindow.cpp:397
 msgctxt "MainWindow|"
@@ -2402,23 +2406,19 @@ msgid "Show magnifier"
 msgstr "Afficher la loupe"
 
 #: src/settings/settingsdialog.ui:1022
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "<html><head/><body><p>Replace all single line breaks with a space after "
-#| "text recognition</p></body></html>"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
 "text on dark background.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Remplacer tous les sauts de ligne simples par un "
-"espace après la reconnaissance de texte</p></body></html>"
+"<html><head/><body><p>Annuler (Inverser) l’image avant la reconnaissance "
+"optique de caractères. A utiliser pour  un texte clair sur fond sombre.</p></"
+"body></html>"
 
 #: src/settings/settingsdialog.ui:1025
 msgctxt "SettingsDialog|"
 msgid "Negate OCR"
-msgstr ""
+msgstr "Annuler la reconnaissance optique de caractères"
 
 #: src/settings/settingsdialog.ui:1035
 msgctxt "SettingsDialog|"
@@ -2705,6 +2705,8 @@ msgstr "Traduire le texte dans la zone de l'écran avec un délai"
 msgctxt "ShortcutsModel|"
 msgid "Toggle color inversion for OCR"
 msgstr ""
+"Activer / Désactiver l'inversion des couleurs pour la reconnaissance optique "
+"de caractères"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
