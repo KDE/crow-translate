@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-11-10 13:23+0100\n"
+"PO-Revision-Date: 2024-12-04 10:06+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -270,13 +270,13 @@ msgstr "Non é posíbel rexistrar o obxecto de D-Bus para %1."
 #: src/mainwindow.cpp:270
 msgctxt "MainWindow|"
 msgid "Toggled OCR image negate"
-msgstr ""
+msgstr "Conmutar a negación da imaxe de OCR"
 
 #: src/mainwindow.cpp:270
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR image negate has changed to %1"
-msgstr ""
+msgstr "A negación da imaxe de OCR cambiou a %1"
 
 #: src/mainwindow.cpp:397
 msgctxt "MainWindow|"
@@ -2386,23 +2386,18 @@ msgid "Show magnifier"
 msgstr "Amosar unha lupa."
 
 #: src/settings/settingsdialog.ui:1022
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "<html><head/><body><p>Replace all single line breaks with a space after "
-#| "text recognition</p></body></html>"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
 "text on dark background.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Substituír todos os saltos de liña por un espazo tras "
-"o recoñecemento de texto.</p></body></html>"
+"<html><head/><body><p>Negar (inverter) a imaxe antes do OCR. Use para textos "
+"claros sobre fondo escuro.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1025
 msgctxt "SettingsDialog|"
 msgid "Negate OCR"
-msgstr ""
+msgstr "Negar o OCR"
 
 #: src/settings/settingsdialog.ui:1035
 msgctxt "SettingsDialog|"
@@ -2686,7 +2681,7 @@ msgstr "Traducir o texto dunha zona da pantalla cun atraso"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:56
 msgctxt "ShortcutsModel|"
 msgid "Toggle color inversion for OCR"
-msgstr ""
+msgstr "Conmutar a inversión de cores para OCR"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
