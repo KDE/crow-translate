@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-11-13 16:57+0200\n"
+"PO-Revision-Date: 2024-12-01 14:27+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -266,13 +266,13 @@ msgstr "Ei voi rekisteröidä D-Bus -objektia kohteelle %1"
 #: src/mainwindow.cpp:270
 msgctxt "MainWindow|"
 msgid "Toggled OCR image negate"
-msgstr ""
+msgstr "Käännettiin tekstintunnistuskuvan värit"
 
 #: src/mainwindow.cpp:270
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR image negate has changed to %1"
-msgstr ""
+msgstr "Tekstintunnistuskuva on muuttunut negatiiviksi %1"
 
 #: src/mainwindow.cpp:397
 msgctxt "MainWindow|"
@@ -2373,23 +2373,18 @@ msgid "Show magnifier"
 msgstr "Näytä suurennuslasi"
 
 #: src/settings/settingsdialog.ui:1022
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "<html><head/><body><p>Replace all single line breaks with a space after "
-#| "text recognition</p></body></html>"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
 "text on dark background.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Korvaa kaikki yksittäiset rivinvaihdot välilyönneillä "
-"tekstitunnistuksen jälkeen</p></body></html>"
+"<html><head/><body><p>Käännä kuva negatiiviksi ennen tekstintunnistusta. "
+"Helpottaa kirkkaan tekstin lukemista tummalta taustalta</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1025
 msgctxt "SettingsDialog|"
 msgid "Negate OCR"
-msgstr ""
+msgstr "Tekstintunnistus käänteisvärein"
 
 #: src/settings/settingsdialog.ui:1035
 msgctxt "SettingsDialog|"
@@ -2669,7 +2664,7 @@ msgstr "Käännä teksti näytön alueelta viiveellä"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:56
 msgctxt "ShortcutsModel|"
 msgid "Toggle color inversion for OCR"
-msgstr ""
+msgstr "Käännä värit tekstintunnistusta varten"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
