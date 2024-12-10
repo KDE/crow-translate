@@ -1,7 +1,13 @@
 # SPDX-FileCopyrightText: 2024 VenusGirl
 # SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2024 Shinjo Park <kde@peremen.name>
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2024-12-10 00:20+0100\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9,6 +15,7 @@ msgstr ""
 "X-Language: ko\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: src/cli.cpp:43
 msgctxt "Cli|"
@@ -20,15 +27,14 @@ msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
-msgstr ""
-"원본 언어를 지정합니다 (기본적으로 엔진은 자체적으로 언어를 결정합니다)."
+msgstr "원본 언어를 지정합니다(기본값은 엔진에서 자체적으로 언어 결정)."
 
 #: src/cli.cpp:45
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
 "language is used)."
-msgstr "'+'로 분할된 번역 언어를 지정합니다 (기본적으로 시스템 언어가 사용됨)."
+msgstr "'+'로 구분하여 대상 언어를 지정합니다(기본값은 시스템 언어 사용)."
 
 #: src/cli.cpp:46
 msgctxt "Cli|"
@@ -36,8 +42,8 @@ msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
 "or 'lingva'), Google is used by default."
 msgstr ""
-"번역기 엔진 ('google', 'yandex', 'bing', 'libretranslate' 또는 'lingva')를 지"
-"정합니다. 기본적으로 Google이 사용됩니다."
+"번역기 엔진을 지정합니다('google', 'yandex', 'bing', 'libretranslate', "
+"'lingva'). 기본값으로 Google을 사용합니다."
 
 #: src/cli.cpp:47
 msgctxt "Cli|"
@@ -45,97 +51,85 @@ msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
+"Mozhi 인스턴스 URL을 지정합니다. 기본값은 앱 설정에서 지정한 인스턴스 URL입니"
+"다."
 
 #: src/cli.cpp:48
 msgctxt "Cli|"
 msgid "Speak the translation."
-msgstr "번역을 해보세요."
+msgstr "번역 결과를 읽어 줍니다."
 
 #: src/cli.cpp:49
 msgctxt "Cli|"
 msgid "Speak the source."
-msgstr "출처를 말하세요."
+msgstr "원본을 읽어 줍니다."
 
 #: src/cli.cpp:50
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
-msgstr "파일에서 원본 텍스트를 읽습니다. 인수는 파일 경로로 해석됩니다."
+msgstr "파일에서 원본 텍스트를 읽습니다. 인자는 파일 경로로 해석됩니다."
 
 #: src/cli.cpp:51
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
-msgstr "원본 텍스트에 stdin 데이터를 추가합니다."
+msgstr "원본 텍스트에 표준 입력 데이터를 추가합니다."
 
 #: src/cli.cpp:52
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
-msgstr "--%1 또는 --%2를 사용할 때 텍스트를 인쇄하지 마십시오."
+msgstr "--%1 또는 --%2 사용 시 텍스트를 출력하지 않습니다."
 
 #: src/cli.cpp:53
 msgctxt "Cli|"
 msgid "Print only translations."
-msgstr "번역만 인쇄합니다."
+msgstr "번역만 출력합니다."
 
 #: src/cli.cpp:54
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
-msgstr "출력을 JSON으로 포맷합니다."
+msgstr "JSON 형식으로 출력합니다."
 
 #: src/cli.cpp:57
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "A simple and lightweight translator that allows to translate and speak "
-#| "text using Google, Yandex, Bing, LibreTranslate and Lingva"
 msgctxt "Cli|"
 msgid "Application that allows to translate and speak text using Mozhi"
-msgstr ""
-"Google, Yandex, Bing, LibreTranslate 및 Lingva를 사용하여 텍스트를 번역하고 "
-"말할 수 있는 간단하고 가벼운 번역기입니다"
+msgstr "Mozhi를 사용하여 텍스트를 번역하고 말하는 앱"
 
 #: src/cli.cpp:58
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
-msgstr "번역할 텍스트입니다. 기본적으로 시스템 언어로 변환됩니다."
+msgstr "번역할 텍스트입니다. 기본값으로 시스템 언어로 번역됩니다."
 
 #: src/cli.cpp:80
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
-msgstr "오류: --%1의 경우 --%2 및/또는 --%3 옵션을 지정해야 합니다"
+msgstr "오류: --%1 옵션에는 --%2/--%3 옵션을 지정해야 함"
 
 #: src/cli.cpp:95
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
-msgstr "알 수 없는 언어 코드: %1"
+msgstr "오류: 알 수 없는 원본 언어 코드 '%1'"
 
 #: src/cli.cpp:103
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
-msgstr "알 수 없는 언어 코드: %1"
+msgstr "오류: 알 수 없는 번역 언어 코드 '%1'"
 
 #: src/cli.cpp:127
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
-msgstr "오류: 번역할 텍스트가 없습니다"
+msgstr "오류: 번역할 텍스트가 없음"
 
 #: src/cli.cpp:133
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Speech test:"
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
-msgstr "음성 테스트:"
+msgstr "가장 빠른 인스턴스 확인 중"
 
 #: src/cli.cpp:160
 msgctxt "Cli|"
@@ -149,38 +143,32 @@ msgid "Error: %1"
 msgstr "오류: %1"
 
 #: src/cli.cpp:249
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "translation options:"
 msgctxt "Cli|"
 msgid "translation options:"
-msgstr "변역 옵션:"
+msgstr "번역 옵션:"
 
 #: src/cli.cpp:260
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "examples:"
 msgctxt "Cli|"
 msgid "examples:"
-msgstr "예:"
+msgstr "예제:"
 
 #: src/cli.cpp:390
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
-msgstr "오류: --%1을 --%2와 함께 사용할 수 없습니다"
+msgstr "오류: --%1 옵션과 --%2 옵션은 같이 사용할 수 없음"
 
 #: src/cli.cpp:406 src/cli.cpp:427
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
-msgstr "오류: 파일이 없습니다: %1"
+msgstr "오류: 파일이 없음: %1"
 
 #: src/cli.cpp:411 src/cli.cpp:432
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
-msgstr "오류: 파일을 열 수 없습니다: %1"
+msgstr "오류: 파일을 열 수 없음: %1"
 
 #: src/contextmenu.h:39
 msgctxt "ContextMenu|"
@@ -191,25 +179,25 @@ msgstr "Forvo.com에서 검색"
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Best instance URL is '%1' with time %2 ms"
-msgstr ""
+msgstr "최적 인스턴스 URL: '%1', 시간: %2 ms"
 
 #: src/instancepinger.cpp:84
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' takes longer then %2 ms"
-msgstr ""
+msgstr "'%1'의 핑 시간이 %2 ms를 초과함"
 
 #: src/instancepinger.cpp:99
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' successful, response time: %2 ms"
-msgstr ""
+msgstr "'%1' 핑 성공, 응답 시간: %2 ms"
 
 #: src/instancepinger.cpp:111
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' failed, error: %2"
-msgstr ""
+msgstr "'%1' 핑 실패, 오류: %2"
 
 #: src/instancepingerdialog.cpp:23
 #, qt-format
@@ -218,11 +206,13 @@ msgid ""
 "Detecting fastest instance.\n"
 "Checking '%1'"
 msgstr ""
+"가장 빠른 인스턴스를 확인하고 있습니다.\n"
+"'%1' 확인 중"
 
 #: src/languagebuttonswidget.cpp:220
 msgctxt "LanguageButtonsWidget|"
 msgid "Window width is larger than screen due to the languages on the panel."
-msgstr "창 너비는 패널의 언어로 인해 화면보다 큽니다."
+msgstr "패널에 표시된 언어 때문에 창 크기가 화면보다 더 큽니다."
 
 #: src/languagebuttonswidget.cpp:221
 msgctxt "LanguageButtonsWidget|"
@@ -243,7 +233,7 @@ msgstr "언어 편집"
 #, qt-format
 msgctxt "LanguagesDialog|"
 msgid "Filter (%1)"
-msgstr "필터 (%1)"
+msgstr "필터(%1)"
 
 #: src/languagesdialog.ui:14
 msgctxt "LanguagesDialog|"
@@ -264,13 +254,13 @@ msgstr "현재 언어:"
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
-msgstr "%1 D-Bus 서비스가 다른 응용 프로그램에 이미 등록되어 있습니다"
+msgstr "%1 D-Bus 서비스가 다른 앱에서 이미 등록됨"
 
 #: src/main.cpp:97
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
-msgstr "%1에 대한 D-Bus 개체를 등록할 수 없습니다"
+msgstr "%1의 D-Bus 객체를 등록할 수 없음"
 
 #: src/mainwindow.cpp:270
 msgctxt "MainWindow|"
@@ -286,18 +276,18 @@ msgstr ""
 #: src/mainwindow.cpp:397
 msgctxt "MainWindow|"
 msgid "Unable to detect language"
-msgstr "언어를 검색할 수 없습니다"
+msgstr "언어를 감지할 수 없음"
 
 #: src/mainwindow.cpp:449
 msgctxt "MainWindow|"
 msgid "Unable to translate text"
-msgstr "텍스트를 번역할 수 없습니다"
+msgstr "텍스트를 번역할 수 없음"
 
 #: src/mainwindow.cpp:870
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
-msgstr ""
+msgstr "이 앱에서는 %1을(를) 사용하여 번역을 제공합니다."
 
 #: src/mainwindow.cpp:871
 #, qt-format
@@ -308,11 +298,15 @@ msgid ""
 "right now is '%1', but you can change it in the translation settings. See "
 "instance details in the link above."
 msgstr ""
+"Mozhi는 개인 정보를 보호하는 프록시로 작동하지만, 여기에서 사용하는 제3자 서"
+"비스에서 전송한 텍스트를 저장하고 분석할 수도 있습니다. 현재 사용 중인 인스턴"
+"스는 '%1'이며, 번역 설정에서 변경할 수 있습니다. 위에 있는 링크에서 인스턴스 "
+"정보를 참조하십시오."
 
 #: src/mainwindow.cpp:878
 msgctxt "MainWindow|"
 msgid "Don't show again"
-msgstr ""
+msgstr "다시 표시하지 않기"
 
 #: src/mainwindow.cpp:906
 msgctxt "TrayIcon|"
@@ -323,18 +317,18 @@ msgstr "잘못된 트레이 아이콘"
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
-msgstr "지정한 아이콘 '%1' 이(가) 잘못되었습니다. 기본 아이콘이 사용됩니다."
+msgstr "지정한 아이콘 '%1'이(가) 잘못되었습니다. 기본 아이콘이 사용됩니다."
 
 #: src/mainwindow.cpp:935
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
-msgstr "OCR 언어를 설정할 수 없습니다"
+msgstr "OCR 언어를 설정할 수 없음"
 
 #: src/mainwindow.cpp:935
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
-msgstr "%1로 Tesseract를 초기화할 수 없습니다"
+msgstr "%1(으)로 Tesseract를 초기화할 수 없음"
 
 #: src/mainwindow.ui:36
 msgctxt "MainWindow|"
@@ -344,7 +338,7 @@ msgstr "원본 텍스트를 클립보드에 복사"
 #: src/mainwindow.ui:47
 msgctxt "MainWindow|"
 msgid "Recognize screen area with delay"
-msgstr "화면 영역을 지연으로 인식"
+msgstr "시간 지연 후 화면 영역 인식"
 
 #. The text should be short to fit in portrait orientation on phones.
 #: src/mainwindow.ui:64
@@ -355,12 +349,12 @@ msgstr "자동 번역"
 #: src/mainwindow.ui:76
 msgctxt "MainWindow|"
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "취소"
 
 #: src/mainwindow.ui:87
 msgctxt "MainWindow|"
 msgid "Swap languages"
-msgstr "언어 교환"
+msgstr "언어 맞바꾸기"
 
 #: src/mainwindow.ui:111
 msgctxt "MainWindow|"
@@ -385,7 +379,7 @@ msgstr "번역"
 #: src/mainwindow.ui:259
 msgctxt "MainWindow|"
 msgid "Copy translation to the clipboard"
-msgstr "번역을 클립보드로 복사"
+msgstr "번역을 클립보드에 복사"
 
 #: src/mainwindow.ui:270
 msgctxt "MainWindow|"
@@ -395,40 +389,40 @@ msgstr "모든 번역 데이터를 클립보드에 복사"
 #: src/mainwindow.ui:281
 msgctxt "MainWindow|"
 msgid "Translate screen area with delay"
-msgstr "화면 영역을 지연으로 번역"
+msgstr "시간 지연 후 화면 영역 번역"
 
 #: src/mainwindow.ui:292
 msgctxt "MainWindow|"
 msgid "Application settings"
-msgstr "응용 프로그램 설정"
+msgstr "앱 설정"
 
 #: src/ocr/ocr.cpp:136
 #, qt-format
 msgctxt "Ocr|"
 msgid "%1 is not a valid Tesseract parameter name."
-msgstr "%1은 올바른 Tesseract 매개 변수 이름이 아닙니다."
+msgstr "%1은(는) 올바른 Tesseract 인자 이름이 아닙니다."
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 msgctxt "AbstractScreenGrabber|"
 msgid "Unable to grab screen"
-msgstr "화면을 기록할 수 없습니다"
+msgstr "화면 영역을 획득할 수 없음"
 
 #: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:47
 msgctxt "WaylandGnomeScreenGrabber|"
 msgid "GNOME failed to take screenshot."
-msgstr "GNOME이 스크린샷을 찍지 못했습니다."
+msgstr "그놈에서 스크린샷을 찍을 수 없습니다."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:43
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to create pipe: %1."
-msgstr "파이프를 만들 수 없습니다: %1."
+msgstr "파이프를 만들 수 없음: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:87
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to wait for socket readiness: %1."
-msgstr "소켓 준비를 기다릴 수 없습니다. %1."
+msgstr "소켓 준비를 기다릴 수 없음: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:92
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -439,7 +433,7 @@ msgstr "파이프에서 읽는 시간이 초과되었습니다."
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to read data from socket: %1."
-msgstr "소켓에서 데이터를 읽을 수 없습니다: %1."
+msgstr "소켓에서 데이터를 읽을 수 없음: %1."
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:56
 msgctxt "WaylandPortalScreenGrabber|"
@@ -454,13 +448,13 @@ msgstr "xdg-desktop-portal에서 빈 경로를 수신했습니다."
 #: src/ocr/snippingarea.cpp:78
 msgctxt "SnippingArea|"
 msgid "Unable to snip screen area"
-msgstr "화면 영역을 생략할 수 없습니다"
+msgstr "화면 영역을 캡처할 수 없음"
 
 #: src/ocr/snippingarea.cpp:79
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
-msgstr "%1 화면의 잘못된 이미지를 받았습니다."
+msgstr "화면 %1에서 잘못된 이미지를 받았습니다."
 
 #: src/ocr/snippingarea.cpp:631
 msgctxt "SnippingArea|"
@@ -468,8 +462,8 @@ msgid ""
 "Click and drag to draw a selection rectangle,\n"
 "or press Esc to quit"
 msgstr ""
-"클릭하여 드래그하여 선택 사각형을 그립니다,\n"
-"종료하려면 Esc 키를 누르십시오"
+"클릭한 후 드래그로 선택 사각형을 그리거나,\n"
+"Esc 키를 눌러서 끝내십시오"
 
 #: src/ocr/snippingarea.cpp:837
 msgctxt "SnippingArea|"
@@ -479,7 +473,7 @@ msgstr "확인:"
 #: src/ocr/snippingarea.cpp:839
 msgctxt "SnippingArea|"
 msgid "Release left-click"
-msgstr "왼쪽 클릭 해제"
+msgstr "왼쪽 클릭 놓기"
 
 #: src/ocr/snippingarea.cpp:839 src/ocr/snippingarea.cpp:841
 msgctxt "SnippingArea|"
@@ -499,7 +493,7 @@ msgstr "새 선택 사각형 만들기:"
 #: src/ocr/snippingarea.cpp:844
 msgctxt "SnippingArea|"
 msgid "Drag outside selection rectangle"
-msgstr "선택 영역 밖으로 끌어다 놓기 사각형"
+msgstr "선택 사각형 바깥쪽에서 드래그"
 
 #: src/ocr/snippingarea.cpp:844
 msgctxt "SnippingArea|"
@@ -514,7 +508,7 @@ msgstr "선택 사각형 이동:"
 #: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "Drag inside selection rectangle"
-msgstr "선택 사각형 안으로 끌어오기"
+msgstr "선택 사각형 안쪽에서 드래그"
 
 #: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
@@ -534,7 +528,7 @@ msgstr "선택 사각형 크기 조정:"
 #: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "Drag handles"
-msgstr "핸들 끌기"
+msgstr "핸들 드래그"
 
 #: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
@@ -549,7 +543,7 @@ msgstr "+ Shift: 1픽셀 단위로 크기 조정"
 #: src/ocr/snippingarea.cpp:853
 msgctxt "SnippingArea|"
 msgid "Reset selection:"
-msgstr "선택 재설정:"
+msgstr "선택 영역 초기화:"
 
 #: src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
@@ -567,25 +561,21 @@ msgid "Esc key"
 msgstr "Esc 키"
 
 #: src/onlinetranslator.cpp:275
-#, fuzzy, qt-format
-#| msgctxt "OnlineTts|"
-#| msgid "Selected language %1 is not supported for %2"
+#, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Language detection is not supported for %1"
-msgstr "선택한 언어 %1은 %2에서 지원되지 않습니다"
+msgstr "%1에서 언어 감지를 지원하지 않음"
 
 #: src/onlinetranslator.cpp:352
-#, fuzzy, qt-format
-#| msgctxt "OnlineTts|"
-#| msgid "%1 engine does not support TTS"
+#, qt-format
 msgctxt "OnlineTranslator|"
 msgid "%1 engine does not support TTS"
-msgstr "%1 엔진이 TTS를 지원하지 않습니다"
+msgstr "%1 엔진에서 TTS를 지원하지 않음"
 
 #: src/onlinetranslator.cpp:493
 msgctxt "OnlineTranslator|"
 msgid "Automatically detect"
-msgstr "자동 검색"
+msgstr "자동 감지"
 
 #: src/onlinetranslator.cpp:495
 msgctxt "OnlineTranslator|"
@@ -615,17 +605,14 @@ msgstr "아르메니아어"
 #: src/onlinetranslator.cpp:505
 msgctxt "OnlineTranslator|"
 msgid "Assamese"
-msgstr ""
+msgstr "아삼어"
 
 #: src/onlinetranslator.cpp:507
 msgctxt "OnlineTranslator|"
 msgid "Aymara"
-msgstr ""
+msgstr "아이마라어"
 
 #: src/onlinetranslator.cpp:509
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Azeerbaijani"
 msgctxt "OnlineTranslator|"
 msgid "Azerbaijani"
 msgstr "아제르바이잔어"
@@ -633,27 +620,27 @@ msgstr "아제르바이잔어"
 #: src/onlinetranslator.cpp:511
 msgctxt "OnlineTranslator|"
 msgid "Bajan"
-msgstr ""
+msgstr "바잔어"
 
 #: src/onlinetranslator.cpp:513
 msgctxt "OnlineTranslator|"
 msgid "Balkan Gipsy"
-msgstr ""
+msgstr "발칸 롬어"
 
 #: src/onlinetranslator.cpp:515
 msgctxt "OnlineTranslator|"
 msgid "Bambara"
-msgstr ""
+msgstr "밤바라어"
 
 #: src/onlinetranslator.cpp:517
 msgctxt "OnlineTranslator|"
 msgid "Bangla"
-msgstr ""
+msgstr "벵골어"
 
 #: src/onlinetranslator.cpp:519
 msgctxt "OnlineTranslator|"
 msgid "Bashkir"
-msgstr "바시키르어"
+msgstr "바슈키르어"
 
 #: src/onlinetranslator.cpp:521
 msgctxt "OnlineTranslator|"
@@ -668,17 +655,17 @@ msgstr "벨라루스어"
 #: src/onlinetranslator.cpp:525
 msgctxt "OnlineTranslator|"
 msgid "Bemba"
-msgstr ""
+msgstr "벰바어"
 
 #: src/onlinetranslator.cpp:527
 msgctxt "OnlineTranslator|"
 msgid "Bhojpuri"
-msgstr ""
+msgstr "보지푸리어"
 
 #: src/onlinetranslator.cpp:529
 msgctxt "OnlineTranslator|"
 msgid "Bislama"
-msgstr ""
+msgstr "비슬라마어"
 
 #: src/onlinetranslator.cpp:531
 msgctxt "OnlineTranslator|"
@@ -688,7 +675,7 @@ msgstr "보스니아어"
 #: src/onlinetranslator.cpp:533
 msgctxt "OnlineTranslator|"
 msgid "Breton"
-msgstr ""
+msgstr "브르타뉴어"
 
 #: src/onlinetranslator.cpp:535
 msgctxt "OnlineTranslator|"
@@ -696,12 +683,9 @@ msgid "Bulgarian"
 msgstr "불가리아어"
 
 #: src/onlinetranslator.cpp:537
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Chinese (Traditional)"
 msgctxt "OnlineTranslator|"
 msgid "Cantonese (Traditional)"
-msgstr "중국어 (번체)"
+msgstr "광둥어"
 
 #: src/onlinetranslator.cpp:539
 msgctxt "OnlineTranslator|"
@@ -716,7 +700,7 @@ msgstr "세부아노어"
 #: src/onlinetranslator.cpp:543
 msgctxt "OnlineTranslator|"
 msgid "Chamorro"
-msgstr ""
+msgstr "차모로어"
 
 #: src/onlinetranslator.cpp:545
 msgctxt "OnlineTranslator|"
@@ -724,37 +708,34 @@ msgid "Chichewa"
 msgstr "치체와어"
 
 #: src/onlinetranslator.cpp:547
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Chinese (Traditional)"
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Literary)"
-msgstr "중국어 (번체)"
+msgstr "중국어(한문)"
 
 #: src/onlinetranslator.cpp:549
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Simplified)"
-msgstr "중국어 (간체)"
+msgstr "중국어(간체)"
 
 #: src/onlinetranslator.cpp:551
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Traditional)"
-msgstr "중국어 (번체)"
+msgstr "중국어(번체)"
 
 #: src/onlinetranslator.cpp:553
 msgctxt "OnlineTranslator|"
 msgid "Chuvash"
-msgstr ""
+msgstr "추바시어"
 
 #: src/onlinetranslator.cpp:555
 msgctxt "OnlineTranslator|"
 msgid "Comorian (Ngazidja)"
-msgstr ""
+msgstr "코모로어(응가지자)"
 
 #: src/onlinetranslator.cpp:557
 msgctxt "OnlineTranslator|"
 msgid "Coptic"
-msgstr ""
+msgstr "콥트어"
 
 #: src/onlinetranslator.cpp:559
 msgctxt "OnlineTranslator|"
@@ -764,52 +745,52 @@ msgstr "코르시카어"
 #: src/onlinetranslator.cpp:561
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Antigua and Barbuda)"
-msgstr ""
+msgstr "크리올 영어(앤티가바부다)"
 
 #: src/onlinetranslator.cpp:563
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Bahamas)"
-msgstr ""
+msgstr "크리올 영어(바하마)"
 
 #: src/onlinetranslator.cpp:565
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Grenadian)"
-msgstr ""
+msgstr "크리올 영어(그레나다)"
 
 #: src/onlinetranslator.cpp:567
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Guyanese)"
-msgstr ""
+msgstr "크리올 영어(가이아나)"
 
 #: src/onlinetranslator.cpp:569
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Jamaican)"
-msgstr ""
+msgstr "크리올 영어(자메이카)"
 
 #: src/onlinetranslator.cpp:571
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Vincentian)"
-msgstr ""
+msgstr "크리올 영어(빈센트)"
 
 #: src/onlinetranslator.cpp:573
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Virgin Islands)"
-msgstr ""
+msgstr "크리올 영어(버진 제도)"
 
 #: src/onlinetranslator.cpp:575
 msgctxt "OnlineTranslator|"
 msgid "Creole French (Saint Lucian)"
-msgstr ""
+msgstr "크리올 프랑스어(세인트루시아)"
 
 #: src/onlinetranslator.cpp:577
 msgctxt "OnlineTranslator|"
 msgid "Creole French (Seselwa)"
-msgstr ""
+msgstr "크리올 프랑스어(세셀와)"
 
 #: src/onlinetranslator.cpp:579
 msgctxt "OnlineTranslator|"
 msgid "Creole Portuguese (Upper Guinea)"
-msgstr ""
+msgstr "크리올 포르투갈어(상부 기니)"
 
 #: src/onlinetranslator.cpp:581
 msgctxt "OnlineTranslator|"
@@ -829,17 +810,17 @@ msgstr "덴마크어"
 #: src/onlinetranslator.cpp:587
 msgctxt "OnlineTranslator|"
 msgid "Dari"
-msgstr ""
+msgstr "다리어"
 
 #: src/onlinetranslator.cpp:589
 msgctxt "OnlineTranslator|"
 msgid "Divehi"
-msgstr ""
+msgstr "디베히어"
 
 #: src/onlinetranslator.cpp:591
 msgctxt "OnlineTranslator|"
 msgid "Dogri"
-msgstr ""
+msgstr "도그리어"
 
 #: src/onlinetranslator.cpp:593
 msgctxt "OnlineTranslator|"
@@ -849,17 +830,17 @@ msgstr "네덜란드어"
 #: src/onlinetranslator.cpp:595
 msgctxt "OnlineTranslator|"
 msgid "Dzongkha"
-msgstr ""
+msgstr "종카어"
 
 #: src/onlinetranslator.cpp:597
 msgctxt "OnlineTranslator|"
 msgid "Elvish (Sindarin)"
-msgstr ""
+msgstr "엘프어(신다린)"
 
 #: src/onlinetranslator.cpp:599
 msgctxt "OnlineTranslator|"
 msgid "Emoji"
-msgstr ""
+msgstr "이모지"
 
 #: src/onlinetranslator.cpp:601
 msgctxt "OnlineTranslator|"
@@ -879,20 +860,17 @@ msgstr "에스토니아어"
 #: src/onlinetranslator.cpp:607
 msgctxt "OnlineTranslator|"
 msgid "Ewe"
-msgstr ""
+msgstr "에웨어"
 
 #: src/onlinetranslator.cpp:609
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Tagalog"
 msgctxt "OnlineTranslator|"
 msgid "Fanagalo"
-msgstr "타갈로그어"
+msgstr "파나갈로어"
 
 #: src/onlinetranslator.cpp:611
 msgctxt "OnlineTranslator|"
 msgid "Faroese"
-msgstr ""
+msgstr "페로어"
 
 #: src/onlinetranslator.cpp:613
 msgctxt "OnlineTranslator|"
@@ -902,7 +880,7 @@ msgstr "피지어"
 #: src/onlinetranslator.cpp:615
 msgctxt "OnlineTranslator|"
 msgid "Filipino"
-msgstr "필리핀어"
+msgstr "타갈로그어"
 
 #: src/onlinetranslator.cpp:617
 msgctxt "OnlineTranslator|"
@@ -917,7 +895,7 @@ msgstr "프랑스어"
 #: src/onlinetranslator.cpp:621
 msgctxt "OnlineTranslator|"
 msgid "French (Canada)"
-msgstr ""
+msgstr "프랑스어(캐나다)"
 
 #: src/onlinetranslator.cpp:623
 msgctxt "OnlineTranslator|"
@@ -932,7 +910,7 @@ msgstr "갈리시아어"
 #: src/onlinetranslator.cpp:627
 msgctxt "OnlineTranslator|"
 msgid "Ganda"
-msgstr ""
+msgstr "간다어"
 
 #: src/onlinetranslator.cpp:629
 msgctxt "OnlineTranslator|"
@@ -952,12 +930,12 @@ msgstr "그리스어"
 #: src/onlinetranslator.cpp:635
 msgctxt "OnlineTranslator|"
 msgid "Greek (Classical)"
-msgstr ""
+msgstr "그리스어(고전)"
 
 #: src/onlinetranslator.cpp:637
 msgctxt "OnlineTranslator|"
 msgid "Guarani"
-msgstr ""
+msgstr "과라니어"
 
 #: src/onlinetranslator.cpp:639
 msgctxt "OnlineTranslator|"
@@ -997,15 +975,12 @@ msgstr "힌디어"
 #: src/onlinetranslator.cpp:653
 msgctxt "OnlineTranslator|"
 msgid "Hmong"
-msgstr "몽족어"
+msgstr "몽어"
 
 #: src/onlinetranslator.cpp:655
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Hmong"
 msgctxt "OnlineTranslator|"
 msgid "Hmong Daw"
-msgstr "몽족어"
+msgstr "몽다우어"
 
 #: src/onlinetranslator.cpp:657
 msgctxt "OnlineTranslator|"
@@ -1025,7 +1000,7 @@ msgstr "이그보어"
 #: src/onlinetranslator.cpp:663
 msgctxt "OnlineTranslator|"
 msgid "Ilocano"
-msgstr ""
+msgstr "일로카노어"
 
 #: src/onlinetranslator.cpp:665
 msgctxt "OnlineTranslator|"
@@ -1035,22 +1010,22 @@ msgstr "인도네시아어"
 #: src/onlinetranslator.cpp:667
 msgctxt "OnlineTranslator|"
 msgid "Inuinnaqtun"
-msgstr ""
+msgstr "이누이나크툰어"
 
 #: src/onlinetranslator.cpp:669
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut"
-msgstr ""
+msgstr "이눅티툿어"
 
 #: src/onlinetranslator.cpp:671
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Greenlandic)"
-msgstr ""
+msgstr "이눅티툿어(그린란드)"
 
 #: src/onlinetranslator.cpp:673
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Latin)"
-msgstr ""
+msgstr "이눅티툿어(라틴 문자)"
 
 #: src/onlinetranslator.cpp:675
 msgctxt "OnlineTranslator|"
@@ -1075,15 +1050,12 @@ msgstr "자바어"
 #: src/onlinetranslator.cpp:683
 msgctxt "OnlineTranslator|"
 msgid "Kabuverdianu"
-msgstr ""
+msgstr "카보베르데 크리올어"
 
 #: src/onlinetranslator.cpp:685
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Italian"
 msgctxt "OnlineTranslator|"
 msgid "Kabylian"
-msgstr "이탈리아어"
+msgstr "카빌어"
 
 #: src/onlinetranslator.cpp:687
 msgctxt "OnlineTranslator|"
@@ -1096,12 +1068,9 @@ msgid "Kazakh"
 msgstr "카자흐어"
 
 #: src/onlinetranslator.cpp:691
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Serbian (Latin)"
 msgctxt "OnlineTranslator|"
 msgid "Kazakh (Latin)"
-msgstr "세르비아어 (라틴어)"
+msgstr "카자흐어(라틴 문자)"
 
 #: src/onlinetranslator.cpp:693
 msgctxt "OnlineTranslator|"
@@ -1116,20 +1085,17 @@ msgstr "키냐르완다어"
 #: src/onlinetranslator.cpp:697
 msgctxt "OnlineTranslator|"
 msgid "Kirundi"
-msgstr ""
+msgstr "키룬디어"
 
 #: src/onlinetranslator.cpp:699
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Klingon (PlqaD)"
 msgctxt "OnlineTranslator|"
 msgid "Klingon (Latin)"
-msgstr "클링곤어 (pIqaD)"
+msgstr "클링곤어(라틴 문자)"
 
 #: src/onlinetranslator.cpp:701
 msgctxt "OnlineTranslator|"
 msgid "Konkani"
-msgstr ""
+msgstr "콘카니어"
 
 #: src/onlinetranslator.cpp:703
 msgctxt "OnlineTranslator|"
@@ -1139,25 +1105,22 @@ msgstr "한국어"
 #: src/onlinetranslator.cpp:705
 msgctxt "OnlineTranslator|"
 msgid "Krio"
-msgstr ""
+msgstr "크리오어"
 
 #: src/onlinetranslator.cpp:707
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Central)"
-msgstr ""
+msgstr "쿠르드어(중부)"
 
 #: src/onlinetranslator.cpp:709
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Northern)"
-msgstr ""
+msgstr "쿠르드어(북부)"
 
 #: src/onlinetranslator.cpp:711
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Kurdish"
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Sorani)"
-msgstr "쿠르드어"
+msgstr "쿠르드어(소라니)"
 
 #: src/onlinetranslator.cpp:713
 msgctxt "OnlineTranslator|"
@@ -1182,7 +1145,7 @@ msgstr "라트비아어"
 #: src/onlinetranslator.cpp:721
 msgctxt "OnlineTranslator|"
 msgid "Lingala"
-msgstr ""
+msgstr "링갈라어"
 
 #: src/onlinetranslator.cpp:723
 msgctxt "OnlineTranslator|"
@@ -1192,12 +1155,12 @@ msgstr "리투아니아어"
 #: src/onlinetranslator.cpp:725
 msgctxt "OnlineTranslator|"
 msgid "Lower Sorbian"
-msgstr ""
+msgstr "저지 소르브어"
 
 #: src/onlinetranslator.cpp:727
 msgctxt "OnlineTranslator|"
 msgid "Luganda"
-msgstr ""
+msgstr "루간다어"
 
 #: src/onlinetranslator.cpp:729
 msgctxt "OnlineTranslator|"
@@ -1210,12 +1173,9 @@ msgid "Macedonian"
 msgstr "마케도니아어"
 
 #: src/onlinetranslator.cpp:733
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Swahili"
 msgctxt "OnlineTranslator|"
 msgid "Maithili"
-msgstr "스와힐리어"
+msgstr "마이틸리어"
 
 #: src/onlinetranslator.cpp:735
 msgctxt "OnlineTranslator|"
@@ -1238,12 +1198,9 @@ msgid "Maltese"
 msgstr "몰타어"
 
 #: src/onlinetranslator.cpp:743
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Scots Gaelic"
 msgctxt "OnlineTranslator|"
 msgid "Manx Gaelic"
-msgstr "스코틀랜드 게일어"
+msgstr "맨섬 게일어"
 
 #: src/onlinetranslator.cpp:745
 msgctxt "OnlineTranslator|"
@@ -1258,22 +1215,22 @@ msgstr "마리어"
 #: src/onlinetranslator.cpp:749
 msgctxt "OnlineTranslator|"
 msgid "Marshallese"
-msgstr ""
+msgstr "마셜어"
 
 #: src/onlinetranslator.cpp:751
 msgctxt "OnlineTranslator|"
 msgid "Meiteilon (Manipuri)"
-msgstr ""
+msgstr "마니푸리어"
 
 #: src/onlinetranslator.cpp:753
 msgctxt "OnlineTranslator|"
 msgid "Mende"
-msgstr ""
+msgstr "망드어"
 
 #: src/onlinetranslator.cpp:755
 msgctxt "OnlineTranslator|"
 msgid "Mizo"
-msgstr ""
+msgstr "미조어"
 
 #: src/onlinetranslator.cpp:757
 msgctxt "OnlineTranslator|"
@@ -1281,35 +1238,29 @@ msgid "Mongolian"
 msgstr "몽골어"
 
 #: src/onlinetranslator.cpp:759
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Serbian (Cyrillic)"
 msgctxt "OnlineTranslator|"
 msgid "Mongolian (Cyrillic)"
-msgstr "세르비아어 (키릴어)"
+msgstr "몽골어(키릴 문자)"
 
 #: src/onlinetranslator.cpp:761
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Chinese (Traditional)"
 msgctxt "OnlineTranslator|"
 msgid "Mongolian (Traditional)"
-msgstr "중국어 (번체)"
+msgstr "몽골어(몽골 문자)"
 
 #: src/onlinetranslator.cpp:763
 msgctxt "OnlineTranslator|"
 msgid "Morisyen"
-msgstr ""
+msgstr "모리스얀어"
 
 #: src/onlinetranslator.cpp:765
 msgctxt "OnlineTranslator|"
 msgid "Myanmar (Burmese)"
-msgstr ""
+msgstr "미얀마어(버마어)"
 
 #: src/onlinetranslator.cpp:767
 msgctxt "OnlineTranslator|"
 msgid "Māori"
-msgstr ""
+msgstr "마오리어"
 
 #: src/onlinetranslator.cpp:769
 msgctxt "OnlineTranslator|"
@@ -1319,7 +1270,7 @@ msgstr "네팔어"
 #: src/onlinetranslator.cpp:771
 msgctxt "OnlineTranslator|"
 msgid "Niuean"
-msgstr ""
+msgstr "니우에어"
 
 #: src/onlinetranslator.cpp:773
 msgctxt "OnlineTranslator|"
@@ -1329,27 +1280,24 @@ msgstr "노르웨이어"
 #: src/onlinetranslator.cpp:775
 msgctxt "OnlineTranslator|"
 msgid "Nyanja"
-msgstr ""
+msgstr "냔자어"
 
 #: src/onlinetranslator.cpp:777
 msgctxt "OnlineTranslator|"
 msgid "Odia"
-msgstr ""
+msgstr "오디아어"
 
 #: src/onlinetranslator.cpp:779
 msgctxt "OnlineTranslator|"
 msgid "Oromo"
-msgstr ""
+msgstr "오로모어"
 
 #: src/onlinetranslator.cpp:781
 msgctxt "OnlineTranslator|"
 msgid "Palauan"
-msgstr ""
+msgstr "팔라우어"
 
 #: src/onlinetranslator.cpp:783
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Papiamento"
 msgctxt "OnlineTranslator|"
 msgid "Papiamentu"
 msgstr "파피아멘토어"
@@ -1367,7 +1315,7 @@ msgstr "페르시아어"
 #: src/onlinetranslator.cpp:789
 msgctxt "OnlineTranslator|"
 msgid "Pijin"
-msgstr ""
+msgstr "피진어"
 
 #: src/onlinetranslator.cpp:791
 msgctxt "OnlineTranslator|"
@@ -1375,25 +1323,19 @@ msgid "Polish"
 msgstr "폴란드어"
 
 #: src/onlinetranslator.cpp:793
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Portuguese"
 msgctxt "OnlineTranslator|"
 msgid "Portuguese (Brazilian)"
-msgstr "포르투갈어"
+msgstr "포르투갈어(브라질)"
 
 #: src/onlinetranslator.cpp:795
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Portuguese"
 msgctxt "OnlineTranslator|"
 msgid "Portuguese (Portugal)"
-msgstr "포르투갈어"
+msgstr "포르투갈어(포르투갈)"
 
 #: src/onlinetranslator.cpp:797
 msgctxt "OnlineTranslator|"
 msgid "Potawatomi"
-msgstr ""
+msgstr "포타와토미어"
 
 #: src/onlinetranslator.cpp:799
 msgctxt "OnlineTranslator|"
@@ -1403,12 +1345,9 @@ msgstr "펀자브어"
 #: src/onlinetranslator.cpp:801
 msgctxt "OnlineTranslator|"
 msgid "Quechua"
-msgstr ""
+msgstr "케추아어"
 
 #: src/onlinetranslator.cpp:803
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Queretaro Otomi"
 msgctxt "OnlineTranslator|"
 msgid "Querétaro Otomi"
 msgstr "케레타로 오토미어"
@@ -1421,7 +1360,7 @@ msgstr "루마니아어"
 #: src/onlinetranslator.cpp:807
 msgctxt "OnlineTranslator|"
 msgid "Rundi"
-msgstr ""
+msgstr "룬디어"
 
 #: src/onlinetranslator.cpp:809
 msgctxt "OnlineTranslator|"
@@ -1436,12 +1375,12 @@ msgstr "사모아어"
 #: src/onlinetranslator.cpp:813
 msgctxt "OnlineTranslator|"
 msgid "Sango"
-msgstr ""
+msgstr "상고어"
 
 #: src/onlinetranslator.cpp:815
 msgctxt "OnlineTranslator|"
 msgid "Sanskrit"
-msgstr ""
+msgstr "산스크리트어"
 
 #: src/onlinetranslator.cpp:817
 msgctxt "OnlineTranslator|"
@@ -1451,12 +1390,12 @@ msgstr "스코틀랜드 게일어"
 #: src/onlinetranslator.cpp:819
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Cyrillic)"
-msgstr "세르비아어 (키릴어)"
+msgstr "세르비아어(키릴 문자)"
 
 #: src/onlinetranslator.cpp:821
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Latin)"
-msgstr "세르비아어 (라틴어)"
+msgstr "세르비아어(라틴 문자)"
 
 #: src/onlinetranslator.cpp:823
 msgctxt "OnlineTranslator|"
@@ -1464,17 +1403,14 @@ msgid "Sesotho"
 msgstr "세소토어"
 
 #: src/onlinetranslator.cpp:825
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Sesotho"
 msgctxt "OnlineTranslator|"
 msgid "Sesotho sa Leboa"
-msgstr "세소토어"
+msgstr "세소토 사 레보아어"
 
 #: src/onlinetranslator.cpp:827
 msgctxt "OnlineTranslator|"
 msgid "Setswana"
-msgstr ""
+msgstr "세츠와나어"
 
 #: src/onlinetranslator.cpp:829
 msgctxt "OnlineTranslator|"
@@ -1514,7 +1450,7 @@ msgstr "스페인어"
 #: src/onlinetranslator.cpp:843
 msgctxt "OnlineTranslator|"
 msgid "Sranan Tongo"
-msgstr ""
+msgstr "스라난 통고어"
 
 #: src/onlinetranslator.cpp:845
 msgctxt "OnlineTranslator|"
@@ -1534,7 +1470,7 @@ msgstr "스웨덴어"
 #: src/onlinetranslator.cpp:851
 msgctxt "OnlineTranslator|"
 msgid "Syriac (Aramaic)"
-msgstr ""
+msgstr "시리아어(아람 문자)"
 
 #: src/onlinetranslator.cpp:853
 msgctxt "OnlineTranslator|"
@@ -1549,7 +1485,7 @@ msgstr "타지크어"
 #: src/onlinetranslator.cpp:857
 msgctxt "OnlineTranslator|"
 msgid "Tamashek (Tuareg)"
-msgstr ""
+msgstr "타마셰크어(투아레그어)"
 
 #: src/onlinetranslator.cpp:859
 msgctxt "OnlineTranslator|"
@@ -1569,7 +1505,7 @@ msgstr "텔루구어"
 #: src/onlinetranslator.cpp:865
 msgctxt "OnlineTranslator|"
 msgid "Tetum"
-msgstr ""
+msgstr "테툼어"
 
 #: src/onlinetranslator.cpp:867
 msgctxt "OnlineTranslator|"
@@ -1579,22 +1515,22 @@ msgstr "태국어"
 #: src/onlinetranslator.cpp:869
 msgctxt "OnlineTranslator|"
 msgid "Tibetan"
-msgstr ""
+msgstr "티베트어"
 
 #: src/onlinetranslator.cpp:871
 msgctxt "OnlineTranslator|"
 msgid "Tigrinya"
-msgstr ""
+msgstr "티그리냐어"
 
 #: src/onlinetranslator.cpp:873
 msgctxt "OnlineTranslator|"
 msgid "Tok Pisin"
-msgstr ""
+msgstr "톡 피신"
 
 #: src/onlinetranslator.cpp:875
 msgctxt "OnlineTranslator|"
 msgid "Tokelauan"
-msgstr ""
+msgstr "토켈라우어"
 
 #: src/onlinetranslator.cpp:877
 msgctxt "OnlineTranslator|"
@@ -1602,17 +1538,14 @@ msgid "Tongan"
 msgstr "통가어"
 
 #: src/onlinetranslator.cpp:879
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Tongan"
 msgctxt "OnlineTranslator|"
 msgid "Tsonga"
-msgstr "통가어"
+msgstr "총가어"
 
 #: src/onlinetranslator.cpp:881
 msgctxt "OnlineTranslator|"
 msgid "Turkish"
-msgstr "터키어"
+msgstr "튀르키예어"
 
 #: src/onlinetranslator.cpp:883
 msgctxt "OnlineTranslator|"
@@ -1622,17 +1555,17 @@ msgstr "투르크멘어"
 #: src/onlinetranslator.cpp:885
 msgctxt "OnlineTranslator|"
 msgid "Tuvaluan"
-msgstr ""
+msgstr "투발루어"
 
 #: src/onlinetranslator.cpp:887
 msgctxt "OnlineTranslator|"
 msgid "Twi"
-msgstr ""
+msgstr "트위어"
 
 #: src/onlinetranslator.cpp:889
 msgctxt "OnlineTranslator|"
 msgid "Udmurt"
-msgstr "우드말트어"
+msgstr "우드무르트어"
 
 #: src/onlinetranslator.cpp:891
 msgctxt "OnlineTranslator|"
@@ -1642,12 +1575,12 @@ msgstr "우크라이나어"
 #: src/onlinetranslator.cpp:893
 msgctxt "OnlineTranslator|"
 msgid "Uma"
-msgstr ""
+msgstr "우마어"
 
 #: src/onlinetranslator.cpp:895
 msgctxt "OnlineTranslator|"
 msgid "Upper Sorbian"
-msgstr ""
+msgstr "고지 소르브어"
 
 #: src/onlinetranslator.cpp:897
 msgctxt "OnlineTranslator|"
@@ -1655,28 +1588,19 @@ msgid "Urdu"
 msgstr "우르두어"
 
 #: src/onlinetranslator.cpp:899
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Uighur"
 msgctxt "OnlineTranslator|"
 msgid "Uyghur"
 msgstr "위구르어"
 
 #: src/onlinetranslator.cpp:901
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Serbian (Cyrillic)"
 msgctxt "OnlineTranslator|"
 msgid "Uzbek (Cyrillic)"
-msgstr "세르비아어 (키릴어)"
+msgstr "우즈베크어(키릴 문자)"
 
 #: src/onlinetranslator.cpp:903
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Serbian (Latin)"
 msgctxt "OnlineTranslator|"
 msgid "Uzbek (Latin)"
-msgstr "세르비아어 (라틴어)"
+msgstr "우즈베크어(라틴 문자)"
 
 #: src/onlinetranslator.cpp:905
 msgctxt "OnlineTranslator|"
@@ -1684,12 +1608,9 @@ msgid "Vietnamese"
 msgstr "베트남어"
 
 #: src/onlinetranslator.cpp:907
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Frisian"
 msgctxt "OnlineTranslator|"
 msgid "Wallisian"
-msgstr "프리지아어"
+msgstr "월리스어"
 
 #: src/onlinetranslator.cpp:909
 msgctxt "OnlineTranslator|"
@@ -1699,7 +1620,7 @@ msgstr "웨일스어"
 #: src/onlinetranslator.cpp:911
 msgctxt "OnlineTranslator|"
 msgid "Wolof"
-msgstr ""
+msgstr "월로프어"
 
 #: src/onlinetranslator.cpp:913
 msgctxt "OnlineTranslator|"
@@ -1709,7 +1630,7 @@ msgstr "코사어"
 #: src/onlinetranslator.cpp:915
 msgctxt "OnlineTranslator|"
 msgid "Yakut"
-msgstr ""
+msgstr "야쿠트어"
 
 #: src/onlinetranslator.cpp:917
 msgctxt "OnlineTranslator|"
@@ -1735,17 +1656,17 @@ msgstr "줄루어"
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Instance error: %1"
-msgstr ""
+msgstr "인스턴스 오류: %1"
 
 #: src/onlinetranslator.cpp:1282
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
-msgstr "오류: 자동 검색된 언어를 구문 분석할 수 없습니다"
+msgstr "오류: 자동 감지된 언어를 해석할 수 없음"
 
 #: src/popupwindow.ui:32
 msgctxt "PopupWindow|"
 msgid "Swap languages"
-msgstr "언어 교환"
+msgstr "언어 맞바꾸기"
 
 #: src/popupwindow.ui:64
 msgctxt "PopupWindow|"
@@ -1760,7 +1681,7 @@ msgstr "모든 번역 데이터를 클립보드에 복사"
 #: src/popupwindow.ui:169
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
-msgstr "번역을 클립보드로 복사"
+msgstr "번역을 클립보드에 복사"
 
 #: src/settings/appsettings.cpp:1079
 #, qt-format
@@ -1771,7 +1692,7 @@ msgstr "알 수 없는 언어 코드: %1"
 #: src/settings/autostartmanager/abstractautostartmanager.cpp:44
 msgctxt "AbstractAutostartManager|"
 msgid "Unable to apply autostart settings"
-msgstr "자동 시작 설정을 적용할 수 없습니다"
+msgstr "자동 시작 설정을 적용할 수 없음"
 
 #: src/settings/autostartmanager/portalautostartmanager.cpp:35
 #, qt-format
@@ -1788,30 +1709,30 @@ msgstr "xdg-desktop-portal의 응답을 구독할 수 없습니다."
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to create %1"
-msgstr "%1을(를) 생성할 수 없습니다"
+msgstr "%1을(를) 생성할 수 없음"
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:42
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to copy %1 to %2"
-msgstr "%1을 %2에 복사할 수 없습니다"
+msgstr "%1을(를) %2에 복사할 수 없음"
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:47
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
-msgstr "%2에서 %1을(를) 제거할 수 없습니다"
+msgstr "%2에서 %1을(를) 삭제할 수 없음"
 
 #: src/settings/settingsdialog.cpp:33
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
-msgstr "휴대용 모드"
+msgstr "포터블 모드"
 
 #: src/settings/settingsdialog.cpp:46
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
-msgstr "%1을 사용하여 설정 저장"
+msgstr "%1을(를) 사용하여 설정 저장"
 
 #: src/settings/settingsdialog.cpp:51 src/settings/settingsdialog.cpp:55
 #: src/settings/settingsdialog.cpp:56
@@ -1827,12 +1748,12 @@ msgstr "아이콘:"
 #: src/settings/settingsdialog.cpp:112
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
-msgstr "OCR 매개변수 필드는 비워 둘 수 없습니다."
+msgstr "OCR 인자 필드를 비워 둘 수 없습니다."
 
 #: src/settings/settingsdialog.cpp:113
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
-msgstr "잘못된 매개변수를 삭제하시겠습니까?"
+msgstr "잘못된 인자를 삭제하시겠습니까?"
 
 #: src/settings/settingsdialog.cpp:254
 msgctxt "SettingsDialog|"
@@ -1842,7 +1763,7 @@ msgstr "아이콘 선택"
 #: src/settings/settingsdialog.cpp:254
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
-msgstr "이미지 (*.png *.ico *.svg *.jpg);;모든 파일()"
+msgstr "그림 (*.png *.ico *.svg *.jpg);;모든 파일 ()"
 
 #: src/settings/settingsdialog.cpp:284
 msgctxt "SettingsDialog|"
@@ -1911,9 +1832,9 @@ msgid ""
 "<span style=\" font-style:italic;\">Auto</span>, the window orientation will "
 "match the screen orientation</p></body></html>"
 msgstr ""
-"<html><head/><body><p>기본 창 레이아웃의 방향<br/>사용 시 <span style=\" "
-"font-style:italic;\">자동</span>, 창 방향이 화면 방향과 일치합니다</p></"
-"body></html>"
+"<html><head/><body><p>주 창 레이아웃의 방향<br/><span style=\" font-style:"
+"italic;\">자동</span>을 사용하면 창 방향을 장치 방향에 맞춥니다</p></body></"
+"html>"
 
 #. Orientation
 #: src/settings/settingsdialog.ui:165
@@ -1945,8 +1866,8 @@ msgid ""
 "application is minimized, the main window will always be used.</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>선택한 텍스트를 번역하기 위한 창입니다. 응용 프로그램"
-"을 최소화하면 기본 창이 항상 사용됩니다.</p></body></html>"
+"<html><head/><body><p>선택한 텍스트를 번역하기 위한 창입니다. 앱을 최소화하"
+"면 항상 주 창을 사용합니다.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:194 src/settings/settingsdialog.ui:343
 msgctxt "SettingsDialog|"
@@ -1956,7 +1877,7 @@ msgstr "팝업 창"
 #: src/settings/settingsdialog.ui:199
 msgctxt "SettingsDialog|"
 msgid "Main window"
-msgstr "기본 창"
+msgstr "주 창"
 
 #: src/settings/settingsdialog.ui:204
 msgctxt "SettingsDialog|"
@@ -1966,14 +1887,14 @@ msgstr "알림"
 #: src/settings/settingsdialog.ui:212
 msgctxt "SettingsDialog|"
 msgid "Translation notification timeout:"
-msgstr "번역 알림 시간 초과:"
+msgstr "번역 알림 시간 제한:"
 
 #: src/settings/settingsdialog.ui:225
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Notification with translation display time</p></body></"
 "html>"
-msgstr "<html><head/><body><p>번역 표시 시간이 포함된 알림</p></body></html>"
+msgstr "<html><head/><body><p>번역이 포함된 알림 표시 시간</p></body></html>"
 
 #: src/settings/settingsdialog.ui:228 src/settings/settingsdialog.ui:433
 msgctxt "SettingsDialog|"
@@ -1996,25 +1917,23 @@ msgid ""
 "<html><head/><body><p>Start application minimized to the system tray</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>시스템 트레이로 최소화된 시작 응용 프로그램</p></"
-"body></html>"
+"<html><head/><body><p>앱을 시작할 때 시스템 트레이로 최소화</p></body></html>"
 
 #: src/settings/settingsdialog.ui:257
 msgctxt "SettingsDialog|"
 msgid "Start minimized"
-msgstr "최소화로 시작"
+msgstr "최소화된 상태로 시작"
 
 #: src/settings/settingsdialog.ui:264
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Run the application at system startup</p></body></html>"
-msgstr ""
-"<html><head/><body><p>시스템 시작 시 응용 프로그램 실행</p></body></html>"
+msgstr "<html><head/><body><p>시스템 시작 시 앱 실행</p></body></html>"
 
 #: src/settings/settingsdialog.ui:267
 msgctxt "SettingsDialog|"
 msgid "Launch at startup"
-msgstr "시작 시 실행"
+msgstr "시작할 때 실행"
 
 #: src/settings/settingsdialog.ui:300
 msgctxt "SettingsDialog|"
@@ -2058,7 +1977,7 @@ msgstr "너비:"
 #: src/settings/settingsdialog.ui:366
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
-msgstr "<html><head/><body><p>팝업 창 너비 (픽셀)</p></body></html>"
+msgstr "<html><head/><body><p>픽셀 단위의 팝업 창 너비</p></body></html>"
 
 #: src/settings/settingsdialog.ui:376
 msgctxt "SettingsDialog|"
@@ -2073,7 +1992,7 @@ msgstr "불투명도:"
 #: src/settings/settingsdialog.ui:410
 msgctxt "SettingsDialog|"
 msgid "Show timeout:"
-msgstr "시간 초과 표시:"
+msgstr "표시 시간 제한:"
 
 #: src/settings/settingsdialog.ui:417
 msgctxt "SettingsDialog|"
@@ -2086,8 +2005,8 @@ msgid ""
 "<html><head/><body><p>The number of seconds after which the window will be "
 "hidden if it has no focus</p></body></html>"
 msgstr ""
-"<html><head/><body><p>포커스가 없는 경우 창을 숨길 때까지의 시간 (초)</p></"
-"body></html>"
+"<html><head/><body><p>초 단위의 포커스가 해제되었을 때 창을 숨길 때까지의 시"
+"간</p></body></html>"
 
 #: src/settings/settingsdialog.ui:453
 msgctxt "SettingsDialog|"
@@ -2097,12 +2016,12 @@ msgstr "언어 형식"
 #: src/settings/settingsdialog.ui:459
 msgctxt "SettingsDialog|"
 msgid "Main window:"
-msgstr "기본 창:"
+msgstr "주 창:"
 
 #: src/settings/settingsdialog.ui:466 src/settings/settingsdialog.ui:490
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Languages text on buttons</p></body></html>"
-msgstr "<html><head/><body><p>버튼의 언어 텍스트</p></body></html>"
+msgstr "<html><head/><body><p>단추에 표시할 언어 텍스트</p></body></html>"
 
 #: src/settings/settingsdialog.ui:470 src/settings/settingsdialog.ui:494
 msgctxt "SettingsDialog|"
@@ -2142,27 +2061,27 @@ msgstr "기본값"
 #: src/settings/settingsdialog.ui:541
 msgctxt "SettingsDialog|"
 msgid "Monochrome (dark theme)"
-msgstr "단색 (어두운 테마)"
+msgstr "단색(어두운 테마)"
 
 #: src/settings/settingsdialog.ui:549
 msgctxt "SettingsDialog|"
 msgid "Monochrome (light theme)"
-msgstr "단색 (밝은 테마)"
+msgstr "단색(밝은 테마)"
 
 #: src/settings/settingsdialog.ui:557
 msgctxt "SettingsDialog|"
 msgid "Custom"
-msgstr "사용자 지정"
+msgstr "사용자 정의"
 
 #: src/settings/settingsdialog.ui:571
 msgctxt "SettingsDialog|"
 msgid "Custom:"
-msgstr "사용자 지정:"
+msgstr "사용자 정의:"
 
 #: src/settings/settingsdialog.ui:583
 msgctxt "SettingsDialog|"
 msgid "Path to the icon or icon name from theme"
-msgstr "테마에서 아이콘 또는 아이콘 이름의 경로"
+msgstr "아이콘의 경로 또는 테마의 아이콘 이름"
 
 #: src/settings/settingsdialog.ui:593
 msgctxt "SettingsDialog|"
@@ -2174,59 +2093,58 @@ msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
 "html>"
-msgstr "<html><head/><body><p>원본 변환 사용 또는 사용 안 함</p></body></html>"
+msgstr "<html><head/><body><p>원본 전자 활성화/비활성화</p></body></html>"
 
 #: src/settings/settingsdialog.ui:640
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
-msgstr "원본 변환 사용"
+msgstr "원본 전자 활성화"
 
 #: src/settings/settingsdialog.ui:647
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
 "body></html>"
-msgstr "<html><head/><body><p>번역 변환 사용 또는 사용 안 함</p></body></html>"
+msgstr "<html><head/><body><p>번역 전자 활성화/비활성화</p></body></html>"
 
 #: src/settings/settingsdialog.ui:650
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
-msgstr "번역 변환 사용"
+msgstr "번역 전자 활성화"
 
 #: src/settings/settingsdialog.ui:657
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
 "html>"
-msgstr ""
-"<html><head/><body><p>원본 문자 변환 사용 또는 사용 안 함</p></body></html>"
+msgstr "<html><head/><body><p>원본 전사 활성화/비활성화</p></body></html>"
 
 #: src/settings/settingsdialog.ui:660
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
-msgstr "원본 표기 사용"
+msgstr "원본 전사 활성화"
 
 #: src/settings/settingsdialog.ui:667
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
-msgstr "<html><head/><body><p>번역 옵션 사용 또는 사용 안 함</p></body></html>"
+msgstr "<html><head/><body><p>번역 옵션 활성화/비활성화</p></body></html>"
 
 #: src/settings/settingsdialog.ui:670
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
-msgstr "번역 옵션 사용"
+msgstr "번역 옵션 활성화"
 
 #: src/settings/settingsdialog.ui:677
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
-msgstr "<html><head/><body><p>사용 예제 사용 또는 사용 안 함</p></body></html>"
+msgstr "<html><head/><body><p>사용 예시 활성화/비활성화</p></body></html>"
 
 #: src/settings/settingsdialog.ui:680
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
-msgstr "예제 사용"
+msgstr "예문 활성화"
 
 #: src/settings/settingsdialog.ui:687
 msgctxt "SettingsDialog|"
@@ -2235,8 +2153,8 @@ msgid ""
 "the ASCII characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' ') with a "
 "single space in queries</p></body></html>"
 msgstr ""
-"<html><head/><body><p>각 공백 시퀀스(ASCII 문자 포함 '\\t', '\\n', '\\v', "
-"'\\f', '\\r', 및 ' ')를 쿼리의 단일 공백으로 바꿉니다</p></body></html>"
+"<html><head/><body><p>질의에서 여러 번 반복되는 공백 문자(ASCII 문자 '\\t', "
+"'\\n', '\\v', '\\f', '\\r', ' ' 포함)를 단일 공백으로 전환</p></body></html>"
 
 #: src/settings/settingsdialog.ui:690
 msgctxt "SettingsDialog|"
@@ -2259,7 +2177,7 @@ msgid ""
 "<html><head/><body><p>Language to which text will be translated when "
 "autodetecting</p></body></html>"
 msgstr ""
-"<html><head/><body><p>자동 검색 시 텍스트를 번역할 언어</p></body></html>"
+"<html><head/><body><p>자동 감지 시 텍스트를 번역할 언어</p></body></html>"
 
 #: src/settings/settingsdialog.ui:720
 msgctxt "SettingsDialog|"
@@ -2272,8 +2190,8 @@ msgid ""
 "<html><head/><body><p>Language to which the text will be translated if it is "
 "in the language selected above</p></body></html>"
 msgstr ""
-"<html><head/><body><p>위에서 선택한 언어로 텍스트를 번역할 언어</p></body></"
-"html>"
+"<html><head/><body><p>선택한 목록에 언어가 포함되어 있을 때 텍스트를 번역할 "
+"언어</p></body></html>"
 
 #: src/settings/settingsdialog.ui:734 src/settings/settingsdialog.ui:744
 msgctxt "SettingsDialog|"
@@ -2281,8 +2199,8 @@ msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
 "italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
 msgstr ""
-"<html><head/><body><p>자동으로 전환 <span style=\" font-style:italic;\">자동"
-"</span> OCR 및 전역 단축키를 사용하는 경우</p></body></html>"
+"<html><head/><body><p>OCR과 전역 단축키를 사용할 때 <span style=\" font-"
+"style:italic;\">자동</span>으로 자동 전환</p></body></html>"
 
 #: src/settings/settingsdialog.ui:737
 msgctxt "SettingsDialog|"
@@ -2297,20 +2215,17 @@ msgstr "번역 언어 감지 강제 적용"
 #: src/settings/settingsdialog.ui:776
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
-msgstr ""
+msgstr "Mozhi 인스턴스 URL"
 
 #: src/settings/settingsdialog.ui:789
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
-msgstr ""
+msgstr "핑을 사용하여 자동으로 가장 빠른 인스턴스 선택"
 
 #: src/settings/settingsdialog.ui:792
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Speech test:"
 msgctxt "SettingsDialog|"
 msgid "Detect fastest"
-msgstr "음성 테스트:"
+msgstr "가장 빠른 인스턴스 감지"
 
 #: src/settings/settingsdialog.ui:825
 msgctxt "SettingsDialog|"
@@ -2325,7 +2240,7 @@ msgid ""
 "language, and there is more chance of hallucinating incorrect words.</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>추가 언어를 로드하면 해당 언어를 결정하는 데 더 많은 작"
+"<html><head/><body><p>추가 언어를 불러오면 해당 언어를 결정하는 데 더 많은 작"
 "업이 필요하고 잘못된 단어를 환각으로 볼 가능성이 높기 때문에 속도와 정확성 모"
 "두에 영향을 미칩니다.</p></body></html>"
 
@@ -2342,7 +2257,7 @@ msgstr "<html><head/><body><p>OCR 언어 경로 선택</p></body></html>"
 #: src/settings/settingsdialog.ui:855
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
-msgstr "<html><head/><body><p>GitHub 리포지토리 열기</p></body></html>"
+msgstr "<html><head/><body><p>GitHub 저장소 열기</p></body></html>"
 
 #: src/settings/settingsdialog.ui:858
 msgctxt "SettingsDialog|"
@@ -2366,8 +2281,8 @@ msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
 "recognition</p></body></html>"
 msgstr ""
-"<html><head/><body><p>텍스트 인식 후 모든 단일 줄 바꿈을 공백으로 바꿉니다</"
-"p></body></html>"
+"<html><head/><body><p>텍스트 인식 후 모든 단일 줄 바꿈을 공백으로 변환</p></"
+"body></html>"
 
 #: src/settings/settingsdialog.ui:887
 msgctxt "SettingsDialog|"
@@ -2382,7 +2297,7 @@ msgstr "화면 캡처"
 #: src/settings/settingsdialog.ui:963
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
-msgstr "지역 기억:"
+msgstr "영역 기억:"
 
 #: src/settings/settingsdialog.ui:970
 msgctxt "SettingsDialog|"
@@ -2390,18 +2305,17 @@ msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>마지막으로 선택한 영역을 기억해야 하는 시기</p></"
-"body></html>"
+"<html><head/><body><p>마지막으로 선택한 영역 기억 여부</p></body></html>"
 
 #: src/settings/settingsdialog.ui:974
 msgctxt "SettingsDialog|"
 msgid "Never"
-msgstr "안함"
+msgstr "하지 않음"
 
 #: src/settings/settingsdialog.ui:979
 msgctxt "SettingsDialog|"
 msgid "Remember last"
-msgstr "최근 기억"
+msgstr "마지막 사용 기억"
 
 #: src/settings/settingsdialog.ui:984
 msgctxt "SettingsDialog|"
@@ -2411,12 +2325,12 @@ msgstr "항상 기억"
 #: src/settings/settingsdialog.ui:992
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
-msgstr "캡처 지연:"
+msgstr "캡처 지연 시간:"
 
 #: src/settings/settingsdialog.ui:999
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
-msgstr "화면 캡처 전 지연"
+msgstr "화면 캡처 전 지연 시간"
 
 #: src/settings/settingsdialog.ui:1002
 msgctxt "SettingsDialog|"
@@ -2459,12 +2373,13 @@ msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
 "released</p></body></html>"
 msgstr ""
-"<html><head/><body><p>마우스 버튼을 놓으면 조각 캡처 완료</p></body></html>"
+"<html><head/><body><p>마우스 단추를 놓았을 때 조각 캡처 완료</p></body></"
+"html>"
 
 #: src/settings/settingsdialog.ui:1038
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
-msgstr "릴리스 시 확인"
+msgstr "놓을 때 확인"
 
 #: src/settings/settingsdialog.ui:1045
 msgctxt "SettingsDialog|"
@@ -2472,8 +2387,7 @@ msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>선택하지 않은 부분에 안개를 약간 끼웁니다</p></body></"
-"html>"
+"<html><head/><body><p>선택하지 않은 부분에 약한 안개 추가</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1048
 msgctxt "SettingsDialog|"
@@ -2488,12 +2402,12 @@ msgstr "프록시 서버"
 #: src/settings/settingsdialog.ui:1087
 msgctxt "SettingsDialog|"
 msgid "Type:"
-msgstr "유형:"
+msgstr "종류:"
 
 #: src/settings/settingsdialog.ui:1100
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
-msgstr "<html><head/><body><p>프록시 유형</p></body></html>"
+msgstr "<html><head/><body><p>프록시 종류</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1104
 msgctxt "SettingsDialog|"
@@ -2503,7 +2417,7 @@ msgstr "시스템 설정 사용"
 #: src/settings/settingsdialog.ui:1114
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
-msgstr "프록시 사용 안 함"
+msgstr "프록시 사용하지 않음"
 
 #: src/settings/settingsdialog.ui:1130
 msgctxt "SettingsDialog|"
@@ -2534,7 +2448,7 @@ msgstr "정보: 프록시는 텍스트 번역에만 작동합니다"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
-msgstr "<html><head/><body><p>인증 사용 또는 사용 안 함</p></body></html>"
+msgstr "<html><head/><body><p>인증 활성화/비활성화</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1201
 msgctxt "SettingsDialog|"
@@ -2583,12 +2497,12 @@ msgstr "전역 단축키 사용"
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
-"<html><head/><body><p>모든 단축키를 기본값으로 재설정</p></body></html>"
+"<html><head/><body><p>모든 단축키를 기본값으로 초기화</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1312
 msgctxt "SettingsDialog|"
 msgid "Reset all"
-msgstr "모두 재설정"
+msgstr "모두 초기화"
 
 #: src/settings/settingsdialog.ui:1322
 msgctxt "SettingsDialog|"
@@ -2598,14 +2512,14 @@ msgstr "단축키"
 #: src/settings/settingsdialog.ui:1328
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
-msgstr "키 시퀀스:"
+msgstr "키 배열:"
 
 #: src/settings/settingsdialog.ui:1335
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
 "html>"
-msgstr "<html><head/><body><p>선택한 작업의 키 시퀀스</p></body></html>"
+msgstr "<html><head/><body><p>선택한 작업의 키 배열</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1342
 msgctxt "SettingsDialog|"
@@ -2630,12 +2544,12 @@ msgstr "지우기"
 #: src/settings/settingsdialog.ui:1368
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
-msgstr "<html><head/><body><p>단축키를 기본값으로 재설정</p></body></html>"
+msgstr "<html><head/><body><p>단축키를 기본값으로 초기화</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1371
 msgctxt "SettingsDialog|"
 msgid "Reset"
-msgstr "재설정"
+msgstr "초기화"
 
 #: src/settings/settingsdialog.ui:1416
 msgctxt "SettingsDialog|"
@@ -2650,15 +2564,12 @@ msgstr "라이선스:"
 #: src/settings/settingsdialog.ui:1440
 msgctxt "SettingsDialog|"
 msgid "Source code:"
-msgstr "원본 코드:"
+msgstr "소스 코드:"
 
 #: src/settings/settingsdialog.ui:1460
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation backend:"
-msgstr "번역 모드:"
+msgstr "번역 백엔드:"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:21
 msgctxt "ShortcutsModel|"
@@ -2689,17 +2600,17 @@ msgstr "텍스트 말하기 중지"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:73
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause text speaking"
-msgstr "말하기 / 텍스트 말하기 일시 중지"
+msgstr "텍스트 말하기 진행/일시 정지"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:38
 msgctxt "ShortcutsModel|"
 msgid "Show main window"
-msgstr "기본 창 표시"
+msgstr "주 창 표시"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:41
 msgctxt "ShortcutsModel|"
 msgid "Translate selected text and copy to clipboard"
-msgstr "선택한 텍스트를 번역하여 클립보드에 복사"
+msgstr "선택한 텍스트를 번역하고 클립보드에 복사"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:44
 msgctxt "ShortcutsModel|"
@@ -2714,12 +2625,12 @@ msgstr "화면 영역의 텍스트 번역"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:50
 msgctxt "ShortcutsModel|"
 msgid "Recognize text in screen area with delay"
-msgstr "지연이 있는 화면 영역의 텍스트 인식"
+msgstr "시간 지연 후 화면 영역 인식"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:53
 msgctxt "ShortcutsModel|"
 msgid "Translate text in screen area with delay"
-msgstr "지연이 있는 화면 영역의 텍스트 번역"
+msgstr "시간 지연 후 화면 영역 번역"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:56
 msgctxt "ShortcutsModel|"
@@ -2729,7 +2640,7 @@ msgstr ""
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
 msgid "Main window"
-msgstr "기본 창"
+msgstr "주 창"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:61
 msgctxt "ShortcutsModel|"
@@ -2739,7 +2650,7 @@ msgstr "번역"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:64
 msgctxt "ShortcutsModel|"
 msgid "Swap languages"
-msgstr "언어 교환"
+msgstr "언어 맞바꾸기"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:67
 msgctxt "ShortcutsModel|"
@@ -2759,7 +2670,7 @@ msgstr "번역"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:79
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause speaking"
-msgstr "말하기 / 말하기 일시 중지"
+msgstr "말하기 진행/일시 정지"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:82
 msgctxt "ShortcutsModel|"
@@ -2789,37 +2700,37 @@ msgstr "값"
 #: src/speakbuttons.cpp:75
 msgctxt "SpeakButtons|"
 msgid "No text specified"
-msgstr "지정된 텍스트 없음"
+msgstr "지정한 텍스트 없음"
 
 #: src/speakbuttons.cpp:75
 msgctxt "SpeakButtons|"
 msgid "Playback text is empty"
-msgstr "재생 텍스트가 비어 있습니다"
+msgstr "재생 텍스트가 비어 있음"
 
 #: src/speakbuttons.cpp:81
 msgctxt "SpeakButtons|"
 msgid "Unable to generate URLs for TTS"
-msgstr "TTS에 대한 URL을 생성할 수 없습니다"
+msgstr "TTS에 대한 URL을 생성할 수 없음"
 
 #: src/speakbuttons.ui:24
 msgctxt "SpeakButtons|"
 msgid "Speak / pause text speaking"
-msgstr "말하기 / 텍스트 말하기 일시 중지"
+msgstr "텍스트 말하기 진행/일시 정지"
 
 #: src/speakbuttons.ui:34
 msgctxt "SpeakButtons|"
 msgid "Stop text speaking"
-msgstr "텍스트 말하기 중지"
+msgstr "텍스트 말하기 정지"
 
 #: src/transitions/ocruninitializedtransition.cpp:28
 msgctxt "Ocr|"
 msgid "OCR languages are not loaded"
-msgstr "OCR 언어가 로드되지 않았습니다"
+msgstr "OCR 언어를 불러오지 않았음"
 
 #: src/transitions/ocruninitializedtransition.cpp:28
 msgctxt "Ocr|"
 msgid "You should set at least one OCR language in the application settings"
-msgstr "응용 프로그램 설정에서 하나 이상의 OCR 언어를 설정해야 합니다"
+msgstr "앱 설정에서 OCR 언어를 하나 이상 설정해야 함"
 
 #: src/translationedit.cpp:62
 msgctxt "TranslationEdit|"
@@ -2829,7 +2740,7 @@ msgstr "변역 옵션:"
 #: src/translationedit.cpp:87
 msgctxt "TranslationEdit|"
 msgid "examples:"
-msgstr "예:"
+msgstr "예제:"
 
 #: src/trayicon.cpp:19 src/trayicon.cpp:44
 msgctxt "TrayIcon|"
@@ -2844,7 +2755,7 @@ msgstr "설정"
 #: src/trayicon.cpp:21 src/trayicon.cpp:46
 msgctxt "TrayIcon|"
 msgid "Quit"
-msgstr "종료"
+msgstr "끝내기"
 
 #: src/trayicon.cpp:51
 msgctxt "TrayIcon|"
