@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-12-10 00:20+0100\n"
+"PO-Revision-Date: 2024-12-24 16:21+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -265,13 +265,13 @@ msgstr "%1의 D-Bus 객체를 등록할 수 없음"
 #: src/mainwindow.cpp:270
 msgctxt "MainWindow|"
 msgid "Toggled OCR image negate"
-msgstr ""
+msgstr "OCR 이미지 반전 전환"
 
 #: src/mainwindow.cpp:270
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR image negate has changed to %1"
-msgstr ""
+msgstr "OCR 이미지 반전이 %1(으)로 전환됨"
 
 #: src/mainwindow.cpp:397
 msgctxt "MainWindow|"
@@ -2349,23 +2349,18 @@ msgid "Show magnifier"
 msgstr "돋보기 표시"
 
 #: src/settings/settingsdialog.ui:1022
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "<html><head/><body><p>Replace all single line breaks with a space after "
-#| "text recognition</p></body></html>"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
 "text on dark background.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>텍스트 인식 후 모든 단일 줄 바꿈을 공백으로 바꿉니다</"
-"p></body></html>"
+"<html><head/><body><p>OCR 진행 전에 이미지를 반전합니다. 어두운 배경에 밝은 "
+"텍스트에 유용합니다.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1025
 msgctxt "SettingsDialog|"
 msgid "Negate OCR"
-msgstr ""
+msgstr "OCR 반전"
 
 #: src/settings/settingsdialog.ui:1035
 msgctxt "SettingsDialog|"
@@ -2635,7 +2630,7 @@ msgstr "시간 지연 후 화면 영역 번역"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:56
 msgctxt "ShortcutsModel|"
 msgid "Toggle color inversion for OCR"
-msgstr ""
+msgstr "OCR 색상 반전 전환"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
