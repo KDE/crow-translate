@@ -1,10 +1,10 @@
 # SPDX-FileCopyrightText: 2024 dmocha
 # SPDX-License-Identifier: GPL-3.0-or-later
-# SPDX-FileCopyrightText: 2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-10-19 13:23+0200\n"
+"PO-Revision-Date: 2025-01-04 07:39+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Language: pl\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: src/cli.cpp:43
 msgctxt "Cli|"
@@ -276,13 +276,13 @@ msgstr "Nie można zarejestrować obiektu D-Bus dla %1"
 #: src/mainwindow.cpp:270
 msgctxt "MainWindow|"
 msgid "Toggled OCR image negate"
-msgstr ""
+msgstr "Włączono negatyw obrazu OCR"
 
 #: src/mainwindow.cpp:270
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR image negate has changed to %1"
-msgstr ""
+msgstr "Zmieniono negatyw obrazu OCR na %1"
 
 #: src/mainwindow.cpp:397
 msgctxt "MainWindow|"
@@ -2388,23 +2388,18 @@ msgid "Show magnifier"
 msgstr "Pokaż lupę"
 
 #: src/settings/settingsdialog.ui:1022
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "<html><head/><body><p>Replace all single line breaks with a space after "
-#| "text recognition</p></body></html>"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
 "text on dark background.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Zamień wszystkie pojedyncze podziały wiersza na spację "
-"po rozpoznaniu tekstu</p></body></html>"
+"<html><head/><body><p>Negatyw (odwrócenie) obrazu przed OCRem. Użyteczny w "
+"przypadku jasnego tekstu na ciemnym tle.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1025
 msgctxt "SettingsDialog|"
 msgid "Negate OCR"
-msgstr ""
+msgstr "Negatyw OCRa"
 
 #: src/settings/settingsdialog.ui:1035
 msgctxt "SettingsDialog|"
@@ -2686,7 +2681,7 @@ msgstr "Tłumaczenie tekstu w obszarze ekranu z opóźnieniem"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:56
 msgctxt "ShortcutsModel|"
 msgid "Toggle color inversion for OCR"
-msgstr ""
+msgstr "Przestaw odwrócenie kolorów dla OCRa"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
