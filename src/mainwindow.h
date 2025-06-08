@@ -124,6 +124,10 @@ private slots:
     void checkForUpdates();
 #endif
 
+private slots:
+    void onEngineChanged(int index);
+    void onSelectImageButtonClicked();
+
 private:
     void changeEvent(QEvent *event) override;
 
@@ -187,6 +191,8 @@ private:
     bool m_forceSourceAutodetect;
     bool m_forceTranslationAutodetect;
     bool m_listenForContentChanges = false;
+
+    QString m_selectedImagePath; // For Gemini image translation
 };
 
 #endif // MAINWINDOW_H

@@ -16,6 +16,7 @@
 #include <QJsonObject>
 #include <QMediaPlayer>
 #include <QNetworkReply>
+#include <QProcess>
 #include <QStateMachine>
 
 const QMap<QOnlineTranslator::Language, QString> QOnlineTranslator::s_genericLanguageCodes = {
@@ -172,6 +173,50 @@ QOnlineTranslator::QOnlineTranslator(QObject *parent)
 {
     connect(m_stateMachine, &QStateMachine::finished, this, &QOnlineTranslator::finished);
     connect(m_stateMachine, &QStateMachine::stopped, this, &QOnlineTranslator::finished);
+    m_geminiScriptPath = QStringLiteral("src/qonlinetranslator/src/gemini_translate.py"); // Default value
+}
+
+void QOnlineTranslator::setGeminiScriptPath(const QString &path)
+{
+    m_geminiScriptPath = path;
+}
+
+void QOnlineTranslator::translate(const QString &imagePath, Engine engine, Language translationLang, Language sourceLang, Language uiLang)
+{
+    if (engine == Gemini) {
+        abort(); // Abort any ongoing operations
+        resetData(); // Reset data fields
+
+        m_sourceImagePath = imagePath;
+        m_sourceLang = sourceLang; // Or determine from image if possible, keep as is for now
+        m_translationLang = translationLang == Auto ? language(QLocale()) : translationLang;
+        m_uiLang = uiLang == Auto ? language(QLocale()) : uiLang;
+
+        // Check if the selected languages are supported by the engine (though Gemini supports all for now)
+        if (!isSupportTranslation(engine, m_sourceLang)) {
+            resetData(ParametersError, tr("Selected source language %1 is not supported for %2").arg(languageName(m_sourceLang), QMetaEnum::fromType<Engine>().valueToKey(engine)));
+            emit finished();
+            return;
+        }
+        if (!isSupportTranslation(engine, m_translationLang)) {
+            resetData(ParametersError, tr("Selected translation language %1 is not supported for %2").arg(languageName(m_translationLang), QMetaEnum::fromType<Engine>().valueToKey(engine)));
+            emit finished();
+            return;
+        }
+        // No text to pass to the text-based translate method directly for Gemini image
+        // The buildGeminiStateMachine will handle the rest.
+        // We call the main translate method with an empty string, just to trigger the state machine build for Gemini.
+        // Or, more cleanly, directly call a method that sets up and starts the Gemini state machine.
+        // For now, let's adapt the existing flow slightly.
+        m_source = QStringLiteral("Image: %1").arg(imagePath); // Placeholder source text for UI, if needed
+
+        buildGeminiStateMachine();
+        m_stateMachine->start();
+
+    } else {
+        // Fallback for other engines: call original translate with a message
+        translate(QStringLiteral("Image translation is only supported by Gemini engine."), engine, translationLang, sourceLang, uiLang);
+    }
 }
 
 void QOnlineTranslator::translate(const QString &text, Engine engine, Language translationLang, Language sourceLang, Language uiLang)
@@ -229,6 +274,9 @@ void QOnlineTranslator::translate(const QString &text, Engine engine, Language t
         }
 
         buildLingvaStateMachine();
+        break;
+    case Gemini:
+        buildGeminiStateMachine();
         break;
     }
 
@@ -1179,6 +1227,16 @@ bool QOnlineTranslator::isSupportTranslation(Engine engine, Language lang)
             break;
         }
         break;
+    case Gemini:
+        switch (lang) {
+        case NoLanguage:
+            isSupported = false;
+            break;
+        default:
+            isSupported = true;
+            break;
+        }
+        break;
     }
 
     return isSupported;
@@ -1758,6 +1816,90 @@ void QOnlineTranslator::parseLingvaTranslate()
     }
 }
 
+void QOnlineTranslator::requestGeminiTranslate()
+{
+    if (m_geminiProcess && m_geminiProcess->state() != QProcess::NotRunning) {
+        // Process already running, decide how to handle: kill, queue, or ignore?
+        // For now, ignore if busy.
+        return;
+    }
+
+    if (m_geminiProcess) {
+        m_geminiProcess->deleteLater(); // Clean up previous process
+    }
+    m_geminiProcess = new QProcess(this);
+
+    QString program = QStringLiteral("python3"); // Or just "python"
+    QStringList arguments;
+    arguments << m_geminiScriptPath // Script path is the first argument to the interpreter
+              << m_sourceImagePath
+              << languageApiCode(Gemini, m_translationLang);
+
+    connect(m_geminiProcess, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
+            this, &QOnlineTranslator::parseGeminiTranslate);
+    connect(m_geminiProcess, &QProcess::errorOccurred,
+            this, &QOnlineTranslator::handleGeminiProcessError);
+
+    m_geminiProcess->start(program, arguments);
+}
+
+void QOnlineTranslator::parseGeminiTranslate()
+{
+    auto *process = qobject_cast<QProcess *>(sender());
+    if (!process) {
+        return;
+    }
+
+    QByteArray jsonData = process->readAllStandardOutput();
+    process->deleteLater();
+    m_geminiProcess = nullptr; // Reset pointer
+
+    if (jsonData.isEmpty() && process->exitStatus() == QProcess::CrashExit) {
+        resetData(ServiceError, tr("Gemini script crashed."));
+        return;
+    }
+
+    QJsonParseError parseError;
+    QJsonDocument doc = QJsonDocument::fromJson(jsonData, &parseError);
+
+    if (parseError.error != QJsonParseError::NoError) {
+        resetData(ServiceError, tr("Failed to parse JSON response from Gemini script: %1").arg(parseError.errorString()));
+        return;
+    }
+
+    if (!doc.isObject()) {
+        resetData(ServiceError, tr("JSON response from Gemini script is not an object."));
+        return;
+    }
+
+    QJsonObject obj = doc.object();
+    if (obj.contains(QStringLiteral("error"))) {
+        resetData(ServiceError, tr("Error from Gemini script: %1").arg(obj.value(QStringLiteral("error")).toString()));
+    } else if (obj.contains(QStringLiteral("translation"))) {
+        m_translation = obj.value(QStringLiteral("translation")).toString();
+        // m_error = NoError; // Already set by resetData in translate()
+        // m_errorString.clear(); // Already set
+        emit finished(); // Emit finished as data is ready
+    } else {
+        resetData(ServiceError, tr("JSON response from Gemini script is missing 'translation' or 'error' key."));
+    }
+}
+
+void QOnlineTranslator::handleGeminiProcessError(QProcess::ProcessError error)
+{
+    Q_UNUSED(error); // error enum might be useful for more detailed error message
+
+    if (m_geminiProcess) {
+         QString processErrorString = m_geminiProcess->errorString();
+         resetData(ServiceError, tr("Gemini script process error: %1").arg(processErrorString));
+         m_geminiProcess->deleteLater();
+         m_geminiProcess = nullptr;
+    } else {
+        resetData(ServiceError, tr("Gemini script process error (unknown process)."));
+    }
+}
+
+
 void QOnlineTranslator::buildGoogleStateMachine()
 {
     // States (Google sends translation, translit and dictionary in one request, that will be splitted into several by the translation limit)
@@ -1941,6 +2083,33 @@ void QOnlineTranslator::buildLingvaDetectStateMachine()
     // Setup lang detection state
     const QString text = m_source.left(getSplitIndex(m_source, s_googleTranslateLimit));
     buildNetworkRequestState(detectState, &QOnlineTranslator::requestLingvaTranslate, &QOnlineTranslator::parseLingvaTranslate, text);
+}
+
+void QOnlineTranslator::buildGeminiStateMachine()
+{
+    // States
+    auto *requestingState = new QState(m_stateMachine);
+    auto *finalState = new QFinalState(m_stateMachine); // parsing is handled by slot, then this final state.
+    m_stateMachine->setInitialState(requestingState);
+
+    // Transitions
+    // The transition to finalState will happen after parseGeminiTranslate emits finished()
+    // or if an error occurs, resetData() is called which stops the state machine.
+    connect(requestingState, &QState::entered, this, &QOnlineTranslator::requestGeminiTranslate);
+
+    // If requestGeminiTranslate itself determines it cannot proceed (e.g. m_sourceImagePath is empty)
+    // it should emit a signal that this state machine can connect to, to transition to finalState.
+    // Or, parseGeminiTranslate will eventually lead to finished() or resetData().
+    // For simplicity, we assume parseGeminiTranslate (or error handlers) will manage completion.
+    // A direct transition from requesting to final after a certain signal could be added if needed.
+    // For now, the finished signal from QOnlineTranslator itself (emitted by parseGeminiTranslate on success)
+    // will be the cue that this operation is done.
+    requestingState->addTransition(this, &QOnlineTranslator::finished, finalState);
+
+
+    // No direct transition from requestingState to finalState here based on a signal from requestingState itself,
+    // as the actual work is async with QProcess. The QOnlineTranslator::finished() signal,
+    // which parseGeminiTranslate will trigger on success, serves as the completion signal for the SM.
 }
 
 void QOnlineTranslator::buildSplitNetworkRequest(QState *parent, void (QOnlineTranslator::*requestMethod)(), void (QOnlineTranslator::*parseMethod)(), const QString &text, int textLimit)
@@ -2395,6 +2564,8 @@ QString QOnlineTranslator::languageApiCode(Engine engine, Language lang)
         return s_genericLanguageCodes.value(lang);
     case Lingva:
         return s_lingvaLanguageCodes.value(lang, s_genericLanguageCodes.value(lang));
+    case Gemini:
+        return s_genericLanguageCodes.value(lang); // Use generic codes for Gemini for now
     }
 
     Q_UNREACHABLE();
@@ -2415,6 +2586,8 @@ QOnlineTranslator::Language QOnlineTranslator::language(Engine engine, const QSt
         return s_genericLanguageCodes.key(langCode, NoLanguage);
     case Lingva:
         return s_lingvaLanguageCodes.key(langCode, s_genericLanguageCodes.key(langCode, NoLanguage));
+    case Gemini:
+        return s_genericLanguageCodes.key(langCode, NoLanguage); // Use generic codes for Gemini for now
     }
 
     Q_UNREACHABLE();

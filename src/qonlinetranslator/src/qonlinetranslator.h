@@ -16,6 +16,7 @@
 #include <QUuid>
 #include <QVector>
 
+class QProcess;
 class QStateMachine;
 class QState;
 class QNetworkAccessManager;
@@ -174,7 +175,8 @@ public:
         Yandex,
         Bing,
         LibreTranslate,
-        Lingva
+        Lingva,
+        Gemini
     };
     Q_ENUM(Engine)
 
@@ -214,6 +216,16 @@ public:
      * @param uiLang ui language to use for display
      */
     void translate(const QString &text, Engine engine = Google, Language translationLang = Auto, Language sourceLang = Auto, Language uiLang = Auto);
+    /**
+     * @brief Translate text from an image
+     *
+     * @param imagePath path to the image file
+     * @param engine online engine to use
+     * @param translationLang language to translation
+     * @param sourceLang language of the passed text
+     * @param uiLang ui language to use for display
+     */
+    void translate(const QString &imagePath, Engine engine = Google, Language translationLang = Auto, Language sourceLang = Auto, Language uiLang = Auto);
 
     /**
      * @brief Detect language
@@ -436,6 +448,9 @@ public:
      */
     void setEngineApiKey(Engine engine, QByteArray apiKey);
 
+    // For testing purposes
+    void setGeminiScriptPath(const QString &path);
+
     /**
      * @brief Language name
      *
@@ -525,6 +540,11 @@ private slots:
     void requestLingvaTranslate();
     void parseLingvaTranslate();
 
+    // Gemini
+    void requestGeminiTranslate();
+    void parseGeminiTranslate();
+    void handleGeminiProcessError(QProcess::ProcessError error);
+
 private:
     /*
      * Engines have translation limit, so need to split all text into parts and make request sequentially.
@@ -545,6 +565,8 @@ private:
 
     void buildLingvaStateMachine();
     void buildLingvaDetectStateMachine();
+
+    void buildGeminiStateMachine();
 
     // Helper functions to build nested states
     void buildSplitNetworkRequest(QState *parent, void (QOnlineTranslator::*requestMethod)(), void (QOnlineTranslator::*parseMethod)(), const QString &text, int textLimit);
@@ -615,6 +637,11 @@ private:
     QByteArray m_libreApiKey; // Can be empty, since free instances ignores api_key param
     QString m_libreUrl;
     QString m_lingvaUrl;
+
+    // For Gemini image translation
+    QString m_sourceImagePath;
+    QProcess *m_geminiProcess = nullptr;
+    QString m_geminiScriptPath; // For testing
 
     QMap<QString, QVector<QOption>> m_translationOptions;
     QMap<QString, QVector<QExample>> m_examples;

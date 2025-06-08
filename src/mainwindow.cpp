@@ -36,6 +36,7 @@
 #include <QMessageBox>
 #include <QNetworkProxyFactory>
 #include <QScreen>
+#include <QFileDialog>
 #include <QShortcut>
 #include <QStateMachine>
 #include <QTimer>
@@ -114,6 +115,17 @@ MainWindow::MainWindow(QWidget *parent)
     // App settings
     loadAppSettings();
     loadMainWindowSettings();
+
+    // Add Gemini to engineComboBox
+    ui->engineComboBox->addItem("Gemini", QVariant::fromValue(QOnlineTranslator::Gemini));
+
+    // Connect signals for Gemini UI changes
+    connect(ui->engineComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::onEngineChanged);
+    // Assuming selectImageButton is named selectImageButton in the .ui file
+    if (ui->selectImageButton) { // Check if the button exists in the UI
+        connect(ui->selectImageButton, &QPushButton::clicked, this, &MainWindow::onSelectImageButtonClicked);
+        ui->selectImageButton->setVisible(false); // Initially hidden
+    }
 }
 
 MainWindow::~MainWindow()
@@ -334,7 +346,36 @@ void MainWindow::requestTranslation()
     else
         translationLang = ui->translationLanguagesWidget->checkedLanguage();
 
-    m_translator->translate(ui->sourceEdit->toSourceText(), currentEngine(), translationLang, ui->sourceLanguagesWidget->checkedLanguage());
+    QOnlineTranslator::Engine engine = currentEngine();
+    QOnlineTranslator::Language sourceLang = ui->sourceLanguagesWidget->checkedLanguage();
+    QOnlineTranslator::Language translationLang;
+    if (ui->translationLanguagesWidget->isAutoButtonChecked())
+        translationLang = preferredTranslationLanguage(sourceLang);
+    else
+        translationLang = ui->translationLanguagesWidget->checkedLanguage();
+
+    // Determine UI language - using AppSettings().locale() as a proxy
+    // This might need adjustment if a more direct UI language getter is available
+    QOnlineTranslator::Language uiLang = QOnlineTranslator::language(AppSettings().locale());
+
+
+    if (engine == QOnlineTranslator::Gemini && !m_selectedImagePath.isEmpty()) {
+        m_translator->translate(m_selectedImagePath, engine, translationLang, sourceLang, uiLang);
+    } else if (engine == QOnlineTranslator::Gemini && m_selectedImagePath.isEmpty()) {
+        // If Gemini is selected but no image, show an error or translate text?
+        // For now, let's clear translation and show a message or do nothing.
+        // Or, translate text like other engines if sourceEdit is not empty.
+        if (!ui->sourceEdit->toSourceText().isEmpty()) {
+            m_translator->translate(ui->sourceEdit->toSourceText(), engine, translationLang, sourceLang, uiLang);
+        } else {
+            ui->translationEdit->setError(tr("Please select an image for Gemini translation or enter text."));
+            // Optionally emit finished to reset state machine if it relies on translator finishing
+             QTimer::singleShot(0, m_translator, &QOnlineTranslator::finished); // Ensure SM goes to idle
+        }
+    }
+    else {
+        m_translator->translate(ui->sourceEdit->toSourceText(), engine, translationLang, sourceLang, uiLang);
+    }
 }
 
 // Re-translate to a secondary or a primary language if the autodetected source language and the translation language are the same
@@ -1069,5 +1110,47 @@ QOnlineTranslator::Language MainWindow::preferredTranslationLanguage(QOnlineTran
 
 QOnlineTranslator::Engine MainWindow::currentEngine() const
 {
-    return static_cast<QOnlineTranslator::Engine>(ui->engineComboBox->currentIndex());
+    // Ensure the itemData is valid and can be converted
+    QVariant data = ui->engineComboBox->currentData();
+    if (data.isValid() && data.canConvert<QOnlineTranslator::Engine>()) {
+        return data.value<QOnlineTranslator::Engine>();
+    }
+    // Fallback or default if data is invalid (e.g., if "Gemini" was added without proper data)
+    // This might indicate an issue with how items were added if it defaults often.
+    // For now, default to Google or the first item's data if possible.
+    if (ui->engineComboBox->count() > 0) {
+        QVariant firstItemData = ui->engineComboBox->itemData(0);
+        if (firstItemData.isValid() && firstItemData.canConvert<QOnlineTranslator::Engine>()) {
+            return firstItemData.value<QOnlineTranslator::Engine>();
+        }
+    }
+    return QOnlineTranslator::Google; // Absolute fallback
+}
+
+void MainWindow::onEngineChanged(int index)
+{
+    if (!ui->selectImageButton) return; // Guard against missing button
+
+    QOnlineTranslator::Engine selectedEngine = ui->engineComboBox->itemData(index).value<QOnlineTranslator::Engine>();
+    if (selectedEngine == QOnlineTranslator::Gemini) {
+        ui->selectImageButton->setVisible(true);
+    } else {
+        ui->selectImageButton->setVisible(false);
+        m_selectedImagePath.clear();
+    }
+}
+
+void MainWindow::onSelectImageButtonClicked()
+{
+    QString filePath = QFileDialog::getOpenFileName(this,
+                                                    tr("Select Image for Translation"),
+                                                    m_selectedImagePath.isEmpty() ? QDir::homePath() : m_selectedImagePath,
+                                                    tr("Images (*.png *.jpg *.jpeg *.bmp *.gif)"));
+    if (!filePath.isEmpty()) {
+        m_selectedImagePath = filePath;
+        // Optionally, display the selected image path or a thumbnail,
+        // and clear source text edit to avoid confusion.
+        ui->sourceEdit->setPlaceholderText(tr("Image selected: %1").arg(QFileInfo(filePath).fileName()));
+        ui->sourceEdit->clear(); // Clear text when image is selected
+    }
 }

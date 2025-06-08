@@ -41,3 +41,13 @@ if(DOXYGEN_FOUND)
         README.md
     )
 endif()
+
+if(BUILD_TESTING)
+    find_package(Qt5 COMPONENTS Test REQUIRED)
+    add_executable(testqonlinetranslatorgemini tests/testqonlinetranslatorgemini.cpp)
+    # Configure mock script to be in the build directory of the test
+    # This ensures the mock script is available where the test expects it.
+    configure_file(tests/mock_gemini_translate.py ${CMAKE_CURRENT_BINARY_DIR}/mock_gemini_translate.py COPYONLY)
+    target_link_libraries(testqonlinetranslatorgemini PRIVATE Qt5::Test QOnlineTranslator) # Link against QOnlineTranslator library
+    add_test(NAME TestQOnlineTranslatorGemini WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR} COMMAND testqonlinetranslatorgemini)
+endif()
