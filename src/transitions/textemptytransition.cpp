@@ -15,11 +15,11 @@ TextEmptyTransition::TextEmptyTransition(SourceTextEdit *edit, QState *sourceSta
 {
 }
 
-bool TextEmptyTransition::eventTest(QEvent *)
+bool TextEmptyTransition::eventTest(QEvent * /*event*/)
 {
     return m_edit->toSourceText().isEmpty();
 }
 
-void TextEmptyTransition::onTransition(QEvent *)
+void TextEmptyTransition::onTransition(QEvent * /*event*/)
 {
 }

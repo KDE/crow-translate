@@ -10,6 +10,7 @@
 
 #include <QElapsedTimer>
 #include <QList>
+#include <QObject>
 #include <QPointer>
 
 class QNetworkAccessManager;

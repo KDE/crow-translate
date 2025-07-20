@@ -34,6 +34,8 @@ protected:
         return reply;
     }
 
+    // Screen active at time of screenshot
+    QScreen *m_screen;
     static QMap<const QScreen *, QImage> splitScreenImages(const QPixmap &pixmap);
 
     QDBusPendingCallWatcher *m_callWatcher{nullptr};

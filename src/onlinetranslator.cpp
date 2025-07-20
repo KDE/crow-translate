@@ -12,7 +12,6 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QMediaPlayer>
 #include <QNetworkReply>
 #include <QStateMachine>
 
@@ -314,7 +313,7 @@ bool OnlineTranslator::isRunning() const
     return m_stateMachine->isRunning();
 }
 
-QList<QMediaContent> OnlineTranslator::generateUrls(const QString &text, OnlineTranslator::Engine engine, OnlineTranslator::Language lang)
+QList<QUrl> OnlineTranslator::generateUrls(const QString &text, OnlineTranslator::Engine engine, OnlineTranslator::Language lang)
 {
     // Get speech
     QString unparsedText = text;
@@ -328,7 +327,7 @@ QList<QMediaContent> OnlineTranslator::generateUrls(const QString &text, OnlineT
         const QString engineString = QString(QMetaEnum::fromType<OnlineTranslator::Engine>().valueToKey(engine)).toLower();
 
         // Limit characters per tts request. If the query is larger, then it should be splited into several
-        QList<QMediaContent> media;
+        QList<QUrl> media;
         while (!unparsedText.isEmpty()) {
             const int splitIndex = OnlineTranslator::getSplitIndex(unparsedText, s_TtsLimit); // Split the part by special symbol
 
@@ -1306,7 +1305,7 @@ void OnlineTranslator::parseTranslate()
 
             QStringList translations;
             translations.reserve(translationsArray.size());
-            for (const QJsonValue &wordTranslation : translationsArray)
+            for (const auto &wordTranslation : translationsArray)
                 translations.append(wordTranslation.toString());
             m_translationOptions.append({word, translations});
         }
@@ -1321,12 +1320,12 @@ void OnlineTranslator::parseTranslate()
             const QString definition = exampleObject.value(QStringLiteral("definition")).toString();
 
             QStringList examplesSource;
-            for (const QJsonValue &value : exampleObject.value(QStringLiteral("examples_source")).toArray()) {
+            for (const auto &value : exampleObject.value(QStringLiteral("examples_source")).toArray()) {
                 examplesSource.append(value.toString());
             }
 
             QStringList examplesTarget;
-            for (const QJsonValue &value : exampleObject.value(QStringLiteral("examples_target")).toArray()) {
+            for (const auto &value : exampleObject.value(QStringLiteral("examples_target")).toArray()) {
                 examplesTarget.append(value.toString());
             }
 
@@ -1482,16 +1481,16 @@ int OnlineTranslator::getSplitIndex(const QString &untranslatedText, int limit)
     if (splitIndex != -1)
         return splitIndex + 1;
 
-    splitIndex = untranslatedText.lastIndexOf(' ', limit - 1);
+    splitIndex = untranslatedText.lastIndexOf(QChar::Space, limit - 1);
     if (splitIndex != -1)
         return splitIndex + 1;
 
-    splitIndex = untranslatedText.lastIndexOf('\n', limit - 1);
+    splitIndex = untranslatedText.lastIndexOf(QChar::LineFeed, limit - 1);
     if (splitIndex != -1)
         return splitIndex + 1;
 
     // Non-breaking space
-    splitIndex = untranslatedText.lastIndexOf(0x00a0, limit - 1);
+    splitIndex = untranslatedText.lastIndexOf(QChar::Nbsp, limit - 1);
     if (splitIndex != -1)
         return splitIndex + 1;
 
@@ -1511,11 +1510,7 @@ void OnlineTranslator::addSpaceBetweenParts(QString &text)
     if (text.isEmpty())
         return;
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
     if (!text.back().isSpace()) {
-#else
-    if (!text.at(text.size() - 1).isSpace()) {
-#endif
         text.append(' ');
     }
 }

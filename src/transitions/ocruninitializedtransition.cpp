@@ -18,12 +18,12 @@ OcrUninitializedTransition::OcrUninitializedTransition(MainWindow *mainWindow, Q
 {
 }
 
-bool OcrUninitializedTransition::eventTest(QEvent *)
+bool OcrUninitializedTransition::eventTest(QEvent * /*event*/)
 {
     return m_mainWindow->ocr()->languagesString().isEmpty();
 }
 
-void OcrUninitializedTransition::onTransition(QEvent *)
+void OcrUninitializedTransition::onTransition(QEvent * /*event*/)
 {
     QMessageBox::critical(m_mainWindow, Ocr::tr("OCR languages are not loaded"), Ocr::tr("You should set at least one OCR language in the application settings"));
 }

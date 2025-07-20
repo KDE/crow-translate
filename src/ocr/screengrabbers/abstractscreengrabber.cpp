@@ -9,6 +9,7 @@
 
 #include "genericscreengrabber.h"
 
+#include <QGuiApplication>
 #include <QMessageBox>
 
 #ifdef Q_OS_LINUX
@@ -16,7 +17,6 @@
 #include "waylandplasmascreengrabber.h"
 #include "waylandportalscreengrabber.h"
 
-#include <QX11Info>
 #endif
 
 AbstractScreenGrabber::AbstractScreenGrabber(QObject *parent)
@@ -27,13 +27,13 @@ AbstractScreenGrabber::AbstractScreenGrabber(QObject *parent)
 AbstractScreenGrabber *AbstractScreenGrabber::createScreenGrabber(QObject *parent)
 {
 #ifdef Q_OS_LINUX
-    if (!QX11Info::isPlatformX11()) {
+    if (qGuiApp->nativeInterface<QNativeInterface::QX11Application>() == nullptr) {
         if (WaylandGnomeScreenGrabber::isAvailable())
             return new WaylandGnomeScreenGrabber(parent);
+        if (WaylandPlasmaScreenGrabber::isAvailable()) // Outdated interface + needs authorization through .desktop file
+            return new WaylandPlasmaScreenGrabber(parent);
         if (WaylandPortalScreenGrabber::isAvailable())
             return new WaylandPortalScreenGrabber(parent);
-        if (WaylandPlasmaScreenGrabber::isAvailable())
-            return new WaylandPlasmaScreenGrabber(parent);
     }
 #endif
     return new GenericScreenGrabber(parent);

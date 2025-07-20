@@ -32,15 +32,14 @@
         <string>Swap languages</string>
        </property>
        <property name="icon">
-        <iconset theme="object-flip-horizontal">
-         <normaloff>.</normaloff>.</iconset>
+        <iconset theme="object-flip-horizontal"/>
        </property>
       </widget>
      </item>
      <item>
       <widget class="LanguageButtonsWidget" name="translationLanguagesWidget" native="true">
        <property name="layoutDirection">
-        <enum>Qt::RightToLeft</enum>
+        <enum>Qt::LayoutDirection::RightToLeft</enum>
        </property>
       </widget>
      </item>
@@ -64,15 +63,14 @@
         <string>Copy source text to the clipboard</string>
        </property>
        <property name="icon">
-        <iconset theme="edit-copy">
-         <normaloff>.</normaloff>.</iconset>
+        <iconset theme="edit-copy"/>
        </property>
       </widget>
      </item>
      <item>
       <spacer name="buttomSpacer">
        <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -158,8 +156,7 @@
         <string>Copy all translation data to the clipboard</string>
        </property>
        <property name="icon">
-        <iconset theme="edit-select-all">
-         <normaloff>.</normaloff>.</iconset>
+        <iconset theme="edit-select-all"/>
        </property>
       </widget>
      </item>
@@ -169,8 +166,7 @@
         <string>Copy translation to the clipboard</string>
        </property>
        <property name="icon">
-        <iconset theme="edit-copy">
-         <normaloff>.</normaloff>.</iconset>
+        <iconset theme="edit-copy"/>
        </property>
       </widget>
      </item>

@@ -7,19 +7,20 @@
 
 #include "xdgdesktopportal.h"
 
+#include <QGuiApplication>
+
 #ifdef WITH_KWAYLAND
 #include "waylandhelper.h"
 #endif
 
 #include <QDebug>
 #include <QWindow>
-#include <QX11Info>
 
 QString XdgDesktopPortal::parentWindow(QWindow *activeWindow)
 {
-    if (!QX11Info::isPlatformX11()) {
+    if (qGuiApp->nativeInterface<QNativeInterface::QX11Application>() == nullptr) {
 #ifdef WITH_KWAYLAND
-        WaylandHelper wayland(activeWindow);
+        const WaylandHelper wayland(activeWindow);
         QEventLoop loop;
         QObject::connect(&wayland, &WaylandHelper::xdgExportDone, &loop, &QEventLoop::quit);
         loop.exec();

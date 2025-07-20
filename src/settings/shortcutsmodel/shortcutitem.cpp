@@ -101,7 +101,7 @@ void ShortcutItem::resetShortcut()
 void ShortcutItem::resetAllShortucts()
 {
     m_shortcut = m_defaultShortcut;
-    for (ShortcutItem *item : qAsConst(m_childItems))
+    for (ShortcutItem *item : std::as_const(m_childItems))
         item->resetAllShortucts();
 }
 
@@ -114,6 +114,6 @@ void ShortcutItem::setEnabled(bool enabled)
 {
     m_enabled = enabled;
     m_model->updateItem(this);
-    for (ShortcutItem *item : qAsConst(m_childItems))
+    for (ShortcutItem *item : std::as_const(m_childItems))
         item->setEnabled(enabled);
 }

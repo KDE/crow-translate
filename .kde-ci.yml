@@ -4,11 +4,11 @@
 Dependencies:
 - 'on': ['@all']
   'require':
-    'frameworks/extra-cmake-modules': '@stable'
+    'frameworks/extra-cmake-modules': '@stable-kf6'
 
 - 'on': ['Linux', 'FreeBSD']
   'require':
-    'plasma/kwayland': '@stable'
+    'plasma/kwayland': '@stable-kf6'
 
 Options:
   cmake-options: '-D WITH_PORTABLE_MODE=ON -D CMAKE_COMPILE_WARNING_AS_ERROR=ON'

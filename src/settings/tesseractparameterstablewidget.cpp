@@ -17,6 +17,10 @@ TesseractParametersTableWidget::TesseractParametersTableWidget(QWidget *parent)
     horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     verticalHeader()->setVisible(false);
 }
+void TesseractParametersTableWidget::addDefaultParam()
+{
+    addParameter();
+}
 
 void TesseractParametersTableWidget::addParameter(const QString &key, const QVariant &value, bool edit)
 {

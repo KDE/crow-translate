@@ -7,11 +7,12 @@
 
 #include "playerstoppedtransition.h"
 
-#include <QMediaPlayer>
+#include "playlistplayer.h"
+
 #include <QStateMachine>
 
-PlayerStoppedTransition::PlayerStoppedTransition(QMediaPlayer *player, QState *sourceState)
-    : QSignalTransition(player, &QMediaPlayer::stateChanged, sourceState)
+PlayerStoppedTransition::PlayerStoppedTransition(PlaylistPlayer *player, QState *sourceState)
+    : QSignalTransition(player, &PlaylistPlayer::playbackStateChanged, sourceState)
 {
 }
 
@@ -21,5 +22,5 @@ bool PlayerStoppedTransition::eventTest(QEvent *event)
         return false;
 
     auto *signalEvent = dynamic_cast<QStateMachine::SignalEvent *>(event);
-    return signalEvent->arguments().constFirst().toInt() == QMediaPlayer::StoppedState;
+    return signalEvent->arguments().constFirst().toInt() == PlaylistPlayer::StoppedState;
 }

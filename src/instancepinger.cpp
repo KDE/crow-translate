@@ -69,7 +69,7 @@ void InstancePinger::pingNextUrl()
     }
 
     emit processingInstance(m_currentIndex);
-    QString url = s_instances.at(m_currentIndex++);
+    const QString &url = s_instances.at(m_currentIndex++);
 
     m_elapsedTimer.restart();
     m_currentReply = m_networkManager->get(QNetworkRequest(url));

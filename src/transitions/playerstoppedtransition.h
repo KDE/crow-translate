@@ -8,6 +8,8 @@
 #ifndef PLAYERSTOPPEDTRANSITION_H
 #define PLAYERSTOPPEDTRANSITION_H
 
+#include "playlistplayer.h"
+
 #include <QSignalTransition>
 
 class QMediaPlayer;
@@ -15,7 +17,7 @@ class QMediaPlayer;
 class PlayerStoppedTransition : public QSignalTransition
 {
 public:
-    explicit PlayerStoppedTransition(QMediaPlayer *player, QState *sourceState = nullptr);
+    explicit PlayerStoppedTransition(PlaylistPlayer *player, QState *sourceState = nullptr);
 
 protected:
     bool eventTest(QEvent *event) override;

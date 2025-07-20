@@ -40,7 +40,7 @@ QStringList Ocr::availableLanguages() const
     std::vector<std::string> languages;
 #endif
     m_tesseract.GetAvailableLanguagesAsVector(&languages);
-    availableLanguages.reserve(static_cast<int>(languages.size()));
+    availableLanguages.reserve(languages.size());
 #if TESSERACT_MAJOR_VERSION < 5
     for (int i = 0; i < languages.size(); ++i) {
         availableLanguages.append(languages[i].string());
@@ -87,7 +87,7 @@ void Ocr::recognize(const QPixmap &pixmap, int dpi)
             return;
         }
 
-        QScopedPointer<char, QScopedPointerArrayDeleter<char>> resultText(m_tesseract.GetUTF8Text());
+        const QScopedPointer<char, QScopedPointerArrayDeleter<char>> resultText(m_tesseract.GetUTF8Text());
         QString recognizedText = resultText.data();
         if (m_convertLineBreaks)
             recognizedText.replace(QRegularExpression(QStringLiteral("(?<!\n)\n(?!\n)")), QStringLiteral(" "));
@@ -106,11 +106,7 @@ QStringList Ocr::availableLanguages(const QString &languagesPath)
     if (!languagesPath.isEmpty())
         return parseLanguageFiles(languagesPath);
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
     if (const QString environmentLanguagesPath = qEnvironmentVariable("TESSDATA_PREFIX"); !environmentLanguagesPath.isEmpty())
-#else
-    if (const QString environmentLanguagesPath = qgetenv("TESSDATA_PREFIX"); !environmentLanguagesPath.isEmpty())
-#endif
         return parseLanguageFiles(environmentLanguagesPath); // From the environment variable
 
     // From the default location

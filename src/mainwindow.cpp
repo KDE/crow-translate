@@ -28,7 +28,6 @@
 
 #include <QClipboard>
 #include <QFinalState>
-#include <QMediaPlaylist>
 #include <QMessageBox>
 #include <QNetworkProxyFactory>
 #include <QScreen>
@@ -36,7 +35,7 @@
 #include <QStateMachine>
 #include <QTimer>
 #ifdef Q_OS_LINUX
-#include <QX11Info>
+#include <QGuiApplication>
 #endif
 
 MainWindow::MainWindow(QWidget *parent)
@@ -102,8 +101,8 @@ MainWindow::MainWindow(QWidget *parent)
     m_screenCaptureTimer->setSingleShot(true);
 
     // Setup players for speak buttons
-    ui->sourceSpeakButtons->setMediaPlayer(new QMediaPlayer(this));
-    ui->translationSpeakButtons->setMediaPlayer(new QMediaPlayer(this));
+    ui->sourceSpeakButtons->setMediaPlayer(new PlaylistPlayer(this));
+    ui->translationSpeakButtons->setMediaPlayer(new PlaylistPlayer(this));
 
     // State machine to handle translator signals async
     buildStateMachine();
@@ -331,12 +330,8 @@ void MainWindow::copyAllTranslationInfo()
 
 void MainWindow::quit()
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
     // NOLINTNEXTLINE(clang-analyzer-cplusplus.NewDeleteLeaks)
     QMetaObject::invokeMethod(QCoreApplication::instance(), &QCoreApplication::quit, Qt::QueuedConnection);
-#else
-    QMetaObject::invokeMethod(QCoreApplication::instance(), "quit", Qt::QueuedConnection);
-#endif
 }
 
 void MainWindow::requestTranslation()
@@ -504,11 +499,7 @@ void MainWindow::resetAutoSourceButtonText()
 void MainWindow::setOrientation(Qt::ScreenOrientation orientation)
 {
     if (orientation == Qt::PrimaryOrientation)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         orientation = screen()->orientation();
-#else
-        orientation = QGuiApplication::primaryScreen()->orientation();
-#endif
 
     switch (orientation) {
     case Qt::LandscapeOrientation:
@@ -680,7 +671,8 @@ void MainWindow::buildTranslateSelectionState(QState *state) const
 
     // On Wayland, the clipboard/selection content can only be obtained only after the window becomes active
 #ifdef Q_OS_LINUX
-    const bool waitForClipboard = !QX11Info::isPlatformX11();
+    const bool isX11 = qGuiApp->nativeInterface<QNativeInterface::QX11Application>() != nullptr;
+    const bool waitForClipboard = !isX11;
 #else
     const bool waitForClipboard = false;
 #endif

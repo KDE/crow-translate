@@ -9,6 +9,7 @@
 #define PLAYERBUTTONS_H
 
 #include "onlinetranslator.h"
+#include "playlistplayer.h"
 
 #include <QMediaPlayer>
 #include <QWidget>
@@ -29,9 +30,9 @@ public:
     explicit SpeakButtons(QWidget *parent = nullptr);
     ~SpeakButtons() override;
 
-    QMediaPlayer *mediaPlayer() const;
-    void setMediaPlayer(QMediaPlayer *mediaPlayer);
-    QMediaPlaylist *playlist();
+    PlaylistPlayer *mediaPlayer() const;
+    void setMediaPlayer(PlaylistPlayer *mediaPlayer);
+    QList<QUrl> &playlist();
 
     void setSpeakShortcut(const QKeySequence &shortcut);
     QKeySequence speakShortcut() const;
@@ -45,19 +46,19 @@ public slots:
 
 signals:
     void playerMediaRequested();
-    void stateChanged(QMediaPlayer::State state);
+    void stateChanged(QMediaPlayer::PlaybackState state);
     void positionChanged(double progress);
 
 private slots:
-    void loadPlayerState(QMediaPlayer::State state);
+    void loadPlayerState(QMediaPlayer::PlaybackState state);
     void onPlayPauseButtonPressed();
     void onPlayerPositionChanged(qint64 position);
 
 private:
-    static QMediaPlayer *s_currentlyPlaying;
+    static PlaylistPlayer *s_currentlyPlaying;
 
     Ui::SpeakButtons *ui;
-    QMediaPlayer *m_mediaPlayer = nullptr;
+    PlaylistPlayer *m_mediaPlayer = nullptr;
 };
 
 #endif // PLAYERBUTTONS_H

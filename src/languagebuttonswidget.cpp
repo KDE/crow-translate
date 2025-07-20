@@ -28,11 +28,7 @@ LanguageButtonsWidget::LanguageButtonsWidget(QWidget *parent)
     addButton(OnlineTranslator::Auto);
     m_buttonGroup->button(s_autoButtonId)->setChecked(true);
     setWindowWidthCheckEnabled(true);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     connect(m_buttonGroup, &QButtonGroup::idToggled, this, &LanguageButtonsWidget::savePreviousToggledButton);
-#else
-    connect(m_buttonGroup, qOverload<int, bool>(&QButtonGroup::buttonToggled), this, &LanguageButtonsWidget::savePreviousToggledButton);
-#endif
 }
 
 LanguageButtonsWidget::~LanguageButtonsWidget()
@@ -163,7 +159,7 @@ void LanguageButtonsWidget::checkAutoButton()
 void LanguageButtonsWidget::checkButton(int id)
 {
     QAbstractButton *button = m_buttonGroup->button(id);
-    if (button)
+    if (button != nullptr)
         button->setChecked(true);
     else
         m_buttonGroup->button(s_autoButtonId)->setChecked(true);

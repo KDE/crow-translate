@@ -23,6 +23,7 @@ public:
     void removeInvalidParameters();
 
 public slots:
+    void addDefaultParam();
     void addParameter(const QString &key = {}, const QVariant &value = {}, bool edit = true);
     void removeCurrent();
 };

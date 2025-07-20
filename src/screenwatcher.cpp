@@ -10,9 +10,6 @@
 #include <QGuiApplication>
 #include <QScreen>
 #include <QWidget>
-#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-#include <QWindow>
-#endif
 
 ScreenWatcher::ScreenWatcher(QWidget *parent)
     : QObject(parent)
@@ -24,31 +21,26 @@ ScreenWatcher::ScreenWatcher(QWidget *parent)
 
 bool ScreenWatcher::isWidthFitScreen(QWidget *widget)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     return widget->frameGeometry().width() <= widget->screen()->availableGeometry().width();
-#else
-    if (!widget->windowHandle())
-        widget->winId(); // Call to create handle
-    return widget->frameGeometry().width() <= widget->windowHandle()->screen()->availableGeometry().width();
-#endif
 }
 
 void ScreenWatcher::listenForOrientationChange(QScreen *screen)
 {
     connect(screen, &QScreen::orientationChanged, [this, screen](Qt::ScreenOrientation orientation) {
+        switch (orientation) {
+        case Qt::LandscapeOrientation:
+        case Qt::PortraitOrientation:
+        case Qt::InvertedLandscapeOrientation:
+        case Qt::InvertedPortraitOrientation:
+            break;
+        default:
+            return;
+        }
         auto *widget = qobject_cast<QWidget *>(parent());
         // clang-format off
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         if (widget->screen() == screen) {
-#else
-        if (widget->windowHandle() && widget->windowHandle()->screen() == screen) {
-#endif
             emit screenOrientationChanged(orientation);
         }
         // clang-format on
     });
-    screen->setOrientationUpdateMask(Qt::LandscapeOrientation
-                                     | Qt::PortraitOrientation
-                                     | Qt::InvertedLandscapeOrientation
-                                     | Qt::InvertedPortraitOrientation);
 }

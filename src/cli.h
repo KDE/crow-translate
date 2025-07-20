@@ -9,6 +9,7 @@
 #define CLI_H
 
 #include "onlinetranslator.h"
+#include "playlistplayer.h"
 
 #include <QObject>
 #include <QTextStream>
@@ -56,7 +57,7 @@ private:
 
     static constexpr char s_langProperty[] = "Language";
 
-    QMediaPlayer *m_player;
+    PlaylistPlayer *m_player;
     OnlineTranslator *m_translator;
     QStateMachine *m_stateMachine;
     QTextStream m_stdout{stdout};

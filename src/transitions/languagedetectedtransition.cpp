@@ -15,11 +15,11 @@ LanguageDetectedTransition::LanguageDetectedTransition(LanguageButtonsWidget *bu
 {
 }
 
-bool LanguageDetectedTransition::eventTest(QEvent *)
+bool LanguageDetectedTransition::eventTest(QEvent * /*event*/)
 {
     return m_langButtons->checkedLanguage() != OnlineTranslator::Auto;
 }
 
-void LanguageDetectedTransition::onTransition(QEvent *)
+void LanguageDetectedTransition::onTransition(QEvent * /*event*/)
 {
 }

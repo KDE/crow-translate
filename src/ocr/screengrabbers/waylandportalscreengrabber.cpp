@@ -46,12 +46,12 @@ void WaylandPortalScreenGrabber::grab()
         }
 
         m_responseServicePath = reply.value().path();
-        bool success = QDBusConnection::sessionBus().connect({},
-                                                             m_responseServicePath,
-                                                             QLatin1String("org.freedesktop.portal.Request"),
-                                                             QLatin1String("Response"),
-                                                             this,
-                                                             SLOT(parsePortalResponse(uint, QVariantMap)));
+        const bool success = QDBusConnection::sessionBus().connect({},
+                                                                   m_responseServicePath,
+                                                                   QLatin1String("org.freedesktop.portal.Request"),
+                                                                   QLatin1String("Response"),
+                                                                   this,
+                                                                   SLOT(parsePortalResponse(uint, QVariantMap)));
         if (!success)
             showError(tr("Unable to subscribe to response from xdg-desktop-portal."));
     });
@@ -71,7 +71,7 @@ void WaylandPortalScreenGrabber::cancel()
 
 void WaylandPortalScreenGrabber::parsePortalResponse(uint, const QVariantMap &response)
 {
-    QString path = response.value(QLatin1String("uri")).toUrl().toLocalFile();
+    const QString path = response.value(QLatin1String("uri")).toUrl().toLocalFile();
     if (path.isEmpty()) {
         showError(tr("Received an empty path from xdg-desktop-portal."));
         return;

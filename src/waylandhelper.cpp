@@ -43,7 +43,7 @@ void WaylandHelper::onXdgExporterAnnounced(quint32 name, quint32 version)
 
 void WaylandHelper::onInterfacesAnnounced()
 {
-    if (!xdgExportedTopLevel) {
+    if (xdgExportedTopLevel == nullptr) {
         qWarning("Wayland compositor didn't announce XdgExporter, can't get export handle");
         emit xdgExportDone();
     }
@@ -51,7 +51,7 @@ void WaylandHelper::onInterfacesAnnounced()
 
 QString WaylandHelper::exportedHandle() const
 {
-    if (!xdgExportedTopLevel)
+    if (xdgExportedTopLevel == nullptr)
         return {};
     return xdgExportedTopLevel->handle();
 }

@@ -337,7 +337,7 @@ public:
      */
     bool isRunning() const;
 
-    QList<QMediaContent> generateUrls(const QString &text, OnlineTranslator::Engine engine, OnlineTranslator::Language lang);
+    QList<QUrl> generateUrls(const QString &text, OnlineTranslator::Engine engine, OnlineTranslator::Language lang);
 
     /**
      * @brief Converts the object to JSON

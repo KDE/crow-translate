@@ -15,11 +15,11 @@ TranslatorErrorTransition::TranslatorErrorTransition(OnlineTranslator *translato
 {
 }
 
-bool TranslatorErrorTransition::eventTest(QEvent *)
+bool TranslatorErrorTransition::eventTest(QEvent * /*event*/)
 {
     return m_translator->error() != OnlineTranslator::NoError;
 }
 
-void TranslatorErrorTransition::onTransition(QEvent *)
+void TranslatorErrorTransition::onTransition(QEvent * /*event*/)
 {
 }

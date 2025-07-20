@@ -69,7 +69,7 @@ void AppSettings::applyLocale(const QLocale &locale)
         }
     }
 
-    if (s_qtTranslator.load(newLocale, QStringLiteral("qt"), QStringLiteral("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
+    if (s_qtTranslator.load(newLocale, QStringLiteral("qt"), QStringLiteral("_"), QLibraryInfo::path(QLibraryInfo::TranslationsPath))) {
         QCoreApplication::installTranslator(&s_qtTranslator);
     } else {
         QCoreApplication::removeTranslator(&s_qtTranslator);
@@ -633,7 +633,7 @@ void AppSettings::setTranslateSelectionShortcut(const QKeySequence &shortcut)
 
 QKeySequence AppSettings::defaultTranslateSelectionShortcut()
 {
-    return QKeySequence(QStringLiteral("Ctrl+Alt+E"));
+    return {QStringLiteral("Ctrl+Alt+E")};
 }
 
 QKeySequence AppSettings::speakSelectionShortcut() const
@@ -648,7 +648,7 @@ void AppSettings::setSpeakSelectionShortcut(const QKeySequence &shortcut)
 
 QKeySequence AppSettings::defaultSpeakSelectionShortcut()
 {
-    return QKeySequence(QStringLiteral("Ctrl+Alt+S"));
+    return {QStringLiteral("Ctrl+Alt+S")};
 }
 
 QKeySequence AppSettings::speakTranslatedSelectionShortcut() const
@@ -663,7 +663,7 @@ void AppSettings::setSpeakTranslatedSelectionShortcut(const QKeySequence &shortc
 
 QKeySequence AppSettings::defaultSpeakTranslatedSelectionShortcut()
 {
-    return QKeySequence(QStringLiteral("Ctrl+Alt+F"));
+    return {QStringLiteral("Ctrl+Alt+F")};
 }
 
 QKeySequence AppSettings::stopSpeakingShortcut() const
@@ -678,7 +678,7 @@ void AppSettings::setStopSpeakingShortcut(const QKeySequence &shortcut)
 
 QKeySequence AppSettings::defaultStopSpeakingShortcut()
 {
-    return QKeySequence(QStringLiteral("Ctrl+Alt+G"));
+    return {QStringLiteral("Ctrl+Alt+G")};
 }
 
 QKeySequence AppSettings::playPauseSpeakingShortcut() const
@@ -693,7 +693,7 @@ void AppSettings::setPlayPauseSpeakingShortcut(const QKeySequence &shortcut)
 
 QKeySequence AppSettings::defaultPlayPauseSpeakingShortcut()
 {
-    return QKeySequence(QStringLiteral("Ctrl+Alt+D"));
+    return {QStringLiteral("Ctrl+Alt+D")};
 }
 
 QKeySequence AppSettings::showMainWindowShortcut() const
@@ -708,7 +708,7 @@ void AppSettings::setShowMainWindowShortcut(const QKeySequence &shortcut)
 
 QKeySequence AppSettings::defaultShowMainWindowShortcut()
 {
-    return QKeySequence(QStringLiteral("Ctrl+Alt+C"));
+    return {QStringLiteral("Ctrl+Alt+C")};
 }
 
 QKeySequence AppSettings::copyTranslatedSelectionShortcut() const
@@ -738,7 +738,7 @@ void AppSettings::setRecognizeScreenAreaShortcut(const QKeySequence &shortcut)
 
 QKeySequence AppSettings::defaultRecognizeScreenAreaShortcut()
 {
-    return QKeySequence(QStringLiteral("Ctrl+Alt+I"));
+    return {QStringLiteral("Ctrl+Alt+I")};
 }
 
 QKeySequence AppSettings::translateScreenAreaShortcut() const
@@ -753,7 +753,7 @@ void AppSettings::setTranslateScreenAreaShortcut(const QKeySequence &shortcut)
 
 QKeySequence AppSettings::defaultTranslateScreenAreaShortcut()
 {
-    return QKeySequence(QStringLiteral("Ctrl+Alt+O"));
+    return {QStringLiteral("Ctrl+Alt+O")};
 }
 
 QKeySequence AppSettings::delayedRecognizeScreenAreaShortcut() const
@@ -798,7 +798,7 @@ void AppSettings::setTranslateShortcut(const QKeySequence &shortcut)
 
 QKeySequence AppSettings::defaultTranslateShortcut()
 {
-    return QKeySequence(QStringLiteral("Ctrl+Return"));
+    return {QStringLiteral("Ctrl+Return")};
 }
 
 QKeySequence AppSettings::swapShortcut() const
@@ -813,7 +813,7 @@ void AppSettings::setSwapShortcut(const QKeySequence &shortcut)
 
 QKeySequence AppSettings::defaultSwapShortcut()
 {
-    return QKeySequence(QStringLiteral("Ctrl+R"));
+    return {QStringLiteral("Ctrl+R")};
 }
 
 QKeySequence AppSettings::closeWindowShortcut() const
@@ -828,7 +828,7 @@ void AppSettings::setCloseWindowShortcut(const QKeySequence &shortcut)
 
 QKeySequence AppSettings::defaultCloseWindowShortcut()
 {
-    return QKeySequence(QStringLiteral("Ctrl+Q"));
+    return {QStringLiteral("Ctrl+Q")};
 }
 
 QKeySequence AppSettings::speakSourceShortcut() const
@@ -843,7 +843,7 @@ void AppSettings::setSpeakSourceShortcut(const QKeySequence &shortcut)
 
 QKeySequence AppSettings::defaultSpeakSourceShortcut()
 {
-    return QKeySequence(QStringLiteral("Ctrl+S"));
+    return {QStringLiteral("Ctrl+S")};
 }
 
 QKeySequence AppSettings::speakTranslationShortcut() const
@@ -858,7 +858,7 @@ void AppSettings::setSpeakTranslationShortcut(const QKeySequence &shortcut)
 
 QKeySequence AppSettings::defaultSpeakTranslationShortcut()
 {
-    return QKeySequence(QStringLiteral("Ctrl+Shift+S"));
+    return {QStringLiteral("Ctrl+Shift+S")};
 }
 
 QKeySequence AppSettings::copyTranslationShortcut() const
@@ -873,7 +873,7 @@ void AppSettings::setCopyTranslationShortcut(const QKeySequence &shortcut)
 
 QKeySequence AppSettings::defaultCopyTranslationShortcut()
 {
-    return QKeySequence(QStringLiteral("Ctrl+Shift+C"));
+    return {QStringLiteral("Ctrl+Shift+C")};
 }
 
 QKeySequence AppSettings::toggleOcrNegateShortcut() const
@@ -1072,7 +1072,7 @@ QVector<OnlineTranslator::Language> AppSettings::languages(LanguageButtonsType t
     QVector<OnlineTranslator::Language> languages;
     languages.reserve(languageCodes.size());
     for (const QString &langCode : languageCodes) {
-        OnlineTranslator::Language lang = OnlineTranslator::language(langCode);
+        const OnlineTranslator::Language lang = OnlineTranslator::language(langCode);
         if (lang != OnlineTranslator::NoLanguage && lang != OnlineTranslator::Auto)
             languages.append(lang);
         else
@@ -1086,7 +1086,7 @@ void AppSettings::setLanguages(LanguageButtonsType type, const QVector<OnlineTra
 {
     QStringList langCodes;
     langCodes.reserve(languages.size());
-    for (OnlineTranslator::Language lang : languages)
+    for (const OnlineTranslator::Language lang : languages)
         langCodes.append(OnlineTranslator::languageCode(lang));
 
     const auto typeEnum = QMetaEnum::fromType<LanguageButtonsType>();

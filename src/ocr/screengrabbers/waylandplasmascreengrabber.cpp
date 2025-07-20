@@ -12,6 +12,7 @@
 #include <QDBusUnixFileDescriptor>
 #include <QPixmap>
 #include <QScreen>
+#include <QWindow>
 #include <QtConcurrent>
 
 #include <fcntl.h>
@@ -20,14 +21,14 @@
 
 using ScreenImagesMap = QMap<const QScreen *, QImage>;
 
-QDBusInterface WaylandPlasmaScreenGrabber::s_interface(QStringLiteral("org.kde.KWin"),
-                                                       QStringLiteral("/Screenshot"),
-                                                       QStringLiteral("org.kde.kwin.Screenshot"));
+QDBusInterface WaylandPlasmaScreenGrabber::s_interface(QStringLiteral("org.kde.KWin.ScreenShot2"),
+                                                       QStringLiteral("/org/kde/KWin/ScreenShot2"),
+                                                       QStringLiteral("org.kde.KWin.ScreenShot2"));
 
 WaylandPlasmaScreenGrabber::WaylandPlasmaScreenGrabber(QObject *parent)
     : DBusScreenGrabber(parent)
 {
-    static int id = qRegisterMetaType<ScreenImagesMap>("ScreenImagesMap");
+    const static int id = qRegisterMetaType<ScreenImagesMap>("ScreenImagesMap");
     Q_UNUSED(id)
 }
 
@@ -38,24 +39,32 @@ bool WaylandPlasmaScreenGrabber::isAvailable()
 
 void WaylandPlasmaScreenGrabber::grab()
 {
-    QVarLengthArray<int, 2> pipe;
+    auto screen = QGuiApplication::screenAt(QCursor::pos());
+    if (screen == nullptr) {
+        showError(tr("Unable to detect active screen for screenshot"));
+        return;
+    }
+    m_screen = screen;
+
+    QVarLengthArray<int, 2> pipe{0, 0};
     if (pipe2(pipe.data(), O_CLOEXEC | O_NONBLOCK) != 0) {
-        showError(tr("Unable to create pipe: %1.").arg(strerror(errno)));
+        std::array<char, 80> tmp_buf{};
+        showError(tr("Unable to create pipe: %1.").arg(strerror_r(errno, tmp_buf.data(), tmp_buf.size())));
         return;
     }
 
-    const QDBusPendingReply<void> reply = s_interface.asyncCall(QStringLiteral("screenshotFullscreen"), QVariant::fromValue(QDBusUnixFileDescriptor(pipe[1])), false, true);
+    const QDBusPendingReply<QVariantMap> reply = s_interface.asyncCall(QStringLiteral("CaptureScreen"), QVariant::fromValue(m_screen->name()), QVariantMap(), QVariant::fromValue(QDBusUnixFileDescriptor(pipe[1])));
     m_callWatcher = new QDBusPendingCallWatcher(reply, this);
     connect(m_callWatcher, &QDBusPendingCallWatcher::finished, [this, sockedDescriptor = pipe[0]] {
-        const QDBusPendingReply<void> reply = readReply<void>();
+        const QDBusPendingReply<QVariantMap> reply = readReply<void>();
 
         if (!reply.isValid()) {
             showError(reply.error().message());
             return;
         }
-
-        m_readImageFuture = QtConcurrent::run([this, sockedDescriptor] {
-            readPixmapFromSocket(sockedDescriptor);
+        auto format = reply.value()["format"].value<QImage::Format>();
+        m_readImageFuture = QtConcurrent::run([this, sockedDescriptor, format] {
+            readPixmapFromSocket(sockedDescriptor, format);
             close(sockedDescriptor);
         });
     });
@@ -69,7 +78,7 @@ void WaylandPlasmaScreenGrabber::cancel()
     m_readImageFuture.cancel();
 }
 
-void WaylandPlasmaScreenGrabber::readPixmapFromSocket(int socketDescriptor)
+void WaylandPlasmaScreenGrabber::readPixmapFromSocket(int socketDescriptor, QImage::Format format)
 {
     QByteArray data;
     fd_set readset;
@@ -100,10 +109,12 @@ void WaylandPlasmaScreenGrabber::readPixmapFromSocket(int socketDescriptor)
         }
         if (bytesRead == 0) {
             QDataStream lDataStream(data);
-            QPixmap pixmap;
-            lDataStream >> pixmap;
+            auto geo = m_screen->geometry();
+            auto resultImage = QImage{geo.width(), geo.height(), format};
+            lDataStream.readRawData(reinterpret_cast<char *>(resultImage.bits()), resultImage.sizeInBytes());
             const QMetaMethod grabbed = QMetaMethod::fromSignal(&WaylandPlasmaScreenGrabber::grabbed);
-            grabbed.invoke(this, Q_ARG(ScreenImagesMap, splitScreenImages(pixmap)));
+            grabbed.invoke(this, ScreenImagesMap{{m_screen, resultImage}});
+            m_screen = nullptr;
             return;
         }
 

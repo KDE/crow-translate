@@ -55,6 +55,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_WIN32_EXECUTABLE ON)
 
+set(QT_DEFAULT_MAJOR_VERSION 6)
 if(WIN32)
     # KDEInstallDirs takes this variable from GNUInstallDir which points to "share",
     # but it's incorrect for Windows, so set it explicitly
@@ -69,24 +70,25 @@ else()
 endif()
 option(WITH_KWAYLAND "Use KWayland for better Wayland integration" ON)
 
+if(CMAKE_EXPORT_COMPILE_COMMANDS AND DEFINED ENV{NIX_CFLAGS_COMPILE})
+  set(CMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES ${CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES})
+endif()
+
 find_package(ECM 5.83 REQUIRED NO_MODULE)
 list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
-
 set(QAPPLICATION_CLASS QApplication)
 option(QHOTKEY_INSTALL OFF)
 set(BUILD_SHARED_LIBS OFF)
 add_subdirectory(src/3rdparty/singleapplication)
 add_subdirectory(src/3rdparty/qhotkey)
-
-find_package(Qt5 REQUIRED COMPONENTS Widgets Multimedia Network LinguistTools Concurrent)
+find_package(Qt6 REQUIRED COMPONENTS Widgets Multimedia Network LinguistTools Concurrent StateMachine)
 find_package(Tesseract REQUIRED)
 if(UNIX)
-    find_package(Qt5 REQUIRED COMPONENTS DBus)
+    find_package(Qt6 REQUIRED COMPONENTS DBus)
     if(NOT APPLE)
         find_package(XCB REQUIRED COMPONENTS XCB)
-        find_package(Qt5 REQUIRED COMPONENTS X11Extras)
         if(WITH_KWAYLAND)
-            find_package(KF5Wayland REQUIRED COMPONENTS Client)
+            find_package(KWayland REQUIRED COMPONENTS Client)
         endif()
     endif()
 endif()
@@ -135,8 +137,10 @@ add_executable(${PROJECT_NAME}
     data/icons/engines/engines.qrc
     src/languagesdialog.cpp
     src/languagesdialog.ui
+    src/cli.h
     src/cli.cpp
     src/contextmenu.cpp
+    src/instancepinger.h
     src/instancepinger.cpp
     src/instancepingerdialog.cpp
     src/languagebuttonswidget.cpp
@@ -163,10 +167,12 @@ add_executable(${PROJECT_NAME}
     src/settings/tesseractparameterstablewidget.cpp
     src/settings/autostartmanager/abstractautostartmanager.cpp
     src/sourcetextedit.cpp
+    src/speakbuttons.h
     src/speakbuttons.cpp
     src/speakbuttons.ui
     src/transitions/languagedetectedtransition.cpp
     src/transitions/ocruninitializedtransition.cpp
+    src/transitions/playerstoppedtransition.h
     src/transitions/playerstoppedtransition.cpp
     src/transitions/retranslationtransition.cpp
     src/transitions/snippingvisibletransition.cpp
@@ -175,11 +181,14 @@ add_executable(${PROJECT_NAME}
     src/transitions/translatorerrortransition.cpp
     src/translationedit.cpp
     src/trayicon.cpp
+    src/playlistplayer.h
+    src/playlistplayer.cpp
 )
 
 if(UNIX AND NOT APPLE)
     target_sources(${PROJECT_NAME} PRIVATE
         src/xdgdesktopportal.cpp
+        src/ocr/screengrabbers/dbusscreengrabber.h
         src/ocr/screengrabbers/dbusscreengrabber.cpp
         src/ocr/screengrabbers/waylandgnomescreengrabber.cpp
         src/ocr/screengrabbers/waylandplasmascreengrabber.cpp
@@ -215,23 +224,23 @@ set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${EXECUTABLE_NAME})
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 target_link_libraries(${PROJECT_NAME} PRIVATE
-    Qt5::Network
-    Qt5::Multimedia
+    Qt6::Network
+    Qt6::Multimedia
     SingleApplication::SingleApplication
     QHotkey::QHotkey
-    Qt5::Concurrent
+    Qt6::Concurrent
+    Qt6::StateMachine
     Tesseract::Tesseract
 )
 
 if(UNIX)
-    target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::DBus)
+    target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::DBus)
     if(NOT APPLE)
         target_link_libraries(${PROJECT_NAME} PRIVATE
             XCB::XCB
-            Qt5::X11Extras
         )
         if(WITH_KWAYLAND)
-            target_link_libraries(${PROJECT_NAME} PRIVATE KF5::WaylandClient)
+            target_link_libraries(${PROJECT_NAME} PRIVATE Plasma::KWaylandClient)
             target_compile_definitions(${PROJECT_NAME} PRIVATE WITH_KWAYLAND)
         endif()
     endif()

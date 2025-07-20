@@ -39,9 +39,7 @@ int main(int argc, char *argv[])
 
 int launchGui(int argc, char *argv[])
 {
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0) && defined(Q_OS_WIN)
+#if defined(Q_OS_WIN)
     QGuiApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
 #endif
 #if defined(Q_OS_LINUX)
@@ -50,7 +48,7 @@ int launchGui(int argc, char *argv[])
     QIcon::setThemeName("hicolor");
 #endif
 
-    SingleApplication app(argc, argv);
+    const SingleApplication app(argc, argv);
 
     AppSettings settings;
     settings.setupLocalization();
@@ -79,7 +77,7 @@ int launchGui(int argc, char *argv[])
 
 int launchCli(int argc, char *argv[])
 {
-    QCoreApplication app(argc, argv);
+    const QCoreApplication app(argc, argv);
 
     AppSettings().setupLocalization();
 

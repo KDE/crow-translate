@@ -32,7 +32,7 @@ LanguagesDialog::LanguagesDialog(const QVector<OnlineTranslator::Language> &curr
     }
     ui->availableLanguagesListWidget->setCurrentRow(0);
 
-    for (OnlineTranslator::Language lang : currentLang)
+    for (const OnlineTranslator::Language lang : currentLang)
         addLanguage(ui->currentLanguagesListWidget, lang);
 
     if (ui->currentLanguagesListWidget->count() != 0) {

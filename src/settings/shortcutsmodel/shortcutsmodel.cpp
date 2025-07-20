@@ -170,7 +170,7 @@ int ShortcutsModel::rowCount(const QModelIndex &parent) const
     return static_cast<ShortcutItem *>(parent.internalPointer())->childCount();
 }
 
-int ShortcutsModel::columnCount(const QModelIndex &) const
+int ShortcutsModel::columnCount(const QModelIndex & /*parent*/) const
 {
     return QMetaEnum::fromType<Column>().keyCount();
 }

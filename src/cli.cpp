@@ -8,6 +8,7 @@
 #include "cli.h"
 
 #include "instancepinger.h"
+#include "playlistplayer.h"
 #include "settings/appsettings.h"
 #include "transitions/playerstoppedtransition.h"
 
@@ -15,18 +16,16 @@
 #include <QFile>
 #include <QFinalState>
 #include <QJsonDocument>
-#include <QMediaPlayer>
-#include <QMediaPlaylist>
 #include <QRegularExpression>
 #include <QStateMachine>
 
 Cli::Cli(QObject *parent)
     : QObject(parent)
-    , m_player(new QMediaPlayer(this))
+    , m_player(new PlaylistPlayer(this))
     , m_translator(new OnlineTranslator(this))
     , m_stateMachine(new QStateMachine(this))
 {
-    m_player->setPlaylist(new QMediaPlaylist);
+    m_player->setPlaylist(*new QList<QUrl>);
 
     connect(m_stateMachine, &QStateMachine::finished, QCoreApplication::instance(), &QCoreApplication::quit, Qt::QueuedConnection);
     // clang-format off
@@ -211,11 +210,7 @@ void Cli::printTranslation()
 
     // Short mode
     if (m_brief) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         m_stdout << m_translator->translation() << Qt::endl;
-#else
-        m_stdout << m_translator->translation() << endl;
-#endif
         return;
     }
 
@@ -324,7 +319,7 @@ void Cli::buildTranslationStateMachine()
     auto *nextTranslationState = new QState(m_stateMachine);
     m_stateMachine->setInitialState(nextTranslationState);
 
-    for (OnlineTranslator::Language lang : qAsConst(m_translationLanguages)) {
+    for (OnlineTranslator::Language lang : std::as_const(m_translationLanguages)) {
         auto *requestTranslationState = nextTranslationState;
         auto *parseDataState = new QState(m_stateMachine);
         auto *printDataState = new QState(m_stateMachine);
@@ -372,16 +367,16 @@ void Cli::buildTranslationStateMachine()
 
 void Cli::speak(const QString &text, OnlineTranslator::Language lang)
 {
-    const QList<QMediaContent> media = m_translator->generateUrls(text, m_engine, lang);
+    const QList<QUrl> media = m_translator->generateUrls(text, m_engine, lang);
     if (m_translator->error() != OnlineTranslator::NoError) {
         qCritical() << tr("Error: %1").arg(m_translator->errorString());
         m_stateMachine->stop();
         return;
     }
 
-    m_player->playlist()->clear();
-    m_player->playlist()->addMedia(media);
-    m_player->play();
+    m_player->clearPlaylist();
+    m_player->addMedia(media);
+    m_player->playPlaylist();
 }
 
 void Cli::checkIncompatibleOptions(QCommandLineParser &parser, const QCommandLineOption &option1, const QCommandLineOption &option2)
@@ -396,11 +391,7 @@ QByteArray Cli::readFilesFromStdin()
 {
     QString stdinText = QTextStream(stdin).readAll();
     QByteArray filesData;
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     for (const QString &filePath : stdinText.split(QRegularExpression(QStringLiteral("\\s+")), Qt::SkipEmptyParts)) {
-#else
-    for (const QString &filePath : stdinText.split(QRegularExpression(QStringLiteral("\\s+")), QString::SkipEmptyParts)) {
-#endif
         QFile file(filePath);
         if (!file.exists()) {
             qCritical() << tr("Error: File does not exist: %1").arg(file.fileName());

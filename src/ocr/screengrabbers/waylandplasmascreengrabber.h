@@ -12,6 +12,7 @@
 
 #include <QDBusInterface>
 #include <QFuture>
+#include <QImage>
 
 class WaylandPlasmaScreenGrabber : public DBusScreenGrabber
 {
@@ -28,7 +29,7 @@ public slots:
     void cancel() override;
 
 private:
-    void readPixmapFromSocket(int socketDescriptor);
+    void readPixmapFromSocket(int socketDescriptor, QImage::Format format);
 
     QFuture<void> m_readImageFuture;
 

@@ -17,13 +17,13 @@ RetranslationTransition::RetranslationTransition(OnlineTranslator *translator, L
 {
 }
 
-bool RetranslationTransition::eventTest(QEvent *)
+bool RetranslationTransition::eventTest(QEvent * /*event*/)
 {
     return m_translator->error() == OnlineTranslator::NoError
         && m_langButtons->isAutoButtonChecked()
         && m_translator->sourceLanguage() == m_translator->translationLanguage();
 }
 
-void RetranslationTransition::onTransition(QEvent *)
+void RetranslationTransition::onTransition(QEvent * /*event*/)
 {
 }

@@ -14,13 +14,9 @@
 #include "translationedit.h"
 
 #include <QCloseEvent>
-#include <QMediaPlaylist>
 #include <QScreen>
 #include <QShortcut>
 #include <QTimer>
-#if QT_VERSION < QT_VERSION_CHECK(5, 10, 0)
-#include <QDesktopWidget>
-#endif
 
 PopupWindow::PopupWindow(MainWindow *parent)
     : QWidget(parent, Qt::Tool | Qt::FramelessWindowHint)
@@ -82,12 +78,7 @@ void PopupWindow::loadSettings()
 
     if (settings.popupWindowTimeout() > 0) {
         m_closeWindowTimer = new QTimer(this);
-
-#if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
-        connect(m_closeWindowTimer, &QTimer::timeout, this, &PopupWindow::close);
-#else
         m_closeWindowTimer->callOnTimeout(this, &PopupWindow::close);
-#endif
         m_closeWindowTimer->setInterval(settings.popupWindowTimeout() * 1000);
         m_closeWindowTimer->start();
     }
@@ -97,11 +88,7 @@ void PopupWindow::loadSettings()
 void PopupWindow::showEvent(QShowEvent *event)
 {
     QPoint position = QCursor::pos(); // Cursor position
-#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
     const QSize availableSize = QGuiApplication::screenAt(position)->availableSize();
-#else
-    const QSize availableSize = QApplication::desktop()->screenGeometry(position).size();
-#endif
 
     if (availableSize.width() - position.x() - geometry().width() < 0) {
         position.rx() -= frameGeometry().width();

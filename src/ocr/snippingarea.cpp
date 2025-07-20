@@ -15,7 +15,6 @@
 #include <QScreen>
 #include <QtMath>
 #ifdef Q_OS_LINUX
-#include <QX11Info>
 
 #include <xcb/xproto.h>
 #endif
@@ -375,7 +374,7 @@ void SnippingArea::mouseDoubleClickEvent(QMouseEvent *event)
         acceptSelection();
 }
 
-void SnippingArea::paintEvent(QPaintEvent *)
+void SnippingArea::paintEvent(QPaintEvent * /*event*/)
 {
     QPainter painter(this);
     painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
@@ -385,8 +384,8 @@ void SnippingArea::paintEvent(QPaintEvent *)
         const QImage &screenImage = it.value();
         const QScreen *screen = it.key();
 
-        QBrush brush(screenImage);
-        QRect rectToDraw = screen->geometry().translated(-m_screensRect.topLeft());
+        const QBrush brush(screenImage);
+        const QRect rectToDraw = screen->geometry().translated(-m_screensRect.topLeft());
         painter.setBrushOrigin(rectToDraw.topLeft());
         painter.fillRect(rectToDraw, brush);
     }
@@ -401,10 +400,10 @@ void SnippingArea::paintEvent(QPaintEvent *)
             painter.drawLine(m_selection.bottomLeft(), m_selection.topLeft());
         }
 
-        QRectF top(0, 0, width(), m_selection.top());
-        QRectF right(m_selection.right(), m_selection.top(), width() - m_selection.right(), m_selection.height());
-        QRectF bottom(0, m_selection.bottom() + 1, width(), height() - m_selection.bottom());
-        QRectF left(0, m_selection.top(), m_selection.left(), m_selection.height());
+        const QRectF top(0, 0, width(), m_selection.top());
+        const QRectF right(m_selection.right(), m_selection.top(), width() - m_selection.right(), m_selection.height());
+        const QRectF bottom(0, m_selection.bottom() + 1, width(), height() - m_selection.bottom());
+        const QRectF left(0, m_selection.top(), m_selection.left(), m_selection.height());
         for (const QRectF &rect : {top, right, bottom, left})
             painter.fillRect(rect, m_maskColor);
 
@@ -559,7 +558,7 @@ void SnippingArea::drawDragHandles(QPainter &painter)
     QPainterPath path;
 
     // Add handles to the path
-    for (QPointF handlePosition : qAsConst(m_handlePositions))
+    for (const QPointF handlePosition : std::as_const(m_handlePositions))
         path.addEllipse(handlePosition, m_handleRadius, m_handleRadius);
 
     // Draw the path
@@ -595,7 +594,7 @@ void SnippingArea::drawMagnifier(QPainter &painter) const
             magY = maxY;
         }
     }
-    QRectF magniRect(magX, magY, pixels, pixels);
+    const QRectF magniRect(magX, magY, pixels, pixels);
 
     qreal drawPosX = m_mousePos.x() + s_magOffset + pixels * static_cast<qreal>(s_magZoom) / 2;
     if (drawPosX > width() - pixels * static_cast<qreal>(s_magZoom) / 2)
@@ -603,12 +602,12 @@ void SnippingArea::drawMagnifier(QPainter &painter) const
     qreal drawPosY = m_mousePos.y() + s_magOffset + pixels * static_cast<qreal>(s_magZoom) / 2;
     if (drawPosY > height() - pixels * static_cast<qreal>(s_magZoom) / 2)
         drawPosY = m_mousePos.y() - s_magOffset - pixels * static_cast<qreal>(s_magZoom) / 2;
-    QPointF drawPos(drawPosX, drawPosY);
-    QRectF crossHairTop(drawPos.x() + s_magZoom * (offsetX - 0.5), drawPos.y() - s_magZoom * (s_magPixels + 0.5), s_magZoom, s_magZoom * (s_magPixels + offsetY));
-    QRectF crossHairRight(drawPos.x() + s_magZoom * (0.5 + offsetX), drawPos.y() + s_magZoom * (offsetY - 0.5), s_magZoom * (s_magPixels - offsetX), s_magZoom);
-    QRectF crossHairBottom(drawPos.x() + s_magZoom * (offsetX - 0.5), drawPos.y() + s_magZoom * (0.5 + offsetY), s_magZoom, s_magZoom * (s_magPixels - offsetY));
-    QRectF crossHairLeft(drawPos.x() - s_magZoom * (s_magPixels + 0.5), drawPos.y() + s_magZoom * (offsetY - 0.5), s_magZoom * (s_magPixels + offsetX), s_magZoom);
-    QRectF crossHairBorder(drawPos.x() - s_magZoom * (s_magPixels + 0.5) - 1, drawPos.y() - s_magZoom * (s_magPixels + 0.5) - 1, pixels * s_magZoom + 2, pixels * s_magZoom + 2);
+    const QPointF drawPos(drawPosX, drawPosY);
+    const QRectF crossHairTop(drawPos.x() + s_magZoom * (offsetX - 0.5), drawPos.y() - s_magZoom * (s_magPixels + 0.5), s_magZoom, s_magZoom * (s_magPixels + offsetY));
+    const QRectF crossHairRight(drawPos.x() + s_magZoom * (0.5 + offsetX), drawPos.y() + s_magZoom * (offsetY - 0.5), s_magZoom * (s_magPixels - offsetX), s_magZoom);
+    const QRectF crossHairBottom(drawPos.x() + s_magZoom * (offsetX - 0.5), drawPos.y() + s_magZoom * (0.5 + offsetY), s_magZoom, s_magZoom * (s_magPixels - offsetY));
+    const QRectF crossHairLeft(drawPos.x() - s_magZoom * (s_magPixels + 0.5), drawPos.y() + s_magZoom * (offsetY - 0.5), s_magZoom * (s_magPixels + offsetX), s_magZoom);
+    const QRectF crossHairBorder(drawPos.x() - s_magZoom * (s_magPixels + 0.5) - 1, drawPos.y() - s_magZoom * (s_magPixels + 0.5) - 1, pixels * s_magZoom + 2, pixels * s_magZoom + 2);
     const auto frag = QPainter::PixmapFragment::create(drawPos, magniRect, s_magZoom, s_magZoom);
 
     painter.fillRect(crossHairBorder, m_labelForegroundColor);
@@ -629,10 +628,10 @@ void SnippingArea::drawMidHelpText(QPainter &painter) const
     painter.setFont(midHelpTextFont);
 
     const QString midHelpText = tr("Click and drag to draw a selection rectangle,\nor press Esc to quit");
-    QRect textSize = painter.boundingRect(QRect(), Qt::AlignCenter, midHelpText);
+    const QRect textSize = painter.boundingRect(QRect(), Qt::AlignCenter, midHelpText);
     const QRect primaryGeometry = QGuiApplication::primaryScreen()->geometry().translated(-m_screensRect.topLeft());
-    QPoint pos((primaryGeometry.width() - textSize.width()) / 2 + primaryGeometry.x(),
-               (primaryGeometry.height() - textSize.height()) / 2 + primaryGeometry.y());
+    const QPoint pos((primaryGeometry.width() - textSize.width()) / 2 + primaryGeometry.x(),
+                     (primaryGeometry.height() - textSize.height()) / 2 + primaryGeometry.y());
 
     painter.setBrush(m_labelBackgroundColor);
     QPen pen(m_labelForegroundColor);
@@ -663,7 +662,7 @@ void SnippingArea::drawSelectionSizeTooltip(QPainter &painter, bool dragHandlesV
     int selectionBoxY;
     if ((m_selection.width() >= s_selectionSizeThreshold) && (m_selection.height() >= s_selectionSizeThreshold)) {
         // Show inside the box
-        selectionBoxY = static_cast<int>(m_selection.y() + (m_selection.height() - selectionSizeTextRect.height()) / 2);
+        selectionBoxY = (m_selection.y() + (m_selection.height() - selectionSizeTextRect.height()) / 2);
     } else {
         // Show on top by default, above the drag Handles if they're visible
         if (dragHandlesVisible) {
@@ -765,7 +764,7 @@ void SnippingArea::createPixmapFromScreens()
 void SnippingArea::setGeometryToScreenPixmap()
 {
 #ifdef Q_OS_LINUX
-    if (QX11Info::isPlatformX11()) {
+    if (auto *x11Application = qGuiApp->nativeInterface<QNativeInterface::QX11Application>()) {
         /*
          * Even though we want the quick editor window to be placed at (0, 0) in the native
          * pixels, we cannot really specify a window position of (0, 0) if HiDPI support is on.
@@ -778,7 +777,7 @@ void SnippingArea::setGeometryToScreenPixmap()
          * native pixels, we use XCB API to place the quick editor window at (0, 0).
          */
         const uint32_t coordinates[] = {0, 0};
-        xcb_configure_window(QX11Info::connection(), winId(), XCB_CONFIG_WINDOW_X | XCB_CONFIG_WINDOW_Y, coordinates);
+        xcb_configure_window(x11Application->connection(), winId(), XCB_CONFIG_WINDOW_X | XCB_CONFIG_WINDOW_Y, coordinates);
         resize(m_screensRect.width() / devicePixelRatio(), m_screensRect.height() / devicePixelRatio());
         return;
     }
@@ -801,7 +800,7 @@ void SnippingArea::layoutBottomHelpText()
     for (int i = 0; i < m_bottomLeftHelpText.size(); i++) {
         const QSize leftSize = m_bottomLeftHelpText[i].size().toSize();
         m_bottomHelpGridLeftWidth = qMax(m_bottomHelpGridLeftWidth, leftSize.width());
-        for (const QStaticText &rightTextPart : qAsConst(m_bottomRightHelpText[i])) {
+        for (const QStaticText &rightTextPart : std::as_const(m_bottomRightHelpText[i])) {
             const QSize rightItemSize = rightTextPart.size().toSize();
             maxRightWidth = qMax(maxRightWidth, rightItemSize.width());
             contentHeight += rightItemSize.height();
@@ -875,12 +874,13 @@ void SnippingArea::preparePaint()
 void SnippingArea::acceptSelection()
 {
     if (!m_selection.isEmpty()) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
-        const qreal dpi = QGuiApplication::screenAt(QCursor::pos())->logicalDotsPerInch();
-#else
-        // Until Qt 5.10 there was no way to get the screen with the current cursor
+        /*
+         * TODO: Find out why a logicalDotsPerInch() call on a QScreen obtained through QGuiApplication::screenAt(QCursor::pos());
+         * causes some kind of reentrancy/thread-safety issue. The debugger shows the Q_D() macro on entry to logicalDotsPerInch() triggering the segfault.
+         * I suspect this has something to do with the painting and reentrancy, since access to QScreens from different threads does not seem to cause issues in other places.
+         * When this is resolved, we can actually find out the DPI of the screen being snapshotted, instead of taking the value from the primary screen.
+         */
         const qreal dpi = QGuiApplication::primaryScreen()->logicalDotsPerInch();
-#endif
 
         if (m_negateOcrImage) {
             QImage image = selectedPixmap().toImage();

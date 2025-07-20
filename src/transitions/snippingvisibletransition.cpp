@@ -15,11 +15,11 @@ SnippingVisibleTransition::SnippingVisibleTransition(SnippingArea *snippingArea,
 {
 }
 
-bool SnippingVisibleTransition::eventTest(QEvent *)
+bool SnippingVisibleTransition::eventTest(QEvent * /*event*/)
 {
     return m_snippingarea->isVisible();
 }
 
-void SnippingVisibleTransition::onTransition(QEvent *)
+void SnippingVisibleTransition::onTransition(QEvent * /*event*/)
 {
 }

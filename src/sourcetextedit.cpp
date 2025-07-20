@@ -18,11 +18,7 @@ SourceTextEdit::SourceTextEdit(QWidget *parent)
     , m_textEditedTimer(new QTimer(this))
 {
     m_textEditedTimer->setSingleShot(true);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     m_textEditedTimer->callOnTimeout(this, &SourceTextEdit::textEdited);
-#else
-    connect(m_textEditedTimer, &QTimer::timeout, this, &SourceTextEdit::textEdited);
-#endif
     connect(this, &SourceTextEdit::textChanged, this, &SourceTextEdit::checkSourceEmptyChanged);
 }
 
