@@ -17,26 +17,26 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: src/cli.cpp:43
+#: src/cli.cpp:42
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "모든 언어 코드를 표시합니다."
 
-#: src/cli.cpp:44
+#: src/cli.cpp:43
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
 msgstr "원본 언어를 지정합니다(기본값은 엔진에서 자체적으로 언어 결정)."
 
-#: src/cli.cpp:45
+#: src/cli.cpp:44
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
 "language is used)."
 msgstr "'+'로 구분하여 대상 언어를 지정합니다(기본값은 시스템 언어 사용)."
 
-#: src/cli.cpp:46
+#: src/cli.cpp:45
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
@@ -45,7 +45,7 @@ msgstr ""
 "번역기 엔진을 지정합니다('google', 'yandex', 'bing', 'libretranslate', "
 "'lingva'). 기본값으로 Google을 사용합니다."
 
-#: src/cli.cpp:47
+#: src/cli.cpp:46
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
@@ -54,117 +54,117 @@ msgstr ""
 "Mozhi 인스턴스 URL을 지정합니다. 기본값은 앱 설정에서 지정한 인스턴스 URL입니"
 "다."
 
-#: src/cli.cpp:48
+#: src/cli.cpp:47
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "번역 결과를 읽어 줍니다."
 
-#: src/cli.cpp:49
+#: src/cli.cpp:48
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "원본을 읽어 줍니다."
 
-#: src/cli.cpp:50
+#: src/cli.cpp:49
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
 msgstr "파일에서 원본 텍스트를 읽습니다. 인자는 파일 경로로 해석됩니다."
 
-#: src/cli.cpp:51
+#: src/cli.cpp:50
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "원본 텍스트에 표준 입력 데이터를 추가합니다."
 
-#: src/cli.cpp:52
+#: src/cli.cpp:51
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "--%1 또는 --%2 사용 시 텍스트를 출력하지 않습니다."
 
-#: src/cli.cpp:53
+#: src/cli.cpp:52
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "번역만 출력합니다."
 
-#: src/cli.cpp:54
+#: src/cli.cpp:53
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "JSON 형식으로 출력합니다."
 
-#: src/cli.cpp:57
+#: src/cli.cpp:56
 msgctxt "Cli|"
 msgid "Application that allows to translate and speak text using Mozhi"
 msgstr "Mozhi를 사용하여 텍스트를 번역하고 말하는 앱"
 
-#: src/cli.cpp:58
+#: src/cli.cpp:57
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr "번역할 텍스트입니다. 기본값으로 시스템 언어로 번역됩니다."
 
-#: src/cli.cpp:80
+#: src/cli.cpp:79
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "오류: --%1 옵션에는 --%2/--%3 옵션을 지정해야 함"
 
-#: src/cli.cpp:95
+#: src/cli.cpp:94
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "오류: 알 수 없는 원본 언어 코드 '%1'"
 
-#: src/cli.cpp:103
+#: src/cli.cpp:102
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "오류: 알 수 없는 번역 언어 코드 '%1'"
 
-#: src/cli.cpp:127
+#: src/cli.cpp:126
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "오류: 번역할 텍스트가 없음"
 
-#: src/cli.cpp:133
+#: src/cli.cpp:132
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr "가장 빠른 인스턴스 확인 중"
 
-#: src/cli.cpp:160
+#: src/cli.cpp:159
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "오류: 알 수 없는 엔진"
 
-#: src/cli.cpp:195 src/cli.cpp:287 src/cli.cpp:377
+#: src/cli.cpp:194 src/cli.cpp:282 src/cli.cpp:372
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "오류: %1"
 
-#: src/cli.cpp:249
+#: src/cli.cpp:244
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "번역 옵션:"
 
-#: src/cli.cpp:260
+#: src/cli.cpp:255
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "예제:"
 
-#: src/cli.cpp:390
+#: src/cli.cpp:385
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "오류: --%1 옵션과 --%2 옵션은 같이 사용할 수 없음"
 
-#: src/cli.cpp:406 src/cli.cpp:427
+#: src/cli.cpp:397 src/cli.cpp:418
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "오류: 파일이 없음: %1"
 
-#: src/cli.cpp:411 src/cli.cpp:432
+#: src/cli.cpp:402 src/cli.cpp:423
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -209,17 +209,17 @@ msgstr ""
 "가장 빠른 인스턴스를 확인하고 있습니다.\n"
 "'%1' 확인 중"
 
-#: src/languagebuttonswidget.cpp:220
+#: src/languagebuttonswidget.cpp:216
 msgctxt "LanguageButtonsWidget|"
 msgid "Window width is larger than screen due to the languages on the panel."
 msgstr "패널에 표시된 언어 때문에 창 크기가 화면보다 더 큽니다."
 
-#: src/languagebuttonswidget.cpp:221
+#: src/languagebuttonswidget.cpp:217
 msgctxt "LanguageButtonsWidget|"
 msgid "Please reduce added languages."
 msgstr "추가된 언어를 줄이십시오."
 
-#: src/languagebuttonswidget.cpp:297 src/languagebuttonswidget.cpp:299
+#: src/languagebuttonswidget.cpp:293 src/languagebuttonswidget.cpp:295
 msgctxt "LanguageButtonsWidget|"
 msgid "Auto"
 msgstr "자동"
@@ -250,46 +250,46 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "현재 언어:"
 
-#: src/main.cpp:72
+#: src/main.cpp:70
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr "%1 D-Bus 서비스가 다른 앱에서 이미 등록됨"
 
-#: src/main.cpp:97
+#: src/main.cpp:95
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "%1의 D-Bus 객체를 등록할 수 없음"
 
-#: src/mainwindow.cpp:270
+#: src/mainwindow.cpp:269
 msgctxt "MainWindow|"
 msgid "Toggled OCR image negate"
 msgstr "OCR 이미지 반전 전환"
 
-#: src/mainwindow.cpp:270
+#: src/mainwindow.cpp:269
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR image negate has changed to %1"
 msgstr "OCR 이미지 반전이 %1(으)로 전환됨"
 
-#: src/mainwindow.cpp:397
+#: src/mainwindow.cpp:392
 msgctxt "MainWindow|"
 msgid "Unable to detect language"
 msgstr "언어를 감지할 수 없음"
 
-#: src/mainwindow.cpp:449
+#: src/mainwindow.cpp:444
 msgctxt "MainWindow|"
 msgid "Unable to translate text"
 msgstr "텍스트를 번역할 수 없음"
 
-#: src/mainwindow.cpp:870
+#: src/mainwindow.cpp:862
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "이 앱에서는 %1을(를) 사용하여 번역을 제공합니다."
 
-#: src/mainwindow.cpp:871
+#: src/mainwindow.cpp:863
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -303,28 +303,28 @@ msgstr ""
 "스는 '%1'이며, 번역 설정에서 변경할 수 있습니다. 위에 있는 링크에서 인스턴스 "
 "정보를 참조하십시오."
 
-#: src/mainwindow.cpp:878
+#: src/mainwindow.cpp:870
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "다시 표시하지 않기"
 
-#: src/mainwindow.cpp:906
+#: src/mainwindow.cpp:898
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "잘못된 트레이 아이콘"
 
-#: src/mainwindow.cpp:906
+#: src/mainwindow.cpp:898
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "지정한 아이콘 '%1'이(가) 잘못되었습니다. 기본 아이콘이 사용됩니다."
 
-#: src/mainwindow.cpp:935
+#: src/mainwindow.cpp:927
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "OCR 언어를 설정할 수 없음"
 
-#: src/mainwindow.cpp:935
+#: src/mainwindow.cpp:927
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
@@ -396,7 +396,7 @@ msgctxt "MainWindow|"
 msgid "Application settings"
 msgstr "앱 설정"
 
-#: src/ocr/ocr.cpp:136
+#: src/ocr/ocr.cpp:132
 #, qt-format
 msgctxt "Ocr|"
 msgid "%1 is not a valid Tesseract parameter name."
@@ -412,24 +412,29 @@ msgctxt "WaylandGnomeScreenGrabber|"
 msgid "GNOME failed to take screenshot."
 msgstr "그놈에서 스크린샷을 찍을 수 없습니다."
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:43
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:44
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to detect active screen for screenshot"
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:52
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to create pipe: %1."
 msgstr "파이프를 만들 수 없음: %1."
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:87
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:96
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to wait for socket readiness: %1."
 msgstr "소켓 준비를 기다릴 수 없음: %1."
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:92
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:101
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Timeout reading from pipe."
 msgstr "파이프에서 읽는 시간이 초과되었습니다."
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:98
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:107
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to read data from socket: %1."
@@ -445,18 +450,18 @@ msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
 msgstr "xdg-desktop-portal에서 빈 경로를 수신했습니다."
 
-#: src/ocr/snippingarea.cpp:78
+#: src/ocr/snippingarea.cpp:77
 msgctxt "SnippingArea|"
 msgid "Unable to snip screen area"
 msgstr "화면 영역을 캡처할 수 없음"
 
-#: src/ocr/snippingarea.cpp:79
+#: src/ocr/snippingarea.cpp:78
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
 msgstr "화면 %1에서 잘못된 이미지를 받았습니다."
 
-#: src/ocr/snippingarea.cpp:631
+#: src/ocr/snippingarea.cpp:630
 msgctxt "SnippingArea|"
 msgid ""
 "Click and drag to draw a selection rectangle,\n"
@@ -465,1200 +470,1200 @@ msgstr ""
 "클릭한 후 드래그로 선택 사각형을 그리거나,\n"
 "Esc 키를 눌러서 끝내십시오"
 
-#: src/ocr/snippingarea.cpp:837
+#: src/ocr/snippingarea.cpp:836
 msgctxt "SnippingArea|"
 msgid "Confirm:"
 msgstr "확인:"
 
-#: src/ocr/snippingarea.cpp:839
+#: src/ocr/snippingarea.cpp:838
 msgctxt "SnippingArea|"
 msgid "Release left-click"
 msgstr "왼쪽 클릭 놓기"
 
-#: src/ocr/snippingarea.cpp:839 src/ocr/snippingarea.cpp:841
+#: src/ocr/snippingarea.cpp:838 src/ocr/snippingarea.cpp:840
 msgctxt "SnippingArea|"
 msgid "Enter"
 msgstr "입력"
 
-#: src/ocr/snippingarea.cpp:841
+#: src/ocr/snippingarea.cpp:840
 msgctxt "SnippingArea|"
 msgid "Double-click"
 msgstr "두 번 클릭"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:842
 msgctxt "SnippingArea|"
 msgid "Create new selection rectangle:"
 msgstr "새 선택 사각형 만들기:"
 
-#: src/ocr/snippingarea.cpp:844
+#: src/ocr/snippingarea.cpp:843
 msgctxt "SnippingArea|"
 msgid "Drag outside selection rectangle"
 msgstr "선택 사각형 바깥쪽에서 드래그"
 
-#: src/ocr/snippingarea.cpp:844
+#: src/ocr/snippingarea.cpp:843
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
 msgstr "+ Shift: 돋보기"
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:846
 msgctxt "SnippingArea|"
 msgid "Move selection rectangle:"
 msgstr "선택 사각형 이동:"
 
-#: src/ocr/snippingarea.cpp:848
+#: src/ocr/snippingarea.cpp:847
 msgctxt "SnippingArea|"
 msgid "Drag inside selection rectangle"
 msgstr "선택 사각형 안쪽에서 드래그"
 
-#: src/ocr/snippingarea.cpp:848
+#: src/ocr/snippingarea.cpp:847
 msgctxt "SnippingArea|"
 msgid "Arrow keys"
 msgstr "화살표 키"
 
-#: src/ocr/snippingarea.cpp:848
+#: src/ocr/snippingarea.cpp:847
 msgctxt "SnippingArea|"
 msgid "+ Shift: Move in 1 pixel steps"
 msgstr "+ Shift: 1픽셀 단위로 이동"
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:849
 msgctxt "SnippingArea|"
 msgid "Resize selection rectangle:"
 msgstr "선택 사각형 크기 조정:"
 
-#: src/ocr/snippingarea.cpp:851
+#: src/ocr/snippingarea.cpp:850
 msgctxt "SnippingArea|"
 msgid "Drag handles"
 msgstr "핸들 드래그"
 
-#: src/ocr/snippingarea.cpp:851
+#: src/ocr/snippingarea.cpp:850
 msgctxt "SnippingArea|"
 msgid "Arrow keys + Alt"
 msgstr "화살표 키 + Alt"
 
-#: src/ocr/snippingarea.cpp:851
+#: src/ocr/snippingarea.cpp:850
 msgctxt "SnippingArea|"
 msgid "+ Shift: Resize in 1 pixel steps"
 msgstr "+ Shift: 1픽셀 단위로 크기 조정"
 
-#: src/ocr/snippingarea.cpp:853
+#: src/ocr/snippingarea.cpp:852
 msgctxt "SnippingArea|"
 msgid "Reset selection:"
 msgstr "선택 영역 초기화:"
 
-#: src/ocr/snippingarea.cpp:854
+#: src/ocr/snippingarea.cpp:853
 msgctxt "SnippingArea|"
 msgid "Right-click"
 msgstr "오른쪽 클릭"
 
-#: src/ocr/snippingarea.cpp:857
+#: src/ocr/snippingarea.cpp:856
 msgctxt "SnippingArea|"
 msgid "Cancel:"
 msgstr "취소:"
 
-#: src/ocr/snippingarea.cpp:858
+#: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "Esc key"
 msgstr "Esc 키"
 
-#: src/onlinetranslator.cpp:275
+#: src/onlinetranslator.cpp:274
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Language detection is not supported for %1"
 msgstr "%1에서 언어 감지를 지원하지 않음"
 
-#: src/onlinetranslator.cpp:352
+#: src/onlinetranslator.cpp:351
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "%1 engine does not support TTS"
 msgstr "%1 엔진에서 TTS를 지원하지 않음"
 
-#: src/onlinetranslator.cpp:493
+#: src/onlinetranslator.cpp:492
 msgctxt "OnlineTranslator|"
 msgid "Automatically detect"
 msgstr "자동 감지"
 
-#: src/onlinetranslator.cpp:495
+#: src/onlinetranslator.cpp:494
 msgctxt "OnlineTranslator|"
 msgid "Afrikaans"
 msgstr "아프리칸스어"
 
-#: src/onlinetranslator.cpp:497
+#: src/onlinetranslator.cpp:496
 msgctxt "OnlineTranslator|"
 msgid "Albanian"
 msgstr "알바니아어"
 
-#: src/onlinetranslator.cpp:499
+#: src/onlinetranslator.cpp:498
 msgctxt "OnlineTranslator|"
 msgid "Amharic"
 msgstr "암하라어"
 
-#: src/onlinetranslator.cpp:501
+#: src/onlinetranslator.cpp:500
 msgctxt "OnlineTranslator|"
 msgid "Arabic"
 msgstr "아랍어"
 
-#: src/onlinetranslator.cpp:503
+#: src/onlinetranslator.cpp:502
 msgctxt "OnlineTranslator|"
 msgid "Armenian"
 msgstr "아르메니아어"
 
-#: src/onlinetranslator.cpp:505
+#: src/onlinetranslator.cpp:504
 msgctxt "OnlineTranslator|"
 msgid "Assamese"
 msgstr "아삼어"
 
-#: src/onlinetranslator.cpp:507
+#: src/onlinetranslator.cpp:506
 msgctxt "OnlineTranslator|"
 msgid "Aymara"
 msgstr "아이마라어"
 
-#: src/onlinetranslator.cpp:509
+#: src/onlinetranslator.cpp:508
 msgctxt "OnlineTranslator|"
 msgid "Azerbaijani"
 msgstr "아제르바이잔어"
 
-#: src/onlinetranslator.cpp:511
+#: src/onlinetranslator.cpp:510
 msgctxt "OnlineTranslator|"
 msgid "Bajan"
 msgstr "바잔어"
 
-#: src/onlinetranslator.cpp:513
+#: src/onlinetranslator.cpp:512
 msgctxt "OnlineTranslator|"
 msgid "Balkan Gipsy"
 msgstr "발칸 롬어"
 
-#: src/onlinetranslator.cpp:515
+#: src/onlinetranslator.cpp:514
 msgctxt "OnlineTranslator|"
 msgid "Bambara"
 msgstr "밤바라어"
 
-#: src/onlinetranslator.cpp:517
+#: src/onlinetranslator.cpp:516
 msgctxt "OnlineTranslator|"
 msgid "Bangla"
 msgstr "벵골어"
 
-#: src/onlinetranslator.cpp:519
+#: src/onlinetranslator.cpp:518
 msgctxt "OnlineTranslator|"
 msgid "Bashkir"
 msgstr "바슈키르어"
 
-#: src/onlinetranslator.cpp:521
+#: src/onlinetranslator.cpp:520
 msgctxt "OnlineTranslator|"
 msgid "Basque"
 msgstr "바스크어"
 
-#: src/onlinetranslator.cpp:523
+#: src/onlinetranslator.cpp:522
 msgctxt "OnlineTranslator|"
 msgid "Belarusian"
 msgstr "벨라루스어"
 
-#: src/onlinetranslator.cpp:525
+#: src/onlinetranslator.cpp:524
 msgctxt "OnlineTranslator|"
 msgid "Bemba"
 msgstr "벰바어"
 
-#: src/onlinetranslator.cpp:527
+#: src/onlinetranslator.cpp:526
 msgctxt "OnlineTranslator|"
 msgid "Bhojpuri"
 msgstr "보지푸리어"
 
-#: src/onlinetranslator.cpp:529
+#: src/onlinetranslator.cpp:528
 msgctxt "OnlineTranslator|"
 msgid "Bislama"
 msgstr "비슬라마어"
 
-#: src/onlinetranslator.cpp:531
+#: src/onlinetranslator.cpp:530
 msgctxt "OnlineTranslator|"
 msgid "Bosnian"
 msgstr "보스니아어"
 
-#: src/onlinetranslator.cpp:533
+#: src/onlinetranslator.cpp:532
 msgctxt "OnlineTranslator|"
 msgid "Breton"
 msgstr "브르타뉴어"
 
-#: src/onlinetranslator.cpp:535
+#: src/onlinetranslator.cpp:534
 msgctxt "OnlineTranslator|"
 msgid "Bulgarian"
 msgstr "불가리아어"
 
-#: src/onlinetranslator.cpp:537
+#: src/onlinetranslator.cpp:536
 msgctxt "OnlineTranslator|"
 msgid "Cantonese (Traditional)"
 msgstr "광둥어"
 
-#: src/onlinetranslator.cpp:539
+#: src/onlinetranslator.cpp:538
 msgctxt "OnlineTranslator|"
 msgid "Catalan"
 msgstr "카탈루냐어"
 
-#: src/onlinetranslator.cpp:541
+#: src/onlinetranslator.cpp:540
 msgctxt "OnlineTranslator|"
 msgid "Cebuano"
 msgstr "세부아노어"
 
-#: src/onlinetranslator.cpp:543
+#: src/onlinetranslator.cpp:542
 msgctxt "OnlineTranslator|"
 msgid "Chamorro"
 msgstr "차모로어"
 
-#: src/onlinetranslator.cpp:545
+#: src/onlinetranslator.cpp:544
 msgctxt "OnlineTranslator|"
 msgid "Chichewa"
 msgstr "치체와어"
 
-#: src/onlinetranslator.cpp:547
+#: src/onlinetranslator.cpp:546
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Literary)"
 msgstr "중국어(한문)"
 
-#: src/onlinetranslator.cpp:549
+#: src/onlinetranslator.cpp:548
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Simplified)"
 msgstr "중국어(간체)"
 
-#: src/onlinetranslator.cpp:551
+#: src/onlinetranslator.cpp:550
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Traditional)"
 msgstr "중국어(번체)"
 
-#: src/onlinetranslator.cpp:553
+#: src/onlinetranslator.cpp:552
 msgctxt "OnlineTranslator|"
 msgid "Chuvash"
 msgstr "추바시어"
 
-#: src/onlinetranslator.cpp:555
+#: src/onlinetranslator.cpp:554
 msgctxt "OnlineTranslator|"
 msgid "Comorian (Ngazidja)"
 msgstr "코모로어(응가지자)"
 
-#: src/onlinetranslator.cpp:557
+#: src/onlinetranslator.cpp:556
 msgctxt "OnlineTranslator|"
 msgid "Coptic"
 msgstr "콥트어"
 
-#: src/onlinetranslator.cpp:559
+#: src/onlinetranslator.cpp:558
 msgctxt "OnlineTranslator|"
 msgid "Corsican"
 msgstr "코르시카어"
 
-#: src/onlinetranslator.cpp:561
+#: src/onlinetranslator.cpp:560
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Antigua and Barbuda)"
 msgstr "크리올 영어(앤티가바부다)"
 
-#: src/onlinetranslator.cpp:563
+#: src/onlinetranslator.cpp:562
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Bahamas)"
 msgstr "크리올 영어(바하마)"
 
-#: src/onlinetranslator.cpp:565
+#: src/onlinetranslator.cpp:564
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Grenadian)"
 msgstr "크리올 영어(그레나다)"
 
-#: src/onlinetranslator.cpp:567
+#: src/onlinetranslator.cpp:566
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Guyanese)"
 msgstr "크리올 영어(가이아나)"
 
-#: src/onlinetranslator.cpp:569
+#: src/onlinetranslator.cpp:568
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Jamaican)"
 msgstr "크리올 영어(자메이카)"
 
-#: src/onlinetranslator.cpp:571
+#: src/onlinetranslator.cpp:570
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Vincentian)"
 msgstr "크리올 영어(빈센트)"
 
-#: src/onlinetranslator.cpp:573
+#: src/onlinetranslator.cpp:572
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Virgin Islands)"
 msgstr "크리올 영어(버진 제도)"
 
-#: src/onlinetranslator.cpp:575
+#: src/onlinetranslator.cpp:574
 msgctxt "OnlineTranslator|"
 msgid "Creole French (Saint Lucian)"
 msgstr "크리올 프랑스어(세인트루시아)"
 
-#: src/onlinetranslator.cpp:577
+#: src/onlinetranslator.cpp:576
 msgctxt "OnlineTranslator|"
 msgid "Creole French (Seselwa)"
 msgstr "크리올 프랑스어(세셀와)"
 
-#: src/onlinetranslator.cpp:579
+#: src/onlinetranslator.cpp:578
 msgctxt "OnlineTranslator|"
 msgid "Creole Portuguese (Upper Guinea)"
 msgstr "크리올 포르투갈어(상부 기니)"
 
-#: src/onlinetranslator.cpp:581
+#: src/onlinetranslator.cpp:580
 msgctxt "OnlineTranslator|"
 msgid "Croatian"
 msgstr "크로아티아어"
 
-#: src/onlinetranslator.cpp:583
+#: src/onlinetranslator.cpp:582
 msgctxt "OnlineTranslator|"
 msgid "Czech"
 msgstr "체코어"
 
-#: src/onlinetranslator.cpp:585
+#: src/onlinetranslator.cpp:584
 msgctxt "OnlineTranslator|"
 msgid "Danish"
 msgstr "덴마크어"
 
-#: src/onlinetranslator.cpp:587
+#: src/onlinetranslator.cpp:586
 msgctxt "OnlineTranslator|"
 msgid "Dari"
 msgstr "다리어"
 
-#: src/onlinetranslator.cpp:589
+#: src/onlinetranslator.cpp:588
 msgctxt "OnlineTranslator|"
 msgid "Divehi"
 msgstr "디베히어"
 
-#: src/onlinetranslator.cpp:591
+#: src/onlinetranslator.cpp:590
 msgctxt "OnlineTranslator|"
 msgid "Dogri"
 msgstr "도그리어"
 
-#: src/onlinetranslator.cpp:593
+#: src/onlinetranslator.cpp:592
 msgctxt "OnlineTranslator|"
 msgid "Dutch"
 msgstr "네덜란드어"
 
-#: src/onlinetranslator.cpp:595
+#: src/onlinetranslator.cpp:594
 msgctxt "OnlineTranslator|"
 msgid "Dzongkha"
 msgstr "종카어"
 
-#: src/onlinetranslator.cpp:597
+#: src/onlinetranslator.cpp:596
 msgctxt "OnlineTranslator|"
 msgid "Elvish (Sindarin)"
 msgstr "엘프어(신다린)"
 
-#: src/onlinetranslator.cpp:599
+#: src/onlinetranslator.cpp:598
 msgctxt "OnlineTranslator|"
 msgid "Emoji"
 msgstr "이모지"
 
-#: src/onlinetranslator.cpp:601
+#: src/onlinetranslator.cpp:600
 msgctxt "OnlineTranslator|"
 msgid "English"
 msgstr "영어"
 
-#: src/onlinetranslator.cpp:603
+#: src/onlinetranslator.cpp:602
 msgctxt "OnlineTranslator|"
 msgid "Esperanto"
 msgstr "에스페란토어"
 
-#: src/onlinetranslator.cpp:605
+#: src/onlinetranslator.cpp:604
 msgctxt "OnlineTranslator|"
 msgid "Estonian"
 msgstr "에스토니아어"
 
-#: src/onlinetranslator.cpp:607
+#: src/onlinetranslator.cpp:606
 msgctxt "OnlineTranslator|"
 msgid "Ewe"
 msgstr "에웨어"
 
-#: src/onlinetranslator.cpp:609
+#: src/onlinetranslator.cpp:608
 msgctxt "OnlineTranslator|"
 msgid "Fanagalo"
 msgstr "파나갈로어"
 
-#: src/onlinetranslator.cpp:611
+#: src/onlinetranslator.cpp:610
 msgctxt "OnlineTranslator|"
 msgid "Faroese"
 msgstr "페로어"
 
-#: src/onlinetranslator.cpp:613
+#: src/onlinetranslator.cpp:612
 msgctxt "OnlineTranslator|"
 msgid "Fijian"
 msgstr "피지어"
 
-#: src/onlinetranslator.cpp:615
+#: src/onlinetranslator.cpp:614
 msgctxt "OnlineTranslator|"
 msgid "Filipino"
 msgstr "타갈로그어"
 
-#: src/onlinetranslator.cpp:617
+#: src/onlinetranslator.cpp:616
 msgctxt "OnlineTranslator|"
 msgid "Finnish"
 msgstr "핀란드어"
 
-#: src/onlinetranslator.cpp:619
+#: src/onlinetranslator.cpp:618
 msgctxt "OnlineTranslator|"
 msgid "French"
 msgstr "프랑스어"
 
-#: src/onlinetranslator.cpp:621
+#: src/onlinetranslator.cpp:620
 msgctxt "OnlineTranslator|"
 msgid "French (Canada)"
 msgstr "프랑스어(캐나다)"
 
-#: src/onlinetranslator.cpp:623
+#: src/onlinetranslator.cpp:622
 msgctxt "OnlineTranslator|"
 msgid "Frisian"
 msgstr "프리지아어"
 
-#: src/onlinetranslator.cpp:625
+#: src/onlinetranslator.cpp:624
 msgctxt "OnlineTranslator|"
 msgid "Galician"
 msgstr "갈리시아어"
 
-#: src/onlinetranslator.cpp:627
+#: src/onlinetranslator.cpp:626
 msgctxt "OnlineTranslator|"
 msgid "Ganda"
 msgstr "간다어"
 
-#: src/onlinetranslator.cpp:629
+#: src/onlinetranslator.cpp:628
 msgctxt "OnlineTranslator|"
 msgid "Georgian"
 msgstr "조지아어"
 
-#: src/onlinetranslator.cpp:631
+#: src/onlinetranslator.cpp:630
 msgctxt "OnlineTranslator|"
 msgid "German"
 msgstr "독일어"
 
-#: src/onlinetranslator.cpp:633
+#: src/onlinetranslator.cpp:632
 msgctxt "OnlineTranslator|"
 msgid "Greek"
 msgstr "그리스어"
 
-#: src/onlinetranslator.cpp:635
+#: src/onlinetranslator.cpp:634
 msgctxt "OnlineTranslator|"
 msgid "Greek (Classical)"
 msgstr "그리스어(고전)"
 
-#: src/onlinetranslator.cpp:637
+#: src/onlinetranslator.cpp:636
 msgctxt "OnlineTranslator|"
 msgid "Guarani"
 msgstr "과라니어"
 
-#: src/onlinetranslator.cpp:639
+#: src/onlinetranslator.cpp:638
 msgctxt "OnlineTranslator|"
 msgid "Gujarati"
 msgstr "구자라트어"
 
-#: src/onlinetranslator.cpp:641
+#: src/onlinetranslator.cpp:640
 msgctxt "OnlineTranslator|"
 msgid "Haitian Creole"
 msgstr "아이티 크리올어"
 
-#: src/onlinetranslator.cpp:643
+#: src/onlinetranslator.cpp:642
 msgctxt "OnlineTranslator|"
 msgid "Hausa"
 msgstr "하우사어"
 
-#: src/onlinetranslator.cpp:645
+#: src/onlinetranslator.cpp:644
 msgctxt "OnlineTranslator|"
 msgid "Hawaiian"
 msgstr "하와이어"
 
-#: src/onlinetranslator.cpp:647
+#: src/onlinetranslator.cpp:646
 msgctxt "OnlineTranslator|"
 msgid "Hebrew"
 msgstr "히브리어"
 
-#: src/onlinetranslator.cpp:649
+#: src/onlinetranslator.cpp:648
 msgctxt "OnlineTranslator|"
 msgid "Hill Mari"
 msgstr "힐마리어"
 
-#: src/onlinetranslator.cpp:651
+#: src/onlinetranslator.cpp:650
 msgctxt "OnlineTranslator|"
 msgid "Hindi"
 msgstr "힌디어"
 
-#: src/onlinetranslator.cpp:653
+#: src/onlinetranslator.cpp:652
 msgctxt "OnlineTranslator|"
 msgid "Hmong"
 msgstr "몽어"
 
-#: src/onlinetranslator.cpp:655
+#: src/onlinetranslator.cpp:654
 msgctxt "OnlineTranslator|"
 msgid "Hmong Daw"
 msgstr "몽다우어"
 
-#: src/onlinetranslator.cpp:657
+#: src/onlinetranslator.cpp:656
 msgctxt "OnlineTranslator|"
 msgid "Hungarian"
 msgstr "헝가리어"
 
-#: src/onlinetranslator.cpp:659
+#: src/onlinetranslator.cpp:658
 msgctxt "OnlineTranslator|"
 msgid "Icelandic"
 msgstr "아이슬란드어"
 
-#: src/onlinetranslator.cpp:661
+#: src/onlinetranslator.cpp:660
 msgctxt "OnlineTranslator|"
 msgid "Igbo"
 msgstr "이그보어"
 
-#: src/onlinetranslator.cpp:663
+#: src/onlinetranslator.cpp:662
 msgctxt "OnlineTranslator|"
 msgid "Ilocano"
 msgstr "일로카노어"
 
-#: src/onlinetranslator.cpp:665
+#: src/onlinetranslator.cpp:664
 msgctxt "OnlineTranslator|"
 msgid "Indonesian"
 msgstr "인도네시아어"
 
-#: src/onlinetranslator.cpp:667
+#: src/onlinetranslator.cpp:666
 msgctxt "OnlineTranslator|"
 msgid "Inuinnaqtun"
 msgstr "이누이나크툰어"
 
-#: src/onlinetranslator.cpp:669
+#: src/onlinetranslator.cpp:668
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut"
 msgstr "이눅티툿어"
 
-#: src/onlinetranslator.cpp:671
+#: src/onlinetranslator.cpp:670
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Greenlandic)"
 msgstr "이눅티툿어(그린란드)"
 
-#: src/onlinetranslator.cpp:673
+#: src/onlinetranslator.cpp:672
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Latin)"
 msgstr "이눅티툿어(라틴 문자)"
 
-#: src/onlinetranslator.cpp:675
+#: src/onlinetranslator.cpp:674
 msgctxt "OnlineTranslator|"
 msgid "Irish"
 msgstr "아일랜드어"
 
-#: src/onlinetranslator.cpp:677
+#: src/onlinetranslator.cpp:676
 msgctxt "OnlineTranslator|"
 msgid "Italian"
 msgstr "이탈리아어"
 
-#: src/onlinetranslator.cpp:679
+#: src/onlinetranslator.cpp:678
 msgctxt "OnlineTranslator|"
 msgid "Japanese"
 msgstr "일본어"
 
-#: src/onlinetranslator.cpp:681
+#: src/onlinetranslator.cpp:680
 msgctxt "OnlineTranslator|"
 msgid "Javanese"
 msgstr "자바어"
 
-#: src/onlinetranslator.cpp:683
+#: src/onlinetranslator.cpp:682
 msgctxt "OnlineTranslator|"
 msgid "Kabuverdianu"
 msgstr "카보베르데 크리올어"
 
-#: src/onlinetranslator.cpp:685
+#: src/onlinetranslator.cpp:684
 msgctxt "OnlineTranslator|"
 msgid "Kabylian"
 msgstr "카빌어"
 
-#: src/onlinetranslator.cpp:687
+#: src/onlinetranslator.cpp:686
 msgctxt "OnlineTranslator|"
 msgid "Kannada"
 msgstr "칸나다어"
 
-#: src/onlinetranslator.cpp:689
+#: src/onlinetranslator.cpp:688
 msgctxt "OnlineTranslator|"
 msgid "Kazakh"
 msgstr "카자흐어"
 
-#: src/onlinetranslator.cpp:691
+#: src/onlinetranslator.cpp:690
 msgctxt "OnlineTranslator|"
 msgid "Kazakh (Latin)"
 msgstr "카자흐어(라틴 문자)"
 
-#: src/onlinetranslator.cpp:693
+#: src/onlinetranslator.cpp:692
 msgctxt "OnlineTranslator|"
 msgid "Khmer"
 msgstr "크메르어"
 
-#: src/onlinetranslator.cpp:695
+#: src/onlinetranslator.cpp:694
 msgctxt "OnlineTranslator|"
 msgid "Kinyarwanda"
 msgstr "키냐르완다어"
 
-#: src/onlinetranslator.cpp:697
+#: src/onlinetranslator.cpp:696
 msgctxt "OnlineTranslator|"
 msgid "Kirundi"
 msgstr "키룬디어"
 
-#: src/onlinetranslator.cpp:699
+#: src/onlinetranslator.cpp:698
 msgctxt "OnlineTranslator|"
 msgid "Klingon (Latin)"
 msgstr "클링곤어(라틴 문자)"
 
-#: src/onlinetranslator.cpp:701
+#: src/onlinetranslator.cpp:700
 msgctxt "OnlineTranslator|"
 msgid "Konkani"
 msgstr "콘카니어"
 
-#: src/onlinetranslator.cpp:703
+#: src/onlinetranslator.cpp:702
 msgctxt "OnlineTranslator|"
 msgid "Korean"
 msgstr "한국어"
 
-#: src/onlinetranslator.cpp:705
+#: src/onlinetranslator.cpp:704
 msgctxt "OnlineTranslator|"
 msgid "Krio"
 msgstr "크리오어"
 
-#: src/onlinetranslator.cpp:707
+#: src/onlinetranslator.cpp:706
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Central)"
 msgstr "쿠르드어(중부)"
 
-#: src/onlinetranslator.cpp:709
+#: src/onlinetranslator.cpp:708
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Northern)"
 msgstr "쿠르드어(북부)"
 
-#: src/onlinetranslator.cpp:711
+#: src/onlinetranslator.cpp:710
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Sorani)"
 msgstr "쿠르드어(소라니)"
 
-#: src/onlinetranslator.cpp:713
+#: src/onlinetranslator.cpp:712
 msgctxt "OnlineTranslator|"
 msgid "Kyrgyz"
 msgstr "키르기스어"
 
-#: src/onlinetranslator.cpp:715
+#: src/onlinetranslator.cpp:714
 msgctxt "OnlineTranslator|"
 msgid "Lao"
 msgstr "라오어"
 
-#: src/onlinetranslator.cpp:717
+#: src/onlinetranslator.cpp:716
 msgctxt "OnlineTranslator|"
 msgid "Latin"
 msgstr "라틴어"
 
-#: src/onlinetranslator.cpp:719
+#: src/onlinetranslator.cpp:718
 msgctxt "OnlineTranslator|"
 msgid "Latvian"
 msgstr "라트비아어"
 
-#: src/onlinetranslator.cpp:721
+#: src/onlinetranslator.cpp:720
 msgctxt "OnlineTranslator|"
 msgid "Lingala"
 msgstr "링갈라어"
 
-#: src/onlinetranslator.cpp:723
+#: src/onlinetranslator.cpp:722
 msgctxt "OnlineTranslator|"
 msgid "Lithuanian"
 msgstr "리투아니아어"
 
-#: src/onlinetranslator.cpp:725
+#: src/onlinetranslator.cpp:724
 msgctxt "OnlineTranslator|"
 msgid "Lower Sorbian"
 msgstr "저지 소르브어"
 
-#: src/onlinetranslator.cpp:727
+#: src/onlinetranslator.cpp:726
 msgctxt "OnlineTranslator|"
 msgid "Luganda"
 msgstr "루간다어"
 
-#: src/onlinetranslator.cpp:729
+#: src/onlinetranslator.cpp:728
 msgctxt "OnlineTranslator|"
 msgid "Luxembourgish"
 msgstr "룩셈부르크어"
 
-#: src/onlinetranslator.cpp:731
+#: src/onlinetranslator.cpp:730
 msgctxt "OnlineTranslator|"
 msgid "Macedonian"
 msgstr "마케도니아어"
 
-#: src/onlinetranslator.cpp:733
+#: src/onlinetranslator.cpp:732
 msgctxt "OnlineTranslator|"
 msgid "Maithili"
 msgstr "마이틸리어"
 
-#: src/onlinetranslator.cpp:735
+#: src/onlinetranslator.cpp:734
 msgctxt "OnlineTranslator|"
 msgid "Malagasy"
 msgstr "말라가시어"
 
-#: src/onlinetranslator.cpp:737
+#: src/onlinetranslator.cpp:736
 msgctxt "OnlineTranslator|"
 msgid "Malay"
 msgstr "말레이어"
 
-#: src/onlinetranslator.cpp:739
+#: src/onlinetranslator.cpp:738
 msgctxt "OnlineTranslator|"
 msgid "Malayalam"
 msgstr "말라얄람어"
 
-#: src/onlinetranslator.cpp:741
+#: src/onlinetranslator.cpp:740
 msgctxt "OnlineTranslator|"
 msgid "Maltese"
 msgstr "몰타어"
 
-#: src/onlinetranslator.cpp:743
+#: src/onlinetranslator.cpp:742
 msgctxt "OnlineTranslator|"
 msgid "Manx Gaelic"
 msgstr "맨섬 게일어"
 
-#: src/onlinetranslator.cpp:745
+#: src/onlinetranslator.cpp:744
 msgctxt "OnlineTranslator|"
 msgid "Marathi"
 msgstr "마라티어"
 
-#: src/onlinetranslator.cpp:747
+#: src/onlinetranslator.cpp:746
 msgctxt "OnlineTranslator|"
 msgid "Mari"
 msgstr "마리어"
 
-#: src/onlinetranslator.cpp:749
+#: src/onlinetranslator.cpp:748
 msgctxt "OnlineTranslator|"
 msgid "Marshallese"
 msgstr "마셜어"
 
-#: src/onlinetranslator.cpp:751
+#: src/onlinetranslator.cpp:750
 msgctxt "OnlineTranslator|"
 msgid "Meiteilon (Manipuri)"
 msgstr "마니푸리어"
 
-#: src/onlinetranslator.cpp:753
+#: src/onlinetranslator.cpp:752
 msgctxt "OnlineTranslator|"
 msgid "Mende"
 msgstr "망드어"
 
-#: src/onlinetranslator.cpp:755
+#: src/onlinetranslator.cpp:754
 msgctxt "OnlineTranslator|"
 msgid "Mizo"
 msgstr "미조어"
 
-#: src/onlinetranslator.cpp:757
+#: src/onlinetranslator.cpp:756
 msgctxt "OnlineTranslator|"
 msgid "Mongolian"
 msgstr "몽골어"
 
-#: src/onlinetranslator.cpp:759
+#: src/onlinetranslator.cpp:758
 msgctxt "OnlineTranslator|"
 msgid "Mongolian (Cyrillic)"
 msgstr "몽골어(키릴 문자)"
 
-#: src/onlinetranslator.cpp:761
+#: src/onlinetranslator.cpp:760
 msgctxt "OnlineTranslator|"
 msgid "Mongolian (Traditional)"
 msgstr "몽골어(몽골 문자)"
 
-#: src/onlinetranslator.cpp:763
+#: src/onlinetranslator.cpp:762
 msgctxt "OnlineTranslator|"
 msgid "Morisyen"
 msgstr "모리스얀어"
 
-#: src/onlinetranslator.cpp:765
+#: src/onlinetranslator.cpp:764
 msgctxt "OnlineTranslator|"
 msgid "Myanmar (Burmese)"
 msgstr "미얀마어(버마어)"
 
-#: src/onlinetranslator.cpp:767
+#: src/onlinetranslator.cpp:766
 msgctxt "OnlineTranslator|"
 msgid "Māori"
 msgstr "마오리어"
 
-#: src/onlinetranslator.cpp:769
+#: src/onlinetranslator.cpp:768
 msgctxt "OnlineTranslator|"
 msgid "Nepali"
 msgstr "네팔어"
 
-#: src/onlinetranslator.cpp:771
+#: src/onlinetranslator.cpp:770
 msgctxt "OnlineTranslator|"
 msgid "Niuean"
 msgstr "니우에어"
 
-#: src/onlinetranslator.cpp:773
+#: src/onlinetranslator.cpp:772
 msgctxt "OnlineTranslator|"
 msgid "Norwegian"
 msgstr "노르웨이어"
 
-#: src/onlinetranslator.cpp:775
+#: src/onlinetranslator.cpp:774
 msgctxt "OnlineTranslator|"
 msgid "Nyanja"
 msgstr "냔자어"
 
-#: src/onlinetranslator.cpp:777
+#: src/onlinetranslator.cpp:776
 msgctxt "OnlineTranslator|"
 msgid "Odia"
 msgstr "오디아어"
 
-#: src/onlinetranslator.cpp:779
+#: src/onlinetranslator.cpp:778
 msgctxt "OnlineTranslator|"
 msgid "Oromo"
 msgstr "오로모어"
 
-#: src/onlinetranslator.cpp:781
+#: src/onlinetranslator.cpp:780
 msgctxt "OnlineTranslator|"
 msgid "Palauan"
 msgstr "팔라우어"
 
-#: src/onlinetranslator.cpp:783
+#: src/onlinetranslator.cpp:782
 msgctxt "OnlineTranslator|"
 msgid "Papiamentu"
 msgstr "파피아멘토어"
 
-#: src/onlinetranslator.cpp:785
+#: src/onlinetranslator.cpp:784
 msgctxt "OnlineTranslator|"
 msgid "Pashto"
 msgstr "파슈토어"
 
-#: src/onlinetranslator.cpp:787
+#: src/onlinetranslator.cpp:786
 msgctxt "OnlineTranslator|"
 msgid "Persian"
 msgstr "페르시아어"
 
-#: src/onlinetranslator.cpp:789
+#: src/onlinetranslator.cpp:788
 msgctxt "OnlineTranslator|"
 msgid "Pijin"
 msgstr "피진어"
 
-#: src/onlinetranslator.cpp:791
+#: src/onlinetranslator.cpp:790
 msgctxt "OnlineTranslator|"
 msgid "Polish"
 msgstr "폴란드어"
 
-#: src/onlinetranslator.cpp:793
+#: src/onlinetranslator.cpp:792
 msgctxt "OnlineTranslator|"
 msgid "Portuguese (Brazilian)"
 msgstr "포르투갈어(브라질)"
 
-#: src/onlinetranslator.cpp:795
+#: src/onlinetranslator.cpp:794
 msgctxt "OnlineTranslator|"
 msgid "Portuguese (Portugal)"
 msgstr "포르투갈어(포르투갈)"
 
-#: src/onlinetranslator.cpp:797
+#: src/onlinetranslator.cpp:796
 msgctxt "OnlineTranslator|"
 msgid "Potawatomi"
 msgstr "포타와토미어"
 
-#: src/onlinetranslator.cpp:799
+#: src/onlinetranslator.cpp:798
 msgctxt "OnlineTranslator|"
 msgid "Punjabi"
 msgstr "펀자브어"
 
-#: src/onlinetranslator.cpp:801
+#: src/onlinetranslator.cpp:800
 msgctxt "OnlineTranslator|"
 msgid "Quechua"
 msgstr "케추아어"
 
-#: src/onlinetranslator.cpp:803
+#: src/onlinetranslator.cpp:802
 msgctxt "OnlineTranslator|"
 msgid "Querétaro Otomi"
 msgstr "케레타로 오토미어"
 
-#: src/onlinetranslator.cpp:805
+#: src/onlinetranslator.cpp:804
 msgctxt "OnlineTranslator|"
 msgid "Romanian"
 msgstr "루마니아어"
 
-#: src/onlinetranslator.cpp:807
+#: src/onlinetranslator.cpp:806
 msgctxt "OnlineTranslator|"
 msgid "Rundi"
 msgstr "룬디어"
 
-#: src/onlinetranslator.cpp:809
+#: src/onlinetranslator.cpp:808
 msgctxt "OnlineTranslator|"
 msgid "Russian"
 msgstr "러시아어"
 
-#: src/onlinetranslator.cpp:811
+#: src/onlinetranslator.cpp:810
 msgctxt "OnlineTranslator|"
 msgid "Samoan"
 msgstr "사모아어"
 
-#: src/onlinetranslator.cpp:813
+#: src/onlinetranslator.cpp:812
 msgctxt "OnlineTranslator|"
 msgid "Sango"
 msgstr "상고어"
 
-#: src/onlinetranslator.cpp:815
+#: src/onlinetranslator.cpp:814
 msgctxt "OnlineTranslator|"
 msgid "Sanskrit"
 msgstr "산스크리트어"
 
-#: src/onlinetranslator.cpp:817
+#: src/onlinetranslator.cpp:816
 msgctxt "OnlineTranslator|"
 msgid "Scots Gaelic"
 msgstr "스코틀랜드 게일어"
 
-#: src/onlinetranslator.cpp:819
+#: src/onlinetranslator.cpp:818
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Cyrillic)"
 msgstr "세르비아어(키릴 문자)"
 
-#: src/onlinetranslator.cpp:821
+#: src/onlinetranslator.cpp:820
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Latin)"
 msgstr "세르비아어(라틴 문자)"
 
-#: src/onlinetranslator.cpp:823
+#: src/onlinetranslator.cpp:822
 msgctxt "OnlineTranslator|"
 msgid "Sesotho"
 msgstr "세소토어"
 
-#: src/onlinetranslator.cpp:825
+#: src/onlinetranslator.cpp:824
 msgctxt "OnlineTranslator|"
 msgid "Sesotho sa Leboa"
 msgstr "세소토 사 레보아어"
 
-#: src/onlinetranslator.cpp:827
+#: src/onlinetranslator.cpp:826
 msgctxt "OnlineTranslator|"
 msgid "Setswana"
 msgstr "세츠와나어"
 
-#: src/onlinetranslator.cpp:829
+#: src/onlinetranslator.cpp:828
 msgctxt "OnlineTranslator|"
 msgid "Shona"
 msgstr "쇼나어"
 
-#: src/onlinetranslator.cpp:831
+#: src/onlinetranslator.cpp:830
 msgctxt "OnlineTranslator|"
 msgid "Sindhi"
 msgstr "신디어"
 
-#: src/onlinetranslator.cpp:833
+#: src/onlinetranslator.cpp:832
 msgctxt "OnlineTranslator|"
 msgid "Sinhala"
 msgstr "싱할라어"
 
-#: src/onlinetranslator.cpp:835
+#: src/onlinetranslator.cpp:834
 msgctxt "OnlineTranslator|"
 msgid "Slovak"
 msgstr "슬로바키아어"
 
-#: src/onlinetranslator.cpp:837
+#: src/onlinetranslator.cpp:836
 msgctxt "OnlineTranslator|"
 msgid "Slovenian"
 msgstr "슬로베니아어"
 
-#: src/onlinetranslator.cpp:839
+#: src/onlinetranslator.cpp:838
 msgctxt "OnlineTranslator|"
 msgid "Somali"
 msgstr "소말리아어"
 
-#: src/onlinetranslator.cpp:841
+#: src/onlinetranslator.cpp:840
 msgctxt "OnlineTranslator|"
 msgid "Spanish"
 msgstr "스페인어"
 
-#: src/onlinetranslator.cpp:843
+#: src/onlinetranslator.cpp:842
 msgctxt "OnlineTranslator|"
 msgid "Sranan Tongo"
 msgstr "스라난 통고어"
 
-#: src/onlinetranslator.cpp:845
+#: src/onlinetranslator.cpp:844
 msgctxt "OnlineTranslator|"
 msgid "Sundanese"
 msgstr "순다어"
 
-#: src/onlinetranslator.cpp:847
+#: src/onlinetranslator.cpp:846
 msgctxt "OnlineTranslator|"
 msgid "Swahili"
 msgstr "스와힐리어"
 
-#: src/onlinetranslator.cpp:849
+#: src/onlinetranslator.cpp:848
 msgctxt "OnlineTranslator|"
 msgid "Swedish"
 msgstr "스웨덴어"
 
-#: src/onlinetranslator.cpp:851
+#: src/onlinetranslator.cpp:850
 msgctxt "OnlineTranslator|"
 msgid "Syriac (Aramaic)"
 msgstr "시리아어(아람 문자)"
 
-#: src/onlinetranslator.cpp:853
+#: src/onlinetranslator.cpp:852
 msgctxt "OnlineTranslator|"
 msgid "Tahitian"
 msgstr "타히티어"
 
-#: src/onlinetranslator.cpp:855
+#: src/onlinetranslator.cpp:854
 msgctxt "OnlineTranslator|"
 msgid "Tajik"
 msgstr "타지크어"
 
-#: src/onlinetranslator.cpp:857
+#: src/onlinetranslator.cpp:856
 msgctxt "OnlineTranslator|"
 msgid "Tamashek (Tuareg)"
 msgstr "타마셰크어(투아레그어)"
 
-#: src/onlinetranslator.cpp:859
+#: src/onlinetranslator.cpp:858
 msgctxt "OnlineTranslator|"
 msgid "Tamil"
 msgstr "타밀어"
 
-#: src/onlinetranslator.cpp:861
+#: src/onlinetranslator.cpp:860
 msgctxt "OnlineTranslator|"
 msgid "Tatar"
 msgstr "타타르어"
 
-#: src/onlinetranslator.cpp:863
+#: src/onlinetranslator.cpp:862
 msgctxt "OnlineTranslator|"
 msgid "Telugu"
 msgstr "텔루구어"
 
-#: src/onlinetranslator.cpp:865
+#: src/onlinetranslator.cpp:864
 msgctxt "OnlineTranslator|"
 msgid "Tetum"
 msgstr "테툼어"
 
-#: src/onlinetranslator.cpp:867
+#: src/onlinetranslator.cpp:866
 msgctxt "OnlineTranslator|"
 msgid "Thai"
 msgstr "태국어"
 
-#: src/onlinetranslator.cpp:869
+#: src/onlinetranslator.cpp:868
 msgctxt "OnlineTranslator|"
 msgid "Tibetan"
 msgstr "티베트어"
 
-#: src/onlinetranslator.cpp:871
+#: src/onlinetranslator.cpp:870
 msgctxt "OnlineTranslator|"
 msgid "Tigrinya"
 msgstr "티그리냐어"
 
-#: src/onlinetranslator.cpp:873
+#: src/onlinetranslator.cpp:872
 msgctxt "OnlineTranslator|"
 msgid "Tok Pisin"
 msgstr "톡 피신"
 
-#: src/onlinetranslator.cpp:875
+#: src/onlinetranslator.cpp:874
 msgctxt "OnlineTranslator|"
 msgid "Tokelauan"
 msgstr "토켈라우어"
 
-#: src/onlinetranslator.cpp:877
+#: src/onlinetranslator.cpp:876
 msgctxt "OnlineTranslator|"
 msgid "Tongan"
 msgstr "통가어"
 
-#: src/onlinetranslator.cpp:879
+#: src/onlinetranslator.cpp:878
 msgctxt "OnlineTranslator|"
 msgid "Tsonga"
 msgstr "총가어"
 
-#: src/onlinetranslator.cpp:881
+#: src/onlinetranslator.cpp:880
 msgctxt "OnlineTranslator|"
 msgid "Turkish"
 msgstr "튀르키예어"
 
-#: src/onlinetranslator.cpp:883
+#: src/onlinetranslator.cpp:882
 msgctxt "OnlineTranslator|"
 msgid "Turkmen"
 msgstr "투르크멘어"
 
-#: src/onlinetranslator.cpp:885
+#: src/onlinetranslator.cpp:884
 msgctxt "OnlineTranslator|"
 msgid "Tuvaluan"
 msgstr "투발루어"
 
-#: src/onlinetranslator.cpp:887
+#: src/onlinetranslator.cpp:886
 msgctxt "OnlineTranslator|"
 msgid "Twi"
 msgstr "트위어"
 
-#: src/onlinetranslator.cpp:889
+#: src/onlinetranslator.cpp:888
 msgctxt "OnlineTranslator|"
 msgid "Udmurt"
 msgstr "우드무르트어"
 
-#: src/onlinetranslator.cpp:891
+#: src/onlinetranslator.cpp:890
 msgctxt "OnlineTranslator|"
 msgid "Ukrainian"
 msgstr "우크라이나어"
 
-#: src/onlinetranslator.cpp:893
+#: src/onlinetranslator.cpp:892
 msgctxt "OnlineTranslator|"
 msgid "Uma"
 msgstr "우마어"
 
-#: src/onlinetranslator.cpp:895
+#: src/onlinetranslator.cpp:894
 msgctxt "OnlineTranslator|"
 msgid "Upper Sorbian"
 msgstr "고지 소르브어"
 
-#: src/onlinetranslator.cpp:897
+#: src/onlinetranslator.cpp:896
 msgctxt "OnlineTranslator|"
 msgid "Urdu"
 msgstr "우르두어"
 
-#: src/onlinetranslator.cpp:899
+#: src/onlinetranslator.cpp:898
 msgctxt "OnlineTranslator|"
 msgid "Uyghur"
 msgstr "위구르어"
 
-#: src/onlinetranslator.cpp:901
+#: src/onlinetranslator.cpp:900
 msgctxt "OnlineTranslator|"
 msgid "Uzbek (Cyrillic)"
 msgstr "우즈베크어(키릴 문자)"
 
-#: src/onlinetranslator.cpp:903
+#: src/onlinetranslator.cpp:902
 msgctxt "OnlineTranslator|"
 msgid "Uzbek (Latin)"
 msgstr "우즈베크어(라틴 문자)"
 
-#: src/onlinetranslator.cpp:905
+#: src/onlinetranslator.cpp:904
 msgctxt "OnlineTranslator|"
 msgid "Vietnamese"
 msgstr "베트남어"
 
-#: src/onlinetranslator.cpp:907
+#: src/onlinetranslator.cpp:906
 msgctxt "OnlineTranslator|"
 msgid "Wallisian"
 msgstr "월리스어"
 
-#: src/onlinetranslator.cpp:909
+#: src/onlinetranslator.cpp:908
 msgctxt "OnlineTranslator|"
 msgid "Welsh"
 msgstr "웨일스어"
 
-#: src/onlinetranslator.cpp:911
+#: src/onlinetranslator.cpp:910
 msgctxt "OnlineTranslator|"
 msgid "Wolof"
 msgstr "월로프어"
 
-#: src/onlinetranslator.cpp:913
+#: src/onlinetranslator.cpp:912
 msgctxt "OnlineTranslator|"
 msgid "Xhosa"
 msgstr "코사어"
 
-#: src/onlinetranslator.cpp:915
+#: src/onlinetranslator.cpp:914
 msgctxt "OnlineTranslator|"
 msgid "Yakut"
 msgstr "야쿠트어"
 
-#: src/onlinetranslator.cpp:917
+#: src/onlinetranslator.cpp:916
 msgctxt "OnlineTranslator|"
 msgid "Yiddish"
 msgstr "이디시어"
 
-#: src/onlinetranslator.cpp:919
+#: src/onlinetranslator.cpp:918
 msgctxt "OnlineTranslator|"
 msgid "Yoruba"
 msgstr "요루바어"
 
-#: src/onlinetranslator.cpp:921
+#: src/onlinetranslator.cpp:920
 msgctxt "OnlineTranslator|"
 msgid "Yucatec Maya"
 msgstr "유카텍 마야어"
 
-#: src/onlinetranslator.cpp:923
+#: src/onlinetranslator.cpp:922
 msgctxt "OnlineTranslator|"
 msgid "Zulu"
 msgstr "줄루어"
 
-#: src/onlinetranslator.cpp:1268
+#: src/onlinetranslator.cpp:1267
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Instance error: %1"
 msgstr "인스턴스 오류: %1"
 
-#: src/onlinetranslator.cpp:1282
+#: src/onlinetranslator.cpp:1281
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
 msgstr "오류: 자동 감지된 언어를 해석할 수 없음"
@@ -1668,17 +1673,17 @@ msgctxt "PopupWindow|"
 msgid "Swap languages"
 msgstr "언어 맞바꾸기"
 
-#: src/popupwindow.ui:64
+#: src/popupwindow.ui:63
 msgctxt "PopupWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "원본 텍스트를 클립보드에 복사"
 
-#: src/popupwindow.ui:158
+#: src/popupwindow.ui:156
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "모든 번역 데이터를 클립보드에 복사"
 
-#: src/popupwindow.ui:169
+#: src/popupwindow.ui:166
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "번역을 클립보드에 복사"
@@ -2692,17 +2697,17 @@ msgctxt "TesseractParametersTableWidget|"
 msgid "Value"
 msgstr "값"
 
-#: src/speakbuttons.cpp:75
+#: src/speakbuttons.cpp:80
 msgctxt "SpeakButtons|"
 msgid "No text specified"
 msgstr "지정한 텍스트 없음"
 
-#: src/speakbuttons.cpp:75
+#: src/speakbuttons.cpp:80
 msgctxt "SpeakButtons|"
 msgid "Playback text is empty"
 msgstr "재생 텍스트가 비어 있음"
 
-#: src/speakbuttons.cpp:81
+#: src/speakbuttons.cpp:86
 msgctxt "SpeakButtons|"
 msgid "Unable to generate URLs for TTS"
 msgstr "TTS에 대한 URL을 생성할 수 없음"
