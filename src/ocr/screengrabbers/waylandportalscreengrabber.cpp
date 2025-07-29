@@ -17,25 +17,26 @@
 #include <QUrl>
 #include <QWidget>
 
-// https://github.com/flatpak/xdg-desktop-portal/blob/89d2197002f164d02d891c530dcaa2808f27f593/data/org.freedesktop.portal.Screenshot.xml
-QDBusInterface WaylandPortalScreenGrabber::s_interface(QStringLiteral("org.freedesktop.portal.Desktop"),
-                                                       QStringLiteral("/org/freedesktop/portal/desktop"),
-                                                       QStringLiteral("org.freedesktop.portal.Screenshot"));
-
 WaylandPortalScreenGrabber::WaylandPortalScreenGrabber(QObject *parent)
     : DBusScreenGrabber(parent)
+    , m_interface(QStringLiteral("org.freedesktop.portal.Desktop"),
+                  QStringLiteral("/org/freedesktop/portal/desktop"),
+                  QStringLiteral("org.freedesktop.portal.Screenshot"))
 {
 }
 
 bool WaylandPortalScreenGrabber::isAvailable()
 {
-    return s_interface.isValid();
+    QDBusInterface interface(QStringLiteral("org.freedesktop.portal.Desktop"),
+                             QStringLiteral("/org/freedesktop/portal/desktop"),
+                             QStringLiteral("org.freedesktop.portal.Screenshot"));
+    return interface.isValid();
 }
 
 void WaylandPortalScreenGrabber::grab()
 {
     auto *window = qobject_cast<QWidget *>(parent())->windowHandle();
-    const QDBusPendingReply<QDBusObjectPath> reply = s_interface.asyncCall(QStringLiteral("Screenshot"), XdgDesktopPortal::parentWindow(window), QVariantMap());
+    const QDBusPendingReply<QDBusObjectPath> reply = m_interface.asyncCall(QStringLiteral("Screenshot"), XdgDesktopPortal::parentWindow(window), QVariantMap());
     m_callWatcher = new QDBusPendingCallWatcher(reply, this);
     connect(m_callWatcher, &QDBusPendingCallWatcher::finished, [this] {
         const QDBusPendingReply<QDBusObjectPath> reply = readReply<QDBusObjectPath>();

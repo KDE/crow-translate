@@ -31,8 +31,8 @@ private slots:
 
 private:
     QString m_responseServicePath;
-
-    static QDBusInterface s_interface;
+    // https://github.com/flatpak/xdg-desktop-portal/blob/89d2197002f164d02d891c530dcaa2808f27f593/data/org.freedesktop.portal.Screenshot.xml
+    QDBusInterface m_interface;
 };
 
 #endif // WAYLANDPORTALSCREENGRABBER_H

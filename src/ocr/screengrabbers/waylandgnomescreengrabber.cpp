@@ -16,24 +16,25 @@
 
 const QString WaylandGnomeScreenGrabber::s_fileName = QDir::temp().filePath(QStringLiteral("ocr-screenshot.png"));
 
-// https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/data/dbus-interfaces/org.gnome.Shell.Screenshot.xml
-QDBusInterface WaylandGnomeScreenGrabber::s_interface(QStringLiteral("org.gnome.Shell"),
-                                                      QStringLiteral("/org/gnome/Shell/Screenshot"),
-                                                      QStringLiteral("org.gnome.Shell.Screenshot"));
-
 WaylandGnomeScreenGrabber::WaylandGnomeScreenGrabber(QObject *parent)
     : DBusScreenGrabber(parent)
+    , m_interface(QStringLiteral("org.gnome.Shell"),
+                  QStringLiteral("/org/gnome/Shell/Screenshot"),
+                  QStringLiteral("org.gnome.Shell.Screenshot"))
 {
 }
 
 bool WaylandGnomeScreenGrabber::isAvailable()
 {
-    return s_interface.isValid();
+    QDBusInterface interface(QStringLiteral("org.gnome.Shell"),
+                             QStringLiteral("/org/gnome/Shell/Screenshot"),
+                             QStringLiteral("org.gnome.Shell.Screenshot"));
+    return interface.isValid();
 }
 
 void WaylandGnomeScreenGrabber::grab()
 {
-    const QDBusPendingReply<bool> reply = s_interface.asyncCall(QStringLiteral("Screenshot"), false, false, s_fileName);
+    const QDBusPendingReply<bool> reply = m_interface.asyncCall(QStringLiteral("Screenshot"), false, false, s_fileName);
     m_callWatcher = new QDBusPendingCallWatcher(reply, this);
     connect(m_callWatcher, &QDBusPendingCallWatcher::finished, [this] {
         const QDBusPendingReply<bool> reply = readReply<bool>();

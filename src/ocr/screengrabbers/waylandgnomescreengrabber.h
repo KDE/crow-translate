@@ -27,7 +27,8 @@ public slots:
 
 private:
     static const QString s_fileName;
-    static QDBusInterface s_interface;
+    // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/data/dbus-interfaces/org.gnome.Shell.Screenshot.xml
+    QDBusInterface m_interface;
 };
 
 #endif // WAYLANDGNOMESCREENGRABBER_H

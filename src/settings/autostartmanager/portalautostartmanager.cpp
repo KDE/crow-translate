@@ -14,12 +14,11 @@
 #include <QWidget>
 #include <QtCore>
 
-QDBusInterface PortalAutostartManager::s_interface(QStringLiteral("org.freedesktop.portal.Desktop"),
-                                                   QStringLiteral("/org/freedesktop/portal/desktop"),
-                                                   QStringLiteral("org.freedesktop.portal.Background"));
-
 PortalAutostartManager::PortalAutostartManager(QObject *parent)
     : AbstractAutostartManager(parent)
+    , m_interface(QStringLiteral("org.freedesktop.portal.Desktop"),
+                  QStringLiteral("/org/freedesktop/portal/desktop"),
+                  QStringLiteral("org.freedesktop.portal.Background"))
 {
 }
 
@@ -37,14 +36,14 @@ void PortalAutostartManager::setAutostartEnabled(bool enabled)
         {QStringLiteral("commandline"), QStringList{QCoreApplication::applicationFilePath()}},
         {QStringLiteral("dbus-activatable"), false},
     };
-    const QDBusReply<QDBusObjectPath> reply = s_interface.call(QStringLiteral("RequestBackground"), XdgDesktopPortal::parentWindow(window), options);
+    const QDBusReply<QDBusObjectPath> reply = m_interface.call(QStringLiteral("RequestBackground"), XdgDesktopPortal::parentWindow(window), options);
 
     if (!reply.isValid()) {
         showError(reply.error().message());
         return;
     }
 
-    const bool connected = s_interface.connection().connect(QStringLiteral("org.freedesktop.portal.Desktop"),
+    const bool connected = m_interface.connection().connect(QStringLiteral("org.freedesktop.portal.Desktop"),
                                                             reply.value().path(),
                                                             QStringLiteral("org.freedesktop.portal.Request"),
                                                             QStringLiteral("Response"),
@@ -62,7 +61,10 @@ void PortalAutostartManager::setAutostartEnabled(bool enabled)
 
 bool PortalAutostartManager::isAvailable()
 {
-    return QFile::exists(QStringLiteral("/.flatpak-info")) && s_interface.isValid();
+    QDBusInterface interface(QStringLiteral("org.freedesktop.portal.Desktop"),
+                             QStringLiteral("/org/freedesktop/portal/desktop"),
+                             QStringLiteral("org.freedesktop.portal.Background"));
+    return QFile::exists(QStringLiteral("/.flatpak-info")) && interface.isValid();
 }
 
 void PortalAutostartManager::parsePortalResponse(quint32, const QVariantMap &results)

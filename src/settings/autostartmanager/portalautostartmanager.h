@@ -34,7 +34,7 @@ private slots:
     void parsePortalResponse(quint32, const QVariantMap &results);
 
 private:
-    static QDBusInterface s_interface;
+    QDBusInterface m_interface;
 };
 
 #endif // PORTALAUTOSTARTMANAGER_H

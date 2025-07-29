@@ -32,8 +32,7 @@ private:
     void readPixmapFromSocket(int socketDescriptor, QImage::Format format);
 
     QFuture<void> m_readImageFuture;
-
-    static QDBusInterface s_interface;
+    QDBusInterface m_interface;
 };
 
 #endif // WAYLANDPLASMASCREENGRABBER_H

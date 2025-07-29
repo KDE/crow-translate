@@ -21,12 +21,11 @@
 
 using ScreenImagesMap = QMap<const QScreen *, QImage>;
 
-QDBusInterface WaylandPlasmaScreenGrabber::s_interface(QStringLiteral("org.kde.KWin.ScreenShot2"),
-                                                       QStringLiteral("/org/kde/KWin/ScreenShot2"),
-                                                       QStringLiteral("org.kde.KWin.ScreenShot2"));
-
 WaylandPlasmaScreenGrabber::WaylandPlasmaScreenGrabber(QObject *parent)
     : DBusScreenGrabber(parent)
+    , m_interface(QStringLiteral("org.kde.KWin.ScreenShot2"),
+                  QStringLiteral("/org/kde/KWin/ScreenShot2"),
+                  QStringLiteral("org.kde.KWin.ScreenShot2"))
 {
     const static int id = qRegisterMetaType<ScreenImagesMap>("ScreenImagesMap");
     Q_UNUSED(id)
@@ -34,7 +33,10 @@ WaylandPlasmaScreenGrabber::WaylandPlasmaScreenGrabber(QObject *parent)
 
 bool WaylandPlasmaScreenGrabber::isAvailable()
 {
-    return s_interface.isValid();
+    QDBusInterface interface(QStringLiteral("org.kde.KWin.ScreenShot2"),
+                             QStringLiteral("/org/kde/KWin/ScreenShot2"),
+                             QStringLiteral("org.kde.KWin.ScreenShot2"));
+    return interface.isValid();
 }
 
 void WaylandPlasmaScreenGrabber::grab()
@@ -53,7 +55,10 @@ void WaylandPlasmaScreenGrabber::grab()
         return;
     }
 
-    const QDBusPendingReply<QVariantMap> reply = s_interface.asyncCall(QStringLiteral("CaptureScreen"), QVariant::fromValue(m_screen->name()), QVariantMap(), QVariant::fromValue(QDBusUnixFileDescriptor(pipe[1])));
+    const QDBusPendingReply<QVariantMap> reply = m_interface.asyncCall(QStringLiteral("CaptureScreen"),
+                                                                       QVariant::fromValue(m_screen->name()),
+                                                                       QVariantMap(),
+                                                                       QVariant::fromValue(QDBusUnixFileDescriptor(pipe[1])));
     m_callWatcher = new QDBusPendingCallWatcher(reply, this);
     connect(m_callWatcher, &QDBusPendingCallWatcher::finished, [this, sockedDescriptor = pipe[0]] {
         const QDBusPendingReply<QVariantMap> reply = readReply<void>();
