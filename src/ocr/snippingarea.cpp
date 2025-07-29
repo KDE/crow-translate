@@ -7,6 +7,7 @@
 
 #include "snippingarea.h"
 
+#include <QCursor>
 #include <QGuiApplication>
 #include <QMessageBox>
 #include <QMouseEvent>
@@ -874,13 +875,14 @@ void SnippingArea::preparePaint()
 void SnippingArea::acceptSelection()
 {
     if (!m_selection.isEmpty()) {
-        /*
-         * TODO: Find out why a logicalDotsPerInch() call on a QScreen obtained through QGuiApplication::screenAt(QCursor::pos());
-         * causes some kind of reentrancy/thread-safety issue. The debugger shows the Q_D() macro on entry to logicalDotsPerInch() triggering the segfault.
-         * I suspect this has something to do with the painting and reentrancy, since access to QScreens from different threads does not seem to cause issues in other places.
-         * When this is resolved, we can actually find out the DPI of the screen being snapshotted, instead of taking the value from the primary screen.
-         */
-        const qreal dpi = QGuiApplication::primaryScreen()->logicalDotsPerInch();
+        qreal dpi = 0;
+        const auto *cur_screen = QGuiApplication::screenAt(QCursor::pos());
+        if (cur_screen != nullptr)
+            dpi = cur_screen->logicalDotsPerInch();
+        else {
+            QMessageBox::critical(this, tr("DPI Detection Error"), tr("Screen under cursor disappeared before we got dpi from it. Using primary screen for dpi information."));
+            dpi = QGuiApplication::primaryScreen()->logicalDotsPerInch();
+        }
 
         if (m_negateOcrImage) {
             QImage image = selectedPixmap().toImage();

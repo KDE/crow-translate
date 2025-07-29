@@ -13,6 +13,7 @@
 #include <QDBusInterface>
 #include <QFuture>
 #include <QImage>
+#include <QPoint>
 
 class WaylandPlasmaScreenGrabber : public DBusScreenGrabber
 {
@@ -30,9 +31,15 @@ public slots:
 
 private:
     void readPixmapFromSocket(int socketDescriptor, QImage::Format format);
+    void detectScreenFromWorkspace(const QImage &workspaceImage, const QPoint &cursorPos);
+    void showPermissionWarning();
+    void fallbackToCaptureInteractive();
+    uint getInterfaceVersion();
 
     QFuture<void> m_readImageFuture;
+    //  https://invent.kde.org/plasma/kwin/-/blob/master/src/plugins/screenshot/org.kde.KWin.ScreenShot2.xml?ref_type=heads
     QDBusInterface m_interface;
+    uint m_version = 0;
 };
 
 #endif // WAYLANDPLASMASCREENGRABBER_H

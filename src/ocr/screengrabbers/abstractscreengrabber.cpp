@@ -30,7 +30,7 @@ AbstractScreenGrabber *AbstractScreenGrabber::createScreenGrabber(QObject *paren
     if (qGuiApp->nativeInterface<QNativeInterface::QX11Application>() == nullptr) {
         if (WaylandGnomeScreenGrabber::isAvailable())
             return new WaylandGnomeScreenGrabber(parent);
-        if (WaylandPlasmaScreenGrabber::isAvailable()) // Outdated interface + needs authorization through .desktop file
+        if (WaylandPlasmaScreenGrabber::isAvailable())
             return new WaylandPlasmaScreenGrabber(parent);
         if (WaylandPortalScreenGrabber::isAvailable())
             return new WaylandPortalScreenGrabber(parent);

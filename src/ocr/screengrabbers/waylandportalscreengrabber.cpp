@@ -27,9 +27,9 @@ WaylandPortalScreenGrabber::WaylandPortalScreenGrabber(QObject *parent)
 
 bool WaylandPortalScreenGrabber::isAvailable()
 {
-    QDBusInterface interface(QStringLiteral("org.freedesktop.portal.Desktop"),
-                             QStringLiteral("/org/freedesktop/portal/desktop"),
-                             QStringLiteral("org.freedesktop.portal.Screenshot"));
+    const QDBusInterface interface(QStringLiteral("org.freedesktop.portal.Desktop"),
+                                   QStringLiteral("/org/freedesktop/portal/desktop"),
+                                   QStringLiteral("org.freedesktop.portal.Screenshot"));
     return interface.isValid();
 }
 
