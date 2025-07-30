@@ -115,12 +115,12 @@ bool PopupWindow::event(QEvent *event)
         break;
     case QEvent::Leave:
         // Start timer, if mouse left window
-        if (m_closeWindowTimer)
+        if (m_closeWindowTimer != nullptr)
             m_closeWindowTimer->start();
         break;
     case QEvent::Enter:
         // Stop timer, if mouse enter window
-        if (m_closeWindowTimer)
+        if (m_closeWindowTimer != nullptr)
             m_closeWindowTimer->stop();
         break;
     default:

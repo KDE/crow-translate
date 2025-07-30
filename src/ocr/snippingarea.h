@@ -61,6 +61,8 @@ private:
         RightOrLeft = Right & Left // 100000
     };
 
+    static Qt::WindowFlags getWindowFlags(QWidget *parent);
+
     void changeEvent(QEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
     void keyReleaseEvent(QKeyEvent *event) override;

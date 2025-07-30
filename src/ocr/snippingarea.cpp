@@ -20,8 +20,21 @@
 #include <xcb/xproto.h>
 #endif
 
+Qt::WindowFlags SnippingArea::getWindowFlags(QWidget *parent)
+{
+    // On Wayland, Qt::Popup requires a visible transient parent that has received input
+    // If parent is hidden, use Qt::Tool instead to avoid popup creation failures
+    const bool isWayland = QGuiApplication::platformName() == QLatin1String("wayland");
+    const Qt::WindowFlags defaultFlags = Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint;
+
+    if (isWayland && (parent != nullptr) && !parent->isVisible()) {
+        return defaultFlags | Qt::Tool;
+    }
+    return defaultFlags | Qt::Popup;
+}
+
 SnippingArea::SnippingArea(QWidget *parent)
-    : QWidget(parent, Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::Popup | Qt::WindowStaysOnTopHint)
+    : QWidget(parent, getWindowFlags(parent))
 {
     setMouseTracking(true);
     setAttribute(Qt::WA_StaticContents);
