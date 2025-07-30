@@ -404,61 +404,94 @@ msgctxt "AbstractScreenGrabber|"
 msgid "Unable to grab screen"
 msgstr "無法進行螢幕截圖"
 
-#: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:47
+#: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:48
 msgctxt "WaylandGnomeScreenGrabber|"
 msgid "GNOME failed to take screenshot."
 msgstr "GNOME 螢幕截圖失敗。"
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:44
-msgctxt "WaylandPlasmaScreenGrabber|"
-msgid "Unable to detect active screen for screenshot"
-msgstr ""
-
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:52
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:55
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:333
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to create pipe: %1."
 msgstr "無法建立管道： %1"
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:96
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:84
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to detect active screen for screenshot"
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:164
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to wait for socket readiness: %1."
 msgstr "無法等待 socket 就緒： %1。"
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:101
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:169
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Timeout reading from pipe."
 msgstr "從管道讀取逾時。"
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:107
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:176
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to read data from socket: %1."
 msgstr "無法從 socket 讀取資料: %1"
 
-#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:56
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:275
+#, fuzzy
+#| msgctxt "AbstractScreenGrabber|"
+#| msgid "Unable to grab screen"
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to determine target screen"
+msgstr "無法進行螢幕截圖"
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:297
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Failed to extract screen area from workspace"
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:315
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Screenshot Permission Required"
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:316
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid ""
+"Crow Translate needs permission to take screenshots. Please grant permission "
+"in your system settings or use the interactive screenshot mode."
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:322
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid ""
+"Screenshot permission denied. Please grant permission in system settings or "
+"try interactive mode."
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:57
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
 msgstr "無法訂閱 xdg-desktop-portal 的回應。"
 
-#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:76
+#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:77
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
 msgstr "從 xdg-desktop-portal 接收到了一個空路徑。"
 
-#: src/ocr/snippingarea.cpp:77
+#: src/ocr/snippingarea.cpp:78
 msgctxt "SnippingArea|"
 msgid "Unable to snip screen area"
 msgstr "無法進行螢幕區域截圖"
 
-#: src/ocr/snippingarea.cpp:78
+#: src/ocr/snippingarea.cpp:79
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
 msgstr "接收到一個螢幕 %1 的無效影像。"
 
-#: src/ocr/snippingarea.cpp:630
+#: src/ocr/snippingarea.cpp:631
 msgctxt "SnippingArea|"
 msgid ""
 "Click and drag to draw a selection rectangle,\n"
@@ -467,100 +500,112 @@ msgstr ""
 "點擊並拖曳來繪製矩形選取區域，\n"
 "或按 Esc 鍵離開"
 
-#: src/ocr/snippingarea.cpp:836
+#: src/ocr/snippingarea.cpp:837
 msgctxt "SnippingArea|"
 msgid "Confirm:"
 msgstr "確認："
 
-#: src/ocr/snippingarea.cpp:838
+#: src/ocr/snippingarea.cpp:839
 msgctxt "SnippingArea|"
 msgid "Release left-click"
 msgstr "放開滑鼠左鍵"
 
-#: src/ocr/snippingarea.cpp:838 src/ocr/snippingarea.cpp:840
+#: src/ocr/snippingarea.cpp:839 src/ocr/snippingarea.cpp:841
 msgctxt "SnippingArea|"
 msgid "Enter"
 msgstr "Enter"
 
-#: src/ocr/snippingarea.cpp:840
+#: src/ocr/snippingarea.cpp:841
 msgctxt "SnippingArea|"
 msgid "Double-click"
 msgstr "雙擊"
 
-#: src/ocr/snippingarea.cpp:842
+#: src/ocr/snippingarea.cpp:843
 msgctxt "SnippingArea|"
 msgid "Create new selection rectangle:"
 msgstr "建立新的矩形選取區域："
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:844
 msgctxt "SnippingArea|"
 msgid "Drag outside selection rectangle"
 msgstr "在矩形選取區域外部拖曳"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:844
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
 msgstr "+ Shift：放大鏡"
 
-#: src/ocr/snippingarea.cpp:846
+#: src/ocr/snippingarea.cpp:847
 msgctxt "SnippingArea|"
 msgid "Move selection rectangle:"
 msgstr "移動矩形選取區域："
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "Drag inside selection rectangle"
 msgstr "在矩形選取區域內部拖曳"
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "Arrow keys"
 msgstr "方向鍵"
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "+ Shift: Move in 1 pixel steps"
 msgstr "+ Shift：以 1 像素為單位移動選取區域"
 
-#: src/ocr/snippingarea.cpp:849
+#: src/ocr/snippingarea.cpp:850
 msgctxt "SnippingArea|"
 msgid "Resize selection rectangle:"
 msgstr "調整矩形選取區域大小："
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "Drag handles"
 msgstr "拖曳控制柄"
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "Arrow keys + Alt"
 msgstr "方向鍵 + Alt"
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "+ Shift: Resize in 1 pixel steps"
 msgstr "+ Shift：以 1 像素為單位調整選取區域大小"
 
-#: src/ocr/snippingarea.cpp:852
+#: src/ocr/snippingarea.cpp:853
 msgctxt "SnippingArea|"
 msgid "Reset selection:"
 msgstr "重設選取區域："
 
-#: src/ocr/snippingarea.cpp:853
+#: src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Right-click"
 msgstr "右鍵點擊"
 
-#: src/ocr/snippingarea.cpp:856
+#: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "Cancel:"
 msgstr "取消："
 
-#: src/ocr/snippingarea.cpp:857
+#: src/ocr/snippingarea.cpp:858
 msgctxt "SnippingArea|"
 msgid "Esc key"
 msgstr "Esc 鍵"
+
+#: src/ocr/snippingarea.cpp:883
+msgctxt "SnippingArea|"
+msgid "DPI Detection Error"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:883
+msgctxt "SnippingArea|"
+msgid ""
+"Screen under cursor disappeared before we got dpi from it. Using primary "
+"screen for dpi information."
+msgstr ""
 
 #: src/onlinetranslator.cpp:274
 #, qt-format
@@ -1723,13 +1768,13 @@ msgctxt "AbstractAutostartManager|"
 msgid "Unable to apply autostart settings"
 msgstr "無法套用自動啟動設定"
 
-#: src/settings/autostartmanager/portalautostartmanager.cpp:35
+#: src/settings/autostartmanager/portalautostartmanager.cpp:34
 #, qt-format
 msgctxt "PortalAutostartManager|"
 msgid "Allow %1 to manage autostart setting for itself."
 msgstr "允許 %1 管理自己的自動啟動設定。"
 
-#: src/settings/autostartmanager/portalautostartmanager.cpp:54
+#: src/settings/autostartmanager/portalautostartmanager.cpp:53
 msgctxt "PortalAutostartManager|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
 msgstr "無法訂閱 xdg-desktop-portal 的回應。"

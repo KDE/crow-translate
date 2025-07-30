@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2024 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-12-03 21:34+0100\n"
+"PO-Revision-Date: 2025-07-29 14:56+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: src/cli.cpp:42
 msgctxt "Cli|"
@@ -407,61 +407,94 @@ msgctxt "AbstractScreenGrabber|"
 msgid "Unable to grab screen"
 msgstr "Kan inte ta skärmbild"
 
-#: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:47
+#: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:48
 msgctxt "WaylandGnomeScreenGrabber|"
 msgid "GNOME failed to take screenshot."
 msgstr "GNOME misslyckades ta skärmbild"
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:44
-msgctxt "WaylandPlasmaScreenGrabber|"
-msgid "Unable to detect active screen for screenshot"
-msgstr ""
-
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:52
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:55
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:333
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to create pipe: %1."
 msgstr "Kunde inte skapa pipe: %1"
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:96
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:84
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to detect active screen for screenshot"
+msgstr "Kan inte detektera aktiv bildskärm för skärmbild"
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:164
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to wait for socket readiness: %1."
 msgstr "Kan inte vänta på att uttaget är klart: %1"
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:101
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:169
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Timeout reading from pipe."
 msgstr "Tidsgräns överskriden vid läsning från pipe."
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:107
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:176
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to read data from socket: %1."
 msgstr "Kan inte läsa data från uttag: %1"
 
-#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:56
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:275
+#, fuzzy
+#| msgctxt "AbstractScreenGrabber|"
+#| msgid "Unable to grab screen"
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to determine target screen"
+msgstr "Kan inte ta skärmbild"
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:297
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Failed to extract screen area from workspace"
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:315
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Screenshot Permission Required"
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:316
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid ""
+"Crow Translate needs permission to take screenshots. Please grant permission "
+"in your system settings or use the interactive screenshot mode."
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:322
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid ""
+"Screenshot permission denied. Please grant permission in system settings or "
+"try interactive mode."
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:57
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
 msgstr "Kan inte prenumerera på svar från xdg-desktop-portal."
 
-#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:76
+#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:77
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
 msgstr "Tog emot en tom sökväg från xdg-desktop-portal."
 
-#: src/ocr/snippingarea.cpp:77
+#: src/ocr/snippingarea.cpp:78
 msgctxt "SnippingArea|"
 msgid "Unable to snip screen area"
 msgstr "Kan inte klippa ut skärmområde"
 
-#: src/ocr/snippingarea.cpp:78
+#: src/ocr/snippingarea.cpp:79
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
 msgstr "Tog emot en ogiltig bild av skärm %1."
 
-#: src/ocr/snippingarea.cpp:630
+#: src/ocr/snippingarea.cpp:631
 msgctxt "SnippingArea|"
 msgid ""
 "Click and drag to draw a selection rectangle,\n"
@@ -470,100 +503,112 @@ msgstr ""
 "Klicka och dra för att rita en markeringsrektangel,\n"
 "eller tryck på Esc för att avsluta"
 
-#: src/ocr/snippingarea.cpp:836
+#: src/ocr/snippingarea.cpp:837
 msgctxt "SnippingArea|"
 msgid "Confirm:"
 msgstr "Bekräfta:"
 
-#: src/ocr/snippingarea.cpp:838
+#: src/ocr/snippingarea.cpp:839
 msgctxt "SnippingArea|"
 msgid "Release left-click"
 msgstr "Släpp vänsterklick"
 
-#: src/ocr/snippingarea.cpp:838 src/ocr/snippingarea.cpp:840
+#: src/ocr/snippingarea.cpp:839 src/ocr/snippingarea.cpp:841
 msgctxt "SnippingArea|"
 msgid "Enter"
 msgstr "Retur"
 
-#: src/ocr/snippingarea.cpp:840
+#: src/ocr/snippingarea.cpp:841
 msgctxt "SnippingArea|"
 msgid "Double-click"
 msgstr "Dubbelklick"
 
-#: src/ocr/snippingarea.cpp:842
+#: src/ocr/snippingarea.cpp:843
 msgctxt "SnippingArea|"
 msgid "Create new selection rectangle:"
 msgstr "Skapa ny markeringsrektangel:"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:844
 msgctxt "SnippingArea|"
 msgid "Drag outside selection rectangle"
 msgstr "Dra utanför markeringsrektangeln"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:844
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
 msgstr "+ Skift: Förstoringsglas"
 
-#: src/ocr/snippingarea.cpp:846
+#: src/ocr/snippingarea.cpp:847
 msgctxt "SnippingArea|"
 msgid "Move selection rectangle:"
 msgstr "Flytta markeringsrektangel:"
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "Drag inside selection rectangle"
 msgstr "Dra inuti markeringsrektangeln"
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "Arrow keys"
 msgstr "Piltangenter"
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "+ Shift: Move in 1 pixel steps"
 msgstr "+ Skift: Flytta med steg om en bildpunkt"
 
-#: src/ocr/snippingarea.cpp:849
+#: src/ocr/snippingarea.cpp:850
 msgctxt "SnippingArea|"
 msgid "Resize selection rectangle:"
 msgstr "Ändra storlek på markeringsrektangel:"
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "Drag handles"
 msgstr "Dra grepp"
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "Arrow keys + Alt"
 msgstr "Piltangenter + Alt"
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "+ Shift: Resize in 1 pixel steps"
 msgstr "+ Skift: Ändra storlek med steg om en bildpunkt"
 
-#: src/ocr/snippingarea.cpp:852
+#: src/ocr/snippingarea.cpp:853
 msgctxt "SnippingArea|"
 msgid "Reset selection:"
 msgstr "Återställ markering:"
 
-#: src/ocr/snippingarea.cpp:853
+#: src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Right-click"
 msgstr "Högerklick"
 
-#: src/ocr/snippingarea.cpp:856
+#: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "Cancel:"
 msgstr "Avbryt:"
 
-#: src/ocr/snippingarea.cpp:857
+#: src/ocr/snippingarea.cpp:858
 msgctxt "SnippingArea|"
 msgid "Esc key"
 msgstr "Esc-tangent"
+
+#: src/ocr/snippingarea.cpp:883
+msgctxt "SnippingArea|"
+msgid "DPI Detection Error"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:883
+msgctxt "SnippingArea|"
+msgid ""
+"Screen under cursor disappeared before we got dpi from it. Using primary "
+"screen for dpi information."
+msgstr ""
 
 #: src/onlinetranslator.cpp:274
 #, qt-format
@@ -1699,13 +1744,13 @@ msgctxt "AbstractAutostartManager|"
 msgid "Unable to apply autostart settings"
 msgstr "Kan inte verkställa automatiska startinställningar"
 
-#: src/settings/autostartmanager/portalautostartmanager.cpp:35
+#: src/settings/autostartmanager/portalautostartmanager.cpp:34
 #, qt-format
 msgctxt "PortalAutostartManager|"
 msgid "Allow %1 to manage autostart setting for itself."
 msgstr "Tillåt att %1 hanterar sina egna inställningar för automatisk start."
 
-#: src/settings/autostartmanager/portalautostartmanager.cpp:54
+#: src/settings/autostartmanager/portalautostartmanager.cpp:53
 msgctxt "PortalAutostartManager|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
 msgstr "Kan inte prenumerera på svar från xdg-desktop-portal."

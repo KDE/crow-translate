@@ -410,61 +410,94 @@ msgctxt "AbstractScreenGrabber|"
 msgid "Unable to grab screen"
 msgstr "Unable to grab screen"
 
-#: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:47
+#: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:48
 msgctxt "WaylandGnomeScreenGrabber|"
 msgid "GNOME failed to take screenshot."
 msgstr "GNOME failed to take screenshot."
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:44
-msgctxt "WaylandPlasmaScreenGrabber|"
-msgid "Unable to detect active screen for screenshot"
-msgstr ""
-
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:52
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:55
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:333
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to create pipe: %1."
 msgstr "Unable to create pipe: %1."
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:96
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:84
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to detect active screen for screenshot"
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:164
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to wait for socket readiness: %1."
 msgstr "Unable to wait for socket readiness: %1."
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:101
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:169
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Timeout reading from pipe."
 msgstr "Timeout reading from pipe."
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:107
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:176
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to read data from socket: %1."
 msgstr "Unable to read data from socket: %1."
 
-#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:56
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:275
+#, fuzzy
+#| msgctxt "AbstractScreenGrabber|"
+#| msgid "Unable to grab screen"
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to determine target screen"
+msgstr "Unable to grab screen"
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:297
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Failed to extract screen area from workspace"
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:315
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Screenshot Permission Required"
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:316
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid ""
+"Crow Translate needs permission to take screenshots. Please grant permission "
+"in your system settings or use the interactive screenshot mode."
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:322
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid ""
+"Screenshot permission denied. Please grant permission in system settings or "
+"try interactive mode."
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:57
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
 msgstr "Unable to subscribe to response from xdg-desktop-portal."
 
-#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:76
+#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:77
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
 msgstr "Received an empty path from xdg-desktop-portal."
 
-#: src/ocr/snippingarea.cpp:77
+#: src/ocr/snippingarea.cpp:78
 msgctxt "SnippingArea|"
 msgid "Unable to snip screen area"
 msgstr "Unable to snip screen area"
 
-#: src/ocr/snippingarea.cpp:78
+#: src/ocr/snippingarea.cpp:79
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
 msgstr "Received an invalid image of screen %1."
 
-#: src/ocr/snippingarea.cpp:630
+#: src/ocr/snippingarea.cpp:631
 msgctxt "SnippingArea|"
 msgid ""
 "Click and drag to draw a selection rectangle,\n"
@@ -473,100 +506,112 @@ msgstr ""
 "Click and drag to draw a selection rectangle,\n"
 "or press Esc to quit"
 
-#: src/ocr/snippingarea.cpp:836
+#: src/ocr/snippingarea.cpp:837
 msgctxt "SnippingArea|"
 msgid "Confirm:"
 msgstr "Confirm:"
 
-#: src/ocr/snippingarea.cpp:838
+#: src/ocr/snippingarea.cpp:839
 msgctxt "SnippingArea|"
 msgid "Release left-click"
 msgstr "Release left-click"
 
-#: src/ocr/snippingarea.cpp:838 src/ocr/snippingarea.cpp:840
+#: src/ocr/snippingarea.cpp:839 src/ocr/snippingarea.cpp:841
 msgctxt "SnippingArea|"
 msgid "Enter"
 msgstr "Enter"
 
-#: src/ocr/snippingarea.cpp:840
+#: src/ocr/snippingarea.cpp:841
 msgctxt "SnippingArea|"
 msgid "Double-click"
 msgstr "Double-click"
 
-#: src/ocr/snippingarea.cpp:842
+#: src/ocr/snippingarea.cpp:843
 msgctxt "SnippingArea|"
 msgid "Create new selection rectangle:"
 msgstr "Create new selection rectangle:"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:844
 msgctxt "SnippingArea|"
 msgid "Drag outside selection rectangle"
 msgstr "Drag outside selection rectangle"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:844
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
 msgstr "+ Shift: Magnifier"
 
-#: src/ocr/snippingarea.cpp:846
+#: src/ocr/snippingarea.cpp:847
 msgctxt "SnippingArea|"
 msgid "Move selection rectangle:"
 msgstr "Move selection rectangle:"
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "Drag inside selection rectangle"
 msgstr "Drag inside selection rectangle"
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "Arrow keys"
 msgstr "Arrow keys"
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "+ Shift: Move in 1 pixel steps"
 msgstr "+ Shift: Move in 1 pixel steps"
 
-#: src/ocr/snippingarea.cpp:849
+#: src/ocr/snippingarea.cpp:850
 msgctxt "SnippingArea|"
 msgid "Resize selection rectangle:"
 msgstr "Resize selection rectangle:"
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "Drag handles"
 msgstr "Drag handles"
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "Arrow keys + Alt"
 msgstr "Arrow keys + Alt"
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "+ Shift: Resize in 1 pixel steps"
 msgstr "+ Shift: Resize in 1 pixel steps"
 
-#: src/ocr/snippingarea.cpp:852
+#: src/ocr/snippingarea.cpp:853
 msgctxt "SnippingArea|"
 msgid "Reset selection:"
 msgstr "Reset selection:"
 
-#: src/ocr/snippingarea.cpp:853
+#: src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Right-click"
 msgstr "Right-click"
 
-#: src/ocr/snippingarea.cpp:856
+#: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "Cancel:"
 msgstr "Cancel:"
 
-#: src/ocr/snippingarea.cpp:857
+#: src/ocr/snippingarea.cpp:858
 msgctxt "SnippingArea|"
 msgid "Esc key"
 msgstr "Esc key"
+
+#: src/ocr/snippingarea.cpp:883
+msgctxt "SnippingArea|"
+msgid "DPI Detection Error"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:883
+msgctxt "SnippingArea|"
+msgid ""
+"Screen under cursor disappeared before we got dpi from it. Using primary "
+"screen for dpi information."
+msgstr ""
 
 #: src/onlinetranslator.cpp:274
 #, qt-format
@@ -1702,13 +1747,13 @@ msgctxt "AbstractAutostartManager|"
 msgid "Unable to apply autostart settings"
 msgstr "Unable to apply autostart settings"
 
-#: src/settings/autostartmanager/portalautostartmanager.cpp:35
+#: src/settings/autostartmanager/portalautostartmanager.cpp:34
 #, qt-format
 msgctxt "PortalAutostartManager|"
 msgid "Allow %1 to manage autostart setting for itself."
 msgstr "Allow %1 to manage autostart setting for itself."
 
-#: src/settings/autostartmanager/portalautostartmanager.cpp:54
+#: src/settings/autostartmanager/portalautostartmanager.cpp:53
 msgctxt "PortalAutostartManager|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
 msgstr "Unable to subscribe to response from xdg-desktop-portal."

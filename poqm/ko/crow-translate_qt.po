@@ -407,61 +407,94 @@ msgctxt "AbstractScreenGrabber|"
 msgid "Unable to grab screen"
 msgstr "화면 영역을 획득할 수 없음"
 
-#: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:47
+#: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:48
 msgctxt "WaylandGnomeScreenGrabber|"
 msgid "GNOME failed to take screenshot."
 msgstr "그놈에서 스크린샷을 찍을 수 없습니다."
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:44
-msgctxt "WaylandPlasmaScreenGrabber|"
-msgid "Unable to detect active screen for screenshot"
-msgstr ""
-
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:52
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:55
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:333
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to create pipe: %1."
 msgstr "파이프를 만들 수 없음: %1."
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:96
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:84
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to detect active screen for screenshot"
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:164
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to wait for socket readiness: %1."
 msgstr "소켓 준비를 기다릴 수 없음: %1."
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:101
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:169
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Timeout reading from pipe."
 msgstr "파이프에서 읽는 시간이 초과되었습니다."
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:107
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:176
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to read data from socket: %1."
 msgstr "소켓에서 데이터를 읽을 수 없음: %1."
 
-#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:56
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:275
+#, fuzzy
+#| msgctxt "AbstractScreenGrabber|"
+#| msgid "Unable to grab screen"
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to determine target screen"
+msgstr "화면 영역을 획득할 수 없음"
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:297
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Failed to extract screen area from workspace"
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:315
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Screenshot Permission Required"
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:316
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid ""
+"Crow Translate needs permission to take screenshots. Please grant permission "
+"in your system settings or use the interactive screenshot mode."
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:322
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid ""
+"Screenshot permission denied. Please grant permission in system settings or "
+"try interactive mode."
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:57
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
 msgstr "xdg-desktop-portal의 응답을 구독할 수 없습니다."
 
-#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:76
+#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:77
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
 msgstr "xdg-desktop-portal에서 빈 경로를 수신했습니다."
 
-#: src/ocr/snippingarea.cpp:77
+#: src/ocr/snippingarea.cpp:78
 msgctxt "SnippingArea|"
 msgid "Unable to snip screen area"
 msgstr "화면 영역을 캡처할 수 없음"
 
-#: src/ocr/snippingarea.cpp:78
+#: src/ocr/snippingarea.cpp:79
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
 msgstr "화면 %1에서 잘못된 이미지를 받았습니다."
 
-#: src/ocr/snippingarea.cpp:630
+#: src/ocr/snippingarea.cpp:631
 msgctxt "SnippingArea|"
 msgid ""
 "Click and drag to draw a selection rectangle,\n"
@@ -470,100 +503,112 @@ msgstr ""
 "클릭한 후 드래그로 선택 사각형을 그리거나,\n"
 "Esc 키를 눌러서 끝내십시오"
 
-#: src/ocr/snippingarea.cpp:836
+#: src/ocr/snippingarea.cpp:837
 msgctxt "SnippingArea|"
 msgid "Confirm:"
 msgstr "확인:"
 
-#: src/ocr/snippingarea.cpp:838
+#: src/ocr/snippingarea.cpp:839
 msgctxt "SnippingArea|"
 msgid "Release left-click"
 msgstr "왼쪽 클릭 놓기"
 
-#: src/ocr/snippingarea.cpp:838 src/ocr/snippingarea.cpp:840
+#: src/ocr/snippingarea.cpp:839 src/ocr/snippingarea.cpp:841
 msgctxt "SnippingArea|"
 msgid "Enter"
 msgstr "입력"
 
-#: src/ocr/snippingarea.cpp:840
+#: src/ocr/snippingarea.cpp:841
 msgctxt "SnippingArea|"
 msgid "Double-click"
 msgstr "두 번 클릭"
 
-#: src/ocr/snippingarea.cpp:842
+#: src/ocr/snippingarea.cpp:843
 msgctxt "SnippingArea|"
 msgid "Create new selection rectangle:"
 msgstr "새 선택 사각형 만들기:"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:844
 msgctxt "SnippingArea|"
 msgid "Drag outside selection rectangle"
 msgstr "선택 사각형 바깥쪽에서 드래그"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:844
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
 msgstr "+ Shift: 돋보기"
 
-#: src/ocr/snippingarea.cpp:846
+#: src/ocr/snippingarea.cpp:847
 msgctxt "SnippingArea|"
 msgid "Move selection rectangle:"
 msgstr "선택 사각형 이동:"
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "Drag inside selection rectangle"
 msgstr "선택 사각형 안쪽에서 드래그"
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "Arrow keys"
 msgstr "화살표 키"
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "+ Shift: Move in 1 pixel steps"
 msgstr "+ Shift: 1픽셀 단위로 이동"
 
-#: src/ocr/snippingarea.cpp:849
+#: src/ocr/snippingarea.cpp:850
 msgctxt "SnippingArea|"
 msgid "Resize selection rectangle:"
 msgstr "선택 사각형 크기 조정:"
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "Drag handles"
 msgstr "핸들 드래그"
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "Arrow keys + Alt"
 msgstr "화살표 키 + Alt"
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "+ Shift: Resize in 1 pixel steps"
 msgstr "+ Shift: 1픽셀 단위로 크기 조정"
 
-#: src/ocr/snippingarea.cpp:852
+#: src/ocr/snippingarea.cpp:853
 msgctxt "SnippingArea|"
 msgid "Reset selection:"
 msgstr "선택 영역 초기화:"
 
-#: src/ocr/snippingarea.cpp:853
+#: src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Right-click"
 msgstr "오른쪽 클릭"
 
-#: src/ocr/snippingarea.cpp:856
+#: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "Cancel:"
 msgstr "취소:"
 
-#: src/ocr/snippingarea.cpp:857
+#: src/ocr/snippingarea.cpp:858
 msgctxt "SnippingArea|"
 msgid "Esc key"
 msgstr "Esc 키"
+
+#: src/ocr/snippingarea.cpp:883
+msgctxt "SnippingArea|"
+msgid "DPI Detection Error"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:883
+msgctxt "SnippingArea|"
+msgid ""
+"Screen under cursor disappeared before we got dpi from it. Using primary "
+"screen for dpi information."
+msgstr ""
 
 #: src/onlinetranslator.cpp:274
 #, qt-format
@@ -1699,13 +1744,13 @@ msgctxt "AbstractAutostartManager|"
 msgid "Unable to apply autostart settings"
 msgstr "자동 시작 설정을 적용할 수 없음"
 
-#: src/settings/autostartmanager/portalautostartmanager.cpp:35
+#: src/settings/autostartmanager/portalautostartmanager.cpp:34
 #, qt-format
 msgctxt "PortalAutostartManager|"
 msgid "Allow %1 to manage autostart setting for itself."
 msgstr "%1이(가) 자동 시작 설정을 관리하도록 허용합니다."
 
-#: src/settings/autostartmanager/portalautostartmanager.cpp:54
+#: src/settings/autostartmanager/portalautostartmanager.cpp:53
 msgctxt "PortalAutostartManager|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
 msgstr "xdg-desktop-portal의 응답을 구독할 수 없습니다."

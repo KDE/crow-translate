@@ -423,61 +423,94 @@ msgctxt "AbstractScreenGrabber|"
 msgid "Unable to grab screen"
 msgstr "Bildschirminhalt kann nicht aufgezeichnet werden"
 
-#: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:47
+#: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:48
 msgctxt "WaylandGnomeScreenGrabber|"
 msgid "GNOME failed to take screenshot."
 msgstr "GNOME konnte kein Bildschirmfoto erstellen."
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:44
-msgctxt "WaylandPlasmaScreenGrabber|"
-msgid "Unable to detect active screen for screenshot"
-msgstr ""
-
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:52
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:55
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:333
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to create pipe: %1."
 msgstr "Leitung kann nicht erstellt werden: %1."
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:96
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:84
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to detect active screen for screenshot"
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:164
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to wait for socket readiness: %1."
 msgstr "Kann nicht auf Socket-Bereitschaft warten: %1."
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:101
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:169
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Timeout reading from pipe."
 msgstr "Zeitüberschreitung beim Lesen aus der Leitung."
 
-#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:107
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:176
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to read data from socket: %1."
 msgstr "Kann Daten vom Socket nicht lesen: %1."
 
-#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:56
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:275
+#, fuzzy
+#| msgctxt "AbstractScreenGrabber|"
+#| msgid "Unable to grab screen"
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Unable to determine target screen"
+msgstr "Bildschirminhalt kann nicht aufgezeichnet werden"
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:297
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Failed to extract screen area from workspace"
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:315
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid "Screenshot Permission Required"
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:316
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid ""
+"Crow Translate needs permission to take screenshots. Please grant permission "
+"in your system settings or use the interactive screenshot mode."
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:322
+msgctxt "WaylandPlasmaScreenGrabber|"
+msgid ""
+"Screenshot permission denied. Please grant permission in system settings or "
+"try interactive mode."
+msgstr ""
+
+#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:57
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
 msgstr "Antwort von xdg-desktop-portal kann nicht abonniert werden."
 
-#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:76
+#: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:77
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
 msgstr "Es wurde ein leerer Pfad von xdg-desktop-portal erhalten."
 
-#: src/ocr/snippingarea.cpp:77
+#: src/ocr/snippingarea.cpp:78
 msgctxt "SnippingArea|"
 msgid "Unable to snip screen area"
 msgstr "Bildschirmbereich kann nicht ausgeschnitten werden"
 
-#: src/ocr/snippingarea.cpp:78
+#: src/ocr/snippingarea.cpp:79
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
 msgstr "Ungültiges Bild des Bildschirms %1 erhalten."
 
-#: src/ocr/snippingarea.cpp:630
+#: src/ocr/snippingarea.cpp:631
 msgctxt "SnippingArea|"
 msgid ""
 "Click and drag to draw a selection rectangle,\n"
@@ -486,100 +519,112 @@ msgstr ""
 "Klicke und ziehe um ein Auswahlrechteck zu zeichnen,\n"
 "oder drücke Esc zum Beenden"
 
-#: src/ocr/snippingarea.cpp:836
+#: src/ocr/snippingarea.cpp:837
 msgctxt "SnippingArea|"
 msgid "Confirm:"
 msgstr "Bestätigen:"
 
-#: src/ocr/snippingarea.cpp:838
+#: src/ocr/snippingarea.cpp:839
 msgctxt "SnippingArea|"
 msgid "Release left-click"
 msgstr "Linksklick freigeben"
 
-#: src/ocr/snippingarea.cpp:838 src/ocr/snippingarea.cpp:840
+#: src/ocr/snippingarea.cpp:839 src/ocr/snippingarea.cpp:841
 msgctxt "SnippingArea|"
 msgid "Enter"
 msgstr "Eingeben"
 
-#: src/ocr/snippingarea.cpp:840
+#: src/ocr/snippingarea.cpp:841
 msgctxt "SnippingArea|"
 msgid "Double-click"
 msgstr "Doppelklick"
 
-#: src/ocr/snippingarea.cpp:842
+#: src/ocr/snippingarea.cpp:843
 msgctxt "SnippingArea|"
 msgid "Create new selection rectangle:"
 msgstr "Neues Auswahlrechteck erstellen:"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:844
 msgctxt "SnippingArea|"
 msgid "Drag outside selection rectangle"
 msgstr "Verschieben Sie das Auswahlrechteck nach außen"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:844
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
 msgstr "+ Umschaltung: Lupe"
 
-#: src/ocr/snippingarea.cpp:846
+#: src/ocr/snippingarea.cpp:847
 msgctxt "SnippingArea|"
 msgid "Move selection rectangle:"
 msgstr "Auswahlrechteck verschieben:"
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "Drag inside selection rectangle"
 msgstr "Innerhalb des Auswahlrechtecks ziehen"
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "Arrow keys"
 msgstr "Pfeiltasten"
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:848
 msgctxt "SnippingArea|"
 msgid "+ Shift: Move in 1 pixel steps"
 msgstr "+ Umschaltung: In 1 Pixel Schritten verschieben"
 
-#: src/ocr/snippingarea.cpp:849
+#: src/ocr/snippingarea.cpp:850
 msgctxt "SnippingArea|"
 msgid "Resize selection rectangle:"
 msgstr "Auswahlrechteck ändern:"
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "Drag handles"
 msgstr "Griffe ziehen"
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "Arrow keys + Alt"
 msgstr "Pfeiltasten + Alt"
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:851
 msgctxt "SnippingArea|"
 msgid "+ Shift: Resize in 1 pixel steps"
 msgstr "+ Umschaltung: Größe in 1 Pixel Schritten"
 
-#: src/ocr/snippingarea.cpp:852
+#: src/ocr/snippingarea.cpp:853
 msgctxt "SnippingArea|"
 msgid "Reset selection:"
 msgstr "Auswahl zurücksetzen:"
 
-#: src/ocr/snippingarea.cpp:853
+#: src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Right-click"
 msgstr "Rechtsklick"
 
-#: src/ocr/snippingarea.cpp:856
+#: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "Cancel:"
 msgstr "Abbrechen:"
 
-#: src/ocr/snippingarea.cpp:857
+#: src/ocr/snippingarea.cpp:858
 msgctxt "SnippingArea|"
 msgid "Esc key"
 msgstr "Esc Taste"
+
+#: src/ocr/snippingarea.cpp:883
+msgctxt "SnippingArea|"
+msgid "DPI Detection Error"
+msgstr ""
+
+#: src/ocr/snippingarea.cpp:883
+msgctxt "SnippingArea|"
+msgid ""
+"Screen under cursor disappeared before we got dpi from it. Using primary "
+"screen for dpi information."
+msgstr ""
 
 #: src/onlinetranslator.cpp:274
 #, qt-format
@@ -1781,13 +1826,13 @@ msgctxt "AbstractAutostartManager|"
 msgid "Unable to apply autostart settings"
 msgstr "Auto-Start-Einstellungen können nicht angewendet werden"
 
-#: src/settings/autostartmanager/portalautostartmanager.cpp:35
+#: src/settings/autostartmanager/portalautostartmanager.cpp:34
 #, qt-format
 msgctxt "PortalAutostartManager|"
 msgid "Allow %1 to manage autostart setting for itself."
 msgstr "Erlaube %1, Autostart-Einstellungen für sich selbst zu treffen."
 
-#: src/settings/autostartmanager/portalautostartmanager.cpp:54
+#: src/settings/autostartmanager/portalautostartmanager.cpp:53
 msgctxt "PortalAutostartManager|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
 msgstr "Antwort vom xdg-desktop-Portal konnte nicht registriert werden."
