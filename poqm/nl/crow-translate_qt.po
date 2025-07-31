@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-07-21 09:25+0200\n"
+"PO-Revision-Date: 2025-07-30 13:22+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -452,22 +452,19 @@ msgid "Unable to read data from socket: %1."
 msgstr "De socketgegevens kunnen niet worden uitgelezen: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:275
-#, fuzzy
-#| msgctxt "AbstractScreenGrabber|"
-#| msgid "Unable to grab screen"
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to determine target screen"
-msgstr "Kan scherm niet vastleggen"
+msgstr "Kan doelscherm niet bepalen"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:297
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Failed to extract screen area from workspace"
-msgstr ""
+msgstr "Schermgebied extraheren uit werkruimte is mislukt"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:315
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Screenshot Permission Required"
-msgstr ""
+msgstr "Toestemming voor schermafdruk vereist"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:316
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -475,6 +472,9 @@ msgid ""
 "Crow Translate needs permission to take screenshots. Please grant permission "
 "in your system settings or use the interactive screenshot mode."
 msgstr ""
+"Crow Translate heeft toestemming nodig om schermafdrukken te maken. Geef "
+"toestemming in uw systeeminstellingen of gebruik de modus interactieve "
+"schermafdruk."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:322
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -482,6 +482,8 @@ msgid ""
 "Screenshot permission denied. Please grant permission in system settings or "
 "try interactive mode."
 msgstr ""
+"Toestemming voor schermafdruk ontzegd. Geef toestemming in "
+"systeeminstellingen of gebruik de modus interactieve schermafdruk."
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:57
 msgctxt "WaylandPortalScreenGrabber|"
@@ -493,18 +495,18 @@ msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
 msgstr "Blanco locatie ontvangen van xdg-desktop-portal."
 
-#: src/ocr/snippingarea.cpp:78
+#: src/ocr/snippingarea.cpp:91
 msgctxt "SnippingArea|"
 msgid "Unable to snip screen area"
 msgstr "Het schermgebied kan niet worden bijgesneden"
 
-#: src/ocr/snippingarea.cpp:79
+#: src/ocr/snippingarea.cpp:92
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
 msgstr "Ongeldige afbeelding van scherm ‘%1’ ontvangen."
 
-#: src/ocr/snippingarea.cpp:631
+#: src/ocr/snippingarea.cpp:644
 msgctxt "SnippingArea|"
 msgid ""
 "Click and drag to draw a selection rectangle,\n"
@@ -513,112 +515,114 @@ msgstr ""
 "Klik en sleep om een rechthoek te selecteren\n"
 "of druk op Esc om af te breken"
 
-#: src/ocr/snippingarea.cpp:837
+#: src/ocr/snippingarea.cpp:850
 msgctxt "SnippingArea|"
 msgid "Confirm:"
 msgstr "Bevestigen:"
 
-#: src/ocr/snippingarea.cpp:839
+#: src/ocr/snippingarea.cpp:852
 msgctxt "SnippingArea|"
 msgid "Release left-click"
 msgstr "Linkermuisknop loslaten"
 
-#: src/ocr/snippingarea.cpp:839 src/ocr/snippingarea.cpp:841
+#: src/ocr/snippingarea.cpp:852 src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Enter"
 msgstr "Enter"
 
-#: src/ocr/snippingarea.cpp:841
+#: src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Double-click"
 msgstr "Dubbelklikken"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:856
 msgctxt "SnippingArea|"
 msgid "Create new selection rectangle:"
 msgstr "Nieuwe rechthoekige selectie maken:"
 
-#: src/ocr/snippingarea.cpp:844
+#: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "Drag outside selection rectangle"
 msgstr "Slepen buiten de rechthoek"
 
-#: src/ocr/snippingarea.cpp:844
+#: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
 msgstr "+ Shift: vergrootglas"
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:860
 msgctxt "SnippingArea|"
 msgid "Move selection rectangle:"
 msgstr "Rechthoek verplaatsen:"
 
-#: src/ocr/snippingarea.cpp:848
+#: src/ocr/snippingarea.cpp:861
 msgctxt "SnippingArea|"
 msgid "Drag inside selection rectangle"
 msgstr "Slepen binnen de rechthoek"
 
-#: src/ocr/snippingarea.cpp:848
+#: src/ocr/snippingarea.cpp:861
 msgctxt "SnippingArea|"
 msgid "Arrow keys"
 msgstr "Pijltjestoetsen"
 
-#: src/ocr/snippingarea.cpp:848
+#: src/ocr/snippingarea.cpp:861
 msgctxt "SnippingArea|"
 msgid "+ Shift: Move in 1 pixel steps"
 msgstr "+ Shift: verplaatsen per 1 pixelstap"
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:863
 msgctxt "SnippingArea|"
 msgid "Resize selection rectangle:"
 msgstr "Rechthoekafmetingen aanpassen:"
 
-#: src/ocr/snippingarea.cpp:851
+#: src/ocr/snippingarea.cpp:864
 msgctxt "SnippingArea|"
 msgid "Drag handles"
 msgstr "Handvatten verslepen"
 
-#: src/ocr/snippingarea.cpp:851
+#: src/ocr/snippingarea.cpp:864
 msgctxt "SnippingArea|"
 msgid "Arrow keys + Alt"
 msgstr "Pijltjestoetsen + Alt"
 
-#: src/ocr/snippingarea.cpp:851
+#: src/ocr/snippingarea.cpp:864
 msgctxt "SnippingArea|"
 msgid "+ Shift: Resize in 1 pixel steps"
 msgstr "+ Shift: afmetingen aanpassen per 1 pixelstap"
 
-#: src/ocr/snippingarea.cpp:853
+#: src/ocr/snippingarea.cpp:866
 msgctxt "SnippingArea|"
 msgid "Reset selection:"
 msgstr "Selectie herstellen:"
 
-#: src/ocr/snippingarea.cpp:854
+#: src/ocr/snippingarea.cpp:867
 msgctxt "SnippingArea|"
 msgid "Right-click"
 msgstr "Rechtsklikken"
 
-#: src/ocr/snippingarea.cpp:857
+#: src/ocr/snippingarea.cpp:870
 msgctxt "SnippingArea|"
 msgid "Cancel:"
 msgstr "Afbreken:"
 
-#: src/ocr/snippingarea.cpp:858
+#: src/ocr/snippingarea.cpp:871
 msgctxt "SnippingArea|"
 msgid "Esc key"
 msgstr "Esc-toets"
 
-#: src/ocr/snippingarea.cpp:883
+#: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
 msgid "DPI Detection Error"
-msgstr ""
+msgstr "DPI-detectiefout"
 
-#: src/ocr/snippingarea.cpp:883
+#: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
 msgid ""
 "Screen under cursor disappeared before we got dpi from it. Using primary "
 "screen for dpi information."
 msgstr ""
+"Scherm onder cursor verdween voordat we een dpi ervan kregen. Het primaire "
+"scherm wordt gebruikt voor dpi-informatie."
 
 #: src/onlinetranslator.cpp:274
 #, qt-format

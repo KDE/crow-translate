@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-07-21 08:28+0300\n"
+"PO-Revision-Date: 2025-07-30 16:10+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -450,22 +450,19 @@ msgid "Unable to read data from socket: %1."
 msgstr "Не вдалося прочитати дані з сокета: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:275
-#, fuzzy
-#| msgctxt "AbstractScreenGrabber|"
-#| msgid "Unable to grab screen"
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to determine target screen"
-msgstr "Не вдалося захопити екран"
+msgstr "Не вдалося визначити екран призначення"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:297
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Failed to extract screen area from workspace"
-msgstr ""
+msgstr "Не вдалося видобути дані області екрана з робочого простору"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:315
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Screenshot Permission Required"
-msgstr ""
+msgstr "Потрібен дозвіл на створення знімка екрана"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:316
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -473,6 +470,9 @@ msgid ""
 "Crow Translate needs permission to take screenshots. Please grant permission "
 "in your system settings or use the interactive screenshot mode."
 msgstr ""
+"Crow Translate потрібні права доступу для створення знімків екрана. Будь "
+"ласка, надайте права доступу у системних параметра або скористайтеся "
+"інтерактивним режимом знімків екрана."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:322
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -480,6 +480,8 @@ msgid ""
 "Screenshot permission denied. Please grant permission in system settings or "
 "try interactive mode."
 msgstr ""
+"Відмовлено у спробі створити знімок екрана. Будь ласка, надайте дозвіл у "
+"системних параметрах або спробуйте інтерактивний режим."
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:57
 msgctxt "WaylandPortalScreenGrabber|"
@@ -491,18 +493,18 @@ msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
 msgstr "Отримав порожній шлях від xdg-desktop-portal."
 
-#: src/ocr/snippingarea.cpp:78
+#: src/ocr/snippingarea.cpp:91
 msgctxt "SnippingArea|"
 msgid "Unable to snip screen area"
 msgstr "Не вдається фрагментувати область екрана"
 
-#: src/ocr/snippingarea.cpp:79
+#: src/ocr/snippingarea.cpp:92
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
 msgstr "Отримано неприпустиме зображення екрана %1."
 
-#: src/ocr/snippingarea.cpp:631
+#: src/ocr/snippingarea.cpp:644
 msgctxt "SnippingArea|"
 msgid ""
 "Click and drag to draw a selection rectangle,\n"
@@ -511,112 +513,115 @@ msgstr ""
 "Клацніть і перетягніть, щоб намалювати прямокутник виділення,\n"
 "або натисніть клавішу Esc, щоб вийти"
 
-#: src/ocr/snippingarea.cpp:837
+#: src/ocr/snippingarea.cpp:850
 msgctxt "SnippingArea|"
 msgid "Confirm:"
 msgstr "Підтвердити:"
 
-#: src/ocr/snippingarea.cpp:839
+#: src/ocr/snippingarea.cpp:852
 msgctxt "SnippingArea|"
 msgid "Release left-click"
 msgstr "Відпустіть лівою кнопкою миші"
 
-#: src/ocr/snippingarea.cpp:839 src/ocr/snippingarea.cpp:841
+#: src/ocr/snippingarea.cpp:852 src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Enter"
 msgstr "Ввести"
 
-#: src/ocr/snippingarea.cpp:841
+#: src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Double-click"
 msgstr "Двічі клацніть"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:856
 msgctxt "SnippingArea|"
 msgid "Create new selection rectangle:"
 msgstr "Створити новий прямокутний виділення:"
 
-#: src/ocr/snippingarea.cpp:844
+#: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "Drag outside selection rectangle"
 msgstr "Перетягніть за межі прямокутника виділення"
 
-#: src/ocr/snippingarea.cpp:844
+#: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
 msgstr "+ Shift: Екранна лупа"
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:860
 msgctxt "SnippingArea|"
 msgid "Move selection rectangle:"
 msgstr "Перемістити прямокутник виділення:"
 
-#: src/ocr/snippingarea.cpp:848
+#: src/ocr/snippingarea.cpp:861
 msgctxt "SnippingArea|"
 msgid "Drag inside selection rectangle"
 msgstr "Перетягніть всередині прямокутника виділення"
 
-#: src/ocr/snippingarea.cpp:848
+#: src/ocr/snippingarea.cpp:861
 msgctxt "SnippingArea|"
 msgid "Arrow keys"
 msgstr "Клавіші зі стрілками"
 
-#: src/ocr/snippingarea.cpp:848
+#: src/ocr/snippingarea.cpp:861
 msgctxt "SnippingArea|"
 msgid "+ Shift: Move in 1 pixel steps"
 msgstr "+ Shift: Переміщення в 1 піксель кроків"
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:863
 msgctxt "SnippingArea|"
 msgid "Resize selection rectangle:"
 msgstr "Змінити розмір прямокутника виділення:"
 
-#: src/ocr/snippingarea.cpp:851
+#: src/ocr/snippingarea.cpp:864
 msgctxt "SnippingArea|"
 msgid "Drag handles"
 msgstr "Перетягування маркерів"
 
-#: src/ocr/snippingarea.cpp:851
+#: src/ocr/snippingarea.cpp:864
 msgctxt "SnippingArea|"
 msgid "Arrow keys + Alt"
 msgstr "Клавіші зі стрілками + Alt"
 
-#: src/ocr/snippingarea.cpp:851
+#: src/ocr/snippingarea.cpp:864
 msgctxt "SnippingArea|"
 msgid "+ Shift: Resize in 1 pixel steps"
 msgstr "+ Shift: Зміна розміру в 1 піксель кроків"
 
-#: src/ocr/snippingarea.cpp:853
+#: src/ocr/snippingarea.cpp:866
 msgctxt "SnippingArea|"
 msgid "Reset selection:"
 msgstr "Скинути виділення:"
 
-#: src/ocr/snippingarea.cpp:854
+#: src/ocr/snippingarea.cpp:867
 msgctxt "SnippingArea|"
 msgid "Right-click"
 msgstr "Клацніть правою кнопкою миші"
 
-#: src/ocr/snippingarea.cpp:857
+#: src/ocr/snippingarea.cpp:870
 msgctxt "SnippingArea|"
 msgid "Cancel:"
 msgstr "Скасувати:"
 
-#: src/ocr/snippingarea.cpp:858
+#: src/ocr/snippingarea.cpp:871
 msgctxt "SnippingArea|"
 msgid "Esc key"
 msgstr "Клавіша Esc"
 
-#: src/ocr/snippingarea.cpp:883
+#: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
 msgid "DPI Detection Error"
-msgstr ""
+msgstr "Помилка визначення щільності пікселів"
 
-#: src/ocr/snippingarea.cpp:883
+#: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
 msgid ""
 "Screen under cursor disappeared before we got dpi from it. Using primary "
 "screen for dpi information."
 msgstr ""
+"Вікно під вказівником зникло до того, як ми отримали дані щодо щільності "
+"пікселів у ньому. Використовуємо дані щодо щільності пікселів з основного "
+"екрана."
 
 #: src/onlinetranslator.cpp:274
 #, qt-format

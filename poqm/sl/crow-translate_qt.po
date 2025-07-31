@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-07-21 06:30+0200\n"
+"PO-Revision-Date: 2025-07-30 06:17+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -446,22 +446,19 @@ msgid "Unable to read data from socket: %1."
 msgstr "Ni mogoče prebrati podatkov iz vtičnice: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:275
-#, fuzzy
-#| msgctxt "AbstractScreenGrabber|"
-#| msgid "Unable to grab screen"
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to determine target screen"
-msgstr "Ni mogoče zajeti zaslona"
+msgstr "Ni mogoče določiti ciljnega zaslona"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:297
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Failed to extract screen area from workspace"
-msgstr ""
+msgstr "Neuspelo izvlečenje območja zaslona iz delovnega prostora"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:315
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Screenshot Permission Required"
-msgstr ""
+msgstr "Potrebno je dovoljenje za posnetek zaslona"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:316
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -469,6 +466,9 @@ msgid ""
 "Crow Translate needs permission to take screenshots. Please grant permission "
 "in your system settings or use the interactive screenshot mode."
 msgstr ""
+"Crow Translate potrebuje dovoljenje za kreiranje posnetkov zaslona. "
+"Dovoljenje odobrite v sistemskih nastavitvah ali uporabite interaktivni "
+"način za zajemanje zaslona."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:322
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -476,6 +476,8 @@ msgid ""
 "Screenshot permission denied. Please grant permission in system settings or "
 "try interactive mode."
 msgstr ""
+"Dovoljenje za posnetek zaslona zavrnjeno. Dovoljenje odobrite v sistemskih "
+"nastavitvah ali poskusite interaktivni način."
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:57
 msgctxt "WaylandPortalScreenGrabber|"
@@ -487,18 +489,18 @@ msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
 msgstr "Prejeta prazna pot iz xdg-desktop-portal."
 
-#: src/ocr/snippingarea.cpp:78
+#: src/ocr/snippingarea.cpp:91
 msgctxt "SnippingArea|"
 msgid "Unable to snip screen area"
 msgstr "Območja zaslona ni mogoče izrezati"
 
-#: src/ocr/snippingarea.cpp:79
+#: src/ocr/snippingarea.cpp:92
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
 msgstr "Prejeta je neveljavna slika zaslona %1."
 
-#: src/ocr/snippingarea.cpp:631
+#: src/ocr/snippingarea.cpp:644
 msgctxt "SnippingArea|"
 msgid ""
 "Click and drag to draw a selection rectangle,\n"
@@ -507,112 +509,114 @@ msgstr ""
 "Kliknite in povlecite, da narišete izbirni pravokotnik, ali pritisnite Esc, "
 "da zapustite"
 
-#: src/ocr/snippingarea.cpp:837
+#: src/ocr/snippingarea.cpp:850
 msgctxt "SnippingArea|"
 msgid "Confirm:"
 msgstr "Potrdi:"
 
-#: src/ocr/snippingarea.cpp:839
+#: src/ocr/snippingarea.cpp:852
 msgctxt "SnippingArea|"
 msgid "Release left-click"
 msgstr "Spustite levi klik"
 
-#: src/ocr/snippingarea.cpp:839 src/ocr/snippingarea.cpp:841
+#: src/ocr/snippingarea.cpp:852 src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Enter"
 msgstr "Vnesi"
 
-#: src/ocr/snippingarea.cpp:841
+#: src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Double-click"
 msgstr "Dvojni klik"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:856
 msgctxt "SnippingArea|"
 msgid "Create new selection rectangle:"
 msgstr "Ustvari nov izbirni pravokotnik:"
 
-#: src/ocr/snippingarea.cpp:844
+#: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "Drag outside selection rectangle"
 msgstr "Povlecite zunaj izbirnega pravokotnika"
 
-#: src/ocr/snippingarea.cpp:844
+#: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
 msgstr "+ Shift: lupa"
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:860
 msgctxt "SnippingArea|"
 msgid "Move selection rectangle:"
 msgstr "Premakni izbirni pravokotnik:"
 
-#: src/ocr/snippingarea.cpp:848
+#: src/ocr/snippingarea.cpp:861
 msgctxt "SnippingArea|"
 msgid "Drag inside selection rectangle"
 msgstr "Povlecite znotraj izbirnega pravokotnika"
 
-#: src/ocr/snippingarea.cpp:848
+#: src/ocr/snippingarea.cpp:861
 msgctxt "SnippingArea|"
 msgid "Arrow keys"
 msgstr "Smerne tipke"
 
-#: src/ocr/snippingarea.cpp:848
+#: src/ocr/snippingarea.cpp:861
 msgctxt "SnippingArea|"
 msgid "+ Shift: Move in 1 pixel steps"
 msgstr "+ Shift: premikanje v korakih po 1 slikovno piko"
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:863
 msgctxt "SnippingArea|"
 msgid "Resize selection rectangle:"
 msgstr "Spremeni velikost izbirnega pravokotnika:"
 
-#: src/ocr/snippingarea.cpp:851
+#: src/ocr/snippingarea.cpp:864
 msgctxt "SnippingArea|"
 msgid "Drag handles"
 msgstr "Povleci ročaje"
 
-#: src/ocr/snippingarea.cpp:851
+#: src/ocr/snippingarea.cpp:864
 msgctxt "SnippingArea|"
 msgid "Arrow keys + Alt"
 msgstr "Puščične tipke + Alt"
 
-#: src/ocr/snippingarea.cpp:851
+#: src/ocr/snippingarea.cpp:864
 msgctxt "SnippingArea|"
 msgid "+ Shift: Resize in 1 pixel steps"
 msgstr "+ Shift: Spremenite velikost v korakih po 1 slikovno piko"
 
-#: src/ocr/snippingarea.cpp:853
+#: src/ocr/snippingarea.cpp:866
 msgctxt "SnippingArea|"
 msgid "Reset selection:"
 msgstr "Ponastavi izbiro:"
 
-#: src/ocr/snippingarea.cpp:854
+#: src/ocr/snippingarea.cpp:867
 msgctxt "SnippingArea|"
 msgid "Right-click"
 msgstr "Desni klik"
 
-#: src/ocr/snippingarea.cpp:857
+#: src/ocr/snippingarea.cpp:870
 msgctxt "SnippingArea|"
 msgid "Cancel:"
 msgstr "Prekliči:"
 
-#: src/ocr/snippingarea.cpp:858
+#: src/ocr/snippingarea.cpp:871
 msgctxt "SnippingArea|"
 msgid "Esc key"
 msgstr "Tipka Esc"
 
-#: src/ocr/snippingarea.cpp:883
+#: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
 msgid "DPI Detection Error"
-msgstr ""
+msgstr "Napaka zaznavanja ločljivosti"
 
-#: src/ocr/snippingarea.cpp:883
+#: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
 msgid ""
 "Screen under cursor disappeared before we got dpi from it. Using primary "
 "screen for dpi information."
 msgstr ""
+"Zaslon pod kazalko je izginil, preden smo pridobili podatke o ločljivosti "
+"dpi. Za informacije o ločljivosti dpi uporabljamo primarni zaslon."
 
 #: src/onlinetranslator.cpp:274
 #, qt-format

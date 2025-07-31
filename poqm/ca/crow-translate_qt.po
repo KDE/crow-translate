@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: crow-translate\n"
-"PO-Revision-Date: 2025-07-21 10:00+0200\n"
+"PO-Revision-Date: 2025-07-30 10:05+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -457,22 +457,19 @@ msgid "Unable to read data from socket: %1."
 msgstr "No s'han pogut llegir les dades del sòcol: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:275
-#, fuzzy
-#| msgctxt "AbstractScreenGrabber|"
-#| msgid "Unable to grab screen"
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to determine target screen"
-msgstr "No s'ha pogut capturar la pantalla"
+msgstr "No s'ha pogut determinar la pantalla de destinació"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:297
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Failed to extract screen area from workspace"
-msgstr ""
+msgstr "Ha fallat en extreure l'àrea de la pantalla de l'espai de treball"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:315
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Screenshot Permission Required"
-msgstr ""
+msgstr "Es requereix permís de captura de pantalla"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:316
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -480,6 +477,9 @@ msgid ""
 "Crow Translate needs permission to take screenshots. Please grant permission "
 "in your system settings or use the interactive screenshot mode."
 msgstr ""
+"El Crow Translate necessita permís per prendre captures de pantalla. "
+"Atorgueu el permís a la configuració del sistema o utilitzeu el mode "
+"interactiu de captura de pantalla."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:322
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -487,6 +487,8 @@ msgid ""
 "Screenshot permission denied. Please grant permission in system settings or "
 "try interactive mode."
 msgstr ""
+"S'ha denegat el permís de captura de pantalla. Atorgueu el permís a la "
+"configuració del sistema o proveu el mode interactiu."
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:57
 msgctxt "WaylandPortalScreenGrabber|"
@@ -498,18 +500,18 @@ msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
 msgstr "S'ha rebut un camí buit des de «xdg-desktop-portal»."
 
-#: src/ocr/snippingarea.cpp:78
+#: src/ocr/snippingarea.cpp:91
 msgctxt "SnippingArea|"
 msgid "Unable to snip screen area"
 msgstr "No s'ha pogut retallar l'àrea de la pantalla"
 
-#: src/ocr/snippingarea.cpp:79
+#: src/ocr/snippingarea.cpp:92
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
 msgstr "S'ha rebut una imatge no vàlida de la pantalla %1."
 
-#: src/ocr/snippingarea.cpp:631
+#: src/ocr/snippingarea.cpp:644
 msgctxt "SnippingArea|"
 msgid ""
 "Click and drag to draw a selection rectangle,\n"
@@ -518,112 +520,114 @@ msgstr ""
 "Feu clic i arrossegueu per a dibuixar un rectangle de selecció,\n"
 "o premeu Esc per a sortir"
 
-#: src/ocr/snippingarea.cpp:837
+#: src/ocr/snippingarea.cpp:850
 msgctxt "SnippingArea|"
 msgid "Confirm:"
 msgstr "Confirma:"
 
-#: src/ocr/snippingarea.cpp:839
+#: src/ocr/snippingarea.cpp:852
 msgctxt "SnippingArea|"
 msgid "Release left-click"
 msgstr "Deixar anar el clic esquerre"
 
-#: src/ocr/snippingarea.cpp:839 src/ocr/snippingarea.cpp:841
+#: src/ocr/snippingarea.cpp:852 src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Enter"
 msgstr "Entrada"
 
-#: src/ocr/snippingarea.cpp:841
+#: src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Double-click"
 msgstr "Doble clic"
 
-#: src/ocr/snippingarea.cpp:843
+#: src/ocr/snippingarea.cpp:856
 msgctxt "SnippingArea|"
 msgid "Create new selection rectangle:"
 msgstr "Crea un rectangle de la selecció nou:"
 
-#: src/ocr/snippingarea.cpp:844
+#: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "Drag outside selection rectangle"
 msgstr "Arrossega fora del rectangle de la selecció"
 
-#: src/ocr/snippingarea.cpp:844
+#: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
 msgstr "+ Majúscules: Mostra la lupa"
 
-#: src/ocr/snippingarea.cpp:847
+#: src/ocr/snippingarea.cpp:860
 msgctxt "SnippingArea|"
 msgid "Move selection rectangle:"
 msgstr "Mou el rectangle de la selecció:"
 
-#: src/ocr/snippingarea.cpp:848
+#: src/ocr/snippingarea.cpp:861
 msgctxt "SnippingArea|"
 msgid "Drag inside selection rectangle"
 msgstr "Arrossega dins el rectangle de la selecció"
 
-#: src/ocr/snippingarea.cpp:848
+#: src/ocr/snippingarea.cpp:861
 msgctxt "SnippingArea|"
 msgid "Arrow keys"
 msgstr "Tecles de cursor"
 
-#: src/ocr/snippingarea.cpp:848
+#: src/ocr/snippingarea.cpp:861
 msgctxt "SnippingArea|"
 msgid "+ Shift: Move in 1 pixel steps"
 msgstr "+ Majúscules: Mou en passos d'1 píxel"
 
-#: src/ocr/snippingarea.cpp:850
+#: src/ocr/snippingarea.cpp:863
 msgctxt "SnippingArea|"
 msgid "Resize selection rectangle:"
 msgstr "Redimensiona el rectangle de la selecció:"
 
-#: src/ocr/snippingarea.cpp:851
+#: src/ocr/snippingarea.cpp:864
 msgctxt "SnippingArea|"
 msgid "Drag handles"
 msgstr "Arrossega les manetes"
 
-#: src/ocr/snippingarea.cpp:851
+#: src/ocr/snippingarea.cpp:864
 msgctxt "SnippingArea|"
 msgid "Arrow keys + Alt"
 msgstr "Tecles de cursor + Alt"
 
-#: src/ocr/snippingarea.cpp:851
+#: src/ocr/snippingarea.cpp:864
 msgctxt "SnippingArea|"
 msgid "+ Shift: Resize in 1 pixel steps"
 msgstr "+ Majúscules: Redimensiona en passos d'1 píxel"
 
-#: src/ocr/snippingarea.cpp:853
+#: src/ocr/snippingarea.cpp:866
 msgctxt "SnippingArea|"
 msgid "Reset selection:"
 msgstr "Restableix la selecció:"
 
-#: src/ocr/snippingarea.cpp:854
+#: src/ocr/snippingarea.cpp:867
 msgctxt "SnippingArea|"
 msgid "Right-click"
 msgstr "Clic dret"
 
-#: src/ocr/snippingarea.cpp:857
+#: src/ocr/snippingarea.cpp:870
 msgctxt "SnippingArea|"
 msgid "Cancel:"
 msgstr "Cancel·la:"
 
-#: src/ocr/snippingarea.cpp:858
+#: src/ocr/snippingarea.cpp:871
 msgctxt "SnippingArea|"
 msgid "Esc key"
 msgstr "Tecla Esc"
 
-#: src/ocr/snippingarea.cpp:883
+#: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
 msgid "DPI Detection Error"
-msgstr ""
+msgstr "Error de detecció de PPP"
 
-#: src/ocr/snippingarea.cpp:883
+#: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
 msgid ""
 "Screen under cursor disappeared before we got dpi from it. Using primary "
 "screen for dpi information."
 msgstr ""
+"La pantalla sota el cursor ha desaparegut abans que obtinguéssim d'ella els "
+"PPP. S'utilitza la pantalla principal per a la informació dels ppp."
 
 #: src/onlinetranslator.cpp:274
 #, qt-format
