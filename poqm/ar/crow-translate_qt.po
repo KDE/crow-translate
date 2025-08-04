@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-05-17 11:34+0400\n"
+"PO-Revision-Date: 2025-08-03 15:55+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -58,12 +58,12 @@ msgstr ""
 #: src/cli.cpp:47
 msgctxt "Cli|"
 msgid "Speak the translation."
-msgstr "تحدث الترجمة."
+msgstr "انطق الترجمة."
 
 #: src/cli.cpp:48
 msgctxt "Cli|"
 msgid "Speak the source."
-msgstr "تحدث المصدر."
+msgstr "انطق المصدر."
 
 #: src/cli.cpp:49
 msgctxt "Cli|"
@@ -364,7 +364,7 @@ msgstr "المصدر"
 #: src/mainwindow.ui:118
 msgctxt "MainWindow|"
 msgid "Clear"
-msgstr "محو"
+msgstr "امحُ"
 
 #: src/mainwindow.ui:135
 msgctxt "MainWindow|"
@@ -422,7 +422,7 @@ msgstr "غير قادر على إنشاء الأنابيب: %1."
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:84
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to detect active screen for screenshot"
-msgstr ""
+msgstr "تعذر الكشف عن شاشة نشطة لالتقاط لقطة شاشة"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:164
 #, qt-format
@@ -442,22 +442,19 @@ msgid "Unable to read data from socket: %1."
 msgstr "غير قادر على قراءة البيانات من المنظر: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:275
-#, fuzzy
-#| msgctxt "AbstractScreenGrabber|"
-#| msgid "Unable to grab screen"
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to determine target screen"
-msgstr "غير قادر على انتزاع الشاشة"
+msgstr "تعذر تحديد الشاشة المستهدفة"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:297
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Failed to extract screen area from workspace"
-msgstr ""
+msgstr "فشل استخراج منطقة الشاشة من مساحة العمل"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:315
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Screenshot Permission Required"
-msgstr ""
+msgstr "يلزم الحصول على إذن لالتقاط لقطة شاشة"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:316
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -465,6 +462,8 @@ msgid ""
 "Crow Translate needs permission to take screenshots. Please grant permission "
 "in your system settings or use the interactive screenshot mode."
 msgstr ""
+"يحتاج مترجم الغراب إلى إذن لالتقاط لقطات شاشة. يرجى منح الإذن في إعدادات "
+"النظام أو استخدام وضع لقطات الشاشة التفاعلية."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:322
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -472,6 +471,7 @@ msgid ""
 "Screenshot permission denied. Please grant permission in system settings or "
 "try interactive mode."
 msgstr ""
+"طلب التقاط لقطة شاشة مرفوض. يرجى منح الإذن في إعدادات النظام أو تجربة الوضع "
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:57
 msgctxt "WaylandPortalScreenGrabber|"
@@ -601,7 +601,7 @@ msgstr "مفتاح Esc"
 #: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
 msgid "DPI Detection Error"
-msgstr ""
+msgstr "خطأ في الكشف عن DPI"
 
 #: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
@@ -609,6 +609,8 @@ msgid ""
 "Screen under cursor disappeared before we got dpi from it. Using primary "
 "screen for dpi information."
 msgstr ""
+"اختفت الشاشة الموجودة تحت المؤشر قبل أن نحصل على dpi منها. استخدام الشاشة "
+"الأساسية للحصول على معلومات dpi."
 
 #: src/onlinetranslator.cpp:274
 #, qt-format
@@ -780,7 +782,7 @@ msgstr "التشوفاشية"
 #: src/onlinetranslator.cpp:554
 msgctxt "OnlineTranslator|"
 msgid "Comorian (Ngazidja)"
-msgstr "القادم (Ngazidja)"
+msgstr "الكموري (نغازيدجا)"
 
 #: src/onlinetranslator.cpp:556
 msgctxt "OnlineTranslator|"
@@ -1873,7 +1875,7 @@ msgstr "<html><head/><body><p>لغة الواجهة</p></body></html>"
 #: src/settings/settingsdialog.ui:154
 msgctxt "SettingsDialog|"
 msgid "Main window orientation:"
-msgstr "اتجاه النافذة الرئيسية:"
+msgstr "اتجاه النافذة الرئيسة:"
 
 #: src/settings/settingsdialog.ui:161
 msgctxt "SettingsDialog|"
@@ -1882,7 +1884,7 @@ msgid ""
 "<span style=\" font-style:italic;\">Auto</span>, the window orientation will "
 "match the screen orientation</p></body></html>"
 msgstr ""
-"<html><head/><body><p>توجيه تخطيط النافذة الرئيسية<br/>عند استخدام <span "
+"<html><head/><body><p>توجيه تخطيط النافذة الرئيسة<br/>عند استخدام <span "
 "style=\" font-style:italic;\">التلقائي</span>، اتجاه النافذة سوف يتطابق مع "
 "اتجاه الشاشة</p></body></html>"
 
@@ -1917,7 +1919,7 @@ msgid ""
 "html>"
 msgstr ""
 "<html><head/><body><p>نافذة لترجمة النص المحدد. إذا تم تقليل التطبيق ، فسيتم "
-"استخدام النافذة الرئيسية دائماً.</p></body></html>"
+"استخدام النافذة الرئيسة دائماً.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:194 src/settings/settingsdialog.ui:343
 msgctxt "SettingsDialog|"
@@ -1927,7 +1929,7 @@ msgstr "نافذة منبثقة"
 #: src/settings/settingsdialog.ui:199
 msgctxt "SettingsDialog|"
 msgid "Main window"
-msgstr "النافذة الرئيسية"
+msgstr "النافذة الرئيسة"
 
 #: src/settings/settingsdialog.ui:204
 msgctxt "SettingsDialog|"
@@ -2072,7 +2074,7 @@ msgstr "تنسيق اللغة"
 #: src/settings/settingsdialog.ui:459
 msgctxt "SettingsDialog|"
 msgid "Main window:"
-msgstr "النافذة الرئيسية:"
+msgstr "النافذة الرئيسة:"
 
 #: src/settings/settingsdialog.ui:466 src/settings/settingsdialog.ui:490
 msgctxt "SettingsDialog|"
@@ -2229,7 +2231,7 @@ msgstr "الكشف التلقائي عن اللغة"
 #: src/settings/settingsdialog.ui:706
 msgctxt "SettingsDialog|"
 msgid "Primary translation language:"
-msgstr "لغة الترجمة الرئيسية:"
+msgstr "لغة الترجمة الرئيسة:"
 
 #: src/settings/settingsdialog.ui:713
 msgctxt "SettingsDialog|"
@@ -2524,7 +2526,7 @@ msgstr "<html><head/><body><p>اسم المستخدم الوكيل للمصاد�
 #: src/settings/settingsdialog.ui:1231
 msgctxt "SettingsDialog|"
 msgid "Password:"
-msgstr "كلمة المرور:"
+msgstr "كلمة السر:"
 
 #: src/settings/settingsdialog.ui:1241
 msgctxt "SettingsDialog|"
@@ -2535,7 +2537,7 @@ msgstr "<html><head/><body><p>كلمة مرور الوكيل للمصادقة</p
 #: src/settings/settingsdialog.ui:1254
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
-msgstr "معلومات: تم حفظ كلمة المرور غير مشفرة"
+msgstr "معلومات: حُفظت كلمة السر غير معماة"
 
 #: src/settings/settingsdialog.ui:1290
 msgctxt "SettingsDialog|"
@@ -2607,7 +2609,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:1371
 msgctxt "SettingsDialog|"
 msgid "Reset"
-msgstr "إعادة ضبط"
+msgstr "صفّر"
 
 #: src/settings/settingsdialog.ui:1416
 msgctxt "SettingsDialog|"
@@ -2663,7 +2665,7 @@ msgstr "التحدث / الإيقاف المؤقت للنص"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:38
 msgctxt "ShortcutsModel|"
 msgid "Show main window"
-msgstr "إظهار النافذة الرئيسية"
+msgstr "أظهر النافذة الرئيسة"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:41
 msgctxt "ShortcutsModel|"
@@ -2698,7 +2700,7 @@ msgstr "تبديل انعكاس اللون للتعرف الضوئي على ال
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
 msgid "Main window"
-msgstr "النافذة الرئيسية"
+msgstr "النافذة الرئيسة"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:61
 msgctxt "ShortcutsModel|"
