@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-08-03 15:55+0400\n"
+"PO-Revision-Date: 2025-08-04 18:37+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -28,14 +28,14 @@ msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
-msgstr "حدد اللغة المصدر (بشكل افتراضي ، سيحاول المحرك تحديد اللغة بمفرده)."
+msgstr "حدد اللغة المصدر (بشكل مبدئي ، سيحاول المحرك تحديد اللغة بمفرده)."
 
 #: src/cli.cpp:44
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
 "language is used)."
-msgstr "حدد لغة لغات الترجمة مقسمة إلى '+' (يتم استخدام لغة النظام افتراضيًا)."
+msgstr "حدد لغة لغات الترجمة مقسمة إلى '+' (يتم استخدام لغة النظام مبدئيًا)."
 
 #: src/cli.cpp:45
 msgctxt "Cli|"
@@ -44,7 +44,7 @@ msgid ""
 "or 'lingva'), Google is used by default."
 msgstr ""
 "حدد محرك المترجم ('google', 'yandex', 'bing', 'libretransl' أو 'lingva')، "
-"يتم استخدام Google بشكل افتراضي."
+"يتم استخدام Google بشكل مبدئي."
 
 #: src/cli.cpp:46
 msgctxt "Cli|"
@@ -102,7 +102,7 @@ msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
-msgstr "نص للترجمة. بشكل افتراضي ، ستتم الترجمة إلى لغة النظام."
+msgstr "نص للترجمة. بشكل مبدئي ، ستتم الترجمة إلى لغة النظام."
 
 #: src/cli.cpp:79
 #, qt-format
@@ -223,7 +223,7 @@ msgstr "الرجاء تقليل اللغات المضافة."
 #: src/languagebuttonswidget.cpp:293 src/languagebuttonswidget.cpp:295
 msgctxt "LanguageButtonsWidget|"
 msgid "Auto"
-msgstr "تلقائي"
+msgstr "آليّ"
 
 #: src/languagebuttonswidget.ui:32
 msgctxt "LanguageButtonsWidget|"
@@ -317,7 +317,7 @@ msgstr "أيقونة اللوحة غير صالحة"
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
-msgstr "الرمز المحدد '%1' غير صالح. سيتم استخدام الرمز الافتراضي."
+msgstr "الرمز المحدد '%1' غير صالح. سيتم استخدام الرمز المبدئي."
 
 #: src/mainwindow.cpp:927
 msgctxt "Ocr|"
@@ -344,7 +344,7 @@ msgstr "التعرف على منطقة الشاشة مع تأخير"
 #: src/mainwindow.ui:64
 msgctxt "MainWindow|"
 msgid "Auto-translation"
-msgstr "الترجمة التلقائية"
+msgstr "الترجمة الآليّة"
 
 #: src/mainwindow.ui:76
 msgctxt "MainWindow|"
@@ -581,7 +581,7 @@ msgstr "+ تحويل: تغيير الحجم بخطوات 1 بكسل"
 #: src/ocr/snippingarea.cpp:866
 msgctxt "SnippingArea|"
 msgid "Reset selection:"
-msgstr "إعادة تعيين التحديد:"
+msgstr "صفّر التحديد:"
 
 #: src/ocr/snippingarea.cpp:867
 msgctxt "SnippingArea|"
@@ -627,7 +627,7 @@ msgstr "المحرك %1 لا يدعم تحويل النص إلى كلام فور
 #: src/onlinetranslator.cpp:492
 msgctxt "OnlineTranslator|"
 msgid "Automatically detect"
-msgstr "الكشف التلقائي"
+msgstr "الكشف الآليّ"
 
 #: src/onlinetranslator.cpp:494
 msgctxt "OnlineTranslator|"
@@ -1713,7 +1713,7 @@ msgstr "خطأ المثيل: %1"
 #: src/onlinetranslator.cpp:1281
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
-msgstr "خطأ: غير قادر على تحليل اللغة المكتشفة تلقائياً"
+msgstr "خطأ: غير قادر على تحليل اللغة المكتشفة آليّاً"
 
 #: src/popupwindow.ui:32
 msgctxt "PopupWindow|"
@@ -1744,13 +1744,13 @@ msgstr "رمز لغة غير معروف: %1"
 #: src/settings/autostartmanager/abstractautostartmanager.cpp:44
 msgctxt "AbstractAutostartManager|"
 msgid "Unable to apply autostart settings"
-msgstr "غير قادر على تطبيق إعدادات التشغيل التلقائي"
+msgstr "غير قادر على تطبيق إعدادات التشغيل الآليّ"
 
 #: src/settings/autostartmanager/portalautostartmanager.cpp:34
 #, qt-format
 msgctxt "PortalAutostartManager|"
 msgid "Allow %1 to manage autostart setting for itself."
-msgstr "السماح لـ %1 بإدارة إعداد التشغيل التلقائي لنفسه."
+msgstr "السماح لـ %1 بإدارة إعداد التشغيل الآليّ لنفسه."
 
 #: src/settings/autostartmanager/portalautostartmanager.cpp:53
 msgctxt "PortalAutostartManager|"
@@ -1885,14 +1885,14 @@ msgid ""
 "match the screen orientation</p></body></html>"
 msgstr ""
 "<html><head/><body><p>توجيه تخطيط النافذة الرئيسة<br/>عند استخدام <span "
-"style=\" font-style:italic;\">التلقائي</span>، اتجاه النافذة سوف يتطابق مع "
+"style=\" font-style:italic;\">الآليّ</span>، اتجاه النافذة سوف يتطابق مع "
 "اتجاه الشاشة</p></body></html>"
 
 #. Orientation
 #: src/settings/settingsdialog.ui:165
 msgctxt "SettingsDialog|"
 msgid "Auto"
-msgstr "تلقائي"
+msgstr "آليّ"
 
 #. Orientation
 #: src/settings/settingsdialog.ui:170
@@ -2116,7 +2116,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:533
 msgctxt "SettingsDialog|"
 msgid "Default"
-msgstr "الافتراضي"
+msgstr "المبدئي"
 
 #: src/settings/settingsdialog.ui:541
 msgctxt "SettingsDialog|"
@@ -2226,7 +2226,7 @@ msgstr "تبسيط المصدر"
 #: src/settings/settingsdialog.ui:700
 msgctxt "SettingsDialog|"
 msgid "Automatic language detection"
-msgstr "الكشف التلقائي عن اللغة"
+msgstr "الكشف الآليّ عن اللغة"
 
 #: src/settings/settingsdialog.ui:706
 msgctxt "SettingsDialog|"
@@ -2239,8 +2239,8 @@ msgid ""
 "<html><head/><body><p>Language to which text will be translated when "
 "autodetecting</p></body></html>"
 msgstr ""
-"<html><head/><body><p>اللغة التي سيتم ترجمة النص إليها عند الكشف التلقائي "
-"عن</p></body></html>"
+"<html><head/><body><p>اللغة التي سيتم ترجمة النص إليها عند الكشف الآليّ عن</"
+"p></body></html>"
 
 #: src/settings/settingsdialog.ui:720
 msgctxt "SettingsDialog|"
@@ -2262,8 +2262,8 @@ msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
 "italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
 msgstr ""
-"<html><head/><body><p>التبديل التلقائي إلى <span style=\" font-style:italic;"
-"\">التلقائي</span> عند استخدام OCR والاختصارات العالمية</p></body></html>"
+"<html><head/><body><p>التبديل الآليّ إلى <span style=\" font-style:italic;"
+"\">الآليّ</span> عند استخدام OCR والاختصارات العالمية</p></body></html>"
 
 #: src/settings/settingsdialog.ui:737
 msgctxt "SettingsDialog|"
@@ -2283,7 +2283,7 @@ msgstr "عنوان لمثيل Mozhi"
 #: src/settings/settingsdialog.ui:789
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
-msgstr "اختيار أسرع مثيل تلقائيًا استنادًا إلى ping"
+msgstr "اختيار أسرع مثيل آليًّا استنادًا إلى ping"
 
 #: src/settings/settingsdialog.ui:792
 msgctxt "SettingsDialog|"
@@ -2408,7 +2408,7 @@ msgstr "<html><head/><body><p>إظهار مكبر بجوار المؤشر</p></b
 #: src/settings/settingsdialog.ui:1015
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
-msgstr "عرض المكبر"
+msgstr "أظهر المكبر"
 
 #: src/settings/settingsdialog.ui:1022
 msgctxt "SettingsDialog|"
@@ -2555,8 +2555,8 @@ msgstr "تمكين الاختصارات العالمية"
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
-"<html><head/><body><p>إعادة تعيين جميع الاختصارات إلى الإعدادات الافتراضية</"
-"p></body></html>"
+"<html><head/><body><p>صفّر جميع الاختصارات إلى الإعدادات المبدئية</p></body></"
+"html>"
 
 #: src/settings/settingsdialog.ui:1312
 msgctxt "SettingsDialog|"
@@ -2588,7 +2588,7 @@ msgstr "<html><head/><body><p>قبول الاختصار</p></body></html>"
 #: src/settings/settingsdialog.ui:1345
 msgctxt "SettingsDialog|"
 msgid "Accept"
-msgstr "قبول"
+msgstr "اقبل"
 
 #: src/settings/settingsdialog.ui:1355
 msgctxt "SettingsDialog|"
@@ -2598,13 +2598,13 @@ msgstr "<html><head/><body><p>اختصار مسح</p></body></html>"
 #: src/settings/settingsdialog.ui:1358
 msgctxt "SettingsDialog|"
 msgid "Clear"
-msgstr "محو"
+msgstr "امحُ"
 
 #: src/settings/settingsdialog.ui:1368
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr ""
-"<html><head/><body><p>إعادة تعيين الاختصار إلى الافتراضي</p></body></html>"
+"<html><head/><body><p>إعادة تعيين الاختصار إلى المبدئي</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1371
 msgctxt "SettingsDialog|"
@@ -2660,7 +2660,7 @@ msgstr "إيقاف التحدث بالنص"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:73
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause text speaking"
-msgstr "التحدث / الإيقاف المؤقت للنص"
+msgstr "انطق / ألبث نطق النص"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:38
 msgctxt "ShortcutsModel|"
@@ -2705,7 +2705,7 @@ msgstr "النافذة الرئيسة"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:61
 msgctxt "ShortcutsModel|"
 msgid "Translate"
-msgstr "يترجم"
+msgstr "ترجم"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:64
 msgctxt "ShortcutsModel|"
@@ -2715,7 +2715,7 @@ msgstr "مبادلة اللغات"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:67
 msgctxt "ShortcutsModel|"
 msgid "Close window"
-msgstr "إغلاق النافذة"
+msgstr "أغلق النّافذة"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:71
 msgctxt "ShortcutsModel|"
@@ -2725,17 +2725,17 @@ msgstr "نص المصدر"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
 msgctxt "ShortcutsModel|"
 msgid "Translation"
-msgstr "ترجمة"
+msgstr "الترجمة"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:79
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause speaking"
-msgstr "التكلم / الإيقاف المؤقت"
+msgstr "انطق / ألبث النطق"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:82
 msgctxt "ShortcutsModel|"
 msgid "Copy to clipboard"
-msgstr "نسخ إلى الحافظة"
+msgstr "انسخ إلى الحافظة"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:128
 msgctxt "ShortcutsModel|"
@@ -2750,7 +2750,7 @@ msgstr "الاختصار"
 #: src/settings/tesseractparameterstablewidget.cpp:16
 msgctxt "TesseractParametersTableWidget|"
 msgid "Property"
-msgstr "الممتلكات"
+msgstr "الخاصية"
 
 #: src/settings/tesseractparameterstablewidget.cpp:16
 msgctxt "TesseractParametersTableWidget|"
@@ -2810,12 +2810,12 @@ msgstr "إظهار النافذة"
 #: src/trayicon.cpp:20 src/trayicon.cpp:45
 msgctxt "TrayIcon|"
 msgid "Settings"
-msgstr "الإعدادات"
+msgstr "إعدادات"
 
 #: src/trayicon.cpp:21 src/trayicon.cpp:46
 msgctxt "TrayIcon|"
 msgid "Quit"
-msgstr "الخروج"
+msgstr "أنهِ"
 
 #: src/trayicon.cpp:51
 msgctxt "TrayIcon|"
