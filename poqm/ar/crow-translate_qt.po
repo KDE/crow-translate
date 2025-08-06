@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-08-04 18:37+0400\n"
+"PO-Revision-Date: 2025-08-05 20:41+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -35,7 +35,7 @@ msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
 "language is used)."
-msgstr "حدد لغة لغات الترجمة مقسمة إلى '+' (يتم استخدام لغة النظام مبدئيًا)."
+msgstr "حدد لغة لغات الترجمة مقسمة إلى '+' (ستستخدم لغة النظام مبدئيًا)."
 
 #: src/cli.cpp:45
 msgctxt "Cli|"
@@ -44,7 +44,7 @@ msgid ""
 "or 'lingva'), Google is used by default."
 msgstr ""
 "حدد محرك المترجم ('google', 'yandex', 'bing', 'libretransl' أو 'lingva')، "
-"يتم استخدام Google بشكل مبدئي."
+"سيستخدم غوغل بشكل مبدئي."
 
 #: src/cli.cpp:46
 msgctxt "Cli|"
@@ -69,7 +69,7 @@ msgstr "انطق المصدر."
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
-msgstr "قراءة نص المصدر من الملفات. سيتم تفسير الحجج على أنها مسارات ملفات."
+msgstr "اقرأ نص المصدر من الملفات. ستفسر المعاملات على أنها مسارات ملفات."
 
 #: src/cli.cpp:50
 msgctxt "Cli|"
@@ -102,7 +102,7 @@ msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
-msgstr "نص للترجمة. بشكل مبدئي ، ستتم الترجمة إلى لغة النظام."
+msgstr "نص للترجمة. بشكل مبدئي. مبدئيًّا سيترجم إلى لغة النظام."
 
 #: src/cli.cpp:79
 #, qt-format
@@ -317,7 +317,7 @@ msgstr "أيقونة اللوحة غير صالحة"
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
-msgstr "الرمز المحدد '%1' غير صالح. سيتم استخدام الرمز المبدئي."
+msgstr "الرمز المحدد '%1' غير صالح. ستستخدم الأيقونة المبدئية."
 
 #: src/mainwindow.cpp:927
 msgctxt "Ocr|"
@@ -428,7 +428,7 @@ msgstr "تعذر الكشف عن شاشة نشطة لالتقاط لقطة شا�
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to wait for socket readiness: %1."
-msgstr "غير قادر على الانتظار لتجهيز المقبيع: %1."
+msgstr "غير قادر على الانتظار لتجهيز القابس: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:169
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -481,7 +481,7 @@ msgstr "غير قادر على الاشتراك في الاستجابة من م�
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:77
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
-msgstr "تم تلقي مسار فارغ من مدخل xdg-desktop."
+msgstr "استقبل مسار فارغ من مدخل xdg-desktop."
 
 #: src/ocr/snippingarea.cpp:91
 msgctxt "SnippingArea|"
@@ -492,7 +492,7 @@ msgstr "غير قادر على قنص منطقة الشاشة"
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
-msgstr "تم تلقي صورة غير صالحة للشاشة %1."
+msgstr "استقبل صورة غير صالحة للشاشة %1."
 
 #: src/ocr/snippingarea.cpp:644
 msgctxt "SnippingArea|"
@@ -500,7 +500,7 @@ msgid ""
 "Click and drag to draw a selection rectangle,\n"
 "or press Esc to quit"
 msgstr ""
-"انقر واسحب لرسم مستطيل إختياري،\n"
+"انقر واسحب لرسم مستطيل اختياري،\n"
 "أو اضغط على Esc للإقلاع عن التدخين"
 
 #: src/ocr/snippingarea.cpp:850
@@ -526,17 +526,17 @@ msgstr "ضغطة مزدوجة"
 #: src/ocr/snippingarea.cpp:856
 msgctxt "SnippingArea|"
 msgid "Create new selection rectangle:"
-msgstr "إنشاء مستطيل إختيار جديد:"
+msgstr "إنشاء مستطيل اختيار جديد:"
 
 #: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "Drag outside selection rectangle"
-msgstr "اسحب مستطيل الإختيار الخارجي"
+msgstr "اسحب مستطيل الاختيار الخارجي"
 
 #: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
-msgstr "+ تحويل: ماغنيفير"
+msgstr "+ تحويل: تكبير بالعدسة"
 
 #: src/ocr/snippingarea.cpp:860
 msgctxt "SnippingArea|"
@@ -1918,8 +1918,8 @@ msgid ""
 "application is minimized, the main window will always be used.</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>نافذة لترجمة النص المحدد. إذا تم تقليل التطبيق ، فسيتم "
-"استخدام النافذة الرئيسة دائماً.</p></body></html>"
+"<html><head/><body><p>نافذة لترجمة النص المحدد. إذا صُغّر التطبيق ، فستُستخدم "
+"النافذة الرئيسة دائماً.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:194 src/settings/settingsdialog.ui:343
 msgctxt "SettingsDialog|"
@@ -1946,8 +1946,7 @@ msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Notification with translation display time</p></body></"
 "html>"
-msgstr ""
-"<html><head/><body><p>تشغيل التطبيق عند بدء تشغيل النظام</p></body></html>"
+msgstr "<html><head/><body><p>إشعار بوقت عرض الترجمة</p></body></html>"
 
 #: src/settings/settingsdialog.ui:228 src/settings/settingsdialog.ui:433
 msgctxt "SettingsDialog|"
@@ -1970,7 +1969,7 @@ msgid ""
 "<html><head/><body><p>Start application minimized to the system tray</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>ابدأ التطبيق مصغر الى ساحة النظام</p></body></html>"
+"<html><head/><body><p>ابدأ التطبيق مصغر إلى ساحة النظام</p></body></html>"
 
 #: src/settings/settingsdialog.ui:257
 msgctxt "SettingsDialog|"
@@ -2050,7 +2049,7 @@ msgstr "الشفافية:"
 #: src/settings/settingsdialog.ui:410
 msgctxt "SettingsDialog|"
 msgid "Show timeout:"
-msgstr "عرض المهلة:"
+msgstr "اعرض المهلة:"
 
 #: src/settings/settingsdialog.ui:417
 msgctxt "SettingsDialog|"
@@ -2063,8 +2062,8 @@ msgid ""
 "<html><head/><body><p>The number of seconds after which the window will be "
 "hidden if it has no focus</p></body></html>"
 msgstr ""
-"<html><head/><body><p>عدد الثواني التي سيتم إخفاء النافذة بعدها إذا لم يكن "
-"لها تركيز</p></body></html>"
+"<html><head/><body><p>عدد الثواني التي ستختفي النافذة بعدها إذا لم يكن لها "
+"تركيز</p></body></html>"
 
 #: src/settings/settingsdialog.ui:453
 msgctxt "SettingsDialog|"
@@ -2100,7 +2099,7 @@ msgstr "منبثقة:"
 #: src/settings/settingsdialog.ui:510
 msgctxt "SettingsDialog|"
 msgid "Tray icon"
-msgstr "ايقونة شريط النظام"
+msgstr "أيقونة شريط النظام"
 
 #: src/settings/settingsdialog.ui:516
 msgctxt "SettingsDialog|"
@@ -2239,8 +2238,8 @@ msgid ""
 "<html><head/><body><p>Language to which text will be translated when "
 "autodetecting</p></body></html>"
 msgstr ""
-"<html><head/><body><p>اللغة التي سيتم ترجمة النص إليها عند الكشف الآليّ عن</"
-"p></body></html>"
+"<html><head/><body><p>اللغة التي سيترجم النص إليها عند الكشف الآليّ </p></"
+"body></html>"
 
 #: src/settings/settingsdialog.ui:720
 msgctxt "SettingsDialog|"
@@ -2253,8 +2252,8 @@ msgid ""
 "<html><head/><body><p>Language to which the text will be translated if it is "
 "in the language selected above</p></body></html>"
 msgstr ""
-"<html><head/><body><p>اللغة التي سيتم ترجمة النص إليها إذا كان باللغة "
-"المحددة أعلاه</p></body></html>"
+"<html><head/><body><p>اللغة التي سيترجم النص إليها إذا كان باللغة المحددة "
+"أعلاه</p></body></html>"
 
 #: src/settings/settingsdialog.ui:734 src/settings/settingsdialog.ui:744
 msgctxt "SettingsDialog|"
@@ -2320,7 +2319,7 @@ msgstr "<html><head/><body><p>حدد مسار لغات OCR</p></body></html>"
 #: src/settings/settingsdialog.ui:855
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
-msgstr "<html><head/><body><p>افتح جيثب مخزن</p></body></html>"
+msgstr "<html><head/><body><p>افتح غت هب</p></body></html>"
 
 #: src/settings/settingsdialog.ui:858
 msgctxt "SettingsDialog|"
@@ -2367,12 +2366,12 @@ msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
 "html>"
-msgstr "<html><head/><body><p>عند تذكر آخر منطقة تم اختيارها</p></body></html>"
+msgstr "<html><head/><body><p>متى تتذكر آخر منطقة محددة</p></body></html>"
 
 #: src/settings/settingsdialog.ui:974
 msgctxt "SettingsDialog|"
 msgid "Never"
-msgstr "ابداً"
+msgstr "البتة"
 
 #: src/settings/settingsdialog.ui:979
 msgctxt "SettingsDialog|"
@@ -2430,7 +2429,7 @@ msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
 "released</p></body></html>"
 msgstr ""
-"<html><head/><body><p>إنهاء التقاط الشظايا عند تحرير زر الماوس</p></body></"
+"<html><head/><body><p>إنهاء التقاط الشظايا عند تحرير زر الفأرة</p></body></"
 "html>"
 
 #: src/settings/settingsdialog.ui:1038
@@ -2454,7 +2453,7 @@ msgstr "تطبيق قناع الضوء"
 #: src/settings/settingsdialog.ui:1081
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
-msgstr "خادم البروكسي"
+msgstr "خادم الوكيل"
 
 #: src/settings/settingsdialog.ui:1087
 msgctxt "SettingsDialog|"
@@ -2474,7 +2473,7 @@ msgstr "استخدام إعدادات النظام"
 #: src/settings/settingsdialog.ui:1114
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
-msgstr "قم باستخدام وكيل't"
+msgstr "لا تستخدم وكيل"
 
 #: src/settings/settingsdialog.ui:1130
 msgctxt "SettingsDialog|"
@@ -2561,7 +2560,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:1312
 msgctxt "SettingsDialog|"
 msgid "Reset all"
-msgstr "إعادة تعيين الكل"
+msgstr "صفّر الكلّ"
 
 #: src/settings/settingsdialog.ui:1322
 msgctxt "SettingsDialog|"
@@ -2603,8 +2602,7 @@ msgstr "امحُ"
 #: src/settings/settingsdialog.ui:1368
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
-msgstr ""
-"<html><head/><body><p>إعادة تعيين الاختصار إلى المبدئي</p></body></html>"
+msgstr "<html><head/><body><p>صفّر الاختصار إلى المبدئي</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1371
 msgctxt "SettingsDialog|"
@@ -2785,7 +2783,7 @@ msgstr "إيقاف التحدث بالنص"
 #: src/transitions/ocruninitializedtransition.cpp:28
 msgctxt "Ocr|"
 msgid "OCR languages are not loaded"
-msgstr "لم يتم تحميل لغات OCR"
+msgstr "لم يُحمل لغات التعرف البصري على الحروف"
 
 #: src/transitions/ocruninitializedtransition.cpp:28
 msgctxt "Ocr|"
