@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-07-28 23:09+0200\n"
+"PO-Revision-Date: 2025-08-06 20:28+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -457,22 +457,19 @@ msgid "Unable to read data from socket: %1."
 msgstr "Ezin dira socketeko datuak irakurri: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:275
-#, fuzzy
-#| msgctxt "AbstractScreenGrabber|"
-#| msgid "Unable to grab screen"
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to determine target screen"
-msgstr "Ezin da pantaila-argazkia egin"
+msgstr "Ezin du helburu pantaila zehaztu"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:297
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Failed to extract screen area from workspace"
-msgstr ""
+msgstr "Langunetik pantaila-eremua ateratzea huts egin du"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:315
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Screenshot Permission Required"
-msgstr ""
+msgstr "Pantaila-argazki baimenak behar dira"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:316
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -480,6 +477,9 @@ msgid ""
 "Crow Translate needs permission to take screenshots. Please grant permission "
 "in your system settings or use the interactive screenshot mode."
 msgstr ""
+"Crow Translate-k pantaila-argazkiak ateratzeko baimena behar du. Mesedez, "
+"eman baimena zure sistemaren ezarpenetan edo erabili pantaila-argazki modu "
+"elkarreragilea."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:322
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -487,6 +487,8 @@ msgid ""
 "Screenshot permission denied. Please grant permission in system settings or "
 "try interactive mode."
 msgstr ""
+"Pantaila-argazki baimena ukatu da. Mesedez zure sistemaren ezarpenetan "
+"baimena aitortu edo saiatu modu elkarreragilearekin."
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:57
 msgctxt "WaylandPortalScreenGrabber|"
@@ -616,7 +618,7 @@ msgstr "Esc tekla"
 #: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
 msgid "DPI Detection Error"
-msgstr ""
+msgstr "DPI antzemate errorea"
 
 #: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
@@ -624,6 +626,8 @@ msgid ""
 "Screen under cursor disappeared before we got dpi from it. Using primary "
 "screen for dpi information."
 msgstr ""
+"Kurtsore azpiko pantaila harengandik DPI lortu aurretik desagertu da. DPI "
+"informaziorako pantaila nagusia erabiltzen."
 
 #: src/onlinetranslator.cpp:274
 #, qt-format
