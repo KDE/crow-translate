@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-01-10 17:09+0100\n"
+"PO-Revision-Date: 2025-07-31 15:24+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 25.07.90\n"
 "X-Language: fr\n"
 "X-Qt-Contexts: true\n"
 "X-Source-Language: en\n"
@@ -440,7 +440,7 @@ msgstr "Impossible de créer le tube: %1."
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:84
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to detect active screen for screenshot"
-msgstr ""
+msgstr "Impossible de détecter l'écran actif pour la copie d'écran"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:164
 #, qt-format
@@ -460,22 +460,19 @@ msgid "Unable to read data from socket: %1."
 msgstr "Impossible de lire les données du socket: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:275
-#, fuzzy
-#| msgctxt "AbstractScreenGrabber|"
-#| msgid "Unable to grab screen"
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to determine target screen"
-msgstr "Impossible de capturer l'écran"
+msgstr "Impossible de déterminer l'écran cible"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:297
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Failed to extract screen area from workspace"
-msgstr ""
+msgstr "Échec de l'extraction de la zone d'écran de l'espace de travail"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:315
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Screenshot Permission Required"
-msgstr ""
+msgstr "Autorisation de copie d'écran requise"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:316
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -483,6 +480,9 @@ msgid ""
 "Crow Translate needs permission to take screenshots. Please grant permission "
 "in your system settings or use the interactive screenshot mode."
 msgstr ""
+"Crow Translate a besoin d'une autorisation pour prendre des copies d'écran. "
+"Veuillez accorder l'autorisation dans la configuration de votre système ou "
+"utiliser le mode interactif de copie d'écran."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:322
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -490,6 +490,8 @@ msgid ""
 "Screenshot permission denied. Please grant permission in system settings or "
 "try interactive mode."
 msgstr ""
+"Autorisation de copie d'écran refusée. Veuillez accorder l'autorisation dans "
+"la configuration du système ou essayer le mode interactif."
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:57
 msgctxt "WaylandPortalScreenGrabber|"
@@ -619,7 +621,7 @@ msgstr "Touche Échap"
 #: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
 msgid "DPI Detection Error"
-msgstr ""
+msgstr "Erreur de détection « DPI »"
 
 #: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
@@ -627,6 +629,8 @@ msgid ""
 "Screen under cursor disappeared before we got dpi from it. Using primary "
 "screen for dpi information."
 msgstr ""
+"L'écran sous le curseur a disparu avant que nous n'obtenions une valeur "
+"« DPI ». Utilisation de l'écran principal pour les informations « DPI »."
 
 #: src/onlinetranslator.cpp:274
 #, qt-format
