@@ -8,6 +8,9 @@
 #ifndef SETTINGSDIALOG_H
 #define SETTINGSDIALOG_H
 
+#include "translator/atranslationprovider.h"
+#include "tts/attsprovider.h"
+
 #include <QDialog>
 
 class MainWindow;
@@ -15,6 +18,9 @@ class AbstractAutostartManager;
 class OnlineTranslator;
 class QMediaPlayer;
 class QMediaPlaylist;
+class QLabel;
+class QLineEdit;
+class QToolButton;
 class ShortcutItem;
 #ifdef WITH_PORTABLE_MODE
 class QCheckBox;
@@ -23,7 +29,7 @@ class QCheckBox;
 namespace Ui
 {
 class SettingsDialog;
-}
+} // namespace Ui
 
 class SettingsDialog : public QDialog
 {
@@ -36,6 +42,12 @@ public:
 
 public slots:
     void accept() override;
+
+signals:
+    void translationBackendChanged(ATranslationProvider::ProviderBackend newBackend);
+    void ttsBackendChanged(ATTSProvider::ProviderBackend newBackend);
+    void piperVoicesPathChanged(const QString &newPath);
+    void mozhiInstanceChanged(const QString &newInstance);
 
 private slots:
     void setCurrentPage(int index);
@@ -50,6 +62,11 @@ private slots:
 
     void selectOcrLanguagesPath();
     void onOcrLanguagesPathChanged(const QString &path);
+#ifdef WITH_PIPER_TTS
+    void setupPiperVoicesPathUI();
+    void selectPiperVoicesPath();
+    void onPiperVoicesPathChanged(const QString &path);
+#endif
     void onTesseractParametersCurrentItemChanged();
 
     void loadShortcut(ShortcutItem *item);
@@ -73,6 +90,12 @@ private:
 
 #ifdef WITH_PORTABLE_MODE
     QCheckBox *m_portableCheckbox;
+#endif
+
+#ifdef WITH_PIPER_TTS
+    QLabel *m_piperVoicesPathLabel;
+    QLineEdit *m_piperVoicesPathEdit;
+    QToolButton *m_piperVoicesPathButton;
 #endif
 };
 

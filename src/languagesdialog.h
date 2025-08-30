@@ -8,7 +8,7 @@
 #ifndef ADDLANGDIALOG_H
 #define ADDLANGDIALOG_H
 
-#include "onlinetranslator.h"
+#include "language.h"
 
 #include <QDialog>
 
@@ -27,10 +27,10 @@ class LanguagesDialog : public QDialog
     Q_DISABLE_COPY(LanguagesDialog)
 
 public:
-    explicit LanguagesDialog(const QVector<OnlineTranslator::Language> &currentLang, QWidget *parent = nullptr);
+    explicit LanguagesDialog(const QVector<Language> &currentLanguages, QWidget *parent = nullptr);
     ~LanguagesDialog() override;
 
-    const QVector<OnlineTranslator::Language> &languages() const;
+    const QVector<Language> &languages() const;
 
 public slots:
     void accept() override;
@@ -46,14 +46,14 @@ private slots:
     void checkVerticalMovement(int row);
 
 private:
-    static void addLanguage(QListWidget *widget, OnlineTranslator::Language lang);
+    static void addLanguage(QListWidget *widget, const Language &language);
     static void moveLanguageVertically(QListWidget *widget, int offset);
     static void moveLanguageHorizontally(QListWidget *from, QListWidget *to, QAbstractButton *addButton, QAbstractButton *removeButton);
 
     Ui::LanguagesDialog *ui;
     QShortcut *m_searchShortcut;
     QShortcut *m_acceptShortcut;
-    QVector<OnlineTranslator::Language> m_languages;
+    QVector<Language> m_languages;
 };
 
 #endif // ADDLANGDIALOG_H

@@ -8,6 +8,7 @@
 #ifndef POPUPWINDOW_H
 #define POPUPWINDOW_H
 
+#include <QPointer>
 #include <QWidget>
 
 class QShortcut;
@@ -39,6 +40,8 @@ private:
     Ui::PopupWindow *ui;
     QShortcut *m_closeWindowsShortcut;
     QTimer *m_closeWindowTimer = nullptr;
+    QPointer<MainWindow> m_parent;
+    QMetaObject::Connection m_textChangedConnection;
 };
 
 #endif // POPUPWINDOW_H

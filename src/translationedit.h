@@ -8,8 +8,6 @@
 #ifndef TRANSLATIONEDIT_H
 #define TRANSLATIONEDIT_H
 
-#include "onlinetranslator.h"
-
 #include <QTextEdit>
 
 class TranslationEdit : public QTextEdit
@@ -20,21 +18,8 @@ class TranslationEdit : public QTextEdit
 public:
     explicit TranslationEdit(QWidget *parent = nullptr);
 
-    bool parseTranslationData(OnlineTranslator *translator);
-    const QString &translation() const;
-    OnlineTranslator::Language translationLanguage();
-    void clearTranslation();
-
-signals:
-    void translationDataParsed(const QString &text);
-    void translationEmpty(bool empty);
-
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
-
-private:
-    QString m_translation;
-    OnlineTranslator::Language m_lang = OnlineTranslator::NoLanguage;
 };
 
 #endif // TRANSLATIONEDIT_H

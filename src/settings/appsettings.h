@@ -8,7 +8,10 @@
 #ifndef APPSETTINGS_H
 #define APPSETTINGS_H
 
+#include "language.h"
 #include "onlinetranslator.h"
+#include "translator/atranslationprovider.h"
+#include "tts/attsprovider.h"
 
 #include <QCoreApplication>
 #include <QLocale>
@@ -159,13 +162,21 @@ public:
     void setSimplifySource(bool simplify);
     static bool defaultSimplifySource();
 
-    OnlineTranslator::Language primaryLanguage() const;
-    void setPrimaryLanguage(OnlineTranslator::Language lang);
-    static OnlineTranslator::Language defaultPrimaryLanguage();
+    Language primaryLanguage() const;
+    void setPrimaryLanguage(const Language &lang);
+    static Language defaultPrimaryLanguage();
 
-    OnlineTranslator::Language secondaryLanguage() const;
-    void setSecondaryLanguage(OnlineTranslator::Language lang);
-    static OnlineTranslator::Language defaultSecondaryLanguage();
+    Language secondaryLanguage() const;
+    void setSecondaryLanguage(const Language &lang);
+    static Language defaultSecondaryLanguage();
+
+    // Custom language registry persistence
+    void saveCustomLanguageRegistry();
+    void loadCustomLanguageRegistry();
+    void clearCustomLanguageRegistry();
+
+    // Static callback for Language class to notify about registry changes
+    static void onCustomLanguageRegistryChanged();
 
     bool isForceSourceAutodetect() const;
     void setForceSourceAutodetect(bool force);
@@ -178,6 +189,18 @@ public:
     QString instance() const;
     void setInstance(const QString &url);
 
+    ATranslationProvider::ProviderBackend translationProviderBackend() const;
+    void setTranslationProviderBackend(ATranslationProvider::ProviderBackend newBackend);
+    ATTSProvider::ProviderBackend ttsProviderBackend() const;
+    void setTTSProviderBackend(ATTSProvider::ProviderBackend newBackend);
+    ATranslationProvider::ProviderBackend defaultTranslationProviderBackend() const;
+    ATTSProvider::ProviderBackend defaultTTSProviderBackend() const;
+
+#ifdef WITH_PIPER_TTS
+    QByteArray piperVoicesPath() const;
+    void setPiperVoicesPath(const QByteArray &path);
+    static QByteArray defaultPiperVoicesPath();
+#endif
     // Connection settings
     QNetworkProxy::ProxyType proxyType() const;
     void setProxyType(QNetworkProxy::ProxyType type);
@@ -326,8 +349,8 @@ public:
     bool toggleOcrNegate();
 
     // Buttons
-    QVector<OnlineTranslator::Language> languages(LanguageButtonsType type) const;
-    void setLanguages(LanguageButtonsType type, const QVector<OnlineTranslator::Language> &languages);
+    QVector<Language> languages(LanguageButtonsType type) const;
+    void setLanguages(LanguageButtonsType type, const QVector<Language> &languages);
 
     int checkedButton(LanguageButtonsType type) const;
     void setCheckedButton(LanguageButtonsType type, int id);
@@ -344,6 +367,12 @@ public:
 
     OnlineTranslator::Engine currentEngine() const;
     void setCurrentEngine(OnlineTranslator::Engine currentEngine);
+
+#ifdef WITH_ONNX_RUNTIME_DYNAMIC
+    // Telemetry notification settings (Windows only with dynamic ONNX Runtime)
+    bool isPiperTelemetryNotificationShown() const;
+    void setPiperTelemetryNotificationShown(bool shown);
+#endif
 
 private:
     static QTranslator s_appTranslator;

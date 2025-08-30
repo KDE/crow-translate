@@ -8,8 +8,10 @@
 #ifndef LANGUAGEBUTTONSWIDGET_H
 #define LANGUAGEBUTTONSWIDGET_H
 
+#include "language.h"
 #include "settings/appsettings.h"
 
+#include <QLocale>
 #include <QWidget>
 
 class QAbstractButton;
@@ -28,17 +30,21 @@ public:
     explicit LanguageButtonsWidget(QWidget *parent = nullptr);
     ~LanguageButtonsWidget() override;
 
-    const QVector<OnlineTranslator::Language> &languages() const;
-    void setLanguages(const QVector<OnlineTranslator::Language> &languages);
+    const QVector<Language> &languages() const;
+    void setLanguages(const QVector<Language> &languages);
 
-    OnlineTranslator::Language checkedLanguage() const;
-    OnlineTranslator::Language previousCheckedLanguage() const;
-    OnlineTranslator::Language language(int id) const;
-    bool checkLanguage(OnlineTranslator::Language lang);
+    Language checkedLanguage() const;
+    Language previousCheckedLanguage() const;
+    Language language(int id) const;
+    bool checkLanguage(const Language &language);
     void setLanguageFormat(AppSettings::LanguageFormat languageFormat);
+
+    void setSupportedLanguages(const QVector<Language> &supportedLanguages);
+    void clearSupportedLanguages();
 
     int checkedId() const;
     bool isAutoButtonChecked() const;
+    void setAutoButtonVisible(bool visible);
     void retranslate();
 
     static void swapCurrentLanguages(LanguageButtonsWidget *first, LanguageButtonsWidget *second);
@@ -50,15 +56,15 @@ public:
 
 signals:
     void buttonChecked(int id);
-    void languageAdded(OnlineTranslator::Language lang);
-    void languagesChanged(const QVector<OnlineTranslator::Language> &languages);
-    void autoLanguageChanged(OnlineTranslator::Language lang);
+    void languageAdded(const Language &language);
+    void languagesChanged(const QVector<Language> &languages);
+    void autoLanguageChanged(const Language &language);
 
 public slots:
     void checkAutoButton();
     void checkButton(int id);
-    void addLanguage(OnlineTranslator::Language lang);
-    void setAutoLanguage(OnlineTranslator::Language lang);
+    void addLanguage(const Language &language);
+    void setAutoLanguage(const Language &language);
 
 private slots:
     void editLanguages();
@@ -70,21 +76,25 @@ private:
     void changeEvent(QEvent *event) override;
 
     void setWindowWidthCheckEnabled(bool enable) const;
-    void addOrCheckLanguage(OnlineTranslator::Language lang);
-    void addButton(OnlineTranslator::Language lang);
-    void setButtonLanguage(QAbstractButton *button, OnlineTranslator::Language lang);
+    void addOrCheckLanguage(const Language &language);
+    void addButton(const Language &language);
+    void setButtonLanguage(QAbstractButton *button, const Language &language);
+    void updateButtonVisibility();
+    bool isLanguageSupported(const Language &language) const;
 
-    QString languageString(OnlineTranslator::Language lang);
+    QString languageString(const Language &language);
 
     static constexpr int s_autoButtonId = -2; // -1 is reserved by QButtonGroup
 
     Ui::LanguageButtonsWidget *ui;
     QButtonGroup *m_buttonGroup;
 
-    QVector<OnlineTranslator::Language> m_languages;
-    OnlineTranslator::Language m_autoLang = OnlineTranslator::Auto;
+    QVector<Language> m_languages;
+    QVector<Language> m_supportedLanguages;
+    Language m_autoLanguage;
     AppSettings::LanguageFormat m_languageFormat = AppSettings::FullName;
     int m_previousCheckedId = 0;
+    bool m_autoButtonVisible = true;
 };
 
 #endif // LANGUAGEBUTTONSWIDGET_H

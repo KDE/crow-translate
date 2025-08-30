@@ -12,6 +12,7 @@
 #include "screenwatcher.h"
 
 #include <QButtonGroup>
+#include <QDebug>
 #include <QMessageBox>
 #include <QScreen>
 #include <QTimer>
@@ -25,7 +26,7 @@ LanguageButtonsWidget::LanguageButtonsWidget(QWidget *parent)
     , m_buttonGroup(new QButtonGroup(this))
 {
     ui->setupUi(this);
-    addButton(OnlineTranslator::Auto);
+    addButton(Language::autoLanguage());
     m_buttonGroup->button(s_autoButtonId)->setChecked(true);
     setWindowWidthCheckEnabled(true);
     connect(m_buttonGroup, &QButtonGroup::idToggled, this, &LanguageButtonsWidget::savePreviousToggledButton);
@@ -36,12 +37,12 @@ LanguageButtonsWidget::~LanguageButtonsWidget()
     delete ui;
 }
 
-const QVector<OnlineTranslator::Language> &LanguageButtonsWidget::languages() const
+const QVector<Language> &LanguageButtonsWidget::languages() const
 {
     return m_languages;
 }
 
-void LanguageButtonsWidget::setLanguages(const QVector<OnlineTranslator::Language> &languages)
+void LanguageButtonsWidget::setLanguages(const QVector<Language> &languages)
 {
     if (m_languages == languages)
         return;
@@ -66,38 +67,40 @@ void LanguageButtonsWidget::setLanguages(const QVector<OnlineTranslator::Languag
         delete button;
     }
 
+    updateButtonVisibility();
+
     emit languagesChanged(m_languages);
 }
 
-OnlineTranslator::Language LanguageButtonsWidget::checkedLanguage() const
+Language LanguageButtonsWidget::checkedLanguage() const
 {
     return language(m_buttonGroup->checkedId());
 }
 
-OnlineTranslator::Language LanguageButtonsWidget::previousCheckedLanguage() const
+Language LanguageButtonsWidget::previousCheckedLanguage() const
 {
     return language(m_previousCheckedId);
 }
 
-OnlineTranslator::Language LanguageButtonsWidget::language(int id) const
+Language LanguageButtonsWidget::language(int id) const
 {
     if (id == s_autoButtonId)
-        return m_autoLang;
+        return m_autoLanguage;
 
     return m_languages[id];
 }
 
-bool LanguageButtonsWidget::checkLanguage(OnlineTranslator::Language lang)
+bool LanguageButtonsWidget::checkLanguage(const Language &language)
 {
     // Select auto button
-    if (lang == OnlineTranslator::Auto) {
+    if (language == Language::autoLanguage()) {
         checkAutoButton();
         return true;
     }
 
     // Exit the function if the current language already has a button
     for (int i = 0; i < m_languages.size(); ++i) {
-        if (lang == m_languages[i]) {
+        if (language == m_languages[i]) {
             checkButton(i);
             return true;
         }
@@ -125,30 +128,35 @@ bool LanguageButtonsWidget::isAutoButtonChecked() const
     return m_buttonGroup->checkedId() == s_autoButtonId;
 }
 
+void LanguageButtonsWidget::setAutoButtonVisible(bool visible)
+{
+    m_autoButtonVisible = visible;
+    QAbstractButton *autoButton = m_buttonGroup->button(s_autoButtonId);
+    if (autoButton != nullptr) {
+        autoButton->setVisible(visible);
+    }
+}
+
 void LanguageButtonsWidget::retranslate()
 {
     for (int i = 0; i < m_languages.size(); ++i)
         setButtonLanguage(m_buttonGroup->button(i), m_languages[i]);
-    setButtonLanguage(m_buttonGroup->button(s_autoButtonId), m_autoLang);
+    setButtonLanguage(m_buttonGroup->button(s_autoButtonId), m_autoLanguage);
 }
 
 void LanguageButtonsWidget::swapCurrentLanguages(LanguageButtonsWidget *first, LanguageButtonsWidget *second)
 {
     // Backup first widget buttons properties
-    const OnlineTranslator::Language sourceLang = first->checkedLanguage();
-    const bool isSourceAutoButtonChecked = first->isAutoButtonChecked();
+    const Language sourceLanguage = first->checkedLanguage();
+    const Language destLanguage = second->checkedLanguage();
 
-    // Insert current translation language to the first widget
     if (second->isAutoButtonChecked())
         first->checkAutoButton();
     else
-        first->addOrCheckLanguage(second->checkedLanguage());
+        first->addOrCheckLanguage(destLanguage);
 
     // Insert current source language to the second widget
-    if (isSourceAutoButtonChecked)
-        second->checkAutoButton();
-    else
-        second->addOrCheckLanguage(sourceLang);
+    second->addOrCheckLanguage(sourceLanguage);
 }
 
 void LanguageButtonsWidget::checkAutoButton()
@@ -165,30 +173,31 @@ void LanguageButtonsWidget::checkButton(int id)
         m_buttonGroup->button(s_autoButtonId)->setChecked(true);
 }
 
-void LanguageButtonsWidget::addLanguage(OnlineTranslator::Language lang)
+void LanguageButtonsWidget::addLanguage(const Language &language)
 {
-    Q_ASSERT_X(!m_languages.contains(lang), "addLanguage", "Language already exists");
+    Q_ASSERT_X(!m_languages.contains(language), "addLanguage", "Language already exists");
 
-    m_languages.append(lang);
-    addButton(lang);
-    emit languageAdded(lang);
+    m_languages.append(language);
+    addButton(language);
+    emit languageAdded(language);
 }
 
-void LanguageButtonsWidget::setAutoLanguage(OnlineTranslator::Language lang)
+void LanguageButtonsWidget::setAutoLanguage(const Language &language)
 {
-    if (m_autoLang == lang)
+    if (m_autoLanguage == language)
         return;
 
-    m_autoLang = lang;
-    setButtonLanguage(m_buttonGroup->button(s_autoButtonId), m_autoLang);
-    emit autoLanguageChanged(m_autoLang);
+    m_autoLanguage = language;
+    setButtonLanguage(m_buttonGroup->button(s_autoButtonId), m_autoLanguage);
+    emit autoLanguageChanged(m_autoLanguage);
 }
 
 void LanguageButtonsWidget::editLanguages()
 {
-    LanguagesDialog langDialog(languages());
-    if (langDialog.exec() == QDialog::Accepted)
+    LanguagesDialog langDialog(m_languages);
+    if (langDialog.exec() == QDialog::Accepted) {
         setLanguages(langDialog.languages());
+    }
 }
 
 void LanguageButtonsWidget::savePreviousToggledButton(int id, bool checked)
@@ -260,16 +269,16 @@ void LanguageButtonsWidget::setWindowWidthCheckEnabled(bool enable) const
         disconnect(this, &LanguageButtonsWidget::languagesChanged, this, &LanguageButtonsWidget::checkAvailableScreenWidth);
 }
 
-void LanguageButtonsWidget::addOrCheckLanguage(OnlineTranslator::Language lang)
+void LanguageButtonsWidget::addOrCheckLanguage(const Language &language)
 {
-    if (checkLanguage(lang))
+    if (checkLanguage(language))
         return;
 
-    addLanguage(lang);
+    addLanguage(language);
     m_buttonGroup->buttons().constLast()->setChecked(true);
 }
 
-void LanguageButtonsWidget::addButton(OnlineTranslator::Language lang)
+void LanguageButtonsWidget::addButton(const Language &language)
 {
     auto *button = new QToolButton;
     button->setCheckable(true);
@@ -277,37 +286,144 @@ void LanguageButtonsWidget::addButton(OnlineTranslator::Language lang)
     button->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred); // To make the same size for all buttons (without it "Auto" button can look different)
 
     // Use special id for "Auto" button to count all other languages from 0
-    m_buttonGroup->addButton(button, lang == OnlineTranslator::Auto ? s_autoButtonId : m_buttonGroup->buttons().size() - 1);
+    m_buttonGroup->addButton(button, language == Language::autoLanguage() ? s_autoButtonId : m_buttonGroup->buttons().size() - 1);
 
-    setButtonLanguage(button, lang);
+    setButtonLanguage(button, language);
 
     // Insert all languages after "Edit" button
     ui->languagesLayout->insertWidget(ui->languagesLayout->count() - 1, button);
 }
 
-void LanguageButtonsWidget::setButtonLanguage(QAbstractButton *button, OnlineTranslator::Language lang)
+void LanguageButtonsWidget::setButtonLanguage(QAbstractButton *button, const Language &language)
 {
-    const QString langName = languageString(lang);
+    const QString languageName = languageString(language);
     if (button == m_buttonGroup->button(s_autoButtonId)) {
-        if (lang == OnlineTranslator::Auto)
+        if (language == Language::autoLanguage())
             button->setText(tr("Auto"));
         else
-            button->setText(tr("Auto") + " (" + langName + ")");
+            button->setText(tr("Auto") + " (" + languageName + ")");
     } else {
-        button->setText(langName);
+        button->setText(languageName);
     }
 
-    button->setToolTip(OnlineTranslator::languageName(lang));
+    QString tooltip;
+    if (language.hasQLocaleEquivalent()) {
+        const QLocale locale = language.toQLocale();
+        tooltip = locale.nativeLanguageName().isEmpty() ? QLocale::languageToString(locale.language()) : locale.nativeLanguageName();
+    } else {
+        tooltip = language.nativeName().isEmpty() ? language.toString() : language.nativeName();
+    }
+    button->setToolTip(tooltip);
 }
 
-QString LanguageButtonsWidget::languageString(OnlineTranslator::Language lang)
+QString LanguageButtonsWidget::languageString(const Language &language)
 {
     switch (m_languageFormat) {
-    case AppSettings::FullName:
-        return OnlineTranslator::languageName(lang);
-    case AppSettings::IsoCode:
-        return OnlineTranslator::languageCode(lang);
+    case AppSettings::FullName: {
+        if (language.hasQLocaleEquivalent()) {
+            const QLocale locale = language.toQLocale();
+            QString baseName = QLocale::languageToString(locale.language());
+
+            const QString bcp47 = locale.bcp47Name();
+            if (bcp47 != baseName.toLower() && !bcp47.isEmpty()) {
+                switch (locale.language()) {
+                case QLocale::English:
+                case QLocale::Spanish:
+                case QLocale::Portuguese:
+                case QLocale::French:
+                case QLocale::German:
+                case QLocale::Arabic:
+                case QLocale::Chinese:
+                    return QString("%1 (%2)").arg(baseName, bcp47);
+                default:
+                    const QLocale defaultLocale(locale.language());
+                    if (locale.bcp47Name() != defaultLocale.bcp47Name()) {
+                        return QString("%1 (%2)").arg(baseName, bcp47);
+                    }
+                    break;
+                }
+            }
+
+            return baseName;
+        } else {
+            return language.toString();
+        }
+    }
+    case AppSettings::IsoCode: {
+        if (language.hasQLocaleEquivalent()) {
+            const QLocale locale = language.toQLocale();
+            QString fullCode = locale.bcp47Name();
+            return fullCode;
+        } else {
+            return language.toCode();
+        }
+    }
     default:
         Q_UNREACHABLE();
     }
+}
+
+void LanguageButtonsWidget::setSupportedLanguages(const QVector<Language> &supportedLanguages)
+{
+    m_supportedLanguages = supportedLanguages;
+    updateButtonVisibility();
+}
+
+void LanguageButtonsWidget::clearSupportedLanguages()
+{
+    m_supportedLanguages.clear();
+    updateButtonVisibility();
+}
+
+void LanguageButtonsWidget::updateButtonVisibility()
+{
+    if (m_supportedLanguages.isEmpty()) {
+        const QList<QAbstractButton *> buttons = m_buttonGroup->buttons();
+        for (QAbstractButton *button : buttons) {
+            if ((button != nullptr) && m_buttonGroup->id(button) != s_autoButtonId) {
+                button->setVisible(true);
+                button->setEnabled(true);
+            }
+        }
+        return;
+    }
+
+    QAbstractButton *autoButton = m_buttonGroup->button(s_autoButtonId);
+    if (autoButton != nullptr) {
+        autoButton->setVisible(m_autoButtonVisible);
+        autoButton->setEnabled(m_autoButtonVisible);
+    }
+
+    for (int i = 0; i < m_languages.size(); ++i) {
+        QAbstractButton *button = m_buttonGroup->button(i);
+        if (button != nullptr) {
+            const Language &language = m_languages.at(i);
+            const bool isSupported = isLanguageSupported(language);
+            button->setVisible(isSupported);
+            button->setEnabled(isSupported);
+        }
+    }
+}
+
+bool LanguageButtonsWidget::isLanguageSupported(const Language &language) const
+{
+    if (language == Language::autoLanguage()) {
+        return true;
+    }
+
+    for (const Language &supportedLanguage : m_supportedLanguages) {
+        if (supportedLanguage == language) {
+            return true;
+        }
+        // Also check if they have equivalent QLocale languages
+        if (supportedLanguage.hasQLocaleEquivalent() && language.hasQLocaleEquivalent()) {
+            const QLocale supportedLocale = supportedLanguage.toQLocale();
+            const QLocale currentLocale = language.toQLocale();
+            if (supportedLocale.language() == currentLocale.language()) {
+                return true;
+            }
+        }
+    }
+
+    return false;
 }

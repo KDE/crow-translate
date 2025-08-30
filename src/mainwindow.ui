@@ -6,27 +6,133 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>650</width>
-    <height>206</height>
+    <width>727</width>
+    <height>246</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string notr="true">Crow Translate</string>
+   <string>MainWindow</string>
   </property>
-  <property name="windowIcon">
-   <iconset theme="org.kde.CrowTranslate">
-    <normaloff>.</normaloff>.</iconset>
-  </property>
-  <widget class="QWidget" name="centralWidget">
+  <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="centralLayout">
     <item>
      <layout class="QGridLayout" name="sourceLayout">
+      <item row="3" column="1">
+       <widget class="QToolButton" name="translateButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="toolTip">
+         <string>Translate</string>
+        </property>
+        <property name="icon">
+         <iconset theme="go-next"/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QToolButton" name="swapButton">
+        <property name="toolTip">
+         <string>Swap languages</string>
+        </property>
+        <property name="icon">
+         <iconset theme="object-flip-horizontal"/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" rowspan="4">
+       <widget class="SourceTextEdit" name="sourceEdit">
+        <property name="tabChangesFocus">
+         <bool>true</bool>
+        </property>
+        <property name="placeholderText">
+         <string>Source</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="LanguageButtonsWidget" name="sourceLanguagesWidget" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QToolButton" name="abortButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="toolTip">
+         <string>Cancel</string>
+        </property>
+        <property name="icon">
+         <iconset theme="dialog-cancel"/>
+        </property>
+       </widget>
+      </item>
       <item row="5" column="0">
        <layout class="QHBoxLayout" name="sourceButtonsLayout">
         <item>
-         <widget class="SpeakButtons" name="sourceSpeakButtons" native="true">
-          <property name="enabled">
-           <bool>false</bool>
+         <widget class="QToolButton" name="sourcePlayPauseButton">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset theme="media-playback-start"/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="sourceVoiceComboBox">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="sizeAdjustPolicy">
+           <enum>QComboBox::AdjustToContents</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="sourceSpeakerComboBox">
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="sizeAdjustPolicy">
+           <enum>QComboBox::AdjustToContents</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="sourceStopButton">
+          <property name="text">
+           <string>...</string>
+          </property>
+          <property name="icon">
+           <iconset theme="media-playback-stop"/>
           </property>
          </widget>
         </item>
@@ -36,8 +142,7 @@
            <string>Copy source text to the clipboard</string>
           </property>
           <property name="icon">
-           <iconset theme="edit-copy">
-            <normaloff>.</normaloff>.</iconset>
+           <iconset theme="edit-copy"/>
           </property>
          </widget>
         </item>
@@ -47,8 +152,7 @@
            <string>Recognize screen area with delay</string>
           </property>
           <property name="icon">
-           <iconset theme="transform-crop">
-            <normaloff>.</normaloff>.</iconset>
+           <iconset theme="transform-crop"/>
           </property>
          </widget>
         </item>
@@ -67,76 +171,13 @@
         </item>
        </layout>
       </item>
-      <item row="4" column="1">
-       <widget class="QToolButton" name="abortButton">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="toolTip">
-         <string>Cancel</string>
-        </property>
-        <property name="icon">
-         <iconset theme="dialog-cancel">
-          <normaloff>.</normaloff>.</iconset>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QToolButton" name="swapButton">
-        <property name="toolTip">
-         <string>Swap languages</string>
-        </property>
-        <property name="icon">
-         <iconset theme="object-flip-horizontal">
-          <normaloff>.</normaloff>.</iconset>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="LanguageButtonsWidget" name="sourceLanguagesWidget" native="true">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" rowspan="4">
-       <widget class="SourceTextEdit" name="sourceEdit">
-        <property name="tabChangesFocus">
-         <bool>true</bool>
-        </property>
-        <property name="placeholderText">
-         <string>Source</string>
-        </property>
-       </widget>
-      </item>
       <item row="2" column="1">
        <widget class="QToolButton" name="clearButton">
         <property name="toolTip">
          <string>Clear</string>
         </property>
         <property name="icon">
-         <iconset theme="edit-clear-all">
-          <normaloff>.</normaloff>.</iconset>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="QToolButton" name="translateButton">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="toolTip">
-         <string>Translate</string>
-        </property>
-        <property name="icon">
-         <iconset theme="go-next">
-          <normaloff>.</normaloff>.</iconset>
+         <iconset theme="edit-clear-all"/>
         </property>
        </widget>
       </item>
@@ -147,7 +188,7 @@
       <item>
        <widget class="LanguageButtonsWidget" name="translationLanguagesWidget" native="true">
         <property name="layoutDirection">
-         <enum>Qt::RightToLeft</enum>
+         <enum>Qt::LayoutDirection::RightToLeft</enum>
         </property>
        </widget>
       </item>
@@ -167,9 +208,67 @@
       <item>
        <layout class="QHBoxLayout" name="translationButtonsLayout">
         <item>
+         <widget class="QToolButton" name="translationPlayPauseButton">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset theme="media-playback-start"/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="translationVoiceComboBox">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="sizeAdjustPolicy">
+           <enum>QComboBox::AdjustToContents</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="translationSpeakerComboBox">
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="sizeAdjustPolicy">
+           <enum>QComboBox::AdjustToContents</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="translationStopButton">
+          <property name="text">
+           <string>...</string>
+          </property>
+          <property name="icon">
+           <iconset theme="media-playback-stop"/>
+          </property>
+         </widget>
+        </item>
+        <item>
          <spacer name="translationButtonsSpacer">
           <property name="orientation">
-           <enum>Qt::Horizontal</enum>
+           <enum>Qt::Orientation::Horizontal</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -247,20 +346,12 @@
          </widget>
         </item>
         <item>
-         <widget class="SpeakButtons" name="translationSpeakButtons" native="true">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QToolButton" name="copyTranslationButton">
           <property name="toolTip">
            <string>Copy translation to the clipboard</string>
           </property>
           <property name="icon">
-           <iconset theme="edit-copy">
-            <normaloff>.</normaloff>.</iconset>
+           <iconset theme="edit-copy"/>
           </property>
          </widget>
         </item>
@@ -270,8 +361,7 @@
            <string>Copy all translation data to the clipboard</string>
           </property>
           <property name="icon">
-           <iconset theme="edit-select-all">
-            <normaloff>.</normaloff>.</iconset>
+           <iconset theme="edit-select-all"/>
           </property>
          </widget>
         </item>
@@ -281,8 +371,7 @@
            <string>Translate screen area with delay</string>
           </property>
           <property name="icon">
-           <iconset theme="transform-crop">
-            <normaloff>.</normaloff>.</iconset>
+           <iconset theme="transform-crop"/>
           </property>
          </widget>
         </item>
@@ -292,8 +381,7 @@
            <string>Application settings</string>
           </property>
           <property name="icon">
-           <iconset theme="preferences-other">
-            <normaloff>.</normaloff>.</iconset>
+           <iconset theme="preferences-other"/>
           </property>
          </widget>
         </item>
@@ -304,18 +392,7 @@
    </layout>
   </widget>
  </widget>
- <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
-  <customwidget>
-   <class>SpeakButtons</class>
-   <extends>QWidget</extends>
-   <header>speakbuttons.h</header>
-   <container>1</container>
-   <slots>
-    <signal>playerMediaRequested()</signal>
-    <slot>stopSpeaking()</slot>
-   </slots>
-  </customwidget>
   <customwidget>
    <class>LanguageButtonsWidget</class>
    <extends>QWidget</extends>
@@ -336,313 +413,11 @@
    <class>TranslationEdit</class>
    <extends>QTextEdit</extends>
    <header>translationedit.h</header>
-   <slots>
-    <signal>translationEmpty(bool)</signal>
-   </slots>
   </customwidget>
  </customwidgets>
- <tabstops>
-  <tabstop>sourceEdit</tabstop>
-  <tabstop>translationEdit</tabstop>
-  <tabstop>swapButton</tabstop>
-  <tabstop>clearButton</tabstop>
-  <tabstop>translateButton</tabstop>
-  <tabstop>abortButton</tabstop>
-  <tabstop>copySourceButton</tabstop>
-  <tabstop>autoTranslateCheckBox</tabstop>
-  <tabstop>engineComboBox</tabstop>
-  <tabstop>copyTranslationButton</tabstop>
-  <tabstop>copyAllTranslationButton</tabstop>
-  <tabstop>settingsButton</tabstop>
- </tabstops>
  <resources>
   <include location="../data/icons/engines/engines.qrc"/>
  </resources>
  <connections>
-  <connection>
-   <sender>swapButton</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>swapLanguages()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>324</x>
-     <y>22</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>324</x>
-     <y>149</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>settingsButton</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>openSettings()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>626</x>
-     <y>276</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>324</x>
-     <y>149</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>engineComboBox</sender>
-   <signal>currentIndexChanged(int)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>markContentAsChanged()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>403</x>
-     <y>276</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>324</x>
-     <y>102</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>copySourceButton</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>copySourceText()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>98</x>
-     <y>276</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>324</x>
-     <y>149</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>autoTranslateCheckBox</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>setListenForContentChanges(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>205</x>
-     <y>276</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>324</x>
-     <y>149</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>copyTranslationButton</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>copyTranslation()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>550</x>
-     <y>276</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>324</x>
-     <y>149</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>copyAllTranslationButton</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>copyAllTranslationInfo()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>588</x>
-     <y>276</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>324</x>
-     <y>149</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>abortButton</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>cancelOperation()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>324</x>
-     <y>221</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>324</x>
-     <y>149</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>translateButton</sender>
-   <signal>clicked()</signal>
-   <receiver>sourceEdit</receiver>
-   <slot>stopEditTimer()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>324</x>
-     <y>122</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>154</x>
-     <y>141</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sourceEdit</sender>
-   <signal>sourceEmpty(bool)</signal>
-   <receiver>sourceSpeakButtons</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>154</x>
-     <y>141</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>6</x>
-     <y>261</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>translationEdit</sender>
-   <signal>translationEmpty(bool)</signal>
-   <receiver>translationSpeakButtons</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>495</x>
-     <y>141</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>528</x>
-     <y>261</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>clearButton</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>clearText()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>324</x>
-     <y>61</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>324</x>
-     <y>142</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sourceEdit</sender>
-   <signal>textChanged()</signal>
-   <receiver>sourceSpeakButtons</receiver>
-   <slot>stopSpeaking()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>158</x>
-     <y>134</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>9</x>
-     <y>256</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>delayedRecognizeScreenAreaButton</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>delayedRecognizeScreenArea()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>67</x>
-     <y>181</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>324</x>
-     <y>102</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>delayedTranslateScreenAreaButton</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>delayedTranslateScreenArea()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>587</x>
-     <y>181</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>324</x>
-     <y>102</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sourceEdit</sender>
-   <signal>textEdited()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>markContentAsChanged()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>144</x>
-     <y>85</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>324</x>
-     <y>102</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>autoTranslateCheckBox</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>markContentAsChanged()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>185</x>
-     <y>181</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>324</x>
-     <y>102</y>
-    </hint>
-   </hints>
-  </connection>
  </connections>
- <slots>
-  <slot>swapLanguages()</slot>
-  <slot>openSettings()</slot>
-  <slot>setListenForContentChanges(bool)</slot>
-  <slot>copySourceText()</slot>
-  <slot>copyTranslation()</slot>
-  <slot>copyAllTranslationInfo()</slot>
-  <slot>cancelOperation()</slot>
-  <slot>clearText()</slot>
-  <slot>delayedRecognizeScreenArea()</slot>
-  <slot>delayedTranslateScreenArea()</slot>
-  <slot>markContentAsChanged()</slot>
- </slots>
 </ui>

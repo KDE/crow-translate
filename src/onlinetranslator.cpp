@@ -304,8 +304,19 @@ void OnlineTranslator::detectLanguage(const QString &text, Engine engine)
 
 void OnlineTranslator::abort()
 {
-    if (m_currentReply != nullptr)
+    if (m_currentReply != nullptr) {
         m_currentReply->abort();
+        m_currentReply->deleteLater();
+        m_currentReply = nullptr;
+    }
+
+    // Force stop the state machine
+    if (m_stateMachine->isRunning()) {
+        m_stateMachine->stop();
+    }
+
+    // Reset to ensure clean state
+    resetData(NetworkError, tr("Operation aborted by user"));
 }
 
 bool OnlineTranslator::isRunning() const
@@ -1254,7 +1265,10 @@ void OnlineTranslator::requestTranslate()
     QUrl url(m_instance + "/api/translate");
     url.setQuery(QStringLiteral("engine=%1&from=%2&to=%3&text=%4").arg(QString(QMetaEnum::fromType<OnlineTranslator::Engine>().valueToKey(m_engine)).toLower(), languageApiCode(m_engine, m_sourceLang), languageApiCode(m_engine, m_translationLang), QUrl::toPercentEncoding(sourceText)));
 
-    m_currentReply = m_networkManager->get(QNetworkRequest(url));
+    QNetworkRequest request(url);
+    // Disable HTTP/2 to prevent connection errors with some servers
+    request.setAttribute(QNetworkRequest::Http2AllowedAttribute, false);
+    m_currentReply = m_networkManager->get(request);
 }
 
 void OnlineTranslator::parseTranslate()

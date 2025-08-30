@@ -8,16 +8,16 @@
 #ifndef CLI_H
 #define CLI_H
 
-#include "onlinetranslator.h"
-#include "playlistplayer.h"
+#include "language.h"
+#include "translator/atranslationprovider.h"
+#include "tts/attsprovider.h"
 
+#include <QLocale>
 #include <QObject>
 #include <QTextStream>
 #include <QVector>
 
 class QCoreApplication;
-class QMediaPlayer;
-class QStateMachine;
 class QCommandLineParser;
 class QCommandLineOption;
 
@@ -31,47 +31,51 @@ public:
     void process(const QCoreApplication &app);
 
 private slots:
-    void requestTranslation();
-    void parseTranslation();
-    void printTranslation();
-
-    void requestLanguage();
-    void parseLanguage();
-
-    void speakSource();
-    void speakTranslation();
-
-    void printLangCodes();
+    void onTranslationStateChanged(ATranslationProvider::State state);
+    void onTTSStateChanged(QTextToSpeech::State state);
 
 private:
-    // Main state machines
-    void buildShowCodesStateMachine();
-    void buildTranslationStateMachine();
+    void translateText(const QString &text, const Language &sourceLang, const Language &targetLang);
+    void processNextTranslation();
+    void printTranslation();
+    void speakText(const QString &text, const Language &language);
+    void printLangCodes();
+    void cleanup();
+
+    // Helper method to find best available TTS locale
+    Language findBestTTSLanguage(const Language &requestedLanguage);
 
     // Helpers
-    void speak(const QString &text, OnlineTranslator::Language lang);
     static void checkIncompatibleOptions(QCommandLineParser &parser, const QCommandLineOption &option1, const QCommandLineOption &option2);
-
     static QByteArray readFilesFromStdin();
     static QByteArray readFilesFromArguments(const QStringList &arguments);
 
-    static constexpr char s_langProperty[] = "Language";
-
-    PlaylistPlayer *m_player;
-    OnlineTranslator *m_translator;
-    QStateMachine *m_stateMachine;
+    ATranslationProvider *m_translator = nullptr;
+    ATTSProvider *m_tts = nullptr;
     QTextStream m_stdout{stdout};
 
     QString m_sourceText;
-    QVector<OnlineTranslator::Language> m_translationLanguages;
-    OnlineTranslator::Engine m_engine = OnlineTranslator::Google;
-    OnlineTranslator::Language m_sourceLang = OnlineTranslator::NoLanguage;
+    QVector<Language> m_translationLanguages;
+    Language m_sourceLang;
+    int m_currentTranslationIndex = 0;
+
     bool m_speakSource = false;
     bool m_speakTranslation = false;
     bool m_sourcePrinted = false;
     bool m_brief = false;
     bool m_audioOnly = false;
     bool m_json = false;
+    bool m_waitingForTTS = false;
+
+    QString m_currentTranslationResult;
+    Language m_currentTargetLang;
+
+    enum class TTSState {
+        None,
+        SpeakingSource,
+        SpeakingTranslation
+    };
+    TTSState m_ttsState = TTSState::None;
 };
 
 #endif // CLI_H

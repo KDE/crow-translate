@@ -26,12 +26,8 @@ public:
         : QObject(edit)
         , m_text(edit->textCursor().selectedText())
     {
-        if (m_text.isEmpty()) {
-            if constexpr (std::is_same_v<TextEdit, TranslationEdit>)
-                m_text = edit->translation();
-            else
-                m_text = edit->toPlainText();
-        }
+        if (m_text.isEmpty())
+            m_text = edit->toPlainText();
 
         m_menu = edit->createStandardContextMenu(event->globalPos());
         m_menu->move(event->globalPos());

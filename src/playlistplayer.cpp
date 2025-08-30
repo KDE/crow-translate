@@ -32,15 +32,22 @@ QList<QUrl> &PlaylistPlayer::getPlaylist()
 void PlaylistPlayer::setPlaylist(const QList<QUrl> &new_playlist)
 {
     playlist = new_playlist;
+    qDebug() << "PlaylistPlayer::setPlaylist() - Set playlist with" << playlist.size() << "URLs";
+    for (int i = 0; i < playlist.size(); ++i) {
+        qDebug() << "PlaylistPlayer::setPlaylist() - URL" << i << ":" << playlist[i].toString();
+    }
 }
 void PlaylistPlayer::playPlaylist()
 {
     if (playlist.isEmpty()) {
-        qDebug() << "Playlist is empty";
+        qDebug() << "PlaylistPlayer::playPlaylist() - Playlist is empty";
         return;
     }
     currentIndex = 0;
-    setSource(playlist.first());
+    const QUrl &firstUrl = playlist.first();
+    qDebug() << "PlaylistPlayer::playPlaylist() - Starting playback with URL:" << firstUrl.toString();
+    qDebug() << "PlaylistPlayer::playPlaylist() - URL valid:" << firstUrl.isValid() << "scheme:" << firstUrl.scheme();
+    setSource(firstUrl);
     play();
 }
 void PlaylistPlayer::clearPlaylist()
@@ -55,7 +62,10 @@ void PlaylistPlayer::next()
         return;
 
     currentIndex = (currentIndex + 1) % playlist.size();
-    setSource(playlist.at(currentIndex));
+    const QUrl &nextUrl = playlist.at(currentIndex);
+    qDebug() << "PlaylistPlayer::next() - Moving to URL" << currentIndex << ":" << nextUrl.toString();
+    qDebug() << "PlaylistPlayer::next() - URL valid:" << nextUrl.isValid() << "scheme:" << nextUrl.scheme();
+    setSource(nextUrl);
     play();
 }
 void PlaylistPlayer::handleMediaStatus(PlaylistPlayer::MediaStatus status)
@@ -70,7 +80,22 @@ void PlaylistPlayer::handleMediaStatus(PlaylistPlayer::MediaStatus status)
 // Skip track on error and continue playback
 void PlaylistPlayer::handleError(PlaylistPlayer::Error error, const QString &errorString)
 {
-    Q_UNUSED(error);
-    qWarning() << "Media error: " << errorString;
+    QString enhancedErrorString = errorString;
+
+    // Enhance error message for HTTP errors
+    if (errorString.contains("Server returned 5XX Server Error")) {
+        enhancedErrorString = "HTTP 500 Internal Server Error";
+    } else if (errorString.contains("Server returned 4XX Client Error")) {
+        enhancedErrorString = "HTTP 4XX Client Error";
+    }
+
+    qWarning() << "PlaylistPlayer::handleError() - Error:" << error << "Enhanced string:" << enhancedErrorString;
+    qWarning() << "PlaylistPlayer::handleError() - Original string:" << errorString;
+    qWarning() << "PlaylistPlayer::handleError() - Current URL index:" << currentIndex;
+    if (currentIndex >= 0 && currentIndex < playlist.size()) {
+        qWarning() << "PlaylistPlayer::handleError() - Failed URL:" << playlist[currentIndex].toString();
+    }
+    qWarning() << "PlaylistPlayer::handleError() - Current source:" << source().toString();
+
     next(); // Skip to next track on error
 }

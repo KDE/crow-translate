@@ -8,31 +8,26 @@
 #include "cli.h"
 
 #include "instancepinger.h"
-#include "playlistplayer.h"
+#include "provideroptions.h"
+#include "provideroptionsmanager.h"
 #include "settings/appsettings.h"
-#include "transitions/playerstoppedtransition.h"
+#include "translator/atranslationprovider.h"
+#include "tts/attsprovider.h"
 
 #include <QCommandLineParser>
+#include <QCoreApplication>
 #include <QFile>
-#include <QFinalState>
 #include <QJsonDocument>
+#include <QJsonObject>
+#include <QMetaObject>
 #include <QRegularExpression>
-#include <QStateMachine>
+#include <QTimer>
+
+#include <cstdlib>
 
 Cli::Cli(QObject *parent)
     : QObject(parent)
-    , m_player(new PlaylistPlayer(this))
-    , m_translator(new OnlineTranslator(this))
-    , m_stateMachine(new QStateMachine(this))
 {
-    m_player->setPlaylist(*new QList<QUrl>);
-
-    connect(m_stateMachine, &QStateMachine::finished, QCoreApplication::instance(), &QCoreApplication::quit, Qt::QueuedConnection);
-    // clang-format off
-    connect(m_stateMachine, &QStateMachine::stopped, QCoreApplication::instance(), [] {
-        QCoreApplication::exit(1);
-    }, Qt::QueuedConnection);
-    // clang-format on
 }
 
 void Cli::process(const QCoreApplication &app)
@@ -40,20 +35,39 @@ void Cli::process(const QCoreApplication &app)
     AppSettings settings;
 
     const QCommandLineOption codes({"c", "codes"}, tr("Display all language codes."));
-    const QCommandLineOption source({"s", "source"}, tr("Specify the source language (by default, engine will try to determine the language on its own)."), QStringLiteral("code"), QStringLiteral("auto"));
-    const QCommandLineOption translation({"t", "translation"}, tr("Specify the translation language(s), splitted by '+' (by default, the system language is used)."), QStringLiteral("code"), QStringLiteral("auto"));
-    const QCommandLineOption engine({"e", "engine"}, tr("Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' or 'lingva'), Google is used by default."), QStringLiteral("engine"), QStringLiteral("google"));
-    const QCommandLineOption url({"u", "url"}, tr("Specify Mozhi instance URL. Instance URL from the app settings will be used by default."), QStringLiteral("URL"), settings.instance());
+    const QCommandLineOption source({"s", "source"},
+                                    tr("Specify the source language (by default, engine will try to determine the language on its own)."),
+                                    QStringLiteral("code"),
+                                    QStringLiteral("auto"));
+    const QCommandLineOption translation({"t", "translation"},
+                                         tr("Specify the translation language(s), splitted by '+' (by default, the system language is used)."),
+                                         QStringLiteral("code"),
+                                         QStringLiteral("auto"));
+    const QCommandLineOption engine({"e", "engine"},
+                                    tr("Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' or 'lingva'), Google is used by default."),
+                                    QStringLiteral("engine"),
+                                    QStringLiteral("google"));
+    const QCommandLineOption url({"u", "url"},
+                                 tr("Specify Mozhi instance URL. Instance URL from the app settings will be used by default."),
+                                 QStringLiteral("URL"),
+                                 settings.instance());
+    const QCommandLineOption translationProvider({"tp", "translation-provider"},
+                                                 tr("Specify translation provider ('copy' or 'mozhi'). Provider from app settings will be used by default."),
+                                                 QStringLiteral("provider"));
+    const QCommandLineOption ttsProvider({"tts", "tts-provider"},
+                                         tr("Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from app settings will be used by default."),
+                                         QStringLiteral("provider"));
     const QCommandLineOption speakTranslation({"r", "speak-translation"}, tr("Speak the translation."));
     const QCommandLineOption speakSource({"o", "speak-source"}, tr("Speak the source."));
     const QCommandLineOption file({"f", "file"}, tr("Read source text from files. Arguments will be interpreted as file paths."));
     const QCommandLineOption readStdin({"i", "stdin"}, tr("Add stdin data to source text."));
-    const QCommandLineOption audioOnly({"a", "audio-only"}, tr("Do not print any text when using --%1 or --%2.").arg(speakSource.names().at(1), speakTranslation.names().at(1)));
+    const QCommandLineOption audioOnly({"a", "audio-only"},
+                                       tr("Do not print any text when using --%1 or --%2.").arg(speakSource.names().at(1), speakTranslation.names().at(1)));
     const QCommandLineOption brief({"b", "brief"}, tr("Print only translations."));
     const QCommandLineOption json({"j", "json"}, tr("Print output formatted as JSON."));
 
     QCommandLineParser parser;
-    parser.setApplicationDescription(tr("Application that allows to translate and speak text using Mozhi"));
+    parser.setApplicationDescription(tr("Application that allows to translate and speak text using various providers"));
     parser.addPositionalArgument(QStringLiteral("text"), tr("Text to translate. By default, the translation will be done to the system language."));
     parser.addHelpOption();
     parser.addVersionOption();
@@ -62,6 +76,8 @@ void Cli::process(const QCoreApplication &app)
     parser.addOption(translation);
     parser.addOption(engine);
     parser.addOption(url);
+    parser.addOption(translationProvider);
+    parser.addOption(ttsProvider);
     parser.addOption(speakTranslation);
     parser.addOption(speakSource);
     parser.addOption(file);
@@ -76,34 +92,44 @@ void Cli::process(const QCoreApplication &app)
     checkIncompatibleOptions(parser, json, brief);
 
     if (parser.isSet(audioOnly) && !parser.isSet(speakSource) && !parser.isSet(speakTranslation)) {
-        qCritical() << tr("Error: For --%1 you must specify --%2 and/or --%3 options").arg(audioOnly.names().at(1), speakSource.names().at(1), speakTranslation.names().at(1)) << '\n';
+        qCritical() << tr("Error: For --%1 you must specify --%2 and/or --%3 options")
+                           .arg(audioOnly.names().at(1), speakSource.names().at(1), speakTranslation.names().at(1))
+                    << '\n';
         parser.showHelp(1);
     }
 
     // Only show language codes
     if (parser.isSet(codes)) {
-        buildShowCodesStateMachine();
-        m_stateMachine->start();
+        printLangCodes();
+        QCoreApplication::quit();
         return;
     }
 
     // Source language
     const QString sourceLangCode = parser.value(source);
-    m_sourceLang = OnlineTranslator::language(sourceLangCode);
-    if (m_sourceLang == OnlineTranslator::NoLanguage) {
-        qCritical() << tr("Error: Unknown source language code '%1'").arg(sourceLangCode) << '\n';
-        parser.showHelp(1);
+    if (sourceLangCode == "auto") {
+        m_sourceLang = Language::autoLanguage(); // Use auto marker
+    } else {
+        m_sourceLang = Language(sourceLangCode);
+        if (m_sourceLang == Language::autoLanguage()) {
+            qCritical() << tr("Error: Unknown source language code '%1'").arg(sourceLangCode) << '\n';
+            parser.showHelp(1);
+        }
     }
 
     // Translation languages
-    for (const QString &langCode : parser.value(translation).split('+')) {
-        const OnlineTranslator::Language lang = OnlineTranslator::language(langCode);
-        if (lang == OnlineTranslator::NoLanguage) {
-            qCritical() << tr("Error: Unknown translation language code '%1'").arg(langCode) << '\n';
-            parser.showHelp(1);
+    const QString translationValue = parser.value(translation);
+    if (translationValue == "auto") {
+        m_translationLanguages.append(Language(QLocale::system()));
+    } else {
+        for (const QString &langCode : translationValue.split('+')) {
+            const Language language = Language(langCode);
+            if (language == Language::autoLanguage()) {
+                qCritical() << tr("Error: Unknown translation language code '%1'").arg(langCode) << '\n';
+                parser.showHelp(1);
+            }
+            m_translationLanguages.append(language);
         }
-
-        m_translationLanguages.append(lang);
     }
 
     // Source text
@@ -127,8 +153,25 @@ void Cli::process(const QCoreApplication &app)
         parser.showHelp(1);
     }
 
-    QString instance = parser.value(url);
-    if (instance.isEmpty()) {
+    // Initialize translation provider - determine backend from CLI or settings
+    ATranslationProvider::ProviderBackend translationBackend = settings.translationProviderBackend();
+    if (parser.isSet(translationProvider)) {
+        const QString providerName = parser.value(translationProvider).toLower();
+        if (providerName == "copy") {
+            translationBackend = ATranslationProvider::ProviderBackend::Copy;
+        } else if (providerName == "mozhi") {
+            translationBackend = ATranslationProvider::ProviderBackend::Mozhi;
+        } else {
+            qCritical() << tr("Error: Unknown translation provider '%1'").arg(providerName) << '\n';
+            parser.showHelp(1);
+        }
+    }
+
+    m_translator = ATranslationProvider::createTranslationProvider(this, translationBackend);
+    connect(m_translator, &ATranslationProvider::stateChanged, this, &Cli::onTranslationStateChanged);
+
+    // Set up Mozhi instance for auto-detection (only if no URL specified)
+    if (!parser.isSet(url) && settings.instance().isEmpty()) {
         qInfo() << tr("Detecting fastest instance");
 
         InstancePinger pinger;
@@ -138,26 +181,134 @@ void Cli::process(const QCoreApplication &app)
         loop.exec();
 
         settings.setInstance(pinger.fastestInstance());
-        instance = pinger.fastestInstance();
     }
-    m_translator->setInstance(instance);
 
-    // Engine
-    if (parser.value(engine) == QLatin1String("deepl")) {
-        m_engine = OnlineTranslator::Deepl;
-    } else if (parser.value(engine) == QLatin1String("mymemory")) {
-        m_engine = OnlineTranslator::Mymemory;
-    } else if (parser.value(engine) == QLatin1String("reverso")) {
-        m_engine = OnlineTranslator::Reverso;
-    } else if (parser.value(engine) == QLatin1String("google")) {
-        m_engine = OnlineTranslator::Google;
-    } else if (parser.value(engine) == QLatin1String("yandex")) {
-        m_engine = OnlineTranslator::Yandex;
-    } else if (parser.value(engine) == QLatin1String("duckduckgo") || parser.value(engine) == QLatin1String("bing")) { // DuckDuckGo is 1-1 replacemnet for Bing
-        m_engine = OnlineTranslator::Duckduckgo;
-    } else {
-        qCritical() << tr("Error: Unknown engine") << '\n';
-        parser.showHelp(1);
+    // Apply saved settings first
+    ProviderOptionsManager optionsManager;
+    optionsManager.applySettingsToTranslationProvider(m_translator);
+
+    // Override with CLI arguments if provided
+    if (m_translator->getProviderType() == "MozhiTranslationProvider") {
+        auto options = std::make_unique<ProviderOptions>();
+        bool hasOverrides = false;
+
+        // Override instance if specified
+        if (parser.isSet(url)) {
+            options->setOption("instance", parser.value(url));
+            hasOverrides = true;
+        }
+
+        // Override engine if specified
+        if (parser.isSet(engine)) {
+            const QString engineName = parser.value(engine);
+            int engineValue = -1;
+            if (engineName == "google") {
+                engineValue = static_cast<int>(OnlineTranslator::Google);
+            } else if (engineName == "yandex") {
+                engineValue = static_cast<int>(OnlineTranslator::Yandex);
+            } else if (engineName == "bing" || engineName == "duckduckgo") {
+                engineValue = static_cast<int>(OnlineTranslator::Duckduckgo);
+            } else if (engineName == "libretranslate") {
+                engineValue = static_cast<int>(OnlineTranslator::LibreTranslate);
+            } else if (engineName == "lingva") {
+                qCritical() << tr("Error: Lingva engine is not supported") << '\n';
+                parser.showHelp(1);
+            } else if (engineName == "mymemory") {
+                engineValue = static_cast<int>(OnlineTranslator::Mymemory);
+            } else if (engineName == "reverso") {
+                engineValue = static_cast<int>(OnlineTranslator::Reverso);
+            } else if (engineName == "deepl") {
+                engineValue = static_cast<int>(OnlineTranslator::Deepl);
+            } else {
+                qCritical() << tr("Error: Unknown engine") << '\n';
+                parser.showHelp(1);
+            }
+
+            if (engineValue != -1) {
+                options->setOption("engine", engineValue);
+                hasOverrides = true;
+            }
+        }
+
+        // Apply CLI overrides if any
+        if (hasOverrides) {
+            m_translator->applyOptions(*options);
+        }
+    }
+
+    // Initialize TTS provider if needed
+    if (parser.isSet(speakSource) || parser.isSet(speakTranslation)) {
+        qDebug() << "Initializing TTS provider";
+
+        // Determine TTS backend from CLI or settings
+        ATTSProvider::ProviderBackend ttsBackend = settings.ttsProviderBackend();
+        if (parser.isSet(ttsProvider)) {
+            const QString providerName = parser.value(ttsProvider).toLower();
+            if (providerName == "none") {
+                ttsBackend = ATTSProvider::ProviderBackend::None;
+            } else if (providerName == "mozhi") {
+                ttsBackend = ATTSProvider::ProviderBackend::Mozhi;
+            } else if (providerName == "qt") {
+                ttsBackend = ATTSProvider::ProviderBackend::Qt;
+            } else if (providerName == "piper") {
+                ttsBackend = ATTSProvider::ProviderBackend::Piper;
+            } else {
+                qCritical() << tr("Error: Unknown TTS provider '%1'").arg(providerName) << '\n';
+                parser.showHelp(1);
+            }
+        }
+
+        m_tts = ATTSProvider::createTTSProvider(this, ttsBackend);
+        qDebug() << "Using TTS provider:" << static_cast<int>(ttsBackend);
+
+        connect(m_tts, &ATTSProvider::stateChanged, this, &Cli::onTTSStateChanged);
+
+        // Apply saved settings first
+        ProviderOptionsManager optionsManager;
+        optionsManager.applySettingsToTTSProvider(m_tts);
+
+        // Override with CLI arguments if provided for Mozhi TTS
+        if (m_tts->getProviderType() == "MozhiTTSProvider") {
+            auto ttsOptions = std::make_unique<ProviderOptions>();
+            bool hasTTSOverrides = false;
+
+            // Override instance if specified
+            if (parser.isSet(url)) {
+                ttsOptions->setOption("instance", parser.value(url));
+                hasTTSOverrides = true;
+            }
+
+            // Override engine if specified
+            if (parser.isSet(engine)) {
+                const QString engineName = parser.value(engine);
+                int engineValue = -1;
+                if (engineName == "google") {
+                    engineValue = static_cast<int>(OnlineTranslator::Google);
+                } else if (engineName == "yandex") {
+                    engineValue = static_cast<int>(OnlineTranslator::Yandex);
+                } else if (engineName == "bing" || engineName == "duckduckgo") {
+                    engineValue = static_cast<int>(OnlineTranslator::Duckduckgo);
+                } else if (engineName == "libretranslate") {
+                    engineValue = static_cast<int>(OnlineTranslator::LibreTranslate);
+                } else if (engineName == "mymemory") {
+                    engineValue = static_cast<int>(OnlineTranslator::Mymemory);
+                } else if (engineName == "reverso") {
+                    engineValue = static_cast<int>(OnlineTranslator::Reverso);
+                } else if (engineName == "deepl") {
+                    engineValue = static_cast<int>(OnlineTranslator::Deepl);
+                }
+
+                if (engineValue != -1) {
+                    ttsOptions->setOption("engine", engineValue);
+                    hasTTSOverrides = true;
+                }
+            }
+
+            // Apply CLI overrides if any
+            if (hasTTSOverrides) {
+                m_tts->applyOptions(*ttsOptions);
+            }
+        }
     }
 
     // Audio options
@@ -168,215 +319,279 @@ void Cli::process(const QCoreApplication &app)
     m_audioOnly = parser.isSet(audioOnly);
     m_brief = parser.isSet(brief);
     m_json = parser.isSet(json);
-    if (m_brief || m_audioOnly) {
-        m_translator->setExamplesEnabled(false);
-        m_translator->setTranslationOptionsEnabled(false);
-        m_translator->setSourceTranscriptionEnabled(false);
-        m_translator->setTranslationTranslitEnabled(false);
-        m_translator->setSourceTranslitEnabled(false);
+
+    // Start translation process
+    processNextTranslation();
+}
+
+void Cli::onTranslationStateChanged(ATranslationProvider::State state)
+{
+    qDebug() << "CLI: Translation state changed to:" << static_cast<int>(state) << "Error:" << static_cast<int>(m_translator->error);
+    if (state == ATranslationProvider::State::Processed) {
+        // Check for translation error
+        if (m_translator->error != ATranslationProvider::TranslationError::NoError) {
+            const QString errorString = m_translator->getErrorString();
+            if (!errorString.isEmpty()) {
+                qCritical() << tr("Error: %1").arg(errorString);
+            } else {
+                qCritical() << tr("Translation error occurred");
+            }
+            cleanup();
+            QCoreApplication::exit(1);
+            return;
+        }
+
+        // Translation successful
+        m_currentTranslationResult = m_translator->result;
+
+        // Update source language with detected language if auto-detection was used
+        if (m_sourceLang == Language::autoLanguage() && m_translator->sourceLanguage != Language::autoLanguage()) {
+            m_sourceLang = m_translator->sourceLanguage;
+            qDebug() << "Auto-detected source language:" << m_sourceLang.name();
+        }
+
+        m_translator->finish();
+
+        if (!m_audioOnly) {
+            printTranslation();
+        }
+
+        // Handle TTS - only start if no TTS is currently active
+        if (m_ttsState == TTSState::None) {
+            if (m_speakSource) {
+                m_ttsState = TTSState::SpeakingSource;
+                m_waitingForTTS = true;
+                speakText(m_sourceText, m_sourceLang);
+                return;
+            }
+            if (m_speakTranslation) {
+                m_ttsState = TTSState::SpeakingTranslation;
+                m_waitingForTTS = true;
+                speakText(m_currentTranslationResult, m_currentTargetLang);
+                return;
+            }
+        }
+
+        // No TTS needed, move to next translation
+        m_currentTranslationIndex++;
+        m_ttsState = TTSState::None;
+        processNextTranslation();
+    } else if (state == ATranslationProvider::State::Finished) {
+        // Check for translation error
+        if (m_translator->error != ATranslationProvider::TranslationError::NoError) {
+            const QString errorString = m_translator->getErrorString();
+            if (!errorString.isEmpty()) {
+                qCritical() << tr("Error: %1").arg(errorString);
+            } else {
+                qCritical() << tr("Translation error occurred");
+            }
+            cleanup();
+            std::exit(1);
+        }
+
+        // Reset for next translation
+        m_translator->reset();
     }
-
-    buildTranslationStateMachine();
-    m_stateMachine->start();
 }
 
-void Cli::requestTranslation()
+void Cli::onTTSStateChanged(QTextToSpeech::State state)
 {
-    auto *state = qobject_cast<QState *>(sender());
-    auto translationLang = state->property(s_langProperty).value<OnlineTranslator::Language>();
+    qDebug() << "TTS state changed to:" << state << "Current TTS state:" << static_cast<int>(m_ttsState);
+    qDebug() << "m_speakSource:" << m_speakSource << "m_speakTranslation:" << m_speakTranslation;
 
-    m_translator->translate(m_sourceText, m_engine, translationLang, m_sourceLang);
+    if (state == QTextToSpeech::Ready) {
+        if (m_ttsState == TTSState::SpeakingSource && m_speakTranslation) {
+            qDebug() << "Transitioning from source to translation speech";
+            qDebug() << "Translation text:" << m_currentTranslationResult;
+            qDebug() << "Target language:" << m_currentTargetLang.name();
+            m_ttsState = TTSState::SpeakingTranslation;
+
+            // Add validation before calling speakText
+            if (m_currentTranslationResult.isEmpty()) {
+                qWarning() << "Translation result is empty, skipping translation speech";
+                m_waitingForTTS = false;
+                m_ttsState = TTSState::None;
+                m_currentTranslationIndex++;
+                processNextTranslation();
+                return;
+            }
+
+            if (m_tts == nullptr) {
+                qWarning() << "TTS provider is null during transition";
+                m_waitingForTTS = false;
+                m_ttsState = TTSState::None;
+                m_currentTranslationIndex++;
+                processNextTranslation();
+                return;
+            }
+
+            qDebug() << "About to call speakText for translation";
+            speakText(m_currentTranslationResult, m_currentTargetLang);
+            qDebug() << "Called speakText for translation";
+            return;
+        }
+
+        qDebug() << "TTS finished, resetting state and moving to next translation";
+        m_waitingForTTS = false;
+        m_ttsState = TTSState::None;
+
+        // Move to next translation
+        m_currentTranslationIndex++;
+        processNextTranslation();
+    } else if (state == QTextToSpeech::Error) {
+        const QString errorString = (m_tts != nullptr) ? m_tts->errorString() : "Unknown error";
+        qCritical() << tr("Error: TTS failed") << errorString;
+        m_waitingForTTS = false;
+        m_ttsState = TTSState::None;
+
+        // Continue with next translation
+        m_currentTranslationIndex++;
+        processNextTranslation();
+    } else {
+        qDebug() << "TTS state changed to unhandled state:" << state;
+    }
 }
 
-void Cli::parseTranslation()
+void Cli::translateText(const QString &text, const Language &sourceLang, const Language &targetLang)
 {
-    if (m_translator->error() != OnlineTranslator::NoError) {
-        qCritical() << tr("Error: %1").arg(m_translator->errorString());
-        m_stateMachine->stop();
+    m_currentTargetLang = targetLang;
+    m_translator->translate(text, targetLang, sourceLang);
+}
+
+void Cli::processNextTranslation()
+{
+    if (m_currentTranslationIndex >= m_translationLanguages.size()) {
+        cleanup();
+        QCoreApplication::quit();
         return;
     }
 
-    if (m_sourceLang == OnlineTranslator::Auto)
-        m_sourceLang = m_translator->sourceLanguage();
+    const Language targetLang = m_translationLanguages[m_currentTranslationIndex];
+    translateText(m_sourceText, m_sourceLang, targetLang);
 }
 
 void Cli::printTranslation()
 {
     // JSON mode
     if (m_json) {
-        m_stdout << m_translator->jsonResponse().toJson();
+        // For JSON, we'd need to create a JSON structure
+        // This is simplified for now
+        QJsonDocument doc;
+        QJsonObject obj;
+        obj["source"] = m_sourceText;
+        obj["translation"] = m_currentTranslationResult;
+        obj["source_language"] = m_sourceLang.name();
+        obj["target_language"] = m_currentTargetLang.name();
+        doc.setObject(obj);
+        m_stdout << doc.toJson();
         return;
     }
 
     // Short mode
     if (m_brief) {
-        m_stdout << m_translator->translation() << Qt::endl;
+        m_stdout << m_currentTranslationResult << Qt::endl;
         return;
     }
 
-    // Show source text and its transliteration only once
+    // Show source text only once
     if (!m_sourcePrinted) {
-        m_stdout << m_translator->source() << '\n';
-        if (!m_translator->sourceTranslit().isEmpty()) {
-            QString translit = m_translator->sourceTranslit();
-            m_stdout << '(' << translit.replace('\n', QStringLiteral(")\n(")) << ")\n";
-        }
+        m_stdout << m_sourceText << '\n';
         m_sourcePrinted = true;
     }
     m_stdout << '\n';
 
     // Languages
-    m_stdout << "[ " << m_translator->sourceLanguageName() << " -> ";
-    m_stdout << m_translator->translationLanguageName() << " ]\n\n";
+    m_stdout << "[ " << m_sourceLang.name() << " -> ";
+    m_stdout << m_currentTargetLang.name() << " ]\n\n";
 
-    // Translation and its transliteration
-    if (!m_translator->translation().isEmpty()) {
-        m_stdout << m_translator->translation() << '\n';
-        if (!m_translator->translationTranslit().isEmpty()) {
-            QString translit = m_translator->translationTranslit();
-            m_stdout << '/' << translit.replace('\n', QStringLiteral("/\n/")) << "/\n";
-        }
+    // Translation
+    if (!m_currentTranslationResult.isEmpty()) {
+        m_stdout << m_currentTranslationResult << '\n';
         m_stdout << '\n';
-    }
-
-    // Translation options
-    if (!m_translator->translationOptions().isEmpty()) {
-        m_stdout << tr("translation options:") << '\n';
-        for (const auto &[word, translations] : m_translator->translationOptions()) {
-            m_stdout << '\t';
-            m_stdout << word << ": ";
-            m_stdout << translations.join(QStringLiteral(", ")) << '\n';
-        }
-        m_stdout << '\n';
-    }
-
-    // Examples
-    if (!m_translator->examples().isEmpty()) {
-        m_stdout << tr("examples:") << '\n';
-        for (const auto &[word, example, definition, examplesSource, examplesTarget] : m_translator->examples()) {
-            m_stdout << '\t' << word << '\n';
-
-            if (!definition.isEmpty())
-                m_stdout << '\t' << definition << '\n';
-            if (!example.isEmpty())
-                m_stdout << '\t' << example << '\n';
-
-            for (size_t i = 0; i < examplesSource.size(); ++i)
-                m_stdout << '\t' << examplesSource[i] << ' ' << examplesTarget[i] << '\n';
-
-            m_stdout << '\n';
-        }
     }
 
     m_stdout.flush();
 }
 
-void Cli::requestLanguage()
+void Cli::speakText(const QString &text, const Language &language)
 {
-    m_translator->detectLanguage(m_sourceText, m_engine);
-}
+    qDebug() << "=== ENTERED speakText ===";
+    qDebug() << "Text:" << text;
+    qDebug() << "Language:" << language.name();
 
-void Cli::parseLanguage()
-{
-    if (m_translator->error() != OnlineTranslator::NoError) {
-        qCritical() << tr("Error: %1").arg(m_translator->errorString());
-        m_stateMachine->stop();
+    if (m_tts == nullptr) {
+        qWarning() << "TTS provider not initialized";
         return;
     }
 
-    m_sourceLang = m_translator->sourceLanguage();
+    if (text.isEmpty()) {
+        qWarning() << "Cannot speak empty text";
+        return;
+    }
+
+    qDebug() << "TTS: Speaking text:" << text << "with language:" << language.name();
+    qDebug() << "TTS: Current state before speaking:" << m_tts->state();
+
+    // Find the best available locale for TTS
+    const Language bestLanguage = findBestTTSLanguage(language);
+    qDebug() << "TTS: Using best locale:" << bestLanguage.name();
+
+    // Set locale and find appropriate voice
+    m_tts->setLanguage(bestLanguage);
+    QList<Voice> availableVoices = m_tts->findVoices(bestLanguage);
+    if (!availableVoices.isEmpty()) {
+        m_tts->setVoice(availableVoices.first());
+        qDebug() << "TTS: Selected voice:" << availableVoices.first().name() << "model path:" << availableVoices.first().modelPath();
+    } else {
+        qDebug() << "TTS: No voices found for locale, using current voice";
+    }
+
+    if (m_tts->state() == QTextToSpeech::Ready) {
+        qDebug() << "TTS: Calling say() directly";
+        m_tts->say(text);
+        qDebug() << "TTS: say() call completed";
+    } else {
+        qDebug() << "TTS: Waiting for Ready state before calling say(), current state:" << m_tts->state();
+        auto connection = std::make_shared<QMetaObject::Connection>();
+        *connection = connect(m_tts, &ATTSProvider::stateChanged, this, [this, text, connection](QTextToSpeech::State state) {
+            if (state == QTextToSpeech::Ready) {
+                qDebug() << "TTS: Ready state reached, calling say()";
+                disconnect(*connection);
+                m_tts->say(text);
+                qDebug() << "TTS: say() call completed from wait";
+            }
+        });
+    }
+    qDebug() << "TTS: speakText() method completed";
 }
 
 void Cli::printLangCodes()
 {
-    for (int langIndex = OnlineTranslator::Auto; langIndex != OnlineTranslator::Zulu; ++langIndex) {
-        const auto lang = static_cast<OnlineTranslator::Language>(langIndex);
-        m_stdout << OnlineTranslator::languageName(lang) << " - " << OnlineTranslator::languageCode(lang) << '\n';
+    // Print common language codes
+    QList<QLocale::Language> languages;
+    languages << QLocale::English << QLocale::Spanish << QLocale::French << QLocale::German << QLocale::Italian << QLocale::Portuguese << QLocale::Russian
+              << QLocale::Chinese << QLocale::Japanese << QLocale::Korean << QLocale::Arabic << QLocale::Hindi << QLocale::Dutch << QLocale::Swedish
+              << QLocale::NorwegianBokmal << QLocale::Danish << QLocale::Finnish << QLocale::Polish << QLocale::Czech << QLocale::Hungarian << QLocale::Romanian
+              << QLocale::Bulgarian << QLocale::Greek << QLocale::Turkish << QLocale::Hebrew << QLocale::Thai << QLocale::Vietnamese << QLocale::Ukrainian
+              << QLocale::Croatian << QLocale::Slovak << QLocale::Slovenian << QLocale::Estonian << QLocale::Latvian << QLocale::Lithuanian;
+
+    for (const auto &lang : languages) {
+        const Language language = Language(QLocale(lang));
+        m_stdout << QLocale::languageToString(lang) << " - " << language.toCode() << '\n';
     }
 }
 
-void Cli::speakSource()
+void Cli::cleanup()
 {
-    speak(m_sourceText, m_sourceLang);
-}
-
-void Cli::speakTranslation()
-{
-    speak(m_translator->translation(), m_translator->translationLanguage());
-}
-
-void Cli::buildShowCodesStateMachine()
-{
-    auto *showCodesState = new QState(m_stateMachine);
-    m_stateMachine->setInitialState(showCodesState);
-
-    connect(showCodesState, &QState::entered, this, &Cli::printLangCodes);
-    showCodesState->addTransition(new QFinalState(m_stateMachine));
-}
-
-void Cli::buildTranslationStateMachine()
-{
-    auto *nextTranslationState = new QState(m_stateMachine);
-    m_stateMachine->setInitialState(nextTranslationState);
-
-    for (OnlineTranslator::Language lang : std::as_const(m_translationLanguages)) {
-        auto *requestTranslationState = nextTranslationState;
-        auto *parseDataState = new QState(m_stateMachine);
-        auto *printDataState = new QState(m_stateMachine);
-        auto *speakSourceText = new QState(m_stateMachine);
-        auto *speakTranslation = new QState(m_stateMachine);
-        nextTranslationState = new QState(m_stateMachine);
-
-        if (m_audioOnly && m_speakSource && !m_speakTranslation && m_sourceLang == OnlineTranslator::Auto) {
-            connect(requestTranslationState, &QState::entered, this, &Cli::requestLanguage);
-            connect(parseDataState, &QState::entered, this, &Cli::parseLanguage);
-        } else {
-            connect(requestTranslationState, &QState::entered, this, &Cli::requestTranslation);
-            connect(parseDataState, &QState::entered, this, &Cli::parseTranslation);
-            if (!m_audioOnly)
-                connect(printDataState, &QState::entered, this, &Cli::printTranslation);
-
-            requestTranslationState->setProperty(s_langProperty, lang);
-        }
-
-        requestTranslationState->addTransition(m_translator, &OnlineTranslator::finished, parseDataState);
-        parseDataState->addTransition(printDataState);
-        printDataState->addTransition(speakSourceText);
-
-        if (m_speakSource) {
-            connect(speakSourceText, &QState::entered, this, &Cli::speakSource);
-
-            auto *speakSourceTransition = new PlayerStoppedTransition(m_player, speakSourceText);
-            speakSourceTransition->setTargetState(speakTranslation);
-        } else {
-            speakSourceText->addTransition(speakTranslation);
-        }
-
-        if (m_speakTranslation) {
-            connect(speakTranslation, &QState::entered, this, &Cli::speakTranslation);
-
-            auto *speakTranslationTransition = new PlayerStoppedTransition(m_player, speakTranslation);
-            speakTranslationTransition->setTargetState(nextTranslationState);
-        } else {
-            speakTranslation->addTransition(nextTranslationState);
-        }
+    if (m_translator != nullptr) {
+        m_translator->deleteLater();
+        m_translator = nullptr;
     }
 
-    nextTranslationState->addTransition(new QFinalState(m_stateMachine));
-}
-
-void Cli::speak(const QString &text, OnlineTranslator::Language lang)
-{
-    const QList<QUrl> media = m_translator->generateUrls(text, m_engine, lang);
-    if (m_translator->error() != OnlineTranslator::NoError) {
-        qCritical() << tr("Error: %1").arg(m_translator->errorString());
-        m_stateMachine->stop();
-        return;
+    if (m_tts != nullptr) {
+        m_tts->deleteLater();
+        m_tts = nullptr;
     }
-
-    m_player->clearPlaylist();
-    m_player->addMedia(media);
-    m_player->playPlaylist();
 }
 
 void Cli::checkIncompatibleOptions(QCommandLineParser &parser, const QCommandLineOption &option1, const QCommandLineOption &option2)
@@ -389,7 +604,7 @@ void Cli::checkIncompatibleOptions(QCommandLineParser &parser, const QCommandLin
 
 QByteArray Cli::readFilesFromStdin()
 {
-    QString stdinText = QTextStream(stdin).readAll();
+    const QString stdinText = QTextStream(stdin).readAll();
     QByteArray filesData;
     for (const QString &filePath : stdinText.split(QRegularExpression(QStringLiteral("\\s+")), Qt::SkipEmptyParts)) {
         QFile file(filePath);
@@ -428,4 +643,50 @@ QByteArray Cli::readFilesFromArguments(const QStringList &arguments)
     }
 
     return filesData;
+}
+
+Language Cli::findBestTTSLanguage(const Language &requestedLanguage)
+{
+    qDebug() << "findBestTTSLanguage called with:" << requestedLanguage.name();
+
+    if (m_tts == nullptr) {
+        qDebug() << "findBestTTSLocale: TTS provider is null";
+        return Language(QLocale::system());
+    }
+
+    qDebug() << "findBestTTSLocale: Getting available locales...";
+    // Get all available locales from TTS
+    QList<Language> availableLanguages = m_tts->availableLanguages();
+    qDebug() << "findBestTTSLanguage: Got" << availableLanguages.size() << "available languages";
+
+    // First try: exact match
+    for (const Language &available : availableLanguages) {
+        if (available == requestedLanguage) {
+            return available;
+        }
+    }
+
+    // Second try: same language, different country
+    for (const Language &available : availableLanguages) {
+        if (available.hasQLocaleEquivalent() && requestedLanguage.hasQLocaleEquivalent() && available.toQLocale().language() == requestedLanguage.toQLocale().language()) {
+            return available;
+        }
+    }
+
+    // Third try: if requested locale is C (auto), try system locale
+    if (requestedLanguage == Language::autoLanguage()) {
+        const QLocale systemLocale = QLocale::system();
+        for (const Language &available : availableLanguages) {
+            if (available.hasQLocaleEquivalent() && available.toQLocale().language() == systemLocale.language()) {
+                return available;
+            }
+        }
+    }
+
+    // Fallback: return first available language or system language
+    if (!availableLanguages.isEmpty()) {
+        return availableLanguages.first();
+    }
+
+    return Language(QLocale::system());
 }

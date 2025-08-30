@@ -41,6 +41,24 @@ modules:
       - type: dir
         path: .
     modules:
+      - name: onnxruntime
+        buildsystem: simple
+        build-commands:
+          - mkdir -p ${FLATPAK_DEST}/lib
+          - mkdir -p ${FLATPAK_DEST}/include
+          - cp -av lib/* ${FLATPAK_DEST}/lib/
+          - cp -av include/* ${FLATPAK_DEST}/include/
+        sources:
+          - type: archive
+            url: https://github.com/microsoft/onnxruntime/releases/download/v1.22.0/onnxruntime-linux-x64-1.22.0.tgz
+            sha256: 8344d55f93d5bc5021ce342db50f62079daf39aaafb5d311a451846228be49b3
+            x-checker-data:
+              type: github-releases
+              owner: microsoft
+              repo: onnxruntime
+              stable-only: true
+              asset-name: onnxruntime-linux-x64-$version.tgz
+              url-template: https://github.com/microsoft/onnxruntime/releases/download/v$version/onnxruntime-linux-x64-$version.tgz
       - name: tesseract
         buildsystem: cmake-ninja
         builddir: true

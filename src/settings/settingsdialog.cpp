@@ -18,6 +18,8 @@
 #include "ocr/ocr.h"
 #include "shortcutsmodel/shortcutitem.h"
 #include "shortcutsmodel/shortcutsmodel.h"
+#include "translator/atranslationprovider.h"
+#include "tts/attsprovider.h"
 
 #include <QDate>
 #include <QFileDialog>
@@ -46,25 +48,43 @@ SettingsDialog::SettingsDialog(MainWindow *parent)
     m_portableCheckbox->setToolTip(tr("Use %1 to store settings").arg(AppSettings::portableConfigName()));
     qobject_cast<QFormLayout *>(ui->generalGroupBox->layout())->addRow(m_portableCheckbox);
 #endif
-
     // Set item data in comboboxes
     ui->localeComboBox->addItem(tr("<System language>"), AppSettings::defaultLocale());
     for (const QString &locale : LOCALES)
         addLocale(QLocale(locale));
 
-    ui->primaryLangComboBox->addItem(tr("<System language>"), OnlineTranslator::Auto);
-    ui->secondaryLangComboBox->addItem(tr("<System language>"), OnlineTranslator::Auto);
-    for (int i = 1; i <= OnlineTranslator::Zulu; ++i) {
-        const auto lang = static_cast<OnlineTranslator::Language>(i);
+    ui->primaryLangComboBox->addItem(tr("<Auto>"), QVariant::fromValue(Language::autoLanguage()));
+    ui->secondaryLangComboBox->addItem(tr("<Auto>"), QVariant::fromValue(Language::autoLanguage()));
 
-        ui->primaryLangComboBox->addItem(OnlineTranslator::languageName(lang), i);
-        ui->secondaryLangComboBox->addItem(OnlineTranslator::languageName(lang), i);
+    const auto availableLanguages = Language::allLanguages();
+    for (const Language &language : availableLanguages) {
+        if (language.isValid() && language != Language::autoLanguage()) {
+            ui->primaryLangComboBox->addItem(language.displayName(), QVariant::fromValue(language));
+            ui->secondaryLangComboBox->addItem(language.displayName(), QVariant::fromValue(language));
+        }
     }
 
     ui->ocrLanguagesListWidget->addLanguages(parent->ocr()->availableLanguages());
 
     // Set all avaialble instances
     ui->mozhiUrlComboBox->addItems(InstancePinger::instances());
+    connect(ui->mozhiUrlComboBox, &QComboBox::currentTextChanged, this, &SettingsDialog::mozhiInstanceChanged);
+
+    // Populate translation providers dynamically
+    ui->translationProviderComboBox->addItem(tr("Copy"), QVariant::fromValue(ATranslationProvider::ProviderBackend::Copy));
+    ui->translationProviderComboBox->addItem("Mozhi", QVariant::fromValue(ATranslationProvider::ProviderBackend::Mozhi));
+
+    // Populate TTS providers dynamically
+    ui->ttsProviderComboBox->addItem(tr("None"), QVariant::fromValue(ATTSProvider::ProviderBackend::None));
+    ui->ttsProviderComboBox->addItem("Mozhi", QVariant::fromValue(ATTSProvider::ProviderBackend::Mozhi));
+    ui->ttsProviderComboBox->addItem("Qt", QVariant::fromValue(ATTSProvider::ProviderBackend::Qt));
+#ifdef WITH_PIPER_TTS
+    ui->ttsProviderComboBox->addItem("Piper", QVariant::fromValue(ATTSProvider::ProviderBackend::Piper));
+#endif
+
+#ifdef WITH_PIPER_TTS
+    setupPiperVoicesPathUI();
+#endif
 
     // Sort languages in comboboxes alphabetically
     ui->primaryLangComboBox->model()->sort(0);
@@ -120,8 +140,7 @@ void SettingsDialog::accept()
             return;
         }
     }
-
-    // Set settings location first
+// Set settings location first
 #ifdef WITH_PORTABLE_MODE
     AppSettings::setPortableModeEnabled(m_portableCheckbox->isChecked());
 #endif
@@ -151,26 +170,47 @@ void SettingsDialog::accept()
 
     settings.setTrayIconType(static_cast<AppSettings::IconType>(ui->trayIconComboBox->currentIndex()));
     settings.setCustomIconPath(ui->customTrayIconEdit->text());
-
     // Translation settings
+    const ATranslationProvider::ProviderBackend currentBackend = settings.translationProviderBackend();
+    const ATranslationProvider::ProviderBackend newBackend = ui->translationProviderComboBox->currentData().value<ATranslationProvider::ProviderBackend>();
+    settings.setTranslationProviderBackend(newBackend);
+
+    // Emit signal if backend changed
+    if (currentBackend != newBackend) {
+        emit translationBackendChanged(newBackend);
+    }
+
+    // TTS Settings
+    const ATTSProvider::ProviderBackend currentTTSBackend = settings.ttsProviderBackend();
+    const ATTSProvider::ProviderBackend newTTSBackend = ui->ttsProviderComboBox->currentData().value<ATTSProvider::ProviderBackend>();
+    settings.setTTSProviderBackend(newTTSBackend);
+
+    // Emit signal if TTS backend changed
+    if (currentTTSBackend != newTTSBackend) {
+        emit ttsBackendChanged(newTTSBackend);
+    }
+    // Mozhi settings
     settings.setSourceTranslitEnabled(ui->sourceTranslitCheckBox->isChecked());
     settings.setTranslationTranslitEnabled(ui->translationTranslitCheckBox->isChecked());
     settings.setSourceTranscriptionEnabled(ui->sourceTranscriptionCheckBox->isChecked());
     settings.setTranslationOptionsEnabled(ui->translationOptionsCheckBox->isChecked());
     settings.setExamplesEnabled(ui->examplesCheckBox->isChecked());
     settings.setSimplifySource(ui->sourceSimplificationCheckBox->isChecked());
-    settings.setPrimaryLanguage(ui->primaryLangComboBox->currentData().value<OnlineTranslator::Language>());
-    settings.setSecondaryLanguage(ui->secondaryLangComboBox->currentData().value<OnlineTranslator::Language>());
+    settings.setPrimaryLanguage(ui->primaryLangComboBox->currentData().value<Language>());
+    settings.setSecondaryLanguage(ui->secondaryLangComboBox->currentData().value<Language>());
     settings.setForceSourceAutodetect(ui->forceSourceAutodetectCheckBox->isChecked());
     settings.setForceTranslationAutodetect(ui->forceTranslationAutodetectCheckBox->isChecked());
-
-    // Instance settings
+    // Mozhi instance settings
     settings.setInstance(ui->mozhiUrlComboBox->currentText());
 
     // OCR
     settings.setConvertLineBreaks(ui->convertLineBreaksCheckBox->isChecked());
     settings.setOcrLanguagesPath(ui->ocrLanguagesPathEdit->text().toLocal8Bit());
     settings.setOcrLanguagesString(ui->ocrLanguagesListWidget->checkedLanguagesString());
+#ifdef WITH_PIPER_TTS
+    if (m_piperVoicesPathEdit != nullptr)
+        settings.setPiperVoicesPath(m_piperVoicesPathEdit->text().toLocal8Bit());
+#endif
     settings.setRegionRememberType(static_cast<AppSettings::RegionRememberType>(ui->rememberRegionComboBox->currentIndex()));
     settings.setCaptureDelay(ui->captureDelaySpinBox->value());
     settings.setShowMagnifier(ui->showMagnifierCheckBox->isChecked());
@@ -179,7 +219,7 @@ void SettingsDialog::accept()
     settings.setTesseractParameters(ui->tesseractParametersTableWidget->parameters());
     settings.setOcrNegate(ui->negateOcrCheckBox->isChecked());
 
-    // Connection settings
+    // Mozhi proxy settings
     settings.setProxyType(static_cast<QNetworkProxy::ProxyType>(ui->proxyTypeComboBox->currentIndex()));
     settings.setProxyHost(ui->proxyHostEdit->text());
     settings.setProxyPort(static_cast<quint16>(ui->proxyPortSpinbox->value()));
@@ -197,7 +237,7 @@ void SettingsDialog::accept()
 
 void SettingsDialog::setCurrentPage(int index)
 {
-    // Ignore size police for hidden pages to show scrollbar only for visible page
+    // Ignore size policy for hidden pages to show scrollbar only for visible page
     // https://wiki.qt.io/Technical_FAQ#How_can_I_get_a_QStackedWidget_to_automatically_switch_size_depending_on_the_content_of_the_page.3F
     ui->pagesStackedWidget->currentWidget()->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
     ui->pagesStackedWidget->setCurrentIndex(index);
@@ -292,6 +332,55 @@ void SettingsDialog::onOcrLanguagesPathChanged(const QString &path)
     ui->ocrLanguagesListWidget->addLanguages(Ocr::availableLanguages(path));
 }
 
+#ifdef WITH_PIPER_TTS
+void SettingsDialog::setupPiperVoicesPathUI()
+{
+    // Create UI elements
+    m_piperVoicesPathLabel = new QLabel(tr("Piper voices path:"), this);
+    m_piperVoicesPathEdit = new QLineEdit(this);
+    m_piperVoicesPathButton = new QToolButton(this);
+
+    // Create a horizontal layout for the edit + button
+    auto *pathLayout = new QHBoxLayout();
+    pathLayout->addWidget(m_piperVoicesPathEdit);
+    pathLayout->addWidget(m_piperVoicesPathButton);
+    pathLayout->setContentsMargins(0, 0, 0, 0);
+
+    auto *pathWidget = new QWidget(this);
+    pathWidget->setLayout(pathLayout);
+
+    // Set properties
+    m_piperVoicesPathEdit->setPlaceholderText(tr("Directory with voice models"));
+    m_piperVoicesPathButton->setToolTip(tr("Select Piper voices path"));
+    m_piperVoicesPathButton->setIcon(QIcon::fromTheme(QStringLiteral("folder")));
+
+    // Add to the existing form layout
+    auto *formLayout = ui->ttsGroupBox->findChild<QFormLayout *>("ttsFormLayout");
+    if (formLayout != nullptr) {
+        formLayout->addRow(m_piperVoicesPathLabel, pathWidget);
+    }
+
+    // Connect signals
+    connect(m_piperVoicesPathButton, &QToolButton::clicked, this, &SettingsDialog::selectPiperVoicesPath);
+    connect(m_piperVoicesPathEdit, &QLineEdit::editingFinished, this, [this]() {
+        onPiperVoicesPathChanged(m_piperVoicesPathEdit->text());
+    });
+}
+
+void SettingsDialog::selectPiperVoicesPath()
+{
+    const QString path = m_piperVoicesPathEdit->text().left(m_piperVoicesPathEdit->text().lastIndexOf(QDir::separator()));
+    const QString directory = QFileDialog::getExistingDirectory(this, tr("Select Piper voices path"), path);
+    if (!directory.isEmpty())
+        m_piperVoicesPathEdit->setText(directory);
+}
+
+void SettingsDialog::onPiperVoicesPathChanged(const QString &path)
+{
+    emit piperVoicesPathChanged(path);
+}
+#endif
+
 void SettingsDialog::onTesseractParametersCurrentItemChanged()
 {
     if (ui->tesseractParametersTableWidget->currentRow() == -1)
@@ -354,7 +443,6 @@ void SettingsDialog::restoreDefaults()
     ui->showTrayIconCheckBox->setChecked(AppSettings::defaultShowTrayIcon());
     ui->startMinimizedCheckBox->setChecked(AppSettings::defaultStartMinimized());
     ui->autostartCheckBox->setChecked(AppSettings::defaultAutostartEnabled());
-
     // Interface settings
     const QFont defaultFont = QApplication::font();
     ui->fontNameComboBox->setCurrentFont(defaultFont);
@@ -371,14 +459,26 @@ void SettingsDialog::restoreDefaults()
     ui->customTrayIconEdit->setText(AppSettings::defaultCustomIconPath());
 
     // Translation settings
+    const int defaultTranslationBackendIndex = ui->translationProviderComboBox->findData(QVariant::fromValue(AppSettings().defaultTranslationProviderBackend()));
+    if (defaultTranslationBackendIndex != -1) {
+        ui->translationProviderComboBox->setCurrentIndex(defaultTranslationBackendIndex);
+    }
+
+    // TTS settings
+    const int defaultTTSBackendIndex = ui->ttsProviderComboBox->findData(QVariant::fromValue(AppSettings().defaultTTSProviderBackend()));
+    if (defaultTTSBackendIndex != -1) {
+        ui->ttsProviderComboBox->setCurrentIndex(defaultTTSBackendIndex);
+    }
+
+    // Mozhi settings
     ui->sourceTranslitCheckBox->setChecked(AppSettings::defaultSourceTranslitEnabled());
     ui->translationTranslitCheckBox->setChecked(AppSettings::defaultTranslationTranslitEnabled());
     ui->sourceTranscriptionCheckBox->setChecked(AppSettings::defaultSourceTranscriptionEnabled());
     ui->translationOptionsCheckBox->setChecked(AppSettings::defaultTranslationOptionsEnabled());
     ui->examplesCheckBox->setChecked(AppSettings::defaultExamplesEnabled());
     ui->sourceSimplificationCheckBox->setChecked(AppSettings::defaultSimplifySource());
-    ui->primaryLangComboBox->setCurrentIndex(ui->primaryLangComboBox->findData(AppSettings::defaultPrimaryLanguage()));
-    ui->secondaryLangComboBox->setCurrentIndex(ui->secondaryLangComboBox->findData(AppSettings::defaultSecondaryLanguage()));
+    ui->primaryLangComboBox->setCurrentIndex(ui->primaryLangComboBox->findData(QVariant::fromValue(AppSettings::defaultPrimaryLanguage())));
+    ui->secondaryLangComboBox->setCurrentIndex(ui->secondaryLangComboBox->findData(QVariant::fromValue(AppSettings::defaultSecondaryLanguage())));
     ui->forceSourceAutodetectCheckBox->setChecked(AppSettings::defaultForceSourceAutodetect());
     ui->forceTranslationAutodetectCheckBox->setChecked(AppSettings::defaultForceTranslationAutodetect());
 
@@ -396,7 +496,12 @@ void SettingsDialog::restoreDefaults()
     ui->tesseractParametersTableWidget->setParameters(AppSettings::defaultTesseractParameters());
     ui->negateOcrCheckBox->setChecked(AppSettings::defaultOcrNegate());
 
-    // Connection settings
+// Piper-voices path
+#ifdef WITH_PIPER_TTS
+    if (m_piperVoicesPathEdit != nullptr)
+        m_piperVoicesPathEdit->setText(AppSettings::defaultPiperVoicesPath());
+#endif
+    // Mozhi network settings
     ui->proxyTypeComboBox->setCurrentIndex(AppSettings::defaultProxyType());
     ui->proxyHostEdit->setText(AppSettings::defaultProxyHost());
     ui->proxyPortSpinbox->setValue(AppSettings::defaultProxyPort());
@@ -470,24 +575,44 @@ void SettingsDialog::loadSettings()
     ui->customTrayIconEdit->setText(settings.customIconPath());
 
     // Translation settings
+    // Translation provider backend
+    const int translationBackendIndex = ui->translationProviderComboBox->findData(QVariant::fromValue(settings.translationProviderBackend()));
+    if (translationBackendIndex != -1) {
+        ui->translationProviderComboBox->setCurrentIndex(translationBackendIndex);
+    }
+
+    // TTS settings
+    // TTS provider backend
+    const int ttsBackendIndex = ui->ttsProviderComboBox->findData(QVariant::fromValue(settings.ttsProviderBackend()));
+    if (ttsBackendIndex != -1) {
+        ui->ttsProviderComboBox->setCurrentIndex(ttsBackendIndex);
+    }
+
+    // Mozhi settings
     ui->sourceTranslitCheckBox->setChecked(settings.isSourceTranslitEnabled());
     ui->translationTranslitCheckBox->setChecked(settings.isTranslationTranslitEnabled());
     ui->sourceTranscriptionCheckBox->setChecked(settings.isSourceTranscriptionEnabled());
     ui->translationOptionsCheckBox->setChecked(settings.isTranslationOptionsEnabled());
     ui->examplesCheckBox->setChecked(settings.isExamplesEnabled());
     ui->sourceSimplificationCheckBox->setChecked(settings.isSimplifySource());
-    ui->primaryLangComboBox->setCurrentIndex(ui->primaryLangComboBox->findData(settings.primaryLanguage()));
-    ui->secondaryLangComboBox->setCurrentIndex(ui->secondaryLangComboBox->findData(settings.secondaryLanguage()));
+    ui->primaryLangComboBox->setCurrentIndex(ui->primaryLangComboBox->findData(QVariant::fromValue(settings.primaryLanguage())));
+    ui->secondaryLangComboBox->setCurrentIndex(ui->secondaryLangComboBox->findData(QVariant::fromValue(settings.secondaryLanguage())));
     ui->forceSourceAutodetectCheckBox->setChecked(settings.isForceSourceAutodetect());
     ui->forceTranslationAutodetectCheckBox->setChecked(settings.isForceTranslationAutodetect());
 
-    // Instance settings
+    // Temporarily disconnect signal to avoid triggering provider updates while loading settings
+    disconnect(ui->mozhiUrlComboBox, &QComboBox::currentTextChanged, this, &SettingsDialog::mozhiInstanceChanged);
     ui->mozhiUrlComboBox->setCurrentText(settings.instance());
+    connect(ui->mozhiUrlComboBox, &QComboBox::currentTextChanged, this, &SettingsDialog::mozhiInstanceChanged);
 
     // OCR
     ui->convertLineBreaksCheckBox->setChecked(settings.isConvertLineBreaks());
     ui->ocrLanguagesPathEdit->setText(settings.ocrLanguagesPath());
     ui->ocrLanguagesListWidget->setCheckedLanguages(settings.ocrLanguagesString());
+#ifdef WITH_PIPER_TTS
+    if (m_piperVoicesPathEdit != nullptr)
+        m_piperVoicesPathEdit->setText(settings.piperVoicesPath());
+#endif
     ui->rememberRegionComboBox->setCurrentIndex(settings.regionRememberType());
     ui->captureDelaySpinBox->setValue(settings.captureDelay());
     ui->showMagnifierCheckBox->setChecked(settings.isShowMagnifier());
@@ -496,7 +621,7 @@ void SettingsDialog::loadSettings()
     ui->tesseractParametersTableWidget->setParameters(settings.tesseractParameters());
     ui->negateOcrCheckBox->setChecked(settings.isOcrNegate());
 
-    // Connection settings
+    // Mozhi Network/Proxy settings
     ui->proxyTypeComboBox->setCurrentIndex(settings.proxyType());
     ui->proxyHostEdit->setText(settings.proxyHost());
     ui->proxyPortSpinbox->setValue(settings.proxyPort());

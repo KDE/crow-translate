@@ -11,9 +11,10 @@
 #include "languagebuttonswidget.h"
 
 #include <QPushButton>
+#include <QSet>
 #include <QShortcut>
 
-LanguagesDialog::LanguagesDialog(const QVector<OnlineTranslator::Language> &currentLang, QWidget *parent)
+LanguagesDialog::LanguagesDialog(const QVector<Language> &currentLanguages, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::LanguagesDialog)
     , m_searchShortcut(new QShortcut(QStringLiteral("Ctrl+F"), this))
@@ -24,16 +25,21 @@ LanguagesDialog::LanguagesDialog(const QVector<OnlineTranslator::Language> &curr
     connect(m_searchShortcut, &QShortcut::activated, ui->searchEdit, qOverload<>(&QLineEdit::setFocus));
     connect(m_acceptShortcut, &QShortcut::activated, this, &LanguagesDialog::accept);
 
-    // Load languages
-    for (int i = 1; i <= OnlineTranslator::Zulu; ++i) {
-        const auto lang = static_cast<OnlineTranslator::Language>(i);
-        if (!currentLang.contains(lang))
-            addLanguage(ui->availableLanguagesListWidget, lang);
+    // Load languages from Language::allLanguages()
+    const auto availableLanguages = Language::allLanguages();
+    QSet<Language> uniqueLanguages; // Track unique languages to avoid duplicates
+
+    for (const Language &language : availableLanguages) {
+        if (language.isValid() && !currentLanguages.contains(language)
+            && !uniqueLanguages.contains(language)) {
+            uniqueLanguages.insert(language);
+            addLanguage(ui->availableLanguagesListWidget, language);
+        }
     }
     ui->availableLanguagesListWidget->setCurrentRow(0);
 
-    for (const OnlineTranslator::Language lang : currentLang)
-        addLanguage(ui->currentLanguagesListWidget, lang);
+    for (const Language &language : currentLanguages)
+        addLanguage(ui->currentLanguagesListWidget, language);
 
     if (ui->currentLanguagesListWidget->count() != 0) {
         ui->currentLanguagesListWidget->setCurrentRow(0);
@@ -46,7 +52,7 @@ LanguagesDialog::~LanguagesDialog()
     delete ui;
 }
 
-const QVector<OnlineTranslator::Language> &LanguagesDialog::languages() const
+const QVector<Language> &LanguagesDialog::languages() const
 {
     return m_languages;
 }
@@ -58,7 +64,7 @@ void LanguagesDialog::accept()
     m_languages.reserve(ui->currentLanguagesListWidget->count());
     for (int i = 0; i < ui->currentLanguagesListWidget->count(); ++i) {
         QListWidgetItem *item = ui->currentLanguagesListWidget->item(i);
-        m_languages.append(item->data(Qt::UserRole).value<OnlineTranslator::Language>());
+        m_languages.append(item->data(Qt::UserRole).value<Language>());
     }
 }
 
@@ -120,11 +126,11 @@ void LanguagesDialog::checkVerticalMovement(int row)
     ui->moveDownButton->setEnabled(row != ui->currentLanguagesListWidget->count() - 1);
 }
 
-void LanguagesDialog::addLanguage(QListWidget *widget, OnlineTranslator::Language lang)
+void LanguagesDialog::addLanguage(QListWidget *widget, const Language &language)
 {
     auto *item = new QListWidgetItem;
-    item->setText(OnlineTranslator::languageName(lang));
-    item->setData(Qt::UserRole, lang);
+    item->setText(language.displayName());
+    item->setData(Qt::UserRole, QVariant::fromValue(language));
     widget->addItem(item);
 }
 

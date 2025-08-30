@@ -10,6 +10,8 @@
 #include "cmake.h"
 #include "languagebuttonswidget.h"
 #include "trayicon.h"
+#include "translator/atranslationprovider.h"
+#include "tts/attsprovider.h"
 
 #include <QDir>
 #include <QFileInfo>
@@ -24,6 +26,10 @@
 #include <QStandardPaths>
 #include <QTextStream>
 #include <QTranslator>
+#include <QVariant>
+
+#include <cstdint>
+#include <type_traits>
 
 QTranslator AppSettings::s_appTranslator;
 QTranslator AppSettings::s_qtTranslator;
@@ -446,34 +452,149 @@ bool AppSettings::defaultSimplifySource()
     return false;
 }
 
-OnlineTranslator::Language AppSettings::primaryLanguage() const
+Language AppSettings::primaryLanguage() const
 {
-    return m_settings->value(QStringLiteral("Translation/PrimaryLanguage"), defaultPrimaryLanguage()).value<OnlineTranslator::Language>();
+    const QString code = m_settings->value(QStringLiteral("Translation/PrimaryLanguage"), defaultPrimaryLanguage().toCode()).toString();
+    return Language(code);
 }
 
-void AppSettings::setPrimaryLanguage(OnlineTranslator::Language lang)
+void AppSettings::setPrimaryLanguage(const Language &lang)
 {
-    m_settings->setValue(QStringLiteral("Translation/PrimaryLanguage"), lang);
+    m_settings->setValue(QStringLiteral("Translation/PrimaryLanguage"), lang.toCode());
 }
 
-OnlineTranslator::Language AppSettings::defaultPrimaryLanguage()
+ATranslationProvider::ProviderBackend AppSettings::translationProviderBackend() const
 {
-    return OnlineTranslator::Auto;
+    uint8_t settingOrDefault = m_settings->value(QStringLiteral("Translation/Backend"),
+                                                 static_cast<std::underlying_type_t<ATranslationProvider::ProviderBackend>>(defaultTranslationProviderBackend()))
+                                   .toUInt();
+    return ATranslationProvider::ProviderBackend(settingOrDefault);
+}
+void AppSettings::setTranslationProviderBackend(ATranslationProvider::ProviderBackend newBackend)
+{
+    m_settings->setValue(QStringLiteral("Translation/Backend"), static_cast<uint8_t>(newBackend));
+}
+ATTSProvider::ProviderBackend AppSettings::ttsProviderBackend() const
+{
+    uint8_t settingOrDefault = m_settings->value(QStringLiteral("TTS/Backend"), static_cast<std::underlying_type_t<ATTSProvider::ProviderBackend>>(defaultTTSProviderBackend()))
+                                   .toUInt();
+    return ATTSProvider::ProviderBackend(settingOrDefault);
+}
+void AppSettings::setTTSProviderBackend(ATTSProvider::ProviderBackend newBackend)
+{
+    m_settings->setValue(QStringLiteral("TTS/Backend"), static_cast<uint8_t>(newBackend));
+}
+ATranslationProvider::ProviderBackend AppSettings::defaultTranslationProviderBackend() const
+{
+    return ATranslationProvider::ProviderBackend::Mozhi;
+}
+ATTSProvider::ProviderBackend AppSettings::defaultTTSProviderBackend() const
+{
+#ifdef WITH_PIPER_TTS
+    // Piper always sounds better, even on Windows
+    return ATTSProvider::ProviderBackend::Piper;
+#else
+    return ATTSProvider::ProviderBackend::Qt;
+#endif
 }
 
-OnlineTranslator::Language AppSettings::secondaryLanguage() const
+#ifdef WITH_PIPER_TTS
+QByteArray AppSettings::piperVoicesPath() const
 {
-    return m_settings->value(QStringLiteral("Translation/SecondaryLanguage"), defaultSecondaryLanguage()).value<OnlineTranslator::Language>();
+    return m_settings->value(QStringLiteral("TTS/PiperVoicesPath"), defaultPiperVoicesPath()).toByteArray();
 }
 
-void AppSettings::setSecondaryLanguage(OnlineTranslator::Language lang)
+void AppSettings::setPiperVoicesPath(const QByteArray &path)
 {
-    m_settings->setValue(QStringLiteral("Translation/SecondaryLanguage"), lang);
+    m_settings->setValue(QStringLiteral("TTS/PiperVoicesPath"), path);
 }
 
-OnlineTranslator::Language AppSettings::defaultSecondaryLanguage()
+QByteArray AppSettings::defaultPiperVoicesPath()
 {
-    return OnlineTranslator::English;
+    return QByteArray();
+}
+#endif
+
+Language AppSettings::defaultPrimaryLanguage()
+{
+    return Language::autoLanguage();
+}
+
+Language AppSettings::secondaryLanguage() const
+{
+    const QString code = m_settings->value(QStringLiteral("Translation/SecondaryLanguage"), defaultSecondaryLanguage().toCode()).toString();
+    return Language(code);
+}
+
+void AppSettings::setSecondaryLanguage(const Language &lang)
+{
+    m_settings->setValue(QStringLiteral("Translation/SecondaryLanguage"), lang.toCode());
+}
+
+Language AppSettings::defaultSecondaryLanguage()
+{
+    return Language(QLocale(QLocale::English));
+}
+
+void AppSettings::saveCustomLanguageRegistry()
+{
+    // Get all registered custom languages from Language class
+    const auto customLanguages = Language::getCustomLanguages();
+
+    // Clear existing custom language settings
+    m_settings->remove(QStringLiteral("CustomLanguages"));
+
+    if (customLanguages.isEmpty()) {
+        return;
+    }
+
+    // Store custom languages as a group
+    m_settings->beginWriteArray(QStringLiteral("CustomLanguages"), customLanguages.size());
+    int index = 0;
+    for (auto it = customLanguages.constBegin(); it != customLanguages.constEnd(); ++it, ++index) {
+        m_settings->setArrayIndex(index);
+        const QString &code = it.key();
+        const auto &data = it.value();
+
+        m_settings->setValue(QStringLiteral("code"), code);
+        m_settings->setValue(QStringLiteral("name"), data.name);
+        m_settings->setValue(QStringLiteral("iso639_1"), data.iso639_1);
+        m_settings->setValue(QStringLiteral("iso639_2"), data.iso639_2);
+        m_settings->setValue(QStringLiteral("id"), data.id);
+    }
+    m_settings->endArray();
+}
+
+void AppSettings::loadCustomLanguageRegistry()
+{
+    const int size = m_settings->beginReadArray(QStringLiteral("CustomLanguages"));
+
+    for (int i = 0; i < size; ++i) {
+        m_settings->setArrayIndex(i);
+
+        const QString code = m_settings->value(QStringLiteral("code")).toString();
+        const QString name = m_settings->value(QStringLiteral("name")).toString();
+        const QString iso639_1 = m_settings->value(QStringLiteral("iso639_1")).toString();
+        const QString iso639_2 = m_settings->value(QStringLiteral("iso639_2")).toString();
+
+        if (!code.isEmpty() && !name.isEmpty()) {
+            Language::registerCustomLanguage(code, name, iso639_1, iso639_2);
+        }
+    }
+
+    m_settings->endArray();
+}
+
+void AppSettings::clearCustomLanguageRegistry()
+{
+    m_settings->remove(QStringLiteral("CustomLanguages"));
+}
+
+void AppSettings::onCustomLanguageRegistryChanged()
+{
+    // Static callback to save custom language registry when it changes
+    AppSettings settings;
+    settings.saveCustomLanguageRegistry();
 }
 
 bool AppSettings::isForceSourceAutodetect() const
@@ -1064,17 +1185,17 @@ bool AppSettings::toggleOcrNegate()
     return inverted;
 }
 
-QVector<OnlineTranslator::Language> AppSettings::languages(LanguageButtonsType type) const
+QVector<Language> AppSettings::languages(LanguageButtonsType type) const
 {
     const auto typeEnum = QMetaEnum::fromType<LanguageButtonsType>();
     const QStringList languageCodes = m_settings->value(QStringLiteral("Buttons/%1").arg(typeEnum.valueToKey(type))).toStringList();
 
-    QVector<OnlineTranslator::Language> languages;
+    QVector<Language> languages;
     languages.reserve(languageCodes.size());
     for (const QString &langCode : languageCodes) {
-        const OnlineTranslator::Language lang = OnlineTranslator::language(langCode);
-        if (lang != OnlineTranslator::NoLanguage && lang != OnlineTranslator::Auto)
-            languages.append(lang);
+        const Language language = Language(langCode);
+        if (language.isValid())
+            languages.append(language);
         else
             qWarning() << tr("Unknown language code: %1").arg(langCode);
     }
@@ -1082,12 +1203,16 @@ QVector<OnlineTranslator::Language> AppSettings::languages(LanguageButtonsType t
     return languages;
 }
 
-void AppSettings::setLanguages(LanguageButtonsType type, const QVector<OnlineTranslator::Language> &languages)
+void AppSettings::setLanguages(LanguageButtonsType type, const QVector<Language> &languages)
 {
     QStringList langCodes;
     langCodes.reserve(languages.size());
-    for (const OnlineTranslator::Language lang : languages)
-        langCodes.append(OnlineTranslator::languageCode(lang));
+    for (const Language &language : languages) {
+        if (language.hasQLocaleEquivalent())
+            langCodes.append(language.toQLocale().bcp47Name()); // Use full BCP47 code to preserve dialect info
+        else
+            langCodes.append(language.toCode()); // Use custom code for non-QLocale languages
+    }
 
     const auto typeEnum = QMetaEnum::fromType<LanguageButtonsType>();
     m_settings->setValue(QStringLiteral("Buttons/%1").arg(typeEnum.valueToKey(type)), langCodes);
@@ -1146,3 +1271,15 @@ void AppSettings::setCurrentEngine(OnlineTranslator::Engine currentEngine)
 {
     m_settings->setValue(QStringLiteral("MainWindow/CurrentEngine"), currentEngine);
 }
+
+#ifdef WITH_ONNX_RUNTIME_DYNAMIC
+bool AppSettings::isPiperTelemetryNotificationShown() const
+{
+    return m_settings->value(QStringLiteral("Piper/TelemetryNotificationShown"), false).toBool();
+}
+
+void AppSettings::setPiperTelemetryNotificationShown(bool shown)
+{
+    m_settings->setValue(QStringLiteral("Piper/TelemetryNotificationShown"), shown);
+}
+#endif
