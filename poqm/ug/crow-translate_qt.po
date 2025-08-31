@@ -10,12 +10,12 @@ msgstr ""
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
 
-#: src/cli.cpp:42
+#: src/cli.cpp:37
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "بارلىق تىل كودىنى كۆرسەت."
 
-#: src/cli.cpp:43
+#: src/cli.cpp:39
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -24,7 +24,7 @@ msgstr ""
 "مەنبە تىلىنى بەلگىلەڭ (سۈكۈتتىكى ھالەتتە كومپۇتېر تىلنى ئۆزى بەلگىلەشكە "
 "تىرىشىدۇ)."
 
-#: src/cli.cpp:44
+#: src/cli.cpp:43
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
@@ -33,7 +33,7 @@ msgstr ""
 "'+' ئارقىلىق بۆلۈنگەن تەرجىمە تىلى (لارنى) بەلگىلەڭ (سۈكۈتتىكى ھالەتتە "
 "سىستېما تىلى ئىشلىتىلىدۇ)."
 
-#: src/cli.cpp:45
+#: src/cli.cpp:47
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -47,24 +47,38 @@ msgstr ""
 "تەرجىمان ماتورىنى بەلگىلەڭ ('google', 'yandex' ياكى 'bing') ، Google "
 "سۈكۈتتىكى ھالەتتە ئىشلىتىلىدۇ."
 
-#: src/cli.cpp:46
+#: src/cli.cpp:51
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
 
-#: src/cli.cpp:47
+#: src/cli.cpp:55
+msgctxt "Cli|"
+msgid ""
+"Specify translation provider ('copy' or 'mozhi'). Provider from app settings "
+"will be used by default."
+msgstr ""
+
+#: src/cli.cpp:58
+msgctxt "Cli|"
+msgid ""
+"Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from app "
+"settings will be used by default."
+msgstr ""
+
+#: src/cli.cpp:60
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "تەرجىمىنى ئوقۇ."
 
-#: src/cli.cpp:48
+#: src/cli.cpp:61
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "مەنبە تېكستنى ئوقۇ."
 
-#: src/cli.cpp:49
+#: src/cli.cpp:62
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -72,40 +86,41 @@ msgstr ""
 "ھۆججەتتىن مەنبە تېكىستنى ئوقۇڭ. بۇنىڭدا پارامىتېر ھۆججەت يولى دەپ "
 "ئىزاھلىنىدۇ."
 
-#: src/cli.cpp:50
+#: src/cli.cpp:63
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "مەنبە تېكىستكە ئۆلچەملىك سانلىق مەلۇماتلىرىنى قوشۇڭ."
 
-#: src/cli.cpp:51
+#: src/cli.cpp:65
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "--%1 ياكى --%2 ئىشلىتىۋاتقاندا تېكسىت چىقارماڭ."
 
-#: src/cli.cpp:52
+#: src/cli.cpp:66
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "تەرجىمىنىلا چىقىرىش."
 
-#: src/cli.cpp:53
+#: src/cli.cpp:67
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "چىقىرىلمىنى JSON فورماتىدا يېزىش."
 
-#: src/cli.cpp:56
+#: src/cli.cpp:70
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
 #| "A simple and lightweight translator that allows to translate and speak "
 #| "text using Google, Yandex and Bing."
 msgctxt "Cli|"
-msgid "Application that allows to translate and speak text using Mozhi"
+msgid ""
+"Application that allows to translate and speak text using various providers"
 msgstr ""
 "گۇگۇل ، Yandex ۋە Bing ئارقىلىق تېكىستنى تەرجىمە ۋە سۆزلىيەلەيدىغان ئاددىي "
 "ۋە يېنىك تەرجىمان."
 
-#: src/cli.cpp:57
+#: src/cli.cpp:71
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
@@ -114,13 +129,13 @@ msgstr ""
 "تەرجىمە قىلىدىغان تېكىست. سۈكۈت بويىچە ، تەرجىمە سىستېما تىلىغا ئېلىپ "
 "بېرىلىدۇ."
 
-#: src/cli.cpp:79
+#: src/cli.cpp:95
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "خاتالىق:--%1 گە چوقۇم  --%2 ياكى --%3 نى كۆرسىتىشى كىرەك"
 
-#: src/cli.cpp:94
+#: src/cli.cpp:115
 #, fuzzy, qt-format
 #| msgctxt "AppSettings|"
 #| msgid "Unknown language code: %1"
@@ -128,7 +143,7 @@ msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "%1 نامەلۇم تىل كودى"
 
-#: src/cli.cpp:102
+#: src/cli.cpp:128
 #, fuzzy, qt-format
 #| msgctxt "AppSettings|"
 #| msgid "Unknown language code: %1"
@@ -136,12 +151,20 @@ msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "%1 نامەلۇم تىل كودى"
 
-#: src/cli.cpp:126
+#: src/cli.cpp:152
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "خاتالىق: تەرجىمە قىلىدىغان تېكىست يوق"
 
-#: src/cli.cpp:132
+#: src/cli.cpp:165
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Unknown language code: %1"
+msgctxt "Cli|"
+msgid "Error: Unknown translation provider '%1'"
+msgstr "%1 نامەلۇم تىل كودى"
+
+#: src/cli.cpp:175
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Speech test:"
@@ -149,52 +172,65 @@ msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr "نۇتۇق سىنىقى:"
 
-#: src/cli.cpp:159
+#: src/cli.cpp:214
+#, fuzzy
+#| msgctxt "OnlineTts|"
+#| msgid "Selected language %1 is not supported for %2"
+msgctxt "Cli|"
+msgid "Error: Lingva engine is not supported"
+msgstr "تاللانغان تىل %1 بولسا  %2 نى قوللىمايدۇ"
+
+#: src/cli.cpp:223
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "خاتالىق: نامەلۇم ماتور"
 
-#: src/cli.cpp:194 src/cli.cpp:282 src/cli.cpp:372
+#: src/cli.cpp:256
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Unknown language code: %1"
+msgctxt "Cli|"
+msgid "Error: Unknown TTS provider '%1'"
+msgstr "%1 نامەلۇم تىل كودى"
+
+#: src/cli.cpp:335 src/cli.cpp:384
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "خاتالىق:%1"
 
-#: src/cli.cpp:244
+#: src/cli.cpp:337 src/cli.cpp:386
 #, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "translation options:"
+#| msgctxt "SettingsDialog|"
+#| msgid "Translation mode:"
 msgctxt "Cli|"
-msgid "translation options:"
-msgstr "تەرجىمە تاللانمىللىرى:"
+msgid "Translation error occurred"
+msgstr "تەرجىمە ھالىتى:"
 
-#: src/cli.cpp:255
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "examples:"
+#: src/cli.cpp:443
 msgctxt "Cli|"
-msgid "examples:"
-msgstr "ئۈلگىلەر:"
+msgid "Error: TTS failed"
+msgstr ""
 
-#: src/cli.cpp:385
+#: src/cli.cpp:600
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "خاتالىق:--%1 بىلەن --%2 نى ئىشلىتەلمەيسىز"
 
-#: src/cli.cpp:397 src/cli.cpp:418
+#: src/cli.cpp:612 src/cli.cpp:633
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "خاتالىق:ھۆججەت تېپىلمىدى:%1"
 
-#: src/cli.cpp:402 src/cli.cpp:423
+#: src/cli.cpp:617 src/cli.cpp:638
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
 msgstr "خاتالىق:ھۆججەتنى ئاچالمىدى:%1"
 
-#: src/contextmenu.h:39
+#: src/contextmenu.h:35
 msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr ""
@@ -231,17 +267,17 @@ msgid ""
 "Checking '%1'"
 msgstr ""
 
-#: src/languagebuttonswidget.cpp:216
+#: src/languagebuttonswidget.cpp:225
 msgctxt "LanguageButtonsWidget|"
 msgid "Window width is larger than screen due to the languages on the panel."
 msgstr "ئېكراندىكى تىللار كۆپلۈكى سەۋەبىدىن ئېكران كۆزنەكنىڭ كەڭلىكى چوڭراق."
 
-#: src/languagebuttonswidget.cpp:217
+#: src/languagebuttonswidget.cpp:226
 msgctxt "LanguageButtonsWidget|"
 msgid "Please reduce added languages."
 msgstr "قوشۇلغان تىللارنى ئازايتىڭ."
 
-#: src/languagebuttonswidget.cpp:293 src/languagebuttonswidget.cpp:295
+#: src/languagebuttonswidget.cpp:302 src/languagebuttonswidget.cpp:304
 msgctxt "LanguageButtonsWidget|"
 msgid "Auto"
 msgstr "ئاپتوماتىك"
@@ -254,7 +290,7 @@ msgctxt "LanguageButtonsWidget|"
 msgid "Edit languages"
 msgstr "تىل قوشۇش"
 
-#: src/languagesdialog.cpp:23
+#: src/languagesdialog.cpp:24
 #, qt-format
 msgctxt "LanguagesDialog|"
 msgid "Filter (%1)"
@@ -278,46 +314,52 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "ھازىرقى تىللار:"
 
-#: src/main.cpp:70
+#: src/main.cpp:76
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr "%1 نىڭ D-Bus مۇلازىمىتى باشقا پىروگىرامما تەرپىدىن ئىگەللىۋىلىنغان"
 
-#: src/main.cpp:95
+#: src/main.cpp:109
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "%1 گە D-Bus ئوبىكتى قۇرالمىدى"
 
-#: src/mainwindow.cpp:269
-msgctxt "MainWindow|"
-msgid "Toggled OCR image negate"
+#: src/mainwindow.cpp:342
+msgctxt "QApplication|"
+msgid "OCR"
 msgstr ""
 
-#: src/mainwindow.cpp:269
-#, qt-format
-msgctxt "MainWindow|"
-msgid "OCR image negate has changed to %1"
+#: src/mainwindow.cpp:343
+msgctxt "QApplication|"
+msgid "OCR image negated"
 msgstr ""
 
-#: src/mainwindow.cpp:392
-msgctxt "MainWindow|"
-msgid "Unable to detect language"
-msgstr "تىلنى بايقىيالمىدى"
+#: src/mainwindow.cpp:343
+msgctxt "QApplication|"
+msgid "OCR image is normal"
+msgstr ""
 
-#: src/mainwindow.cpp:444
-msgctxt "MainWindow|"
-msgid "Unable to translate text"
-msgstr "تېكىستنى تەرجىمە قىلالمىدى"
+#: src/mainwindow.cpp:495 src/mainwindow.cpp:515 src/mainwindow.cpp:563
+#: src/mainwindow.cpp:592
+msgctxt "Ocr|"
+msgid "OCR languages are not loaded"
+msgstr "OCR تىلىنى يۈكلىيەلمىدى"
 
-#: src/mainwindow.cpp:862
+#: src/mainwindow.cpp:495 src/mainwindow.cpp:515 src/mainwindow.cpp:563
+#: src/mainwindow.cpp:592
+msgctxt "Ocr|"
+msgid "You should set at least one OCR language in the application settings"
+msgstr "ئەپ تەڭشىكىدە كامىدا بىر OCR تىلى بىكىتىشڭىز كىرەك"
+
+#: src/mainwindow.cpp:746
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr ""
 
-#: src/mainwindow.cpp:863
+#: src/mainwindow.cpp:747
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -327,39 +369,88 @@ msgid ""
 "instance details in the link above."
 msgstr ""
 
-#: src/mainwindow.cpp:870
+#: src/mainwindow.cpp:754
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr ""
 
-#: src/mainwindow.cpp:898
+#: src/mainwindow.cpp:796
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "ئىناۋەتسىز تەخسە سىنبەلگىسى"
 
-#: src/mainwindow.cpp:898
+#: src/mainwindow.cpp:796
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "كۆرسىتىلگەن سىنبەلگە '%1' ئىناۋەتسىز. سۈكۈتتىكى سىنبەلگە ئىشلىتىلىدۇ."
 
-#: src/mainwindow.cpp:927
+#: src/mainwindow.cpp:817
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "OCR تىلىنى تەڭشىيەلمىدى"
 
-#: src/mainwindow.cpp:927
+#: src/mainwindow.cpp:817
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "Tesseract with نى %1 بىلەن دەسلەپلەشتۈرەلمىدى"
 
-#: src/mainwindow.ui:36
+#: src/mainwindow.cpp:955
+msgctxt "MainWindow|"
+msgid "TTS Error"
+msgstr ""
+
+#: src/mainwindow.cpp:955
+#, qt-format
+msgctxt "MainWindow|"
+msgid ""
+"Text-to-Speech error:\n"
+"\n"
+"%1\n"
+"\n"
+"Please check your TTS settings or try a different voice/locale."
+msgstr ""
+
+#: src/mainwindow.ui:14
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Main window"
+msgctxt "MainWindow|"
+msgid "MainWindow"
+msgstr "باش كۆزنەك"
+
+#: src/mainwindow.ui:29
+msgctxt "MainWindow|"
+msgid "Translate"
+msgstr "تەرجىمە قىلىڭ"
+
+#: src/mainwindow.ui:39
+msgctxt "MainWindow|"
+msgid "Swap languages"
+msgstr "تىل ئالماشتۇرۇش"
+
+#: src/mainwindow.ui:52
+msgctxt "MainWindow|"
+msgid "Source"
+msgstr "مەنبە"
+
+#: src/mainwindow.ui:72
+msgctxt "MainWindow|"
+msgid "Cancel"
+msgstr "ئىناۋەتسىز"
+
+#: src/mainwindow.ui:132 src/mainwindow.ui:261
+msgctxt "MainWindow|"
+msgid "..."
+msgstr ""
+
+#: src/mainwindow.ui:142
 msgctxt "MainWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "چاپلاش تاختىسىغا مەنبە تېكىستىنى كۆچۈرۈڭ"
 
-#: src/mainwindow.ui:47
+#: src/mainwindow.ui:152
 #, fuzzy
 #| msgctxt "ShortcutsModel|"
 #| msgid "Recognize text in screen area"
@@ -368,7 +459,7 @@ msgid "Recognize screen area with delay"
 msgstr "ئېكران رايونىدىكى تېكىستنى تونۇش"
 
 #. The text should be short to fit in portrait orientation on phones.
-#: src/mainwindow.ui:64
+#: src/mainwindow.ui:168
 #, fuzzy
 #| msgctxt "MainWindow|"
 #| msgid "Translation"
@@ -376,47 +467,27 @@ msgctxt "MainWindow|"
 msgid "Auto-translation"
 msgstr "تەرجىمە"
 
-#: src/mainwindow.ui:76
-msgctxt "MainWindow|"
-msgid "Cancel"
-msgstr "ئىناۋەتسىز"
-
-#: src/mainwindow.ui:87
-msgctxt "MainWindow|"
-msgid "Swap languages"
-msgstr "تىل ئالماشتۇرۇش"
-
-#: src/mainwindow.ui:111
-msgctxt "MainWindow|"
-msgid "Source"
-msgstr "مەنبە"
-
-#: src/mainwindow.ui:118
+#: src/mainwindow.ui:177
 msgctxt "MainWindow|"
 msgid "Clear"
 msgstr "تازىلاش"
 
-#: src/mainwindow.ui:135
-msgctxt "MainWindow|"
-msgid "Translate"
-msgstr "تەرجىمە قىلىڭ"
-
-#: src/mainwindow.ui:163
+#: src/mainwindow.ui:204
 msgctxt "MainWindow|"
 msgid "Translation"
 msgstr "تەرجىمە"
 
-#: src/mainwindow.ui:259
+#: src/mainwindow.ui:351
 msgctxt "MainWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "چاپلاش تاختىسىغا تەرجىمىنى كۆچۈرۈڭ"
 
-#: src/mainwindow.ui:270
+#: src/mainwindow.ui:361
 msgctxt "MainWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "بارلىق تەرجىمە سانلىق مەلۇماتلىرىنى چاپلاش تاختىسىغا كۆچۈرۈڭ"
 
-#: src/mainwindow.ui:281
+#: src/mainwindow.ui:371
 #, fuzzy
 #| msgctxt "ShortcutsModel|"
 #| msgid "Translate text in screen area"
@@ -424,7 +495,7 @@ msgctxt "MainWindow|"
 msgid "Translate screen area with delay"
 msgstr "ئېكران رايونىدىكى تېكىستنى تەرجىمە قىلىڭ"
 
-#: src/mainwindow.ui:292
+#: src/mainwindow.ui:381
 msgctxt "MainWindow|"
 msgid "Application settings"
 msgstr "پىروگىرامما تەڭشەكلىرى"
@@ -725,7 +796,12 @@ msgctxt "OnlineTranslator|"
 msgid "Language detection is not supported for %1"
 msgstr "تاللانغان تىل %1 بولسا  %2 نى قوللىمايدۇ"
 
-#: src/onlinetranslator.cpp:351
+#: src/onlinetranslator.cpp:319
+msgctxt "OnlineTranslator|"
+msgid "Operation aborted by user"
+msgstr ""
+
+#: src/onlinetranslator.cpp:362
 #, fuzzy, qt-format
 #| msgctxt "OnlineTts|"
 #| msgid "%1 engine does not support TTS"
@@ -733,47 +809,47 @@ msgctxt "OnlineTranslator|"
 msgid "%1 engine does not support TTS"
 msgstr "تاللانغان ماتور %1 TTS قوللىمايدۇ"
 
-#: src/onlinetranslator.cpp:492
+#: src/onlinetranslator.cpp:503
 msgctxt "OnlineTranslator|"
 msgid "Automatically detect"
 msgstr "ئاپتوماتىك بايقاش"
 
-#: src/onlinetranslator.cpp:494
+#: src/onlinetranslator.cpp:505
 msgctxt "OnlineTranslator|"
 msgid "Afrikaans"
 msgstr "جەنۇبى ئافرىقا"
 
-#: src/onlinetranslator.cpp:496
+#: src/onlinetranslator.cpp:507
 msgctxt "OnlineTranslator|"
 msgid "Albanian"
 msgstr "ئالبانىيەچە"
 
-#: src/onlinetranslator.cpp:498
+#: src/onlinetranslator.cpp:509
 msgctxt "OnlineTranslator|"
 msgid "Amharic"
 msgstr "ئامخارىكچە"
 
-#: src/onlinetranslator.cpp:500
+#: src/onlinetranslator.cpp:511
 msgctxt "OnlineTranslator|"
 msgid "Arabic"
 msgstr "ئەرەبچە"
 
-#: src/onlinetranslator.cpp:502
+#: src/onlinetranslator.cpp:513
 msgctxt "OnlineTranslator|"
 msgid "Armenian"
 msgstr "ئەرمىنىيەچە"
 
-#: src/onlinetranslator.cpp:504
+#: src/onlinetranslator.cpp:515
 msgctxt "OnlineTranslator|"
 msgid "Assamese"
 msgstr ""
 
-#: src/onlinetranslator.cpp:506
+#: src/onlinetranslator.cpp:517
 msgctxt "OnlineTranslator|"
 msgid "Aymara"
 msgstr ""
 
-#: src/onlinetranslator.cpp:508
+#: src/onlinetranslator.cpp:519
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Azeerbaijani"
@@ -781,72 +857,72 @@ msgctxt "OnlineTranslator|"
 msgid "Azerbaijani"
 msgstr "ئەزەربەيجان"
 
-#: src/onlinetranslator.cpp:510
+#: src/onlinetranslator.cpp:521
 msgctxt "OnlineTranslator|"
 msgid "Bajan"
 msgstr ""
 
-#: src/onlinetranslator.cpp:512
+#: src/onlinetranslator.cpp:523
 msgctxt "OnlineTranslator|"
 msgid "Balkan Gipsy"
 msgstr ""
 
-#: src/onlinetranslator.cpp:514
+#: src/onlinetranslator.cpp:525
 msgctxt "OnlineTranslator|"
 msgid "Bambara"
 msgstr ""
 
-#: src/onlinetranslator.cpp:516
+#: src/onlinetranslator.cpp:527
 msgctxt "OnlineTranslator|"
 msgid "Bangla"
 msgstr ""
 
-#: src/onlinetranslator.cpp:518
+#: src/onlinetranslator.cpp:529
 msgctxt "OnlineTranslator|"
 msgid "Bashkir"
 msgstr "بەشىرچە"
 
-#: src/onlinetranslator.cpp:520
+#: src/onlinetranslator.cpp:531
 msgctxt "OnlineTranslator|"
 msgid "Basque"
 msgstr "باسىكچە"
 
-#: src/onlinetranslator.cpp:522
+#: src/onlinetranslator.cpp:533
 msgctxt "OnlineTranslator|"
 msgid "Belarusian"
 msgstr "بېلورۇسىيەچە"
 
-#: src/onlinetranslator.cpp:524
+#: src/onlinetranslator.cpp:535
 msgctxt "OnlineTranslator|"
 msgid "Bemba"
 msgstr ""
 
-#: src/onlinetranslator.cpp:526
+#: src/onlinetranslator.cpp:537
 msgctxt "OnlineTranslator|"
 msgid "Bhojpuri"
 msgstr ""
 
-#: src/onlinetranslator.cpp:528
+#: src/onlinetranslator.cpp:539
 msgctxt "OnlineTranslator|"
 msgid "Bislama"
 msgstr ""
 
-#: src/onlinetranslator.cpp:530
+#: src/onlinetranslator.cpp:541
 msgctxt "OnlineTranslator|"
 msgid "Bosnian"
 msgstr "بوسىنيانچە"
 
-#: src/onlinetranslator.cpp:532
+#: src/onlinetranslator.cpp:543
 msgctxt "OnlineTranslator|"
 msgid "Breton"
 msgstr ""
 
-#: src/onlinetranslator.cpp:534
+#: src/onlinetranslator.cpp:545
 msgctxt "OnlineTranslator|"
 msgid "Bulgarian"
 msgstr "بۇلغارچە"
 
-#: src/onlinetranslator.cpp:536
+#: src/onlinetranslator.cpp:547
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Chinese (Traditional)"
@@ -854,27 +930,27 @@ msgctxt "OnlineTranslator|"
 msgid "Cantonese (Traditional)"
 msgstr "خەنزۇچە(ئەنئەنىۋى)"
 
-#: src/onlinetranslator.cpp:538
+#: src/onlinetranslator.cpp:549
 msgctxt "OnlineTranslator|"
 msgid "Catalan"
 msgstr "كاتالانچە"
 
-#: src/onlinetranslator.cpp:540
+#: src/onlinetranslator.cpp:551
 msgctxt "OnlineTranslator|"
 msgid "Cebuano"
 msgstr "سېبىئانو"
 
-#: src/onlinetranslator.cpp:542
+#: src/onlinetranslator.cpp:553
 msgctxt "OnlineTranslator|"
 msgid "Chamorro"
 msgstr ""
 
-#: src/onlinetranslator.cpp:544
+#: src/onlinetranslator.cpp:555
 msgctxt "OnlineTranslator|"
 msgid "Chichewa"
 msgstr "چىچىنىيەچە"
 
-#: src/onlinetranslator.cpp:546
+#: src/onlinetranslator.cpp:557
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Chinese (Traditional)"
@@ -882,157 +958,157 @@ msgctxt "OnlineTranslator|"
 msgid "Chinese (Literary)"
 msgstr "خەنزۇچە(ئەنئەنىۋى)"
 
-#: src/onlinetranslator.cpp:548
+#: src/onlinetranslator.cpp:559
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Simplified)"
 msgstr "خانزۇچە(ئاددىىي)"
 
-#: src/onlinetranslator.cpp:550
+#: src/onlinetranslator.cpp:561
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Traditional)"
 msgstr "خەنزۇچە(ئەنئەنىۋى)"
 
-#: src/onlinetranslator.cpp:552
+#: src/onlinetranslator.cpp:563
 msgctxt "OnlineTranslator|"
 msgid "Chuvash"
 msgstr ""
 
-#: src/onlinetranslator.cpp:554
+#: src/onlinetranslator.cpp:565
 msgctxt "OnlineTranslator|"
 msgid "Comorian (Ngazidja)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:556
+#: src/onlinetranslator.cpp:567
 msgctxt "OnlineTranslator|"
 msgid "Coptic"
 msgstr ""
 
-#: src/onlinetranslator.cpp:558
+#: src/onlinetranslator.cpp:569
 msgctxt "OnlineTranslator|"
 msgid "Corsican"
 msgstr "كورسكىيانچە"
 
-#: src/onlinetranslator.cpp:560
+#: src/onlinetranslator.cpp:571
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Antigua and Barbuda)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:562
+#: src/onlinetranslator.cpp:573
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Bahamas)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:564
+#: src/onlinetranslator.cpp:575
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Grenadian)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:566
+#: src/onlinetranslator.cpp:577
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Guyanese)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:568
+#: src/onlinetranslator.cpp:579
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Jamaican)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:570
+#: src/onlinetranslator.cpp:581
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Vincentian)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:572
+#: src/onlinetranslator.cpp:583
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Virgin Islands)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:574
+#: src/onlinetranslator.cpp:585
 msgctxt "OnlineTranslator|"
 msgid "Creole French (Saint Lucian)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:576
+#: src/onlinetranslator.cpp:587
 msgctxt "OnlineTranslator|"
 msgid "Creole French (Seselwa)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:578
+#: src/onlinetranslator.cpp:589
 msgctxt "OnlineTranslator|"
 msgid "Creole Portuguese (Upper Guinea)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:580
+#: src/onlinetranslator.cpp:591
 msgctxt "OnlineTranslator|"
 msgid "Croatian"
 msgstr "كرودىيە تىلى"
 
-#: src/onlinetranslator.cpp:582
+#: src/onlinetranslator.cpp:593
 msgctxt "OnlineTranslator|"
 msgid "Czech"
 msgstr "چېخچە"
 
-#: src/onlinetranslator.cpp:584
+#: src/onlinetranslator.cpp:595
 msgctxt "OnlineTranslator|"
 msgid "Danish"
 msgstr "دانىشچە"
 
-#: src/onlinetranslator.cpp:586
+#: src/onlinetranslator.cpp:597
 msgctxt "OnlineTranslator|"
 msgid "Dari"
 msgstr ""
 
-#: src/onlinetranslator.cpp:588
+#: src/onlinetranslator.cpp:599
 msgctxt "OnlineTranslator|"
 msgid "Divehi"
 msgstr ""
 
-#: src/onlinetranslator.cpp:590
+#: src/onlinetranslator.cpp:601
 msgctxt "OnlineTranslator|"
 msgid "Dogri"
 msgstr ""
 
-#: src/onlinetranslator.cpp:592
+#: src/onlinetranslator.cpp:603
 msgctxt "OnlineTranslator|"
 msgid "Dutch"
 msgstr "گوللاندىيەچە"
 
-#: src/onlinetranslator.cpp:594
+#: src/onlinetranslator.cpp:605
 msgctxt "OnlineTranslator|"
 msgid "Dzongkha"
 msgstr ""
 
-#: src/onlinetranslator.cpp:596
+#: src/onlinetranslator.cpp:607
 msgctxt "OnlineTranslator|"
 msgid "Elvish (Sindarin)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:598
+#: src/onlinetranslator.cpp:609
 msgctxt "OnlineTranslator|"
 msgid "Emoji"
 msgstr ""
 
-#: src/onlinetranslator.cpp:600
+#: src/onlinetranslator.cpp:611
 msgctxt "OnlineTranslator|"
 msgid "English"
 msgstr "ئېنگىلىزچە"
 
-#: src/onlinetranslator.cpp:602
+#: src/onlinetranslator.cpp:613
 msgctxt "OnlineTranslator|"
 msgid "Esperanto"
 msgstr "دۇنيا تىلى"
 
-#: src/onlinetranslator.cpp:604
+#: src/onlinetranslator.cpp:615
 msgctxt "OnlineTranslator|"
 msgid "Estonian"
 msgstr "ئېستونچە"
 
-#: src/onlinetranslator.cpp:606
+#: src/onlinetranslator.cpp:617
 msgctxt "OnlineTranslator|"
 msgid "Ewe"
 msgstr ""
 
-#: src/onlinetranslator.cpp:608
+#: src/onlinetranslator.cpp:619
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Tagalog"
@@ -1040,117 +1116,117 @@ msgctxt "OnlineTranslator|"
 msgid "Fanagalo"
 msgstr "تاكالو تىلى"
 
-#: src/onlinetranslator.cpp:610
+#: src/onlinetranslator.cpp:621
 msgctxt "OnlineTranslator|"
 msgid "Faroese"
 msgstr ""
 
-#: src/onlinetranslator.cpp:612
+#: src/onlinetranslator.cpp:623
 msgctxt "OnlineTranslator|"
 msgid "Fijian"
 msgstr "فىجانچە"
 
-#: src/onlinetranslator.cpp:614
+#: src/onlinetranslator.cpp:625
 msgctxt "OnlineTranslator|"
 msgid "Filipino"
 msgstr "فىلىپېنچە"
 
-#: src/onlinetranslator.cpp:616
+#: src/onlinetranslator.cpp:627
 msgctxt "OnlineTranslator|"
 msgid "Finnish"
 msgstr "فىنچە"
 
-#: src/onlinetranslator.cpp:618
+#: src/onlinetranslator.cpp:629
 msgctxt "OnlineTranslator|"
 msgid "French"
 msgstr "فىرانسۇسچە"
 
-#: src/onlinetranslator.cpp:620
+#: src/onlinetranslator.cpp:631
 msgctxt "OnlineTranslator|"
 msgid "French (Canada)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:622
+#: src/onlinetranslator.cpp:633
 msgctxt "OnlineTranslator|"
 msgid "Frisian"
 msgstr "فىرىسىيانچە"
 
-#: src/onlinetranslator.cpp:624
+#: src/onlinetranslator.cpp:635
 msgctxt "OnlineTranslator|"
 msgid "Galician"
 msgstr "گالىسىيچە"
 
-#: src/onlinetranslator.cpp:626
+#: src/onlinetranslator.cpp:637
 msgctxt "OnlineTranslator|"
 msgid "Ganda"
 msgstr ""
 
-#: src/onlinetranslator.cpp:628
+#: src/onlinetranslator.cpp:639
 msgctxt "OnlineTranslator|"
 msgid "Georgian"
 msgstr "گرۇزىنچە"
 
-#: src/onlinetranslator.cpp:630
+#: src/onlinetranslator.cpp:641
 msgctxt "OnlineTranslator|"
 msgid "German"
 msgstr "گېرمانچە"
 
-#: src/onlinetranslator.cpp:632
+#: src/onlinetranslator.cpp:643
 msgctxt "OnlineTranslator|"
 msgid "Greek"
 msgstr "گىرىكچە"
 
-#: src/onlinetranslator.cpp:634
+#: src/onlinetranslator.cpp:645
 msgctxt "OnlineTranslator|"
 msgid "Greek (Classical)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:636
+#: src/onlinetranslator.cpp:647
 msgctxt "OnlineTranslator|"
 msgid "Guarani"
 msgstr ""
 
-#: src/onlinetranslator.cpp:638
+#: src/onlinetranslator.cpp:649
 msgctxt "OnlineTranslator|"
 msgid "Gujarati"
 msgstr "گۇجاراتى تىلى"
 
-#: src/onlinetranslator.cpp:640
+#: src/onlinetranslator.cpp:651
 msgctxt "OnlineTranslator|"
 msgid "Haitian Creole"
 msgstr "خەيتەن سىرېئول"
 
-#: src/onlinetranslator.cpp:642
+#: src/onlinetranslator.cpp:653
 msgctxt "OnlineTranslator|"
 msgid "Hausa"
 msgstr "خاۋساچە"
 
-#: src/onlinetranslator.cpp:644
+#: src/onlinetranslator.cpp:655
 msgctxt "OnlineTranslator|"
 msgid "Hawaiian"
 msgstr "ھاۋايچە"
 
-#: src/onlinetranslator.cpp:646
+#: src/onlinetranslator.cpp:657
 msgctxt "OnlineTranslator|"
 msgid "Hebrew"
 msgstr "ئىبرانىچە"
 
-#: src/onlinetranslator.cpp:648
+#: src/onlinetranslator.cpp:659
 msgctxt "OnlineTranslator|"
 msgid "Hill Mari"
 msgstr "ھېلمارچە"
 
-#: src/onlinetranslator.cpp:650
+#: src/onlinetranslator.cpp:661
 msgctxt "OnlineTranslator|"
 msgid "Hindi"
 msgstr "ھېندىچە"
 
-#: src/onlinetranslator.cpp:652
+#: src/onlinetranslator.cpp:663
 msgctxt "OnlineTranslator|"
 msgid "Hmong"
 msgstr "خموڭچە"
 
-#: src/onlinetranslator.cpp:654
+#: src/onlinetranslator.cpp:665
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Hmong"
@@ -1158,77 +1234,77 @@ msgctxt "OnlineTranslator|"
 msgid "Hmong Daw"
 msgstr "خموڭچە"
 
-#: src/onlinetranslator.cpp:656
+#: src/onlinetranslator.cpp:667
 msgctxt "OnlineTranslator|"
 msgid "Hungarian"
 msgstr "ھانگىريانچە"
 
-#: src/onlinetranslator.cpp:658
+#: src/onlinetranslator.cpp:669
 msgctxt "OnlineTranslator|"
 msgid "Icelandic"
 msgstr "ئىسلاندچە"
 
-#: src/onlinetranslator.cpp:660
+#: src/onlinetranslator.cpp:671
 msgctxt "OnlineTranslator|"
 msgid "Igbo"
 msgstr "لگبوچە"
 
-#: src/onlinetranslator.cpp:662
+#: src/onlinetranslator.cpp:673
 msgctxt "OnlineTranslator|"
 msgid "Ilocano"
 msgstr ""
 
-#: src/onlinetranslator.cpp:664
+#: src/onlinetranslator.cpp:675
 msgctxt "OnlineTranslator|"
 msgid "Indonesian"
 msgstr "ھىندونېزىيەچە"
 
-#: src/onlinetranslator.cpp:666
+#: src/onlinetranslator.cpp:677
 msgctxt "OnlineTranslator|"
 msgid "Inuinnaqtun"
 msgstr ""
 
-#: src/onlinetranslator.cpp:668
+#: src/onlinetranslator.cpp:679
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut"
 msgstr ""
 
-#: src/onlinetranslator.cpp:670
+#: src/onlinetranslator.cpp:681
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Greenlandic)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:672
+#: src/onlinetranslator.cpp:683
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Latin)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:674
+#: src/onlinetranslator.cpp:685
 msgctxt "OnlineTranslator|"
 msgid "Irish"
 msgstr "ئېرلاندىيەچە"
 
-#: src/onlinetranslator.cpp:676
+#: src/onlinetranslator.cpp:687
 msgctxt "OnlineTranslator|"
 msgid "Italian"
 msgstr "ئىتالىيانچە"
 
-#: src/onlinetranslator.cpp:678
+#: src/onlinetranslator.cpp:689
 msgctxt "OnlineTranslator|"
 msgid "Japanese"
 msgstr "ياپۇنچە"
 
-#: src/onlinetranslator.cpp:680
+#: src/onlinetranslator.cpp:691
 msgctxt "OnlineTranslator|"
 msgid "Javanese"
 msgstr "جاۋانىسچە"
 
-#: src/onlinetranslator.cpp:682
+#: src/onlinetranslator.cpp:693
 msgctxt "OnlineTranslator|"
 msgid "Kabuverdianu"
 msgstr ""
 
-#: src/onlinetranslator.cpp:684
+#: src/onlinetranslator.cpp:695
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Italian"
@@ -1236,17 +1312,17 @@ msgctxt "OnlineTranslator|"
 msgid "Kabylian"
 msgstr "ئىتالىيانچە"
 
-#: src/onlinetranslator.cpp:686
+#: src/onlinetranslator.cpp:697
 msgctxt "OnlineTranslator|"
 msgid "Kannada"
 msgstr "كانناداچە"
 
-#: src/onlinetranslator.cpp:688
+#: src/onlinetranslator.cpp:699
 msgctxt "OnlineTranslator|"
 msgid "Kazakh"
 msgstr "قازاقچە"
 
-#: src/onlinetranslator.cpp:690
+#: src/onlinetranslator.cpp:701
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Serbian (Latin)"
@@ -1254,22 +1330,22 @@ msgctxt "OnlineTranslator|"
 msgid "Kazakh (Latin)"
 msgstr "سېربچە (لاتىن)"
 
-#: src/onlinetranslator.cpp:692
+#: src/onlinetranslator.cpp:703
 msgctxt "OnlineTranslator|"
 msgid "Khmer"
 msgstr "كخمېرچە"
 
-#: src/onlinetranslator.cpp:694
+#: src/onlinetranslator.cpp:705
 msgctxt "OnlineTranslator|"
 msgid "Kinyarwanda"
 msgstr "كىنيارۋانداچە"
 
-#: src/onlinetranslator.cpp:696
+#: src/onlinetranslator.cpp:707
 msgctxt "OnlineTranslator|"
 msgid "Kirundi"
 msgstr ""
 
-#: src/onlinetranslator.cpp:698
+#: src/onlinetranslator.cpp:709
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Klingon (PlqaD)"
@@ -1277,32 +1353,32 @@ msgctxt "OnlineTranslator|"
 msgid "Klingon (Latin)"
 msgstr "كىلىگونچە(پلاد)"
 
-#: src/onlinetranslator.cpp:700
+#: src/onlinetranslator.cpp:711
 msgctxt "OnlineTranslator|"
 msgid "Konkani"
 msgstr ""
 
-#: src/onlinetranslator.cpp:702
+#: src/onlinetranslator.cpp:713
 msgctxt "OnlineTranslator|"
 msgid "Korean"
 msgstr "كورىيەچە"
 
-#: src/onlinetranslator.cpp:704
+#: src/onlinetranslator.cpp:715
 msgctxt "OnlineTranslator|"
 msgid "Krio"
 msgstr ""
 
-#: src/onlinetranslator.cpp:706
+#: src/onlinetranslator.cpp:717
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Central)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:708
+#: src/onlinetranslator.cpp:719
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Northern)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:710
+#: src/onlinetranslator.cpp:721
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Kurdish"
@@ -1310,57 +1386,57 @@ msgctxt "OnlineTranslator|"
 msgid "Kurdish (Sorani)"
 msgstr "كوردچە"
 
-#: src/onlinetranslator.cpp:712
+#: src/onlinetranslator.cpp:723
 msgctxt "OnlineTranslator|"
 msgid "Kyrgyz"
 msgstr "قىرغىزچە"
 
-#: src/onlinetranslator.cpp:714
+#: src/onlinetranslator.cpp:725
 msgctxt "OnlineTranslator|"
 msgid "Lao"
 msgstr "لائوسچە"
 
-#: src/onlinetranslator.cpp:716
+#: src/onlinetranslator.cpp:727
 msgctxt "OnlineTranslator|"
 msgid "Latin"
 msgstr "لاتىنچە"
 
-#: src/onlinetranslator.cpp:718
+#: src/onlinetranslator.cpp:729
 msgctxt "OnlineTranslator|"
 msgid "Latvian"
 msgstr "لاتۋىيەچە"
 
-#: src/onlinetranslator.cpp:720
+#: src/onlinetranslator.cpp:731
 msgctxt "OnlineTranslator|"
 msgid "Lingala"
 msgstr ""
 
-#: src/onlinetranslator.cpp:722
+#: src/onlinetranslator.cpp:733
 msgctxt "OnlineTranslator|"
 msgid "Lithuanian"
 msgstr "لىتانىيانچە"
 
-#: src/onlinetranslator.cpp:724
+#: src/onlinetranslator.cpp:735
 msgctxt "OnlineTranslator|"
 msgid "Lower Sorbian"
 msgstr ""
 
-#: src/onlinetranslator.cpp:726
+#: src/onlinetranslator.cpp:737
 msgctxt "OnlineTranslator|"
 msgid "Luganda"
 msgstr ""
 
-#: src/onlinetranslator.cpp:728
+#: src/onlinetranslator.cpp:739
 msgctxt "OnlineTranslator|"
 msgid "Luxembourgish"
 msgstr "لېكسۇمبىرۇگچە"
 
-#: src/onlinetranslator.cpp:730
+#: src/onlinetranslator.cpp:741
 msgctxt "OnlineTranslator|"
 msgid "Macedonian"
 msgstr "ماكېدونچە"
 
-#: src/onlinetranslator.cpp:732
+#: src/onlinetranslator.cpp:743
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Swahili"
@@ -1368,27 +1444,27 @@ msgctxt "OnlineTranslator|"
 msgid "Maithili"
 msgstr "سۋاھىلىچە"
 
-#: src/onlinetranslator.cpp:734
+#: src/onlinetranslator.cpp:745
 msgctxt "OnlineTranslator|"
 msgid "Malagasy"
 msgstr "مالاگاسچە"
 
-#: src/onlinetranslator.cpp:736
+#: src/onlinetranslator.cpp:747
 msgctxt "OnlineTranslator|"
 msgid "Malay"
 msgstr "مالاي تىلى"
 
-#: src/onlinetranslator.cpp:738
+#: src/onlinetranslator.cpp:749
 msgctxt "OnlineTranslator|"
 msgid "Malayalam"
 msgstr "مالايالامچە"
 
-#: src/onlinetranslator.cpp:740
+#: src/onlinetranslator.cpp:751
 msgctxt "OnlineTranslator|"
 msgid "Maltese"
 msgstr "مالتاچە"
 
-#: src/onlinetranslator.cpp:742
+#: src/onlinetranslator.cpp:753
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Scots Gaelic"
@@ -1396,42 +1472,42 @@ msgctxt "OnlineTranslator|"
 msgid "Manx Gaelic"
 msgstr "سىكوت گالېيچە"
 
-#: src/onlinetranslator.cpp:744
+#: src/onlinetranslator.cpp:755
 msgctxt "OnlineTranslator|"
 msgid "Marathi"
 msgstr "ماراتچە"
 
-#: src/onlinetranslator.cpp:746
+#: src/onlinetranslator.cpp:757
 msgctxt "OnlineTranslator|"
 msgid "Mari"
 msgstr "مارىچە"
 
-#: src/onlinetranslator.cpp:748
+#: src/onlinetranslator.cpp:759
 msgctxt "OnlineTranslator|"
 msgid "Marshallese"
 msgstr ""
 
-#: src/onlinetranslator.cpp:750
+#: src/onlinetranslator.cpp:761
 msgctxt "OnlineTranslator|"
 msgid "Meiteilon (Manipuri)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:752
+#: src/onlinetranslator.cpp:763
 msgctxt "OnlineTranslator|"
 msgid "Mende"
 msgstr ""
 
-#: src/onlinetranslator.cpp:754
+#: src/onlinetranslator.cpp:765
 msgctxt "OnlineTranslator|"
 msgid "Mizo"
 msgstr ""
 
-#: src/onlinetranslator.cpp:756
+#: src/onlinetranslator.cpp:767
 msgctxt "OnlineTranslator|"
 msgid "Mongolian"
 msgstr "موڭغۇلچە"
 
-#: src/onlinetranslator.cpp:758
+#: src/onlinetranslator.cpp:769
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Serbian (Cyrillic)"
@@ -1439,7 +1515,7 @@ msgctxt "OnlineTranslator|"
 msgid "Mongolian (Cyrillic)"
 msgstr "سېربچە (سلاۋيان)"
 
-#: src/onlinetranslator.cpp:760
+#: src/onlinetranslator.cpp:771
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Chinese (Traditional)"
@@ -1447,57 +1523,57 @@ msgctxt "OnlineTranslator|"
 msgid "Mongolian (Traditional)"
 msgstr "خەنزۇچە(ئەنئەنىۋى)"
 
-#: src/onlinetranslator.cpp:762
+#: src/onlinetranslator.cpp:773
 msgctxt "OnlineTranslator|"
 msgid "Morisyen"
 msgstr ""
 
-#: src/onlinetranslator.cpp:764
+#: src/onlinetranslator.cpp:775
 msgctxt "OnlineTranslator|"
 msgid "Myanmar (Burmese)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:766
+#: src/onlinetranslator.cpp:777
 msgctxt "OnlineTranslator|"
 msgid "Māori"
 msgstr ""
 
-#: src/onlinetranslator.cpp:768
+#: src/onlinetranslator.cpp:779
 msgctxt "OnlineTranslator|"
 msgid "Nepali"
 msgstr "نىپالچە"
 
-#: src/onlinetranslator.cpp:770
+#: src/onlinetranslator.cpp:781
 msgctxt "OnlineTranslator|"
 msgid "Niuean"
 msgstr ""
 
-#: src/onlinetranslator.cpp:772
+#: src/onlinetranslator.cpp:783
 msgctxt "OnlineTranslator|"
 msgid "Norwegian"
 msgstr "نورۋىگىيەچە"
 
-#: src/onlinetranslator.cpp:774
+#: src/onlinetranslator.cpp:785
 msgctxt "OnlineTranslator|"
 msgid "Nyanja"
 msgstr ""
 
-#: src/onlinetranslator.cpp:776
+#: src/onlinetranslator.cpp:787
 msgctxt "OnlineTranslator|"
 msgid "Odia"
 msgstr ""
 
-#: src/onlinetranslator.cpp:778
+#: src/onlinetranslator.cpp:789
 msgctxt "OnlineTranslator|"
 msgid "Oromo"
 msgstr ""
 
-#: src/onlinetranslator.cpp:780
+#: src/onlinetranslator.cpp:791
 msgctxt "OnlineTranslator|"
 msgid "Palauan"
 msgstr ""
 
-#: src/onlinetranslator.cpp:782
+#: src/onlinetranslator.cpp:793
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Papiamento"
@@ -1505,27 +1581,27 @@ msgctxt "OnlineTranslator|"
 msgid "Papiamentu"
 msgstr "پاپيامېنتوچە"
 
-#: src/onlinetranslator.cpp:784
+#: src/onlinetranslator.cpp:795
 msgctxt "OnlineTranslator|"
 msgid "Pashto"
 msgstr "پاشتۇچە"
 
-#: src/onlinetranslator.cpp:786
+#: src/onlinetranslator.cpp:797
 msgctxt "OnlineTranslator|"
 msgid "Persian"
 msgstr "پارىسچە"
 
-#: src/onlinetranslator.cpp:788
+#: src/onlinetranslator.cpp:799
 msgctxt "OnlineTranslator|"
 msgid "Pijin"
 msgstr ""
 
-#: src/onlinetranslator.cpp:790
+#: src/onlinetranslator.cpp:801
 msgctxt "OnlineTranslator|"
 msgid "Polish"
 msgstr "پولىكچە"
 
-#: src/onlinetranslator.cpp:792
+#: src/onlinetranslator.cpp:803
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Portuguese"
@@ -1533,7 +1609,7 @@ msgctxt "OnlineTranslator|"
 msgid "Portuguese (Brazilian)"
 msgstr "پورتۇگالچە"
 
-#: src/onlinetranslator.cpp:794
+#: src/onlinetranslator.cpp:805
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Portuguese"
@@ -1541,22 +1617,22 @@ msgctxt "OnlineTranslator|"
 msgid "Portuguese (Portugal)"
 msgstr "پورتۇگالچە"
 
-#: src/onlinetranslator.cpp:796
+#: src/onlinetranslator.cpp:807
 msgctxt "OnlineTranslator|"
 msgid "Potawatomi"
 msgstr ""
 
-#: src/onlinetranslator.cpp:798
+#: src/onlinetranslator.cpp:809
 msgctxt "OnlineTranslator|"
 msgid "Punjabi"
 msgstr "پەنجابچە"
 
-#: src/onlinetranslator.cpp:800
+#: src/onlinetranslator.cpp:811
 msgctxt "OnlineTranslator|"
 msgid "Quechua"
 msgstr ""
 
-#: src/onlinetranslator.cpp:802
+#: src/onlinetranslator.cpp:813
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Queretaro Otomi"
@@ -1564,57 +1640,57 @@ msgctxt "OnlineTranslator|"
 msgid "Querétaro Otomi"
 msgstr "كۇۋارىتۇئتموچە"
 
-#: src/onlinetranslator.cpp:804
+#: src/onlinetranslator.cpp:815
 msgctxt "OnlineTranslator|"
 msgid "Romanian"
 msgstr "رۇمىنچە"
 
-#: src/onlinetranslator.cpp:806
+#: src/onlinetranslator.cpp:817
 msgctxt "OnlineTranslator|"
 msgid "Rundi"
 msgstr ""
 
-#: src/onlinetranslator.cpp:808
+#: src/onlinetranslator.cpp:819
 msgctxt "OnlineTranslator|"
 msgid "Russian"
 msgstr "روسچە"
 
-#: src/onlinetranslator.cpp:810
+#: src/onlinetranslator.cpp:821
 msgctxt "OnlineTranslator|"
 msgid "Samoan"
 msgstr "سامائونچە"
 
-#: src/onlinetranslator.cpp:812
+#: src/onlinetranslator.cpp:823
 msgctxt "OnlineTranslator|"
 msgid "Sango"
 msgstr ""
 
-#: src/onlinetranslator.cpp:814
+#: src/onlinetranslator.cpp:825
 msgctxt "OnlineTranslator|"
 msgid "Sanskrit"
 msgstr ""
 
-#: src/onlinetranslator.cpp:816
+#: src/onlinetranslator.cpp:827
 msgctxt "OnlineTranslator|"
 msgid "Scots Gaelic"
 msgstr "سىكوت گالېيچە"
 
-#: src/onlinetranslator.cpp:818
+#: src/onlinetranslator.cpp:829
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Cyrillic)"
 msgstr "سېربچە (سلاۋيان)"
 
-#: src/onlinetranslator.cpp:820
+#: src/onlinetranslator.cpp:831
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Latin)"
 msgstr "سېربچە (لاتىن)"
 
-#: src/onlinetranslator.cpp:822
+#: src/onlinetranslator.cpp:833
 msgctxt "OnlineTranslator|"
 msgid "Sesotho"
 msgstr "سېسوتوچە"
 
-#: src/onlinetranslator.cpp:824
+#: src/onlinetranslator.cpp:835
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Sesotho"
@@ -1622,137 +1698,137 @@ msgctxt "OnlineTranslator|"
 msgid "Sesotho sa Leboa"
 msgstr "سېسوتوچە"
 
-#: src/onlinetranslator.cpp:826
+#: src/onlinetranslator.cpp:837
 msgctxt "OnlineTranslator|"
 msgid "Setswana"
 msgstr ""
 
-#: src/onlinetranslator.cpp:828
+#: src/onlinetranslator.cpp:839
 msgctxt "OnlineTranslator|"
 msgid "Shona"
 msgstr "شانوچە"
 
-#: src/onlinetranslator.cpp:830
+#: src/onlinetranslator.cpp:841
 msgctxt "OnlineTranslator|"
 msgid "Sindhi"
 msgstr "سىندىچە"
 
-#: src/onlinetranslator.cpp:832
+#: src/onlinetranslator.cpp:843
 msgctxt "OnlineTranslator|"
 msgid "Sinhala"
 msgstr "سىنخالاچە"
 
-#: src/onlinetranslator.cpp:834
+#: src/onlinetranslator.cpp:845
 msgctxt "OnlineTranslator|"
 msgid "Slovak"
 msgstr "سلوۋاكچە"
 
-#: src/onlinetranslator.cpp:836
+#: src/onlinetranslator.cpp:847
 msgctxt "OnlineTranslator|"
 msgid "Slovenian"
 msgstr "سىلوۋېنىيەچە"
 
-#: src/onlinetranslator.cpp:838
+#: src/onlinetranslator.cpp:849
 msgctxt "OnlineTranslator|"
 msgid "Somali"
 msgstr "سومالىچە"
 
-#: src/onlinetranslator.cpp:840
+#: src/onlinetranslator.cpp:851
 msgctxt "OnlineTranslator|"
 msgid "Spanish"
 msgstr "ئىسپانچە"
 
-#: src/onlinetranslator.cpp:842
+#: src/onlinetranslator.cpp:853
 msgctxt "OnlineTranslator|"
 msgid "Sranan Tongo"
 msgstr ""
 
-#: src/onlinetranslator.cpp:844
+#: src/onlinetranslator.cpp:855
 msgctxt "OnlineTranslator|"
 msgid "Sundanese"
 msgstr "ساندېنىسچە"
 
-#: src/onlinetranslator.cpp:846
+#: src/onlinetranslator.cpp:857
 msgctxt "OnlineTranslator|"
 msgid "Swahili"
 msgstr "سۋاھىلىچە"
 
-#: src/onlinetranslator.cpp:848
+#: src/onlinetranslator.cpp:859
 msgctxt "OnlineTranslator|"
 msgid "Swedish"
 msgstr "شىۋېدچە"
 
-#: src/onlinetranslator.cpp:850
+#: src/onlinetranslator.cpp:861
 msgctxt "OnlineTranslator|"
 msgid "Syriac (Aramaic)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:852
+#: src/onlinetranslator.cpp:863
 msgctxt "OnlineTranslator|"
 msgid "Tahitian"
 msgstr "تاختىيەنچە"
 
-#: src/onlinetranslator.cpp:854
+#: src/onlinetranslator.cpp:865
 msgctxt "OnlineTranslator|"
 msgid "Tajik"
 msgstr "تاجىكچە"
 
-#: src/onlinetranslator.cpp:856
+#: src/onlinetranslator.cpp:867
 msgctxt "OnlineTranslator|"
 msgid "Tamashek (Tuareg)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:858
+#: src/onlinetranslator.cpp:869
 msgctxt "OnlineTranslator|"
 msgid "Tamil"
 msgstr "تامىلچە"
 
-#: src/onlinetranslator.cpp:860
+#: src/onlinetranslator.cpp:871
 msgctxt "OnlineTranslator|"
 msgid "Tatar"
 msgstr "تاتارچە"
 
-#: src/onlinetranslator.cpp:862
+#: src/onlinetranslator.cpp:873
 msgctxt "OnlineTranslator|"
 msgid "Telugu"
 msgstr "تېلگۇچە"
 
-#: src/onlinetranslator.cpp:864
+#: src/onlinetranslator.cpp:875
 msgctxt "OnlineTranslator|"
 msgid "Tetum"
 msgstr ""
 
-#: src/onlinetranslator.cpp:866
+#: src/onlinetranslator.cpp:877
 msgctxt "OnlineTranslator|"
 msgid "Thai"
 msgstr "تايلاندچە"
 
-#: src/onlinetranslator.cpp:868
+#: src/onlinetranslator.cpp:879
 msgctxt "OnlineTranslator|"
 msgid "Tibetan"
 msgstr ""
 
-#: src/onlinetranslator.cpp:870
+#: src/onlinetranslator.cpp:881
 msgctxt "OnlineTranslator|"
 msgid "Tigrinya"
 msgstr ""
 
-#: src/onlinetranslator.cpp:872
+#: src/onlinetranslator.cpp:883
 msgctxt "OnlineTranslator|"
 msgid "Tok Pisin"
 msgstr ""
 
-#: src/onlinetranslator.cpp:874
+#: src/onlinetranslator.cpp:885
 msgctxt "OnlineTranslator|"
 msgid "Tokelauan"
 msgstr ""
 
-#: src/onlinetranslator.cpp:876
+#: src/onlinetranslator.cpp:887
 msgctxt "OnlineTranslator|"
 msgid "Tongan"
 msgstr "تونگانچە"
 
-#: src/onlinetranslator.cpp:878
+#: src/onlinetranslator.cpp:889
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Tongan"
@@ -1760,52 +1836,52 @@ msgctxt "OnlineTranslator|"
 msgid "Tsonga"
 msgstr "تونگانچە"
 
-#: src/onlinetranslator.cpp:880
+#: src/onlinetranslator.cpp:891
 msgctxt "OnlineTranslator|"
 msgid "Turkish"
 msgstr "تۈرىكچە"
 
-#: src/onlinetranslator.cpp:882
+#: src/onlinetranslator.cpp:893
 msgctxt "OnlineTranslator|"
 msgid "Turkmen"
 msgstr "تۈركمەن تىلى"
 
-#: src/onlinetranslator.cpp:884
+#: src/onlinetranslator.cpp:895
 msgctxt "OnlineTranslator|"
 msgid "Tuvaluan"
 msgstr ""
 
-#: src/onlinetranslator.cpp:886
+#: src/onlinetranslator.cpp:897
 msgctxt "OnlineTranslator|"
 msgid "Twi"
 msgstr ""
 
-#: src/onlinetranslator.cpp:888
+#: src/onlinetranslator.cpp:899
 msgctxt "OnlineTranslator|"
 msgid "Udmurt"
 msgstr "ئۇدمۇرتچە"
 
-#: src/onlinetranslator.cpp:890
+#: src/onlinetranslator.cpp:901
 msgctxt "OnlineTranslator|"
 msgid "Ukrainian"
 msgstr "ئۇكرانىيەچە"
 
-#: src/onlinetranslator.cpp:892
+#: src/onlinetranslator.cpp:903
 msgctxt "OnlineTranslator|"
 msgid "Uma"
 msgstr ""
 
-#: src/onlinetranslator.cpp:894
+#: src/onlinetranslator.cpp:905
 msgctxt "OnlineTranslator|"
 msgid "Upper Sorbian"
 msgstr ""
 
-#: src/onlinetranslator.cpp:896
+#: src/onlinetranslator.cpp:907
 msgctxt "OnlineTranslator|"
 msgid "Urdu"
 msgstr "ئوردوچە"
 
-#: src/onlinetranslator.cpp:898
+#: src/onlinetranslator.cpp:909
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Uighur"
@@ -1813,7 +1889,7 @@ msgctxt "OnlineTranslator|"
 msgid "Uyghur"
 msgstr "ئۇيغۇرچە"
 
-#: src/onlinetranslator.cpp:900
+#: src/onlinetranslator.cpp:911
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Serbian (Cyrillic)"
@@ -1821,7 +1897,7 @@ msgctxt "OnlineTranslator|"
 msgid "Uzbek (Cyrillic)"
 msgstr "سېربچە (سلاۋيان)"
 
-#: src/onlinetranslator.cpp:902
+#: src/onlinetranslator.cpp:913
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Serbian (Latin)"
@@ -1829,12 +1905,12 @@ msgctxt "OnlineTranslator|"
 msgid "Uzbek (Latin)"
 msgstr "سېربچە (لاتىن)"
 
-#: src/onlinetranslator.cpp:904
+#: src/onlinetranslator.cpp:915
 msgctxt "OnlineTranslator|"
 msgid "Vietnamese"
 msgstr "ۋېيتنامچە"
 
-#: src/onlinetranslator.cpp:906
+#: src/onlinetranslator.cpp:917
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Frisian"
@@ -1842,53 +1918,53 @@ msgctxt "OnlineTranslator|"
 msgid "Wallisian"
 msgstr "فىرىسىيانچە"
 
-#: src/onlinetranslator.cpp:908
+#: src/onlinetranslator.cpp:919
 msgctxt "OnlineTranslator|"
 msgid "Welsh"
 msgstr "ۋېلشچە"
 
-#: src/onlinetranslator.cpp:910
+#: src/onlinetranslator.cpp:921
 msgctxt "OnlineTranslator|"
 msgid "Wolof"
 msgstr ""
 
-#: src/onlinetranslator.cpp:912
+#: src/onlinetranslator.cpp:923
 msgctxt "OnlineTranslator|"
 msgid "Xhosa"
 msgstr "كوساچە"
 
-#: src/onlinetranslator.cpp:914
+#: src/onlinetranslator.cpp:925
 msgctxt "OnlineTranslator|"
 msgid "Yakut"
 msgstr ""
 
-#: src/onlinetranslator.cpp:916
+#: src/onlinetranslator.cpp:927
 msgctxt "OnlineTranslator|"
 msgid "Yiddish"
 msgstr "يىددىشچە"
 
-#: src/onlinetranslator.cpp:918
+#: src/onlinetranslator.cpp:929
 msgctxt "OnlineTranslator|"
 msgid "Yoruba"
 msgstr "يورۇباچە"
 
-#: src/onlinetranslator.cpp:920
+#: src/onlinetranslator.cpp:931
 msgctxt "OnlineTranslator|"
 msgid "Yucatec Maya"
 msgstr "يۇكاتىك ماياچە"
 
-#: src/onlinetranslator.cpp:922
+#: src/onlinetranslator.cpp:933
 msgctxt "OnlineTranslator|"
 msgid "Zulu"
 msgstr "زۇلۇچە"
 
-#: src/onlinetranslator.cpp:1267
+#: src/onlinetranslator.cpp:1281
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Instance error: %1"
 msgstr ""
 
-#: src/onlinetranslator.cpp:1281
+#: src/onlinetranslator.cpp:1295
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
 msgstr "خاتالىق: ئاپتوماتىك تىلنى تەھلىل قىلىشقا ئامالسىز"
@@ -1898,22 +1974,28 @@ msgctxt "PopupWindow|"
 msgid "Swap languages"
 msgstr "تىل ئالماشتۇرۇش"
 
-#: src/popupwindow.ui:63
+#: src/popupwindow.ui:60 src/popupwindow.ui:105 src/popupwindow.ui:202
+#: src/popupwindow.ui:247
+msgctxt "PopupWindow|"
+msgid "..."
+msgstr ""
+
+#: src/popupwindow.ui:112
 msgctxt "PopupWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "چاپلاش تاختىسىغا مەنبە تېكىستىنى كۆچۈرۈڭ"
 
-#: src/popupwindow.ui:156
+#: src/popupwindow.ui:254
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "بارلىق تەرجىمە سانلىق مەلۇماتلىرىنى چاپلاش تاختىسىغا كۆچۈرۈڭ"
 
-#: src/popupwindow.ui:166
+#: src/popupwindow.ui:264
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "چاپلاش تاختىسىغا تەرجىمىنى كۆچۈرۈڭ"
 
-#: src/settings/appsettings.cpp:1079
+#: src/settings/appsettings.cpp:1200
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1959,12 +2041,12 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "%2دىن %1 نى ئۆچۈرەلمىدى"
 
-#: src/settings/settingsdialog.cpp:33
+#: src/settings/settingsdialog.cpp:35
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "ئېلىپ يۈرۈشكە ئەپلىك ھالەت"
 
-#: src/settings/settingsdialog.cpp:46
+#: src/settings/settingsdialog.cpp:48
 #, fuzzy, qt-format
 #| msgctxt "SettingsDialog|"
 #| msgid "Use system settings"
@@ -1972,43 +2054,81 @@ msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "سىستېما تەڭشىكىنى ئىشلىتىڭ"
 
-#: src/settings/settingsdialog.cpp:51 src/settings/settingsdialog.cpp:55
-#: src/settings/settingsdialog.cpp:56
+#: src/settings/settingsdialog.cpp:52
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "سىستېما تىلى"
 
-#: src/settings/settingsdialog.cpp:90
+#: src/settings/settingsdialog.cpp:56 src/settings/settingsdialog.cpp:57
+#, fuzzy
+#| msgctxt "LanguageButtonsWidget|"
+#| msgid "Auto"
+msgctxt "SettingsDialog|"
+msgid "<Auto>"
+msgstr "ئاپتوماتىك"
+
+#: src/settings/settingsdialog.cpp:74
+msgctxt "SettingsDialog|"
+msgid "Copy"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:78
+msgctxt "SettingsDialog|"
+msgid "None"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:110
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "سىنبەلگىسى:"
 
-#: src/settings/settingsdialog.cpp:112
+#: src/settings/settingsdialog.cpp:132
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "OCR پارامېتىرلىرى قۇرۇق بولمايدۇ."
 
-#: src/settings/settingsdialog.cpp:113
+#: src/settings/settingsdialog.cpp:133
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "ئىناۋەتسىز پارامېتىرلارنى تاشلىماقچىمۇ?"
 
-#: src/settings/settingsdialog.cpp:254
+#: src/settings/settingsdialog.cpp:294
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "سىنبەلگىسى تاللاش"
 
-#: src/settings/settingsdialog.cpp:254
+#: src/settings/settingsdialog.cpp:294
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "رەسىملەر (* .png * .ico * .svg * .jpg) ;; بارلىق ھۆججەتلەر ()"
 
-#: src/settings/settingsdialog.cpp:284
+#: src/settings/settingsdialog.cpp:324
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "OCR تىل يولىنى تاللاش"
 
-#: src/settings/settingsdialog.cpp:425
+#: src/settings/settingsdialog.cpp:339
+msgctxt "SettingsDialog|"
+msgid "Piper voices path:"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:353
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Directory with trained models"
+msgctxt "SettingsDialog|"
+msgid "Directory with voice models"
+msgstr "تەربىيلەنگەن مودېللار بىلەن مۇندەرىجە"
+
+#: src/settings/settingsdialog.cpp:354 src/settings/settingsdialog.cpp:373
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Select OCR languages path"
+msgctxt "SettingsDialog|"
+msgid "Select Piper voices path"
+msgstr "OCR تىل يولىنى تاللاش"
+
+#: src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr ""
@@ -2018,7 +2138,7 @@ msgctxt "SettingsDialog|"
 msgid "Settings"
 msgstr "تەڭشەكلەر"
 
-#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:128
+#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:144
 msgctxt "SettingsDialog|"
 msgid "General"
 msgstr "ئومۇم"
@@ -2028,37 +2148,47 @@ msgctxt "SettingsDialog|"
 msgid "Interface"
 msgstr "كۆرۈنمە"
 
-#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:631
+#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:783
 msgctxt "SettingsDialog|"
 msgid "Translation"
 msgstr "تەرجىمە"
 
+#: src/settings/settingsdialog.ui:73
+msgctxt "SettingsDialog|"
+msgid "Text-To-Speech"
+msgstr ""
+
 #: src/settings/settingsdialog.ui:81
+msgctxt "SettingsDialog|"
+msgid "Mozhi"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:97
 msgctxt "SettingsDialog|"
 msgid "Connection"
 msgstr "ئۇلىنىش"
 
-#: src/settings/settingsdialog.ui:89
+#: src/settings/settingsdialog.ui:105
 msgctxt "SettingsDialog|"
 msgid "Shortcuts"
 msgstr "تېزلەتمە"
 
-#: src/settings/settingsdialog.ui:97
+#: src/settings/settingsdialog.ui:113
 msgctxt "SettingsDialog|"
 msgid "About"
 msgstr "ھەققىدە"
 
-#: src/settings/settingsdialog.ui:140
+#: src/settings/settingsdialog.ui:156
 msgctxt "SettingsDialog|"
 msgid "Language:"
 msgstr "تىل:"
 
-#: src/settings/settingsdialog.ui:147
+#: src/settings/settingsdialog.ui:163
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Interface language</p></body></html>"
 msgstr "<html><head/><body><p>كۆرۈنمە تىلى</p></body></html>"
 
-#: src/settings/settingsdialog.ui:154
+#: src/settings/settingsdialog.ui:170
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Main window:"
@@ -2066,7 +2196,7 @@ msgctxt "SettingsDialog|"
 msgid "Main window orientation:"
 msgstr "باش كۆزنەك:"
 
-#: src/settings/settingsdialog.ui:161
+#: src/settings/settingsdialog.ui:177
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Orientation of the main window layout<br/>When using "
@@ -2075,7 +2205,7 @@ msgid ""
 msgstr ""
 
 #. Orientation
-#: src/settings/settingsdialog.ui:165
+#: src/settings/settingsdialog.ui:181
 #, fuzzy
 #| msgctxt "LanguageButtonsWidget|"
 #| msgid "Auto"
@@ -2084,7 +2214,7 @@ msgid "Auto"
 msgstr "ئاپتوماتىك"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:170
+#: src/settings/settingsdialog.ui:186
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Port:"
@@ -2093,17 +2223,17 @@ msgid "Portrait"
 msgstr "پورت:"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:175
+#: src/settings/settingsdialog.ui:191
 msgctxt "SettingsDialog|"
 msgid "Landscape"
 msgstr ""
 
-#: src/settings/settingsdialog.ui:183
+#: src/settings/settingsdialog.ui:199
 msgctxt "SettingsDialog|"
 msgid "Translation mode:"
 msgstr "تەرجىمە ھالىتى:"
 
-#: src/settings/settingsdialog.ui:190
+#: src/settings/settingsdialog.ui:206
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>A window for translating selected text. If the "
@@ -2114,27 +2244,27 @@ msgstr ""
 "پروگرامما كىچىكلىتىلگەن بولسا ، ئاساسىي كۆزنەك ھەمىشە ئىشلىتىلىدۇ.</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:194 src/settings/settingsdialog.ui:343
+#: src/settings/settingsdialog.ui:210 src/settings/settingsdialog.ui:359
 msgctxt "SettingsDialog|"
 msgid "Pop-up window"
 msgstr "قاڭقىش كۆزنىكى"
 
-#: src/settings/settingsdialog.ui:199
+#: src/settings/settingsdialog.ui:215
 msgctxt "SettingsDialog|"
 msgid "Main window"
 msgstr "باش كۆزنەك"
 
-#: src/settings/settingsdialog.ui:204
+#: src/settings/settingsdialog.ui:220
 msgctxt "SettingsDialog|"
 msgid "Notification"
 msgstr "ئۇقتۇرۇش"
 
-#: src/settings/settingsdialog.ui:212
+#: src/settings/settingsdialog.ui:228
 msgctxt "SettingsDialog|"
 msgid "Translation notification timeout:"
 msgstr "تەرجىمە ئۇقتۇرۇشىنىڭ ۋاقتى:"
 
-#: src/settings/settingsdialog.ui:225
+#: src/settings/settingsdialog.ui:241
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Notification with translation display time</p></body></"
@@ -2142,23 +2272,23 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>تەرجىمە كۆرسىتىش بىلەن ئۇقتۇرۇش time</p></body></html>"
 
-#: src/settings/settingsdialog.ui:228 src/settings/settingsdialog.ui:433
+#: src/settings/settingsdialog.ui:244 src/settings/settingsdialog.ui:449
 msgctxt "SettingsDialog|"
 msgid " sec"
 msgstr " سېكۇنت"
 
-#: src/settings/settingsdialog.ui:241
+#: src/settings/settingsdialog.ui:257
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Display icon in the system tray</p></body></html>"
 msgstr ""
 "<html><head/><body><p>سىستېما تەخسىسىدە سىنبەلگە كۆرسىتىش</p></body></html>"
 
-#: src/settings/settingsdialog.ui:244
+#: src/settings/settingsdialog.ui:260
 msgctxt "SettingsDialog|"
 msgid "Show tray icon"
 msgstr "تەخسە سىنبەلگىسىنى كۆرسەت"
 
-#: src/settings/settingsdialog.ui:254
+#: src/settings/settingsdialog.ui:270
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Start application minimized to the system tray</p></"
@@ -2167,12 +2297,12 @@ msgstr ""
 "<html><head/><body><p>قوللىنىشچان پروگراممىنى سىستېما تەخسىگە ئەڭ تۆۋەن "
 "چەككە چۈشۈرۈش</p></body></html>"
 
-#: src/settings/settingsdialog.ui:257
+#: src/settings/settingsdialog.ui:273
 msgctxt "SettingsDialog|"
 msgid "Start minimized"
 msgstr "كىچىكلىتىشنى باشلا"
 
-#: src/settings/settingsdialog.ui:264
+#: src/settings/settingsdialog.ui:280
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Run the application at system startup</p></body></html>"
@@ -2180,22 +2310,22 @@ msgstr ""
 "<html><head/><body><p>سىستېمىنى قوزغاتقاندا پروگراممىنى ئىجرا قىلىڭ</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:267
+#: src/settings/settingsdialog.ui:283
 msgctxt "SettingsDialog|"
 msgid "Launch at startup"
 msgstr "قوزغالغاندا قوزغىتىش"
 
-#: src/settings/settingsdialog.ui:300
+#: src/settings/settingsdialog.ui:316
 msgctxt "SettingsDialog|"
 msgid "Font"
 msgstr "خەت نۇسخىسى"
 
-#: src/settings/settingsdialog.ui:306
+#: src/settings/settingsdialog.ui:322
 msgctxt "SettingsDialog|"
 msgid "Name:"
 msgstr "نام:"
 
-#: src/settings/settingsdialog.ui:313
+#: src/settings/settingsdialog.ui:329
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Translation and source text font</p></body></html>"
@@ -2203,56 +2333,56 @@ msgstr ""
 "<html><head/><body><p>تەرجىمە ۋە مەنبە تېكىست خەت نۇسخىسى font</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:320
+#: src/settings/settingsdialog.ui:336
 msgctxt "SettingsDialog|"
 msgid "Size:"
 msgstr "چوڭلۇقى:"
 
-#: src/settings/settingsdialog.ui:327
+#: src/settings/settingsdialog.ui:343
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Font size of translation and source text</p></body></"
 "html>"
 msgstr "<html><head/><body><p>تەرجىمە نۇسخىسى ۋە مەنبە text</p></body></html>"
 
-#: src/settings/settingsdialog.ui:349
+#: src/settings/settingsdialog.ui:365
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window height in pixels</p></body></html>"
 msgstr ""
 "<html><head/><body><p>قاڭقىش كۆزنىكىنىڭ ئېگىزلىك پېكسىلى</p></body></html>"
 
-#: src/settings/settingsdialog.ui:359
+#: src/settings/settingsdialog.ui:375
 msgctxt "SettingsDialog|"
 msgid "Width:"
 msgstr "كەڭلىك:"
 
-#: src/settings/settingsdialog.ui:366
+#: src/settings/settingsdialog.ui:382
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
 msgstr ""
 "<html><head/><body><p>قاڭقىش كۆزنىكىنىڭ كەڭلىك پېكسىلى</p></body></html>"
 
-#: src/settings/settingsdialog.ui:376
+#: src/settings/settingsdialog.ui:392
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window opacity</p></body></html>"
 msgstr "<html><head/><body><p>قاڭقىش كۆزنىكى ئېنىقلىقى</p></body></html>"
 
-#: src/settings/settingsdialog.ui:403
+#: src/settings/settingsdialog.ui:419
 msgctxt "SettingsDialog|"
 msgid "Opacity:"
 msgstr "ئېنىقلىقى:"
 
-#: src/settings/settingsdialog.ui:410
+#: src/settings/settingsdialog.ui:426
 msgctxt "SettingsDialog|"
 msgid "Show timeout:"
 msgstr ""
 
-#: src/settings/settingsdialog.ui:417
+#: src/settings/settingsdialog.ui:433
 msgctxt "SettingsDialog|"
 msgid "Height:"
 msgstr "ئېگىزلىكى:"
 
-#: src/settings/settingsdialog.ui:430
+#: src/settings/settingsdialog.ui:446
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid ""
@@ -2266,87 +2396,161 @@ msgstr ""
 "<html><head/><body><p>ئاپتوماتىك تەڭشىگەندە قايسى تېكىستكە تەرجىمە "
 "قىلىنىدىغان تىل</p></body></html>"
 
-#: src/settings/settingsdialog.ui:453
+#: src/settings/settingsdialog.ui:469
 msgctxt "SettingsDialog|"
 msgid "Language format"
 msgstr "تىل فورماتى"
 
-#: src/settings/settingsdialog.ui:459
+#: src/settings/settingsdialog.ui:475
 msgctxt "SettingsDialog|"
 msgid "Main window:"
 msgstr "باش كۆزنەك:"
 
-#: src/settings/settingsdialog.ui:466 src/settings/settingsdialog.ui:490
+#: src/settings/settingsdialog.ui:482 src/settings/settingsdialog.ui:506
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Languages text on buttons</p></body></html>"
 msgstr "<html><head/><body><p>كۇنۇپكىلاردىكى تىل تېكىستى</p></body></html>"
 
-#: src/settings/settingsdialog.ui:470 src/settings/settingsdialog.ui:494
+#: src/settings/settingsdialog.ui:486 src/settings/settingsdialog.ui:510
 msgctxt "SettingsDialog|"
 msgid "Full name"
 msgstr "تولۇق نام"
 
-#: src/settings/settingsdialog.ui:475 src/settings/settingsdialog.ui:499
+#: src/settings/settingsdialog.ui:491 src/settings/settingsdialog.ui:515
 msgctxt "SettingsDialog|"
 msgid "ISO 639-1 code"
 msgstr "ISO 639-1كودى"
 
-#: src/settings/settingsdialog.ui:483
+#: src/settings/settingsdialog.ui:499
 msgctxt "SettingsDialog|"
 msgid "Pop-up:"
 msgstr "قاڭقىش:"
 
-#: src/settings/settingsdialog.ui:510
+#: src/settings/settingsdialog.ui:526
 msgctxt "SettingsDialog|"
 msgid "Tray icon"
 msgstr "تەخسە سىنبەلگىسى"
 
-#: src/settings/settingsdialog.ui:516
+#: src/settings/settingsdialog.ui:532
 msgctxt "SettingsDialog|"
 msgid "Icon:"
 msgstr "سىنبەلگىسى:"
 
-#: src/settings/settingsdialog.ui:529
+#: src/settings/settingsdialog.ui:545
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>System tray icon</p></body></html>"
 msgstr "<html><head/><body><p>سىستېما تەخسە سىنبەلگىسى</p></body></html>"
 
-#: src/settings/settingsdialog.ui:533
+#: src/settings/settingsdialog.ui:549
 msgctxt "SettingsDialog|"
 msgid "Default"
 msgstr "سۈكۈتتىكى"
 
-#: src/settings/settingsdialog.ui:541
+#: src/settings/settingsdialog.ui:557
 msgctxt "SettingsDialog|"
 msgid "Monochrome (dark theme)"
 msgstr "Monochrome (قاراڭغۇ تېما)"
 
-#: src/settings/settingsdialog.ui:549
+#: src/settings/settingsdialog.ui:565
 msgctxt "SettingsDialog|"
 msgid "Monochrome (light theme)"
 msgstr "Monochrome (ئوچۇق تېما)"
 
-#: src/settings/settingsdialog.ui:557
+#: src/settings/settingsdialog.ui:573
 msgctxt "SettingsDialog|"
 msgid "Custom"
 msgstr "ئىختىيارى"
 
-#: src/settings/settingsdialog.ui:571
+#: src/settings/settingsdialog.ui:587
 msgctxt "SettingsDialog|"
 msgid "Custom:"
 msgstr "ئىختىيارى:"
 
-#: src/settings/settingsdialog.ui:583
+#: src/settings/settingsdialog.ui:599
 msgctxt "SettingsDialog|"
 msgid "Path to the icon or icon name from theme"
 msgstr "باشتېما ياكى سىنبەلگە نامىغا يول"
 
-#: src/settings/settingsdialog.ui:593
+#: src/settings/settingsdialog.ui:609
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>سىنبەلگە تاللاش</p></body></html>"
 
-#: src/settings/settingsdialog.ui:637
+#: src/settings/settingsdialog.ui:650
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Translation mode:"
+msgctxt "SettingsDialog|"
+msgid "Translation provider:"
+msgstr "تەرجىمە ھالىتى:"
+
+#: src/settings/settingsdialog.ui:673
+msgctxt "SettingsDialog|"
+msgid "Automatic language detection"
+msgstr "ئاپتوماتىك تىل بايقاش"
+
+#: src/settings/settingsdialog.ui:679
+msgctxt "SettingsDialog|"
+msgid "Primary translation language:"
+msgstr "دەسلەپكى تەرجىمە تىلى:"
+
+#: src/settings/settingsdialog.ui:686
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Language to which text will be translated when "
+"autodetecting</p></body></html>"
+msgstr ""
+"<html><head/><body><p>ئاپتوماتىك تەڭشىگەندە قايسى تېكىستكە تەرجىمە "
+"قىلىنىدىغان تىل</p></body></html>"
+
+#: src/settings/settingsdialog.ui:693
+msgctxt "SettingsDialog|"
+msgid "Secondary translation language:"
+msgstr "قوشۇمچە تەرجىمە تىلى:"
+
+#: src/settings/settingsdialog.ui:700
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Language to which the text will be translated if it is "
+"in the language selected above</p></body></html>"
+msgstr ""
+"<html><head/><body><p>ئەگەر بۇ تېكىست يۇقىرىدا تاللانغان تىلدا بولسا تەرجىمە "
+"قىلىنىدىغان تىل</p></body></html>"
+
+#: src/settings/settingsdialog.ui:707 src/settings/settingsdialog.ui:717
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Automatically switch to <span style=\" font-style:"
+"italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:710
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Force source language detection outside the window"
+msgctxt "SettingsDialog|"
+msgid "Force source language detection"
+msgstr "مەجبۇرى كۆزنەكنىڭ سىرتىدىكى مەنبە تىلنى بايقاش"
+
+#: src/settings/settingsdialog.ui:720
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Force translation language detection outside the window"
+msgctxt "SettingsDialog|"
+msgid "Force translation language detection"
+msgstr "تەرجىمە تىلى بايقاشنى كۆزنەكنىڭ سىرتىدا مەجبۇرلاش"
+
+#: src/settings/settingsdialog.ui:741
+msgctxt "SettingsDialog|"
+msgid "Text-to-Speech"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:747
+msgctxt "SettingsDialog|"
+msgid "Provider:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:789
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
@@ -2355,12 +2559,12 @@ msgstr ""
 "<html><head/><body><p>مەنبە تەرجىمىسىنى قوزغىتىش ياكى چەكلەش</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:640
+#: src/settings/settingsdialog.ui:792
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
 msgstr "مەنبە تەرجىمىسىنى قوزغىتىڭ"
 
-#: src/settings/settingsdialog.ui:647
+#: src/settings/settingsdialog.ui:799
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
@@ -2369,12 +2573,12 @@ msgstr ""
 "<html><head/><body><p>ئاھاڭ تەرجىمىسىنى قوزغىتىش ياكى چەكلەش</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:650
+#: src/settings/settingsdialog.ui:802
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
 msgstr "ئاھاڭ تەرجىمىسىنى قوزغىتىڭ"
 
-#: src/settings/settingsdialog.ui:657
+#: src/settings/settingsdialog.ui:809
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
@@ -2383,12 +2587,12 @@ msgstr ""
 "<html><head/><body><p>مەنبە ترانسكرىپسىيەسىنى قوزغىتىش ياكى چەكلەش</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:660
+#: src/settings/settingsdialog.ui:812
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
 msgstr "مەنبە ترانسكرىپسىيەسىنى قوزغىتىڭ"
 
-#: src/settings/settingsdialog.ui:667
+#: src/settings/settingsdialog.ui:819
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
@@ -2396,12 +2600,12 @@ msgstr ""
 "<html><head/><body><p>تەرجىمە تاللانمىلىرىنى قوزغىتىش ياكى چەكلەش</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:670
+#: src/settings/settingsdialog.ui:822
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
 msgstr "تەرجىمە تاللانمىلىرىنى قوزغىتىڭ"
 
-#: src/settings/settingsdialog.ui:677
+#: src/settings/settingsdialog.ui:829
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
@@ -2409,12 +2613,12 @@ msgstr ""
 "<html><head/><body><p>ئىشلىتىش مىساللىرىنى قوزغىتىش ياكى چەكلەش</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:680
+#: src/settings/settingsdialog.ui:832
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
 msgstr "مىساللارنى قوزغىتىڭ"
 
-#: src/settings/settingsdialog.ui:687
+#: src/settings/settingsdialog.ui:839
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace each sequence of whitespaces (this includes "
@@ -2424,78 +2628,22 @@ msgstr ""
 "<html><head/><body><p>ئاق بوشلۇقنىڭ ھەر بىر تەرتىپىنى (بۇ ASCII ھەرپلىرىنى "
 "ئۆز ئىچىگە ئالىدۇ)</p></body></html>"
 
-#: src/settings/settingsdialog.ui:690
+#: src/settings/settingsdialog.ui:842
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
 msgstr "مەنبەنى ئاددىيلاشتۇرۇڭ"
 
-#: src/settings/settingsdialog.ui:700
-msgctxt "SettingsDialog|"
-msgid "Automatic language detection"
-msgstr "ئاپتوماتىك تىل بايقاش"
-
-#: src/settings/settingsdialog.ui:706
-msgctxt "SettingsDialog|"
-msgid "Primary translation language:"
-msgstr "دەسلەپكى تەرجىمە تىلى:"
-
-#: src/settings/settingsdialog.ui:713
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Language to which text will be translated when "
-"autodetecting</p></body></html>"
-msgstr ""
-"<html><head/><body><p>ئاپتوماتىك تەڭشىگەندە قايسى تېكىستكە تەرجىمە "
-"قىلىنىدىغان تىل</p></body></html>"
-
-#: src/settings/settingsdialog.ui:720
-msgctxt "SettingsDialog|"
-msgid "Secondary translation language:"
-msgstr "قوشۇمچە تەرجىمە تىلى:"
-
-#: src/settings/settingsdialog.ui:727
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Language to which the text will be translated if it is "
-"in the language selected above</p></body></html>"
-msgstr ""
-"<html><head/><body><p>ئەگەر بۇ تېكىست يۇقىرىدا تاللانغان تىلدا بولسا تەرجىمە "
-"قىلىنىدىغان تىل</p></body></html>"
-
-#: src/settings/settingsdialog.ui:734 src/settings/settingsdialog.ui:744
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Automatically switch to <span style=\" font-style:"
-"italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
-msgstr ""
-
-#: src/settings/settingsdialog.ui:737
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection outside the window"
-msgctxt "SettingsDialog|"
-msgid "Force source language detection"
-msgstr "مەجبۇرى كۆزنەكنىڭ سىرتىدىكى مەنبە تىلنى بايقاش"
-
-#: src/settings/settingsdialog.ui:747
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force translation language detection outside the window"
-msgctxt "SettingsDialog|"
-msgid "Force translation language detection"
-msgstr "تەرجىمە تىلى بايقاشنى كۆزنەكنىڭ سىرتىدا مەجبۇرلاش"
-
-#: src/settings/settingsdialog.ui:776
+#: src/settings/settingsdialog.ui:871
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
 msgstr ""
 
-#: src/settings/settingsdialog.ui:789
+#: src/settings/settingsdialog.ui:884
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
 msgstr ""
 
-#: src/settings/settingsdialog.ui:792
+#: src/settings/settingsdialog.ui:887
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Speech test:"
@@ -2503,12 +2651,12 @@ msgctxt "SettingsDialog|"
 msgid "Detect fastest"
 msgstr "نۇتۇق سىنىقى:"
 
-#: src/settings/settingsdialog.ui:825
+#: src/settings/settingsdialog.ui:920
 msgctxt "SettingsDialog|"
 msgid "Languages"
 msgstr "تىللار"
 
-#: src/settings/settingsdialog.ui:831
+#: src/settings/settingsdialog.ui:926
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Loading additional languages will impact both speed "
@@ -2521,22 +2669,22 @@ msgstr ""
 "بار ، ھەمدە خاتا سۆزلەرنى خىيالىغا كەلتۈرۈش پۇرسىتى تېخىمۇ كۆپ.</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:838
+#: src/settings/settingsdialog.ui:933
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
 msgstr "تىل يولى:"
 
-#: src/settings/settingsdialog.ui:845
+#: src/settings/settingsdialog.ui:940
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr "<html><head/><body><p>OCR تىل يولىنى تاللاڭ</p></body></html>"
 
-#: src/settings/settingsdialog.ui:855
+#: src/settings/settingsdialog.ui:950
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
 msgstr "<html><head/><body><p>GitHub ئامبىرىنى ئېچىڭ</p></body></html>"
 
-#: src/settings/settingsdialog.ui:858
+#: src/settings/settingsdialog.ui:953
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
@@ -2547,12 +2695,12 @@ msgstr ""
 "\"><span style=\" text-decoration: underline; color:#2980b9;\">تېخىمۇ كۆپ "
 "چۈشۈرۈش</span></a></p></body></html>"
 
-#: src/settings/settingsdialog.ui:868
+#: src/settings/settingsdialog.ui:963
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
 msgstr "تەربىيلەنگەن مودېللار بىلەن مۇندەرىجە"
 
-#: src/settings/settingsdialog.ui:884
+#: src/settings/settingsdialog.ui:979
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
@@ -2561,22 +2709,22 @@ msgstr ""
 "<html><head/><body><p>تېكىست تونۇلغاندىن كېيىن بارلىق تاق قۇر بۆلەكلىرىنى "
 "بوشلۇق بىلەن ئالماشتۇرۇڭ</p></body></html>"
 
-#: src/settings/settingsdialog.ui:887
+#: src/settings/settingsdialog.ui:982
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
 msgstr "قۇرنى بۇزۇش"
 
-#: src/settings/settingsdialog.ui:951
+#: src/settings/settingsdialog.ui:1046
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
 msgstr "ئىكران كەسمىسى"
 
-#: src/settings/settingsdialog.ui:963
+#: src/settings/settingsdialog.ui:1058
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
 msgstr "رايوننى ساقلاش:"
 
-#: src/settings/settingsdialog.ui:970
+#: src/settings/settingsdialog.ui:1065
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid ""
@@ -2590,22 +2738,22 @@ msgstr ""
 "<html><head/><body><p>ئەڭ ئاخىرقى تۇتۇلغان رايوننى قاچان ئەستە تۇتۇش</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:974
+#: src/settings/settingsdialog.ui:1069
 msgctxt "SettingsDialog|"
 msgid "Never"
 msgstr "ھەرگىز"
 
-#: src/settings/settingsdialog.ui:979
+#: src/settings/settingsdialog.ui:1074
 msgctxt "SettingsDialog|"
 msgid "Remember last"
 msgstr "ئاخىرقىنىلا ساقلا"
 
-#: src/settings/settingsdialog.ui:984
+#: src/settings/settingsdialog.ui:1079
 msgctxt "SettingsDialog|"
 msgid "Remember always"
 msgstr "ھەممىنى ساقلا"
 
-#: src/settings/settingsdialog.ui:992
+#: src/settings/settingsdialog.ui:1087
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Capture on release"
@@ -2613,7 +2761,7 @@ msgctxt "SettingsDialog|"
 msgid "Capture delay:"
 msgstr "قويۇپ بېرىلگەن"
 
-#: src/settings/settingsdialog.ui:999
+#: src/settings/settingsdialog.ui:1094
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Screen capture"
@@ -2621,24 +2769,24 @@ msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
 msgstr "ئىكران كەسمىسى"
 
-#: src/settings/settingsdialog.ui:1002
+#: src/settings/settingsdialog.ui:1097
 msgctxt "SettingsDialog|"
 msgid " ms"
 msgstr ""
 
-#: src/settings/settingsdialog.ui:1012
+#: src/settings/settingsdialog.ui:1107
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
 msgstr ""
 "<html><head/><body><p>نۇر بەلگىسىنىڭ يېنىدا چوڭايتىش كۆرسەت</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1015
+#: src/settings/settingsdialog.ui:1110
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
 msgstr "چوڭايتقۇنى كۆرسىتىش"
 
-#: src/settings/settingsdialog.ui:1022
+#: src/settings/settingsdialog.ui:1117
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid ""
@@ -2652,12 +2800,12 @@ msgstr ""
 "<html><head/><body><p>تېكىست تونۇلغاندىن كېيىن بارلىق تاق قۇر بۆلەكلىرىنى "
 "بوشلۇق بىلەن ئالماشتۇرۇڭ</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1025
+#: src/settings/settingsdialog.ui:1120
 msgctxt "SettingsDialog|"
 msgid "Negate OCR"
 msgstr ""
 
-#: src/settings/settingsdialog.ui:1035
+#: src/settings/settingsdialog.ui:1130
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
@@ -2666,7 +2814,7 @@ msgstr ""
 "<html><head/><body><p>چاشقىنەك كۇنۇپكىسى قويۇپ بېرىلگەندە بۆلەكنى تۇتۇشنى "
 "تاماملاڭ</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1038
+#: src/settings/settingsdialog.ui:1133
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Capture on release"
@@ -2674,7 +2822,7 @@ msgctxt "SettingsDialog|"
 msgid "Confirm on release"
 msgstr "قويۇپ بېرىلگەن"
 
-#: src/settings/settingsdialog.ui:1045
+#: src/settings/settingsdialog.ui:1140
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
@@ -2683,62 +2831,62 @@ msgstr ""
 "<html><head/><body><p>تاللانمىغان قىسمىغا ئازراق تۇمان ئىشلىتىڭ</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1048
+#: src/settings/settingsdialog.ui:1143
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
 msgstr "يېنىك ماسكا ئىشلىتىش"
 
-#: src/settings/settingsdialog.ui:1081
+#: src/settings/settingsdialog.ui:1176
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
 msgstr "ۋاكالەتچى مۇلازىمېتىر"
 
-#: src/settings/settingsdialog.ui:1087
+#: src/settings/settingsdialog.ui:1182
 msgctxt "SettingsDialog|"
 msgid "Type:"
 msgstr "تىپ:"
 
-#: src/settings/settingsdialog.ui:1100
+#: src/settings/settingsdialog.ui:1195
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
 msgstr "<html><head/><body><p>ۋاكالەتچى تىپى</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1104
+#: src/settings/settingsdialog.ui:1199
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
 msgstr "سىستېما تەڭشىكىنى ئىشلىتىڭ"
 
-#: src/settings/settingsdialog.ui:1114
+#: src/settings/settingsdialog.ui:1209
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
 msgstr "ۋاكالەتچى ئىشلەتمەڭ"
 
-#: src/settings/settingsdialog.ui:1130
+#: src/settings/settingsdialog.ui:1225
 msgctxt "SettingsDialog|"
 msgid "Host:"
 msgstr "كومپۇتېر:"
 
-#: src/settings/settingsdialog.ui:1140
+#: src/settings/settingsdialog.ui:1235
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr "<html><head/><body><p>ۋاكالەتچى كومپۇتېر نامى</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1153
+#: src/settings/settingsdialog.ui:1248
 msgctxt "SettingsDialog|"
 msgid "Port:"
 msgstr "پورت:"
 
-#: src/settings/settingsdialog.ui:1169
+#: src/settings/settingsdialog.ui:1264
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
 msgstr "<html><head/><body><p>ۋاكالەتچى ئېغىزى</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1188
+#: src/settings/settingsdialog.ui:1283
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
 msgstr "ئۇچۇر: ۋاكالەتچى پەقەت تېكىست تەرجىمىسى ئۈچۈنلا ئىشلەيدۇ"
 
-#: src/settings/settingsdialog.ui:1198
+#: src/settings/settingsdialog.ui:1293
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid ""
@@ -2749,17 +2897,17 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>دەلىللەشنى قوزغىتىش ياكى چەكلەش</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1201
+#: src/settings/settingsdialog.ui:1296
 msgctxt "SettingsDialog|"
 msgid "Authentication"
 msgstr "دەلىللەش"
 
-#: src/settings/settingsdialog.ui:1211
+#: src/settings/settingsdialog.ui:1306
 msgctxt "SettingsDialog|"
 msgid "Username:"
 msgstr "ئىشلەتكۈچى ئىسمى:"
 
-#: src/settings/settingsdialog.ui:1221
+#: src/settings/settingsdialog.ui:1316
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid ""
@@ -2772,12 +2920,12 @@ msgstr ""
 "<html><head/><body><p>دەلىللەش ئۈچۈن ۋاكالەتچى ئىشلەتكۈچى ئىسمى</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1231
+#: src/settings/settingsdialog.ui:1326
 msgctxt "SettingsDialog|"
 msgid "Password:"
 msgstr "پارول:"
 
-#: src/settings/settingsdialog.ui:1241
+#: src/settings/settingsdialog.ui:1336
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid ""
@@ -2788,12 +2936,12 @@ msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
 msgstr "<html><head/><body><p>دەلىللەش ئۈچۈن ۋاكالەتچى پارول</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1254
+#: src/settings/settingsdialog.ui:1349
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
 msgstr "ئۇچۇر: پارول شىفىرسىز ساقلىنىدۇ"
 
-#: src/settings/settingsdialog.ui:1290
+#: src/settings/settingsdialog.ui:1385
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
@@ -2801,7 +2949,7 @@ msgstr ""
 "<html><head/><body><p>ئومۇم تېزلەتمىلەرنى سىستېمىغا تىزىملىتىڭ</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1293
+#: src/settings/settingsdialog.ui:1388
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Enable global shortcucts"
@@ -2809,29 +2957,29 @@ msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "ئومۇم تېزلەتمىلىرىنى قوزغىتىڭ"
 
-#: src/settings/settingsdialog.ui:1309
+#: src/settings/settingsdialog.ui:1404
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
 "<html><head/><body><p>بارلىق تېزلەتمىلەرنى سۈكۈتتىكى ھالەتكە قايتۇرۇڭ</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1312
+#: src/settings/settingsdialog.ui:1407
 msgctxt "SettingsDialog|"
 msgid "Reset all"
 msgstr "ھەممىنى ئەسلىگە قايتۇر"
 
-#: src/settings/settingsdialog.ui:1322
+#: src/settings/settingsdialog.ui:1417
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
 msgstr "تېزلەتمە"
 
-#: src/settings/settingsdialog.ui:1328
+#: src/settings/settingsdialog.ui:1423
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
 msgstr "ئاچقۇچلۇق تەرتىپ:"
 
-#: src/settings/settingsdialog.ui:1335
+#: src/settings/settingsdialog.ui:1430
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
@@ -2840,48 +2988,48 @@ msgstr ""
 "<html><head/><body><p>تاللانغان ھەرىكەتنىڭ ئاچقۇچلۇق تەرتىپى</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1342
+#: src/settings/settingsdialog.ui:1437
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
 msgstr "<html><head/><body><p>تېزلەتمە قوبۇل قىل</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1345
+#: src/settings/settingsdialog.ui:1440
 msgctxt "SettingsDialog|"
 msgid "Accept"
 msgstr "قوشۇلىمەن"
 
-#: src/settings/settingsdialog.ui:1355
+#: src/settings/settingsdialog.ui:1450
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
 msgstr "<html><head/><body><p>تزلاش تىزلەتمىسى</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1358
+#: src/settings/settingsdialog.ui:1453
 msgctxt "SettingsDialog|"
 msgid "Clear"
 msgstr "تازىلاش"
 
-#: src/settings/settingsdialog.ui:1368
+#: src/settings/settingsdialog.ui:1463
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr ""
 "<html><head/><body><p>سۈكۈتتىكى ھالەتنى ئەسلىگە قايتۇرۇڭ</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1371
+#: src/settings/settingsdialog.ui:1466
 msgctxt "SettingsDialog|"
 msgid "Reset"
 msgstr "ئەسلىگە قايتۇر"
 
-#: src/settings/settingsdialog.ui:1416
+#: src/settings/settingsdialog.ui:1511
 msgctxt "SettingsDialog|"
 msgid "Version:"
 msgstr "نەشرى:"
 
-#: src/settings/settingsdialog.ui:1426
+#: src/settings/settingsdialog.ui:1521
 msgctxt "SettingsDialog|"
 msgid "License:"
 msgstr "ئىجازەتنامە:"
 
-#: src/settings/settingsdialog.ui:1440
+#: src/settings/settingsdialog.ui:1535
 #, fuzzy
 #| msgctxt "ShortcutsModel|"
 #| msgid "Source text"
@@ -2889,7 +3037,7 @@ msgctxt "SettingsDialog|"
 msgid "Source code:"
 msgstr "مەنبە تېكست"
 
-#: src/settings/settingsdialog.ui:1460
+#: src/settings/settingsdialog.ui:1555
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Translation mode:"
@@ -3029,48 +3177,35 @@ msgctxt "TesseractParametersTableWidget|"
 msgid "Value"
 msgstr "قىممەت"
 
-#: src/speakbuttons.cpp:80
-msgctxt "SpeakButtons|"
-msgid "No text specified"
-msgstr "تېكىست يوق"
+#: src/translator/atranslationprovider.cpp:112
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Translation mode:"
+msgctxt "QObject|"
+msgid "Translation Provider Error"
+msgstr "تەرجىمە ھالىتى:"
 
-#: src/speakbuttons.cpp:80
-msgctxt "SpeakButtons|"
-msgid "Playback text is empty"
-msgstr "قويۇش تېكىستى قۇرۇق"
+#: src/translator/atranslationprovider.cpp:113
+msgctxt "QObject|"
+msgid ""
+"The selected translation provider crashed during initialization and has been "
+"reset to 'Copy' to prevent further issues. You can try selecting a different "
+"provider in Settings → Translation."
+msgstr ""
 
-#: src/speakbuttons.cpp:86
-msgctxt "SpeakButtons|"
-msgid "Unable to generate URLs for TTS"
-msgstr "TTS ئۈچۈن URL ھاسىل قىلالمىدى"
-
-#: src/speakbuttons.ui:24
-msgctxt "SpeakButtons|"
-msgid "Speak / pause text speaking"
-msgstr "تېكىستنى سۆزلەش / توختىتىش"
-
-#: src/speakbuttons.ui:34
-msgctxt "SpeakButtons|"
-msgid "Stop text speaking"
-msgstr "تېكىست ئوقۇشتىن توختا"
-
-#: src/transitions/ocruninitializedtransition.cpp:28
-msgctxt "Ocr|"
-msgid "OCR languages are not loaded"
-msgstr "OCR تىلىنى يۈكلىيەلمىدى"
-
-#: src/transitions/ocruninitializedtransition.cpp:28
-msgctxt "Ocr|"
-msgid "You should set at least one OCR language in the application settings"
-msgstr "ئەپ تەڭشىكىدە كامىدا بىر OCR تىلى بىكىتىشڭىز كىرەك"
-
-#: src/translationedit.cpp:62
-msgctxt "TranslationEdit|"
+#: src/translator/mozhitranslationprovider.cpp:386
+#, fuzzy
+#| msgctxt "TranslationEdit|"
+#| msgid "translation options:"
+msgctxt "MozhiTranslationProvider|"
 msgid "translation options:"
 msgstr "تەرجىمە تاللانمىللىرى:"
 
-#: src/translationedit.cpp:87
-msgctxt "TranslationEdit|"
+#: src/translator/mozhitranslationprovider.cpp:400
+#, fuzzy
+#| msgctxt "TranslationEdit|"
+#| msgid "examples:"
+msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
 msgstr "ئۈلگىلەر:"
 
@@ -3093,6 +3228,207 @@ msgstr "چىكىن"
 msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "تەرجىمە نەتىجىسى"
+
+#: src/tts/attsprovider.cpp:69
+msgctxt "QObject|"
+msgid "TTS Provider Error"
+msgstr ""
+
+#: src/tts/attsprovider.cpp:70
+msgctxt "QObject|"
+msgid ""
+"The selected TTS provider crashed during initialization and has been reset "
+"to 'None' to prevent further issues. You can try selecting a different "
+"provider in Settings → TTS."
+msgstr ""
+
+#: src/tts/mozhittsprovider.cpp:48
+#, fuzzy
+#| msgctxt "SpeakButtons|"
+#| msgid "Playback text is empty"
+msgctxt "MozhiTTSProvider|"
+msgid "Text is empty"
+msgstr "قويۇش تېكىستى قۇرۇق"
+
+#: src/tts/mozhittsprovider.cpp:81
+msgctxt "MozhiTTSProvider|"
+msgid "No audio URLs generated"
+msgstr ""
+
+#: src/tts/mozhittsprovider.cpp:263
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Mozhi instance failed: %1 (HTTP Server Error)"
+msgstr ""
+
+#: src/tts/mozhittsprovider.cpp:265 src/tts/mozhittsprovider.cpp:272
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Cannot connect to Mozhi instance: %1"
+msgstr ""
+
+#: src/tts/mozhittsprovider.cpp:268
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Mozhi instance failed: %1 (HTTP 500 Internal Server Error)"
+msgstr ""
+
+#: src/tts/mozhittsprovider.cpp:270
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:115
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "Unable to initialize Tesseract with %1"
+msgctxt "PiperTTSProvider|"
+msgid "Failed to initialize Piper TTS"
+msgstr "Tesseract with نى %1 بىلەن دەسلەپلەشتۈرەلمىدى"
+
+#: src/tts/piperttsprovider.cpp:121
+#, qt-format
+msgctxt "PiperTTSProvider|"
+msgid "ONNX Runtime exception: %1"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:124
+msgctxt "PiperTTSProvider|"
+msgid "Unknown ONNX Runtime initialization error"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:205
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "Unable to initialize Tesseract with %1"
+msgctxt "PiperTTSProvider|"
+msgid "Failed to initialize espeak-ng"
+msgstr "Tesseract with نى %1 بىلەن دەسلەپلەشتۈرەلمىدى"
+
+#: src/tts/piperttsprovider.cpp:247
+#, qt-format
+msgctxt "PiperTTSProvider|"
+msgid "ONNX Runtime initialization error: %1"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:279
+msgctxt "PiperTTSProvider|"
+msgid "Privacy Notice - Neural TTS"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:281
+msgctxt "PiperTTSProvider|"
+msgid "ONNX Runtime Telemetry Information"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:283
+msgctxt "PiperTTSProvider|"
+msgid ""
+"Crow Translate uses ONNX Runtime for neural text-to-speech. The Windows "
+"binary includes Microsoft telemetry that collects usage information.\n"
+"\n"
+"Data Collection:\n"
+"• Device and usage data, error reports, performance information\n"
+"• Used by Microsoft to improve product quality and features\n"
+"• Subject to Microsoft Privacy Statement\n"
+"\n"
+"Crow Translate Actions:\n"
+"• Automatically disables telemetry on startup\n"
+"• Uses both environment variables and runtime API calls\n"
+"• Note: Some data may be transmitted during ONNX initialization\n"
+"\n"
+"On Unix systems, telemetry is inactive by default.\n"
+"This notice is shown once per installation."
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:1000
+msgctxt "PiperTTSProvider|"
+msgid "No audio data generated"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:1015
+msgctxt "PiperTTSProvider|"
+msgid "Failed to create temporary audio file"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:1024
+#, fuzzy
+#| msgctxt "UpdaterDialog|"
+#| msgid "Unable to write file"
+msgctxt "PiperTTSProvider|"
+msgid "Failed to write audio data"
+msgstr "ھۆججەت يېزىشقا ئامالسىز"
+
+#: src/tts/piperttsprovider.cpp:1362
+msgctxt "PiperTTSProvider|"
+msgid ""
+"<h3>Piper Voice Models Not Found</h3><p>No Piper TTS voice models were found "
+"in the standard locations.</p><p><b>To use Piper TTS:</b></"
+"p><ol><li>Download voice models from <a href='https://huggingface.co/rhasspy/"
+"piper-voices'>HuggingFace Piper Voices</a></li><li>Extract the models to a "
+"directory</li><li>Set the path in Settings → TTS → Piper Voices Path</li></"
+"ol><p><b>⚠️ License Warning:</b> Some models may have non-free licenses and "
+"cannot be used in commercial settings. Please check the license of each "
+"model before commercial use.</p>"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:1374
+msgctxt "PiperTTSProvider|"
+msgid "Piper Voice Models Required"
+msgstr ""
+
+#: src/tts/qtttsprovider.cpp:314
+#, qt-format
+msgctxt "QtTTSProvider|"
+msgid ""
+"<h3>Windows TTS Voice Not Found</h3><p>No Windows TTS voice was found for <b>"
+"%1</b>.</p><p><b>To install additional languages:</b></p><ol><li>Open "
+"<b>Settings → Time & Language → Language & region</b></li><li>Click <b>Add a "
+"language</b> and select your desired language</li><li>Click on the installed "
+"language and select <b>Language options</b></li><li>Under <b>Speech</b>, "
+"click <b>Download</b> for the speech pack</li></ol><p><b>⚠️ License Note:</b> "
+"Crow Translate currently only supports \"Basic voice models\" from Windows "
+"TTS. \"Narrator voices\" have licensing restrictions that are incompatible "
+"with this application.</p>"
+msgstr ""
+
+#: src/tts/qtttsprovider.cpp:328
+msgctxt "QtTTSProvider|"
+msgid "Windows TTS Voice Installation"
+msgstr ""
+
+#~ msgctxt "MainWindow|"
+#~ msgid "Unable to detect language"
+#~ msgstr "تىلنى بايقىيالمىدى"
+
+#~ msgctxt "MainWindow|"
+#~ msgid "Unable to translate text"
+#~ msgstr "تېكىستنى تەرجىمە قىلالمىدى"
+
+#~ msgctxt "SpeakButtons|"
+#~ msgid "No text specified"
+#~ msgstr "تېكىست يوق"
+
+#~ msgctxt "SpeakButtons|"
+#~ msgid "Unable to generate URLs for TTS"
+#~ msgstr "TTS ئۈچۈن URL ھاسىل قىلالمىدى"
+
+#~ msgctxt "SpeakButtons|"
+#~ msgid "Speak / pause text speaking"
+#~ msgstr "تېكىستنى سۆزلەش / توختىتىش"
+
+#~ msgctxt "SpeakButtons|"
+#~ msgid "Stop text speaking"
+#~ msgstr "تېكىست ئوقۇشتىن توختا"
+
+#~ msgctxt "TranslationEdit|"
+#~ msgid "translation options:"
+#~ msgstr "تەرجىمە تاللانمىللىرى:"
+
+#~ msgctxt "TranslationEdit|"
+#~ msgid "examples:"
+#~ msgstr "ئۈلگىلەر:"
 
 #~ msgctxt "Cli|"
 #~ msgid "%1 - translation options:"
@@ -3334,10 +3670,6 @@ msgstr "تەرجىمە نەتىجىسى"
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Changelog:"
 #~ msgstr "خاتېر-لوگلار:"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Unable to write file"
-#~ msgstr "ھۆججەت يېزىشقا ئامالسىز"
 
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Downloading is complete"

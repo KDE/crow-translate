@@ -18,12 +18,12 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: src/cli.cpp:42
+#: src/cli.cpp:37
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Показати усі коди мов."
 
-#: src/cli.cpp:43
+#: src/cli.cpp:39
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -32,7 +32,7 @@ msgstr ""
 "Указати мову оригіналу (за замовчуванням рушій намагатиметься визначити мову "
 "автоматично)."
 
-#: src/cli.cpp:44
+#: src/cli.cpp:43
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
@@ -41,7 +41,7 @@ msgstr ""
 "Вкажіть мову(и) перекладу, розділені '+' (усталено використовується системна "
 "мова). "
 
-#: src/cli.cpp:45
+#: src/cli.cpp:47
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
@@ -50,7 +50,7 @@ msgstr ""
 "Вкажіть двигун перекладача ('google', 'yandex', 'bing', 'libretranslate' або "
 "'lingva'), Google використовується за замовчуванням."
 
-#: src/cli.cpp:46
+#: src/cli.cpp:51
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
@@ -59,17 +59,45 @@ msgstr ""
 "Вказати адресу екземпляра Mozhi. Типово буде використано адресу екземпляра "
 "із параметрів програми."
 
-#: src/cli.cpp:47
+#: src/cli.cpp:55
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid ""
+#| "Specify Mozhi instance URL. Instance URL from the app settings will be "
+#| "used by default."
+msgctxt "Cli|"
+msgid ""
+"Specify translation provider ('copy' or 'mozhi'). Provider from app settings "
+"will be used by default."
+msgstr ""
+"Вказати адресу екземпляра Mozhi. Типово буде використано адресу екземпляра "
+"із параметрів програми."
+
+#: src/cli.cpp:58
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid ""
+#| "Specify Mozhi instance URL. Instance URL from the app settings will be "
+#| "used by default."
+msgctxt "Cli|"
+msgid ""
+"Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from app "
+"settings will be used by default."
+msgstr ""
+"Вказати адресу екземпляра Mozhi. Типово буде використано адресу екземпляра "
+"із параметрів програми."
+
+#: src/cli.cpp:60
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Прочитати переклад уголос."
 
-#: src/cli.cpp:48
+#: src/cli.cpp:61
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Прочитати оригінал уголос."
 
-#: src/cli.cpp:49
+#: src/cli.cpp:62
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -77,108 +105,139 @@ msgstr ""
 "Зчитати початковий текст із файлів. Аргументи будуть буде оброблено як шляхи "
 "до файлів."
 
-#: src/cli.cpp:50
+#: src/cli.cpp:63
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr " Додати дані стандартного вводу у початковий текст."
 
-#: src/cli.cpp:51
+#: src/cli.cpp:65
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "Не друкувати текст при використанні --%1 або --%2."
 
-#: src/cli.cpp:52
+#: src/cli.cpp:66
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Друкувати лише переклади."
 
-#: src/cli.cpp:53
+#: src/cli.cpp:67
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Друкувати вивід у форматі JSON."
 
-#: src/cli.cpp:56
+#: src/cli.cpp:70
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid "Application that allows to translate and speak text using Mozhi"
 msgctxt "Cli|"
-msgid "Application that allows to translate and speak text using Mozhi"
+msgid ""
+"Application that allows to translate and speak text using various providers"
 msgstr ""
 "Програма, яка надає змогу перекладати і озвучувати текст за допомогою Mozhi"
 
-#: src/cli.cpp:57
+#: src/cli.cpp:71
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr " Текст для перекладу. Усталено переклад буде виконано мовою системи."
 
-#: src/cli.cpp:79
+#: src/cli.cpp:95
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Помилка: Для --%1 необхідно вказати --%2 та/або --%3 параметри "
 
-#: src/cli.cpp:94
+#: src/cli.cpp:115
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "Помилка: невідомий код початкової мови «%1»"
 
-#: src/cli.cpp:102
+#: src/cli.cpp:128
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "Помилка: невідомий код мови перекладу «%1»"
 
-#: src/cli.cpp:126
+#: src/cli.cpp:152
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Помилка: Відсутній текст для перекладу"
 
-#: src/cli.cpp:132
+#: src/cli.cpp:165
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: Unknown translation language code '%1'"
+msgctxt "Cli|"
+msgid "Error: Unknown translation provider '%1'"
+msgstr "Помилка: невідомий код мови перекладу «%1»"
+
+#: src/cli.cpp:175
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr "Виявлення найшвидшого екземпляра"
 
-#: src/cli.cpp:159
+#: src/cli.cpp:214
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Language detection is not supported for %1"
+msgctxt "Cli|"
+msgid "Error: Lingva engine is not supported"
+msgstr "Підтримки виявлення мови для %1 не передбачено"
+
+#: src/cli.cpp:223
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "Помилка: Невідомий рушій"
 
-#: src/cli.cpp:194 src/cli.cpp:282 src/cli.cpp:372
+#: src/cli.cpp:256
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: Unknown source language code '%1'"
+msgctxt "Cli|"
+msgid "Error: Unknown TTS provider '%1'"
+msgstr "Помилка: невідомий код початкової мови «%1»"
+
+#: src/cli.cpp:335 src/cli.cpp:384
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Помилка: %1"
 
-#: src/cli.cpp:244
+#: src/cli.cpp:337 src/cli.cpp:386
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Translation backend:"
 msgctxt "Cli|"
-msgid "translation options:"
-msgstr "варіанти перекладу:"
+msgid "Translation error occurred"
+msgstr "Модуль перекладу:"
 
-#: src/cli.cpp:255
+#: src/cli.cpp:443
 msgctxt "Cli|"
-msgid "examples:"
-msgstr "приклади:"
+msgid "Error: TTS failed"
+msgstr ""
 
-#: src/cli.cpp:385
+#: src/cli.cpp:600
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Помилка: ви не можете використовувати --%1 з --%2"
 
-#: src/cli.cpp:397 src/cli.cpp:418
+#: src/cli.cpp:612 src/cli.cpp:633
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Помилка: Файл не існує: %1"
 
-#: src/cli.cpp:402 src/cli.cpp:423
+#: src/cli.cpp:617 src/cli.cpp:638
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
 msgstr "Помилка: Не вдалося відкрити файл: %1"
 
-#: src/contextmenu.h:39
+#: src/contextmenu.h:35
 msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Пошук на Forvo.com"
@@ -217,17 +276,17 @@ msgstr ""
 "Виявлення найшвидшого екземпляра.\n"
 "Перевіряємо «%1»"
 
-#: src/languagebuttonswidget.cpp:216
+#: src/languagebuttonswidget.cpp:225
 msgctxt "LanguageButtonsWidget|"
 msgid "Window width is larger than screen due to the languages on the panel."
 msgstr "Ширина вікна більша, ніж в екрану з-за мов на панелі."
 
-#: src/languagebuttonswidget.cpp:217
+#: src/languagebuttonswidget.cpp:226
 msgctxt "LanguageButtonsWidget|"
 msgid "Please reduce added languages."
 msgstr "Будь ласка, зменшіть кількість доданих мов."
 
-#: src/languagebuttonswidget.cpp:293 src/languagebuttonswidget.cpp:295
+#: src/languagebuttonswidget.cpp:302 src/languagebuttonswidget.cpp:304
 msgctxt "LanguageButtonsWidget|"
 msgid "Auto"
 msgstr "Автоматично"
@@ -237,7 +296,7 @@ msgctxt "LanguageButtonsWidget|"
 msgid "Edit languages"
 msgstr "Редагувати мови"
 
-#: src/languagesdialog.cpp:23
+#: src/languagesdialog.cpp:24
 #, qt-format
 msgctxt "LanguagesDialog|"
 msgid "Filter (%1)"
@@ -258,46 +317,55 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Поточні мови:"
 
-#: src/main.cpp:70
+#: src/main.cpp:76
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr "Сервіс D-Bus %1 вже зареєстрований іншою програмою"
 
-#: src/main.cpp:95
+#: src/main.cpp:109
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "Не вдалося зареєструвати об'єкт D-Bus для %1"
 
-#: src/mainwindow.cpp:269
-msgctxt "MainWindow|"
-msgid "Toggled OCR image negate"
+#: src/mainwindow.cpp:342
+msgctxt "QApplication|"
+msgid "OCR"
+msgstr ""
+
+#: src/mainwindow.cpp:343
+#, fuzzy
+#| msgctxt "MainWindow|"
+#| msgid "Toggled OCR image negate"
+msgctxt "QApplication|"
+msgid "OCR image negated"
 msgstr "Перемкнутий негатив оптично розпізнаного зображення"
 
-#: src/mainwindow.cpp:269
-#, qt-format
-msgctxt "MainWindow|"
-msgid "OCR image negate has changed to %1"
-msgstr "Негатив оптично розпізнаного зображення було змінено на %1"
+#: src/mainwindow.cpp:343
+msgctxt "QApplication|"
+msgid "OCR image is normal"
+msgstr ""
 
-#: src/mainwindow.cpp:392
-msgctxt "MainWindow|"
-msgid "Unable to detect language"
-msgstr "Не вдається визначити мову"
+#: src/mainwindow.cpp:495 src/mainwindow.cpp:515 src/mainwindow.cpp:563
+#: src/mainwindow.cpp:592
+msgctxt "Ocr|"
+msgid "OCR languages are not loaded"
+msgstr "Мови OCR не завантажено"
 
-#: src/mainwindow.cpp:444
-msgctxt "MainWindow|"
-msgid "Unable to translate text"
-msgstr "Не вдалося перекласти текст"
+#: src/mainwindow.cpp:495 src/mainwindow.cpp:515 src/mainwindow.cpp:563
+#: src/mainwindow.cpp:592
+msgctxt "Ocr|"
+msgid "You should set at least one OCR language in the application settings"
+msgstr "Ви повинні вказати хоч одну мову OCR у налаштуваннях програми"
 
-#: src/mainwindow.cpp:862
+#: src/mainwindow.cpp:746
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "У цій програмі для отримання перекладів використано %1."
 
-#: src/mainwindow.cpp:863
+#: src/mainwindow.cpp:747
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -311,95 +379,124 @@ msgstr ""
 "надісланий вами текст. Зараз використано «%1», але ви можете змінити це у "
 "параметрах перекладу. Див. параметри екземпляра за посиланням вище."
 
-#: src/mainwindow.cpp:870
+#: src/mainwindow.cpp:754
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "Не показувати знову"
 
-#: src/mainwindow.cpp:898
+#: src/mainwindow.cpp:796
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Недійсна піктограма для таці"
 
-#: src/mainwindow.cpp:898
+#: src/mainwindow.cpp:796
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr " Вказана піктограма '%1' недійсна. Буде використано типову піктограму."
 
-#: src/mainwindow.cpp:927
+#: src/mainwindow.cpp:817
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "Не вдалося вказати мови OCR"
 
-#: src/mainwindow.cpp:927
+#: src/mainwindow.cpp:817
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "Не вдалося ініціалізувати Tesseract з %1"
 
-#: src/mainwindow.ui:36
+#: src/mainwindow.cpp:955
+msgctxt "MainWindow|"
+msgid "TTS Error"
+msgstr ""
+
+#: src/mainwindow.cpp:955
+#, qt-format
+msgctxt "MainWindow|"
+msgid ""
+"Text-to-Speech error:\n"
+"\n"
+"%1\n"
+"\n"
+"Please check your TTS settings or try a different voice/locale."
+msgstr ""
+
+#: src/mainwindow.ui:14
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Main window"
+msgctxt "MainWindow|"
+msgid "MainWindow"
+msgstr "Головне вікно"
+
+#: src/mainwindow.ui:29
+msgctxt "MainWindow|"
+msgid "Translate"
+msgstr "Перекласти"
+
+#: src/mainwindow.ui:39
+msgctxt "MainWindow|"
+msgid "Swap languages"
+msgstr "Змінити мови місцями"
+
+#: src/mainwindow.ui:52
+msgctxt "MainWindow|"
+msgid "Source"
+msgstr "Оригінал"
+
+#: src/mainwindow.ui:72
+msgctxt "MainWindow|"
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: src/mainwindow.ui:132 src/mainwindow.ui:261
+msgctxt "MainWindow|"
+msgid "..."
+msgstr ""
+
+#: src/mainwindow.ui:142
 msgctxt "MainWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "Скопіювати вихідний текст до буфера обміну"
 
-#: src/mainwindow.ui:47
+#: src/mainwindow.ui:152
 msgctxt "MainWindow|"
 msgid "Recognize screen area with delay"
 msgstr "Розпізнати область екрану з затримкою"
 
 #. The text should be short to fit in portrait orientation on phones.
-#: src/mainwindow.ui:64
+#: src/mainwindow.ui:168
 msgctxt "MainWindow|"
 msgid "Auto-translation"
 msgstr "Автопереклад"
 
-#: src/mainwindow.ui:76
-msgctxt "MainWindow|"
-msgid "Cancel"
-msgstr "Скасувати"
-
-#: src/mainwindow.ui:87
-msgctxt "MainWindow|"
-msgid "Swap languages"
-msgstr "Змінити мови місцями"
-
-#: src/mainwindow.ui:111
-msgctxt "MainWindow|"
-msgid "Source"
-msgstr "Оригінал"
-
-#: src/mainwindow.ui:118
+#: src/mainwindow.ui:177
 msgctxt "MainWindow|"
 msgid "Clear"
 msgstr "Очистити"
 
-#: src/mainwindow.ui:135
-msgctxt "MainWindow|"
-msgid "Translate"
-msgstr "Перекласти"
-
-#: src/mainwindow.ui:163
+#: src/mainwindow.ui:204
 msgctxt "MainWindow|"
 msgid "Translation"
 msgstr "Переклад"
 
-#: src/mainwindow.ui:259
+#: src/mainwindow.ui:351
 msgctxt "MainWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Скопіювати переклад до буфера обміну"
 
-#: src/mainwindow.ui:270
+#: src/mainwindow.ui:361
 msgctxt "MainWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "Скопіювати всі дані перекладу до буфера обміну"
 
-#: src/mainwindow.ui:281
+#: src/mainwindow.ui:371
 msgctxt "MainWindow|"
 msgid "Translate screen area with delay"
 msgstr "Перекласти область екрану з затримкою"
 
-#: src/mainwindow.ui:292
+#: src/mainwindow.ui:381
 msgctxt "MainWindow|"
 msgid "Application settings"
 msgstr "Налаштування програми"
@@ -629,1099 +726,1104 @@ msgctxt "OnlineTranslator|"
 msgid "Language detection is not supported for %1"
 msgstr "Підтримки виявлення мови для %1 не передбачено"
 
-#: src/onlinetranslator.cpp:351
+#: src/onlinetranslator.cpp:319
+msgctxt "OnlineTranslator|"
+msgid "Operation aborted by user"
+msgstr ""
+
+#: src/onlinetranslator.cpp:362
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "%1 engine does not support TTS"
 msgstr "У рушії %1 не передбачено розпізнавання тексту за мовленням"
 
-#: src/onlinetranslator.cpp:492
+#: src/onlinetranslator.cpp:503
 msgctxt "OnlineTranslator|"
 msgid "Automatically detect"
 msgstr "Розпізнавати автоматично"
 
-#: src/onlinetranslator.cpp:494
+#: src/onlinetranslator.cpp:505
 msgctxt "OnlineTranslator|"
 msgid "Afrikaans"
 msgstr "Африкаанс"
 
-#: src/onlinetranslator.cpp:496
+#: src/onlinetranslator.cpp:507
 msgctxt "OnlineTranslator|"
 msgid "Albanian"
 msgstr "Албанська"
 
-#: src/onlinetranslator.cpp:498
+#: src/onlinetranslator.cpp:509
 msgctxt "OnlineTranslator|"
 msgid "Amharic"
 msgstr "Амхарська"
 
-#: src/onlinetranslator.cpp:500
+#: src/onlinetranslator.cpp:511
 msgctxt "OnlineTranslator|"
 msgid "Arabic"
 msgstr "Арабська"
 
-#: src/onlinetranslator.cpp:502
+#: src/onlinetranslator.cpp:513
 msgctxt "OnlineTranslator|"
 msgid "Armenian"
 msgstr "Вірменська"
 
-#: src/onlinetranslator.cpp:504
+#: src/onlinetranslator.cpp:515
 msgctxt "OnlineTranslator|"
 msgid "Assamese"
 msgstr "Ассамська"
 
-#: src/onlinetranslator.cpp:506
+#: src/onlinetranslator.cpp:517
 msgctxt "OnlineTranslator|"
 msgid "Aymara"
 msgstr "Аймарська"
 
-#: src/onlinetranslator.cpp:508
+#: src/onlinetranslator.cpp:519
 msgctxt "OnlineTranslator|"
 msgid "Azerbaijani"
 msgstr "Азербайджанська"
 
-#: src/onlinetranslator.cpp:510
+#: src/onlinetranslator.cpp:521
 msgctxt "OnlineTranslator|"
 msgid "Bajan"
 msgstr "Баджан"
 
-#: src/onlinetranslator.cpp:512
+#: src/onlinetranslator.cpp:523
 msgctxt "OnlineTranslator|"
 msgid "Balkan Gipsy"
 msgstr "Балканська ромська"
 
-#: src/onlinetranslator.cpp:514
+#: src/onlinetranslator.cpp:525
 msgctxt "OnlineTranslator|"
 msgid "Bambara"
 msgstr "Бамбара"
 
-#: src/onlinetranslator.cpp:516
+#: src/onlinetranslator.cpp:527
 msgctxt "OnlineTranslator|"
 msgid "Bangla"
 msgstr "Бенгальська"
 
-#: src/onlinetranslator.cpp:518
+#: src/onlinetranslator.cpp:529
 msgctxt "OnlineTranslator|"
 msgid "Bashkir"
 msgstr "Башкирська"
 
-#: src/onlinetranslator.cpp:520
+#: src/onlinetranslator.cpp:531
 msgctxt "OnlineTranslator|"
 msgid "Basque"
 msgstr "Баскська"
 
-#: src/onlinetranslator.cpp:522
+#: src/onlinetranslator.cpp:533
 msgctxt "OnlineTranslator|"
 msgid "Belarusian"
 msgstr "Білоруська"
 
-#: src/onlinetranslator.cpp:524
+#: src/onlinetranslator.cpp:535
 msgctxt "OnlineTranslator|"
 msgid "Bemba"
 msgstr "Бемба"
 
-#: src/onlinetranslator.cpp:526
+#: src/onlinetranslator.cpp:537
 msgctxt "OnlineTranslator|"
 msgid "Bhojpuri"
 msgstr "Бходжпурі"
 
-#: src/onlinetranslator.cpp:528
+#: src/onlinetranslator.cpp:539
 msgctxt "OnlineTranslator|"
 msgid "Bislama"
 msgstr "Біслама"
 
-#: src/onlinetranslator.cpp:530
+#: src/onlinetranslator.cpp:541
 msgctxt "OnlineTranslator|"
 msgid "Bosnian"
 msgstr "Боснійська"
 
-#: src/onlinetranslator.cpp:532
+#: src/onlinetranslator.cpp:543
 msgctxt "OnlineTranslator|"
 msgid "Breton"
 msgstr "Бретонська"
 
-#: src/onlinetranslator.cpp:534
+#: src/onlinetranslator.cpp:545
 msgctxt "OnlineTranslator|"
 msgid "Bulgarian"
 msgstr "Болгарська"
 
-#: src/onlinetranslator.cpp:536
+#: src/onlinetranslator.cpp:547
 msgctxt "OnlineTranslator|"
 msgid "Cantonese (Traditional)"
 msgstr "Кантонська (традиційна)"
 
-#: src/onlinetranslator.cpp:538
+#: src/onlinetranslator.cpp:549
 msgctxt "OnlineTranslator|"
 msgid "Catalan"
 msgstr "Каталонська"
 
-#: src/onlinetranslator.cpp:540
+#: src/onlinetranslator.cpp:551
 msgctxt "OnlineTranslator|"
 msgid "Cebuano"
 msgstr "Себуанська"
 
-#: src/onlinetranslator.cpp:542
+#: src/onlinetranslator.cpp:553
 msgctxt "OnlineTranslator|"
 msgid "Chamorro"
 msgstr "Чаморо"
 
-#: src/onlinetranslator.cpp:544
+#: src/onlinetranslator.cpp:555
 msgctxt "OnlineTranslator|"
 msgid "Chichewa"
 msgstr "Чічеванська"
 
-#: src/onlinetranslator.cpp:546
+#: src/onlinetranslator.cpp:557
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Literary)"
 msgstr "Китайська (літературна)"
 
-#: src/onlinetranslator.cpp:548
+#: src/onlinetranslator.cpp:559
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Simplified)"
 msgstr "Китайська (спрощена)"
 
-#: src/onlinetranslator.cpp:550
+#: src/onlinetranslator.cpp:561
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Traditional)"
 msgstr "Китайська (традиційна)"
 
-#: src/onlinetranslator.cpp:552
+#: src/onlinetranslator.cpp:563
 msgctxt "OnlineTranslator|"
 msgid "Chuvash"
 msgstr "Чуваська"
 
-#: src/onlinetranslator.cpp:554
+#: src/onlinetranslator.cpp:565
 msgctxt "OnlineTranslator|"
 msgid "Comorian (Ngazidja)"
 msgstr "Коморська (нгазіджа)"
 
-#: src/onlinetranslator.cpp:556
+#: src/onlinetranslator.cpp:567
 msgctxt "OnlineTranslator|"
 msgid "Coptic"
 msgstr "Коптська"
 
-#: src/onlinetranslator.cpp:558
+#: src/onlinetranslator.cpp:569
 msgctxt "OnlineTranslator|"
 msgid "Corsican"
 msgstr "Корсиканська"
 
-#: src/onlinetranslator.cpp:560
+#: src/onlinetranslator.cpp:571
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Antigua and Barbuda)"
 msgstr "Креольська англійська (Антигуа і Барбуда)"
 
-#: src/onlinetranslator.cpp:562
+#: src/onlinetranslator.cpp:573
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Bahamas)"
 msgstr "Креольська англійська (Багамські острови)"
 
-#: src/onlinetranslator.cpp:564
+#: src/onlinetranslator.cpp:575
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Grenadian)"
 msgstr "Креольська англійська (гренадська)"
 
-#: src/onlinetranslator.cpp:566
+#: src/onlinetranslator.cpp:577
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Guyanese)"
 msgstr "Креольська англійська (гаянська)"
 
-#: src/onlinetranslator.cpp:568
+#: src/onlinetranslator.cpp:579
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Jamaican)"
 msgstr "Креольська англійська (ямайська)"
 
-#: src/onlinetranslator.cpp:570
+#: src/onlinetranslator.cpp:581
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Vincentian)"
 msgstr "Креольська англійська (вінсентійська)"
 
-#: src/onlinetranslator.cpp:572
+#: src/onlinetranslator.cpp:583
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Virgin Islands)"
 msgstr "Креольська англійська (Віргінські острови)"
 
-#: src/onlinetranslator.cpp:574
+#: src/onlinetranslator.cpp:585
 msgctxt "OnlineTranslator|"
 msgid "Creole French (Saint Lucian)"
 msgstr "Креольська французька (Сент-Люсія)"
 
-#: src/onlinetranslator.cpp:576
+#: src/onlinetranslator.cpp:587
 msgctxt "OnlineTranslator|"
 msgid "Creole French (Seselwa)"
 msgstr "Креольська французька (сесельва)"
 
-#: src/onlinetranslator.cpp:578
+#: src/onlinetranslator.cpp:589
 msgctxt "OnlineTranslator|"
 msgid "Creole Portuguese (Upper Guinea)"
 msgstr "Креольська португальська (Верхня Гвінея)"
 
-#: src/onlinetranslator.cpp:580
+#: src/onlinetranslator.cpp:591
 msgctxt "OnlineTranslator|"
 msgid "Croatian"
 msgstr "Хорватська"
 
-#: src/onlinetranslator.cpp:582
+#: src/onlinetranslator.cpp:593
 msgctxt "OnlineTranslator|"
 msgid "Czech"
 msgstr "Чеська"
 
-#: src/onlinetranslator.cpp:584
+#: src/onlinetranslator.cpp:595
 msgctxt "OnlineTranslator|"
 msgid "Danish"
 msgstr "Данська"
 
-#: src/onlinetranslator.cpp:586
+#: src/onlinetranslator.cpp:597
 msgctxt "OnlineTranslator|"
 msgid "Dari"
 msgstr "Дарі"
 
-#: src/onlinetranslator.cpp:588
+#: src/onlinetranslator.cpp:599
 msgctxt "OnlineTranslator|"
 msgid "Divehi"
 msgstr "Дівехі"
 
-#: src/onlinetranslator.cpp:590
+#: src/onlinetranslator.cpp:601
 msgctxt "OnlineTranslator|"
 msgid "Dogri"
 msgstr "Догрі"
 
-#: src/onlinetranslator.cpp:592
+#: src/onlinetranslator.cpp:603
 msgctxt "OnlineTranslator|"
 msgid "Dutch"
 msgstr "Голландська"
 
-#: src/onlinetranslator.cpp:594
+#: src/onlinetranslator.cpp:605
 msgctxt "OnlineTranslator|"
 msgid "Dzongkha"
 msgstr "Дзонг-ке"
 
-#: src/onlinetranslator.cpp:596
+#: src/onlinetranslator.cpp:607
 msgctxt "OnlineTranslator|"
 msgid "Elvish (Sindarin)"
 msgstr "Ельфійська (сінадрінська)"
 
-#: src/onlinetranslator.cpp:598
+#: src/onlinetranslator.cpp:609
 msgctxt "OnlineTranslator|"
 msgid "Emoji"
 msgstr "Емодзі"
 
-#: src/onlinetranslator.cpp:600
+#: src/onlinetranslator.cpp:611
 msgctxt "OnlineTranslator|"
 msgid "English"
 msgstr "Англійська"
 
-#: src/onlinetranslator.cpp:602
+#: src/onlinetranslator.cpp:613
 msgctxt "OnlineTranslator|"
 msgid "Esperanto"
 msgstr "Есперанто"
 
-#: src/onlinetranslator.cpp:604
+#: src/onlinetranslator.cpp:615
 msgctxt "OnlineTranslator|"
 msgid "Estonian"
 msgstr "Естонська"
 
-#: src/onlinetranslator.cpp:606
+#: src/onlinetranslator.cpp:617
 msgctxt "OnlineTranslator|"
 msgid "Ewe"
 msgstr "Еве"
 
-#: src/onlinetranslator.cpp:608
+#: src/onlinetranslator.cpp:619
 msgctxt "OnlineTranslator|"
 msgid "Fanagalo"
 msgstr "Фанагало"
 
-#: src/onlinetranslator.cpp:610
+#: src/onlinetranslator.cpp:621
 msgctxt "OnlineTranslator|"
 msgid "Faroese"
 msgstr "Фарерська"
 
-#: src/onlinetranslator.cpp:612
+#: src/onlinetranslator.cpp:623
 msgctxt "OnlineTranslator|"
 msgid "Fijian"
 msgstr "Фіджійська"
 
-#: src/onlinetranslator.cpp:614
+#: src/onlinetranslator.cpp:625
 msgctxt "OnlineTranslator|"
 msgid "Filipino"
 msgstr "Філіппінська"
 
-#: src/onlinetranslator.cpp:616
+#: src/onlinetranslator.cpp:627
 msgctxt "OnlineTranslator|"
 msgid "Finnish"
 msgstr "Фінська"
 
-#: src/onlinetranslator.cpp:618
+#: src/onlinetranslator.cpp:629
 msgctxt "OnlineTranslator|"
 msgid "French"
 msgstr "Французька"
 
-#: src/onlinetranslator.cpp:620
+#: src/onlinetranslator.cpp:631
 msgctxt "OnlineTranslator|"
 msgid "French (Canada)"
 msgstr "Французька (Канада)"
 
-#: src/onlinetranslator.cpp:622
+#: src/onlinetranslator.cpp:633
 msgctxt "OnlineTranslator|"
 msgid "Frisian"
 msgstr "Фризька"
 
-#: src/onlinetranslator.cpp:624
+#: src/onlinetranslator.cpp:635
 msgctxt "OnlineTranslator|"
 msgid "Galician"
 msgstr "Галісійська"
 
-#: src/onlinetranslator.cpp:626
+#: src/onlinetranslator.cpp:637
 msgctxt "OnlineTranslator|"
 msgid "Ganda"
 msgstr "ганда"
 
-#: src/onlinetranslator.cpp:628
+#: src/onlinetranslator.cpp:639
 msgctxt "OnlineTranslator|"
 msgid "Georgian"
 msgstr "Грузинська"
 
-#: src/onlinetranslator.cpp:630
+#: src/onlinetranslator.cpp:641
 msgctxt "OnlineTranslator|"
 msgid "German"
 msgstr "Німецька"
 
-#: src/onlinetranslator.cpp:632
+#: src/onlinetranslator.cpp:643
 msgctxt "OnlineTranslator|"
 msgid "Greek"
 msgstr "Грецька"
 
-#: src/onlinetranslator.cpp:634
+#: src/onlinetranslator.cpp:645
 msgctxt "OnlineTranslator|"
 msgid "Greek (Classical)"
 msgstr "Грецька (класична)"
 
-#: src/onlinetranslator.cpp:636
+#: src/onlinetranslator.cpp:647
 msgctxt "OnlineTranslator|"
 msgid "Guarani"
 msgstr "Гуарані"
 
-#: src/onlinetranslator.cpp:638
+#: src/onlinetranslator.cpp:649
 msgctxt "OnlineTranslator|"
 msgid "Gujarati"
 msgstr "Гуджараті"
 
-#: src/onlinetranslator.cpp:640
+#: src/onlinetranslator.cpp:651
 msgctxt "OnlineTranslator|"
 msgid "Haitian Creole"
 msgstr "Гаїтянська креольська"
 
-#: src/onlinetranslator.cpp:642
+#: src/onlinetranslator.cpp:653
 msgctxt "OnlineTranslator|"
 msgid "Hausa"
 msgstr "Хауса"
 
-#: src/onlinetranslator.cpp:644
+#: src/onlinetranslator.cpp:655
 msgctxt "OnlineTranslator|"
 msgid "Hawaiian"
 msgstr "Гавайська"
 
-#: src/onlinetranslator.cpp:646
+#: src/onlinetranslator.cpp:657
 msgctxt "OnlineTranslator|"
 msgid "Hebrew"
 msgstr "Гебрейська"
 
-#: src/onlinetranslator.cpp:648
+#: src/onlinetranslator.cpp:659
 msgctxt "OnlineTranslator|"
 msgid "Hill Mari"
 msgstr "Гірська марійська"
 
-#: src/onlinetranslator.cpp:650
+#: src/onlinetranslator.cpp:661
 msgctxt "OnlineTranslator|"
 msgid "Hindi"
 msgstr "Гінді"
 
-#: src/onlinetranslator.cpp:652
+#: src/onlinetranslator.cpp:663
 msgctxt "OnlineTranslator|"
 msgid "Hmong"
 msgstr "Хмонг"
 
-#: src/onlinetranslator.cpp:654
+#: src/onlinetranslator.cpp:665
 msgctxt "OnlineTranslator|"
 msgid "Hmong Daw"
 msgstr "хмонг-дау"
 
-#: src/onlinetranslator.cpp:656
+#: src/onlinetranslator.cpp:667
 msgctxt "OnlineTranslator|"
 msgid "Hungarian"
 msgstr "Угорська"
 
-#: src/onlinetranslator.cpp:658
+#: src/onlinetranslator.cpp:669
 msgctxt "OnlineTranslator|"
 msgid "Icelandic"
 msgstr "Ісландська"
 
-#: src/onlinetranslator.cpp:660
+#: src/onlinetranslator.cpp:671
 msgctxt "OnlineTranslator|"
 msgid "Igbo"
 msgstr "Іґбо"
 
-#: src/onlinetranslator.cpp:662
+#: src/onlinetranslator.cpp:673
 msgctxt "OnlineTranslator|"
 msgid "Ilocano"
 msgstr "Ілоканська"
 
-#: src/onlinetranslator.cpp:664
+#: src/onlinetranslator.cpp:675
 msgctxt "OnlineTranslator|"
 msgid "Indonesian"
 msgstr "Індонезійська"
 
-#: src/onlinetranslator.cpp:666
+#: src/onlinetranslator.cpp:677
 msgctxt "OnlineTranslator|"
 msgid "Inuinnaqtun"
 msgstr "інуїннактун"
 
-#: src/onlinetranslator.cpp:668
+#: src/onlinetranslator.cpp:679
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut"
 msgstr "Інуктитут"
 
-#: src/onlinetranslator.cpp:670
+#: src/onlinetranslator.cpp:681
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Greenlandic)"
 msgstr "Інуктикут (гренландська)"
 
-#: src/onlinetranslator.cpp:672
+#: src/onlinetranslator.cpp:683
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Latin)"
 msgstr "Інуктитут (латинська)"
 
-#: src/onlinetranslator.cpp:674
+#: src/onlinetranslator.cpp:685
 msgctxt "OnlineTranslator|"
 msgid "Irish"
 msgstr "Ірландська"
 
-#: src/onlinetranslator.cpp:676
+#: src/onlinetranslator.cpp:687
 msgctxt "OnlineTranslator|"
 msgid "Italian"
 msgstr "Італійська"
 
-#: src/onlinetranslator.cpp:678
+#: src/onlinetranslator.cpp:689
 msgctxt "OnlineTranslator|"
 msgid "Japanese"
 msgstr "Японська"
 
-#: src/onlinetranslator.cpp:680
+#: src/onlinetranslator.cpp:691
 msgctxt "OnlineTranslator|"
 msgid "Javanese"
 msgstr "Яванська"
 
-#: src/onlinetranslator.cpp:682
+#: src/onlinetranslator.cpp:693
 msgctxt "OnlineTranslator|"
 msgid "Kabuverdianu"
 msgstr "Кабувердьяну"
 
-#: src/onlinetranslator.cpp:684
+#: src/onlinetranslator.cpp:695
 msgctxt "OnlineTranslator|"
 msgid "Kabylian"
 msgstr "Кабильська"
 
-#: src/onlinetranslator.cpp:686
+#: src/onlinetranslator.cpp:697
 msgctxt "OnlineTranslator|"
 msgid "Kannada"
 msgstr "Каннада"
 
-#: src/onlinetranslator.cpp:688
+#: src/onlinetranslator.cpp:699
 msgctxt "OnlineTranslator|"
 msgid "Kazakh"
 msgstr "Казахська"
 
-#: src/onlinetranslator.cpp:690
+#: src/onlinetranslator.cpp:701
 msgctxt "OnlineTranslator|"
 msgid "Kazakh (Latin)"
 msgstr "Казахська (латиниця)"
 
-#: src/onlinetranslator.cpp:692
+#: src/onlinetranslator.cpp:703
 msgctxt "OnlineTranslator|"
 msgid "Khmer"
 msgstr "Кхмер"
 
-#: src/onlinetranslator.cpp:694
+#: src/onlinetranslator.cpp:705
 msgctxt "OnlineTranslator|"
 msgid "Kinyarwanda"
 msgstr "Кіньяруанда"
 
-#: src/onlinetranslator.cpp:696
+#: src/onlinetranslator.cpp:707
 msgctxt "OnlineTranslator|"
 msgid "Kirundi"
 msgstr "Кірунді"
 
-#: src/onlinetranslator.cpp:698
+#: src/onlinetranslator.cpp:709
 msgctxt "OnlineTranslator|"
 msgid "Klingon (Latin)"
 msgstr "Клінгонська (латиниця)"
 
-#: src/onlinetranslator.cpp:700
+#: src/onlinetranslator.cpp:711
 msgctxt "OnlineTranslator|"
 msgid "Konkani"
 msgstr "Конкані"
 
-#: src/onlinetranslator.cpp:702
+#: src/onlinetranslator.cpp:713
 msgctxt "OnlineTranslator|"
 msgid "Korean"
 msgstr "Корейська"
 
-#: src/onlinetranslator.cpp:704
+#: src/onlinetranslator.cpp:715
 msgctxt "OnlineTranslator|"
 msgid "Krio"
 msgstr "Кріо"
 
-#: src/onlinetranslator.cpp:706
+#: src/onlinetranslator.cpp:717
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Central)"
 msgstr "Курдська (центральна)"
 
-#: src/onlinetranslator.cpp:708
+#: src/onlinetranslator.cpp:719
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Northern)"
 msgstr "Курдська (північна)"
 
-#: src/onlinetranslator.cpp:710
+#: src/onlinetranslator.cpp:721
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Sorani)"
 msgstr "Курдська (сорані)"
 
-#: src/onlinetranslator.cpp:712
+#: src/onlinetranslator.cpp:723
 msgctxt "OnlineTranslator|"
 msgid "Kyrgyz"
 msgstr "Киргизька"
 
-#: src/onlinetranslator.cpp:714
+#: src/onlinetranslator.cpp:725
 msgctxt "OnlineTranslator|"
 msgid "Lao"
 msgstr "Лаоська"
 
-#: src/onlinetranslator.cpp:716
+#: src/onlinetranslator.cpp:727
 msgctxt "OnlineTranslator|"
 msgid "Latin"
 msgstr "Латинська"
 
-#: src/onlinetranslator.cpp:718
+#: src/onlinetranslator.cpp:729
 msgctxt "OnlineTranslator|"
 msgid "Latvian"
 msgstr "Латвійська"
 
-#: src/onlinetranslator.cpp:720
+#: src/onlinetranslator.cpp:731
 msgctxt "OnlineTranslator|"
 msgid "Lingala"
 msgstr "Лінгала"
 
-#: src/onlinetranslator.cpp:722
+#: src/onlinetranslator.cpp:733
 msgctxt "OnlineTranslator|"
 msgid "Lithuanian"
 msgstr "Литовська"
 
-#: src/onlinetranslator.cpp:724
+#: src/onlinetranslator.cpp:735
 msgctxt "OnlineTranslator|"
 msgid "Lower Sorbian"
 msgstr "Нижньолужицька"
 
-#: src/onlinetranslator.cpp:726
+#: src/onlinetranslator.cpp:737
 msgctxt "OnlineTranslator|"
 msgid "Luganda"
 msgstr "Луганда"
 
-#: src/onlinetranslator.cpp:728
+#: src/onlinetranslator.cpp:739
 msgctxt "OnlineTranslator|"
 msgid "Luxembourgish"
 msgstr "Люксембурзька"
 
-#: src/onlinetranslator.cpp:730
+#: src/onlinetranslator.cpp:741
 msgctxt "OnlineTranslator|"
 msgid "Macedonian"
 msgstr "Македонська"
 
-#: src/onlinetranslator.cpp:732
+#: src/onlinetranslator.cpp:743
 msgctxt "OnlineTranslator|"
 msgid "Maithili"
 msgstr "Майтхілі"
 
-#: src/onlinetranslator.cpp:734
+#: src/onlinetranslator.cpp:745
 msgctxt "OnlineTranslator|"
 msgid "Malagasy"
 msgstr "Малагасійська"
 
-#: src/onlinetranslator.cpp:736
+#: src/onlinetranslator.cpp:747
 msgctxt "OnlineTranslator|"
 msgid "Malay"
 msgstr "Малайська"
 
-#: src/onlinetranslator.cpp:738
+#: src/onlinetranslator.cpp:749
 msgctxt "OnlineTranslator|"
 msgid "Malayalam"
 msgstr "Малаялам"
 
-#: src/onlinetranslator.cpp:740
+#: src/onlinetranslator.cpp:751
 msgctxt "OnlineTranslator|"
 msgid "Maltese"
 msgstr "Мальтійська"
 
-#: src/onlinetranslator.cpp:742
+#: src/onlinetranslator.cpp:753
 msgctxt "OnlineTranslator|"
 msgid "Manx Gaelic"
 msgstr "Шотландська гаельська"
 
-#: src/onlinetranslator.cpp:744
+#: src/onlinetranslator.cpp:755
 msgctxt "OnlineTranslator|"
 msgid "Marathi"
 msgstr "Маратхі"
 
-#: src/onlinetranslator.cpp:746
+#: src/onlinetranslator.cpp:757
 msgctxt "OnlineTranslator|"
 msgid "Mari"
 msgstr "Марі"
 
-#: src/onlinetranslator.cpp:748
+#: src/onlinetranslator.cpp:759
 msgctxt "OnlineTranslator|"
 msgid "Marshallese"
 msgstr "Маршальська"
 
-#: src/onlinetranslator.cpp:750
+#: src/onlinetranslator.cpp:761
 msgctxt "OnlineTranslator|"
 msgid "Meiteilon (Manipuri)"
 msgstr "Мейтейлонська (маніпурська)"
 
-#: src/onlinetranslator.cpp:752
+#: src/onlinetranslator.cpp:763
 msgctxt "OnlineTranslator|"
 msgid "Mende"
 msgstr "Менде"
 
-#: src/onlinetranslator.cpp:754
+#: src/onlinetranslator.cpp:765
 msgctxt "OnlineTranslator|"
 msgid "Mizo"
 msgstr "Мізо"
 
-#: src/onlinetranslator.cpp:756
+#: src/onlinetranslator.cpp:767
 msgctxt "OnlineTranslator|"
 msgid "Mongolian"
 msgstr "Монгольська"
 
-#: src/onlinetranslator.cpp:758
+#: src/onlinetranslator.cpp:769
 msgctxt "OnlineTranslator|"
 msgid "Mongolian (Cyrillic)"
 msgstr "Монгольська (кирилиця)"
 
-#: src/onlinetranslator.cpp:760
+#: src/onlinetranslator.cpp:771
 msgctxt "OnlineTranslator|"
 msgid "Mongolian (Traditional)"
 msgstr "Монгольська (традиційна)"
 
-#: src/onlinetranslator.cpp:762
+#: src/onlinetranslator.cpp:773
 msgctxt "OnlineTranslator|"
 msgid "Morisyen"
 msgstr "Маврикійська"
 
-#: src/onlinetranslator.cpp:764
+#: src/onlinetranslator.cpp:775
 msgctxt "OnlineTranslator|"
 msgid "Myanmar (Burmese)"
 msgstr "М'янмська (бірманська)"
 
-#: src/onlinetranslator.cpp:766
+#: src/onlinetranslator.cpp:777
 msgctxt "OnlineTranslator|"
 msgid "Māori"
 msgstr "Маорі"
 
-#: src/onlinetranslator.cpp:768
+#: src/onlinetranslator.cpp:779
 msgctxt "OnlineTranslator|"
 msgid "Nepali"
 msgstr "Непальська"
 
-#: src/onlinetranslator.cpp:770
+#: src/onlinetranslator.cpp:781
 msgctxt "OnlineTranslator|"
 msgid "Niuean"
 msgstr "Ніуе"
 
-#: src/onlinetranslator.cpp:772
+#: src/onlinetranslator.cpp:783
 msgctxt "OnlineTranslator|"
 msgid "Norwegian"
 msgstr "Норвезька"
 
-#: src/onlinetranslator.cpp:774
+#: src/onlinetranslator.cpp:785
 msgctxt "OnlineTranslator|"
 msgid "Nyanja"
 msgstr "Ньянджа"
 
-#: src/onlinetranslator.cpp:776
+#: src/onlinetranslator.cpp:787
 msgctxt "OnlineTranslator|"
 msgid "Odia"
 msgstr "Одіа"
 
-#: src/onlinetranslator.cpp:778
+#: src/onlinetranslator.cpp:789
 msgctxt "OnlineTranslator|"
 msgid "Oromo"
 msgstr "Оромо"
 
-#: src/onlinetranslator.cpp:780
+#: src/onlinetranslator.cpp:791
 msgctxt "OnlineTranslator|"
 msgid "Palauan"
 msgstr "Палау"
 
-#: src/onlinetranslator.cpp:782
+#: src/onlinetranslator.cpp:793
 msgctxt "OnlineTranslator|"
 msgid "Papiamentu"
 msgstr "Папіаменто"
 
-#: src/onlinetranslator.cpp:784
+#: src/onlinetranslator.cpp:795
 msgctxt "OnlineTranslator|"
 msgid "Pashto"
 msgstr "Пушту"
 
-#: src/onlinetranslator.cpp:786
+#: src/onlinetranslator.cpp:797
 msgctxt "OnlineTranslator|"
 msgid "Persian"
 msgstr "Перська"
 
-#: src/onlinetranslator.cpp:788
+#: src/onlinetranslator.cpp:799
 msgctxt "OnlineTranslator|"
 msgid "Pijin"
 msgstr "Піджин"
 
-#: src/onlinetranslator.cpp:790
+#: src/onlinetranslator.cpp:801
 msgctxt "OnlineTranslator|"
 msgid "Polish"
 msgstr "Польська"
 
-#: src/onlinetranslator.cpp:792
+#: src/onlinetranslator.cpp:803
 msgctxt "OnlineTranslator|"
 msgid "Portuguese (Brazilian)"
 msgstr "Португальська (Бразилія)"
 
-#: src/onlinetranslator.cpp:794
+#: src/onlinetranslator.cpp:805
 msgctxt "OnlineTranslator|"
 msgid "Portuguese (Portugal)"
 msgstr "Португальська (Португалія)"
 
-#: src/onlinetranslator.cpp:796
+#: src/onlinetranslator.cpp:807
 msgctxt "OnlineTranslator|"
 msgid "Potawatomi"
 msgstr "Потаватомі"
 
-#: src/onlinetranslator.cpp:798
+#: src/onlinetranslator.cpp:809
 msgctxt "OnlineTranslator|"
 msgid "Punjabi"
 msgstr "Пенджабі"
 
-#: src/onlinetranslator.cpp:800
+#: src/onlinetranslator.cpp:811
 msgctxt "OnlineTranslator|"
 msgid "Quechua"
 msgstr "Кечуа"
 
-#: src/onlinetranslator.cpp:802
+#: src/onlinetranslator.cpp:813
 msgctxt "OnlineTranslator|"
 msgid "Querétaro Otomi"
 msgstr "Керетаро Отомі"
 
-#: src/onlinetranslator.cpp:804
+#: src/onlinetranslator.cpp:815
 msgctxt "OnlineTranslator|"
 msgid "Romanian"
 msgstr "Румунська"
 
-#: src/onlinetranslator.cpp:806
+#: src/onlinetranslator.cpp:817
 msgctxt "OnlineTranslator|"
 msgid "Rundi"
 msgstr "Рунді"
 
-#: src/onlinetranslator.cpp:808
+#: src/onlinetranslator.cpp:819
 msgctxt "OnlineTranslator|"
 msgid "Russian"
 msgstr "Російська"
 
-#: src/onlinetranslator.cpp:810
+#: src/onlinetranslator.cpp:821
 msgctxt "OnlineTranslator|"
 msgid "Samoan"
 msgstr "Самоанська"
 
-#: src/onlinetranslator.cpp:812
+#: src/onlinetranslator.cpp:823
 msgctxt "OnlineTranslator|"
 msgid "Sango"
 msgstr "Санго"
 
-#: src/onlinetranslator.cpp:814
+#: src/onlinetranslator.cpp:825
 msgctxt "OnlineTranslator|"
 msgid "Sanskrit"
 msgstr "Санскрит"
 
-#: src/onlinetranslator.cpp:816
+#: src/onlinetranslator.cpp:827
 msgctxt "OnlineTranslator|"
 msgid "Scots Gaelic"
 msgstr "Шотландська гаельська"
 
-#: src/onlinetranslator.cpp:818
+#: src/onlinetranslator.cpp:829
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Cyrillic)"
 msgstr "Сербська (кирилиця)"
 
-#: src/onlinetranslator.cpp:820
+#: src/onlinetranslator.cpp:831
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Latin)"
 msgstr "Сербська (латинка)"
 
-#: src/onlinetranslator.cpp:822
+#: src/onlinetranslator.cpp:833
 msgctxt "OnlineTranslator|"
 msgid "Sesotho"
 msgstr "Сесото"
 
-#: src/onlinetranslator.cpp:824
+#: src/onlinetranslator.cpp:835
 msgctxt "OnlineTranslator|"
 msgid "Sesotho sa Leboa"
 msgstr "Сесото са Лебоа"
 
-#: src/onlinetranslator.cpp:826
+#: src/onlinetranslator.cpp:837
 msgctxt "OnlineTranslator|"
 msgid "Setswana"
 msgstr "сетсвана"
 
-#: src/onlinetranslator.cpp:828
+#: src/onlinetranslator.cpp:839
 msgctxt "OnlineTranslator|"
 msgid "Shona"
 msgstr "Шона"
 
-#: src/onlinetranslator.cpp:830
+#: src/onlinetranslator.cpp:841
 msgctxt "OnlineTranslator|"
 msgid "Sindhi"
 msgstr "Синдхі"
 
-#: src/onlinetranslator.cpp:832
+#: src/onlinetranslator.cpp:843
 msgctxt "OnlineTranslator|"
 msgid "Sinhala"
 msgstr "Сингальська"
 
-#: src/onlinetranslator.cpp:834
+#: src/onlinetranslator.cpp:845
 msgctxt "OnlineTranslator|"
 msgid "Slovak"
 msgstr "Словацька"
 
-#: src/onlinetranslator.cpp:836
+#: src/onlinetranslator.cpp:847
 msgctxt "OnlineTranslator|"
 msgid "Slovenian"
 msgstr "Словенська"
 
-#: src/onlinetranslator.cpp:838
+#: src/onlinetranslator.cpp:849
 msgctxt "OnlineTranslator|"
 msgid "Somali"
 msgstr "Сомалійська"
 
-#: src/onlinetranslator.cpp:840
+#: src/onlinetranslator.cpp:851
 msgctxt "OnlineTranslator|"
 msgid "Spanish"
 msgstr "Іспанська"
 
-#: src/onlinetranslator.cpp:842
+#: src/onlinetranslator.cpp:853
 msgctxt "OnlineTranslator|"
 msgid "Sranan Tongo"
 msgstr "сранан-тонго"
 
-#: src/onlinetranslator.cpp:844
+#: src/onlinetranslator.cpp:855
 msgctxt "OnlineTranslator|"
 msgid "Sundanese"
 msgstr "Суданська"
 
-#: src/onlinetranslator.cpp:846
+#: src/onlinetranslator.cpp:857
 msgctxt "OnlineTranslator|"
 msgid "Swahili"
 msgstr "Суахілі"
 
-#: src/onlinetranslator.cpp:848
+#: src/onlinetranslator.cpp:859
 msgctxt "OnlineTranslator|"
 msgid "Swedish"
 msgstr "Шведська"
 
-#: src/onlinetranslator.cpp:850
+#: src/onlinetranslator.cpp:861
 msgctxt "OnlineTranslator|"
 msgid "Syriac (Aramaic)"
 msgstr "Сирійська (арамейська)"
 
-#: src/onlinetranslator.cpp:852
+#: src/onlinetranslator.cpp:863
 msgctxt "OnlineTranslator|"
 msgid "Tahitian"
 msgstr "Таїтянська"
 
-#: src/onlinetranslator.cpp:854
+#: src/onlinetranslator.cpp:865
 msgctxt "OnlineTranslator|"
 msgid "Tajik"
 msgstr "Таджицька"
 
-#: src/onlinetranslator.cpp:856
+#: src/onlinetranslator.cpp:867
 msgctxt "OnlineTranslator|"
 msgid "Tamashek (Tuareg)"
 msgstr "Тамашек (туарезька)"
 
-#: src/onlinetranslator.cpp:858
+#: src/onlinetranslator.cpp:869
 msgctxt "OnlineTranslator|"
 msgid "Tamil"
 msgstr "Тамільська"
 
-#: src/onlinetranslator.cpp:860
+#: src/onlinetranslator.cpp:871
 msgctxt "OnlineTranslator|"
 msgid "Tatar"
 msgstr "Татарська"
 
-#: src/onlinetranslator.cpp:862
+#: src/onlinetranslator.cpp:873
 msgctxt "OnlineTranslator|"
 msgid "Telugu"
 msgstr "Телугу"
 
-#: src/onlinetranslator.cpp:864
+#: src/onlinetranslator.cpp:875
 msgctxt "OnlineTranslator|"
 msgid "Tetum"
 msgstr "Тетум"
 
-#: src/onlinetranslator.cpp:866
+#: src/onlinetranslator.cpp:877
 msgctxt "OnlineTranslator|"
 msgid "Thai"
 msgstr "Тайська"
 
-#: src/onlinetranslator.cpp:868
+#: src/onlinetranslator.cpp:879
 msgctxt "OnlineTranslator|"
 msgid "Tibetan"
 msgstr "Тибетська"
 
-#: src/onlinetranslator.cpp:870
+#: src/onlinetranslator.cpp:881
 msgctxt "OnlineTranslator|"
 msgid "Tigrinya"
 msgstr "Тигринійська"
 
-#: src/onlinetranslator.cpp:872
+#: src/onlinetranslator.cpp:883
 msgctxt "OnlineTranslator|"
 msgid "Tok Pisin"
 msgstr "ток-пісін"
 
-#: src/onlinetranslator.cpp:874
+#: src/onlinetranslator.cpp:885
 msgctxt "OnlineTranslator|"
 msgid "Tokelauan"
 msgstr "Мова токелау"
 
-#: src/onlinetranslator.cpp:876
+#: src/onlinetranslator.cpp:887
 msgctxt "OnlineTranslator|"
 msgid "Tongan"
 msgstr "Тонга"
 
-#: src/onlinetranslator.cpp:878
+#: src/onlinetranslator.cpp:889
 msgctxt "OnlineTranslator|"
 msgid "Tsonga"
 msgstr "Цонга"
 
-#: src/onlinetranslator.cpp:880
+#: src/onlinetranslator.cpp:891
 msgctxt "OnlineTranslator|"
 msgid "Turkish"
 msgstr "Турецька"
 
-#: src/onlinetranslator.cpp:882
+#: src/onlinetranslator.cpp:893
 msgctxt "OnlineTranslator|"
 msgid "Turkmen"
 msgstr "Туркменська"
 
-#: src/onlinetranslator.cpp:884
+#: src/onlinetranslator.cpp:895
 msgctxt "OnlineTranslator|"
 msgid "Tuvaluan"
 msgstr "Тувалуанська"
 
-#: src/onlinetranslator.cpp:886
+#: src/onlinetranslator.cpp:897
 msgctxt "OnlineTranslator|"
 msgid "Twi"
 msgstr "Тві"
 
-#: src/onlinetranslator.cpp:888
+#: src/onlinetranslator.cpp:899
 msgctxt "OnlineTranslator|"
 msgid "Udmurt"
 msgstr "Удмуртська"
 
-#: src/onlinetranslator.cpp:890
+#: src/onlinetranslator.cpp:901
 msgctxt "OnlineTranslator|"
 msgid "Ukrainian"
 msgstr "Українська"
 
-#: src/onlinetranslator.cpp:892
+#: src/onlinetranslator.cpp:903
 msgctxt "OnlineTranslator|"
 msgid "Uma"
 msgstr "Ума"
 
-#: src/onlinetranslator.cpp:894
+#: src/onlinetranslator.cpp:905
 msgctxt "OnlineTranslator|"
 msgid "Upper Sorbian"
 msgstr "Верхньолужицька"
 
-#: src/onlinetranslator.cpp:896
+#: src/onlinetranslator.cpp:907
 msgctxt "OnlineTranslator|"
 msgid "Urdu"
 msgstr "Урду"
 
-#: src/onlinetranslator.cpp:898
+#: src/onlinetranslator.cpp:909
 msgctxt "OnlineTranslator|"
 msgid "Uyghur"
 msgstr "Уйгурська"
 
-#: src/onlinetranslator.cpp:900
+#: src/onlinetranslator.cpp:911
 msgctxt "OnlineTranslator|"
 msgid "Uzbek (Cyrillic)"
 msgstr "Узбецька (кирилиця)"
 
-#: src/onlinetranslator.cpp:902
+#: src/onlinetranslator.cpp:913
 msgctxt "OnlineTranslator|"
 msgid "Uzbek (Latin)"
 msgstr "Узбецька (латиниця)"
 
-#: src/onlinetranslator.cpp:904
+#: src/onlinetranslator.cpp:915
 msgctxt "OnlineTranslator|"
 msgid "Vietnamese"
 msgstr "В'єтнамська"
 
-#: src/onlinetranslator.cpp:906
+#: src/onlinetranslator.cpp:917
 msgctxt "OnlineTranslator|"
 msgid "Wallisian"
 msgstr "валісійська"
 
-#: src/onlinetranslator.cpp:908
+#: src/onlinetranslator.cpp:919
 msgctxt "OnlineTranslator|"
 msgid "Welsh"
 msgstr "Валлійська"
 
-#: src/onlinetranslator.cpp:910
+#: src/onlinetranslator.cpp:921
 msgctxt "OnlineTranslator|"
 msgid "Wolof"
 msgstr "Волоф"
 
-#: src/onlinetranslator.cpp:912
+#: src/onlinetranslator.cpp:923
 msgctxt "OnlineTranslator|"
 msgid "Xhosa"
 msgstr "Коса"
 
-#: src/onlinetranslator.cpp:914
+#: src/onlinetranslator.cpp:925
 msgctxt "OnlineTranslator|"
 msgid "Yakut"
 msgstr "Якутська"
 
-#: src/onlinetranslator.cpp:916
+#: src/onlinetranslator.cpp:927
 msgctxt "OnlineTranslator|"
 msgid "Yiddish"
 msgstr "Ідиш"
 
-#: src/onlinetranslator.cpp:918
+#: src/onlinetranslator.cpp:929
 msgctxt "OnlineTranslator|"
 msgid "Yoruba"
 msgstr "Йоруба"
 
-#: src/onlinetranslator.cpp:920
+#: src/onlinetranslator.cpp:931
 msgctxt "OnlineTranslator|"
 msgid "Yucatec Maya"
 msgstr "Юкатанська майянська"
 
-#: src/onlinetranslator.cpp:922
+#: src/onlinetranslator.cpp:933
 msgctxt "OnlineTranslator|"
 msgid "Zulu"
 msgstr "Зулуська"
 
-#: src/onlinetranslator.cpp:1267
+#: src/onlinetranslator.cpp:1281
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Instance error: %1"
 msgstr "Помилка екземпляра: %1"
 
-#: src/onlinetranslator.cpp:1281
+#: src/onlinetranslator.cpp:1295
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
 msgstr "Помилка: Не вдалося розібрати автоматично визначену мову"
@@ -1731,22 +1833,28 @@ msgctxt "PopupWindow|"
 msgid "Swap languages"
 msgstr "Змінити мови місцями"
 
-#: src/popupwindow.ui:63
+#: src/popupwindow.ui:60 src/popupwindow.ui:105 src/popupwindow.ui:202
+#: src/popupwindow.ui:247
+msgctxt "PopupWindow|"
+msgid "..."
+msgstr ""
+
+#: src/popupwindow.ui:112
 msgctxt "PopupWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "Скопіювати текст оригіналу до буфера обміну"
 
-#: src/popupwindow.ui:156
+#: src/popupwindow.ui:254
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "Скопіювати всі дані перекладу до буфера обміну"
 
-#: src/popupwindow.ui:166
+#: src/popupwindow.ui:264
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Скопіювати переклад до буфера обміну"
 
-#: src/settings/appsettings.cpp:1079
+#: src/settings/appsettings.cpp:1200
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1786,54 +1894,92 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "Не вдалося видалити %1 з %2"
 
-#: src/settings/settingsdialog.cpp:33
+#: src/settings/settingsdialog.cpp:35
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Портативний режим"
 
-#: src/settings/settingsdialog.cpp:46
+#: src/settings/settingsdialog.cpp:48
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Використовуйте %1 для зберігання налаштувань"
 
-#: src/settings/settingsdialog.cpp:51 src/settings/settingsdialog.cpp:55
-#: src/settings/settingsdialog.cpp:56
+#: src/settings/settingsdialog.cpp:52
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "Системна мова"
 
-#: src/settings/settingsdialog.cpp:90
+#: src/settings/settingsdialog.cpp:56 src/settings/settingsdialog.cpp:57
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Auto"
+msgctxt "SettingsDialog|"
+msgid "<Auto>"
+msgstr "Автоматично"
+
+#: src/settings/settingsdialog.cpp:74
+msgctxt "SettingsDialog|"
+msgid "Copy"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:78
+msgctxt "SettingsDialog|"
+msgid "None"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:110
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Піктограми:"
 
-#: src/settings/settingsdialog.cpp:112
+#: src/settings/settingsdialog.cpp:132
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "Поля налаштувань OCR не можуть бути порожніми."
 
-#: src/settings/settingsdialog.cpp:113
+#: src/settings/settingsdialog.cpp:133
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Ви бажаєте скасувати неправильні параметри?"
 
-#: src/settings/settingsdialog.cpp:254
+#: src/settings/settingsdialog.cpp:294
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Обрати піктограму"
 
-#: src/settings/settingsdialog.cpp:254
+#: src/settings/settingsdialog.cpp:294
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Зображення (*.png *.ico *.svg *.jpg);;Усі файли()"
 
-#: src/settings/settingsdialog.cpp:284
+#: src/settings/settingsdialog.cpp:324
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Оберіть шлях до мов OCR"
 
-#: src/settings/settingsdialog.cpp:425
+#: src/settings/settingsdialog.cpp:339
+msgctxt "SettingsDialog|"
+msgid "Piper voices path:"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:353
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Directory with trained models"
+msgctxt "SettingsDialog|"
+msgid "Directory with voice models"
+msgstr "Тека з навченими моделями"
+
+#: src/settings/settingsdialog.cpp:354 src/settings/settingsdialog.cpp:373
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Select OCR languages path"
+msgctxt "SettingsDialog|"
+msgid "Select Piper voices path"
+msgstr "Оберіть шлях до мов OCR"
+
+#: src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Назад"
@@ -1843,7 +1989,7 @@ msgctxt "SettingsDialog|"
 msgid "Settings"
 msgstr "Налаштування"
 
-#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:128
+#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:144
 msgctxt "SettingsDialog|"
 msgid "General"
 msgstr "Загальне"
@@ -1853,42 +1999,52 @@ msgctxt "SettingsDialog|"
 msgid "Interface"
 msgstr "Інтерфейс"
 
-#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:631
+#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:783
 msgctxt "SettingsDialog|"
 msgid "Translation"
 msgstr "Переклад"
 
+#: src/settings/settingsdialog.ui:73
+msgctxt "SettingsDialog|"
+msgid "Text-To-Speech"
+msgstr ""
+
 #: src/settings/settingsdialog.ui:81
+msgctxt "SettingsDialog|"
+msgid "Mozhi"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:97
 msgctxt "SettingsDialog|"
 msgid "Connection"
 msgstr "З'єднання"
 
-#: src/settings/settingsdialog.ui:89
+#: src/settings/settingsdialog.ui:105
 msgctxt "SettingsDialog|"
 msgid "Shortcuts"
 msgstr "Гарячі клавіші"
 
-#: src/settings/settingsdialog.ui:97
+#: src/settings/settingsdialog.ui:113
 msgctxt "SettingsDialog|"
 msgid "About"
 msgstr "Про програму"
 
-#: src/settings/settingsdialog.ui:140
+#: src/settings/settingsdialog.ui:156
 msgctxt "SettingsDialog|"
 msgid "Language:"
 msgstr "Мова:"
 
-#: src/settings/settingsdialog.ui:147
+#: src/settings/settingsdialog.ui:163
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Interface language</p></body></html>"
 msgstr "<html><head/><body><p>Мова інтерфейсу</p></body></html>"
 
-#: src/settings/settingsdialog.ui:154
+#: src/settings/settingsdialog.ui:170
 msgctxt "SettingsDialog|"
 msgid "Main window orientation:"
 msgstr "Орієнтація головного вікна:"
 
-#: src/settings/settingsdialog.ui:161
+#: src/settings/settingsdialog.ui:177
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Orientation of the main window layout<br/>When using "
@@ -1900,29 +2056,29 @@ msgstr ""
 "вікна відповідатиме орієнтації екрана</p></body></html>"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:165
+#: src/settings/settingsdialog.ui:181
 msgctxt "SettingsDialog|"
 msgid "Auto"
 msgstr "Автоматично"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:170
+#: src/settings/settingsdialog.ui:186
 msgctxt "SettingsDialog|"
 msgid "Portrait"
 msgstr "Вертикальний"
 
 #. Orientation
-#: src/settings/settingsdialog.ui:175
+#: src/settings/settingsdialog.ui:191
 msgctxt "SettingsDialog|"
 msgid "Landscape"
 msgstr "Горизонтальний"
 
-#: src/settings/settingsdialog.ui:183
+#: src/settings/settingsdialog.ui:199
 msgctxt "SettingsDialog|"
 msgid "Translation mode:"
 msgstr "Режим перекладу:"
 
-#: src/settings/settingsdialog.ui:190
+#: src/settings/settingsdialog.ui:206
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>A window for translating selected text. If the "
@@ -1932,27 +2088,27 @@ msgstr ""
 "<html><head/><body><p>Вікно для перекладу виділеного тексту. Якщо застосунок "
 "згорнуто, завжди використовується головне вікно.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:194 src/settings/settingsdialog.ui:343
+#: src/settings/settingsdialog.ui:210 src/settings/settingsdialog.ui:359
 msgctxt "SettingsDialog|"
 msgid "Pop-up window"
 msgstr "Контекстне вікно"
 
-#: src/settings/settingsdialog.ui:199
+#: src/settings/settingsdialog.ui:215
 msgctxt "SettingsDialog|"
 msgid "Main window"
 msgstr "Головне вікно"
 
-#: src/settings/settingsdialog.ui:204
+#: src/settings/settingsdialog.ui:220
 msgctxt "SettingsDialog|"
 msgid "Notification"
 msgstr "Сповіщення"
 
-#: src/settings/settingsdialog.ui:212
+#: src/settings/settingsdialog.ui:228
 msgctxt "SettingsDialog|"
 msgid "Translation notification timeout:"
 msgstr "Приховувати сповіщення з перекладом через:"
 
-#: src/settings/settingsdialog.ui:225
+#: src/settings/settingsdialog.ui:241
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Notification with translation display time</p></body></"
@@ -1960,24 +2116,24 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Час показу сповіщення з перекладом</p></body></html>"
 
-#: src/settings/settingsdialog.ui:228 src/settings/settingsdialog.ui:433
+#: src/settings/settingsdialog.ui:244 src/settings/settingsdialog.ui:449
 msgctxt "SettingsDialog|"
 msgid " sec"
 msgstr "сек"
 
-#: src/settings/settingsdialog.ui:241
+#: src/settings/settingsdialog.ui:257
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Display icon in the system tray</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Показувати піктограму у системній таці</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:244
+#: src/settings/settingsdialog.ui:260
 msgctxt "SettingsDialog|"
 msgid "Show tray icon"
 msgstr "Показувати піктограму у таці"
 
-#: src/settings/settingsdialog.ui:254
+#: src/settings/settingsdialog.ui:270
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Start application minimized to the system tray</p></"
@@ -1986,12 +2142,12 @@ msgstr ""
 "<html><head/><body><p>Запускати програму згорнутою до системного лотка</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:257
+#: src/settings/settingsdialog.ui:273
 msgctxt "SettingsDialog|"
 msgid "Start minimized"
 msgstr "Запускати згорнутим"
 
-#: src/settings/settingsdialog.ui:264
+#: src/settings/settingsdialog.ui:280
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Run the application at system startup</p></body></html>"
@@ -1999,34 +2155,34 @@ msgstr ""
 "<html><head/><body><p>Запускати програму під час завантаження системи</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:267
+#: src/settings/settingsdialog.ui:283
 msgctxt "SettingsDialog|"
 msgid "Launch at startup"
 msgstr "Запускати при завантаженні"
 
-#: src/settings/settingsdialog.ui:300
+#: src/settings/settingsdialog.ui:316
 msgctxt "SettingsDialog|"
 msgid "Font"
 msgstr "Шрифт"
 
-#: src/settings/settingsdialog.ui:306
+#: src/settings/settingsdialog.ui:322
 msgctxt "SettingsDialog|"
 msgid "Name:"
 msgstr "Назва:"
 
-#: src/settings/settingsdialog.ui:313
+#: src/settings/settingsdialog.ui:329
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Translation and source text font</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Шрифт перекладу та початкового тексту</p></body></html>"
 
-#: src/settings/settingsdialog.ui:320
+#: src/settings/settingsdialog.ui:336
 msgctxt "SettingsDialog|"
 msgid "Size:"
 msgstr "Розмір:"
 
-#: src/settings/settingsdialog.ui:327
+#: src/settings/settingsdialog.ui:343
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Font size of translation and source text</p></body></"
@@ -2035,44 +2191,44 @@ msgstr ""
 "<html><head/><body><p>Розмір шрифту перекладу та початкового тексту</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:349
+#: src/settings/settingsdialog.ui:365
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window height in pixels</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Висота контекстного вікна у пікселях</p></body></html>"
 
-#: src/settings/settingsdialog.ui:359
+#: src/settings/settingsdialog.ui:375
 msgctxt "SettingsDialog|"
 msgid "Width:"
 msgstr "Ширина:"
 
-#: src/settings/settingsdialog.ui:366
+#: src/settings/settingsdialog.ui:382
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Ширина контекстного вікна у пікселях</p></body></html>"
 
-#: src/settings/settingsdialog.ui:376
+#: src/settings/settingsdialog.ui:392
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window opacity</p></body></html>"
 msgstr "<html><head/><body><p>Прозорість контекстного вікна</p></body></html>"
 
-#: src/settings/settingsdialog.ui:403
+#: src/settings/settingsdialog.ui:419
 msgctxt "SettingsDialog|"
 msgid "Opacity:"
 msgstr "Прозорість:"
 
-#: src/settings/settingsdialog.ui:410
+#: src/settings/settingsdialog.ui:426
 msgctxt "SettingsDialog|"
 msgid "Show timeout:"
 msgstr "Приховувати через:"
 
-#: src/settings/settingsdialog.ui:417
+#: src/settings/settingsdialog.ui:433
 msgctxt "SettingsDialog|"
 msgid "Height:"
 msgstr "Висота:"
 
-#: src/settings/settingsdialog.ui:430
+#: src/settings/settingsdialog.ui:446
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The number of seconds after which the window will be "
@@ -2081,87 +2237,158 @@ msgstr ""
 "<html><head/><body><p>Кількість секунд, після яких вікно буде приховано, "
 "якщо воно не має фокусу</p></body></html>"
 
-#: src/settings/settingsdialog.ui:453
+#: src/settings/settingsdialog.ui:469
 msgctxt "SettingsDialog|"
 msgid "Language format"
 msgstr "Формат мов"
 
-#: src/settings/settingsdialog.ui:459
+#: src/settings/settingsdialog.ui:475
 msgctxt "SettingsDialog|"
 msgid "Main window:"
 msgstr "Головне вікно:"
 
-#: src/settings/settingsdialog.ui:466 src/settings/settingsdialog.ui:490
+#: src/settings/settingsdialog.ui:482 src/settings/settingsdialog.ui:506
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Languages text on buttons</p></body></html>"
 msgstr "<html><head/><body><p>Текст мовами на кнопках</p></body></html>"
 
-#: src/settings/settingsdialog.ui:470 src/settings/settingsdialog.ui:494
+#: src/settings/settingsdialog.ui:486 src/settings/settingsdialog.ui:510
 msgctxt "SettingsDialog|"
 msgid "Full name"
 msgstr "Повна назва"
 
-#: src/settings/settingsdialog.ui:475 src/settings/settingsdialog.ui:499
+#: src/settings/settingsdialog.ui:491 src/settings/settingsdialog.ui:515
 msgctxt "SettingsDialog|"
 msgid "ISO 639-1 code"
 msgstr "Код ISO 639-1"
 
-#: src/settings/settingsdialog.ui:483
+#: src/settings/settingsdialog.ui:499
 msgctxt "SettingsDialog|"
 msgid "Pop-up:"
 msgstr "Контекстне вікно:"
 
-#: src/settings/settingsdialog.ui:510
+#: src/settings/settingsdialog.ui:526
 msgctxt "SettingsDialog|"
 msgid "Tray icon"
 msgstr "Піктограма в лотку"
 
-#: src/settings/settingsdialog.ui:516
+#: src/settings/settingsdialog.ui:532
 msgctxt "SettingsDialog|"
 msgid "Icon:"
 msgstr "Піктограма:"
 
-#: src/settings/settingsdialog.ui:529
+#: src/settings/settingsdialog.ui:545
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>System tray icon</p></body></html>"
 msgstr "<html><head/><body><p>Системна піктограма для таці</p></body></html>"
 
-#: src/settings/settingsdialog.ui:533
+#: src/settings/settingsdialog.ui:549
 msgctxt "SettingsDialog|"
 msgid "Default"
 msgstr "Усталено"
 
-#: src/settings/settingsdialog.ui:541
+#: src/settings/settingsdialog.ui:557
 msgctxt "SettingsDialog|"
 msgid "Monochrome (dark theme)"
 msgstr "Чорно-біла (темна тема)"
 
-#: src/settings/settingsdialog.ui:549
+#: src/settings/settingsdialog.ui:565
 msgctxt "SettingsDialog|"
 msgid "Monochrome (light theme)"
 msgstr "Чорно-біла (світла тема)"
 
-#: src/settings/settingsdialog.ui:557
+#: src/settings/settingsdialog.ui:573
 msgctxt "SettingsDialog|"
 msgid "Custom"
 msgstr "Власна"
 
-#: src/settings/settingsdialog.ui:571
+#: src/settings/settingsdialog.ui:587
 msgctxt "SettingsDialog|"
 msgid "Custom:"
 msgstr "Власна:"
 
-#: src/settings/settingsdialog.ui:583
+#: src/settings/settingsdialog.ui:599
 msgctxt "SettingsDialog|"
 msgid "Path to the icon or icon name from theme"
 msgstr "Шлях до піктограми або і'мя значка з теми"
 
-#: src/settings/settingsdialog.ui:593
+#: src/settings/settingsdialog.ui:609
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>Обрати піктограму</p></body></html>"
 
-#: src/settings/settingsdialog.ui:637
+#: src/settings/settingsdialog.ui:650
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Translation mode:"
+msgctxt "SettingsDialog|"
+msgid "Translation provider:"
+msgstr "Режим перекладу:"
+
+#: src/settings/settingsdialog.ui:673
+msgctxt "SettingsDialog|"
+msgid "Automatic language detection"
+msgstr "Автоматичне визначення мови"
+
+#: src/settings/settingsdialog.ui:679
+msgctxt "SettingsDialog|"
+msgid "Primary translation language:"
+msgstr "Основна мова перекладу"
+
+#: src/settings/settingsdialog.ui:686
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Language to which text will be translated when "
+"autodetecting</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Мова, якою буде перекладено текст за автовизначення</"
+"p></body></html>"
+
+#: src/settings/settingsdialog.ui:693
+msgctxt "SettingsDialog|"
+msgid "Secondary translation language:"
+msgstr "Вторинна мова перекладу"
+
+#: src/settings/settingsdialog.ui:700
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Language to which the text will be translated if it is "
+"in the language selected above</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Мова, якою буде перекладено текст, якщо його визначено "
+"мовою, обраною вище</p></body></html>"
+
+#: src/settings/settingsdialog.ui:707 src/settings/settingsdialog.ui:717
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Automatically switch to <span style=\" font-style:"
+"italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Автоматично перемикатися на <span style=\" font-style:"
+"курсив;\">Auto</span> при використанні розпізнавання тексту та глобальних "
+"скорочень</p></body></html>"
+
+#: src/settings/settingsdialog.ui:710
+msgctxt "SettingsDialog|"
+msgid "Force source language detection"
+msgstr "Примусове визначення вихідної мови"
+
+#: src/settings/settingsdialog.ui:720
+msgctxt "SettingsDialog|"
+msgid "Force translation language detection"
+msgstr "Примусове визначення мови перекладу"
+
+#: src/settings/settingsdialog.ui:741
+msgctxt "SettingsDialog|"
+msgid "Text-to-Speech"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:747
+msgctxt "SettingsDialog|"
+msgid "Provider:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:789
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
@@ -2170,12 +2397,12 @@ msgstr ""
 "<html><head/><body><p>Увімкнути чи вимкнути транслітерацію джерела</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:640
+#: src/settings/settingsdialog.ui:792
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
 msgstr "Увімкнути транслітерацію оригіналу"
 
-#: src/settings/settingsdialog.ui:647
+#: src/settings/settingsdialog.ui:799
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
@@ -2184,12 +2411,12 @@ msgstr ""
 "<html><head/><body><p>Увімкнути чи вимкнути транслітерацію перекладу</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:650
+#: src/settings/settingsdialog.ui:802
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
 msgstr "Увімкнути транслітерацію перекладу"
 
-#: src/settings/settingsdialog.ui:657
+#: src/settings/settingsdialog.ui:809
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
@@ -2198,12 +2425,12 @@ msgstr ""
 "<html><head/><body><p>Увімкнути чи вимкнути транскрипцію джерела</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:660
+#: src/settings/settingsdialog.ui:812
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
 msgstr "Увімкнути транскрипцію оригіналу"
 
-#: src/settings/settingsdialog.ui:667
+#: src/settings/settingsdialog.ui:819
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
@@ -2211,12 +2438,12 @@ msgstr ""
 "<html><head/><body><p>Увімкнути чи вимкнути налаштування перекладу</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:670
+#: src/settings/settingsdialog.ui:822
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
 msgstr "Увімкнути налаштування перекладу"
 
-#: src/settings/settingsdialog.ui:677
+#: src/settings/settingsdialog.ui:829
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
@@ -2224,12 +2451,12 @@ msgstr ""
 "<html><head/><body><p>Увімкнути чи вимкнути приклади використання</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:680
+#: src/settings/settingsdialog.ui:832
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
 msgstr "Увімкнути приклади"
 
-#: src/settings/settingsdialog.ui:687
+#: src/settings/settingsdialog.ui:839
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace each sequence of whitespaces (this includes "
@@ -2240,85 +2467,32 @@ msgstr ""
 "(включаючи символи ASCII '\\t', '\\n', '\\v', '\\f', '\\r' та ' ') одним "
 "пробілом</p></body></html>"
 
-#: src/settings/settingsdialog.ui:690
+#: src/settings/settingsdialog.ui:842
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
 msgstr "Спростити початковий текст"
 
-#: src/settings/settingsdialog.ui:700
-msgctxt "SettingsDialog|"
-msgid "Automatic language detection"
-msgstr "Автоматичне визначення мови"
-
-#: src/settings/settingsdialog.ui:706
-msgctxt "SettingsDialog|"
-msgid "Primary translation language:"
-msgstr "Основна мова перекладу"
-
-#: src/settings/settingsdialog.ui:713
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Language to which text will be translated when "
-"autodetecting</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Мова, якою буде перекладено текст за автовизначення</"
-"p></body></html>"
-
-#: src/settings/settingsdialog.ui:720
-msgctxt "SettingsDialog|"
-msgid "Secondary translation language:"
-msgstr "Вторинна мова перекладу"
-
-#: src/settings/settingsdialog.ui:727
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Language to which the text will be translated if it is "
-"in the language selected above</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Мова, якою буде перекладено текст, якщо його визначено "
-"мовою, обраною вище</p></body></html>"
-
-#: src/settings/settingsdialog.ui:734 src/settings/settingsdialog.ui:744
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Automatically switch to <span style=\" font-style:"
-"italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Автоматично перемикатися на <span style=\" font-style:"
-"курсив;\">Auto</span> при використанні розпізнавання тексту та глобальних "
-"скорочень</p></body></html>"
-
-#: src/settings/settingsdialog.ui:737
-msgctxt "SettingsDialog|"
-msgid "Force source language detection"
-msgstr "Примусове визначення вихідної мови"
-
-#: src/settings/settingsdialog.ui:747
-msgctxt "SettingsDialog|"
-msgid "Force translation language detection"
-msgstr "Примусове визначення мови перекладу"
-
-#: src/settings/settingsdialog.ui:776
+#: src/settings/settingsdialog.ui:871
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
 msgstr "Адреса екземпляра Mozhi"
 
-#: src/settings/settingsdialog.ui:789
+#: src/settings/settingsdialog.ui:884
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
 msgstr "Автоматично вибрати найшвидший екземпляр на основі зондування"
 
-#: src/settings/settingsdialog.ui:792
+#: src/settings/settingsdialog.ui:887
 msgctxt "SettingsDialog|"
 msgid "Detect fastest"
 msgstr "Виявити найшвидший"
 
-#: src/settings/settingsdialog.ui:825
+#: src/settings/settingsdialog.ui:920
 msgctxt "SettingsDialog|"
 msgid "Languages"
 msgstr "Мови"
 
-#: src/settings/settingsdialog.ui:831
+#: src/settings/settingsdialog.ui:926
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Loading additional languages will impact both speed "
@@ -2331,22 +2505,22 @@ msgstr ""
 "відповідну мову, й є більше шансів отримати неточність визначення слів.</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:838
+#: src/settings/settingsdialog.ui:933
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
 msgstr "Шлях до мов:"
 
-#: src/settings/settingsdialog.ui:845
+#: src/settings/settingsdialog.ui:940
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr "<html><head/><body><p>Обрати шлях до мов OCR</p></body></html>"
 
-#: src/settings/settingsdialog.ui:855
+#: src/settings/settingsdialog.ui:950
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
 msgstr "<html><head/><body><p>Відкрити сховище GitHub</p></body></html>"
 
-#: src/settings/settingsdialog.ui:858
+#: src/settings/settingsdialog.ui:953
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
@@ -2357,12 +2531,12 @@ msgstr ""
 "\"><span style=\" text-decoration: underline; color: # 2980b9;\">Завантажити "
 "ще</span></a></p></body></html>"
 
-#: src/settings/settingsdialog.ui:868
+#: src/settings/settingsdialog.ui:963
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
 msgstr "Тека з навченими моделями"
 
-#: src/settings/settingsdialog.ui:884
+#: src/settings/settingsdialog.ui:979
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
@@ -2371,22 +2545,22 @@ msgstr ""
 "<html><head/><body><p>Замінити всі одинарні розриви рядків пробілом після "
 "розпізнавання тексту</p></body></html>"
 
-#: src/settings/settingsdialog.ui:887
+#: src/settings/settingsdialog.ui:982
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
 msgstr "Перетворювати перенесення рядків"
 
-#: src/settings/settingsdialog.ui:951
+#: src/settings/settingsdialog.ui:1046
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
 msgstr "Захопити екран"
 
-#: src/settings/settingsdialog.ui:963
+#: src/settings/settingsdialog.ui:1058
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
 msgstr "Запам'ятовувати регіон:"
 
-#: src/settings/settingsdialog.ui:970
+#: src/settings/settingsdialog.ui:1065
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
@@ -2395,37 +2569,37 @@ msgstr ""
 "<html><head/><body><p>Коли слід запам'ятати останню вибрану область</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:974
+#: src/settings/settingsdialog.ui:1069
 msgctxt "SettingsDialog|"
 msgid "Never"
 msgstr "Ніколи"
 
-#: src/settings/settingsdialog.ui:979
+#: src/settings/settingsdialog.ui:1074
 msgctxt "SettingsDialog|"
 msgid "Remember last"
 msgstr "Запам'ятати останнє"
 
-#: src/settings/settingsdialog.ui:984
+#: src/settings/settingsdialog.ui:1079
 msgctxt "SettingsDialog|"
 msgid "Remember always"
 msgstr "Завжди"
 
-#: src/settings/settingsdialog.ui:992
+#: src/settings/settingsdialog.ui:1087
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
 msgstr "Затримка захоплення:"
 
-#: src/settings/settingsdialog.ui:999
+#: src/settings/settingsdialog.ui:1094
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
 msgstr "Затримка перед захопленням екрана"
 
-#: src/settings/settingsdialog.ui:1002
+#: src/settings/settingsdialog.ui:1097
 msgctxt "SettingsDialog|"
 msgid " ms"
 msgstr " мс"
 
-#: src/settings/settingsdialog.ui:1012
+#: src/settings/settingsdialog.ui:1107
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
@@ -2433,12 +2607,12 @@ msgstr ""
 "<html><head/><body><p>Показати екранний збільшувач поряд з вказівником</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1015
+#: src/settings/settingsdialog.ui:1110
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
 msgstr "Показувати збільшувач"
 
-#: src/settings/settingsdialog.ui:1022
+#: src/settings/settingsdialog.ui:1117
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
@@ -2448,12 +2622,12 @@ msgstr ""
 "розпізнавання. Скористайтеся цією можливістю для яскравого тексту на темному "
 "тлі.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1025
+#: src/settings/settingsdialog.ui:1120
 msgctxt "SettingsDialog|"
 msgid "Negate OCR"
 msgstr "Негатив оптично розпізнаного зображення"
 
-#: src/settings/settingsdialog.ui:1035
+#: src/settings/settingsdialog.ui:1130
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
@@ -2462,12 +2636,12 @@ msgstr ""
 "<html><head/><body><p>Закінчувати захоплення фрагменту, коли кнопка миші "
 "відпущена</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1038
+#: src/settings/settingsdialog.ui:1133
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
 msgstr "Підтвердити після випуску"
 
-#: src/settings/settingsdialog.ui:1045
+#: src/settings/settingsdialog.ui:1140
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
@@ -2476,79 +2650,79 @@ msgstr ""
 "<html><head/><body><p>Наносити легке освітлення на невиділену частину</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1048
+#: src/settings/settingsdialog.ui:1143
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
 msgstr "Використовувати світле тло"
 
-#: src/settings/settingsdialog.ui:1081
+#: src/settings/settingsdialog.ui:1176
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
 msgstr "Проксі-сервер"
 
-#: src/settings/settingsdialog.ui:1087
+#: src/settings/settingsdialog.ui:1182
 msgctxt "SettingsDialog|"
 msgid "Type:"
 msgstr "Тип:"
 
-#: src/settings/settingsdialog.ui:1100
+#: src/settings/settingsdialog.ui:1195
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
 msgstr "<html><head/><body><p>Тип проксі</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1104
+#: src/settings/settingsdialog.ui:1199
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
 msgstr "Використовувати системні налаштування"
 
-#: src/settings/settingsdialog.ui:1114
+#: src/settings/settingsdialog.ui:1209
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
 msgstr "Не використовувати проксі"
 
-#: src/settings/settingsdialog.ui:1130
+#: src/settings/settingsdialog.ui:1225
 msgctxt "SettingsDialog|"
 msgid "Host:"
 msgstr "Вузол:"
 
-#: src/settings/settingsdialog.ui:1140
+#: src/settings/settingsdialog.ui:1235
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr "<html><head/><body><p>Ім'я хоста проксі</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1153
+#: src/settings/settingsdialog.ui:1248
 msgctxt "SettingsDialog|"
 msgid "Port:"
 msgstr "Порт:"
 
-#: src/settings/settingsdialog.ui:1169
+#: src/settings/settingsdialog.ui:1264
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
 msgstr "<html><head/><body><p>Порт проксі</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1188
+#: src/settings/settingsdialog.ui:1283
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
 msgstr "Нотатка: проксі використовується лише для перекладу тексту"
 
-#: src/settings/settingsdialog.ui:1198
+#: src/settings/settingsdialog.ui:1293
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Відновити або вимкнути автентифікацію</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1201
+#: src/settings/settingsdialog.ui:1296
 msgctxt "SettingsDialog|"
 msgid "Authentication"
 msgstr "Автентифікація"
 
-#: src/settings/settingsdialog.ui:1211
+#: src/settings/settingsdialog.ui:1306
 msgctxt "SettingsDialog|"
 msgid "Username:"
 msgstr "Ім'я користувача:"
 
-#: src/settings/settingsdialog.ui:1221
+#: src/settings/settingsdialog.ui:1316
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
@@ -2556,24 +2730,24 @@ msgstr ""
 "<html><head/><body><p>Проксі ім'я користувача для автентифікації</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1231
+#: src/settings/settingsdialog.ui:1326
 msgctxt "SettingsDialog|"
 msgid "Password:"
 msgstr "Пароль:"
 
-#: src/settings/settingsdialog.ui:1241
+#: src/settings/settingsdialog.ui:1336
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Проксі пароль для автентифікації</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1254
+#: src/settings/settingsdialog.ui:1349
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
 msgstr "Нотатка: пароль зберігається нешифрованим"
 
-#: src/settings/settingsdialog.ui:1290
+#: src/settings/settingsdialog.ui:1385
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
@@ -2581,34 +2755,34 @@ msgstr ""
 "<html><head/><body><p>Реєструвати глобальні сполучення клавіш у системі</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1293
+#: src/settings/settingsdialog.ui:1388
 msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "Увімкнути глобальні сполучення клавіш"
 
-#: src/settings/settingsdialog.ui:1309
+#: src/settings/settingsdialog.ui:1404
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Скинути всі гарячі клавіші до типових налаштувань</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1312
+#: src/settings/settingsdialog.ui:1407
 msgctxt "SettingsDialog|"
 msgid "Reset all"
 msgstr "Скинути все"
 
-#: src/settings/settingsdialog.ui:1322
+#: src/settings/settingsdialog.ui:1417
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
 msgstr "Гарячий клавіш"
 
-#: src/settings/settingsdialog.ui:1328
+#: src/settings/settingsdialog.ui:1423
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
 msgstr "Послідовність клавіш:"
 
-#: src/settings/settingsdialog.ui:1335
+#: src/settings/settingsdialog.ui:1430
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
@@ -2616,54 +2790,54 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Послідовність клавіш для обраної дії</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1342
+#: src/settings/settingsdialog.ui:1437
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Прийняти гарячий клавіш</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1345
+#: src/settings/settingsdialog.ui:1440
 msgctxt "SettingsDialog|"
 msgid "Accept"
 msgstr "Прийняти"
 
-#: src/settings/settingsdialog.ui:1355
+#: src/settings/settingsdialog.ui:1450
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Очистити гарячий клавіш</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1358
+#: src/settings/settingsdialog.ui:1453
 msgctxt "SettingsDialog|"
 msgid "Clear"
 msgstr "Очистити"
 
-#: src/settings/settingsdialog.ui:1368
+#: src/settings/settingsdialog.ui:1463
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Скинути гарячий клавіш до типових налаштувань</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1371
+#: src/settings/settingsdialog.ui:1466
 msgctxt "SettingsDialog|"
 msgid "Reset"
 msgstr "Скинути"
 
-#: src/settings/settingsdialog.ui:1416
+#: src/settings/settingsdialog.ui:1511
 msgctxt "SettingsDialog|"
 msgid "Version:"
 msgstr "Версія:"
 
-#: src/settings/settingsdialog.ui:1426
+#: src/settings/settingsdialog.ui:1521
 msgctxt "SettingsDialog|"
 msgid "License:"
 msgstr "Ліцензія:"
 
-#: src/settings/settingsdialog.ui:1440
+#: src/settings/settingsdialog.ui:1535
 msgctxt "SettingsDialog|"
 msgid "Source code:"
 msgstr "Вихідний код:"
 
-#: src/settings/settingsdialog.ui:1460
+#: src/settings/settingsdialog.ui:1555
 msgctxt "SettingsDialog|"
 msgid "Translation backend:"
 msgstr "Модуль перекладу:"
@@ -2794,48 +2968,35 @@ msgctxt "TesseractParametersTableWidget|"
 msgid "Value"
 msgstr "Значення"
 
-#: src/speakbuttons.cpp:80
-msgctxt "SpeakButtons|"
-msgid "No text specified"
-msgstr "Текст не вказано"
+#: src/translator/atranslationprovider.cpp:112
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Translation mode:"
+msgctxt "QObject|"
+msgid "Translation Provider Error"
+msgstr "Режим перекладу:"
 
-#: src/speakbuttons.cpp:80
-msgctxt "SpeakButtons|"
-msgid "Playback text is empty"
-msgstr "Текст для відтворення порожній"
+#: src/translator/atranslationprovider.cpp:113
+msgctxt "QObject|"
+msgid ""
+"The selected translation provider crashed during initialization and has been "
+"reset to 'Copy' to prevent further issues. You can try selecting a different "
+"provider in Settings → Translation."
+msgstr ""
 
-#: src/speakbuttons.cpp:86
-msgctxt "SpeakButtons|"
-msgid "Unable to generate URLs for TTS"
-msgstr "Не вдалося створити URL-и для TTS"
-
-#: src/speakbuttons.ui:24
-msgctxt "SpeakButtons|"
-msgid "Speak / pause text speaking"
-msgstr "Озвучити / призупинити озвучування тексту"
-
-#: src/speakbuttons.ui:34
-msgctxt "SpeakButtons|"
-msgid "Stop text speaking"
-msgstr " Зупинити озвучування тексту"
-
-#: src/transitions/ocruninitializedtransition.cpp:28
-msgctxt "Ocr|"
-msgid "OCR languages are not loaded"
-msgstr "Мови OCR не завантажено"
-
-#: src/transitions/ocruninitializedtransition.cpp:28
-msgctxt "Ocr|"
-msgid "You should set at least one OCR language in the application settings"
-msgstr "Ви повинні вказати хоч одну мову OCR у налаштуваннях програми"
-
-#: src/translationedit.cpp:62
-msgctxt "TranslationEdit|"
+#: src/translator/mozhitranslationprovider.cpp:386
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid "translation options:"
+msgctxt "MozhiTranslationProvider|"
 msgid "translation options:"
 msgstr "варіанти перекладу:"
 
-#: src/translationedit.cpp:87
-msgctxt "TranslationEdit|"
+#: src/translator/mozhitranslationprovider.cpp:400
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid "examples:"
+msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
 msgstr "приклади:"
 
@@ -2858,6 +3019,211 @@ msgstr "Вийти"
 msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Результат перекладу"
+
+#: src/tts/attsprovider.cpp:69
+msgctxt "QObject|"
+msgid "TTS Provider Error"
+msgstr ""
+
+#: src/tts/attsprovider.cpp:70
+msgctxt "QObject|"
+msgid ""
+"The selected TTS provider crashed during initialization and has been reset "
+"to 'None' to prevent further issues. You can try selecting a different "
+"provider in Settings → TTS."
+msgstr ""
+
+#: src/tts/mozhittsprovider.cpp:48
+#, fuzzy
+#| msgctxt "SpeakButtons|"
+#| msgid "Playback text is empty"
+msgctxt "MozhiTTSProvider|"
+msgid "Text is empty"
+msgstr "Текст для відтворення порожній"
+
+#: src/tts/mozhittsprovider.cpp:81
+msgctxt "MozhiTTSProvider|"
+msgid "No audio URLs generated"
+msgstr ""
+
+#: src/tts/mozhittsprovider.cpp:263
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Mozhi instance failed: %1 (HTTP Server Error)"
+msgstr ""
+
+#: src/tts/mozhittsprovider.cpp:265 src/tts/mozhittsprovider.cpp:272
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Cannot connect to Mozhi instance: %1"
+msgstr ""
+
+#: src/tts/mozhittsprovider.cpp:268
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Mozhi instance failed: %1 (HTTP 500 Internal Server Error)"
+msgstr ""
+
+#: src/tts/mozhittsprovider.cpp:270
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:115
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "Unable to initialize Tesseract with %1"
+msgctxt "PiperTTSProvider|"
+msgid "Failed to initialize Piper TTS"
+msgstr "Не вдалося ініціалізувати Tesseract з %1"
+
+#: src/tts/piperttsprovider.cpp:121
+#, qt-format
+msgctxt "PiperTTSProvider|"
+msgid "ONNX Runtime exception: %1"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:124
+msgctxt "PiperTTSProvider|"
+msgid "Unknown ONNX Runtime initialization error"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:205
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "Unable to initialize Tesseract with %1"
+msgctxt "PiperTTSProvider|"
+msgid "Failed to initialize espeak-ng"
+msgstr "Не вдалося ініціалізувати Tesseract з %1"
+
+#: src/tts/piperttsprovider.cpp:247
+#, qt-format
+msgctxt "PiperTTSProvider|"
+msgid "ONNX Runtime initialization error: %1"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:279
+msgctxt "PiperTTSProvider|"
+msgid "Privacy Notice - Neural TTS"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:281
+msgctxt "PiperTTSProvider|"
+msgid "ONNX Runtime Telemetry Information"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:283
+msgctxt "PiperTTSProvider|"
+msgid ""
+"Crow Translate uses ONNX Runtime for neural text-to-speech. The Windows "
+"binary includes Microsoft telemetry that collects usage information.\n"
+"\n"
+"Data Collection:\n"
+"• Device and usage data, error reports, performance information\n"
+"• Used by Microsoft to improve product quality and features\n"
+"• Subject to Microsoft Privacy Statement\n"
+"\n"
+"Crow Translate Actions:\n"
+"• Automatically disables telemetry on startup\n"
+"• Uses both environment variables and runtime API calls\n"
+"• Note: Some data may be transmitted during ONNX initialization\n"
+"\n"
+"On Unix systems, telemetry is inactive by default.\n"
+"This notice is shown once per installation."
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:1000
+msgctxt "PiperTTSProvider|"
+msgid "No audio data generated"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:1015
+msgctxt "PiperTTSProvider|"
+msgid "Failed to create temporary audio file"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:1024
+#, fuzzy
+#| msgctxt "UpdaterDialog|"
+#| msgid "Unable to write file"
+msgctxt "PiperTTSProvider|"
+msgid "Failed to write audio data"
+msgstr "Не вийшло зберегти файл"
+
+#: src/tts/piperttsprovider.cpp:1362
+msgctxt "PiperTTSProvider|"
+msgid ""
+"<h3>Piper Voice Models Not Found</h3><p>No Piper TTS voice models were found "
+"in the standard locations.</p><p><b>To use Piper TTS:</b></"
+"p><ol><li>Download voice models from <a href='https://huggingface.co/rhasspy/"
+"piper-voices'>HuggingFace Piper Voices</a></li><li>Extract the models to a "
+"directory</li><li>Set the path in Settings → TTS → Piper Voices Path</li></"
+"ol><p><b>⚠️ License Warning:</b> Some models may have non-free licenses and "
+"cannot be used in commercial settings. Please check the license of each "
+"model before commercial use.</p>"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:1374
+msgctxt "PiperTTSProvider|"
+msgid "Piper Voice Models Required"
+msgstr ""
+
+#: src/tts/qtttsprovider.cpp:314
+#, qt-format
+msgctxt "QtTTSProvider|"
+msgid ""
+"<h3>Windows TTS Voice Not Found</h3><p>No Windows TTS voice was found for <b>"
+"%1</b>.</p><p><b>To install additional languages:</b></p><ol><li>Open "
+"<b>Settings → Time & Language → Language & region</b></li><li>Click <b>Add a "
+"language</b> and select your desired language</li><li>Click on the installed "
+"language and select <b>Language options</b></li><li>Under <b>Speech</b>, "
+"click <b>Download</b> for the speech pack</li></ol><p><b>⚠️ License Note:</b> "
+"Crow Translate currently only supports \"Basic voice models\" from Windows "
+"TTS. \"Narrator voices\" have licensing restrictions that are incompatible "
+"with this application.</p>"
+msgstr ""
+
+#: src/tts/qtttsprovider.cpp:328
+msgctxt "QtTTSProvider|"
+msgid "Windows TTS Voice Installation"
+msgstr ""
+
+#~ msgctxt "MainWindow|"
+#~ msgid "OCR image negate has changed to %1"
+#~ msgstr "Негатив оптично розпізнаного зображення було змінено на %1"
+
+#~ msgctxt "MainWindow|"
+#~ msgid "Unable to detect language"
+#~ msgstr "Не вдається визначити мову"
+
+#~ msgctxt "MainWindow|"
+#~ msgid "Unable to translate text"
+#~ msgstr "Не вдалося перекласти текст"
+
+#~ msgctxt "SpeakButtons|"
+#~ msgid "No text specified"
+#~ msgstr "Текст не вказано"
+
+#~ msgctxt "SpeakButtons|"
+#~ msgid "Unable to generate URLs for TTS"
+#~ msgstr "Не вдалося створити URL-и для TTS"
+
+#~ msgctxt "SpeakButtons|"
+#~ msgid "Speak / pause text speaking"
+#~ msgstr "Озвучити / призупинити озвучування тексту"
+
+#~ msgctxt "SpeakButtons|"
+#~ msgid "Stop text speaking"
+#~ msgstr " Зупинити озвучування тексту"
+
+#~ msgctxt "TranslationEdit|"
+#~ msgid "translation options:"
+#~ msgstr "варіанти перекладу:"
+
+#~ msgctxt "TranslationEdit|"
+#~ msgid "examples:"
+#~ msgstr "приклади:"
 
 #~ msgctxt "SettingsDialog|"
 #~ msgid ""
@@ -3154,10 +3520,6 @@ msgstr "Результат перекладу"
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Changelog:"
 #~ msgstr "Перелік змін:"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Unable to write file"
-#~ msgstr "Не вийшло зберегти файл"
 
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Downloading is complete"

@@ -10,12 +10,12 @@ msgstr ""
 "X-Language: hi\n"
 "X-Qt-Contexts: true\n"
 
-#: src/cli.cpp:42
+#: src/cli.cpp:37
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "सभी भाषा कोड प्रदर्शित करें।"
 
-#: src/cli.cpp:43
+#: src/cli.cpp:39
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -24,7 +24,7 @@ msgstr ""
 "स्रोत भाषा निर्दिष्ट करें (डिफ़ॉल्ट रूप से, इंजन भाषा को स्वयं निर्धारित करने का प्रयास "
 "करेगा)।"
 
-#: src/cli.cpp:44
+#: src/cli.cpp:43
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), splitted by '+' (by default, the system "
@@ -33,7 +33,7 @@ msgstr ""
 "अनुवाद भाषा निर्दिष्ट करें, '+' से विभाजित (डिफ़ॉल्ट रूप से, सिस्टम भाषा का उपयोग किया "
 "जाता है)।"
 
-#: src/cli.cpp:45
+#: src/cli.cpp:47
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -47,76 +47,91 @@ msgstr ""
 "अनुवादक इंजन ('google', 'yandex' या 'bing') निर्दिष्ट करें, Google डिफ़ॉल्ट रूप से "
 "उपयोग किया जाता है।"
 
-#: src/cli.cpp:46
+#: src/cli.cpp:51
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
 
-#: src/cli.cpp:47
+#: src/cli.cpp:55
+msgctxt "Cli|"
+msgid ""
+"Specify translation provider ('copy' or 'mozhi'). Provider from app settings "
+"will be used by default."
+msgstr ""
+
+#: src/cli.cpp:58
+msgctxt "Cli|"
+msgid ""
+"Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from app "
+"settings will be used by default."
+msgstr ""
+
+#: src/cli.cpp:60
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "अनुवाद बोलो।"
 
-#: src/cli.cpp:48
+#: src/cli.cpp:61
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "स्रोत बोलो।"
 
-#: src/cli.cpp:49
+#: src/cli.cpp:62
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
 msgstr "फ़ाइलों से स्रोत पाठ पढ़ें। तर्कों की व्याख्या फ़ाइल पथ के रूप में की जाएगी।"
 
-#: src/cli.cpp:50
+#: src/cli.cpp:63
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "स्रोत पाठ में stdin डेटा जोड़ें।"
 
-#: src/cli.cpp:51
+#: src/cli.cpp:65
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "उपयोग करते समय कोई भी टेक्स्ट प्रिंट न करें --%1 या --%2."
 
-#: src/cli.cpp:52
+#: src/cli.cpp:66
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "केवल अनुवाद प्रिंट करें।"
 
-#: src/cli.cpp:53
+#: src/cli.cpp:67
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "प्रिंट आउटपुट को JSON के रूप में स्वरूपित किया गया।"
 
-#: src/cli.cpp:56
+#: src/cli.cpp:70
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
 #| "A simple and lightweight translator that allows to translate and speak "
 #| "text using Google, Yandex and Bing."
 msgctxt "Cli|"
-msgid "Application that allows to translate and speak text using Mozhi"
+msgid ""
+"Application that allows to translate and speak text using various providers"
 msgstr ""
 "एक सरल और हल्का अनुवादक जो Google, यांडेक्स और बिंग का उपयोग करके टेक्स्ट का अनुवाद और "
 "बोलने की अनुमति देता है।"
 
-#: src/cli.cpp:57
+#: src/cli.cpp:71
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr "अनुवाद करने के लिए पाठ। डिफ़ॉल्ट रूप से, अनुवाद सिस्टम भाषा में किया जाएगा।"
 
-#: src/cli.cpp:79
+#: src/cli.cpp:95
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "त्रुटि: के लिए --%1 आपको निर्दिष्ट करना होगा --%2 और/या --%3 विकल्प"
 
-#: src/cli.cpp:94
+#: src/cli.cpp:115
 #, fuzzy, qt-format
 #| msgctxt "AppSettings|"
 #| msgid "Unknown language code: %1"
@@ -124,7 +139,7 @@ msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "यह भाषा कोड अज्ञात है: %1"
 
-#: src/cli.cpp:102
+#: src/cli.cpp:128
 #, fuzzy, qt-format
 #| msgctxt "AppSettings|"
 #| msgid "Unknown language code: %1"
@@ -132,12 +147,20 @@ msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "यह भाषा कोड अज्ञात है: %1"
 
-#: src/cli.cpp:126
+#: src/cli.cpp:152
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "त्रुटि: अनुवाद के लिए कोई टेक्स्ट नहीं है"
 
-#: src/cli.cpp:132
+#: src/cli.cpp:165
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Unknown language code: %1"
+msgctxt "Cli|"
+msgid "Error: Unknown translation provider '%1'"
+msgstr "यह भाषा कोड अज्ञात है: %1"
+
+#: src/cli.cpp:175
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Speech test:"
@@ -145,52 +168,65 @@ msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr "उच्चारण परीक्षण:"
 
-#: src/cli.cpp:159
+#: src/cli.cpp:214
+#, fuzzy
+#| msgctxt "OnlineTts|"
+#| msgid "Selected language %1 is not supported for %2"
+msgctxt "Cli|"
+msgid "Error: Lingva engine is not supported"
+msgstr "चयनित भाषा %1 के लिए समर्थित नहीं है %2"
+
+#: src/cli.cpp:223
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
 msgstr "त्रुटि: अज्ञात इंजन"
 
-#: src/cli.cpp:194 src/cli.cpp:282 src/cli.cpp:372
+#: src/cli.cpp:256
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Unknown language code: %1"
+msgctxt "Cli|"
+msgid "Error: Unknown TTS provider '%1'"
+msgstr "यह भाषा कोड अज्ञात है: %1"
+
+#: src/cli.cpp:335 src/cli.cpp:384
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "त्रुटि: %1"
 
-#: src/cli.cpp:244
+#: src/cli.cpp:337 src/cli.cpp:386
 #, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "translation options:"
+#| msgctxt "SettingsDialog|"
+#| msgid "Translation mode:"
 msgctxt "Cli|"
-msgid "translation options:"
-msgstr "अनुवाद विकल्प:"
+msgid "Translation error occurred"
+msgstr "अनुवाद मोड:"
 
-#: src/cli.cpp:255
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "examples:"
+#: src/cli.cpp:443
 msgctxt "Cli|"
-msgid "examples:"
-msgstr "उदाहरण:"
+msgid "Error: TTS failed"
+msgstr ""
 
-#: src/cli.cpp:385
+#: src/cli.cpp:600
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "त्रुटि: उपयोग 'नहीं किया जा सकता --%1 साथ --%2"
 
-#: src/cli.cpp:397 src/cli.cpp:418
+#: src/cli.cpp:612 src/cli.cpp:633
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "त्रुटि: फ़ाइल मौजूद नहीं है: %1"
 
-#: src/cli.cpp:402 src/cli.cpp:423
+#: src/cli.cpp:617 src/cli.cpp:638
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
 msgstr "त्रुटि: फ़ाइल खोलने में असमर्थ: %1"
 
-#: src/contextmenu.h:39
+#: src/contextmenu.h:35
 msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Forvo.com पर खोजें"
@@ -227,17 +263,17 @@ msgid ""
 "Checking '%1'"
 msgstr ""
 
-#: src/languagebuttonswidget.cpp:216
+#: src/languagebuttonswidget.cpp:225
 msgctxt "LanguageButtonsWidget|"
 msgid "Window width is larger than screen due to the languages on the panel."
 msgstr "पैनल पर भाषाओं के कारण विंडो की चौड़ाई स्क्रीन से बड़ी है।"
 
-#: src/languagebuttonswidget.cpp:217
+#: src/languagebuttonswidget.cpp:226
 msgctxt "LanguageButtonsWidget|"
 msgid "Please reduce added languages."
 msgstr "कृपया जोड़ी गई भाषाओं को कम करें।"
 
-#: src/languagebuttonswidget.cpp:293 src/languagebuttonswidget.cpp:295
+#: src/languagebuttonswidget.cpp:302 src/languagebuttonswidget.cpp:304
 msgctxt "LanguageButtonsWidget|"
 msgid "Auto"
 msgstr "स्वचालन"
@@ -250,7 +286,7 @@ msgctxt "LanguageButtonsWidget|"
 msgid "Edit languages"
 msgstr "भाषा जोड़ें"
 
-#: src/languagesdialog.cpp:23
+#: src/languagesdialog.cpp:24
 #, qt-format
 msgctxt "LanguagesDialog|"
 msgid "Filter (%1)"
@@ -274,46 +310,52 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "वर्तमान भाषाएं:"
 
-#: src/main.cpp:70
+#: src/main.cpp:76
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr "डी-बस सेवा %1 पहले से ही किसी अन्य एप्लिकेशन द्वारा पंजीकृत है"
 
-#: src/main.cpp:95
+#: src/main.cpp:109
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "के लिए डी-बस वस्तु को पंजीकृत करने में असमर्थ %1"
 
-#: src/mainwindow.cpp:269
-msgctxt "MainWindow|"
-msgid "Toggled OCR image negate"
+#: src/mainwindow.cpp:342
+msgctxt "QApplication|"
+msgid "OCR"
 msgstr ""
 
-#: src/mainwindow.cpp:269
-#, qt-format
-msgctxt "MainWindow|"
-msgid "OCR image negate has changed to %1"
+#: src/mainwindow.cpp:343
+msgctxt "QApplication|"
+msgid "OCR image negated"
 msgstr ""
 
-#: src/mainwindow.cpp:392
-msgctxt "MainWindow|"
-msgid "Unable to detect language"
-msgstr "भाषा का पता लगाने में असमर्थ"
+#: src/mainwindow.cpp:343
+msgctxt "QApplication|"
+msgid "OCR image is normal"
+msgstr ""
 
-#: src/mainwindow.cpp:444
-msgctxt "MainWindow|"
-msgid "Unable to translate text"
-msgstr "लेख का अनुवाद करने में असमर्थ"
+#: src/mainwindow.cpp:495 src/mainwindow.cpp:515 src/mainwindow.cpp:563
+#: src/mainwindow.cpp:592
+msgctxt "Ocr|"
+msgid "OCR languages are not loaded"
+msgstr "OCR भाषाएं लोड नहीं होती हैं"
 
-#: src/mainwindow.cpp:862
+#: src/mainwindow.cpp:495 src/mainwindow.cpp:515 src/mainwindow.cpp:563
+#: src/mainwindow.cpp:592
+msgctxt "Ocr|"
+msgid "You should set at least one OCR language in the application settings"
+msgstr "आपको एप्लिकेशन सेटिंग में कम से कम एक OCR भाषा सेट करनी चाहिए"
+
+#: src/mainwindow.cpp:746
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr ""
 
-#: src/mainwindow.cpp:863
+#: src/mainwindow.cpp:747
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -323,95 +365,124 @@ msgid ""
 "instance details in the link above."
 msgstr ""
 
-#: src/mainwindow.cpp:870
+#: src/mainwindow.cpp:754
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr ""
 
-#: src/mainwindow.cpp:898
+#: src/mainwindow.cpp:796
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "अमान्य ट्रे आइकन"
 
-#: src/mainwindow.cpp:898
+#: src/mainwindow.cpp:796
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "निर्दिष्ट चिह्न '%1' अमान्य है। डिफ़ॉल्ट आइकन का उपयोग किया जाएगा।"
 
-#: src/mainwindow.cpp:927
+#: src/mainwindow.cpp:817
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "OCR भाषाएं सेट करने में असमर्थ"
 
-#: src/mainwindow.cpp:927
+#: src/mainwindow.cpp:817
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "Tesseract के साथ प्रारंभ नहीं कर सकता %1"
 
-#: src/mainwindow.ui:36
+#: src/mainwindow.cpp:955
+msgctxt "MainWindow|"
+msgid "TTS Error"
+msgstr ""
+
+#: src/mainwindow.cpp:955
+#, qt-format
+msgctxt "MainWindow|"
+msgid ""
+"Text-to-Speech error:\n"
+"\n"
+"%1\n"
+"\n"
+"Please check your TTS settings or try a different voice/locale."
+msgstr ""
+
+#: src/mainwindow.ui:14
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Main window"
+msgctxt "MainWindow|"
+msgid "MainWindow"
+msgstr "मुख्य विंडो"
+
+#: src/mainwindow.ui:29
+msgctxt "MainWindow|"
+msgid "Translate"
+msgstr "अनुवाद करना"
+
+#: src/mainwindow.ui:39
+msgctxt "MainWindow|"
+msgid "Swap languages"
+msgstr "भाषा बदलें"
+
+#: src/mainwindow.ui:52
+msgctxt "MainWindow|"
+msgid "Source"
+msgstr "स्रोत"
+
+#: src/mainwindow.ui:72
+msgctxt "MainWindow|"
+msgid "Cancel"
+msgstr "रद्द करना"
+
+#: src/mainwindow.ui:132 src/mainwindow.ui:261
+msgctxt "MainWindow|"
+msgid "..."
+msgstr ""
+
+#: src/mainwindow.ui:142
 msgctxt "MainWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "स्रोत टेक्स्ट को क्लिपबोर्ड पर कॉपी करें"
 
-#: src/mainwindow.ui:47
+#: src/mainwindow.ui:152
 msgctxt "MainWindow|"
 msgid "Recognize screen area with delay"
 msgstr "स्क्रीन क्षेत्र को देरी से पहचानें"
 
 #. The text should be short to fit in portrait orientation on phones.
-#: src/mainwindow.ui:64
+#: src/mainwindow.ui:168
 msgctxt "MainWindow|"
 msgid "Auto-translation"
 msgstr "स्वचालित अनुवाद"
 
-#: src/mainwindow.ui:76
-msgctxt "MainWindow|"
-msgid "Cancel"
-msgstr "रद्द करना"
-
-#: src/mainwindow.ui:87
-msgctxt "MainWindow|"
-msgid "Swap languages"
-msgstr "भाषा बदलें"
-
-#: src/mainwindow.ui:111
-msgctxt "MainWindow|"
-msgid "Source"
-msgstr "स्रोत"
-
-#: src/mainwindow.ui:118
+#: src/mainwindow.ui:177
 msgctxt "MainWindow|"
 msgid "Clear"
 msgstr "स्पष्ट"
 
-#: src/mainwindow.ui:135
-msgctxt "MainWindow|"
-msgid "Translate"
-msgstr "अनुवाद करना"
-
-#: src/mainwindow.ui:163
+#: src/mainwindow.ui:204
 msgctxt "MainWindow|"
 msgid "Translation"
 msgstr "अनुवाद"
 
-#: src/mainwindow.ui:259
+#: src/mainwindow.ui:351
 msgctxt "MainWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "अनुवाद को क्लिपबोर्ड पर कॉपी करें"
 
-#: src/mainwindow.ui:270
+#: src/mainwindow.ui:361
 msgctxt "MainWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "सभी अनुवाद डेटा को क्लिपबोर्ड पर कॉपी करें"
 
-#: src/mainwindow.ui:281
+#: src/mainwindow.ui:371
 msgctxt "MainWindow|"
 msgid "Translate screen area with delay"
 msgstr "देरी से स्क्रीन क्षेत्र का अनुवाद करें"
 
-#: src/mainwindow.ui:292
+#: src/mainwindow.ui:381
 msgctxt "MainWindow|"
 msgid "Application settings"
 msgstr "अनुप्रयोग सेटिंग"
@@ -638,7 +709,12 @@ msgctxt "OnlineTranslator|"
 msgid "Language detection is not supported for %1"
 msgstr "चयनित भाषा %1 के लिए समर्थित नहीं है %2"
 
-#: src/onlinetranslator.cpp:351
+#: src/onlinetranslator.cpp:319
+msgctxt "OnlineTranslator|"
+msgid "Operation aborted by user"
+msgstr ""
+
+#: src/onlinetranslator.cpp:362
 #, fuzzy, qt-format
 #| msgctxt "OnlineTts|"
 #| msgid "%1 engine does not support TTS"
@@ -646,47 +722,47 @@ msgctxt "OnlineTranslator|"
 msgid "%1 engine does not support TTS"
 msgstr "%1 इंजन टीटीएस का समर्थन नहीं करता"
 
-#: src/onlinetranslator.cpp:492
+#: src/onlinetranslator.cpp:503
 msgctxt "OnlineTranslator|"
 msgid "Automatically detect"
 msgstr "स्वचालित रूप से पता लगाएं"
 
-#: src/onlinetranslator.cpp:494
+#: src/onlinetranslator.cpp:505
 msgctxt "OnlineTranslator|"
 msgid "Afrikaans"
 msgstr "अफ्रीकांस"
 
-#: src/onlinetranslator.cpp:496
+#: src/onlinetranslator.cpp:507
 msgctxt "OnlineTranslator|"
 msgid "Albanian"
 msgstr "अल्बानियन"
 
-#: src/onlinetranslator.cpp:498
+#: src/onlinetranslator.cpp:509
 msgctxt "OnlineTranslator|"
 msgid "Amharic"
 msgstr "अम्हारिक्"
 
-#: src/onlinetranslator.cpp:500
+#: src/onlinetranslator.cpp:511
 msgctxt "OnlineTranslator|"
 msgid "Arabic"
 msgstr "अरबी"
 
-#: src/onlinetranslator.cpp:502
+#: src/onlinetranslator.cpp:513
 msgctxt "OnlineTranslator|"
 msgid "Armenian"
 msgstr "अर्मेनियाई"
 
-#: src/onlinetranslator.cpp:504
+#: src/onlinetranslator.cpp:515
 msgctxt "OnlineTranslator|"
 msgid "Assamese"
 msgstr ""
 
-#: src/onlinetranslator.cpp:506
+#: src/onlinetranslator.cpp:517
 msgctxt "OnlineTranslator|"
 msgid "Aymara"
 msgstr ""
 
-#: src/onlinetranslator.cpp:508
+#: src/onlinetranslator.cpp:519
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Azeerbaijani"
@@ -694,72 +770,72 @@ msgctxt "OnlineTranslator|"
 msgid "Azerbaijani"
 msgstr "आज़रबाइजानी"
 
-#: src/onlinetranslator.cpp:510
+#: src/onlinetranslator.cpp:521
 msgctxt "OnlineTranslator|"
 msgid "Bajan"
 msgstr ""
 
-#: src/onlinetranslator.cpp:512
+#: src/onlinetranslator.cpp:523
 msgctxt "OnlineTranslator|"
 msgid "Balkan Gipsy"
 msgstr ""
 
-#: src/onlinetranslator.cpp:514
+#: src/onlinetranslator.cpp:525
 msgctxt "OnlineTranslator|"
 msgid "Bambara"
 msgstr ""
 
-#: src/onlinetranslator.cpp:516
+#: src/onlinetranslator.cpp:527
 msgctxt "OnlineTranslator|"
 msgid "Bangla"
 msgstr ""
 
-#: src/onlinetranslator.cpp:518
+#: src/onlinetranslator.cpp:529
 msgctxt "OnlineTranslator|"
 msgid "Bashkir"
 msgstr "बशख़िर"
 
-#: src/onlinetranslator.cpp:520
+#: src/onlinetranslator.cpp:531
 msgctxt "OnlineTranslator|"
 msgid "Basque"
 msgstr "Basque"
 
-#: src/onlinetranslator.cpp:522
+#: src/onlinetranslator.cpp:533
 msgctxt "OnlineTranslator|"
 msgid "Belarusian"
 msgstr "बेलारूसी"
 
-#: src/onlinetranslator.cpp:524
+#: src/onlinetranslator.cpp:535
 msgctxt "OnlineTranslator|"
 msgid "Bemba"
 msgstr ""
 
-#: src/onlinetranslator.cpp:526
+#: src/onlinetranslator.cpp:537
 msgctxt "OnlineTranslator|"
 msgid "Bhojpuri"
 msgstr ""
 
-#: src/onlinetranslator.cpp:528
+#: src/onlinetranslator.cpp:539
 msgctxt "OnlineTranslator|"
 msgid "Bislama"
 msgstr ""
 
-#: src/onlinetranslator.cpp:530
+#: src/onlinetranslator.cpp:541
 msgctxt "OnlineTranslator|"
 msgid "Bosnian"
 msgstr "बोस्नियाई भाषा"
 
-#: src/onlinetranslator.cpp:532
+#: src/onlinetranslator.cpp:543
 msgctxt "OnlineTranslator|"
 msgid "Breton"
 msgstr ""
 
-#: src/onlinetranslator.cpp:534
+#: src/onlinetranslator.cpp:545
 msgctxt "OnlineTranslator|"
 msgid "Bulgarian"
 msgstr "बल्गेरियाई"
 
-#: src/onlinetranslator.cpp:536
+#: src/onlinetranslator.cpp:547
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Chinese (Traditional)"
@@ -767,27 +843,27 @@ msgctxt "OnlineTranslator|"
 msgid "Cantonese (Traditional)"
 msgstr "पारंपरिक चीनी भाषा"
 
-#: src/onlinetranslator.cpp:538
+#: src/onlinetranslator.cpp:549
 msgctxt "OnlineTranslator|"
 msgid "Catalan"
 msgstr "कातालान"
 
-#: src/onlinetranslator.cpp:540
+#: src/onlinetranslator.cpp:551
 msgctxt "OnlineTranslator|"
 msgid "Cebuano"
 msgstr "सिबुआनो"
 
-#: src/onlinetranslator.cpp:542
+#: src/onlinetranslator.cpp:553
 msgctxt "OnlineTranslator|"
 msgid "Chamorro"
 msgstr ""
 
-#: src/onlinetranslator.cpp:544
+#: src/onlinetranslator.cpp:555
 msgctxt "OnlineTranslator|"
 msgid "Chichewa"
 msgstr "चिचेवा"
 
-#: src/onlinetranslator.cpp:546
+#: src/onlinetranslator.cpp:557
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Chinese (Traditional)"
@@ -795,157 +871,157 @@ msgctxt "OnlineTranslator|"
 msgid "Chinese (Literary)"
 msgstr "पारंपरिक चीनी भाषा"
 
-#: src/onlinetranslator.cpp:548
+#: src/onlinetranslator.cpp:559
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Simplified)"
 msgstr "सरलीकृत चीनी"
 
-#: src/onlinetranslator.cpp:550
+#: src/onlinetranslator.cpp:561
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Traditional)"
 msgstr "पारंपरिक चीनी भाषा"
 
-#: src/onlinetranslator.cpp:552
+#: src/onlinetranslator.cpp:563
 msgctxt "OnlineTranslator|"
 msgid "Chuvash"
 msgstr ""
 
-#: src/onlinetranslator.cpp:554
+#: src/onlinetranslator.cpp:565
 msgctxt "OnlineTranslator|"
 msgid "Comorian (Ngazidja)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:556
+#: src/onlinetranslator.cpp:567
 msgctxt "OnlineTranslator|"
 msgid "Coptic"
 msgstr ""
 
-#: src/onlinetranslator.cpp:558
+#: src/onlinetranslator.cpp:569
 msgctxt "OnlineTranslator|"
 msgid "Corsican"
 msgstr "कोर्सीकन भाषा"
 
-#: src/onlinetranslator.cpp:560
+#: src/onlinetranslator.cpp:571
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Antigua and Barbuda)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:562
+#: src/onlinetranslator.cpp:573
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Bahamas)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:564
+#: src/onlinetranslator.cpp:575
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Grenadian)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:566
+#: src/onlinetranslator.cpp:577
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Guyanese)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:568
+#: src/onlinetranslator.cpp:579
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Jamaican)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:570
+#: src/onlinetranslator.cpp:581
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Vincentian)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:572
+#: src/onlinetranslator.cpp:583
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Virgin Islands)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:574
+#: src/onlinetranslator.cpp:585
 msgctxt "OnlineTranslator|"
 msgid "Creole French (Saint Lucian)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:576
+#: src/onlinetranslator.cpp:587
 msgctxt "OnlineTranslator|"
 msgid "Creole French (Seselwa)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:578
+#: src/onlinetranslator.cpp:589
 msgctxt "OnlineTranslator|"
 msgid "Creole Portuguese (Upper Guinea)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:580
+#: src/onlinetranslator.cpp:591
 msgctxt "OnlineTranslator|"
 msgid "Croatian"
 msgstr "क्रोएशियाई"
 
-#: src/onlinetranslator.cpp:582
+#: src/onlinetranslator.cpp:593
 msgctxt "OnlineTranslator|"
 msgid "Czech"
 msgstr "चेक"
 
-#: src/onlinetranslator.cpp:584
+#: src/onlinetranslator.cpp:595
 msgctxt "OnlineTranslator|"
 msgid "Danish"
 msgstr "दानिश"
 
-#: src/onlinetranslator.cpp:586
+#: src/onlinetranslator.cpp:597
 msgctxt "OnlineTranslator|"
 msgid "Dari"
 msgstr ""
 
-#: src/onlinetranslator.cpp:588
+#: src/onlinetranslator.cpp:599
 msgctxt "OnlineTranslator|"
 msgid "Divehi"
 msgstr ""
 
-#: src/onlinetranslator.cpp:590
+#: src/onlinetranslator.cpp:601
 msgctxt "OnlineTranslator|"
 msgid "Dogri"
 msgstr ""
 
-#: src/onlinetranslator.cpp:592
+#: src/onlinetranslator.cpp:603
 msgctxt "OnlineTranslator|"
 msgid "Dutch"
 msgstr "डच"
 
-#: src/onlinetranslator.cpp:594
+#: src/onlinetranslator.cpp:605
 msgctxt "OnlineTranslator|"
 msgid "Dzongkha"
 msgstr ""
 
-#: src/onlinetranslator.cpp:596
+#: src/onlinetranslator.cpp:607
 msgctxt "OnlineTranslator|"
 msgid "Elvish (Sindarin)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:598
+#: src/onlinetranslator.cpp:609
 msgctxt "OnlineTranslator|"
 msgid "Emoji"
 msgstr ""
 
-#: src/onlinetranslator.cpp:600
+#: src/onlinetranslator.cpp:611
 msgctxt "OnlineTranslator|"
 msgid "English"
 msgstr "अंग्रेजी"
 
-#: src/onlinetranslator.cpp:602
+#: src/onlinetranslator.cpp:613
 msgctxt "OnlineTranslator|"
 msgid "Esperanto"
 msgstr "एस्पेरांतो"
 
-#: src/onlinetranslator.cpp:604
+#: src/onlinetranslator.cpp:615
 msgctxt "OnlineTranslator|"
 msgid "Estonian"
 msgstr "एस्टोनियाई"
 
-#: src/onlinetranslator.cpp:606
+#: src/onlinetranslator.cpp:617
 msgctxt "OnlineTranslator|"
 msgid "Ewe"
 msgstr ""
 
-#: src/onlinetranslator.cpp:608
+#: src/onlinetranslator.cpp:619
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Tagalog"
@@ -953,117 +1029,117 @@ msgctxt "OnlineTranslator|"
 msgid "Fanagalo"
 msgstr "तागालोग"
 
-#: src/onlinetranslator.cpp:610
+#: src/onlinetranslator.cpp:621
 msgctxt "OnlineTranslator|"
 msgid "Faroese"
 msgstr ""
 
-#: src/onlinetranslator.cpp:612
+#: src/onlinetranslator.cpp:623
 msgctxt "OnlineTranslator|"
 msgid "Fijian"
 msgstr "फिजी"
 
-#: src/onlinetranslator.cpp:614
+#: src/onlinetranslator.cpp:625
 msgctxt "OnlineTranslator|"
 msgid "Filipino"
 msgstr "फिलीपीन"
 
-#: src/onlinetranslator.cpp:616
+#: src/onlinetranslator.cpp:627
 msgctxt "OnlineTranslator|"
 msgid "Finnish"
 msgstr "फिनिश"
 
-#: src/onlinetranslator.cpp:618
+#: src/onlinetranslator.cpp:629
 msgctxt "OnlineTranslator|"
 msgid "French"
 msgstr "फ्रेंच"
 
-#: src/onlinetranslator.cpp:620
+#: src/onlinetranslator.cpp:631
 msgctxt "OnlineTranslator|"
 msgid "French (Canada)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:622
+#: src/onlinetranslator.cpp:633
 msgctxt "OnlineTranslator|"
 msgid "Frisian"
 msgstr "फ़्रिसियाई"
 
-#: src/onlinetranslator.cpp:624
+#: src/onlinetranslator.cpp:635
 msgctxt "OnlineTranslator|"
 msgid "Galician"
 msgstr "गैलिशियन्"
 
-#: src/onlinetranslator.cpp:626
+#: src/onlinetranslator.cpp:637
 msgctxt "OnlineTranslator|"
 msgid "Ganda"
 msgstr ""
 
-#: src/onlinetranslator.cpp:628
+#: src/onlinetranslator.cpp:639
 msgctxt "OnlineTranslator|"
 msgid "Georgian"
 msgstr "जॉर्जीयन्"
 
-#: src/onlinetranslator.cpp:630
+#: src/onlinetranslator.cpp:641
 msgctxt "OnlineTranslator|"
 msgid "German"
 msgstr "जर्मन"
 
-#: src/onlinetranslator.cpp:632
+#: src/onlinetranslator.cpp:643
 msgctxt "OnlineTranslator|"
 msgid "Greek"
 msgstr "यूनानी"
 
-#: src/onlinetranslator.cpp:634
+#: src/onlinetranslator.cpp:645
 msgctxt "OnlineTranslator|"
 msgid "Greek (Classical)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:636
+#: src/onlinetranslator.cpp:647
 msgctxt "OnlineTranslator|"
 msgid "Guarani"
 msgstr ""
 
-#: src/onlinetranslator.cpp:638
+#: src/onlinetranslator.cpp:649
 msgctxt "OnlineTranslator|"
 msgid "Gujarati"
 msgstr "गुजराती"
 
-#: src/onlinetranslator.cpp:640
+#: src/onlinetranslator.cpp:651
 msgctxt "OnlineTranslator|"
 msgid "Haitian Creole"
 msgstr "हाईटियन क्रियोल"
 
-#: src/onlinetranslator.cpp:642
+#: src/onlinetranslator.cpp:653
 msgctxt "OnlineTranslator|"
 msgid "Hausa"
 msgstr "होउसा"
 
-#: src/onlinetranslator.cpp:644
+#: src/onlinetranslator.cpp:655
 msgctxt "OnlineTranslator|"
 msgid "Hawaiian"
 msgstr "हवाई भाषा"
 
-#: src/onlinetranslator.cpp:646
+#: src/onlinetranslator.cpp:657
 msgctxt "OnlineTranslator|"
 msgid "Hebrew"
 msgstr "यहूदी"
 
-#: src/onlinetranslator.cpp:648
+#: src/onlinetranslator.cpp:659
 msgctxt "OnlineTranslator|"
 msgid "Hill Mari"
 msgstr "माउंटेन मारी भाषा"
 
-#: src/onlinetranslator.cpp:650
+#: src/onlinetranslator.cpp:661
 msgctxt "OnlineTranslator|"
 msgid "Hindi"
 msgstr "हिन्दी भाषा"
 
-#: src/onlinetranslator.cpp:652
+#: src/onlinetranslator.cpp:663
 msgctxt "OnlineTranslator|"
 msgid "Hmong"
 msgstr "हमोंग"
 
-#: src/onlinetranslator.cpp:654
+#: src/onlinetranslator.cpp:665
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Hmong"
@@ -1071,77 +1147,77 @@ msgctxt "OnlineTranslator|"
 msgid "Hmong Daw"
 msgstr "हमोंग"
 
-#: src/onlinetranslator.cpp:656
+#: src/onlinetranslator.cpp:667
 msgctxt "OnlineTranslator|"
 msgid "Hungarian"
 msgstr "हंगेरी"
 
-#: src/onlinetranslator.cpp:658
+#: src/onlinetranslator.cpp:669
 msgctxt "OnlineTranslator|"
 msgid "Icelandic"
 msgstr "आइसलैंड का"
 
-#: src/onlinetranslator.cpp:660
+#: src/onlinetranslator.cpp:671
 msgctxt "OnlineTranslator|"
 msgid "Igbo"
 msgstr "ईग्बो"
 
-#: src/onlinetranslator.cpp:662
+#: src/onlinetranslator.cpp:673
 msgctxt "OnlineTranslator|"
 msgid "Ilocano"
 msgstr ""
 
-#: src/onlinetranslator.cpp:664
+#: src/onlinetranslator.cpp:675
 msgctxt "OnlineTranslator|"
 msgid "Indonesian"
 msgstr "इन्डोनेशियाई"
 
-#: src/onlinetranslator.cpp:666
+#: src/onlinetranslator.cpp:677
 msgctxt "OnlineTranslator|"
 msgid "Inuinnaqtun"
 msgstr ""
 
-#: src/onlinetranslator.cpp:668
+#: src/onlinetranslator.cpp:679
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut"
 msgstr ""
 
-#: src/onlinetranslator.cpp:670
+#: src/onlinetranslator.cpp:681
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Greenlandic)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:672
+#: src/onlinetranslator.cpp:683
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Latin)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:674
+#: src/onlinetranslator.cpp:685
 msgctxt "OnlineTranslator|"
 msgid "Irish"
 msgstr "आयरिश"
 
-#: src/onlinetranslator.cpp:676
+#: src/onlinetranslator.cpp:687
 msgctxt "OnlineTranslator|"
 msgid "Italian"
 msgstr "इतालवी"
 
-#: src/onlinetranslator.cpp:678
+#: src/onlinetranslator.cpp:689
 msgctxt "OnlineTranslator|"
 msgid "Japanese"
 msgstr "जापानी"
 
-#: src/onlinetranslator.cpp:680
+#: src/onlinetranslator.cpp:691
 msgctxt "OnlineTranslator|"
 msgid "Javanese"
 msgstr "जावानीस"
 
-#: src/onlinetranslator.cpp:682
+#: src/onlinetranslator.cpp:693
 msgctxt "OnlineTranslator|"
 msgid "Kabuverdianu"
 msgstr ""
 
-#: src/onlinetranslator.cpp:684
+#: src/onlinetranslator.cpp:695
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Italian"
@@ -1149,17 +1225,17 @@ msgctxt "OnlineTranslator|"
 msgid "Kabylian"
 msgstr "इतालवी"
 
-#: src/onlinetranslator.cpp:686
+#: src/onlinetranslator.cpp:697
 msgctxt "OnlineTranslator|"
 msgid "Kannada"
 msgstr "कन्नड़"
 
-#: src/onlinetranslator.cpp:688
+#: src/onlinetranslator.cpp:699
 msgctxt "OnlineTranslator|"
 msgid "Kazakh"
 msgstr "कजाख"
 
-#: src/onlinetranslator.cpp:690
+#: src/onlinetranslator.cpp:701
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Serbian (Latin)"
@@ -1167,22 +1243,22 @@ msgctxt "OnlineTranslator|"
 msgid "Kazakh (Latin)"
 msgstr "सर्बियाई (लैटिन)"
 
-#: src/onlinetranslator.cpp:692
+#: src/onlinetranslator.cpp:703
 msgctxt "OnlineTranslator|"
 msgid "Khmer"
 msgstr "खमेर"
 
-#: src/onlinetranslator.cpp:694
+#: src/onlinetranslator.cpp:705
 msgctxt "OnlineTranslator|"
 msgid "Kinyarwanda"
 msgstr "किन्यारवाण्डा"
 
-#: src/onlinetranslator.cpp:696
+#: src/onlinetranslator.cpp:707
 msgctxt "OnlineTranslator|"
 msgid "Kirundi"
 msgstr ""
 
-#: src/onlinetranslator.cpp:698
+#: src/onlinetranslator.cpp:709
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Klingon (PlqaD)"
@@ -1190,32 +1266,32 @@ msgctxt "OnlineTranslator|"
 msgid "Klingon (Latin)"
 msgstr "क्लिंगन (पीएलक्यूएडी)"
 
-#: src/onlinetranslator.cpp:700
+#: src/onlinetranslator.cpp:711
 msgctxt "OnlineTranslator|"
 msgid "Konkani"
 msgstr ""
 
-#: src/onlinetranslator.cpp:702
+#: src/onlinetranslator.cpp:713
 msgctxt "OnlineTranslator|"
 msgid "Korean"
 msgstr "कोरियाई"
 
-#: src/onlinetranslator.cpp:704
+#: src/onlinetranslator.cpp:715
 msgctxt "OnlineTranslator|"
 msgid "Krio"
 msgstr ""
 
-#: src/onlinetranslator.cpp:706
+#: src/onlinetranslator.cpp:717
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Central)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:708
+#: src/onlinetranslator.cpp:719
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Northern)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:710
+#: src/onlinetranslator.cpp:721
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Kurdish"
@@ -1223,57 +1299,57 @@ msgctxt "OnlineTranslator|"
 msgid "Kurdish (Sorani)"
 msgstr "कुर्द"
 
-#: src/onlinetranslator.cpp:712
+#: src/onlinetranslator.cpp:723
 msgctxt "OnlineTranslator|"
 msgid "Kyrgyz"
 msgstr "किरगिज़"
 
-#: src/onlinetranslator.cpp:714
+#: src/onlinetranslator.cpp:725
 msgctxt "OnlineTranslator|"
 msgid "Lao"
 msgstr "लाओ भाषा"
 
-#: src/onlinetranslator.cpp:716
+#: src/onlinetranslator.cpp:727
 msgctxt "OnlineTranslator|"
 msgid "Latin"
 msgstr "लैटिन"
 
-#: src/onlinetranslator.cpp:718
+#: src/onlinetranslator.cpp:729
 msgctxt "OnlineTranslator|"
 msgid "Latvian"
 msgstr "लात्वीयावासी"
 
-#: src/onlinetranslator.cpp:720
+#: src/onlinetranslator.cpp:731
 msgctxt "OnlineTranslator|"
 msgid "Lingala"
 msgstr ""
 
-#: src/onlinetranslator.cpp:722
+#: src/onlinetranslator.cpp:733
 msgctxt "OnlineTranslator|"
 msgid "Lithuanian"
 msgstr "लिथुआनियाई"
 
-#: src/onlinetranslator.cpp:724
+#: src/onlinetranslator.cpp:735
 msgctxt "OnlineTranslator|"
 msgid "Lower Sorbian"
 msgstr ""
 
-#: src/onlinetranslator.cpp:726
+#: src/onlinetranslator.cpp:737
 msgctxt "OnlineTranslator|"
 msgid "Luganda"
 msgstr ""
 
-#: src/onlinetranslator.cpp:728
+#: src/onlinetranslator.cpp:739
 msgctxt "OnlineTranslator|"
 msgid "Luxembourgish"
 msgstr "लक्जमबर्गिश"
 
-#: src/onlinetranslator.cpp:730
+#: src/onlinetranslator.cpp:741
 msgctxt "OnlineTranslator|"
 msgid "Macedonian"
 msgstr "मेसीडोनियन"
 
-#: src/onlinetranslator.cpp:732
+#: src/onlinetranslator.cpp:743
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Swahili"
@@ -1281,27 +1357,27 @@ msgctxt "OnlineTranslator|"
 msgid "Maithili"
 msgstr "स्वाहिली भाषा"
 
-#: src/onlinetranslator.cpp:734
+#: src/onlinetranslator.cpp:745
 msgctxt "OnlineTranslator|"
 msgid "Malagasy"
 msgstr "मालागासी"
 
-#: src/onlinetranslator.cpp:736
+#: src/onlinetranslator.cpp:747
 msgctxt "OnlineTranslator|"
 msgid "Malay"
 msgstr "मलायी"
 
-#: src/onlinetranslator.cpp:738
+#: src/onlinetranslator.cpp:749
 msgctxt "OnlineTranslator|"
 msgid "Malayalam"
 msgstr "मलयालम"
 
-#: src/onlinetranslator.cpp:740
+#: src/onlinetranslator.cpp:751
 msgctxt "OnlineTranslator|"
 msgid "Maltese"
 msgstr "मोलतिज़"
 
-#: src/onlinetranslator.cpp:742
+#: src/onlinetranslator.cpp:753
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Scots Gaelic"
@@ -1309,42 +1385,42 @@ msgctxt "OnlineTranslator|"
 msgid "Manx Gaelic"
 msgstr "स्कॉट्स गेलिक"
 
-#: src/onlinetranslator.cpp:744
+#: src/onlinetranslator.cpp:755
 msgctxt "OnlineTranslator|"
 msgid "Marathi"
 msgstr "मराठी"
 
-#: src/onlinetranslator.cpp:746
+#: src/onlinetranslator.cpp:757
 msgctxt "OnlineTranslator|"
 msgid "Mari"
 msgstr "मारी"
 
-#: src/onlinetranslator.cpp:748
+#: src/onlinetranslator.cpp:759
 msgctxt "OnlineTranslator|"
 msgid "Marshallese"
 msgstr ""
 
-#: src/onlinetranslator.cpp:750
+#: src/onlinetranslator.cpp:761
 msgctxt "OnlineTranslator|"
 msgid "Meiteilon (Manipuri)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:752
+#: src/onlinetranslator.cpp:763
 msgctxt "OnlineTranslator|"
 msgid "Mende"
 msgstr ""
 
-#: src/onlinetranslator.cpp:754
+#: src/onlinetranslator.cpp:765
 msgctxt "OnlineTranslator|"
 msgid "Mizo"
 msgstr ""
 
-#: src/onlinetranslator.cpp:756
+#: src/onlinetranslator.cpp:767
 msgctxt "OnlineTranslator|"
 msgid "Mongolian"
 msgstr "मंगोलियन"
 
-#: src/onlinetranslator.cpp:758
+#: src/onlinetranslator.cpp:769
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Serbian (Cyrillic)"
@@ -1352,7 +1428,7 @@ msgctxt "OnlineTranslator|"
 msgid "Mongolian (Cyrillic)"
 msgstr "सर्बियाई (सिरिलिक)"
 
-#: src/onlinetranslator.cpp:760
+#: src/onlinetranslator.cpp:771
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Chinese (Traditional)"
@@ -1360,57 +1436,57 @@ msgctxt "OnlineTranslator|"
 msgid "Mongolian (Traditional)"
 msgstr "पारंपरिक चीनी भाषा"
 
-#: src/onlinetranslator.cpp:762
+#: src/onlinetranslator.cpp:773
 msgctxt "OnlineTranslator|"
 msgid "Morisyen"
 msgstr ""
 
-#: src/onlinetranslator.cpp:764
+#: src/onlinetranslator.cpp:775
 msgctxt "OnlineTranslator|"
 msgid "Myanmar (Burmese)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:766
+#: src/onlinetranslator.cpp:777
 msgctxt "OnlineTranslator|"
 msgid "Māori"
 msgstr ""
 
-#: src/onlinetranslator.cpp:768
+#: src/onlinetranslator.cpp:779
 msgctxt "OnlineTranslator|"
 msgid "Nepali"
 msgstr "नेपाली"
 
-#: src/onlinetranslator.cpp:770
+#: src/onlinetranslator.cpp:781
 msgctxt "OnlineTranslator|"
 msgid "Niuean"
 msgstr ""
 
-#: src/onlinetranslator.cpp:772
+#: src/onlinetranslator.cpp:783
 msgctxt "OnlineTranslator|"
 msgid "Norwegian"
 msgstr "नार्वेजियन"
 
-#: src/onlinetranslator.cpp:774
+#: src/onlinetranslator.cpp:785
 msgctxt "OnlineTranslator|"
 msgid "Nyanja"
 msgstr ""
 
-#: src/onlinetranslator.cpp:776
+#: src/onlinetranslator.cpp:787
 msgctxt "OnlineTranslator|"
 msgid "Odia"
 msgstr ""
 
-#: src/onlinetranslator.cpp:778
+#: src/onlinetranslator.cpp:789
 msgctxt "OnlineTranslator|"
 msgid "Oromo"
 msgstr ""
 
-#: src/onlinetranslator.cpp:780
+#: src/onlinetranslator.cpp:791
 msgctxt "OnlineTranslator|"
 msgid "Palauan"
 msgstr ""
 
-#: src/onlinetranslator.cpp:782
+#: src/onlinetranslator.cpp:793
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Papiamento"
@@ -1418,27 +1494,27 @@ msgctxt "OnlineTranslator|"
 msgid "Papiamentu"
 msgstr "पापियामेन्टो"
 
-#: src/onlinetranslator.cpp:784
+#: src/onlinetranslator.cpp:795
 msgctxt "OnlineTranslator|"
 msgid "Pashto"
 msgstr "पश्तो"
 
-#: src/onlinetranslator.cpp:786
+#: src/onlinetranslator.cpp:797
 msgctxt "OnlineTranslator|"
 msgid "Persian"
 msgstr "फ़ारसी"
 
-#: src/onlinetranslator.cpp:788
+#: src/onlinetranslator.cpp:799
 msgctxt "OnlineTranslator|"
 msgid "Pijin"
 msgstr ""
 
-#: src/onlinetranslator.cpp:790
+#: src/onlinetranslator.cpp:801
 msgctxt "OnlineTranslator|"
 msgid "Polish"
 msgstr "पोलिश"
 
-#: src/onlinetranslator.cpp:792
+#: src/onlinetranslator.cpp:803
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Portuguese"
@@ -1446,7 +1522,7 @@ msgctxt "OnlineTranslator|"
 msgid "Portuguese (Brazilian)"
 msgstr "पुर्तगाली"
 
-#: src/onlinetranslator.cpp:794
+#: src/onlinetranslator.cpp:805
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Portuguese"
@@ -1454,22 +1530,22 @@ msgctxt "OnlineTranslator|"
 msgid "Portuguese (Portugal)"
 msgstr "पुर्तगाली"
 
-#: src/onlinetranslator.cpp:796
+#: src/onlinetranslator.cpp:807
 msgctxt "OnlineTranslator|"
 msgid "Potawatomi"
 msgstr ""
 
-#: src/onlinetranslator.cpp:798
+#: src/onlinetranslator.cpp:809
 msgctxt "OnlineTranslator|"
 msgid "Punjabi"
 msgstr "पंजाबी"
 
-#: src/onlinetranslator.cpp:800
+#: src/onlinetranslator.cpp:811
 msgctxt "OnlineTranslator|"
 msgid "Quechua"
 msgstr ""
 
-#: src/onlinetranslator.cpp:802
+#: src/onlinetranslator.cpp:813
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Queretaro Otomi"
@@ -1477,57 +1553,57 @@ msgctxt "OnlineTranslator|"
 msgid "Querétaro Otomi"
 msgstr "क्वेरेटारो ओटोमी"
 
-#: src/onlinetranslator.cpp:804
+#: src/onlinetranslator.cpp:815
 msgctxt "OnlineTranslator|"
 msgid "Romanian"
 msgstr "रोमानियाई"
 
-#: src/onlinetranslator.cpp:806
+#: src/onlinetranslator.cpp:817
 msgctxt "OnlineTranslator|"
 msgid "Rundi"
 msgstr ""
 
-#: src/onlinetranslator.cpp:808
+#: src/onlinetranslator.cpp:819
 msgctxt "OnlineTranslator|"
 msgid "Russian"
 msgstr "रूसी"
 
-#: src/onlinetranslator.cpp:810
+#: src/onlinetranslator.cpp:821
 msgctxt "OnlineTranslator|"
 msgid "Samoan"
 msgstr "सामोन"
 
-#: src/onlinetranslator.cpp:812
+#: src/onlinetranslator.cpp:823
 msgctxt "OnlineTranslator|"
 msgid "Sango"
 msgstr ""
 
-#: src/onlinetranslator.cpp:814
+#: src/onlinetranslator.cpp:825
 msgctxt "OnlineTranslator|"
 msgid "Sanskrit"
 msgstr ""
 
-#: src/onlinetranslator.cpp:816
+#: src/onlinetranslator.cpp:827
 msgctxt "OnlineTranslator|"
 msgid "Scots Gaelic"
 msgstr "स्कॉट्स गेलिक"
 
-#: src/onlinetranslator.cpp:818
+#: src/onlinetranslator.cpp:829
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Cyrillic)"
 msgstr "सर्बियाई (सिरिलिक)"
 
-#: src/onlinetranslator.cpp:820
+#: src/onlinetranslator.cpp:831
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Latin)"
 msgstr "सर्बियाई (लैटिन)"
 
-#: src/onlinetranslator.cpp:822
+#: src/onlinetranslator.cpp:833
 msgctxt "OnlineTranslator|"
 msgid "Sesotho"
 msgstr "सेसोथो"
 
-#: src/onlinetranslator.cpp:824
+#: src/onlinetranslator.cpp:835
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Sesotho"
@@ -1535,137 +1611,137 @@ msgctxt "OnlineTranslator|"
 msgid "Sesotho sa Leboa"
 msgstr "सेसोथो"
 
-#: src/onlinetranslator.cpp:826
+#: src/onlinetranslator.cpp:837
 msgctxt "OnlineTranslator|"
 msgid "Setswana"
 msgstr ""
 
-#: src/onlinetranslator.cpp:828
+#: src/onlinetranslator.cpp:839
 msgctxt "OnlineTranslator|"
 msgid "Shona"
 msgstr "सोणा"
 
-#: src/onlinetranslator.cpp:830
+#: src/onlinetranslator.cpp:841
 msgctxt "OnlineTranslator|"
 msgid "Sindhi"
 msgstr "सिंधी"
 
-#: src/onlinetranslator.cpp:832
+#: src/onlinetranslator.cpp:843
 msgctxt "OnlineTranslator|"
 msgid "Sinhala"
 msgstr "सिंहली"
 
-#: src/onlinetranslator.cpp:834
+#: src/onlinetranslator.cpp:845
 msgctxt "OnlineTranslator|"
 msgid "Slovak"
 msgstr "स्लोवाकी"
 
-#: src/onlinetranslator.cpp:836
+#: src/onlinetranslator.cpp:847
 msgctxt "OnlineTranslator|"
 msgid "Slovenian"
 msgstr "स्लोवेनियाई"
 
-#: src/onlinetranslator.cpp:838
+#: src/onlinetranslator.cpp:849
 msgctxt "OnlineTranslator|"
 msgid "Somali"
 msgstr "सोमाली"
 
-#: src/onlinetranslator.cpp:840
+#: src/onlinetranslator.cpp:851
 msgctxt "OnlineTranslator|"
 msgid "Spanish"
 msgstr "स्पेनिश"
 
-#: src/onlinetranslator.cpp:842
+#: src/onlinetranslator.cpp:853
 msgctxt "OnlineTranslator|"
 msgid "Sranan Tongo"
 msgstr ""
 
-#: src/onlinetranslator.cpp:844
+#: src/onlinetranslator.cpp:855
 msgctxt "OnlineTranslator|"
 msgid "Sundanese"
 msgstr "सुंडानी"
 
-#: src/onlinetranslator.cpp:846
+#: src/onlinetranslator.cpp:857
 msgctxt "OnlineTranslator|"
 msgid "Swahili"
 msgstr "स्वाहिली भाषा"
 
-#: src/onlinetranslator.cpp:848
+#: src/onlinetranslator.cpp:859
 msgctxt "OnlineTranslator|"
 msgid "Swedish"
 msgstr "स्वीडिश"
 
-#: src/onlinetranslator.cpp:850
+#: src/onlinetranslator.cpp:861
 msgctxt "OnlineTranslator|"
 msgid "Syriac (Aramaic)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:852
+#: src/onlinetranslator.cpp:863
 msgctxt "OnlineTranslator|"
 msgid "Tahitian"
 msgstr "ताहितियन"
 
-#: src/onlinetranslator.cpp:854
+#: src/onlinetranslator.cpp:865
 msgctxt "OnlineTranslator|"
 msgid "Tajik"
 msgstr "ताजिको"
 
-#: src/onlinetranslator.cpp:856
+#: src/onlinetranslator.cpp:867
 msgctxt "OnlineTranslator|"
 msgid "Tamashek (Tuareg)"
 msgstr ""
 
-#: src/onlinetranslator.cpp:858
+#: src/onlinetranslator.cpp:869
 msgctxt "OnlineTranslator|"
 msgid "Tamil"
 msgstr "तामिल"
 
-#: src/onlinetranslator.cpp:860
+#: src/onlinetranslator.cpp:871
 msgctxt "OnlineTranslator|"
 msgid "Tatar"
 msgstr "टाटर"
 
-#: src/onlinetranslator.cpp:862
+#: src/onlinetranslator.cpp:873
 msgctxt "OnlineTranslator|"
 msgid "Telugu"
 msgstr "तेलुगू"
 
-#: src/onlinetranslator.cpp:864
+#: src/onlinetranslator.cpp:875
 msgctxt "OnlineTranslator|"
 msgid "Tetum"
 msgstr ""
 
-#: src/onlinetranslator.cpp:866
+#: src/onlinetranslator.cpp:877
 msgctxt "OnlineTranslator|"
 msgid "Thai"
 msgstr "थाई भाषा"
 
-#: src/onlinetranslator.cpp:868
+#: src/onlinetranslator.cpp:879
 msgctxt "OnlineTranslator|"
 msgid "Tibetan"
 msgstr ""
 
-#: src/onlinetranslator.cpp:870
+#: src/onlinetranslator.cpp:881
 msgctxt "OnlineTranslator|"
 msgid "Tigrinya"
 msgstr ""
 
-#: src/onlinetranslator.cpp:872
+#: src/onlinetranslator.cpp:883
 msgctxt "OnlineTranslator|"
 msgid "Tok Pisin"
 msgstr ""
 
-#: src/onlinetranslator.cpp:874
+#: src/onlinetranslator.cpp:885
 msgctxt "OnlineTranslator|"
 msgid "Tokelauan"
 msgstr ""
 
-#: src/onlinetranslator.cpp:876
+#: src/onlinetranslator.cpp:887
 msgctxt "OnlineTranslator|"
 msgid "Tongan"
 msgstr "टोंगन"
 
-#: src/onlinetranslator.cpp:878
+#: src/onlinetranslator.cpp:889
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Tongan"
@@ -1673,52 +1749,52 @@ msgctxt "OnlineTranslator|"
 msgid "Tsonga"
 msgstr "टोंगन"
 
-#: src/onlinetranslator.cpp:880
+#: src/onlinetranslator.cpp:891
 msgctxt "OnlineTranslator|"
 msgid "Turkish"
 msgstr "तुर्की"
 
-#: src/onlinetranslator.cpp:882
+#: src/onlinetranslator.cpp:893
 msgctxt "OnlineTranslator|"
 msgid "Turkmen"
 msgstr "तुक्रमेन"
 
-#: src/onlinetranslator.cpp:884
+#: src/onlinetranslator.cpp:895
 msgctxt "OnlineTranslator|"
 msgid "Tuvaluan"
 msgstr ""
 
-#: src/onlinetranslator.cpp:886
+#: src/onlinetranslator.cpp:897
 msgctxt "OnlineTranslator|"
 msgid "Twi"
 msgstr ""
 
-#: src/onlinetranslator.cpp:888
+#: src/onlinetranslator.cpp:899
 msgctxt "OnlineTranslator|"
 msgid "Udmurt"
 msgstr "उदमुर्ट भाषा"
 
-#: src/onlinetranslator.cpp:890
+#: src/onlinetranslator.cpp:901
 msgctxt "OnlineTranslator|"
 msgid "Ukrainian"
 msgstr "यूक्रेनियाई भाषा"
 
-#: src/onlinetranslator.cpp:892
+#: src/onlinetranslator.cpp:903
 msgctxt "OnlineTranslator|"
 msgid "Uma"
 msgstr ""
 
-#: src/onlinetranslator.cpp:894
+#: src/onlinetranslator.cpp:905
 msgctxt "OnlineTranslator|"
 msgid "Upper Sorbian"
 msgstr ""
 
-#: src/onlinetranslator.cpp:896
+#: src/onlinetranslator.cpp:907
 msgctxt "OnlineTranslator|"
 msgid "Urdu"
 msgstr "उर्दू"
 
-#: src/onlinetranslator.cpp:898
+#: src/onlinetranslator.cpp:909
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Uighur"
@@ -1726,7 +1802,7 @@ msgctxt "OnlineTranslator|"
 msgid "Uyghur"
 msgstr "उइघुर"
 
-#: src/onlinetranslator.cpp:900
+#: src/onlinetranslator.cpp:911
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Serbian (Cyrillic)"
@@ -1734,7 +1810,7 @@ msgctxt "OnlineTranslator|"
 msgid "Uzbek (Cyrillic)"
 msgstr "सर्बियाई (सिरिलिक)"
 
-#: src/onlinetranslator.cpp:902
+#: src/onlinetranslator.cpp:913
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Serbian (Latin)"
@@ -1742,12 +1818,12 @@ msgctxt "OnlineTranslator|"
 msgid "Uzbek (Latin)"
 msgstr "सर्बियाई (लैटिन)"
 
-#: src/onlinetranslator.cpp:904
+#: src/onlinetranslator.cpp:915
 msgctxt "OnlineTranslator|"
 msgid "Vietnamese"
 msgstr "वियतनामी"
 
-#: src/onlinetranslator.cpp:906
+#: src/onlinetranslator.cpp:917
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Frisian"
@@ -1755,53 +1831,53 @@ msgctxt "OnlineTranslator|"
 msgid "Wallisian"
 msgstr "फ़्रिसियाई"
 
-#: src/onlinetranslator.cpp:908
+#: src/onlinetranslator.cpp:919
 msgctxt "OnlineTranslator|"
 msgid "Welsh"
 msgstr "वेल्शो"
 
-#: src/onlinetranslator.cpp:910
+#: src/onlinetranslator.cpp:921
 msgctxt "OnlineTranslator|"
 msgid "Wolof"
 msgstr ""
 
-#: src/onlinetranslator.cpp:912
+#: src/onlinetranslator.cpp:923
 msgctxt "OnlineTranslator|"
 msgid "Xhosa"
 msgstr "Xhosa"
 
-#: src/onlinetranslator.cpp:914
+#: src/onlinetranslator.cpp:925
 msgctxt "OnlineTranslator|"
 msgid "Yakut"
 msgstr ""
 
-#: src/onlinetranslator.cpp:916
+#: src/onlinetranslator.cpp:927
 msgctxt "OnlineTranslator|"
 msgid "Yiddish"
 msgstr "Yiddish"
 
-#: src/onlinetranslator.cpp:918
+#: src/onlinetranslator.cpp:929
 msgctxt "OnlineTranslator|"
 msgid "Yoruba"
 msgstr "योरूबा"
 
-#: src/onlinetranslator.cpp:920
+#: src/onlinetranslator.cpp:931
 msgctxt "OnlineTranslator|"
 msgid "Yucatec Maya"
 msgstr "युकाटेक माया"
 
-#: src/onlinetranslator.cpp:922
+#: src/onlinetranslator.cpp:933
 msgctxt "OnlineTranslator|"
 msgid "Zulu"
 msgstr "ज़ुलु"
 
-#: src/onlinetranslator.cpp:1267
+#: src/onlinetranslator.cpp:1281
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Instance error: %1"
 msgstr ""
 
-#: src/onlinetranslator.cpp:1281
+#: src/onlinetranslator.cpp:1295
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
 msgstr "त्रुटि: स्वतः खोजी गई भाषा को पार्स करने में असमर्थ"
@@ -1811,22 +1887,28 @@ msgctxt "PopupWindow|"
 msgid "Swap languages"
 msgstr "भाषा बदलें"
 
-#: src/popupwindow.ui:63
+#: src/popupwindow.ui:60 src/popupwindow.ui:105 src/popupwindow.ui:202
+#: src/popupwindow.ui:247
+msgctxt "PopupWindow|"
+msgid "..."
+msgstr ""
+
+#: src/popupwindow.ui:112
 msgctxt "PopupWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "स्रोत टेक्स्ट को क्लिपबोर्ड पर कॉपी करें"
 
-#: src/popupwindow.ui:156
+#: src/popupwindow.ui:254
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "सभी अनुवाद डेटा को क्लिपबोर्ड पर कॉपी करें"
 
-#: src/popupwindow.ui:166
+#: src/popupwindow.ui:264
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "अनुवाद को क्लिपबोर्ड पर कॉपी करें"
 
-#: src/settings/appsettings.cpp:1079
+#: src/settings/appsettings.cpp:1200
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1875,12 +1957,12 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "%1 से %2 हटाने में असमर्थ "
 
-#: src/settings/settingsdialog.cpp:33
+#: src/settings/settingsdialog.cpp:35
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "पोर्टेबल मोड"
 
-#: src/settings/settingsdialog.cpp:46
+#: src/settings/settingsdialog.cpp:48
 #, fuzzy, qt-format
 #| msgctxt "SettingsDialog|"
 #| msgid "Use system settings"
@@ -1888,43 +1970,82 @@ msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "सिस्टम सेटिंग्स का प्रयोग करें"
 
-#: src/settings/settingsdialog.cpp:51 src/settings/settingsdialog.cpp:55
-#: src/settings/settingsdialog.cpp:56
+#: src/settings/settingsdialog.cpp:52
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<System language>"
 
-#: src/settings/settingsdialog.cpp:90
+# ओरिएंटेशन
+#: src/settings/settingsdialog.cpp:56 src/settings/settingsdialog.cpp:57
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Auto"
+msgctxt "SettingsDialog|"
+msgid "<Auto>"
+msgstr "पास"
+
+#: src/settings/settingsdialog.cpp:74
+msgctxt "SettingsDialog|"
+msgid "Copy"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:78
+msgctxt "SettingsDialog|"
+msgid "None"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:110
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "प्रतीक:"
 
-#: src/settings/settingsdialog.cpp:112
+#: src/settings/settingsdialog.cpp:132
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "OCR पैरामीटर फ़ील्ड खाली नहीं हो सकतीं।"
 
-#: src/settings/settingsdialog.cpp:113
+#: src/settings/settingsdialog.cpp:133
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "क्या आप अमान्य पैरामीटर को त्यागना चाहते हैं?"
 
-#: src/settings/settingsdialog.cpp:254
+#: src/settings/settingsdialog.cpp:294
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "आइकन चुनें"
 
-#: src/settings/settingsdialog.cpp:254
+#: src/settings/settingsdialog.cpp:294
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "इमेजिस (*.png *.ico *.svg *.jpg);;सभी फाइलें()"
 
-#: src/settings/settingsdialog.cpp:284
+#: src/settings/settingsdialog.cpp:324
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "OCR भाषा पथ चुनें"
 
-#: src/settings/settingsdialog.cpp:425
+#: src/settings/settingsdialog.cpp:339
+msgctxt "SettingsDialog|"
+msgid "Piper voices path:"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:353
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Directory with trained models"
+msgctxt "SettingsDialog|"
+msgid "Directory with voice models"
+msgstr "प्रशिक्षित मॉडल के साथ निर्देशिका"
+
+#: src/settings/settingsdialog.cpp:354 src/settings/settingsdialog.cpp:373
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Select OCR languages path"
+msgctxt "SettingsDialog|"
+msgid "Select Piper voices path"
+msgstr "OCR भाषा पथ चुनें"
+
+#: src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "वापस"
@@ -1934,7 +2055,7 @@ msgctxt "SettingsDialog|"
 msgid "Settings"
 msgstr "समायोजन"
 
-#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:128
+#: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:144
 msgctxt "SettingsDialog|"
 msgid "General"
 msgstr "सामान्य"
@@ -1944,42 +2065,52 @@ msgctxt "SettingsDialog|"
 msgid "Interface"
 msgstr "इंटरफेस"
 
-#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:631
+#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:783
 msgctxt "SettingsDialog|"
 msgid "Translation"
 msgstr "अनुवाद"
 
+#: src/settings/settingsdialog.ui:73
+msgctxt "SettingsDialog|"
+msgid "Text-To-Speech"
+msgstr ""
+
 #: src/settings/settingsdialog.ui:81
+msgctxt "SettingsDialog|"
+msgid "Mozhi"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:97
 msgctxt "SettingsDialog|"
 msgid "Connection"
 msgstr "संबंध"
 
-#: src/settings/settingsdialog.ui:89
+#: src/settings/settingsdialog.ui:105
 msgctxt "SettingsDialog|"
 msgid "Shortcuts"
 msgstr "शॉर्टकट"
 
-#: src/settings/settingsdialog.ui:97
+#: src/settings/settingsdialog.ui:113
 msgctxt "SettingsDialog|"
 msgid "About"
 msgstr "पास"
 
-#: src/settings/settingsdialog.ui:140
+#: src/settings/settingsdialog.ui:156
 msgctxt "SettingsDialog|"
 msgid "Language:"
 msgstr "भाषा:"
 
-#: src/settings/settingsdialog.ui:147
+#: src/settings/settingsdialog.ui:163
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Interface language</p></body></html>"
 msgstr "<html><head/><body><p>इंटरफ़ेस भाषा</p></body></html>"
 
-#: src/settings/settingsdialog.ui:154
+#: src/settings/settingsdialog.ui:170
 msgctxt "SettingsDialog|"
 msgid "Main window orientation:"
 msgstr "मुख्य विंडो ओरिएंटेशन:"
 
-#: src/settings/settingsdialog.ui:161
+#: src/settings/settingsdialog.ui:177
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Orientation of the main window layout<br/>When using "
@@ -1992,31 +2123,31 @@ msgstr ""
 
 # ओरिएंटेशन
 #. Orientation
-#: src/settings/settingsdialog.ui:165
+#: src/settings/settingsdialog.ui:181
 msgctxt "SettingsDialog|"
 msgid "Auto"
 msgstr "पास"
 
 # अभिविन्यास
 #. Orientation
-#: src/settings/settingsdialog.ui:170
+#: src/settings/settingsdialog.ui:186
 msgctxt "SettingsDialog|"
 msgid "Portrait"
 msgstr "चित्र"
 
 # अभिविन्यास
 #. Orientation
-#: src/settings/settingsdialog.ui:175
+#: src/settings/settingsdialog.ui:191
 msgctxt "SettingsDialog|"
 msgid "Landscape"
 msgstr "सीनरी"
 
-#: src/settings/settingsdialog.ui:183
+#: src/settings/settingsdialog.ui:199
 msgctxt "SettingsDialog|"
 msgid "Translation mode:"
 msgstr "अनुवाद मोड:"
 
-#: src/settings/settingsdialog.ui:190
+#: src/settings/settingsdialog.ui:206
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>A window for translating selected text. If the "
@@ -2026,49 +2157,49 @@ msgstr ""
 "<html><head/><body><p>चयनित पाठ का अनुवाद करने के लिए एक विंडो। यदि एप्लिकेशन को "
 "छोटा किया जाता है, तो मुख्य विंडो हमेशा उपयोग की जाएगी।</p></body></html>"
 
-#: src/settings/settingsdialog.ui:194 src/settings/settingsdialog.ui:343
+#: src/settings/settingsdialog.ui:210 src/settings/settingsdialog.ui:359
 msgctxt "SettingsDialog|"
 msgid "Pop-up window"
 msgstr "पॉप - अप विंडो"
 
-#: src/settings/settingsdialog.ui:199
+#: src/settings/settingsdialog.ui:215
 msgctxt "SettingsDialog|"
 msgid "Main window"
 msgstr "मुख्य विंडो"
 
-#: src/settings/settingsdialog.ui:204
+#: src/settings/settingsdialog.ui:220
 msgctxt "SettingsDialog|"
 msgid "Notification"
 msgstr "अधिसूचना"
 
-#: src/settings/settingsdialog.ui:212
+#: src/settings/settingsdialog.ui:228
 msgctxt "SettingsDialog|"
 msgid "Translation notification timeout:"
 msgstr "अनुवाद सूचना समयबाह्य:"
 
-#: src/settings/settingsdialog.ui:225
+#: src/settings/settingsdialog.ui:241
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Notification with translation display time</p></body></"
 "html>"
 msgstr "<html><head/><body><p>अनुवाद प्रदर्शन समय के साथ अधिसूचना</p></body></html>"
 
-#: src/settings/settingsdialog.ui:228 src/settings/settingsdialog.ui:433
+#: src/settings/settingsdialog.ui:244 src/settings/settingsdialog.ui:449
 msgctxt "SettingsDialog|"
 msgid " sec"
 msgstr " सेकंड"
 
-#: src/settings/settingsdialog.ui:241
+#: src/settings/settingsdialog.ui:257
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Display icon in the system tray</p></body></html>"
 msgstr "<html><head/><body><p>सिस्टम ट्रे में प्रदर्शन आइकन</p></body></html>"
 
-#: src/settings/settingsdialog.ui:244
+#: src/settings/settingsdialog.ui:260
 msgctxt "SettingsDialog|"
 msgid "Show tray icon"
 msgstr "ट्रे आइकन दिखाएं"
 
-#: src/settings/settingsdialog.ui:254
+#: src/settings/settingsdialog.ui:270
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Start application minimized to the system tray</p></"
@@ -2077,86 +2208,86 @@ msgstr ""
 "<html><head/><body><p>सिस्टम ट्रे में छोटा किया गया एप्लिकेशन प्रारंभ करें</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:257
+#: src/settings/settingsdialog.ui:273
 msgctxt "SettingsDialog|"
 msgid "Start minimized"
 msgstr "शुरुआत कम से कम है"
 
-#: src/settings/settingsdialog.ui:264
+#: src/settings/settingsdialog.ui:280
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Run the application at system startup</p></body></html>"
 msgstr "<html><head/><body><p>सिस्टम स्टार्टअप पर एप्लिकेशन चलाएँ</p></body></html>"
 
-#: src/settings/settingsdialog.ui:267
+#: src/settings/settingsdialog.ui:283
 msgctxt "SettingsDialog|"
 msgid "Launch at startup"
 msgstr "शुरुआत में लॉन्च करें"
 
-#: src/settings/settingsdialog.ui:300
+#: src/settings/settingsdialog.ui:316
 msgctxt "SettingsDialog|"
 msgid "Font"
 msgstr "फ़ॉन्ट"
 
-#: src/settings/settingsdialog.ui:306
+#: src/settings/settingsdialog.ui:322
 msgctxt "SettingsDialog|"
 msgid "Name:"
 msgstr "नाम:"
 
-#: src/settings/settingsdialog.ui:313
+#: src/settings/settingsdialog.ui:329
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Translation and source text font</p></body></html>"
 msgstr "<html><head/><body><p>अनुवाद और स्रोत टेक्स्ट फ़ॉन्ट</p></body></html>"
 
-#: src/settings/settingsdialog.ui:320
+#: src/settings/settingsdialog.ui:336
 msgctxt "SettingsDialog|"
 msgid "Size:"
 msgstr "आकार:"
 
-#: src/settings/settingsdialog.ui:327
+#: src/settings/settingsdialog.ui:343
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Font size of translation and source text</p></body></"
 "html>"
 msgstr "<html><head/><body><p>अनुवाद और स्रोत पाठ का फ़ॉन्ट आकार</p></body></html>"
 
-#: src/settings/settingsdialog.ui:349
+#: src/settings/settingsdialog.ui:365
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window height in pixels</p></body></html>"
 msgstr "<html><head/><body><p>पिक्सल में पॉप-अप विंडो की ऊंचाई</p></body></html>"
 
-#: src/settings/settingsdialog.ui:359
+#: src/settings/settingsdialog.ui:375
 msgctxt "SettingsDialog|"
 msgid "Width:"
 msgstr "चौड़ाई:"
 
-#: src/settings/settingsdialog.ui:366
+#: src/settings/settingsdialog.ui:382
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
 msgstr "<html><head/><body><p>पिक्सेल में पॉप-अप विंडो की चौड़ाई</p></body></html>"
 
-#: src/settings/settingsdialog.ui:376
+#: src/settings/settingsdialog.ui:392
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window opacity</p></body></html>"
 msgstr "<html><head/><body><p>पॉप-अप विंडो अपारदर्शिता</p></body></html>"
 
-#: src/settings/settingsdialog.ui:403
+#: src/settings/settingsdialog.ui:419
 msgctxt "SettingsDialog|"
 msgid "Opacity:"
 msgstr "अस्पष्टता:"
 
-#: src/settings/settingsdialog.ui:410
+#: src/settings/settingsdialog.ui:426
 msgctxt "SettingsDialog|"
 msgid "Show timeout:"
 msgstr ""
 
-#: src/settings/settingsdialog.ui:417
+#: src/settings/settingsdialog.ui:433
 msgctxt "SettingsDialog|"
 msgid "Height:"
 msgstr "कद:"
 
-#: src/settings/settingsdialog.ui:430
+#: src/settings/settingsdialog.ui:446
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid ""
@@ -2170,111 +2301,181 @@ msgstr ""
 "<html><head/><body><p>स्वतः पता लगाने पर जिस भाषा में पाठ का अनुवाद किया जाएगा</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:453
+#: src/settings/settingsdialog.ui:469
 msgctxt "SettingsDialog|"
 msgid "Language format"
 msgstr "भाषा प्रारूप"
 
-#: src/settings/settingsdialog.ui:459
+#: src/settings/settingsdialog.ui:475
 msgctxt "SettingsDialog|"
 msgid "Main window:"
 msgstr "मुख्य विंडो:"
 
-#: src/settings/settingsdialog.ui:466 src/settings/settingsdialog.ui:490
+#: src/settings/settingsdialog.ui:482 src/settings/settingsdialog.ui:506
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Languages text on buttons</p></body></html>"
 msgstr "<html><head/><body><p>बटन पर पाठ की भाषा</p></body></html>"
 
-#: src/settings/settingsdialog.ui:470 src/settings/settingsdialog.ui:494
+#: src/settings/settingsdialog.ui:486 src/settings/settingsdialog.ui:510
 msgctxt "SettingsDialog|"
 msgid "Full name"
 msgstr "पूरा नाम"
 
-#: src/settings/settingsdialog.ui:475 src/settings/settingsdialog.ui:499
+#: src/settings/settingsdialog.ui:491 src/settings/settingsdialog.ui:515
 msgctxt "SettingsDialog|"
 msgid "ISO 639-1 code"
 msgstr "ISO 639-1 कोड"
 
-#: src/settings/settingsdialog.ui:483
+#: src/settings/settingsdialog.ui:499
 msgctxt "SettingsDialog|"
 msgid "Pop-up:"
 msgstr "पॉप अप:"
 
-#: src/settings/settingsdialog.ui:510
+#: src/settings/settingsdialog.ui:526
 msgctxt "SettingsDialog|"
 msgid "Tray icon"
 msgstr "ट्रे चिह्न"
 
-#: src/settings/settingsdialog.ui:516
+#: src/settings/settingsdialog.ui:532
 msgctxt "SettingsDialog|"
 msgid "Icon:"
 msgstr "बिल्ला:"
 
-#: src/settings/settingsdialog.ui:529
+#: src/settings/settingsdialog.ui:545
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>System tray icon</p></body></html>"
 msgstr "<html><head/><body><p>सिस्टम ट्रे आइकन</p></body></html>"
 
-#: src/settings/settingsdialog.ui:533
+#: src/settings/settingsdialog.ui:549
 msgctxt "SettingsDialog|"
 msgid "Default"
 msgstr "चूक जाना"
 
-#: src/settings/settingsdialog.ui:541
+#: src/settings/settingsdialog.ui:557
 msgctxt "SettingsDialog|"
 msgid "Monochrome (dark theme)"
 msgstr "मोनोक्रोम (डार्क थीम)"
 
-#: src/settings/settingsdialog.ui:549
+#: src/settings/settingsdialog.ui:565
 msgctxt "SettingsDialog|"
 msgid "Monochrome (light theme)"
 msgstr "मोनोक्रोम (लाइट थीम)"
 
-#: src/settings/settingsdialog.ui:557
+#: src/settings/settingsdialog.ui:573
 msgctxt "SettingsDialog|"
 msgid "Custom"
 msgstr "कस्टम थीम"
 
-#: src/settings/settingsdialog.ui:571
+#: src/settings/settingsdialog.ui:587
 msgctxt "SettingsDialog|"
 msgid "Custom:"
 msgstr "रिवाज:"
 
-#: src/settings/settingsdialog.ui:583
+#: src/settings/settingsdialog.ui:599
 msgctxt "SettingsDialog|"
 msgid "Path to the icon or icon name from theme"
 msgstr "थीम से आइकन या आइकन नाम का पथ"
 
-#: src/settings/settingsdialog.ui:593
+#: src/settings/settingsdialog.ui:609
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>आइकन चुनें</p></body></html>"
 
-#: src/settings/settingsdialog.ui:637
+#: src/settings/settingsdialog.ui:650
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Translation mode:"
+msgctxt "SettingsDialog|"
+msgid "Translation provider:"
+msgstr "अनुवाद मोड:"
+
+#: src/settings/settingsdialog.ui:673
+msgctxt "SettingsDialog|"
+msgid "Automatic language detection"
+msgstr "स्वचालित भाषा का पता लगाना"
+
+#: src/settings/settingsdialog.ui:679
+msgctxt "SettingsDialog|"
+msgid "Primary translation language:"
+msgstr "प्राथमिक अनुवाद भाषा:"
+
+#: src/settings/settingsdialog.ui:686
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Language to which text will be translated when "
+"autodetecting</p></body></html>"
+msgstr ""
+"<html><head/><body><p>स्वतः पता लगाने पर जिस भाषा में पाठ का अनुवाद किया जाएगा</"
+"p></body></html>"
+
+#: src/settings/settingsdialog.ui:693
+msgctxt "SettingsDialog|"
+msgid "Secondary translation language:"
+msgstr "माध्यमिक अनुवाद भाषा:"
+
+#: src/settings/settingsdialog.ui:700
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Language to which the text will be translated if it is "
+"in the language selected above</p></body></html>"
+msgstr ""
+"<html><head/><body><p>जिस भाषा में पाठ का अनुवाद किया जाएगा यदि वह ऊपर चुनी गई "
+"भाषा में है</p></body></html>"
+
+#: src/settings/settingsdialog.ui:707 src/settings/settingsdialog.ui:717
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Automatically switch to <span style=\" font-style:"
+"italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
+msgstr ""
+"<html><head/><body><p>स्वचालित रूप से स्विच करें <span style=\" font-style:italic;"
+"\">ऑटो</span> OCR और वैश्विक शॉर्टकट का उपयोग करते समय</p></body></html>"
+
+#: src/settings/settingsdialog.ui:710
+msgctxt "SettingsDialog|"
+msgid "Force source language detection"
+msgstr "बल स्रोत भाषा का पता लगाने"
+
+#: src/settings/settingsdialog.ui:720
+msgctxt "SettingsDialog|"
+msgid "Force translation language detection"
+msgstr "बल अनुवाद भाषा का पता लगाना"
+
+#: src/settings/settingsdialog.ui:741
+msgctxt "SettingsDialog|"
+msgid "Text-to-Speech"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:747
+msgctxt "SettingsDialog|"
+msgid "Provider:"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:789
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
 "html>"
 msgstr "<html><head/><body><p>स्रोत लिप्यंतरण सक्षम या अक्षम करें</p></body></html>"
 
-#: src/settings/settingsdialog.ui:640
+#: src/settings/settingsdialog.ui:792
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
 msgstr "स्रोत लिप्यंतरण सक्षम करें"
 
-#: src/settings/settingsdialog.ui:647
+#: src/settings/settingsdialog.ui:799
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
 "body></html>"
 msgstr "<html><head/><body><p>अनुवाद लिप्यंतरण सक्षम या अक्षम करें</p></body></html>"
 
-#: src/settings/settingsdialog.ui:650
+#: src/settings/settingsdialog.ui:802
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
 msgstr "अनुवाद लिप्यंतरण सक्षम करें"
 
-#: src/settings/settingsdialog.ui:657
+#: src/settings/settingsdialog.ui:809
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
@@ -2282,35 +2483,35 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>स्रोत ट्रांसक्रिप्शन को सक्षम या अक्षम करें</p></body></html>"
 
-#: src/settings/settingsdialog.ui:660
+#: src/settings/settingsdialog.ui:812
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
 msgstr "स्रोत ट्रांसक्रिप्शन सक्षम करें"
 
-#: src/settings/settingsdialog.ui:667
+#: src/settings/settingsdialog.ui:819
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
 msgstr "<html><head/><body><p>अनुवाद विकल्प सक्षम या अक्षम करें</p></body></html>"
 
-#: src/settings/settingsdialog.ui:670
+#: src/settings/settingsdialog.ui:822
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
 msgstr "अनुवाद विकल्प सक्षम करें"
 
-#: src/settings/settingsdialog.ui:677
+#: src/settings/settingsdialog.ui:829
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
 msgstr ""
 "<html><head/><body><p>उपयोग के उदाहरणों को सक्षम या अक्षम करें</p></body></html>"
 
-#: src/settings/settingsdialog.ui:680
+#: src/settings/settingsdialog.ui:832
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
 msgstr "उदाहरण सक्षम करें"
 
-#: src/settings/settingsdialog.ui:687
+#: src/settings/settingsdialog.ui:839
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace each sequence of whitespaces (this includes "
@@ -2321,74 +2522,22 @@ msgstr ""
 "'\\t', '\\n', '\\v', '\\f', '\\r', तथा ' ') प्रश्नों में एक ही स्थान के साथ</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:690
+#: src/settings/settingsdialog.ui:842
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
 msgstr "स्रोत को सरल बनाएं"
 
-#: src/settings/settingsdialog.ui:700
-msgctxt "SettingsDialog|"
-msgid "Automatic language detection"
-msgstr "स्वचालित भाषा का पता लगाना"
-
-#: src/settings/settingsdialog.ui:706
-msgctxt "SettingsDialog|"
-msgid "Primary translation language:"
-msgstr "प्राथमिक अनुवाद भाषा:"
-
-#: src/settings/settingsdialog.ui:713
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Language to which text will be translated when "
-"autodetecting</p></body></html>"
-msgstr ""
-"<html><head/><body><p>स्वतः पता लगाने पर जिस भाषा में पाठ का अनुवाद किया जाएगा</"
-"p></body></html>"
-
-#: src/settings/settingsdialog.ui:720
-msgctxt "SettingsDialog|"
-msgid "Secondary translation language:"
-msgstr "माध्यमिक अनुवाद भाषा:"
-
-#: src/settings/settingsdialog.ui:727
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Language to which the text will be translated if it is "
-"in the language selected above</p></body></html>"
-msgstr ""
-"<html><head/><body><p>जिस भाषा में पाठ का अनुवाद किया जाएगा यदि वह ऊपर चुनी गई "
-"भाषा में है</p></body></html>"
-
-#: src/settings/settingsdialog.ui:734 src/settings/settingsdialog.ui:744
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Automatically switch to <span style=\" font-style:"
-"italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
-msgstr ""
-"<html><head/><body><p>स्वचालित रूप से स्विच करें <span style=\" font-style:italic;"
-"\">ऑटो</span> OCR और वैश्विक शॉर्टकट का उपयोग करते समय</p></body></html>"
-
-#: src/settings/settingsdialog.ui:737
-msgctxt "SettingsDialog|"
-msgid "Force source language detection"
-msgstr "बल स्रोत भाषा का पता लगाने"
-
-#: src/settings/settingsdialog.ui:747
-msgctxt "SettingsDialog|"
-msgid "Force translation language detection"
-msgstr "बल अनुवाद भाषा का पता लगाना"
-
-#: src/settings/settingsdialog.ui:776
+#: src/settings/settingsdialog.ui:871
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
 msgstr ""
 
-#: src/settings/settingsdialog.ui:789
+#: src/settings/settingsdialog.ui:884
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
 msgstr ""
 
-#: src/settings/settingsdialog.ui:792
+#: src/settings/settingsdialog.ui:887
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Speech test:"
@@ -2396,12 +2545,12 @@ msgctxt "SettingsDialog|"
 msgid "Detect fastest"
 msgstr "उच्चारण परीक्षण:"
 
-#: src/settings/settingsdialog.ui:825
+#: src/settings/settingsdialog.ui:920
 msgctxt "SettingsDialog|"
 msgid "Languages"
 msgstr "भाषाओं"
 
-#: src/settings/settingsdialog.ui:831
+#: src/settings/settingsdialog.ui:926
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Loading additional languages will impact both speed "
@@ -2413,22 +2562,22 @@ msgstr ""
 "होगी, क्योंकि लागू भाषा पर निर्णय लेने के लिए और अधिक काम करना है, और गलत शब्दों को "
 "भ्रमित करने की अधिक संभावना है।</p></body></html>"
 
-#: src/settings/settingsdialog.ui:838
+#: src/settings/settingsdialog.ui:933
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
 msgstr "भाषा पथ:"
 
-#: src/settings/settingsdialog.ui:845
+#: src/settings/settingsdialog.ui:940
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr "<html><head/><body><p>OCR भाषा पथ चुनें</p></body></html>"
 
-#: src/settings/settingsdialog.ui:855
+#: src/settings/settingsdialog.ui:950
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
 msgstr "<html><head/><body><p>GitHub रिपॉजिटरी खोलें</p></body></html>"
 
-#: src/settings/settingsdialog.ui:858
+#: src/settings/settingsdialog.ui:953
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
@@ -2439,12 +2588,12 @@ msgstr ""
 "\"><span style=\" text-decoration: underline; color:#2980b9;\">अधिक डाउनलोड "
 "करें</span></a></p></body></html>"
 
-#: src/settings/settingsdialog.ui:868
+#: src/settings/settingsdialog.ui:963
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
 msgstr "प्रशिक्षित मॉडल के साथ निर्देशिका"
 
-#: src/settings/settingsdialog.ui:884
+#: src/settings/settingsdialog.ui:979
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
@@ -2453,70 +2602,70 @@ msgstr ""
 "<html><head/><body><p>टेक्स्ट रिकग्निशन के बाद सभी सिंगल लाइन ब्रेक को स्पेस से बदलें</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:887
+#: src/settings/settingsdialog.ui:982
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
 msgstr "कन्वर्ट लाइन ब्रेक"
 
-#: src/settings/settingsdialog.ui:951
+#: src/settings/settingsdialog.ui:1046
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
 msgstr "स्क्रीन कैप्चर"
 
-#: src/settings/settingsdialog.ui:963
+#: src/settings/settingsdialog.ui:1058
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
 msgstr "क्षेत्र याद रखें:"
 
-#: src/settings/settingsdialog.ui:970
+#: src/settings/settingsdialog.ui:1065
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
 "html>"
 msgstr "<html><head/><body><p>अंतिम चयनित क्षेत्र को कब याद करें</p></body></html>"
 
-#: src/settings/settingsdialog.ui:974
+#: src/settings/settingsdialog.ui:1069
 msgctxt "SettingsDialog|"
 msgid "Never"
 msgstr "कभी नहीँ"
 
-#: src/settings/settingsdialog.ui:979
+#: src/settings/settingsdialog.ui:1074
 msgctxt "SettingsDialog|"
 msgid "Remember last"
 msgstr "अंतिम याद रखें"
 
-#: src/settings/settingsdialog.ui:984
+#: src/settings/settingsdialog.ui:1079
 msgctxt "SettingsDialog|"
 msgid "Remember always"
 msgstr "हमेशा याद रखें"
 
-#: src/settings/settingsdialog.ui:992
+#: src/settings/settingsdialog.ui:1087
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
 msgstr "कैप्चर विलंब:"
 
-#: src/settings/settingsdialog.ui:999
+#: src/settings/settingsdialog.ui:1094
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
 msgstr "स्क्रीन कैप्चर से पहले देरी"
 
-#: src/settings/settingsdialog.ui:1002
+#: src/settings/settingsdialog.ui:1097
 msgctxt "SettingsDialog|"
 msgid " ms"
 msgstr " ms"
 
-#: src/settings/settingsdialog.ui:1012
+#: src/settings/settingsdialog.ui:1107
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
 msgstr "<html><head/><body><p>कर्सर के आगे एक आवर्धक दिखाएँ</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1015
+#: src/settings/settingsdialog.ui:1110
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
 msgstr "आवर्धक दिखाएँ"
 
-#: src/settings/settingsdialog.ui:1022
+#: src/settings/settingsdialog.ui:1117
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid ""
@@ -2530,12 +2679,12 @@ msgstr ""
 "<html><head/><body><p>टेक्स्ट रिकग्निशन के बाद सभी सिंगल लाइन ब्रेक को स्पेस से बदलें</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:1025
+#: src/settings/settingsdialog.ui:1120
 msgctxt "SettingsDialog|"
 msgid "Negate OCR"
 msgstr ""
 
-#: src/settings/settingsdialog.ui:1035
+#: src/settings/settingsdialog.ui:1130
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
@@ -2544,119 +2693,119 @@ msgstr ""
 "<html><head/><body><p>माउस बटन जारी होने पर टुकड़े को कैप्चर करना समाप्त करें</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1038
+#: src/settings/settingsdialog.ui:1133
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
 msgstr "रिलीज होने पर पुष्टि करें"
 
-#: src/settings/settingsdialog.ui:1045
+#: src/settings/settingsdialog.ui:1140
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
 "html>"
 msgstr "<html><head/><body><p>अचयनित हिस्से पर हल्का कोहरा लगाएं</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1048
+#: src/settings/settingsdialog.ui:1143
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
 msgstr "हल्का मास्क लगाएं"
 
-#: src/settings/settingsdialog.ui:1081
+#: src/settings/settingsdialog.ui:1176
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
 msgstr "प्रॉक्सी सर्वर"
 
-#: src/settings/settingsdialog.ui:1087
+#: src/settings/settingsdialog.ui:1182
 msgctxt "SettingsDialog|"
 msgid "Type:"
 msgstr "प्रकार:"
 
-#: src/settings/settingsdialog.ui:1100
+#: src/settings/settingsdialog.ui:1195
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
 msgstr "<html><head/><body><p>प्रॉक्सी प्रकार</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1104
+#: src/settings/settingsdialog.ui:1199
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
 msgstr "सिस्टम सेटिंग्स का प्रयोग करें"
 
-#: src/settings/settingsdialog.ui:1114
+#: src/settings/settingsdialog.ui:1209
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
 msgstr "प्रॉक्सी का प्रयोग न करें"
 
-#: src/settings/settingsdialog.ui:1130
+#: src/settings/settingsdialog.ui:1225
 msgctxt "SettingsDialog|"
 msgid "Host:"
 msgstr "मेज़बान:"
 
-#: src/settings/settingsdialog.ui:1140
+#: src/settings/settingsdialog.ui:1235
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr "<html><head/><body><p>प्रॉक्सी होस्ट नाम</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1153
+#: src/settings/settingsdialog.ui:1248
 msgctxt "SettingsDialog|"
 msgid "Port:"
 msgstr "बंदरगाह:"
 
-#: src/settings/settingsdialog.ui:1169
+#: src/settings/settingsdialog.ui:1264
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
 msgstr "<html><head/><body><p>प्रॉक्सी पोर्ट</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1188
+#: src/settings/settingsdialog.ui:1283
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
 msgstr "जानकारी: प्रॉक्सी केवल टेक्स्ट ट्रांसलेशन के लिए काम करता है"
 
-#: src/settings/settingsdialog.ui:1198
+#: src/settings/settingsdialog.ui:1293
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
 msgstr "<html><head/><body><p>प्रमाणीकरण सक्षम या अक्षम करें</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1201
+#: src/settings/settingsdialog.ui:1296
 msgctxt "SettingsDialog|"
 msgid "Authentication"
 msgstr "प्रमाणीकरण"
 
-#: src/settings/settingsdialog.ui:1211
+#: src/settings/settingsdialog.ui:1306
 msgctxt "SettingsDialog|"
 msgid "Username:"
 msgstr "उपयोगकर्ता नाम:"
 
-#: src/settings/settingsdialog.ui:1221
+#: src/settings/settingsdialog.ui:1316
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>प्रमाणीकरण के लिए प्रॉक्सी उपयोगकर्ता नाम</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1231
+#: src/settings/settingsdialog.ui:1326
 msgctxt "SettingsDialog|"
 msgid "Password:"
 msgstr "कुंजिका:"
 
-#: src/settings/settingsdialog.ui:1241
+#: src/settings/settingsdialog.ui:1336
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
 msgstr "<html><head/><body><p>प्रमाणीकरण के लिए प्रॉक्सी पासवर्ड</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1254
+#: src/settings/settingsdialog.ui:1349
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
 msgstr "जानकारी: पासवर्ड अनएन्क्रिप्टेड सहेजा गया है"
 
-#: src/settings/settingsdialog.ui:1290
+#: src/settings/settingsdialog.ui:1385
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
 msgstr "<html><head/><body><p>सिस्टम में वैश्विक शॉर्टकट पंजीकृत करें</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1293
+#: src/settings/settingsdialog.ui:1388
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Enable global shortcucts"
@@ -2664,75 +2813,75 @@ msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "वैश्विक शॉर्टकट सक्षम करें"
 
-#: src/settings/settingsdialog.ui:1309
+#: src/settings/settingsdialog.ui:1404
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
 "<html><head/><body><p>सभी शॉर्टकट को डिफ़ॉल्ट पर रीसेट करें</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1312
+#: src/settings/settingsdialog.ui:1407
 msgctxt "SettingsDialog|"
 msgid "Reset all"
 msgstr "सभी को रीसेट करें"
 
-#: src/settings/settingsdialog.ui:1322
+#: src/settings/settingsdialog.ui:1417
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
 msgstr "शॉर्टकट"
 
-#: src/settings/settingsdialog.ui:1328
+#: src/settings/settingsdialog.ui:1423
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
 msgstr "मुख्य अनुक्रम:"
 
-#: src/settings/settingsdialog.ui:1335
+#: src/settings/settingsdialog.ui:1430
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
 "html>"
 msgstr "<html><head/><body><p>चयनित क्रिया के लिए मुख्य अनुक्रम</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1342
+#: src/settings/settingsdialog.ui:1437
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
 msgstr "<html><head/><body><p>शॉर्टकट स्वीकार करें</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1345
+#: src/settings/settingsdialog.ui:1440
 msgctxt "SettingsDialog|"
 msgid "Accept"
 msgstr "स्वीकार करें"
 
-#: src/settings/settingsdialog.ui:1355
+#: src/settings/settingsdialog.ui:1450
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
 msgstr "<html><head/><body><p>शॉर्टकट साफ़ करें</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1358
+#: src/settings/settingsdialog.ui:1453
 msgctxt "SettingsDialog|"
 msgid "Clear"
 msgstr "स्पष्ट"
 
-#: src/settings/settingsdialog.ui:1368
+#: src/settings/settingsdialog.ui:1463
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr "<html><head/><body><p>शॉर्टकट को डिफ़ॉल्ट पर रीसेट करें</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1371
+#: src/settings/settingsdialog.ui:1466
 msgctxt "SettingsDialog|"
 msgid "Reset"
 msgstr "रीसेट"
 
-#: src/settings/settingsdialog.ui:1416
+#: src/settings/settingsdialog.ui:1511
 msgctxt "SettingsDialog|"
 msgid "Version:"
 msgstr "संस्करण:"
 
-#: src/settings/settingsdialog.ui:1426
+#: src/settings/settingsdialog.ui:1521
 msgctxt "SettingsDialog|"
 msgid "License:"
 msgstr "लाइसेंस:"
 
-#: src/settings/settingsdialog.ui:1440
+#: src/settings/settingsdialog.ui:1535
 #, fuzzy
 #| msgctxt "ShortcutsModel|"
 #| msgid "Source text"
@@ -2740,7 +2889,7 @@ msgctxt "SettingsDialog|"
 msgid "Source code:"
 msgstr "स्रोत इबारत"
 
-#: src/settings/settingsdialog.ui:1460
+#: src/settings/settingsdialog.ui:1555
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Translation mode:"
@@ -2874,48 +3023,35 @@ msgctxt "TesseractParametersTableWidget|"
 msgid "Value"
 msgstr "महत्त्व"
 
-#: src/speakbuttons.cpp:80
-msgctxt "SpeakButtons|"
-msgid "No text specified"
-msgstr "कोई पाठ निर्दिष्ट नहीं"
+#: src/translator/atranslationprovider.cpp:112
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Translation mode:"
+msgctxt "QObject|"
+msgid "Translation Provider Error"
+msgstr "अनुवाद मोड:"
 
-#: src/speakbuttons.cpp:80
-msgctxt "SpeakButtons|"
-msgid "Playback text is empty"
-msgstr "प्लेबैक टेक्स्ट खाली है"
+#: src/translator/atranslationprovider.cpp:113
+msgctxt "QObject|"
+msgid ""
+"The selected translation provider crashed during initialization and has been "
+"reset to 'Copy' to prevent further issues. You can try selecting a different "
+"provider in Settings → Translation."
+msgstr ""
 
-#: src/speakbuttons.cpp:86
-msgctxt "SpeakButtons|"
-msgid "Unable to generate URLs for TTS"
-msgstr "टीटीएस के लिए यूआरएल जेनरेट करने में असमर्थ"
-
-#: src/speakbuttons.ui:24
-msgctxt "SpeakButtons|"
-msgid "Speak / pause text speaking"
-msgstr "बोलें / रोकें पाठ बोल रहा हूँ"
-
-#: src/speakbuttons.ui:34
-msgctxt "SpeakButtons|"
-msgid "Stop text speaking"
-msgstr "टेक्स्ट बोलना बंद करें"
-
-#: src/transitions/ocruninitializedtransition.cpp:28
-msgctxt "Ocr|"
-msgid "OCR languages are not loaded"
-msgstr "OCR भाषाएं लोड नहीं होती हैं"
-
-#: src/transitions/ocruninitializedtransition.cpp:28
-msgctxt "Ocr|"
-msgid "You should set at least one OCR language in the application settings"
-msgstr "आपको एप्लिकेशन सेटिंग में कम से कम एक OCR भाषा सेट करनी चाहिए"
-
-#: src/translationedit.cpp:62
-msgctxt "TranslationEdit|"
+#: src/translator/mozhitranslationprovider.cpp:386
+#, fuzzy
+#| msgctxt "TranslationEdit|"
+#| msgid "translation options:"
+msgctxt "MozhiTranslationProvider|"
 msgid "translation options:"
 msgstr "अनुवाद विकल्प:"
 
-#: src/translationedit.cpp:87
-msgctxt "TranslationEdit|"
+#: src/translator/mozhitranslationprovider.cpp:400
+#, fuzzy
+#| msgctxt "TranslationEdit|"
+#| msgid "examples:"
+msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
 msgstr "उदाहरण:"
 
@@ -2938,6 +3074,207 @@ msgstr "खत्म करना"
 msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "अनुवाद परिणाम"
+
+#: src/tts/attsprovider.cpp:69
+msgctxt "QObject|"
+msgid "TTS Provider Error"
+msgstr ""
+
+#: src/tts/attsprovider.cpp:70
+msgctxt "QObject|"
+msgid ""
+"The selected TTS provider crashed during initialization and has been reset "
+"to 'None' to prevent further issues. You can try selecting a different "
+"provider in Settings → TTS."
+msgstr ""
+
+#: src/tts/mozhittsprovider.cpp:48
+#, fuzzy
+#| msgctxt "SpeakButtons|"
+#| msgid "Playback text is empty"
+msgctxt "MozhiTTSProvider|"
+msgid "Text is empty"
+msgstr "प्लेबैक टेक्स्ट खाली है"
+
+#: src/tts/mozhittsprovider.cpp:81
+msgctxt "MozhiTTSProvider|"
+msgid "No audio URLs generated"
+msgstr ""
+
+#: src/tts/mozhittsprovider.cpp:263
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Mozhi instance failed: %1 (HTTP Server Error)"
+msgstr ""
+
+#: src/tts/mozhittsprovider.cpp:265 src/tts/mozhittsprovider.cpp:272
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Cannot connect to Mozhi instance: %1"
+msgstr ""
+
+#: src/tts/mozhittsprovider.cpp:268
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Mozhi instance failed: %1 (HTTP 500 Internal Server Error)"
+msgstr ""
+
+#: src/tts/mozhittsprovider.cpp:270
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:115
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "Unable to initialize Tesseract with %1"
+msgctxt "PiperTTSProvider|"
+msgid "Failed to initialize Piper TTS"
+msgstr "Tesseract के साथ प्रारंभ नहीं कर सकता %1"
+
+#: src/tts/piperttsprovider.cpp:121
+#, qt-format
+msgctxt "PiperTTSProvider|"
+msgid "ONNX Runtime exception: %1"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:124
+msgctxt "PiperTTSProvider|"
+msgid "Unknown ONNX Runtime initialization error"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:205
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "Unable to initialize Tesseract with %1"
+msgctxt "PiperTTSProvider|"
+msgid "Failed to initialize espeak-ng"
+msgstr "Tesseract के साथ प्रारंभ नहीं कर सकता %1"
+
+#: src/tts/piperttsprovider.cpp:247
+#, qt-format
+msgctxt "PiperTTSProvider|"
+msgid "ONNX Runtime initialization error: %1"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:279
+msgctxt "PiperTTSProvider|"
+msgid "Privacy Notice - Neural TTS"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:281
+msgctxt "PiperTTSProvider|"
+msgid "ONNX Runtime Telemetry Information"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:283
+msgctxt "PiperTTSProvider|"
+msgid ""
+"Crow Translate uses ONNX Runtime for neural text-to-speech. The Windows "
+"binary includes Microsoft telemetry that collects usage information.\n"
+"\n"
+"Data Collection:\n"
+"• Device and usage data, error reports, performance information\n"
+"• Used by Microsoft to improve product quality and features\n"
+"• Subject to Microsoft Privacy Statement\n"
+"\n"
+"Crow Translate Actions:\n"
+"• Automatically disables telemetry on startup\n"
+"• Uses both environment variables and runtime API calls\n"
+"• Note: Some data may be transmitted during ONNX initialization\n"
+"\n"
+"On Unix systems, telemetry is inactive by default.\n"
+"This notice is shown once per installation."
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:1000
+msgctxt "PiperTTSProvider|"
+msgid "No audio data generated"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:1015
+msgctxt "PiperTTSProvider|"
+msgid "Failed to create temporary audio file"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:1024
+#, fuzzy
+#| msgctxt "UpdaterDialog|"
+#| msgid "Unable to write file"
+msgctxt "PiperTTSProvider|"
+msgid "Failed to write audio data"
+msgstr "फ़ाइल लिखने में असमर्थ"
+
+#: src/tts/piperttsprovider.cpp:1362
+msgctxt "PiperTTSProvider|"
+msgid ""
+"<h3>Piper Voice Models Not Found</h3><p>No Piper TTS voice models were found "
+"in the standard locations.</p><p><b>To use Piper TTS:</b></"
+"p><ol><li>Download voice models from <a href='https://huggingface.co/rhasspy/"
+"piper-voices'>HuggingFace Piper Voices</a></li><li>Extract the models to a "
+"directory</li><li>Set the path in Settings → TTS → Piper Voices Path</li></"
+"ol><p><b>⚠️ License Warning:</b> Some models may have non-free licenses and "
+"cannot be used in commercial settings. Please check the license of each "
+"model before commercial use.</p>"
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:1374
+msgctxt "PiperTTSProvider|"
+msgid "Piper Voice Models Required"
+msgstr ""
+
+#: src/tts/qtttsprovider.cpp:314
+#, qt-format
+msgctxt "QtTTSProvider|"
+msgid ""
+"<h3>Windows TTS Voice Not Found</h3><p>No Windows TTS voice was found for <b>"
+"%1</b>.</p><p><b>To install additional languages:</b></p><ol><li>Open "
+"<b>Settings → Time & Language → Language & region</b></li><li>Click <b>Add a "
+"language</b> and select your desired language</li><li>Click on the installed "
+"language and select <b>Language options</b></li><li>Under <b>Speech</b>, "
+"click <b>Download</b> for the speech pack</li></ol><p><b>⚠️ License Note:</b> "
+"Crow Translate currently only supports \"Basic voice models\" from Windows "
+"TTS. \"Narrator voices\" have licensing restrictions that are incompatible "
+"with this application.</p>"
+msgstr ""
+
+#: src/tts/qtttsprovider.cpp:328
+msgctxt "QtTTSProvider|"
+msgid "Windows TTS Voice Installation"
+msgstr ""
+
+#~ msgctxt "MainWindow|"
+#~ msgid "Unable to detect language"
+#~ msgstr "भाषा का पता लगाने में असमर्थ"
+
+#~ msgctxt "MainWindow|"
+#~ msgid "Unable to translate text"
+#~ msgstr "लेख का अनुवाद करने में असमर्थ"
+
+#~ msgctxt "SpeakButtons|"
+#~ msgid "No text specified"
+#~ msgstr "कोई पाठ निर्दिष्ट नहीं"
+
+#~ msgctxt "SpeakButtons|"
+#~ msgid "Unable to generate URLs for TTS"
+#~ msgstr "टीटीएस के लिए यूआरएल जेनरेट करने में असमर्थ"
+
+#~ msgctxt "SpeakButtons|"
+#~ msgid "Speak / pause text speaking"
+#~ msgstr "बोलें / रोकें पाठ बोल रहा हूँ"
+
+#~ msgctxt "SpeakButtons|"
+#~ msgid "Stop text speaking"
+#~ msgstr "टेक्स्ट बोलना बंद करें"
+
+#~ msgctxt "TranslationEdit|"
+#~ msgid "translation options:"
+#~ msgstr "अनुवाद विकल्प:"
+
+#~ msgctxt "TranslationEdit|"
+#~ msgid "examples:"
+#~ msgstr "उदाहरण:"
 
 #~ msgctxt "Cli|"
 #~ msgid "%1 - translation options:"
@@ -3197,10 +3534,6 @@ msgstr "अनुवाद परिणाम"
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Changelog:"
 #~ msgstr "चेंजलॉग:"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Unable to write file"
-#~ msgstr "फ़ाइल लिखने में असमर्थ"
 
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Downloading is complete"
