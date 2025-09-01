@@ -138,12 +138,10 @@ msgid "Error: There is no text for translation"
 msgstr "错误：没有要翻译的文本"
 
 #: src/cli.cpp:165
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
-msgstr "错误：未知引擎"
+msgstr ""
 
 #: src/cli.cpp:175
 msgctxt "Cli|"
@@ -161,12 +159,10 @@ msgid "Error: Unknown engine"
 msgstr "错误：未知引擎"
 
 #: src/cli.cpp:256
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
-msgstr "错误：未知引擎"
+msgstr ""
 
 #: src/cli.cpp:335 src/cli.cpp:384
 #, qt-format
@@ -175,12 +171,9 @@ msgid "Error: %1"
 msgstr "错误：%1"
 
 #: src/cli.cpp:337 src/cli.cpp:386
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "Cli|"
 msgid "Translation error occurred"
-msgstr "翻译模式："
+msgstr ""
 
 #: src/cli.cpp:443
 msgctxt "Cli|"
@@ -382,12 +375,9 @@ msgid ""
 msgstr ""
 
 #: src/mainwindow.ui:14
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Main window"
 msgctxt "MainWindow|"
 msgid "MainWindow"
-msgstr "主窗口"
+msgstr ""
 
 #: src/mainwindow.ui:29
 msgctxt "MainWindow|"
@@ -1862,12 +1852,9 @@ msgid "<System language>"
 msgstr "系统语言"
 
 #: src/settings/settingsdialog.cpp:56 src/settings/settingsdialog.cpp:57
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Auto"
 msgctxt "SettingsDialog|"
 msgid "<Auto>"
-msgstr "自动"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:74
 msgctxt "SettingsDialog|"
@@ -1915,20 +1902,14 @@ msgid "Piper voices path:"
 msgstr ""
 
 #: src/settings/settingsdialog.cpp:353
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Directory with trained models"
 msgctxt "SettingsDialog|"
 msgid "Directory with voice models"
-msgstr "含有训练模型的目录"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:354 src/settings/settingsdialog.cpp:373
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Select OCR languages path"
 msgctxt "SettingsDialog|"
 msgid "Select Piper voices path"
-msgstr "选择 OCR 语言路径"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
@@ -2255,12 +2236,9 @@ msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>选择图标</p></body></html>"
 
 #: src/settings/settingsdialog.ui:650
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation provider:"
-msgstr "翻译模式："
+msgstr ""
 
 #: src/settings/settingsdialog.ui:673
 msgctxt "SettingsDialog|"
@@ -2868,12 +2846,9 @@ msgid "Value"
 msgstr "值"
 
 #: src/translator/atranslationprovider.cpp:112
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "QObject|"
 msgid "Translation Provider Error"
-msgstr "翻译模式："
+msgstr ""
 
 #: src/translator/atranslationprovider.cpp:113
 msgctxt "QObject|"
@@ -2884,20 +2859,14 @@ msgid ""
 msgstr ""
 
 #: src/translator/mozhitranslationprovider.cpp:386
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "translation options:"
 msgctxt "MozhiTranslationProvider|"
 msgid "translation options:"
-msgstr "翻译选项："
+msgstr ""
 
 #: src/translator/mozhitranslationprovider.cpp:400
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "examples:"
 msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
-msgstr "示例："
+msgstr ""
 
 #: src/trayicon.cpp:19 src/trayicon.cpp:44
 msgctxt "TrayIcon|"
@@ -2933,12 +2902,9 @@ msgid ""
 msgstr ""
 
 #: src/tts/mozhittsprovider.cpp:48
-#, fuzzy
-#| msgctxt "SpeakButtons|"
-#| msgid "Playback text is empty"
 msgctxt "MozhiTTSProvider|"
 msgid "Text is empty"
-msgstr "发音文字为空"
+msgstr ""
 
 #: src/tts/mozhittsprovider.cpp:81
 msgctxt "MozhiTTSProvider|"
@@ -2970,12 +2936,9 @@ msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
 msgstr ""
 
 #: src/tts/piperttsprovider.cpp:115
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize Piper TTS"
-msgstr "无法使用 %1 初始化 Tesseract"
+msgstr ""
 
 #: src/tts/piperttsprovider.cpp:121
 #, qt-format
@@ -2989,12 +2952,9 @@ msgid "Unknown ONNX Runtime initialization error"
 msgstr ""
 
 #: src/tts/piperttsprovider.cpp:205
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize espeak-ng"
-msgstr "无法使用 %1 初始化 Tesseract"
+msgstr ""
 
 #: src/tts/piperttsprovider.cpp:247
 #, qt-format
@@ -3084,27 +3044,3 @@ msgstr ""
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
 msgstr ""
-
-#~ msgctxt "MainWindow|"
-#~ msgid "Unable to detect language"
-#~ msgstr "无法检测语言"
-
-#~ msgctxt "MainWindow|"
-#~ msgid "Unable to translate text"
-#~ msgstr "无法翻译文字"
-
-#~ msgctxt "SpeakButtons|"
-#~ msgid "No text specified"
-#~ msgstr "未指定文本"
-
-#~ msgctxt "SpeakButtons|"
-#~ msgid "Unable to generate URLs for TTS"
-#~ msgstr "无法为 TTS 生成 URL"
-
-#~ msgctxt "SpeakButtons|"
-#~ msgid "Speak / pause text speaking"
-#~ msgstr "朗读/暂停朗读文本"
-
-#~ msgctxt "SpeakButtons|"
-#~ msgid "Stop text speaking"
-#~ msgstr "停止播放发音"

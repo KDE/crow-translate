@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-08-20 21:01+0400\n"
+"PO-Revision-Date: 2025-08-31 20:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -325,7 +325,7 @@ msgstr "تعذر تسجيل كائن D-Bus لـ %1"
 #: src/mainwindow.cpp:342
 msgctxt "QApplication|"
 msgid "OCR"
-msgstr ""
+msgstr "تعرف المحارف ضوئياً"
 
 #: src/mainwindow.cpp:343
 #, fuzzy
@@ -718,7 +718,7 @@ msgstr "لا يدعم اكتشاف اللغة لـ %1"
 #: src/onlinetranslator.cpp:319
 msgctxt "OnlineTranslator|"
 msgid "Operation aborted by user"
-msgstr ""
+msgstr "العملية ملغاة بواسطة مستخدم"
 
 #: src/onlinetranslator.cpp:362
 #, qt-format
@@ -1826,7 +1826,7 @@ msgstr "مبادلة اللغات"
 #: src/popupwindow.ui:247
 msgctxt "PopupWindow|"
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: src/popupwindow.ui:112
 msgctxt "PopupWindow|"
@@ -1900,22 +1900,19 @@ msgid "<System language>"
 msgstr "<System language>"
 
 #: src/settings/settingsdialog.cpp:56 src/settings/settingsdialog.cpp:57
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Auto"
 msgctxt "SettingsDialog|"
 msgid "<Auto>"
-msgstr "آليّ"
+msgstr "<آليّ>"
 
 #: src/settings/settingsdialog.cpp:74
 msgctxt "SettingsDialog|"
 msgid "Copy"
-msgstr ""
+msgstr "انسخ"
 
 #: src/settings/settingsdialog.cpp:78
 msgctxt "SettingsDialog|"
 msgid "None"
-msgstr ""
+msgstr "لا شيء"
 
 #: src/settings/settingsdialog.cpp:110
 msgctxt "SettingsDialog|"
@@ -1996,12 +1993,12 @@ msgstr "ترجمة"
 #: src/settings/settingsdialog.ui:73
 msgctxt "SettingsDialog|"
 msgid "Text-To-Speech"
-msgstr ""
+msgstr "نطق النص"
 
 #: src/settings/settingsdialog.ui:81
 msgctxt "SettingsDialog|"
 msgid "Mozhi"
-msgstr ""
+msgstr "Mozhi"
 
 #: src/settings/settingsdialog.ui:97
 msgctxt "SettingsDialog|"
@@ -2372,7 +2369,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:747
 msgctxt "SettingsDialog|"
 msgid "Provider:"
-msgstr ""
+msgstr "المزود:"
 
 #: src/settings/settingsdialog.ui:789
 msgctxt "SettingsDialog|"
@@ -2946,17 +2943,11 @@ msgid ""
 msgstr ""
 
 #: src/translator/mozhitranslationprovider.cpp:386
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "translation options:"
 msgctxt "MozhiTranslationProvider|"
 msgid "translation options:"
 msgstr "خيارات الترجمة:"
 
 #: src/translator/mozhitranslationprovider.cpp:400
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "examples:"
 msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
 msgstr "أمثلة:"
@@ -2995,12 +2986,9 @@ msgid ""
 msgstr ""
 
 #: src/tts/mozhittsprovider.cpp:48
-#, fuzzy
-#| msgctxt "SpeakButtons|"
-#| msgid "Playback text is empty"
 msgctxt "MozhiTTSProvider|"
 msgid "Text is empty"
-msgstr "نص التشغيل فارغ"
+msgstr "نص فارغ"
 
 #: src/tts/mozhittsprovider.cpp:81
 msgctxt "MozhiTTSProvider|"
@@ -3032,12 +3020,9 @@ msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
 msgstr ""
 
 #: src/tts/piperttsprovider.cpp:115
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize Piper TTS"
-msgstr "غير قادر على تهيئة Tesseract مع %1"
+msgstr "غير قادر على تهيئة Piper TTS"
 
 #: src/tts/piperttsprovider.cpp:121
 #, qt-format
@@ -3051,12 +3036,9 @@ msgid "Unknown ONNX Runtime initialization error"
 msgstr ""
 
 #: src/tts/piperttsprovider.cpp:205
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize espeak-ng"
-msgstr "غير قادر على تهيئة Tesseract مع %1"
+msgstr "غير قادر على تهيئة espeak-ng"
 
 #: src/tts/piperttsprovider.cpp:247
 #, qt-format
@@ -3105,12 +3087,9 @@ msgid "Failed to create temporary audio file"
 msgstr ""
 
 #: src/tts/piperttsprovider.cpp:1024
-#, fuzzy
-#| msgctxt "UpdaterDialog|"
-#| msgid "Unable to write file"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to write audio data"
-msgstr "غير قادر على كتابة الملف"
+msgstr "فشل كتابة البيانات الصوتية"
 
 #: src/tts/piperttsprovider.cpp:1362
 msgctxt "PiperTTSProvider|"

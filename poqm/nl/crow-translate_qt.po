@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-07-30 13:22+0200\n"
+"PO-Revision-Date: 2025-08-31 21:42+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Language: nl\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #: src/cli.cpp:37
 msgctxt "Cli|"
@@ -59,32 +59,22 @@ msgstr ""
 "toepassing zal standaard gebruikt worden."
 
 #: src/cli.cpp:55
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify Mozhi instance URL. Instance URL from the app settings will be "
-#| "used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy' or 'mozhi'). Provider from app settings "
 "will be used by default."
 msgstr ""
-"URL van Mohzi-exemplaar specificeren. URL-exemplaar van de instelling van de "
-"toepassing zal standaard gebruikt worden."
+"Specificeer leverancier van vertaling ('copy' of 'mozi'). Leverancier van de "
+"instellingen van de toepassing zal standaard gebruikt worden."
 
 #: src/cli.cpp:58
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify Mozhi instance URL. Instance URL from the app settings will be "
-#| "used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from app "
 "settings will be used by default."
 msgstr ""
-"URL van Mohzi-exemplaar specificeren. URL-exemplaar van de instelling van de "
-"toepassing zal standaard gebruikt worden."
+"Specificeer TTS-leverancier ('geen', 'mozhi', 'qt', of 'piper'). Leverancier "
+"van de instellingen van de toepassing zal standaard gebruikt worden."
 
 #: src/cli.cpp:60
 msgctxt "Cli|"
@@ -126,13 +116,12 @@ msgid "Print output formatted as JSON."
 msgstr "Toon geen met json opgemaakte tekst."
 
 #: src/cli.cpp:70
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Application that allows to translate and speak text using Mozhi"
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
-msgstr "Toepassing die Mozhi gebruikt om te vertalen en tekst uit te spreken"
+msgstr ""
+"Toepassingen die toestaan tekst te vertalen en uit te spreken gebruiken "
+"verschillende leveranciers"
 
 #: src/cli.cpp:71
 msgctxt "Cli|"
@@ -166,12 +155,10 @@ msgid "Error: There is no text for translation"
 msgstr "Fout: geen brontekst opgegeven"
 
 #: src/cli.cpp:165
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown translation language code '%1'"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
-msgstr "Fout: onbekende taalcode van vertaling '%1'"
+msgstr "Fout: onbekende leverancier van vertaling '%1'"
 
 #: src/cli.cpp:175
 msgctxt "Cli|"
@@ -179,12 +166,9 @@ msgid "Detecting fastest instance"
 msgstr "Detecteren van snelste exemplaar"
 
 #: src/cli.cpp:214
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Language detection is not supported for %1"
 msgctxt "Cli|"
 msgid "Error: Lingva engine is not supported"
-msgstr "Detectie van taal wordt niet ondersteund voor %1"
+msgstr "Fout: Lingva-engine wordt niet ondersteund"
 
 #: src/cli.cpp:223
 msgctxt "Cli|"
@@ -192,12 +176,10 @@ msgid "Error: Unknown engine"
 msgstr "Fout: onbekende vertaalmachine"
 
 #: src/cli.cpp:256
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown source language code '%1'"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
-msgstr "Fout: onbekende taalcode van bron '%1'"
+msgstr "Fout: onbekende TTS-leverancier '%1'"
 
 #: src/cli.cpp:335 src/cli.cpp:384
 #, qt-format
@@ -206,17 +188,14 @@ msgid "Error: %1"
 msgstr "Fout: %1"
 
 #: src/cli.cpp:337 src/cli.cpp:386
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation backend:"
 msgctxt "Cli|"
 msgid "Translation error occurred"
-msgstr "Backend voor vertalen:"
+msgstr "Er deed zich een fout voor bij vertalen"
 
 #: src/cli.cpp:443
 msgctxt "Cli|"
 msgid "Error: TTS failed"
-msgstr ""
+msgstr "Fout: TTS mislukte"
 
 #: src/cli.cpp:600
 #, qt-format
@@ -332,20 +311,17 @@ msgstr "Het D-Bus-object bij %1 kan niet worden vastgelegd"
 #: src/mainwindow.cpp:342
 msgctxt "QApplication|"
 msgid "OCR"
-msgstr ""
+msgstr "Tekstherkenning (OCR)"
 
 #: src/mainwindow.cpp:343
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Toggled OCR image negate"
 msgctxt "QApplication|"
 msgid "OCR image negated"
-msgstr "Geïnverteerde OCR-afbeelding omgeschakeld"
+msgstr "OCR-afbeelding omgeschakeld"
 
 #: src/mainwindow.cpp:343
 msgctxt "QApplication|"
 msgid "OCR image is normal"
-msgstr ""
+msgstr "OCR-afbeelding is normaal"
 
 #: src/mainwindow.cpp:495 src/mainwindow.cpp:515 src/mainwindow.cpp:563
 #: src/mainwindow.cpp:592
@@ -412,7 +388,7 @@ msgstr "Tesseract kan niet worden geïnitialiseerd met %1"
 #: src/mainwindow.cpp:955
 msgctxt "MainWindow|"
 msgid "TTS Error"
-msgstr ""
+msgstr "TTS-fout"
 
 #: src/mainwindow.cpp:955
 #, qt-format
@@ -424,11 +400,13 @@ msgid ""
 "\n"
 "Please check your TTS settings or try a different voice/locale."
 msgstr ""
+"Tekst-naar-spraakfout:\n"
+"\n"
+"%1\n"
+"\n"
+"Controleer uw TTS-instellingen of probeer een andere stem/taalcode."
 
 #: src/mainwindow.ui:14
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Main window"
 msgctxt "MainWindow|"
 msgid "MainWindow"
 msgstr "Hoofdvenster"
@@ -456,7 +434,7 @@ msgstr "Annuleren"
 #: src/mainwindow.ui:132 src/mainwindow.ui:261
 msgctxt "MainWindow|"
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: src/mainwindow.ui:142
 msgctxt "MainWindow|"
@@ -731,7 +709,7 @@ msgstr "Detectie van taal wordt niet ondersteund voor %1"
 #: src/onlinetranslator.cpp:319
 msgctxt "OnlineTranslator|"
 msgid "Operation aborted by user"
-msgstr ""
+msgstr "Bewerking afgebroken door gebruiker"
 
 #: src/onlinetranslator.cpp:362
 #, qt-format
@@ -1839,7 +1817,7 @@ msgstr "Talen omwisselen"
 #: src/popupwindow.ui:247
 msgctxt "PopupWindow|"
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: src/popupwindow.ui:112
 msgctxt "PopupWindow|"
@@ -1913,22 +1891,19 @@ msgid "<System language>"
 msgstr "<Systeemtaal>"
 
 #: src/settings/settingsdialog.cpp:56 src/settings/settingsdialog.cpp:57
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Auto"
 msgctxt "SettingsDialog|"
 msgid "<Auto>"
-msgstr "Automatisch"
+msgstr "<Automatisch>"
 
 #: src/settings/settingsdialog.cpp:74
 msgctxt "SettingsDialog|"
 msgid "Copy"
-msgstr ""
+msgstr "Kopiëren"
 
 #: src/settings/settingsdialog.cpp:78
 msgctxt "SettingsDialog|"
 msgid "None"
-msgstr ""
+msgstr "Geen"
 
 #: src/settings/settingsdialog.cpp:110
 msgctxt "SettingsDialog|"
@@ -1963,23 +1938,17 @@ msgstr "Kies het ocr-taalpad"
 #: src/settings/settingsdialog.cpp:339
 msgctxt "SettingsDialog|"
 msgid "Piper voices path:"
-msgstr ""
+msgstr "Pad van piperstemmen:"
 
 #: src/settings/settingsdialog.cpp:353
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Directory with trained models"
 msgctxt "SettingsDialog|"
 msgid "Directory with voice models"
-msgstr "Map met oefenmodellen"
+msgstr "Map met stemmodellen"
 
 #: src/settings/settingsdialog.cpp:354 src/settings/settingsdialog.cpp:373
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Select OCR languages path"
 msgctxt "SettingsDialog|"
 msgid "Select Piper voices path"
-msgstr "Kies het ocr-taalpad"
+msgstr "Selecteer pad van piper-stemmen"
 
 #: src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
@@ -2009,12 +1978,12 @@ msgstr "Vertaling"
 #: src/settings/settingsdialog.ui:73
 msgctxt "SettingsDialog|"
 msgid "Text-To-Speech"
-msgstr ""
+msgstr "Tekst-naar-spraak"
 
 #: src/settings/settingsdialog.ui:81
 msgctxt "SettingsDialog|"
 msgid "Mozhi"
-msgstr ""
+msgstr "Mozhi"
 
 #: src/settings/settingsdialog.ui:97
 msgctxt "SettingsDialog|"
@@ -2323,12 +2292,9 @@ msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>Kies een pictogram</p></body></html>"
 
 #: src/settings/settingsdialog.ui:650
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation provider:"
-msgstr "Vertaalmodus:"
+msgstr "Leverancier van vertaling:"
 
 #: src/settings/settingsdialog.ui:673
 msgctxt "SettingsDialog|"
@@ -2386,12 +2352,12 @@ msgstr "Taalherkenning van vertaling afdwingen"
 #: src/settings/settingsdialog.ui:741
 msgctxt "SettingsDialog|"
 msgid "Text-to-Speech"
-msgstr ""
+msgstr "Tekst-naar-spraak"
 
 #: src/settings/settingsdialog.ui:747
 msgctxt "SettingsDialog|"
 msgid "Provider:"
-msgstr ""
+msgstr "Leverancier:"
 
 #: src/settings/settingsdialog.ui:789
 msgctxt "SettingsDialog|"
@@ -2968,12 +2934,9 @@ msgid "Value"
 msgstr "Waarde"
 
 #: src/translator/atranslationprovider.cpp:112
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "QObject|"
 msgid "Translation Provider Error"
-msgstr "Vertaalmodus:"
+msgstr "Fout van leverancier van vertaling"
 
 #: src/translator/atranslationprovider.cpp:113
 msgctxt "QObject|"
@@ -2982,19 +2945,16 @@ msgid ""
 "reset to 'Copy' to prevent further issues. You can try selecting a different "
 "provider in Settings → Translation."
 msgstr ""
+"De geselecteerde leverancier van vertaling is gecrasht tijdens initialisatie "
+"en is gereset naar 'Kopiëren' om verdere problemen te voorkomen. U kunt "
+"proberen een andere leverancier in Instellinge → Vertaling."
 
 #: src/translator/mozhitranslationprovider.cpp:386
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "translation options:"
 msgctxt "MozhiTranslationProvider|"
 msgid "translation options:"
 msgstr "vertaalopties:"
 
 #: src/translator/mozhitranslationprovider.cpp:400
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "examples:"
 msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
 msgstr "voorbeelden:"
@@ -3022,7 +2982,7 @@ msgstr "Vertaalresultaat"
 #: src/tts/attsprovider.cpp:69
 msgctxt "QObject|"
 msgid "TTS Provider Error"
-msgstr ""
+msgstr "Fout van TTS-leverancier"
 
 #: src/tts/attsprovider.cpp:70
 msgctxt "QObject|"
@@ -3031,86 +2991,80 @@ msgid ""
 "to 'None' to prevent further issues. You can try selecting a different "
 "provider in Settings → TTS."
 msgstr ""
+"De geselecteerde TTS-leverancier is gecrasht tijdens initialisatie en is "
+"gereset naar 'Geen' om verdere problemen te voorkomen. U kunt proberen een "
+"andere leverancier in Instellinge → TTS."
 
 #: src/tts/mozhittsprovider.cpp:48
-#, fuzzy
-#| msgctxt "SpeakButtons|"
-#| msgid "Playback text is empty"
 msgctxt "MozhiTTSProvider|"
 msgid "Text is empty"
-msgstr "Blanco voorleestekst"
+msgstr "Tekst is leeg"
 
 #: src/tts/mozhittsprovider.cpp:81
 msgctxt "MozhiTTSProvider|"
 msgid "No audio URLs generated"
-msgstr ""
+msgstr "Geen audio-URL's gegenereerd"
 
 #: src/tts/mozhittsprovider.cpp:263
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance failed: %1 (HTTP Server Error)"
-msgstr ""
+msgstr "Mozhi-exemplaar is mislukt: %1 (HTTP-serverfout)"
 
 #: src/tts/mozhittsprovider.cpp:265 src/tts/mozhittsprovider.cpp:272
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Cannot connect to Mozhi instance: %1"
-msgstr ""
+msgstr "Kan niet verbinden met Mohzi-exemplaar: %1"
 
 #: src/tts/mozhittsprovider.cpp:268
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance failed: %1 (HTTP 500 Internal Server Error)"
-msgstr ""
+msgstr "Mozhi-exemplaar is mislukt: %1 (HTTP 500 interne serverfout)"
 
 #: src/tts/mozhittsprovider.cpp:270
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
-msgstr ""
+msgstr "Mozhi-exemplaar fout:  %1 (HTTP 4XX clientfout)"
 
 #: src/tts/piperttsprovider.cpp:115
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize Piper TTS"
-msgstr "Tesseract kan niet worden geïnitialiseerd met %1"
+msgstr "Initialisatie van Piper-TTS is mislukt"
 
 #: src/tts/piperttsprovider.cpp:121
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime exception: %1"
-msgstr ""
+msgstr "ONNX Runtime-exceptie: %1"
 
 #: src/tts/piperttsprovider.cpp:124
 msgctxt "PiperTTSProvider|"
 msgid "Unknown ONNX Runtime initialization error"
-msgstr ""
+msgstr "Onbekende ONNX runtime initialisatiefout"
 
 #: src/tts/piperttsprovider.cpp:205
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize espeak-ng"
-msgstr "Tesseract kan niet worden geïnitialiseerd met %1"
+msgstr "Initialiseren van espeak-ng is mislukt"
 
 #: src/tts/piperttsprovider.cpp:247
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime initialization error: %1"
-msgstr ""
+msgstr "ONNX runtime initialisatiefout: %1"
 
 #: src/tts/piperttsprovider.cpp:279
 msgctxt "PiperTTSProvider|"
 msgid "Privacy Notice - Neural TTS"
-msgstr ""
+msgstr "Privacy notitie - Neurale TTS"
 
 #: src/tts/piperttsprovider.cpp:281
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime Telemetry Information"
-msgstr ""
+msgstr "ONNX runtime telemetrie-informatie"
 
 #: src/tts/piperttsprovider.cpp:283
 msgctxt "PiperTTSProvider|"
@@ -3135,20 +3089,17 @@ msgstr ""
 #: src/tts/piperttsprovider.cpp:1000
 msgctxt "PiperTTSProvider|"
 msgid "No audio data generated"
-msgstr ""
+msgstr "Geen audio-gegevens gegenereerd"
 
 #: src/tts/piperttsprovider.cpp:1015
 msgctxt "PiperTTSProvider|"
 msgid "Failed to create temporary audio file"
-msgstr ""
+msgstr "Aanmaken van een tijdelijk audio-bestand is mislukt"
 
 #: src/tts/piperttsprovider.cpp:1024
-#, fuzzy
-#| msgctxt "UpdaterDialog|"
-#| msgid "Unable to write file"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to write audio data"
-msgstr "Het bestand kan niet worden weggeschreven"
+msgstr "Schrijven van audio-gegevens is mislukt"
 
 #: src/tts/piperttsprovider.cpp:1362
 msgctxt "PiperTTSProvider|"
@@ -3166,7 +3117,7 @@ msgstr ""
 #: src/tts/piperttsprovider.cpp:1374
 msgctxt "PiperTTSProvider|"
 msgid "Piper Voice Models Required"
-msgstr ""
+msgstr "Piper stemmodellen vereist"
 
 #: src/tts/qtttsprovider.cpp:314
 #, qt-format
@@ -3186,7 +3137,7 @@ msgstr ""
 #: src/tts/qtttsprovider.cpp:328
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
-msgstr ""
+msgstr "Installatie van Windows TTS-stem"
 
 #~ msgctxt "MainWindow|"
 #~ msgid "OCR image negate has changed to %1"
