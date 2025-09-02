@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: crow-translate\n"
-"PO-Revision-Date: 2025-07-30 10:05+0200\n"
+"PO-Revision-Date: 2025-08-31 15:19+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/cli.cpp:37
@@ -61,32 +61,24 @@ msgstr ""
 "s'utilitzarà l'URL de la instància a la configuració de l'aplicació."
 
 #: src/cli.cpp:55
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify Mozhi instance URL. Instance URL from the app settings will be "
-#| "used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy' or 'mozhi'). Provider from app settings "
 "will be used by default."
 msgstr ""
-"Especifica l'URL de la instància de Mozhi. De manera predeterminada "
-"s'utilitzarà l'URL de la instància a la configuració de l'aplicació."
+"Especifica el proveïdor de traducció («copy» o «mozhi»). De manera "
+"predeterminada s'utilitzarà el proveïdor a partir de la configuració de "
+"l'aplicació."
 
 #: src/cli.cpp:58
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify Mozhi instance URL. Instance URL from the app settings will be "
-#| "used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from app "
 "settings will be used by default."
 msgstr ""
-"Especifica l'URL de la instància de Mozhi. De manera predeterminada "
-"s'utilitzarà l'URL de la instància a la configuració de l'aplicació."
+"Especifica el proveïdor de TTS («cap», «mozhi», «qt» o «piper») De manera "
+"predeterminada s'utilitzarà el proveïdor a partir de la configuració de "
+"l'aplicació."
 
 #: src/cli.cpp:60
 msgctxt "Cli|"
@@ -128,13 +120,11 @@ msgid "Print output formatted as JSON."
 msgstr "Imprimix l'eixida amb format JSON."
 
 #: src/cli.cpp:70
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Application that allows to translate and speak text using Mozhi"
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
-msgstr "Una aplicació que permet traduir i llegir text utilitzant Mozhi"
+msgstr ""
+"Una aplicació que permet traduir i llegir text utilitzant diversos proveïdors"
 
 #: src/cli.cpp:71
 msgctxt "Cli|"
@@ -170,12 +160,10 @@ msgid "Error: There is no text for translation"
 msgstr "S'ha produït un error: No hi ha text a traduir"
 
 #: src/cli.cpp:165
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown translation language code '%1'"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
-msgstr "S'ha produït un error: Codi d'idioma de traducció %1 desconegut"
+msgstr "S'ha produït un error: Proveïdor de traducció %1 desconegut"
 
 #: src/cli.cpp:175
 msgctxt "Cli|"
@@ -183,12 +171,9 @@ msgid "Detecting fastest instance"
 msgstr "S'està detectant la instància més ràpida"
 
 #: src/cli.cpp:214
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Language detection is not supported for %1"
 msgctxt "Cli|"
 msgid "Error: Lingva engine is not supported"
-msgstr "La detecció d'idioma no està implementada a %1"
+msgstr "S'ha produït un error: No s'admet el motor Lingva"
 
 #: src/cli.cpp:223
 msgctxt "Cli|"
@@ -196,12 +181,10 @@ msgid "Error: Unknown engine"
 msgstr "S'ha produït un error: Motor desconegut"
 
 #: src/cli.cpp:256
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown source language code '%1'"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
-msgstr "S'ha produït un error: Codi d'idioma d'origen %1 desconegut"
+msgstr "S'ha produït un error: Proveïdor de TTS %1 desconegut"
 
 #: src/cli.cpp:335 src/cli.cpp:384
 #, qt-format
@@ -210,17 +193,14 @@ msgid "Error: %1"
 msgstr "S'ha produït un error: %1"
 
 #: src/cli.cpp:337 src/cli.cpp:386
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation backend:"
 msgctxt "Cli|"
 msgid "Translation error occurred"
-msgstr "Dorsal de traducció:"
+msgstr "S'ha produït un error de traducció"
 
 #: src/cli.cpp:443
 msgctxt "Cli|"
 msgid "Error: TTS failed"
-msgstr ""
+msgstr "S'ha produït un error: Ha fallat el TTS"
 
 #: src/cli.cpp:600
 #, qt-format
@@ -337,20 +317,17 @@ msgstr "No s'ha pogut registrar l'objecte de D-Bus per a %1"
 #: src/mainwindow.cpp:342
 msgctxt "QApplication|"
 msgid "OCR"
-msgstr ""
+msgstr "OCR"
 
 #: src/mainwindow.cpp:343
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Toggled OCR image negate"
 msgctxt "QApplication|"
 msgid "OCR image negated"
-msgstr "Canvia el negatiu de la imatge OCR"
+msgstr "La imatge OCR és en negatiu"
 
 #: src/mainwindow.cpp:343
 msgctxt "QApplication|"
 msgid "OCR image is normal"
-msgstr ""
+msgstr "La imatge OCR és normal"
 
 #: src/mainwindow.cpp:495 src/mainwindow.cpp:515 src/mainwindow.cpp:563
 #: src/mainwindow.cpp:592
@@ -417,7 +394,7 @@ msgstr "No s'ha pogut restablir Tesseract amb %1"
 #: src/mainwindow.cpp:955
 msgctxt "MainWindow|"
 msgid "TTS Error"
-msgstr ""
+msgstr "S'ha produït un error del TTS"
 
 #: src/mainwindow.cpp:955
 #, qt-format
@@ -429,11 +406,14 @@ msgid ""
 "\n"
 "Please check your TTS settings or try a different voice/locale."
 msgstr ""
+"S'ha produït un error del text a veu:\n"
+"\n"
+"%1\n"
+"\n"
+"Comproveu la configuració del TTS o proveu-ho amb una veu/configuració "
+"regional diferent."
 
 #: src/mainwindow.ui:14
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Main window"
 msgctxt "MainWindow|"
 msgid "MainWindow"
 msgstr "Finestra principal"
@@ -461,7 +441,7 @@ msgstr "Cancel·la"
 #: src/mainwindow.ui:132 src/mainwindow.ui:261
 msgctxt "MainWindow|"
 msgid "..."
-msgstr ""
+msgstr "…"
 
 #: src/mainwindow.ui:142
 msgctxt "MainWindow|"
@@ -736,7 +716,7 @@ msgstr "La detecció d'idioma no està implementada a %1"
 #: src/onlinetranslator.cpp:319
 msgctxt "OnlineTranslator|"
 msgid "Operation aborted by user"
-msgstr ""
+msgstr "L'usuari ha interromput l'operació"
 
 #: src/onlinetranslator.cpp:362
 #, qt-format
@@ -1847,7 +1827,7 @@ msgstr "Intercanvia els idiomes"
 #: src/popupwindow.ui:247
 msgctxt "PopupWindow|"
 msgid "..."
-msgstr ""
+msgstr "…"
 
 #: src/popupwindow.ui:112
 msgctxt "PopupWindow|"
@@ -1921,22 +1901,19 @@ msgid "<System language>"
 msgstr "<Idioma del sistema>"
 
 #: src/settings/settingsdialog.cpp:56 src/settings/settingsdialog.cpp:57
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Auto"
 msgctxt "SettingsDialog|"
 msgid "<Auto>"
-msgstr "Automàtica"
+msgstr "<Auto>"
 
 #: src/settings/settingsdialog.cpp:74
 msgctxt "SettingsDialog|"
 msgid "Copy"
-msgstr ""
+msgstr "Copia"
 
 #: src/settings/settingsdialog.cpp:78
 msgctxt "SettingsDialog|"
 msgid "None"
-msgstr ""
+msgstr "Cap"
 
 #: src/settings/settingsdialog.cpp:110
 msgctxt "SettingsDialog|"
@@ -1971,23 +1948,17 @@ msgstr "Trieu el camí dels idiomes d'OCR"
 #: src/settings/settingsdialog.cpp:339
 msgctxt "SettingsDialog|"
 msgid "Piper voices path:"
-msgstr ""
+msgstr "Camí cap a les veus del Piper:"
 
 #: src/settings/settingsdialog.cpp:353
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Directory with trained models"
 msgctxt "SettingsDialog|"
 msgid "Directory with voice models"
-msgstr "Directori amb models entrenats"
+msgstr "Directori amb els models de veus"
 
 #: src/settings/settingsdialog.cpp:354 src/settings/settingsdialog.cpp:373
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Select OCR languages path"
 msgctxt "SettingsDialog|"
 msgid "Select Piper voices path"
-msgstr "Trieu el camí dels idiomes d'OCR"
+msgstr "Trieu el camí cap a les veus del Piper"
 
 #: src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
@@ -2017,12 +1988,12 @@ msgstr "Traducció"
 #: src/settings/settingsdialog.ui:73
 msgctxt "SettingsDialog|"
 msgid "Text-To-Speech"
-msgstr ""
+msgstr "Text a veu"
 
 #: src/settings/settingsdialog.ui:81
 msgctxt "SettingsDialog|"
 msgid "Mozhi"
-msgstr ""
+msgstr "Mozhi"
 
 #: src/settings/settingsdialog.ui:97
 msgctxt "SettingsDialog|"
@@ -2335,12 +2306,9 @@ msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>Trieu una icona</p></body></html>"
 
 #: src/settings/settingsdialog.ui:650
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation provider:"
-msgstr "Mode de traducció:"
+msgstr "Proveïdor de traduccions:"
 
 #: src/settings/settingsdialog.ui:673
 msgctxt "SettingsDialog|"
@@ -2398,12 +2366,12 @@ msgstr "Força la detecció de l'idioma de traducció"
 #: src/settings/settingsdialog.ui:741
 msgctxt "SettingsDialog|"
 msgid "Text-to-Speech"
-msgstr ""
+msgstr "Text a veu"
 
 #: src/settings/settingsdialog.ui:747
 msgctxt "SettingsDialog|"
 msgid "Provider:"
-msgstr ""
+msgstr "Proveïdor:"
 
 #: src/settings/settingsdialog.ui:789
 msgctxt "SettingsDialog|"
@@ -2987,13 +2955,11 @@ msgid "Value"
 msgstr "Valor"
 
 #: src/translator/atranslationprovider.cpp:112
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "QObject|"
 msgid "Translation Provider Error"
-msgstr "Mode de traducció:"
+msgstr "S'ha produït un error del proveïdor de traduccions"
 
+# skip-rule: common-diferent_a
 #: src/translator/atranslationprovider.cpp:113
 msgctxt "QObject|"
 msgid ""
@@ -3001,19 +2967,16 @@ msgid ""
 "reset to 'Copy' to prevent further issues. You can try selecting a different "
 "provider in Settings → Translation."
 msgstr ""
+"El proveïdor de traducció seleccionat ha fallat durant la inicialització i "
+"s'ha reinicialitzat a «Copia» per a evitar més problemes. Podeu intentar de "
+"seleccionar un proveïdor diferent a Configuració → Traducció."
 
 #: src/translator/mozhitranslationprovider.cpp:386
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "translation options:"
 msgctxt "MozhiTranslationProvider|"
 msgid "translation options:"
 msgstr "opcions de traducció:"
 
 #: src/translator/mozhitranslationprovider.cpp:400
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "examples:"
 msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
 msgstr "exemples:"
@@ -3041,8 +3004,9 @@ msgstr "Resultat de la traducció"
 #: src/tts/attsprovider.cpp:69
 msgctxt "QObject|"
 msgid "TTS Provider Error"
-msgstr ""
+msgstr "S'ha produït un error del proveïdor de TTS"
 
+# skip-rule: common-diferent_a
 #: src/tts/attsprovider.cpp:70
 msgctxt "QObject|"
 msgid ""
@@ -3050,86 +3014,84 @@ msgid ""
 "to 'None' to prevent further issues. You can try selecting a different "
 "provider in Settings → TTS."
 msgstr ""
+"El proveïdor TTS seleccionat ha fallat durant la inicialització i s'ha "
+"reinicialitzat a «Cap» per a evitar més problemes. Podeu intentar de "
+"seleccionar un proveïdor diferent a Configuració → TTS."
 
 #: src/tts/mozhittsprovider.cpp:48
-#, fuzzy
-#| msgctxt "SpeakButtons|"
-#| msgid "Playback text is empty"
 msgctxt "MozhiTTSProvider|"
 msgid "Text is empty"
-msgstr "El text a reproduir està buit"
+msgstr "El text està buit"
 
 #: src/tts/mozhittsprovider.cpp:81
 msgctxt "MozhiTTSProvider|"
 msgid "No audio URLs generated"
-msgstr ""
+msgstr "No s'ha generat cap URL d'àudio"
 
 #: src/tts/mozhittsprovider.cpp:263
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance failed: %1 (HTTP Server Error)"
 msgstr ""
+"Ha fallat la instància de Mozhi: %1 (S'ha produït un error del servidor HTTP)"
 
 #: src/tts/mozhittsprovider.cpp:265 src/tts/mozhittsprovider.cpp:272
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Cannot connect to Mozhi instance: %1"
-msgstr ""
+msgstr "No s'ha pogut connectar a la instància de Mozhi: %1"
 
 #: src/tts/mozhittsprovider.cpp:268
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance failed: %1 (HTTP 500 Internal Server Error)"
-msgstr ""
+msgstr "Ha fallat la instància de Mozhi: %1 (Error 500 del servidor HTTP)"
 
 #: src/tts/mozhittsprovider.cpp:270
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
 msgstr ""
+"S'ha produït un error de la instància de Mozhi: %1 (S'ha produït un error "
+"del client HTTP 4XX)"
 
 #: src/tts/piperttsprovider.cpp:115
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize Piper TTS"
-msgstr "No s'ha pogut restablir Tesseract amb %1"
+msgstr "No s'ha pogut restablir el Piper TTS"
 
 #: src/tts/piperttsprovider.cpp:121
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime exception: %1"
-msgstr ""
+msgstr "Excepció de l'entorn d'execució ONNX: %1"
 
 #: src/tts/piperttsprovider.cpp:124
 msgctxt "PiperTTSProvider|"
 msgid "Unknown ONNX Runtime initialization error"
 msgstr ""
+"S'ha produït un error desconegut d'inicialització de l'entorn d'execució ONNX"
 
 #: src/tts/piperttsprovider.cpp:205
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize espeak-ng"
-msgstr "No s'ha pogut restablir Tesseract amb %1"
+msgstr "No s'ha pogut restablir «espeak-ng»"
 
 #: src/tts/piperttsprovider.cpp:247
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime initialization error: %1"
-msgstr ""
+msgstr "S'ha produït un error d'inicialització de l'entorn d'execució ONNX: %1"
 
 #: src/tts/piperttsprovider.cpp:279
 msgctxt "PiperTTSProvider|"
 msgid "Privacy Notice - Neural TTS"
-msgstr ""
+msgstr "Avís de privadesa - TTS neuronal"
 
 #: src/tts/piperttsprovider.cpp:281
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime Telemetry Information"
-msgstr ""
+msgstr "Informació de telemetria de l'entorn d'execució ONNX"
 
 #: src/tts/piperttsprovider.cpp:283
 msgctxt "PiperTTSProvider|"
@@ -3150,21 +3112,38 @@ msgid ""
 "On Unix systems, telemetry is inactive by default.\n"
 "This notice is shown once per installation."
 msgstr ""
+"Crow Translate utilitza l'entorn d'execució ONNX per al text a veu neuronal. "
+"El binari de Windows inclou la telemetria de Microsoft que arreplega "
+"informació d'ús.\n"
+"\n"
+"Arreplegada de dades:\n"
+"• Dades de dispositiu i ús, informes d'error, informació de rendiment\n"
+"• Utilitzat per Microsoft per a millorar la qualitat del producte i les "
+"característiques\n"
+"• Subjecte a Microsoft Privacy Statement\n"
+"\n"
+"Accions de Crow Translate:\n"
+"• Inhabilita automàticament la telemetria en iniciar\n"
+"• Utilitza tant variables d'entorn com crides d'API en temps d'execució\n"
+"• Nota: Algunes dades es poden transmetre durant la inicialització d'ONNX\n"
+"\n"
+"En els sistemes Unix, la telemetria està inactiva de manera predeterminada.\n"
+"Este avís es mostra una vegada per instal·lació."
 
 #: src/tts/piperttsprovider.cpp:1000
 msgctxt "PiperTTSProvider|"
 msgid "No audio data generated"
-msgstr ""
+msgstr "No s'ha generat cap dada d'àudio"
 
 #: src/tts/piperttsprovider.cpp:1015
 msgctxt "PiperTTSProvider|"
 msgid "Failed to create temporary audio file"
-msgstr ""
+msgstr "No s'ha pogut crear un fitxer temporal d'àudio"
 
 #: src/tts/piperttsprovider.cpp:1024
 msgctxt "PiperTTSProvider|"
 msgid "Failed to write audio data"
-msgstr ""
+msgstr "No s'han pogut escriure les dades d'àudio"
 
 #: src/tts/piperttsprovider.cpp:1362
 msgctxt "PiperTTSProvider|"
@@ -3178,11 +3157,20 @@ msgid ""
 "cannot be used in commercial settings. Please check the license of each "
 "model before commercial use.</p>"
 msgstr ""
+"<h3>No s'han trobat models de veu del Piper</h3><p>No s'han trobat models de "
+"veu del Piper a les ubicacions estàndard.</p><p><b>Per a utilitzar el TTS "
+"del Piper</b></p><ol><li>Descarregueu els models de veu des de <a "
+"href='https://huggingface.co/rhasspy/piper-voices'>HuggingFace Piper Voices</"
+"a></li><li>Extraeu els models a un directori</li><li>Establiu el camí cap a "
+"Configuració → TTS → Camí cap a les veus del Piper</li></ol><p><b>⚠️ Avís de "
+"llicència:</b>Alguns models poden tindre llicències no lliures i no es poden "
+"utilitzar en configuracions comercials. Consulteu la llicència de cada model "
+"abans de l'ús comercial.</p>"
 
 #: src/tts/piperttsprovider.cpp:1374
 msgctxt "PiperTTSProvider|"
 msgid "Piper Voice Models Required"
-msgstr ""
+msgstr "Calen els models de veu del Piper"
 
 #: src/tts/qtttsprovider.cpp:314
 #, qt-format
@@ -3198,44 +3186,18 @@ msgid ""
 "TTS. \"Narrator voices\" have licensing restrictions that are incompatible "
 "with this application.</p>"
 msgstr ""
+"<h3>No s'ha trobat la veu TTS de Windows</h3><p>No s'ha trobat la veu TTS de "
+"Windows <b>%1</b>.</p><p><b>Per a instal·lar idiomes addicionals:</b></"
+"p><ol><li>Obriu <b>Configuració → Data i idioma → Idioma i regió</"
+"b><li>Cliqueu damunt <b>Afig un idioma</b> i trieu l'idioma desitjat</"
+"li>li>Cliqueu damunt de l'idioma instal·lat i trieu <b>Opcions de l'idioma</"
+"b></li><li>Dins de <b>Veu</b>, cliqueu damunt <b>Baixada</b> per al paquet "
+"de veu</li></ol><p><b>⚠️ Nota de llicència:</b>Crow Translate actualment "
+"només permet «Models bàsics de veu» del TTS de Windows. Les «veus de "
+"narrador» tenen restriccions de llicència incompatibles amb esta aplicació.</"
+"p>"
 
 #: src/tts/qtttsprovider.cpp:328
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
-msgstr ""
-
-#~ msgctxt "MainWindow|"
-#~ msgid "OCR image negate has changed to %1"
-#~ msgstr "El negatiu de la imatge OCR ha canviat a %1"
-
-#~ msgctxt "MainWindow|"
-#~ msgid "Unable to detect language"
-#~ msgstr "No s'ha pogut detectar l'idioma"
-
-#~ msgctxt "MainWindow|"
-#~ msgid "Unable to translate text"
-#~ msgstr "No s'ha pogut traduir el text"
-
-#~ msgctxt "SpeakButtons|"
-#~ msgid "No text specified"
-#~ msgstr "No s'ha especificat cap text"
-
-#~ msgctxt "SpeakButtons|"
-#~ msgid "Unable to generate URLs for TTS"
-#~ msgstr "No s'han pogut generar els URL dels TTS"
-
-#~ msgctxt "SpeakButtons|"
-#~ msgid "Speak / pause text speaking"
-#~ msgstr "Llig/pausa el text en la parla"
-
-#~ msgctxt "SpeakButtons|"
-#~ msgid "Stop text speaking"
-#~ msgstr "Para la pronunciació del text"
-
-#~ msgctxt "TranslationEdit|"
-#~ msgid "translation options:"
-#~ msgstr "opcions de traducció:"
-
-#~ msgctxt "TranslationEdit|"
-#~ msgid "examples:"
-#~ msgstr "exemples:"
+msgstr "Instal·lació de veus TTS de Windows"

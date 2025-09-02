@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-07-30 18:46+0200\n"
+"PO-Revision-Date: 2025-09-01 20:43+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #: src/cli.cpp:37
 msgctxt "Cli|"
@@ -54,32 +54,22 @@ msgstr ""
 "programinställningarna används normalt."
 
 #: src/cli.cpp:55
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify Mozhi instance URL. Instance URL from the app settings will be "
-#| "used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy' or 'mozhi'). Provider from app settings "
 "will be used by default."
 msgstr ""
-"Ange Mozhi-instansens webbadress. Instanswebbadressen från "
-"programinställningarna används normalt."
+"Ange översättningsleverantör ('kopiera' eller 'mozhi'). Leverantören från "
+"programinställningarna användas normalt."
 
 #: src/cli.cpp:58
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify Mozhi instance URL. Instance URL from the app settings will be "
-#| "used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from app "
 "settings will be used by default."
 msgstr ""
-"Ange Mozhi-instansens webbadress. Instanswebbadressen från "
-"programinställningarna används normalt."
+"Ange text till tal-leverantör ('ingen', 'mozhi', 'qt' eller 'piper'). "
+"Leverantören från programinställningarna användas normalt."
 
 #: src/cli.cpp:60
 msgctxt "Cli|"
@@ -119,13 +109,12 @@ msgid "Print output formatted as JSON."
 msgstr "Skriv utdata formaterat som JSON."
 
 #: src/cli.cpp:70
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Application that allows to translate and speak text using Mozhi"
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
-msgstr "Program som gör det möjligt att översätta och läsa upp text med Mozhi"
+msgstr ""
+"Program som gör det möjligt att översätta och läsa upp text med diverse "
+"leverantörer"
 
 #: src/cli.cpp:71
 msgctxt "Cli|"
@@ -158,12 +147,10 @@ msgid "Error: There is no text for translation"
 msgstr "Fel: Det finns ingen text att översätta"
 
 #: src/cli.cpp:165
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown translation language code '%1'"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
-msgstr "Fel: Okänd språkkod för översättning '%1'"
+msgstr "Fel: Okänd översättningsleverantör '%1'"
 
 #: src/cli.cpp:175
 msgctxt "Cli|"
@@ -171,12 +158,9 @@ msgid "Detecting fastest instance"
 msgstr "Detekterar snabbaste instans"
 
 #: src/cli.cpp:214
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Language detection is not supported for %1"
 msgctxt "Cli|"
 msgid "Error: Lingva engine is not supported"
-msgstr "Språkdetektering stöds inte för %1"
+msgstr "Fel: Lingva-gränssnittet stöds inte"
 
 #: src/cli.cpp:223
 msgctxt "Cli|"
@@ -184,12 +168,10 @@ msgid "Error: Unknown engine"
 msgstr "Fel: Okänt gränssnitt"
 
 #: src/cli.cpp:256
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown source language code '%1'"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
-msgstr "Fel: Okänd språkkod '%1'"
+msgstr "Fel: Okänd text till tal-leverantör '%1'"
 
 #: src/cli.cpp:335 src/cli.cpp:384
 #, qt-format
@@ -198,17 +180,14 @@ msgid "Error: %1"
 msgstr "Fel: %1"
 
 #: src/cli.cpp:337 src/cli.cpp:386
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation backend:"
 msgctxt "Cli|"
 msgid "Translation error occurred"
-msgstr "Översättningsgränssnitt:"
+msgstr "Översättningsfel inträffade"
 
 #: src/cli.cpp:443
 msgctxt "Cli|"
 msgid "Error: TTS failed"
-msgstr ""
+msgstr "Fel: text till tal misslyckades"
 
 #: src/cli.cpp:600
 #, qt-format
@@ -323,20 +302,17 @@ msgstr "Kan inte registrera D-Bus objekt för %1"
 #: src/mainwindow.cpp:342
 msgctxt "QApplication|"
 msgid "OCR"
-msgstr ""
+msgstr "Optisk teckentydning"
 
 #: src/mainwindow.cpp:343
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Toggled OCR image negate"
 msgctxt "QApplication|"
 msgid "OCR image negated"
-msgstr "Bytte bildnegering för optisk teckentydning"
+msgstr "Bild för optisk teckentydning negerad"
 
 #: src/mainwindow.cpp:343
 msgctxt "QApplication|"
 msgid "OCR image is normal"
-msgstr ""
+msgstr "Bild för optisk teckentydning är normal"
 
 #: src/mainwindow.cpp:495 src/mainwindow.cpp:515 src/mainwindow.cpp:563
 #: src/mainwindow.cpp:592
@@ -403,7 +379,7 @@ msgstr "Kan inte initiera Tesseract med %1"
 #: src/mainwindow.cpp:955
 msgctxt "MainWindow|"
 msgid "TTS Error"
-msgstr ""
+msgstr "Text till tal fel"
 
 #: src/mainwindow.cpp:955
 #, qt-format
@@ -415,11 +391,14 @@ msgid ""
 "\n"
 "Please check your TTS settings or try a different voice/locale."
 msgstr ""
+"Text till tal fel:\n"
+"\n"
+"%1\n"
+"\n"
+"Kontrollera text till tal-inställningar eller prova en annan röst eller "
+"annat land."
 
 #: src/mainwindow.ui:14
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Main window"
 msgctxt "MainWindow|"
 msgid "MainWindow"
 msgstr "Huvudfönster"
@@ -447,7 +426,7 @@ msgstr "Avbryt"
 #: src/mainwindow.ui:132 src/mainwindow.ui:261
 msgctxt "MainWindow|"
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: src/mainwindow.ui:142
 msgctxt "MainWindow|"
@@ -721,7 +700,7 @@ msgstr "Språkdetektering stöds inte för %1"
 #: src/onlinetranslator.cpp:319
 msgctxt "OnlineTranslator|"
 msgid "Operation aborted by user"
-msgstr ""
+msgstr "Åtgärden avbröts av användaren"
 
 #: src/onlinetranslator.cpp:362
 #, qt-format
@@ -1829,7 +1808,7 @@ msgstr "Byt språk"
 #: src/popupwindow.ui:247
 msgctxt "PopupWindow|"
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: src/popupwindow.ui:112
 msgctxt "PopupWindow|"
@@ -1903,22 +1882,19 @@ msgid "<System language>"
 msgstr "<Systemspråk>"
 
 #: src/settings/settingsdialog.cpp:56 src/settings/settingsdialog.cpp:57
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Auto"
 msgctxt "SettingsDialog|"
 msgid "<Auto>"
-msgstr "Automatisk"
+msgstr "<Automatisk>"
 
 #: src/settings/settingsdialog.cpp:74
 msgctxt "SettingsDialog|"
 msgid "Copy"
-msgstr ""
+msgstr "Kopiera"
 
 #: src/settings/settingsdialog.cpp:78
 msgctxt "SettingsDialog|"
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 #: src/settings/settingsdialog.cpp:110
 msgctxt "SettingsDialog|"
@@ -1953,23 +1929,17 @@ msgstr "Välj sökväg till språk för optisk teckenigenkänning"
 #: src/settings/settingsdialog.cpp:339
 msgctxt "SettingsDialog|"
 msgid "Piper voices path:"
-msgstr ""
+msgstr "Piper röstsökväg:"
 
 #: src/settings/settingsdialog.cpp:353
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Directory with trained models"
 msgctxt "SettingsDialog|"
 msgid "Directory with voice models"
-msgstr "Katalog med tränade modeller"
+msgstr "Katalog med röstmodeller"
 
 #: src/settings/settingsdialog.cpp:354 src/settings/settingsdialog.cpp:373
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Select OCR languages path"
 msgctxt "SettingsDialog|"
 msgid "Select Piper voices path"
-msgstr "Välj sökväg till språk för optisk teckenigenkänning"
+msgstr "Välj Piper röstsökväg"
 
 #: src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
@@ -1999,12 +1969,12 @@ msgstr "Översättning"
 #: src/settings/settingsdialog.ui:73
 msgctxt "SettingsDialog|"
 msgid "Text-To-Speech"
-msgstr ""
+msgstr "Text till tal"
 
 #: src/settings/settingsdialog.ui:81
 msgctxt "SettingsDialog|"
 msgid "Mozhi"
-msgstr ""
+msgstr "Mozhi"
 
 #: src/settings/settingsdialog.ui:97
 msgctxt "SettingsDialog|"
@@ -2311,12 +2281,9 @@ msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>Välj ikon</p></body></html>"
 
 #: src/settings/settingsdialog.ui:650
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation provider:"
-msgstr "Översättningsmetod:"
+msgstr "Översättningsleverantör:"
 
 #: src/settings/settingsdialog.ui:673
 msgctxt "SettingsDialog|"
@@ -2374,12 +2341,12 @@ msgstr "Tvinga detektering av översättningsspråk"
 #: src/settings/settingsdialog.ui:741
 msgctxt "SettingsDialog|"
 msgid "Text-to-Speech"
-msgstr ""
+msgstr "Text till tal"
 
 #: src/settings/settingsdialog.ui:747
 msgctxt "SettingsDialog|"
 msgid "Provider:"
-msgstr ""
+msgstr "Leverantör:"
 
 #: src/settings/settingsdialog.ui:789
 msgctxt "SettingsDialog|"
@@ -2965,12 +2932,9 @@ msgid "Value"
 msgstr "Värde"
 
 #: src/translator/atranslationprovider.cpp:112
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "QObject|"
 msgid "Translation Provider Error"
-msgstr "Översättningsmetod:"
+msgstr "Översättningsleverantörsfel"
 
 #: src/translator/atranslationprovider.cpp:113
 msgctxt "QObject|"
@@ -2979,19 +2943,16 @@ msgid ""
 "reset to 'Copy' to prevent further issues. You can try selecting a different "
 "provider in Settings → Translation."
 msgstr ""
+"Den valda översättningsleverantören kraschade under initiering och har "
+"återställts till \"Kopiera\" för att förhindra ytterligare problem. Prova "
+"att välja en annan leverantör i Inställningar → Översättning."
 
 #: src/translator/mozhitranslationprovider.cpp:386
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "translation options:"
 msgctxt "MozhiTranslationProvider|"
 msgid "translation options:"
 msgstr "översättningsalternativ:"
 
 #: src/translator/mozhitranslationprovider.cpp:400
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "examples:"
 msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
 msgstr "exempel:"
@@ -3019,7 +2980,7 @@ msgstr "Översättningsresultat"
 #: src/tts/attsprovider.cpp:69
 msgctxt "QObject|"
 msgid "TTS Provider Error"
-msgstr ""
+msgstr "Text till tal-leverantör fel"
 
 #: src/tts/attsprovider.cpp:70
 msgctxt "QObject|"
@@ -3028,86 +2989,80 @@ msgid ""
 "to 'None' to prevent further issues. You can try selecting a different "
 "provider in Settings → TTS."
 msgstr ""
+"Den valda text till tal-leverantören kraschade under initiering och har "
+"återställts till \"Ingen\" för att förhindra ytterligare problem. Prova att "
+"välja en annan leverantör i Inställningar → Text till tal."
 
 #: src/tts/mozhittsprovider.cpp:48
-#, fuzzy
-#| msgctxt "SpeakButtons|"
-#| msgid "Playback text is empty"
 msgctxt "MozhiTTSProvider|"
 msgid "Text is empty"
-msgstr "Uppspelningstext är tom"
+msgstr "Texten är tom"
 
 #: src/tts/mozhittsprovider.cpp:81
 msgctxt "MozhiTTSProvider|"
 msgid "No audio URLs generated"
-msgstr ""
+msgstr "Inga ljudwebbadresser genererade"
 
 #: src/tts/mozhittsprovider.cpp:263
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance failed: %1 (HTTP Server Error)"
-msgstr ""
+msgstr "Mozhi-instans misslyckades: %1 (HTTP-serverfel)"
 
 #: src/tts/mozhittsprovider.cpp:265 src/tts/mozhittsprovider.cpp:272
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Cannot connect to Mozhi instance: %1"
-msgstr ""
+msgstr "Kan inte ansluta till Mozhi-instans: %1"
 
 #: src/tts/mozhittsprovider.cpp:268
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance failed: %1 (HTTP 500 Internal Server Error)"
-msgstr ""
+msgstr "Mozhi-instans misslyckades: %1 (HTTP 500 internt serverfel)"
 
 #: src/tts/mozhittsprovider.cpp:270
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
-msgstr ""
+msgstr "Mozhi-instansfel: %1 (HTTP 4XX-klientfel)"
 
 #: src/tts/piperttsprovider.cpp:115
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize Piper TTS"
-msgstr "Kan inte initiera Tesseract med %1"
+msgstr "Misslyckades initiera Piper text till tal"
 
 #: src/tts/piperttsprovider.cpp:121
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime exception: %1"
-msgstr ""
+msgstr "ONNX-körtidsundantag: %1"
 
 #: src/tts/piperttsprovider.cpp:124
 msgctxt "PiperTTSProvider|"
 msgid "Unknown ONNX Runtime initialization error"
-msgstr ""
+msgstr "Okänt ONNX-körinitieringsfel"
 
 #: src/tts/piperttsprovider.cpp:205
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize espeak-ng"
-msgstr "Kan inte initiera Tesseract med %1"
+msgstr "Kan inte initiera espeak-ng"
 
 #: src/tts/piperttsprovider.cpp:247
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime initialization error: %1"
-msgstr ""
+msgstr "ONXX-körinitieringsfel: %1"
 
 #: src/tts/piperttsprovider.cpp:279
 msgctxt "PiperTTSProvider|"
 msgid "Privacy Notice - Neural TTS"
-msgstr ""
+msgstr "Integritetsmeddelande: Neuralt test till tal"
 
 #: src/tts/piperttsprovider.cpp:281
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime Telemetry Information"
-msgstr ""
+msgstr "ONNX-körtelemetriinformation"
 
 #: src/tts/piperttsprovider.cpp:283
 msgctxt "PiperTTSProvider|"
@@ -3128,21 +3083,38 @@ msgid ""
 "On Unix systems, telemetry is inactive by default.\n"
 "This notice is shown once per installation."
 msgstr ""
+"Crow Translate använder ONNX-körprogram för neural text till tal. Windows-"
+"binärfilen innehåller Microsoft-telemetri som samlar in "
+"användningsinformation.\n"
+"\n"
+"Datainsamling:\n"
+"• Enhets- och användningsdata, felrapporter, prestandainformation\n"
+"• Används av Microsoft för att förbättra produktkvalitet och funktioner\n"
+"• Microsofts sekretesspolicy gäller\n"
+"\n"
+"Crow Translate-åtgärder:\n"
+"• Inaktiverar automatiskt telemetri vid start\n"
+"• Använder både miljövariabler och anrop till programmeringsgränssnitt under "
+"körning\n"
+"• Observera: Viss data kan överföras under ONNX-initiering\n"
+"\n"
+"På Unix-system är telemetri normalt inaktiv.\n"
+"Det här meddelandet visas en gång per installation."
 
 #: src/tts/piperttsprovider.cpp:1000
 msgctxt "PiperTTSProvider|"
 msgid "No audio data generated"
-msgstr ""
+msgstr "Ingen ljuddata genererad"
 
 #: src/tts/piperttsprovider.cpp:1015
 msgctxt "PiperTTSProvider|"
 msgid "Failed to create temporary audio file"
-msgstr ""
+msgstr "Misslyckades skapa tillfällig ljudfil"
 
 #: src/tts/piperttsprovider.cpp:1024
 msgctxt "PiperTTSProvider|"
 msgid "Failed to write audio data"
-msgstr ""
+msgstr "Misslyckades skriva ljuddata"
 
 #: src/tts/piperttsprovider.cpp:1362
 msgctxt "PiperTTSProvider|"
@@ -3156,11 +3128,20 @@ msgid ""
 "cannot be used in commercial settings. Please check the license of each "
 "model before commercial use.</p>"
 msgstr ""
+"<h3>Piper röstmodeller hittades inte</h3><p>Inga Piper text till tal-"
+"röstmodeller hittades på normala platser.</p><p><b>För att använda Piper "
+"text till tal:</b></p><ol><li>Ladda ner röstmodeller från <a href='https://"
+"huggingface.co/rhasspy/piper-voices'>HuggingFace Piper Voices</a></"
+"li><li>Extrahera modellerna i en katalog</li><li>Ange sökvägen i "
+"Inställningar → Text till tal → Piper röstsökväg</li></ol><p><b>⚠️ "
+"Licensvarning:</b> Vissa modeller kan ha icke-fria licenser och kan inte "
+"användas i kommersiella miljöer. Kontrollera licensen för varje modell före "
+"kommersiell användning.</p>"
 
 #: src/tts/piperttsprovider.cpp:1374
 msgctxt "PiperTTSProvider|"
 msgid "Piper Voice Models Required"
-msgstr ""
+msgstr "Piper röstmodell krävs"
 
 #: src/tts/qtttsprovider.cpp:314
 #, qt-format
@@ -3176,11 +3157,21 @@ msgid ""
 "TTS. \"Narrator voices\" have licensing restrictions that are incompatible "
 "with this application.</p>"
 msgstr ""
+"<h3>Windows text till tal-röst hittades inte</h3><p>Ingen Windows text till "
+"tal-röst hittades för <b>%1</b>.</p><p><b>För att installera ytterligare "
+"språk:</b></p><ol><li>Öppna <b>Inställningar → Tid och språk → Språk och "
+"region</b></li><li>Klicka på <b>Lägg till ett språk</b> och välj önskat "
+"språk</li><li>Klicka på det installerade språket och välj "
+"<b>Språkalternativ</b></li><li>Under <b>Tal</b> klicka på <b>Ladda ner</b> "
+"för talpaketet</li></ol><p><b>⚠️ Licensinformation:</b> Crow Translate stöder "
+"för närvarande endast \"Grundläggande röstmodeller\" från Windows TTS. "
+"\"Berättarröster\" har licensbegränsningar som inte är kompatibla med det "
+"här programmet.</p>"
 
 #: src/tts/qtttsprovider.cpp:328
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
-msgstr ""
+msgstr "Windows text till tal röstinstallation"
 
 #~ msgctxt "MainWindow|"
 #~ msgid "OCR image negate has changed to %1"
