@@ -3,7 +3,7 @@
 
 # ![Crow Translate logo](data/icons/app/48-apps-org.kde.CrowTranslate.png) Crow Translate
 
-Application written in **C++ / Qt** that allows you to translate and speak text using [Mozhi](https://codeberg.org/aryak/mozhi).
+Application written in **C++ / Qt6** that allows you to translate and speak text using [Mozhi](https://codeberg.org/aryak/mozhi) with multiple TTS providers including high-quality neural text-to-speech.
 
 ## Content
 
@@ -42,12 +42,20 @@ Application written in **C++ / Qt** that allows you to translate and speak text 
 
 ## Features
 
-- [Multiple translation engines](https://codeberg.org/aryak/mozhi#supported-engines) provided by Mozhi (some instances can disable specific engines)*
-- Translate and speak text from screen or selection
-- Highly customizable shortcuts
-- Command-line interface with rich options
-- D-Bus API
-- Cross-platform
+- **Provider System**: Modular translation and TTS providers with runtime switching
+- **Multiple Translation Engines**: [Multiple engines](https://codeberg.org/aryak/mozhi#supported-engines) provided by Mozhi (some instances can disable specific engines)*
+- **Advanced TTS Options**:
+  - **Piper Neural TTS**: High-quality offline neural text-to-speech with ONNX Runtime
+  - **Qt TextToSpeech**: System TTS integration
+  - **Mozhi TTS**: Online TTS via Mozhi proxy
+- **Enhanced OCR**: Tesseract-based OCR with image inversion option for improved accuracy
+- **Custom Language Support**: Register and persist custom languages beyond standard locales
+- **Screen Translation**: Translate and speak text from screen captures or text selection
+- **Wayland Support**: Improved screenshot integration with KWin ScreenShot2 API
+- **Highly Customizable Shortcuts**: Global hotkeys with desktop environment integration
+- **Command-line Interface**: Rich CLI with provider selection and output formatting
+- **D-Bus API**: Complete automation interface
+- **Cross-platform**: Qt6-based with Linux, FreeBSD, and Windows support
 
 :warning: *While Mozhi acts as a proxy to protect your privacy, the third-party services it uses may store and analyze the text you send. 
 
@@ -93,13 +101,15 @@ The program also has a console interface.
 | `-c, --codes`              | Display language codes                                                                                                                 |
 | `-s, --source <code>`      | Specify the source language (by default, engine will try to determine the language on its own)                                         |
 | `-t, --translation <code>` | Specify the translation language(s), splitted by '+' (by default, the system language is used)                                         |
-| `-e, --engine <engine>`    | Specify the translator engine ('google', 'yandex', 'deepl', 'duckduckgo', 'libre', 'mymemory' or 'reverso'), Google is used by default |
-| `-u, --url <URL>`          | Specify Mozhi instance URL, random instance URL will be used by default.                                                               |
+| `-e, --engine <engine>`    | Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' or 'lingva'), Google is used by default |
+| `-u, --url <URL>`          | Specify Mozhi instance URL. Instance URL from app settings will be used by default                                                               |
+| `--tp, --translation-provider <provider>` | Specify translation provider ('copy' or 'mozhi'). Provider from app settings will be used by default |
+| `--tts, --tts-provider <provider>` | Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from app settings will be used by default |
 | `-r, --speak-translation`  | Speak the translation                                                                                                                  |
 | `-o, --speak-source`       | Speak the source                                                                                                                       |
 | `-f, --file`               | Read source text from files. Arguments will be interpreted as file paths                                                               |
 | `-i, --stdin`              | Add stdin data to source text                                                                                                          |
-| `-a, --audio-only`         | Print text only for speaking when using `--speak-translation` or `--speak-source`                                                      |
+| `-a, --audio-only`         | Do not print any text when using `--speak-source` or `--speak-translation`                                                      |
 | `-b, --brief`              | Print only translations                                                                                                                |
 | `-j, --json`               | Print output formatted as JSON                                                                                                         |
 
@@ -108,31 +118,26 @@ The program also has a console interface.
 ## D-Bus API
 
     org.kde.CrowTranslate
-    ├── /org/kde/CrowTranslate/Ocr
-    |   └── method void org.kde.CrowTranslate.Ocr.setParameters(QVariantMap parameters);
-    └── /org/kde/CrowTranslate/MainWindow
-        |   # Global shortcuts
-        ├── method void org.kde.CrowTranslate.MainWindow.translateSelection();
-        ├── method void org.kde.CrowTranslate.MainWindow.speakSelection();
-        ├── method void org.kde.CrowTranslate.MainWindow.speakTranslatedSelection();
-        ├── method void org.kde.CrowTranslate.MainWindow.playPauseSpeaking();
-        ├── method void org.kde.CrowTranslate.MainWindow.stopSpeaking();
-        ├── method void org.kde.CrowTranslate.MainWindow.open();
-        ├── method void org.kde.CrowTranslate.MainWindow.copyTranslatedSelection();
-        ├── method void org.kde.CrowTranslate.MainWindow.recognizeScreenArea();
-        ├── method void org.kde.CrowTranslate.MainWindow.translateScreenArea();
-        ├── method void org.kde.CrowTranslate.MainWindow.delayedRecognizeScreenArea();
-        ├── method void org.kde.CrowTranslate.MainWindow.delayedTranslateScreenArea();
-        |   # Main window shortcuts
-        ├── method void org.kde.CrowTranslate.MainWindow.clearText();
-        ├── method void org.kde.CrowTranslate.MainWindow.cancelOperation();
-        ├── method void org.kde.CrowTranslate.MainWindow.swapLanguages();
-        ├── method void org.kde.CrowTranslate.MainWindow.openSettings();
-        ├── method void org.kde.CrowTranslate.MainWindow.setAutoTranslateEnabled(bool enabled);
-        ├── method void org.kde.CrowTranslate.MainWindow.copySourceText();
-        ├── method void org.kde.CrowTranslate.MainWindow.copyTranslation();
-        ├── method void org.kde.CrowTranslate.MainWindow.copyAllTranslationInfo();
-        └── method void org.kde.CrowTranslate.MainWindow.quit();
+    ├── /org/kde/CrowTranslate/MainWindow
+    |   |   # Global shortcuts
+    |   ├── method void org.kde.CrowTranslate.MainWindow.translateSelection();
+    |   ├── method void org.kde.CrowTranslate.MainWindow.speakSelection();
+    |   ├── method void org.kde.CrowTranslate.MainWindow.speakTranslatedSelection();
+    |   ├── method void org.kde.CrowTranslate.MainWindow.playPauseSpeaking();
+    |   ├── method void org.kde.CrowTranslate.MainWindow.stopSpeaking();
+    |   ├── method void org.kde.CrowTranslate.MainWindow.open();
+    |   ├── method void org.kde.CrowTranslate.MainWindow.copyTranslatedSelection();
+    |   ├── method void org.kde.CrowTranslate.MainWindow.recognizeScreenArea();
+    |   ├── method void org.kde.CrowTranslate.MainWindow.translateScreenArea();
+    |   ├── method void org.kde.CrowTranslate.MainWindow.delayedRecognizeScreenArea();
+    |   ├── method void org.kde.CrowTranslate.MainWindow.delayedTranslateScreenArea();
+    |   ├── method void org.kde.CrowTranslate.MainWindow.toggleOcrNegate();
+    |   |   # Application control
+    |   ├── method void org.kde.CrowTranslate.MainWindow.openSettings();
+    |   └── method void org.kde.CrowTranslate.MainWindow.quit();
+    └── /org/kde/CrowTranslate/Ocr
+        ├── method void org.kde.CrowTranslate.Ocr.applyParameters(QVariantMap parameters);
+        └── method void org.kde.CrowTranslate.Ocr.applyParameters(QVariantMap parameters, bool saveSettings);
 
 For example, you can show main window using `dbus-send`:
 
@@ -176,6 +181,9 @@ You can set a hotkey for this command in GNOME system settings.
 
 The application can translate text from the screen using [Tesseract](https://github.com/tesseract-ocr/tesseract). To recognize text, you need to additionally install trained models and select at least one model in the settings. Choose only the models for the languages you need. The more models there are, the worse the performance and quality of OCR.
 
+**OCR Enhancement Options:**
+- **Image Inversion**: Toggle image inversion before OCR processing for improved accuracy on dark backgrounds or low-contrast text (configurable in settings)
+
 You can manually download models from the [tessdata_fast](https://github.com/tesseract-ocr/tessdata_fast) repository or install the `org.kde.CrowTranslate.tessdata` extension if you use the app from [Flatpak](https://flatpak.org).
 
 ## Dependencies
@@ -184,12 +192,14 @@ You can manually download models from the [tessdata_fast](https://github.com/tes
 
 - [CMake](https://cmake.org) 3.16+
 - [Extra CMake Modules](https://github.com/KDE/extra-cmake-modules)
-- [Qt](https://www.qt.io) 5.9+ with Widgets, Network, Multimedia, Concurrent, X11Extras (Linux), DBus (Linux) and WinExtras (Windows) modules
+- [Qt6](https://www.qt.io) 6.8+ with Widgets, Network, Multimedia, Concurrent, TextToSpeech, DBus (Linux) modules
 - [Tesseract](https://tesseract-ocr.github.io) 4.0+
 - [Png2Ico](https://www.winterdrache.de/freeware/png2ico) or [IcoTool](https://www.nongnu.org/icoutils) for generating executable icon (Windows)
 
 ### Optional
 
+- [ONNX Runtime](https://onnxruntime.ai/) 1.22+ (for Piper neural TTS)
+- [espeak-ng](https://github.com/espeak-ng/espeak-ng) (bundled as submodule for Piper phonemization)
 - [KWayland](https://invent.kde.org/frameworks/kwayland)
 
 ### External libraries
@@ -209,7 +219,7 @@ This project uses the following external libraries, which included as git submod
 
 Downloads are available on the [KDE downloads](https://download.kde.org/stable/crow-translate) page. Also check out the [webpage](https://apps.kde.org/crowtranslate) for other installation methods.
 
-**Note:** On Linux to make the application look native on a non-KDE desktop environment, you need to configure Qt applications styling. This can be done by using [qt5ct](https://github.com/RomanVolak/qt5ct) or [adwaita-qt5](https://github.com/FedoraQt/adwaita-qt) or [qtstyleplugins](https://github.com/qt/qtstyleplugins). Please check the appropriate installation guide for your distribution.
+**Note:** On Linux to make the application look native on a non-KDE desktop environment, you need to configure Qt applications styling. This can be done by using [qt6ct](https://github.com/trialuser02/qt6ct) or [adwaita-qt6](https://github.com/FedoraQt/adwaita-qt). Please check the appropriate installation guide for your distribution.
 
 **Note:** Windows requires [Microsoft Visual C++ Redistributable 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) to work.
 
@@ -220,6 +230,10 @@ Downloads are available on the [KDE downloads](https://download.kde.org/stable/c
 You can build **Crow Translate** by using the following commands:
 
 ```bash
+# Initialize git submodules (required for bundled libraries)
+git submodule update --init --recursive
+
+# Configure and build
 mkdir build
 cd build
 cmake .. # Or `cmake -D CMAKE_BUILD_TYPE=Release ..` for single-configuration generators such as Ninja or GNU Make
@@ -228,6 +242,8 @@ cmake --build . # Or `cmake --build . --config Release` for multi-config generat
 
 You will then get a binary named `crow`.
 
+**Note:** The `--recursive` flag initializes espeak-ng and other submodules needed for compilation.
+
 ### Building a package using CPack
 
 CMake can create [specified package types](https://cmake.org/cmake/help/latest/manual/cpack-generators.7.html) automatically.
@@ -235,6 +251,7 @@ CMake can create [specified package types](https://cmake.org/cmake/help/latest/m
 If you use Makefile, Ninja, or Xcode generator you can use [package](https://cmake.org/cmake/help/latest/module/CPack.html#targets-package-and-package-source) target:
 
 ```bash
+git submodule update --init --recursive
 mkdir build
 cd build
 cmake -D CMAKE_BUILD_TYPE=Release -D CPACK_GENERATOR=DEB .. # You can specify several types of packages separated by semicolons in double quotes, for example: `CPACK_GENERATOR="DEB;ZIP;NSIS"`
@@ -244,6 +261,7 @@ cmake --build . --target package
 Or you can use [CPack](https://cmake.org/cmake/help/latest/module/CPack.html) utility for any generators:
 
 ```bash
+git submodule update --init --recursive
 mkdir build
 cd build
 cmake .. # Or `cmake -D CMAKE_BUILD_TYPE=Release ..` for single-configuration generators such as Ninja or GNU Make
@@ -260,5 +278,8 @@ craft crow-translate
 
 - `WITH_PORTABLE_MODE` - Enable portable functionality. If you create file named `settings.ini` in the app folder and Crow will store the configuration in it. It also adds the “Portable Mode” option to the application settings, which does the same.
 - `WITH_KWAYLAND` - Find and use KWayland library for better Wayland integration.
+- `WITH_PIPER_TTS` - Enable Piper neural TTS provider (requires ONNX Runtime and espeak-ng).
 
-Build parameters are passed at configuration stage: `cmake -D WITH_PORTABLE_MODE ..`.
+Build parameters are passed at configuration stage: `cmake -D WITH_PORTABLE_MODE=ON -D WITH_PIPER_TTS=ON ..`.
+
+**Note for Piper TTS**: When enabled with `-D WITH_PIPER_TTS=ON`, the Piper neural TTS provider requires downloading voice models separately. Voice models can be downloaded from [Hugging Face Piper voices](https://huggingface.co/rhasspy/piper-voices) and should be placed in the application's data directory. ONNX Runtime and espeak-ng submodule are automatically configured when this option is enabled.
