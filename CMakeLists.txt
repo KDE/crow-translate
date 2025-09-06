@@ -371,22 +371,25 @@ if(WITH_PIPER_TTS)
         install(DIRECTORY ${CMAKE_BINARY_DIR}/espeak-ng-data
                 DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
         
-        # Copy ONNX Runtime DLL to bin directory on Windows
-        if(ONNXRUNTIME_LIBRARY)
-            get_filename_component(ONNX_LIB_DIR ${ONNXRUNTIME_LIBRARY} DIRECTORY)
-            # Look for DLL in the lib directory and potential bin directory
-            file(GLOB ONNX_DLLS 
-                "${ONNX_LIB_DIR}/onnxruntime.dll"
-                "${ONNX_LIB_DIR}/../bin/onnxruntime.dll"
-                "${ONNX_LIB_DIR}/onnxruntime_providers_*.dll"
-                "${ONNX_LIB_DIR}/../bin/onnxruntime_providers_*.dll"
-            )
-            if(ONNX_DLLS)
-                install(FILES ${ONNX_DLLS} DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
-                message(STATUS "Will copy ONNX Runtime DLLs to bin: ${ONNX_DLLS}")
-            else()
-                message(WARNING "ONNX Runtime DLLs not found near ${ONNX_LIB_DIR}")
-            endif()
+        # Copy ONNX Runtime DLLs to bin directory on Windows
+        # Check multiple locations where DLLs might end up
+        file(GLOB ONNX_DLLS 
+            # From system ONNX Runtime
+            "${CMAKE_INSTALL_PREFIX}/lib/onnxruntime*.dll"
+            "${CMAKE_INSTALL_PREFIX}/bin/onnxruntime*.dll"
+            # From build directories
+            "${CMAKE_BINARY_DIR}/lib/onnxruntime*.dll"
+            "${CMAKE_BINARY_DIR}/bin/onnxruntime*.dll"
+            # From ONNX Runtime library path (if set)
+            "${ONNX_LIB_DIR}/onnxruntime*.dll"
+            "${ONNX_LIB_DIR}/../bin/onnxruntime*.dll"
+        )
+        
+        if(ONNX_DLLS)
+            install(FILES ${ONNX_DLLS} DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+            message(STATUS "Will copy ONNX Runtime DLLs to bin: ${ONNX_DLLS}")
+        else()
+            message(WARNING "No ONNX Runtime DLLs found - application may fail to start")
         endif()
     else()
         # On other systems, install to share directory
