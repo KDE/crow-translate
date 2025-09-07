@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: crow-translate\n"
-"PO-Revision-Date: 2025-08-31 15:19+0200\n"
+"PO-Revision-Date: 2025-09-06 10:40+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.08.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/cli.cpp:37
@@ -414,12 +414,9 @@ msgstr ""
 "regional diferent."
 
 #: src/mainwindow.ui:14
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translate"
 msgctxt "MainWindow|"
 msgid "Crow Translate"
-msgstr "Traduïx"
+msgstr "Crow Translate"
 
 #: src/mainwindow.ui:29
 msgctxt "MainWindow|"
@@ -1951,7 +1948,7 @@ msgstr "Trieu el camí dels idiomes d'OCR"
 #: src/settings/settingsdialog.cpp:339
 msgctxt "SettingsDialog|"
 msgid "Piper voices path:"
-msgstr "Camí cap a les veus del Piper:"
+msgstr "Camí cap a les veus de Piper:"
 
 #: src/settings/settingsdialog.cpp:353
 msgctxt "SettingsDialog|"
@@ -1961,7 +1958,7 @@ msgstr "Directori amb els models de veus"
 #: src/settings/settingsdialog.cpp:354 src/settings/settingsdialog.cpp:373
 msgctxt "SettingsDialog|"
 msgid "Select Piper voices path"
-msgstr "Trieu el camí cap a les veus del Piper"
+msgstr "Trieu el camí cap a les veus de Piper"
 
 #: src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
@@ -3061,7 +3058,7 @@ msgstr ""
 #: src/tts/piperttsprovider.cpp:115
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize Piper TTS"
-msgstr "No s'ha pogut restablir el Piper TTS"
+msgstr "No s'ha pogut restablir Piper TTS"
 
 #: src/tts/piperttsprovider.cpp:121
 #, qt-format
@@ -3160,12 +3157,12 @@ msgid ""
 "cannot be used in commercial settings. Please check the license of each "
 "model before commercial use.</p>"
 msgstr ""
-"<h3>No s'han trobat models de veu del Piper</h3><p>No s'han trobat models de "
-"veu del Piper a les ubicacions estàndard.</p><p><b>Per a utilitzar el TTS "
-"del Piper</b></p><ol><li>Descarregueu els models de veu des de <a "
-"href='https://huggingface.co/rhasspy/piper-voices'>HuggingFace Piper Voices</"
-"a></li><li>Extraeu els models a un directori</li><li>Establiu el camí cap a "
-"Configuració → TTS → Camí cap a les veus del Piper</li></ol><p><b>⚠️ Avís de "
+"<h3>No s'han trobat models de veu de Piper</h3><p>No s'han trobat models de "
+"veu de Piper a les ubicacions estàndard.</p><p><b>Per a utilitzar el TTS de "
+"Piper</b></p><ol><li>Descarregueu els models de veu des de <a href='https://"
+"huggingface.co/rhasspy/piper-voices'>HuggingFace Piper Voices</a></"
+"li><li>Extraeu els models a un directori</li><li>Establiu el camí cap a "
+"Configuració → TTS → Camí cap a les veus de Piper</li></ol><p><b>⚠️ Avís de "
 "llicència:</b>Alguns models poden tindre llicències no lliures i no es poden "
 "utilitzar en configuracions comercials. Consulteu la llicència de cada model "
 "abans de l'ús comercial.</p>"
@@ -3173,7 +3170,7 @@ msgstr ""
 #: src/tts/piperttsprovider.cpp:1374
 msgctxt "PiperTTSProvider|"
 msgid "Piper Voice Models Required"
-msgstr "Calen els models de veu del Piper"
+msgstr "Calen els models de veu de Piper"
 
 #: src/tts/qtttsprovider.cpp:314
 #, qt-format
@@ -3204,7 +3201,3 @@ msgstr ""
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
 msgstr "Instal·lació de veus TTS de Windows"
-
-#~ msgctxt "MainWindow|"
-#~ msgid "MainWindow"
-#~ msgstr "Finestra principal"
