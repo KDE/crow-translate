@@ -13,6 +13,10 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QSet>
+#ifdef Q_OS_WIN
+#include <QAudioDevice>
+#include <QMediaDevices>
+#endif
 
 // Helper functions to convert between Voice and QVoice
 static Voice qvoiceToVoice(const QVoice &qvoice)
@@ -34,8 +38,19 @@ static QVoice voiceToQVoice(const Voice &voice)
 
 QtTTSProvider::QtTTSProvider(QObject *parent)
     : ATTSProvider(parent)
-    , m_tts(new QTextToSpeech(this))
 {
+#ifdef Q_OS_WIN
+    // Force Qt multimedia audio system to initialize properly on Windows
+    // This works around Qt 6 audio format detection issues with QTextToSpeech
+    qDebug() << "QtTTSProvider - Initializing Windows audio system";
+    const QAudioDevice defaultOutput = QMediaDevices::defaultAudioOutput();
+    qDebug() << "QtTTSProvider - Default audio output:" << defaultOutput.description();
+    qDebug() << "QtTTSProvider - Supported audio formats:" << defaultOutput.supportedSampleFormats().size();
+#endif
+
+    m_tts = new QTextToSpeech(this);
+    qDebug() << "QtTTSProvider - Created QTextToSpeech, initial state:" << m_tts->state();
+
     connect(m_tts, &QTextToSpeech::stateChanged, this, &QtTTSProvider::onStateChanged);
     connect(m_tts, &QTextToSpeech::errorOccurred, this, &QtTTSProvider::onErrorOccurred);
     connect(m_tts, &QTextToSpeech::sayingWord, this, &QtTTSProvider::onSayingWord);
