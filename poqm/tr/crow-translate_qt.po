@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-09-06 21:15+0300\n"
+"PO-Revision-Date: 2025-09-07 21:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -300,29 +300,31 @@ msgstr "%1 için D-Bus nesnesi kaydedilemiyor"
 #: src/mainwindow.cpp:342
 msgctxt "QApplication|"
 msgid "OCR"
-msgstr "OKT"
+msgstr "Optik Karakter Tanıma"
 
 #: src/mainwindow.cpp:343
 msgctxt "QApplication|"
 msgid "OCR image negated"
-msgstr "OKT görseli negatiflendi"
+msgstr "Optik karakter tanıma görseli negatiflendi"
 
 #: src/mainwindow.cpp:343
 msgctxt "QApplication|"
 msgid "OCR image is normal"
-msgstr "OKT görseli normal"
+msgstr "Optik karakter tanıma görseli normal"
 
 #: src/mainwindow.cpp:495 src/mainwindow.cpp:515 src/mainwindow.cpp:563
 #: src/mainwindow.cpp:592
 msgctxt "Ocr|"
 msgid "OCR languages are not loaded"
-msgstr "OKT Dilleri Yüklü Değil"
+msgstr "Optik Karakter Tanıma Dilleri Yüklü Değil"
 
 #: src/mainwindow.cpp:495 src/mainwindow.cpp:515 src/mainwindow.cpp:563
 #: src/mainwindow.cpp:592
 msgctxt "Ocr|"
 msgid "You should set at least one OCR language in the application settings"
-msgstr "Uygulama ayarlarında en az bir OKT dili ayarlamanız gerekir."
+msgstr ""
+"Uygulama ayarlarında en az bir optik karakter tanıma dili ayarlamanız "
+"gerekir."
 
 #: src/mainwindow.cpp:746
 #, qt-format
@@ -363,7 +365,7 @@ msgstr "Belirtilen simge “%1” geçersiz. Öntanımlı simge kullanılacak."
 #: src/mainwindow.cpp:817
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
-msgstr "OCR dilleri ayarlanamıyor"
+msgstr "Optik karakter tanıma dilleri ayarlanamıyor"
 
 #: src/mainwindow.cpp:817
 #, qt-format
@@ -1902,7 +1904,7 @@ msgstr "Simgeler:"
 #: src/settings/settingsdialog.cpp:132
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
-msgstr "OKT parametresi boş olamaz."
+msgstr "Optik karakter tanıma parametresi boş olamaz."
 
 #: src/settings/settingsdialog.cpp:133
 msgctxt "SettingsDialog|"
@@ -1922,7 +1924,7 @@ msgstr "Görseller (*.png *.ico *.svg *.jpg);;Tüm dosyalar()"
 #: src/settings/settingsdialog.cpp:324
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
-msgstr "OKT Dilleri Yolunu Seç"
+msgstr "Optik Karakter Tanıma Dilleri Yolunu Seç"
 
 #: src/settings/settingsdialog.cpp:339
 msgctxt "SettingsDialog|"
@@ -2323,8 +2325,9 @@ msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
 "italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
 msgstr ""
-"<html><head/><body><p>OCR ve global kısayollar kullanılıyorsa <span style=\" "
-"font-style:italic;\">Kendiliğinden</span> ayarını kullanın.</p></body></html>"
+"<html><head/><body><p>Optik karakter tanıma ve global kısayollar "
+"kullanılıyorsa <span style=\" font-style:italic;\">Kendiliğinden</span> "
+"ayarını kullanın.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:710
 msgctxt "SettingsDialog|"
@@ -2471,7 +2474,9 @@ msgstr "Diller yolu:"
 #: src/settings/settingsdialog.ui:940
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
-msgstr "<html><head/><body><p>OCR dilleri yolunu seç</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Optik karakter tanıma dilleri yolunu seç</p></body></"
+"html>"
 
 #: src/settings/settingsdialog.ui:950
 msgctxt "SettingsDialog|"
@@ -2575,13 +2580,13 @@ msgid ""
 "<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
 "text on dark background.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>OCR öncesi görseli negatife çevirin. Koyu arka plan "
-"üzerinde açık renkli metin için kullanın.</p></body></html>"
+"<html><head/><body><p>Optik karakter tanıma öncesi görseli negatife çevirin. "
+"Koyu arka plan üzerinde açık renkli metin için kullanın.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1120
 msgctxt "SettingsDialog|"
 msgid "Negate OCR"
-msgstr "OCR’yi Negatif Yap"
+msgstr "Optik karakter tanımayı negatif yap"
 
 #: src/settings/settingsdialog.ui:1130
 msgctxt "SettingsDialog|"
@@ -2861,7 +2866,7 @@ msgstr "Ekran Alanındaki Metni Gecikmeyle Çevir"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:56
 msgctxt "ShortcutsModel|"
 msgid "Toggle color inversion for OCR"
-msgstr "OCR için Rengi Tersine Çevirmeyi Aç/Kapat"
+msgstr "Optik Karakter Tanıma için Rengi Tersine Çevirmeyi Aç/Kapat"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
@@ -3135,7 +3140,7 @@ msgctxt "PiperTTSProvider|"
 msgid "Piper Voice Models Required"
 msgstr "Piper Ses Modelleri Gerekli"
 
-#: src/tts/qtttsprovider.cpp:314
+#: src/tts/qtttsprovider.cpp:329
 #, qt-format
 msgctxt "QtTTSProvider|"
 msgid ""
@@ -3159,7 +3164,7 @@ msgstr ""
 "Konuşma altında yalnızca “Temel ses modelleri”ni destekler. “Seslendirici "
 "sesleri”nde bu uygulama ile uyumsuz lisans kısıtlamaları bulunmaktadır.</p>"
 
-#: src/tts/qtttsprovider.cpp:328
+#: src/tts/qtttsprovider.cpp:343
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
 msgstr "Windows Metin Konuşma Sesi Kurulumu"
