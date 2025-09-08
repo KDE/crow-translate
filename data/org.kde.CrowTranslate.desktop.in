@@ -22,7 +22,6 @@ Name[sl]=Crow Translate
 Name[sv]=Crow översättning
 Name[tr]=Crow Çeviri
 Name[uk]=Crow Translate
-Name[x-test]=xxCrow Translatexx
 Name[zh_TW]=Crow Translate
 GenericName=Translator
 GenericName[ar]=مترجم
@@ -49,7 +48,6 @@ GenericName[sl]=Prevajalnik
 GenericName[sv]=Översättare
 GenericName[tr]=Çevirmen
 GenericName[uk]=Перекладач
-GenericName[x-test]=xxTranslatorxx
 GenericName[zh_TW]=翻譯器
 Comment=A simple and lightweight translator that allows to translate and speak the selected text using Mozhi
 Comment[ar]=مترجم بسيط وخفيف الوزن يسمح بترجمة النص المحدد والتحدث به باستخدام Mozhi
@@ -73,7 +71,6 @@ Comment[sl]=Preprost in lahek prevajalnik, ki omogoča prevajanje in govorjenje 
 Comment[sv]=En enkel och lättviktig översättare som gör det möjligt att översätta och läsa upp den markerade texten med Mozhi
 Comment[tr]=Metinleri çevirmek ve seslendirmek için basit bir çeviri yazılımı
 Comment[uk]=Проста і невибаглива до ресурсів програма для перекладу, яка дає вам змогу перекладати і озвучувати позначені фрагменти тексту за допомогою Mozhi
-Comment[x-test]=xxA simple and lightweight translator that allows to translate and speak the selected text using Mozhixx
 Keywords=google;yandex;deepl;duckduckgo;libre';mymemory;reverso;text-to-speech;
 Keywords[ar]=google;yandex;deepl;duckduckgo;libre';mymemory;reverso;text-to-speech;
 Keywords[be]=google;yandex;deepl;duckduckgo;libre';mymemory;reverso;text-to-speech;
@@ -96,7 +93,6 @@ Keywords[sl]=google;yandex;deepl;duckduckgo;libre';mymemory;reverso;besedilo v g
 Keywords[sv]=google;yandex;deepl;duckduckgo;libre';mymemory;reverso;text-till-tal;
 Keywords[tr]=google;yandex;deepl;duckduckgo;libre';mymemory;reverso;text-to-speech;metni konuş;metinden konuş;konuş;
 Keywords[uk]=google;yandex;deepl;duckduckgo;libre';mymemory;reverso;text-to-speech;гугл;яндекс;діпл;дакдакгоу;лібре;маймеморі;реверсо;озвучення;
-Keywords[x-test]=xxgooglexx;xxyandexxx;xxdeeplxx;xxduckduckgoxx;xxlibre'xx;xxmymemoryxx;xxreversoxx;xxtext-to-speechxx;
 Exec=crow
 Icon=@APPLICATION_ID@
 Terminal=false
@@ -132,7 +128,6 @@ Name[sl]=Prevedi izbrano besedilo
 Name[sv]=Översätt markerad text
 Name[tr]=Seçili Metni Çevir
 Name[uk]=Перекласти позначений текст
-Name[x-test]=xxTranslate selected textxx
 X-KDE-Shortcuts=Ctrl+Alt+E
 
 [Desktop Action SpeakSelection]
@@ -159,7 +154,6 @@ Name[sl]=Izgovori izbrano besedilo
 Name[sv]=Läs upp markerad text
 Name[tr]=Seçili Metni Konuş
 Name[uk]=Озвучити позначений текст
-Name[x-test]=xxSpeak selected textxx
 X-KDE-Shortcuts=Ctrl+Alt+S
 
 [Desktop Action SpeakTranslatedSelection]
@@ -186,7 +180,6 @@ Name[sl]=Izgovori prevod izbranega besedila
 Name[sv]=Läs upp översättning av markerad text
 Name[tr]=Seçili Metnin Çevirisini Konuş
 Name[uk]=Озвучити переклад позначеного фрагмента тексту
-Name[x-test]=xxSpeak translation of selected textxx
 X-KDE-Shortcuts=Ctrl+Alt+F
 
 [Desktop Action StopSpeaking]
@@ -213,7 +206,6 @@ Name[sl]=Ustavi govor besedila
 Name[sv]=Stoppa uppläsning
 Name[tr]=Metni Konuşmayı Durdur
 Name[uk]=Припинити озвучення тексту
-Name[x-test]=xxStop text speakingxx
 X-KDE-Shortcuts=Ctrl+Alt+G
 
 [Desktop Action Open]
@@ -242,7 +234,6 @@ Name[sl]=Pokaži glavno okno
 Name[sv]=Visa huvudfönster
 Name[tr]=Ana Pencereyi Göster
 Name[uk]=Показати головне вікно
-Name[x-test]=xxShow main windowxx
 X-KDE-Shortcuts=Ctrl+Alt+C
 
 [Desktop Action CopyTranslatedSelection]
@@ -269,7 +260,6 @@ Name[sl]=Prevede izbrano besedilo in kopira na odložišče
 Name[sv]=Översätt markerad text och kopiera till klippbordet
 Name[tr]=Seçili Metni Çevir ve Panoya Kopyala
 Name[uk]=Перекласти позначений текст і скопіювати переклад до буфера обміну
-Name[x-test]=xxTranslate selected text and copy to clipboardxx
 
 [Desktop Action RecognizeScreenArea]
 Exec=@QT_BIN_DIR@/qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow recognizeScreenArea
@@ -295,7 +285,6 @@ Name[sl]=Prepoznaj besedilo v območju zaslona
 Name[sv]=Känn igen text på skärmområde
 Name[tr]=Ekran Alanındaki Metni Tanı
 Name[uk]=Розпізнати текст в області екрана
-Name[x-test]=xxRecognize text in screen areaxx
 X-KDE-Shortcuts=Ctrl+Alt+I
 
 [Desktop Action TranslateScreenArea]
@@ -322,7 +311,6 @@ Name[sl]=Prevedi besedilo v območju zaslona
 Name[sv]=Översätt text på skärmområde
 Name[tr]=Ekran Alanındaki Metni Çevir
 Name[uk]=Перекласти текст в області екрана
-Name[x-test]=xxTranslate text in screen areaxx
 X-KDE-Shortcuts=Ctrl+Alt+O
 
 [Desktop Action ToggleOcrNegate]
@@ -346,4 +334,3 @@ Name[sl]=Preklopi možnost negiranja (invertiranja) zajete slike pred OCR
 Name[sv]=Byt alternativet för negera (invertera) den tagna bilden före optisk teckentydning
 Name[tr]=OCR öncesi yakalanan görseli negatife çevirme seçeneğini aç/kapat
 Name[uk]=Увімкнути або вимкнути створення негатива (інвертування) знятого зображення до оптичного розпізнавання
-Name[x-test]=xxToggle the option to negate (invert) the captured image before OCRxx
