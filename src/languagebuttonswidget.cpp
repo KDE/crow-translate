@@ -232,7 +232,7 @@ void LanguageButtonsWidget::checkAvailableScreenWidth()
         setWindowWidthCheckEnabled(true);
 
         if (m_languages.size() < languagesCountBefore)
-            minimizeWindowWidth(); // For unknown reason QWindow::minimumWidthChanged is not emited in this case, so wait for changes manually
+            minimizeWindowWidth(); // For unknown reason QWindow::minimumWidthChanged is not emitted in this case, so wait for changes manually
         else
             checkAvailableScreenWidth();
     }

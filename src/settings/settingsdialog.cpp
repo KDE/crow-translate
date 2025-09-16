@@ -66,7 +66,7 @@ SettingsDialog::SettingsDialog(MainWindow *parent)
 
     ui->ocrLanguagesListWidget->addLanguages(parent->ocr()->availableLanguages());
 
-    // Set all avaialble instances
+    // Set all available instances
     ui->mozhiUrlComboBox->addItems(InstancePinger::instances());
     connect(ui->mozhiUrlComboBox, &QComboBox::currentTextChanged, this, &SettingsDialog::mozhiInstanceChanged);
 

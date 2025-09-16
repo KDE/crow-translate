@@ -520,7 +520,7 @@ public:
     void setExamplesEnabled(bool enable);
 
     /**
-     * @brief Returns currenly used instance URL
+     * @brief Returns currently used instance URL
      *
      * You need to call this function to specify the URL of an instance for Mozhi.
      *
@@ -626,7 +626,7 @@ private:
     static const int s_textLimits = 100000;
     static constexpr int s_TtsLimit = 200;
 
-    // This properties used to store unseful information in states
+    // This properties used to store useful information in states
     static constexpr char s_textProperty[] = "Text";
 
     QStateMachine *m_stateMachine;

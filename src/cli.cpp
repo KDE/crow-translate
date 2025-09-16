@@ -40,7 +40,7 @@ void Cli::process(const QCoreApplication &app)
                                     QStringLiteral("code"),
                                     QStringLiteral("auto"));
     const QCommandLineOption translation({"t", "translation"},
-                                         tr("Specify the translation language(s), splitted by '+' (by default, the system language is used)."),
+                                         tr("Specify the translation language(s), split by '+' (by default, the system language is used)."),
                                          QStringLiteral("code"),
                                          QStringLiteral("auto"));
     const QCommandLineOption engine({"e", "engine"},

@@ -51,7 +51,7 @@ public:
      *
      * @param owner profile or organization name
      * @param repo repository name
-     * @param number release number (0 is the newest relase)
+     * @param number release number (0 is the newest release)
      */
     void get(const QString &owner, const QString &repo, int number = 0);
 
@@ -107,7 +107,7 @@ public:
     /**
      * @brief Asset ID
      *
-     * Returns the first asset number that constains the specified string.
+     * Returns the first asset number that contains the specified string.
      *
      * @param str name to search
      * @return asset ID (-1 if not found)

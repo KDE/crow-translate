@@ -337,7 +337,7 @@ QList<QUrl> OnlineTranslator::generateUrls(const QString &text, OnlineTranslator
         const QString langString = OnlineTranslator::languageApiCode(engine, lang);
         const QString engineString = QString(QMetaEnum::fromType<OnlineTranslator::Engine>().valueToKey(engine)).toLower();
 
-        // Limit characters per tts request. If the query is larger, then it should be splited into several
+        // Limit characters per tts request. If the query is larger, then it should be split into several
         QList<QUrl> media;
         while (!unparsedText.isEmpty()) {
             const int splitIndex = OnlineTranslator::getSplitIndex(unparsedText, s_TtsLimit); // Split the part by special symbol
@@ -353,7 +353,7 @@ QList<QUrl> OnlineTranslator::generateUrls(const QString &text, OnlineTranslator
         }
         return media;
     }
-    case OnlineTranslator::Yandex: // For some reason, Yandex doesn't supprt TTS in Mozhi
+    case OnlineTranslator::Yandex: // For some reason, Yandex doesn't support TTS in Mozhi
     case OnlineTranslator::Deepl:
     case OnlineTranslator::LibreTranslate:
     case OnlineTranslator::Duckduckgo:
@@ -1350,7 +1350,7 @@ void OnlineTranslator::parseTranslate()
 
 void OnlineTranslator::buildStateMachine()
 {
-    // States (sends a request that will be splitted into several by the translation limit)
+    // States (sends a request that will be split into several by the translation limit)
     auto *translationState = new QState(m_stateMachine);
     auto *finalState = new QFinalState(m_stateMachine);
     m_stateMachine->setInitialState(translationState);
