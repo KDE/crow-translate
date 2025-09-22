@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-09-15 13:24+0400\n"
+"PO-Revision-Date: 2025-09-21 19:07+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -31,16 +31,11 @@ msgid ""
 msgstr "حدد اللغة المصدر (بشكل مبدئي، سيحاول المحرك تحديد اللغة بمفرده)."
 
 #: src/cli.cpp:43
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify the translation language(s), splitted by '+' (by default, the "
-#| "system language is used)."
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), split by '+' (by default, the system "
 "language is used)."
-msgstr "حدد لغة لغات الترجمة مقسمة إلى '+' (ستستخدم لغة النظام مبدئيًا)."
+msgstr "حدد لغة لغات الترجمة مقسمة بـ '+' (ستستخدم لغة النظام مبدئيًا)."
 
 #: src/cli.cpp:47
 msgctxt "Cli|"
@@ -61,32 +56,22 @@ msgstr ""
 "بشكل مبدئي."
 
 #: src/cli.cpp:55
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify Mozhi instance URL. Instance URL from the app settings will be "
-#| "used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy' or 'mozhi'). Provider from app settings "
 "will be used by default."
 msgstr ""
-"حدد عنوان الرابط الخاص بنسخة Mozhi. سيُستخدم رابط النسخة من إعدادات التطبيق "
+"حدد مزود الترجمة ('copy' أو 'mozhi'). سيُستخدم مزود الإعدادات الخاص بالتطبيق "
 "بشكل مبدئي."
 
 #: src/cli.cpp:58
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify Mozhi instance URL. Instance URL from the app settings will be "
-#| "used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from app "
 "settings will be used by default."
 msgstr ""
-"حدد عنوان الرابط الخاص بنسخة Mozhi. سيُستخدم رابط النسخة من إعدادات التطبيق "
-"بشكل مبدئي."
+"حدد مزود تحويل النص إلى كلام ('none' أو 'mozhi' أو 'qt' أو 'piper'). سيُستخدم "
+"مزود الإعدادات الخاص بالتطبيق بشكل مبدئي."
 
 #: src/cli.cpp:60
 msgctxt "Cli|"
@@ -126,13 +111,10 @@ msgid "Print output formatted as JSON."
 msgstr "إخراج الطباعة بتنسيق JSON."
 
 #: src/cli.cpp:70
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Application that allows to translate and speak text using Mozhi"
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
-msgstr "تطبيق يسمح بترجمة النصوص والتحدث بها باستخدام Mozhi"
+msgstr "تطبيق يسمح بترجمة النصوص والتحدث بها باستخدام عدة مزودات"
 
 #: src/cli.cpp:71
 msgctxt "Cli|"
@@ -165,12 +147,10 @@ msgid "Error: There is no text for translation"
 msgstr "خطأ: لا يوجد نص للترجمة"
 
 #: src/cli.cpp:165
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown translation language code '%1'"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
-msgstr "خطأ: رمز لغة الترجمة غير معروف '%1'"
+msgstr "خطأ: مزود الترجمة غير معروف '%1'"
 
 #: src/cli.cpp:175
 msgctxt "Cli|"
@@ -178,12 +158,9 @@ msgid "Detecting fastest instance"
 msgstr "اكتشاف أسرع نسخة"
 
 #: src/cli.cpp:214
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Language detection is not supported for %1"
 msgctxt "Cli|"
 msgid "Error: Lingva engine is not supported"
-msgstr "لا يدعم اكتشاف اللغة لـ %1"
+msgstr "خطأ: محرك Lingva غير متاح"
 
 #: src/cli.cpp:223
 msgctxt "Cli|"
@@ -191,12 +168,10 @@ msgid "Error: Unknown engine"
 msgstr "خطأ: محرك غير معروف"
 
 #: src/cli.cpp:256
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown source language code '%1'"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
-msgstr "خطأ: رمز لغة المصدر غير معروف '%1'"
+msgstr "خطأ: مزود تحويل النص إلى كلام غير معروف '%1'"
 
 #: src/cli.cpp:335 src/cli.cpp:384
 #, qt-format
@@ -205,17 +180,14 @@ msgid "Error: %1"
 msgstr "خطأ: %1"
 
 #: src/cli.cpp:337 src/cli.cpp:386
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation backend:"
 msgctxt "Cli|"
 msgid "Translation error occurred"
-msgstr "خلفية الترجمة:"
+msgstr "خطأ بالترجمة"
 
 #: src/cli.cpp:443
 msgctxt "Cli|"
 msgid "Error: TTS failed"
-msgstr ""
+msgstr "خطأ: تحويل النص إلى كلام فشل"
 
 #: src/cli.cpp:600
 #, qt-format
@@ -333,17 +305,14 @@ msgid "OCR"
 msgstr "تعرف المحارف ضوئياً"
 
 #: src/mainwindow.cpp:343
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Toggled OCR image negate"
 msgctxt "QApplication|"
 msgid "OCR image negated"
-msgstr "تبديل عكس صورة عند التعرف الضوئي على الحروف"
+msgstr "صورة التعرف الضوئي على الحروف معكوسة"
 
 #: src/mainwindow.cpp:343
 msgctxt "QApplication|"
 msgid "OCR image is normal"
-msgstr ""
+msgstr "صورة التعرف الضوئي على الحروف طبيعية"
 
 #: src/mainwindow.cpp:495 src/mainwindow.cpp:515 src/mainwindow.cpp:563
 #: src/mainwindow.cpp:592
@@ -406,7 +375,7 @@ msgstr "غير قادر على تهيئة Tesseract مع %1"
 #: src/mainwindow.cpp:955
 msgctxt "MainWindow|"
 msgid "TTS Error"
-msgstr ""
+msgstr "خطأ في تحويل النص إلى كلام"
 
 #: src/mainwindow.cpp:955
 #, qt-format
@@ -418,14 +387,16 @@ msgid ""
 "\n"
 "Please check your TTS settings or try a different voice/locale."
 msgstr ""
+"خطأ في تحويل النص إلى كلام:\n"
+"\n"
+"%1\n"
+"\n"
+"يرجى التحقق من إعدادات تحويل النص إلى كلام أو جرب صوت/لغة مختلفة."
 
 #: src/mainwindow.ui:14
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translate"
 msgctxt "MainWindow|"
 msgid "Crow Translate"
-msgstr "يترجم"
+msgstr "مترجم الغراب"
 
 #: src/mainwindow.ui:29
 msgctxt "MainWindow|"
@@ -1952,23 +1923,17 @@ msgstr "حدد مسار اللغات OCR"
 #: src/settings/settingsdialog.cpp:339
 msgctxt "SettingsDialog|"
 msgid "Piper voices path:"
-msgstr ""
+msgstr "مسار أصوات Piper:"
 
 #: src/settings/settingsdialog.cpp:353
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Directory with trained models"
 msgctxt "SettingsDialog|"
 msgid "Directory with voice models"
-msgstr "دليل مع نماذج مدربة"
+msgstr "دليل يحتوي على نماذج صوتية"
 
 #: src/settings/settingsdialog.cpp:354 src/settings/settingsdialog.cpp:373
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Select OCR languages path"
 msgctxt "SettingsDialog|"
 msgid "Select Piper voices path"
-msgstr "حدد مسار اللغات OCR"
+msgstr "حدد مسار أصوات Piper"
 
 #: src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
@@ -2307,12 +2272,9 @@ msgstr ""
 "<html><head/><body><p>تشغيل التطبيق عند بدء تشغيل النظام</p></body></html>"
 
 #: src/settings/settingsdialog.ui:650
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation provider:"
-msgstr "وضع الترجمة:"
+msgstr "مزود الترجمة:"
 
 #: src/settings/settingsdialog.ui:673
 msgctxt "SettingsDialog|"
@@ -2369,7 +2331,7 @@ msgstr "فرض الكشف عن لغة الترجمة"
 #: src/settings/settingsdialog.ui:741
 msgctxt "SettingsDialog|"
 msgid "Text-to-Speech"
-msgstr ""
+msgstr "تحويل النص إلى كلام"
 
 #: src/settings/settingsdialog.ui:747
 msgctxt "SettingsDialog|"
@@ -2932,12 +2894,9 @@ msgid "Value"
 msgstr "القيمة"
 
 #: src/translator/atranslationprovider.cpp:112
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "QObject|"
 msgid "Translation Provider Error"
-msgstr "وضع الترجمة:"
+msgstr "خطأ في مزود الترجمة"
 
 #: src/translator/atranslationprovider.cpp:113
 msgctxt "QObject|"
@@ -2946,6 +2905,8 @@ msgid ""
 "reset to 'Copy' to prevent further issues. You can try selecting a different "
 "provider in Settings → Translation."
 msgstr ""
+"مزود الترجمة المحدد تعطل أثناء التهيئة، وقد أعيدت إعداداته إلى 'Copy' لمنع "
+"حدوث المزيد من المشاكل. يمكنك تجربة اختيار مزود آخر من الإعدادات → الترجمة."
 
 #: src/translator/mozhitranslationprovider.cpp:386
 msgctxt "MozhiTranslationProvider|"
@@ -2980,7 +2941,7 @@ msgstr "نتيجة الترجمة"
 #: src/tts/attsprovider.cpp:69
 msgctxt "QObject|"
 msgid "TTS Provider Error"
-msgstr ""
+msgstr "خطأ في مزود تحويل النص إلى كلام"
 
 #: src/tts/attsprovider.cpp:70
 msgctxt "QObject|"
@@ -2989,6 +2950,9 @@ msgid ""
 "to 'None' to prevent further issues. You can try selecting a different "
 "provider in Settings → TTS."
 msgstr ""
+"مزود تحويل النص إلى كلام المحدد تعطل أثناء التهيئة، وقد أعيدت إعداداته إلى "
+"'None' لمنع حدوث المزيد من المشاكل. يمكنك تجربة اختيار مزود آخر من الإعدادات "
+"← تحويل النص إلى كلام."
 
 #: src/tts/mozhittsprovider.cpp:48
 msgctxt "MozhiTTSProvider|"
@@ -2998,31 +2962,31 @@ msgstr "نص فارغ"
 #: src/tts/mozhittsprovider.cpp:81
 msgctxt "MozhiTTSProvider|"
 msgid "No audio URLs generated"
-msgstr ""
+msgstr "لم يتم إنشاء روابط صوتية"
 
 #: src/tts/mozhittsprovider.cpp:263
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance failed: %1 (HTTP Server Error)"
-msgstr ""
+msgstr "فشلت نسخة Mozhi: %1 (خطأ من خادم HTTP)"
 
 #: src/tts/mozhittsprovider.cpp:265 src/tts/mozhittsprovider.cpp:272
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Cannot connect to Mozhi instance: %1"
-msgstr ""
+msgstr "لا يمكن الاتصال بنسخة Mozhi: %1"
 
 #: src/tts/mozhittsprovider.cpp:268
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance failed: %1 (HTTP 500 Internal Server Error)"
-msgstr ""
+msgstr "فشلت نسخة Mozhi: %1 (خطأ من خادم داخلي HTTP 500)"
 
 #: src/tts/mozhittsprovider.cpp:270
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
-msgstr ""
+msgstr "خطأ في نسخة Mozhi: %1 (خطأ من عميل HTTP 4XX)"
 
 #: src/tts/piperttsprovider.cpp:115
 msgctxt "PiperTTSProvider|"
@@ -3033,12 +2997,12 @@ msgstr "غير قادر على تهيئة Piper TTS"
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime exception: %1"
-msgstr ""
+msgstr "استثناء وقت تشغيل ONNX: %1"
 
 #: src/tts/piperttsprovider.cpp:124
 msgctxt "PiperTTSProvider|"
 msgid "Unknown ONNX Runtime initialization error"
-msgstr ""
+msgstr "خطأ تهيئة وقت تشغيل ONNX غير معروف"
 
 #: src/tts/piperttsprovider.cpp:205
 msgctxt "PiperTTSProvider|"
@@ -3049,17 +3013,17 @@ msgstr "غير قادر على تهيئة espeak-ng"
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime initialization error: %1"
-msgstr ""
+msgstr "خطأ تهيئة وقت تشغيل ONNX: %1"
 
 #: src/tts/piperttsprovider.cpp:279
 msgctxt "PiperTTSProvider|"
 msgid "Privacy Notice - Neural TTS"
-msgstr ""
+msgstr "إشعار الخصوصية - تحويل النص العصبي إلى كلام"
 
 #: src/tts/piperttsprovider.cpp:281
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime Telemetry Information"
-msgstr ""
+msgstr "معلومات قياس الأداء لوقت تشغيل ONNX"
 
 #: src/tts/piperttsprovider.cpp:283
 msgctxt "PiperTTSProvider|"
@@ -3080,16 +3044,32 @@ msgid ""
 "On Unix systems, telemetry is inactive by default.\n"
 "This notice is shown once per installation."
 msgstr ""
+"يستخدم Crow Translate وقت تشغيل ONNX لتحويل النص العصبي إلى كلام. يتضمن ملف "
+"الويندوز الثنائي نظام القياس عن بعد من مايكروسوفت الذي يجمع معلومات "
+"الاستخدام.\n"
+"\n"
+"جمع البيانات:\n"
+"• بيانات الجهاز والاستخدام، تقارير الأخطاء، معلومات الأداء\n"
+"• يستخدمها مايكروسوفت لتحسين جودة المنتج وميزاته\n"
+"• تخضع لبيان خصوصية مايكروسوفت\n"
+"\n"
+"إجراءات Crow Translate:\n"
+"• يعطل نظام القياس عن بعد بشكل آلي عند بدء التشغيل\n"
+"• يستخدم متغيرات البيئة ونداءات واجهة برمجة التطبيقات في وقت التشغيل\n"
+"• ملاحظة: يمكن أن يتم نقل بعض البيانات أثناء تهيئة ONNX\n"
+"\n"
+"على أنظمة Unix، نظام القياس عن بعد غير نشط بشكل مبدئي.\n"
+"يظهر هذا الإشعار مرة واحدة لكل عملية تثبيت."
 
 #: src/tts/piperttsprovider.cpp:1000
 msgctxt "PiperTTSProvider|"
 msgid "No audio data generated"
-msgstr ""
+msgstr "لم يتم إنشاء بيانات صوتية"
 
 #: src/tts/piperttsprovider.cpp:1015
 msgctxt "PiperTTSProvider|"
 msgid "Failed to create temporary audio file"
-msgstr ""
+msgstr "فشل إنشاء ملف صوتي مؤقت"
 
 #: src/tts/piperttsprovider.cpp:1024
 msgctxt "PiperTTSProvider|"
@@ -3108,11 +3088,19 @@ msgid ""
 "cannot be used in commercial settings. Please check the license of each "
 "model before commercial use.</p>"
 msgstr ""
+"<h3>لم يتم العثور على نماذج أصوات Piper</h3><p>لم يتم العثور على أي نماذج "
+"أصوات Piper TTS في المواقع القياسية.</p><p><b>لاستخدام Piper TTS:</b></"
+"p><ol><li>نزل نماذج الأصوات من <a href='https://huggingface.co/rhasspy/piper-"
+"voices'>HuggingFace Piper Voices</a></li><li>استخرج النماذج إلى دليل</"
+"li><li>حدد المسار في الإعدادات ← تحويل النص إلى كلام ← مسار أصوات Piper</"
+"li></ol><p><b>⚠️ تحذير بشأن الترخيص:</b> بعض النماذج قد تحتوي على تراخيص غير "
+"مجانية ولا يمكن استخدامها في البيئات التجارية. يرجى التحقق من ترخيص كل نموذج "
+"قبل الاستخدام التجاري.</p>"
 
 #: src/tts/piperttsprovider.cpp:1374
 msgctxt "PiperTTSProvider|"
 msgid "Piper Voice Models Required"
-msgstr ""
+msgstr "نماذج أصوات Piper مطلوبة"
 
 #: src/tts/qtttsprovider.cpp:329
 #, qt-format
@@ -3128,11 +3116,19 @@ msgid ""
 "TTS. \"Narrator voices\" have licensing restrictions that are incompatible "
 "with this application.</p>"
 msgstr ""
+"<h3>لم يتم العثور على صوت Windows TTS</h3><p>لم يتم العثور على أي صوت "
+"Windows TTS لـ <b>%1</b>.</p><p><b>لتثبيت لغات إضافية:</b></p><ol><li>افتح "
+"<b>الإعدادات ← الوقت واللغة ← اللغة والمنطقة</b></li><li>اضغط <b>إضافة لغة</"
+"b> واختر لغتك المطلوبة</li><li>اضغط على اللغة المثبتة واختر <b>خيارات اللغة</"
+"b></li><li>تحت <b>الكلام</b>، اضغط <b>تنزيل</b> لحزمة الكلام</li></"
+"ol><p><b>⚠️ ملاحظة بشأن الترخيص:</b> Crow Translate حاليًا لا يدعم إلا \"نماذج "
+"الأصوات الأساسية\" من Windows TTS. أصوات \"الراوي\" لديها قيود ترخيص لا "
+"تتوافق مع هذا التطبيق.</p>"
 
 #: src/tts/qtttsprovider.cpp:343
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
-msgstr ""
+msgstr "تثبيت صوت Windows TTS"
 
 #, fuzzy
 #~| msgctxt "SettingsDialog|"
