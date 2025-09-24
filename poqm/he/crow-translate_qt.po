@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-09-22 15:23+0300\n"
+"PO-Revision-Date: 2025-09-23 15:33+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -24,7 +24,7 @@ msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
-msgstr ""
+msgstr "נא לציין את שפת המקור (כברירת המחדל, המנוע ינסה לזהות את השפה בעצמו)."
 
 #: src/cli.cpp:43
 msgctxt "Cli|"
@@ -32,6 +32,8 @@ msgid ""
 "Specify the translation language(s), split by '+' (by default, the system "
 "language is used)."
 msgstr ""
+"נא לציין את שפות התרגום, יש לפצל ביניהן עם ‚+’ (כברירת מחדל, נעשה שימוש בשפת "
+"המערכת)."
 
 #: src/cli.cpp:47
 msgctxt "Cli|"
@@ -47,7 +49,7 @@ msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
-msgstr "ציון כתובת מופע Mozhi. ברירת המחדל היא כתובת המופיע מהגדרות היישום."
+msgstr "ציון כתובת עותק Mozhi. ברירת המחדל היא הכתובת המופיעה בהגדרות היישום."
 
 #: src/cli.cpp:55
 msgctxt "Cli|"
@@ -146,7 +148,7 @@ msgstr "שגיאה: ספק התרגום ‚%1’ אינו מוכר"
 #: src/cli.cpp:175
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
-msgstr "המופע המהיר ביותר מזוהה"
+msgstr "העותק המהיר ביותר מזוהה"
 
 #: src/cli.cpp:214
 msgctxt "Cli|"
@@ -234,6 +236,8 @@ msgid ""
 "Detecting fastest instance.\n"
 "Checking '%1'"
 msgstr ""
+"העותק המהיר ביותר מזוהה.\n"
+"‚%1’ נבדק"
 
 #: src/languagebuttonswidget.cpp:225
 msgctxt "LanguageButtonsWidget|"
@@ -313,13 +317,13 @@ msgstr "שפות זיהוי התווים האופטי לא נטענו"
 #: src/mainwindow.cpp:592
 msgctxt "Ocr|"
 msgid "You should set at least one OCR language in the application settings"
-msgstr ""
+msgstr "יש להגדיר לפחות שפת זיהוי תווים אופטית אחת בהגדרות היישום"
 
 #: src/mainwindow.cpp:746
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
-msgstr ""
+msgstr "היישום הזה משתמש ב־%1 כדי לספק תרגומים."
 
 #: src/mainwindow.cpp:747
 #, qt-format
@@ -334,12 +338,12 @@ msgstr ""
 #: src/mainwindow.cpp:754
 msgctxt "MainWindow|"
 msgid "Don't show again"
-msgstr ""
+msgstr "לא להציג שוב"
 
 #: src/mainwindow.cpp:796
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
-msgstr ""
+msgstr "סמל שורת המערכת שגוי"
 
 #: src/mainwindow.cpp:796
 #, qt-format
@@ -350,18 +354,18 @@ msgstr ""
 #: src/mainwindow.cpp:817
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
-msgstr ""
+msgstr "לא ניתן להגדיר שפות לזיהוי תווים אופטי"
 
 #: src/mainwindow.cpp:817
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
-msgstr ""
+msgstr "לא ניתן לאתחל את Tessarect עם %1"
 
 #: src/mainwindow.cpp:955
 msgctxt "MainWindow|"
 msgid "TTS Error"
-msgstr ""
+msgstr "שגיאת הקראה"
 
 #: src/mainwindow.cpp:955
 #, qt-format
@@ -560,22 +564,22 @@ msgstr ""
 #: src/ocr/snippingarea.cpp:852
 msgctxt "SnippingArea|"
 msgid "Release left-click"
-msgstr ""
+msgstr "שחרור לחצן שמאלי"
 
 #: src/ocr/snippingarea.cpp:852 src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Enter"
-msgstr ""
+msgstr "Enter"
 
 #: src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Double-click"
-msgstr ""
+msgstr "לחיצה כפולה"
 
 #: src/ocr/snippingarea.cpp:856
 msgctxt "SnippingArea|"
 msgid "Create new selection rectangle:"
-msgstr ""
+msgstr "יצירת מרובע בחירה חדש:"
 
 #: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
@@ -2884,24 +2888,24 @@ msgstr ""
 #: src/tts/mozhittsprovider.cpp:48
 msgctxt "MozhiTTSProvider|"
 msgid "Text is empty"
-msgstr ""
+msgstr "הטקסט ריק"
 
 #: src/tts/mozhittsprovider.cpp:81
 msgctxt "MozhiTTSProvider|"
 msgid "No audio URLs generated"
-msgstr ""
+msgstr "לא נוצרו כתובות שמע"
 
 #: src/tts/mozhittsprovider.cpp:263
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance failed: %1 (HTTP Server Error)"
-msgstr ""
+msgstr "עותק של Mozhi נכשלה: %1 (שגיאת HTTP בשרת)"
 
 #: src/tts/mozhittsprovider.cpp:265 src/tts/mozhittsprovider.cpp:272
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Cannot connect to Mozhi instance: %1"
-msgstr ""
+msgstr "לא ניתן להתחבר לעותק של Mozhi:‏ %1"
 
 #: src/tts/mozhittsprovider.cpp:268
 #, qt-format
@@ -2924,23 +2928,23 @@ msgstr ""
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime exception: %1"
-msgstr ""
+msgstr "חריגת זמן ריצה של ONNX:‏ %1"
 
 #: src/tts/piperttsprovider.cpp:124
 msgctxt "PiperTTSProvider|"
 msgid "Unknown ONNX Runtime initialization error"
-msgstr ""
+msgstr "שגיאת אתחול זמן ריצה של ONNX לא ידוע"
 
 #: src/tts/piperttsprovider.cpp:205
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize espeak-ng"
-msgstr ""
+msgstr "הפעלת espeak-ng נכשלה"
 
 #: src/tts/piperttsprovider.cpp:247
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime initialization error: %1"
-msgstr ""
+msgstr "שגיאת אתחול זמן ריצה של ONNX:‏ %1"
 
 #: src/tts/piperttsprovider.cpp:279
 msgctxt "PiperTTSProvider|"
@@ -2950,7 +2954,7 @@ msgstr ""
 #: src/tts/piperttsprovider.cpp:281
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime Telemetry Information"
-msgstr ""
+msgstr "פרטי מדדים של זמן ריצה של ONNX"
 
 #: src/tts/piperttsprovider.cpp:283
 msgctxt "PiperTTSProvider|"
@@ -2975,17 +2979,17 @@ msgstr ""
 #: src/tts/piperttsprovider.cpp:1000
 msgctxt "PiperTTSProvider|"
 msgid "No audio data generated"
-msgstr ""
+msgstr "לא נוצרו נתוני שמע"
 
 #: src/tts/piperttsprovider.cpp:1015
 msgctxt "PiperTTSProvider|"
 msgid "Failed to create temporary audio file"
-msgstr ""
+msgstr "יצירת קובץ שמע זמני נכשלה"
 
 #: src/tts/piperttsprovider.cpp:1024
 msgctxt "PiperTTSProvider|"
 msgid "Failed to write audio data"
-msgstr ""
+msgstr "כתיבת נתוני השמע נכשלה"
 
 #: src/tts/piperttsprovider.cpp:1362
 msgctxt "PiperTTSProvider|"
