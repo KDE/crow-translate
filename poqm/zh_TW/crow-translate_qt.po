@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-07-03 23:24+0900\n"
+"PO-Revision-Date: 2025-09-25 03:23+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Language: zh-TW\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 25.11.70\n"
 
 #: src/cli.cpp:37
 msgctxt "Cli|"
@@ -30,11 +30,6 @@ msgid ""
 msgstr "指定原文語言（不指定時引擎預設會自行嘗試判斷語言）。"
 
 #: src/cli.cpp:43
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify the translation language(s), splitted by '+' (by default, the "
-#| "system language is used)."
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), split by '+' (by default, the system "
@@ -58,28 +53,21 @@ msgid ""
 msgstr "指定 Mozhi 實體網址。預設會使用應用程式設定裡指定的實體網址。"
 
 #: src/cli.cpp:55
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify Mozhi instance URL. Instance URL from the app settings will be "
-#| "used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy' or 'mozhi'). Provider from app settings "
 "will be used by default."
-msgstr "指定 Mozhi 實體網址。預設會使用應用程式設定裡指定的實體網址。"
+msgstr ""
+"指定翻譯提供者（'copy' 或 'mozhi'）。預設會使用應用程式設定裡指定的提供者。"
 
 #: src/cli.cpp:58
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify Mozhi instance URL. Instance URL from the app settings will be "
-#| "used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from app "
 "settings will be used by default."
-msgstr "指定 Mozhi 實體網址。預設會使用應用程式設定裡指定的實體網址。"
+msgstr ""
+"指定 TTS 提供者（'none'、'mozhi'、'qt' 或 'piper'）。預設會使用應用程式設定裡"
+"指定的提供者。"
 
 #: src/cli.cpp:60
 msgctxt "Cli|"
@@ -119,13 +107,10 @@ msgid "Print output formatted as JSON."
 msgstr "將結果輸出為 JSON 格式。"
 
 #: src/cli.cpp:70
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Application that allows to translate and speak text using Mozhi"
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
-msgstr "讓人使用 Mozhi 翻譯或唸出文字的應用程式"
+msgstr "讓您利用各種提供者進行文字翻譯與朗讀的應用程式"
 
 #: src/cli.cpp:71
 msgctxt "Cli|"
@@ -158,12 +143,10 @@ msgid "Error: There is no text for translation"
 msgstr "錯誤：沒有要翻譯的文字"
 
 #: src/cli.cpp:165
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown translation language code '%1'"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
-msgstr "錯誤：未知譯文語言代碼 '%1'"
+msgstr "錯誤：未知翻譯提供者 '%1'"
 
 #: src/cli.cpp:175
 msgctxt "Cli|"
@@ -171,12 +154,9 @@ msgid "Detecting fastest instance"
 msgstr "正在偵測最快的實體"
 
 #: src/cli.cpp:214
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Language detection is not supported for %1"
 msgctxt "Cli|"
 msgid "Error: Lingva engine is not supported"
-msgstr "%1 不支援語言偵測"
+msgstr "錯誤：不支援 Lingva 引擎"
 
 #: src/cli.cpp:223
 msgctxt "Cli|"
@@ -184,12 +164,10 @@ msgid "Error: Unknown engine"
 msgstr "錯誤：未知引擎"
 
 #: src/cli.cpp:256
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown source language code '%1'"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
-msgstr "錯誤：未知原文語言代碼 '%1'"
+msgstr "錯誤：未知 TTS 提供者 '%1'"
 
 #: src/cli.cpp:335 src/cli.cpp:384
 #, qt-format
@@ -198,17 +176,14 @@ msgid "Error: %1"
 msgstr "錯誤：%1"
 
 #: src/cli.cpp:337 src/cli.cpp:386
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "Cli|"
 msgid "Translation error occurred"
-msgstr "翻譯模式："
+msgstr "發生翻譯錯誤"
 
 #: src/cli.cpp:443
 msgctxt "Cli|"
 msgid "Error: TTS failed"
-msgstr ""
+msgstr "錯誤：TTS 失敗"
 
 #: src/cli.cpp:600
 #, qt-format
@@ -220,13 +195,13 @@ msgstr "錯誤：在有 --%2 時不可使用 --%1"
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
-msgstr "錯誤：檔案不存在： %1"
+msgstr "錯誤：檔案不存在：%1"
 
 #: src/cli.cpp:617 src/cli.cpp:638
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
-msgstr "錯誤：無法開啟檔案： %1"
+msgstr "錯誤：無法開啟檔案：%1"
 
 #: src/contextmenu.h:35
 msgctxt "ContextMenu|"
@@ -323,20 +298,17 @@ msgstr "無法為 %1 註冊 D-Bus 物件"
 #: src/mainwindow.cpp:342
 msgctxt "QApplication|"
 msgid "OCR"
-msgstr ""
+msgstr "OCR"
 
 #: src/mainwindow.cpp:343
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Toggled OCR image negate"
 msgctxt "QApplication|"
 msgid "OCR image negated"
-msgstr "已切換 OCR 圖片反轉色彩"
+msgstr "OCR 圖片色彩已反轉"
 
 #: src/mainwindow.cpp:343
 msgctxt "QApplication|"
 msgid "OCR image is normal"
-msgstr ""
+msgstr "OCR 圖片色彩為原樣"
 
 #: src/mainwindow.cpp:495 src/mainwindow.cpp:515 src/mainwindow.cpp:563
 #: src/mainwindow.cpp:592
@@ -399,7 +371,7 @@ msgstr "無法以 %1 初始化 Tesseract"
 #: src/mainwindow.cpp:955
 msgctxt "MainWindow|"
 msgid "TTS Error"
-msgstr ""
+msgstr "TTS 錯誤"
 
 #: src/mainwindow.cpp:955
 #, qt-format
@@ -411,14 +383,16 @@ msgid ""
 "\n"
 "Please check your TTS settings or try a different voice/locale."
 msgstr ""
+"文字轉語音錯誤：\n"
+"\n"
+"%1\n"
+"\n"
+"請檢查您的 TTS 設定或是嘗試別的嗓音/地域。"
 
 #: src/mainwindow.ui:14
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translate"
 msgctxt "MainWindow|"
 msgid "Crow Translate"
-msgstr "翻譯"
+msgstr "Crow Translate"
 
 #: src/mainwindow.ui:29
 msgctxt "MainWindow|"
@@ -443,7 +417,7 @@ msgstr "取消"
 #: src/mainwindow.ui:132 src/mainwindow.ui:261
 msgctxt "MainWindow|"
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: src/mainwindow.ui:142
 msgctxt "MainWindow|"
@@ -512,18 +486,18 @@ msgstr "GNOME 螢幕截圖失敗。"
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to create pipe: %1."
-msgstr "無法建立管道： %1"
+msgstr "無法建立管道：%1"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:84
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to detect active screen for screenshot"
-msgstr ""
+msgstr "無法偵測作用中螢幕以進行螢幕截圖"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:164
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to wait for socket readiness: %1."
-msgstr "無法等待 socket 就緒： %1。"
+msgstr "無法等待 socket 就緒：%1。"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:169
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -537,22 +511,19 @@ msgid "Unable to read data from socket: %1."
 msgstr "無法從 socket 讀取資料: %1"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:275
-#, fuzzy
-#| msgctxt "AbstractScreenGrabber|"
-#| msgid "Unable to grab screen"
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to determine target screen"
-msgstr "無法進行螢幕截圖"
+msgstr "無法判斷目標螢幕"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:297
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Failed to extract screen area from workspace"
-msgstr ""
+msgstr "從工作空間取得螢幕範圍失敗"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:315
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Screenshot Permission Required"
-msgstr ""
+msgstr "需要螢幕截圖權限"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:316
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -560,13 +531,15 @@ msgid ""
 "Crow Translate needs permission to take screenshots. Please grant permission "
 "in your system settings or use the interactive screenshot mode."
 msgstr ""
+"Crow Translate 需要進行螢幕截圖的權限。請從您的系統設定給予權限，或是使用互動"
+"式螢幕截圖模式。"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:322
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid ""
 "Screenshot permission denied. Please grant permission in system settings or "
 "try interactive mode."
-msgstr ""
+msgstr "螢幕截圖權限已被拒絕。請從系統設定提供權限或是嘗試使用互動式模式。"
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:57
 msgctxt "WaylandPortalScreenGrabber|"
@@ -696,14 +669,14 @@ msgstr "Esc 鍵"
 #: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
 msgid "DPI Detection Error"
-msgstr ""
+msgstr "DPI 偵測錯誤"
 
 #: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
 msgid ""
 "Screen under cursor disappeared before we got dpi from it. Using primary "
 "screen for dpi information."
-msgstr ""
+msgstr "游標下的螢幕在成功取得 DPI 之前消失了。將使用主螢幕的 DPI 資訊。"
 
 #: src/onlinetranslator.cpp:274
 #, qt-format
@@ -714,7 +687,7 @@ msgstr "%1 不支援語言偵測"
 #: src/onlinetranslator.cpp:319
 msgctxt "OnlineTranslator|"
 msgid "Operation aborted by user"
-msgstr ""
+msgstr "操作已被使用者取消"
 
 #: src/onlinetranslator.cpp:362
 #, qt-format
@@ -1048,7 +1021,7 @@ msgstr "法語"
 #: src/onlinetranslator.cpp:631
 msgctxt "OnlineTranslator|"
 msgid "French (Canada)"
-msgstr ""
+msgstr "法語（加拿大）"
 
 #: src/onlinetranslator.cpp:633
 msgctxt "OnlineTranslator|"
@@ -1408,12 +1381,9 @@ msgid "Mongolian (Cyrillic)"
 msgstr "蒙古語（西里爾字母）"
 
 #: src/onlinetranslator.cpp:771
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Chinese (Traditional)"
 msgctxt "OnlineTranslator|"
 msgid "Mongolian (Traditional)"
-msgstr "繁體中文"
+msgstr "蒙古語（傳統字母）"
 
 #: src/onlinetranslator.cpp:773
 msgctxt "OnlineTranslator|"
@@ -1423,7 +1393,7 @@ msgstr ""
 #: src/onlinetranslator.cpp:775
 msgctxt "OnlineTranslator|"
 msgid "Myanmar (Burmese)"
-msgstr ""
+msgstr "緬甸語"
 
 #: src/onlinetranslator.cpp:777
 msgctxt "OnlineTranslator|"
@@ -1448,12 +1418,12 @@ msgstr "挪威語"
 #: src/onlinetranslator.cpp:785
 msgctxt "OnlineTranslator|"
 msgid "Nyanja"
-msgstr ""
+msgstr "尼揚賈語"
 
 #: src/onlinetranslator.cpp:787
 msgctxt "OnlineTranslator|"
 msgid "Odia"
-msgstr ""
+msgstr "歐利亞語"
 
 #: src/onlinetranslator.cpp:789
 msgctxt "OnlineTranslator|"
@@ -1732,7 +1702,7 @@ msgstr "土庫曼語"
 #: src/onlinetranslator.cpp:895
 msgctxt "OnlineTranslator|"
 msgid "Tuvaluan"
-msgstr ""
+msgstr "吐瓦魯語"
 
 #: src/onlinetranslator.cpp:897
 msgctxt "OnlineTranslator|"
@@ -1849,7 +1819,7 @@ msgstr "交換語言"
 #: src/popupwindow.ui:247
 msgctxt "PopupWindow|"
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: src/popupwindow.ui:112
 msgctxt "PopupWindow|"
@@ -1870,7 +1840,7 @@ msgstr "複製譯文到剪貼簿"
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
-msgstr "未知語言代碼： %1"
+msgstr "未知語言代碼：%1"
 
 #: src/settings/autostartmanager/abstractautostartmanager.cpp:44
 msgctxt "AbstractAutostartManager|"
@@ -1923,22 +1893,19 @@ msgid "<System language>"
 msgstr "<系統語言>"
 
 #: src/settings/settingsdialog.cpp:56 src/settings/settingsdialog.cpp:57
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Auto"
 msgctxt "SettingsDialog|"
 msgid "<Auto>"
-msgstr "自動"
+msgstr "<自動>"
 
 #: src/settings/settingsdialog.cpp:74
 msgctxt "SettingsDialog|"
 msgid "Copy"
-msgstr ""
+msgstr "複製"
 
 #: src/settings/settingsdialog.cpp:78
 msgctxt "SettingsDialog|"
 msgid "None"
-msgstr ""
+msgstr "無"
 
 #: src/settings/settingsdialog.cpp:110
 msgctxt "SettingsDialog|"
@@ -1973,23 +1940,17 @@ msgstr "選擇 OCR 語言路徑"
 #: src/settings/settingsdialog.cpp:339
 msgctxt "SettingsDialog|"
 msgid "Piper voices path:"
-msgstr ""
+msgstr "Piper 嗓音路徑："
 
 #: src/settings/settingsdialog.cpp:353
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Directory with trained models"
 msgctxt "SettingsDialog|"
 msgid "Directory with voice models"
-msgstr "含有已訓練模型的目錄"
+msgstr "含有嗓音模型的目錄"
 
 #: src/settings/settingsdialog.cpp:354 src/settings/settingsdialog.cpp:373
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Select OCR languages path"
 msgctxt "SettingsDialog|"
 msgid "Select Piper voices path"
-msgstr "選擇 OCR 語言路徑"
+msgstr "選擇 Piper 嗓音路徑"
 
 #: src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
@@ -2317,12 +2278,9 @@ msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>選擇圖示</p></body></html>"
 
 #: src/settings/settingsdialog.ui:650
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation provider:"
-msgstr "翻譯模式："
+msgstr "翻譯提供者："
 
 #: src/settings/settingsdialog.ui:673
 msgctxt "SettingsDialog|"
@@ -2377,12 +2335,12 @@ msgstr "強制偵測譯文語言"
 #: src/settings/settingsdialog.ui:741
 msgctxt "SettingsDialog|"
 msgid "Text-to-Speech"
-msgstr ""
+msgstr "文字轉語音"
 
 #: src/settings/settingsdialog.ui:747
 msgctxt "SettingsDialog|"
 msgid "Provider:"
-msgstr ""
+msgstr "提供者："
 
 #: src/settings/settingsdialog.ui:789
 msgctxt "SettingsDialog|"
@@ -2596,8 +2554,8 @@ msgid ""
 "<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
 "text on dark background.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>OCR 前反轉圖片色彩（負片）。適合深色背景亮色文字的影"
-"像。</p></body></html>"
+"<html><head/><body><p>進行 OCR 前先反轉圖片色彩（負片）。適合深色背景亮色文字"
+"的影像。</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1120
 msgctxt "SettingsDialog|"
@@ -2723,9 +2681,6 @@ msgid ""
 msgstr "<html><head/><body><p>註冊全域快捷鍵</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1388
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Enable global shortcucts"
 msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "啟用全域快捷鍵"
@@ -2733,12 +2688,12 @@ msgstr "啟用全域快捷鍵"
 #: src/settings/settingsdialog.ui:1404
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
-msgstr "<html><head/><body><p>重置所有快捷鍵為預設</p></body></html>"
+msgstr "<html><head/><body><p>重設所有快捷鍵至預設值</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1407
 msgctxt "SettingsDialog|"
 msgid "Reset all"
-msgstr "重置全部"
+msgstr "全部重設"
 
 #: src/settings/settingsdialog.ui:1417
 msgctxt "SettingsDialog|"
@@ -2755,7 +2710,7 @@ msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
 "html>"
-msgstr "<html><head/><body><p>選定動作的關鍵次序</p></body></html>"
+msgstr "<html><head/><body><p>所選動作的按鍵序列</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1437
 msgctxt "SettingsDialog|"
@@ -2780,12 +2735,12 @@ msgstr "清除"
 #: src/settings/settingsdialog.ui:1463
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
-msgstr "<html><head/><body><p>重置快捷鍵為預設</p></body></html>"
+msgstr "<html><head/><body><p>重設快捷鍵至預設值</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1466
 msgctxt "SettingsDialog|"
 msgid "Reset"
-msgstr "重置"
+msgstr "重設"
 
 #: src/settings/settingsdialog.ui:1511
 msgctxt "SettingsDialog|"
@@ -2803,12 +2758,9 @@ msgid "Source code:"
 msgstr "原始碼："
 
 #: src/settings/settingsdialog.ui:1555
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation backend:"
-msgstr "翻譯模式："
+msgstr "翻譯後端："
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:21
 msgctxt "ShortcutsModel|"
@@ -2874,7 +2826,7 @@ msgstr "延遲翻譯螢幕區域內的文字"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:56
 msgctxt "ShortcutsModel|"
 msgid "Toggle color inversion for OCR"
-msgstr ""
+msgstr "切換 OCR 顏色反轉"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
@@ -2937,12 +2889,9 @@ msgid "Value"
 msgstr "值"
 
 #: src/translator/atranslationprovider.cpp:112
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "QObject|"
 msgid "Translation Provider Error"
-msgstr "翻譯模式："
+msgstr "翻譯提供者錯誤"
 
 #: src/translator/atranslationprovider.cpp:113
 msgctxt "QObject|"
@@ -2951,19 +2900,15 @@ msgid ""
 "reset to 'Copy' to prevent further issues. You can try selecting a different "
 "provider in Settings → Translation."
 msgstr ""
+"所選的翻譯提供者在初始化時崩潰。已重設為「複製」提供者來防止更多問題發生。您"
+"可以從 設定 → 翻譯 嘗試使用另一個提供者。"
 
 #: src/translator/mozhitranslationprovider.cpp:386
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "translation options:"
 msgctxt "MozhiTranslationProvider|"
 msgid "translation options:"
 msgstr "翻譯選項："
 
 #: src/translator/mozhitranslationprovider.cpp:400
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "examples:"
 msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
 msgstr "範例："
@@ -2981,7 +2926,7 @@ msgstr "設定"
 #: src/trayicon.cpp:21 src/trayicon.cpp:46
 msgctxt "TrayIcon|"
 msgid "Quit"
-msgstr "退出"
+msgstr "離開"
 
 #: src/trayicon.cpp:51
 msgctxt "TrayIcon|"
@@ -2991,7 +2936,7 @@ msgstr "翻譯結果"
 #: src/tts/attsprovider.cpp:69
 msgctxt "QObject|"
 msgid "TTS Provider Error"
-msgstr ""
+msgstr "TTS 提供者錯誤"
 
 #: src/tts/attsprovider.cpp:70
 msgctxt "QObject|"
@@ -3000,19 +2945,18 @@ msgid ""
 "to 'None' to prevent further issues. You can try selecting a different "
 "provider in Settings → TTS."
 msgstr ""
+"所選的 TTS 提供者在初始化時崩潰。已重設為「無」TTS 提供者來防止更多問題發生。"
+"您可以從 設定 → TTS 嘗試使用另一個提供者。"
 
 #: src/tts/mozhittsprovider.cpp:48
-#, fuzzy
-#| msgctxt "SpeakButtons|"
-#| msgid "Playback text is empty"
 msgctxt "MozhiTTSProvider|"
 msgid "Text is empty"
-msgstr "發音文字為空"
+msgstr "文字內容是空的"
 
 #: src/tts/mozhittsprovider.cpp:81
 msgctxt "MozhiTTSProvider|"
 msgid "No audio URLs generated"
-msgstr ""
+msgstr "未產生音訊網址"
 
 #: src/tts/mozhittsprovider.cpp:263
 #, qt-format
@@ -3039,12 +2983,9 @@ msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
 msgstr ""
 
 #: src/tts/piperttsprovider.cpp:115
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize Piper TTS"
-msgstr "無法以 %1 初始化 Tesseract"
+msgstr "無法初始化 Piper TTS"
 
 #: src/tts/piperttsprovider.cpp:121
 #, qt-format
@@ -3058,12 +2999,9 @@ msgid "Unknown ONNX Runtime initialization error"
 msgstr ""
 
 #: src/tts/piperttsprovider.cpp:205
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize espeak-ng"
-msgstr "無法以 %1 初始化 Tesseract"
+msgstr "無法初始化 espeak-ng"
 
 #: src/tts/piperttsprovider.cpp:247
 #, qt-format
@@ -3074,7 +3012,7 @@ msgstr ""
 #: src/tts/piperttsprovider.cpp:279
 msgctxt "PiperTTSProvider|"
 msgid "Privacy Notice - Neural TTS"
-msgstr ""
+msgstr "隱私權聲明 - Neural TTS"
 
 #: src/tts/piperttsprovider.cpp:281
 msgctxt "PiperTTSProvider|"
@@ -3104,20 +3042,17 @@ msgstr ""
 #: src/tts/piperttsprovider.cpp:1000
 msgctxt "PiperTTSProvider|"
 msgid "No audio data generated"
-msgstr ""
+msgstr "未產生音訊資料"
 
 #: src/tts/piperttsprovider.cpp:1015
 msgctxt "PiperTTSProvider|"
 msgid "Failed to create temporary audio file"
-msgstr ""
+msgstr "無法建立音訊暫存檔"
 
 #: src/tts/piperttsprovider.cpp:1024
-#, fuzzy
-#| msgctxt "UpdaterDialog|"
-#| msgid "Unable to write file"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to write audio data"
-msgstr "無法寫入檔案"
+msgstr "無法寫入音訊資料"
 
 #: src/tts/piperttsprovider.cpp:1362
 msgctxt "PiperTTSProvider|"
@@ -3135,7 +3070,7 @@ msgstr ""
 #: src/tts/piperttsprovider.cpp:1374
 msgctxt "PiperTTSProvider|"
 msgid "Piper Voice Models Required"
-msgstr ""
+msgstr "需要 Piper 嗓音模型"
 
 #: src/tts/qtttsprovider.cpp:329
 #, qt-format
@@ -3155,7 +3090,7 @@ msgstr ""
 #: src/tts/qtttsprovider.cpp:343
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
-msgstr ""
+msgstr "Windows TTS 嗓音安裝"
 
 #, fuzzy
 #~| msgctxt "SettingsDialog|"
