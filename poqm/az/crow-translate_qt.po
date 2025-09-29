@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-09-21 16:46+0400\n"
+"PO-Revision-Date: 2025-09-28 22:31+0400\n"
 "Last-Translator: linux <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
@@ -3020,7 +3020,7 @@ msgstr "Tərcümə nəticəsi"
 #: src/tts/attsprovider.cpp:69
 msgctxt "QObject|"
 msgid "TTS Provider Error"
-msgstr ""
+msgstr "TTS təminatçısı xətası"
 
 #: src/tts/attsprovider.cpp:70
 msgctxt "QObject|"
@@ -3029,6 +3029,9 @@ msgid ""
 "to 'None' to prevent further issues. You can try selecting a different "
 "provider in Settings → TTS."
 msgstr ""
+"Seçilmiş TTS təminatçısı işə salınma zamanı çökdü və gələcək problemlərin "
+"qarşısının alınması üçün \"Heç nə\" ayarına sıfırlandı. Siz Ayarlar → TTS "
+"bölməsində başqa bir təminatçı seçə bilərsiniz."
 
 #: src/tts/mozhittsprovider.cpp:48
 msgctxt "MozhiTTSProvider|"
@@ -3038,74 +3041,68 @@ msgstr "Mətn boşdur"
 #: src/tts/mozhittsprovider.cpp:81
 msgctxt "MozhiTTSProvider|"
 msgid "No audio URLs generated"
-msgstr ""
+msgstr "Audio URL ünvanı yaradılmadı"
 
 #: src/tts/mozhittsprovider.cpp:263
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance failed: %1 (HTTP Server Error)"
-msgstr ""
+msgstr "Mozhi nümunəsi uğursiz oldu: %1 (HTTP server xətası)"
 
 #: src/tts/mozhittsprovider.cpp:265 src/tts/mozhittsprovider.cpp:272
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Cannot connect to Mozhi instance: %1"
-msgstr ""
+msgstr "Mozhi nümunəsinə qoşulmaq mümkün deyil: %1"
 
 #: src/tts/mozhittsprovider.cpp:268
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance failed: %1 (HTTP 500 Internal Server Error)"
-msgstr ""
+msgstr "Mozhi nümunəsi xətası: %1 HTTP 500 daxili server xətası)"
 
 #: src/tts/mozhittsprovider.cpp:270
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
-msgstr ""
+msgstr "Mozhi nümunəsi xətası: %1 (HTTP 4XX müştərisi xətası)"
 
 #: src/tts/piperttsprovider.cpp:115
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize Piper TTS"
-msgstr "%1 ilə Tesseract başladıla bimədi"
+msgstr "%1 ilə Piper TTS başladıla bimədi"
 
 #: src/tts/piperttsprovider.cpp:121
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime exception: %1"
-msgstr ""
+msgstr "ONNX Runtime istisnası: %1"
 
 #: src/tts/piperttsprovider.cpp:124
 msgctxt "PiperTTSProvider|"
 msgid "Unknown ONNX Runtime initialization error"
-msgstr ""
+msgstr "Naməlum ONNX Runtime işə salınması xətası"
 
 #: src/tts/piperttsprovider.cpp:205
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize espeak-ng"
-msgstr "%1 ilə Tesseract başladıla bimədi"
+msgstr "\"espeak-ng\" başladıla bimədi"
 
 #: src/tts/piperttsprovider.cpp:247
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime initialization error: %1"
-msgstr ""
+msgstr "ONNX Runtime-ı başladılmasında xəta: %1"
 
 #: src/tts/piperttsprovider.cpp:279
 msgctxt "PiperTTSProvider|"
 msgid "Privacy Notice - Neural TTS"
-msgstr ""
+msgstr "Məxfilik bildirişi - Neyron nitq sintezi"
 
 #: src/tts/piperttsprovider.cpp:281
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime Telemetry Information"
-msgstr ""
+msgstr "ONNX Runtime telemetriya məlumatı"
 
 #: src/tts/piperttsprovider.cpp:283
 msgctxt "PiperTTSProvider|"
@@ -3126,24 +3123,38 @@ msgid ""
 "On Unix systems, telemetry is inactive by default.\n"
 "This notice is shown once per installation."
 msgstr ""
+"Crow Translate neyron nitq sintezi (text-to-speech) üçün ONNX Runtime "
+"istifadə edir. Windows ikili faylında istifadə məlumatlarını toplayan "
+"Microsoft telemetriya sistemi daxildir.\n"
+"\n"
+"Məlumat toplanması:\n"
+"• Qurğu və istifadə məlumatları, xəta hesabatları, performans məlumatları\n"
+"• Microsoft tərəfindən məhsulun keyfiyyətini və funksiyalarını "
+"yaxşılaşdırmaq üçün istifadə olunur\n"
+"• Microsoft-un Məxfilik Bəyanatına tabedir\n"
+"\n"
+"Crow Translate fəaliyyələri:\n"
+"• Başlanğıcda telemetriyanı avtomatik olaraq söndürür\n"
+"• Həm mühit dəyişənlərindən, həm də icra API çağırışlarından istifadə edir\n"
+"• Qeyd: ONNX başlanğıcı zamanı bəzi məlumatlar ötürülə bilər\n"
+"\n"
+"Unix sistemlərində telemetriya standart olaraq qeyri-aktivdir.\n"
+"Bu bildiriş hər quraşdırmada yalnız bir dəfə göstərilir."
 
 #: src/tts/piperttsprovider.cpp:1000
 msgctxt "PiperTTSProvider|"
 msgid "No audio data generated"
-msgstr ""
+msgstr "Audio məlumatları yaradılmadı"
 
 #: src/tts/piperttsprovider.cpp:1015
 msgctxt "PiperTTSProvider|"
 msgid "Failed to create temporary audio file"
-msgstr ""
+msgstr "Müvəqqəti səs faylı yaratmaq mümkün olmadı"
 
 #: src/tts/piperttsprovider.cpp:1024
-#, fuzzy
-#| msgctxt "UpdaterDialog|"
-#| msgid "Unable to write file"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to write audio data"
-msgstr "Faylı yazmaq mümkün olmadı"
+msgstr "Audio faylına yazmaq mümkün olmadı"
 
 #: src/tts/piperttsprovider.cpp:1362
 msgctxt "PiperTTSProvider|"
@@ -3157,11 +3168,20 @@ msgid ""
 "cannot be used in commercial settings. Please check the license of each "
 "model before commercial use.</p>"
 msgstr ""
+"<h3>Piper səs modelləri tapılmadı</h3><p>Standart yerlərdə heç bir Piper TTS "
+"səs modeli tapılmadı.</p><p><b>Piper TTS istifadə etmək üçün: </b></"
+"p><ol><li>Səs modellərini <a href='https://huggingface.co/rhasspy/piper-"
+"voices'>HuggingFace Piper Voices</a> səhifəsindən endirin</li><li>Modelləri "
+"bir qovluğa çıxarın</li><li>Ayarlar → TTS → Piper səs modellərinin yolu "
+"bölməsində həmin qovluğu göstərin</li></ol><p><b>⚠️ Lisenziya xəbərdarlığı:</"
+"b> Bəzi modellərin qeyri-azad lisenziyası ola bilər və kommersiya məqsədilə "
+"istifadə oluna bilməz. Kommersiya məqsədi ilə  istifadə etmədən öncə hər bir "
+"modelin lisenziyasını yoxlayın.</p>"
 
 #: src/tts/piperttsprovider.cpp:1374
 msgctxt "PiperTTSProvider|"
 msgid "Piper Voice Models Required"
-msgstr ""
+msgstr "Piper səs modeli tələb olunur"
 
 #: src/tts/qtttsprovider.cpp:329
 #, qt-format
@@ -3177,11 +3197,21 @@ msgid ""
 "TTS. \"Narrator voices\" have licensing restrictions that are incompatible "
 "with this application.</p>"
 msgstr ""
+"<h3>Windows TTS səsi tapılmadı</h3><p><b>%1</b> üçün heç bir Windows TTS "
+"səsi tapılmadı.</p><p><b>Əlavə dilləri quraşdırmaq üçün:</b></"
+"p><ol><li><b>Ayarlar → Vaxt və Dil → Dil və region</b> bölməsini açın</"
+"li><li><b>Dil əlavə et</b> düyməsini basın və istədiyiniz dili seçin</"
+"li><li>Quraşdırılmış dilin üzərinə klikləyin və <b>Dil seçimləri</b> "
+"bölməsini seçin</li><li><b>Nitq</b> bölməsində səs paketini yükləmək üçün "
+"<b>Endir</b> düyməsini basın</li></ol><p><b>⚠️ Lisenziya qeydi:</b> Crow "
+"Translate hazırda yalnız Windows TTS-in “Əsas səs modellərini” dəstəkləyir. "
+"“Ekran oxuyucu səsləri” lisenziya məhdudiyyətlərinə malikdir və bu tətbiqlə "
+"uyğun deyil.</p>"
 
 #: src/tts/qtttsprovider.cpp:343
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
-msgstr ""
+msgstr "Windows TTS səs quraşdırılması"
 
 #, fuzzy
 #~| msgctxt "SettingsDialog|"
