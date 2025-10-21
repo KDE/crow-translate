@@ -30,6 +30,9 @@ public:
     explicit PopupWindow(MainWindow *parent = nullptr);
     ~PopupWindow() override;
 
+signals:
+    void windowReady();
+
 private:
     void loadSettings();
     void showEvent(QShowEvent *event) override;

@@ -27,18 +27,24 @@ public:
 
 signals:
     void requestedSelectionAvailable(const QString &selection);
+    void windowActivationNeeded();
 
 public slots:
     void requestSelection();
+    void onWindowReady();
 
 protected:
     Selection();
 
 private slots:
     void getSelection();
+    void onApplicationStateChanged(Qt::ApplicationState state);
+
+private:
+    QMetaObject::Connection m_activationConnection;
+    bool m_waitingForActivation = false;
 
 #ifdef Q_OS_WIN
-private:
     QScopedPointer<QMimeData> m_originalClipboardData;
     QTimer *m_maxSelectionDelay;
 #endif

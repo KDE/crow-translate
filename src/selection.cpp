@@ -7,8 +7,14 @@
 
 #include "selection.h"
 
+#include "popupwindow.h"
+
+#include <QApplication>
 #include <QClipboard>
+#include <QDebug>
 #include <QGuiApplication>
+#include <QWindow>
+
 #ifdef Q_OS_WIN
 #include <QMimeData>
 #include <QTimer>
@@ -29,7 +35,35 @@ Selection &Selection::instance()
 void Selection::requestSelection()
 {
 #if defined(Q_OS_LINUX)
-    getSelection();
+    // On Wayland, clipboard access requires an active visible window
+    const bool needsWindowActive = (qGuiApp->nativeInterface<QNativeInterface::QX11Application>() == nullptr);
+
+    const bool isActive = (QGuiApplication::applicationState() == Qt::ApplicationActive);
+
+    // Check if we have any visible QWidget windows (including popups)
+    bool hasVisibleWindow = false;
+    for (QWidget *widget : QApplication::topLevelWidgets()) {
+        if (widget->isVisible()) {
+            hasVisibleWindow = true;
+            break;
+        }
+    }
+
+    qDebug() << "Selection::requestSelection - needsWindowActive:" << needsWindowActive
+             << "isActive:" << isActive << "hasVisibleWindow:" << hasVisibleWindow;
+
+    if (needsWindowActive && (!isActive || !hasVisibleWindow)) {
+        // Set up connection before requesting activation to avoid race condition
+        if (!m_waitingForActivation) {
+            m_waitingForActivation = true;
+            m_activationConnection = connect(qApp, &QGuiApplication::applicationStateChanged, this, &Selection::onApplicationStateChanged);
+
+            qDebug() << "Selection::requestSelection - emitting windowActivationNeeded";
+            emit windowActivationNeeded();
+        }
+    } else {
+        getSelection();
+    }
 #elif defined(Q_OS_WIN) // Send Ctrl + C to get selected text
     // Save the original clipboard
     m_originalClipboardData.reset(new QMimeData);
@@ -88,10 +122,44 @@ Selection::Selection()
 Selection::Selection() = default;
 #endif
 
+void Selection::onWindowReady()
+{
+    qDebug() << "Selection::onWindowReady - waitingForActivation:" << m_waitingForActivation;
+
+    if (m_waitingForActivation) {
+        m_waitingForActivation = false;
+        disconnect(m_activationConnection);
+
+        qDebug() << "Selection::onWindowReady - calling getSelection()";
+        getSelection();
+    }
+}
+
+void Selection::onApplicationStateChanged(Qt::ApplicationState state)
+{
+    qDebug() << "Selection::onApplicationStateChanged - state:" << state << "waitingForActivation:" << m_waitingForActivation;
+
+    if (m_waitingForActivation && state == Qt::ApplicationActive) {
+        m_waitingForActivation = false;
+        disconnect(m_activationConnection);
+
+        qDebug() << "Selection::onApplicationStateChanged - calling getSelection()";
+        getSelection();
+    }
+}
+
 void Selection::getSelection()
 {
 #if defined(Q_OS_LINUX)
-    emit requestedSelectionAvailable(QGuiApplication::clipboard()->text(QClipboard::Selection));
+    QClipboard *clipboard = QGuiApplication::clipboard();
+
+    // On X11 with Selection support, use Selection clipboard (middle-click buffer)
+    // On Wayland without Selection support, fall back to regular Clipboard
+    if (clipboard->supportsSelection()) {
+        emit requestedSelectionAvailable(clipboard->text(QClipboard::Selection));
+    } else {
+        emit requestedSelectionAvailable(clipboard->text(QClipboard::Clipboard));
+    }
 #elif defined(Q_OS_WIN)
     const QString selection = QGuiApplication::clipboard()->text();
     // NOLINTNEXTLINE(clang-analyzer-cplusplus.NewDeleteLeaks)

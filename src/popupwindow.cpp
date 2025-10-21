@@ -175,6 +175,9 @@ void PopupWindow::showEvent(QShowEvent *event)
 bool PopupWindow::event(QEvent *event)
 {
     switch (event->type()) {
+    case QEvent::WindowActivate:
+        emit windowReady();
+        break;
     case QEvent::WindowDeactivate:
         // Do not close the window if the language selection menu is active
         if (QApplication::activeModalWidget() == nullptr)

@@ -64,6 +64,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Selection requests
     connect(&Selection::instance(), &Selection::requestedSelectionAvailable, ui->sourceEdit, &SourceTextEdit::replaceText);
+    connect(&Selection::instance(), &Selection::windowActivationNeeded, this, &MainWindow::showTranslationWindow);
     // Hotkeys
     connect(m_closeWindowsShortcut, &QShortcut::activated, this, &MainWindow::close);
     connect(m_showMainWindowHotkey, &QHotkey::activated, this, &MainWindow::open);
@@ -412,6 +413,8 @@ Q_SCRIPTABLE void MainWindow::translateSelection()
             }
             disconnect(*selectionConnection);
         });
+
+    // Selection class handles Wayland-specific window activation internally
     Selection::instance().requestSelection();
 }
 
@@ -678,15 +681,34 @@ Q_SCRIPTABLE void MainWindow::quit()
 
 void MainWindow::showTranslationWindow()
 {
+    qDebug() << "showTranslationWindow: isHidden=" << isHidden() << "windowMode=" << m_windowMode;
+
     // Always show main window if it already opened
     if (!isHidden()) {
+        qDebug() << "showTranslationWindow: calling open() because window not hidden";
         open();
         return;
     }
 
     switch (m_windowMode) {
     case AppSettings::PopupWindow: {
+        // Check if a popup window already exists and is visible
+        for (QObject *child : children()) {
+            if (auto *existingPopup = qobject_cast<PopupWindow *>(child)) {
+                if (existingPopup->isVisible()) {
+                    qDebug() << "showTranslationWindow: popup already visible, activating it";
+                    existingPopup->activateWindow();
+                    return;
+                }
+            }
+        }
+
+        qDebug() << "showTranslationWindow: creating popup window";
         auto *popup = new PopupWindow(this);
+
+        // Connect popup ready signal to Selection for Wayland clipboard access
+        connect(popup, &PopupWindow::windowReady, &Selection::instance(), &Selection::onWindowReady, Qt::UniqueConnection);
+
         popup->show();
         popup->activateWindow();
 
@@ -701,9 +723,11 @@ void MainWindow::showTranslationWindow()
         break;
     }
     case AppSettings::MainWindow:
+        qDebug() << "showTranslationWindow: calling open() for main window mode";
         open();
         break;
     case AppSettings::Notification:
+        qDebug() << "showTranslationWindow: notification mode, not showing window";
         break;
     }
 }
