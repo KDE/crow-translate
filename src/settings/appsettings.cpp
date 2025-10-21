@@ -228,12 +228,7 @@ void AppSettings::setPortableModeEnabled(bool enabled)
 {
     if (enabled) {
         QFile configFile(AppSettings::portableConfigName());
-#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
-        configFile.open(QIODevice::NewOnly);
-#else
-        if (!configFile.exists())
-            configFile.open(QIODevice::WriteOnly);
-#endif
+        (void)configFile.open(QIODevice::NewOnly);
     } else {
         QFile::remove(AppSettings::portableConfigName());
     }
