@@ -23,7 +23,7 @@ endif()
 # First try to find ONNX Runtime via pkg-config or system paths
 find_package(PkgConfig QUIET)
 if(PKG_CONFIG_FOUND)
-    pkg_check_modules(PC_ONNXRUNTIME QUIET onnxruntime)
+    pkg_check_modules(PC_ONNXRUNTIME QUIET libonnxruntime)
 endif()
 
 # Try to find onnxruntime directly if pkg-config didn't work
