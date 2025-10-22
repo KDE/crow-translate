@@ -50,7 +50,7 @@ int launchGui(int argc, char *argv[])
     QIcon::setThemeName("hicolor");
 #endif
 
-    const SingleApplication app(argc, argv);
+    const SingleApplication app(argc, argv, true);
 
     AppSettings settings;
     settings.loadCustomLanguageRegistry(); // Load persisted custom languages
