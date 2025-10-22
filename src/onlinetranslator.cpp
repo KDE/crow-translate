@@ -95,7 +95,6 @@ const QMap<OnlineTranslator::Language, QString> OnlineTranslator::s_genericLangu
     {Hausa, QStringLiteral("ha")},
     {Hawaiian, QStringLiteral("haw")},
     {Hebrew, QStringLiteral("he")},
-    {Hebrew, QStringLiteral("iw")},
     {HillMari, QStringLiteral("mrj")},
     {Hindi, QStringLiteral("hi")},
     {Hmong, QStringLiteral("hmn")},
