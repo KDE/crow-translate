@@ -1,7 +1,13 @@
 # SPDX-FileCopyrightText: 2024 jurassic6
 # SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2025 Toms Trasūns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2025-11-03 12:14+0200\n"
+"Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +16,7 @@ msgstr ""
 "X-Language: lv\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #: src/cli.cpp:37
 msgctxt "Cli|"
@@ -22,21 +29,16 @@ msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
 msgstr ""
-"Norādiet avota valodu (pēc noklusējuma programma mēģinās patstāvīgi noteikt "
+"Norādiet avota valodu (pēc noklusējuma programma mēģinās pati noteikt "
 "valodu)."
 
 #: src/cli.cpp:43
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify the translation language(s), splitted by '+' (by default, the "
-#| "system language is used)."
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), split by '+' (by default, the system "
 "language is used)."
 msgstr ""
-"Norādiet tulkošanas valodu(-as), kas sadalītas ar '+' (pēc noklusējuma tiek "
+"Norādiet tulkošanas valodu(-as), kas atdalītas ar '+' (pēc noklusējuma tiek "
 "lietota sistēmas valoda)."
 
 #: src/cli.cpp:47
@@ -45,8 +47,8 @@ msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
 "or 'lingva'), Google is used by default."
 msgstr ""
-"Norādiet tulkotāja programmu ('google', 'yandex', 'bing', 'libretranslate' "
-"or 'lingva'), pēc noklusējuma tiek lietots Google."
+"Norādiet tulkotāja programmu („google“, „yandex“, „bing“, „libretranslate“ "
+"vai „lingva“), pēc noklusējuma tiek lietots „Google“."
 
 #: src/cli.cpp:51
 msgctxt "Cli|"
@@ -54,6 +56,8 @@ msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
+"Norādiet „Mozhi“ instances URL. Pēc noklusējuma tiks lietots instances URL "
+"no programmas iestatījumiem."
 
 #: src/cli.cpp:55
 msgctxt "Cli|"
@@ -61,6 +65,8 @@ msgid ""
 "Specify translation provider ('copy' or 'mozhi'). Provider from app settings "
 "will be used by default."
 msgstr ""
+"Norādiet tulkojuma pakalpojumu sniedzēju („copy“ vai „mozhi“). Pēc "
+"noklusējuma tiks lietots iestatījumos norādītais pakalpojumu sniedzējs."
 
 #: src/cli.cpp:58
 msgctxt "Cli|"
@@ -68,6 +74,9 @@ msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from app "
 "settings will be used by default."
 msgstr ""
+"Norādiet TTS pakalpojumu sniedzēju („none“, „mozhi“, „qt“ vai „piper“). Pēc "
+"noklusējuma tika lietots programmas iestatījumos norādītais pakalpojumu "
+"sniedzējs."
 
 #: src/cli.cpp:60
 msgctxt "Cli|"
@@ -84,18 +93,18 @@ msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
 msgstr ""
-"Lasīt avota tekstu no failiem. Argumenti tiks interpretēti kā faila ceļi."
+"Lasīt avota tekstu no datnēm. Argumenti tiks interpretēti kā datnes ceļi."
 
 #: src/cli.cpp:63
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
-msgstr "Pievienot stdin datus avota tekstam."
+msgstr "Avota tekstam pievienot „stdin“ datus."
 
 #: src/cli.cpp:65
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
-msgstr "Nedrukāt tekstu, izmantojot --%1 vai --%2."
+msgstr "Nedrukāt tekstu, kad tiek izmantots „--%1“ vai „--%2“."
 
 #: src/cli.cpp:66
 msgctxt "Cli|"
@@ -105,20 +114,15 @@ msgstr "Drukāt tikai tulkojumus."
 #: src/cli.cpp:67
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
-msgstr "Drukas izvade formatēta kā JSON."
+msgstr "Drukas izvadi formatēt kā JSON."
 
 #: src/cli.cpp:70
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "A simple and lightweight translator that allows to translate and speak "
-#| "text using Google, Yandex, Bing, LibreTranslate and Lingva"
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
 msgstr ""
-"Vienkāršs un viegls tulkotājs, kas ļauj tulkot un runāt tekstu, izmantojot "
-"Google, Yandex, Bing, LibreTranslate un Lingva"
+"Programma, kas ļauj tulkot un izrunāt tekstu, izmantojot dažādus pakalpojumu "
+"sniedzējus"
 
 #: src/cli.cpp:71
 msgctxt "Cli|"
@@ -132,23 +136,19 @@ msgstr ""
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
-msgstr "Kļūda: --%1 ir jānorāda --%2 un/vai --%3 opcijas"
+msgstr "Kļūda: „--%1“ ir jānorāda „--%2“ un/vai „--%3“ opcijas"
 
 #: src/cli.cpp:115
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
-msgstr "Nezināms valodas kods: %1"
+msgstr "Kļūda: nezināms avota valodas kods „%1“"
 
 #: src/cli.cpp:128
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
-msgstr "Nezināms valodas kods: %1"
+msgstr "Kļūda nezināms tulkojuma valodas kods „%1“"
 
 #: src/cli.cpp:152
 msgctxt "Cli|"
@@ -156,41 +156,31 @@ msgid "Error: There is no text for translation"
 msgstr "Kļūda: nav teksta tulkošanai"
 
 #: src/cli.cpp:165
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
-msgstr "Nezināms valodas kods: %1"
+msgstr "Kļūda: nezināms tulkošanas pakalpojumu sniedzējs „%1“"
 
 #: src/cli.cpp:175
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Speech test:"
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
-msgstr "Runas pārbaude:"
+msgstr "Meklē ātrāko instanci"
 
 #: src/cli.cpp:214
-#, fuzzy
-#| msgctxt "OnlineTts|"
-#| msgid "Selected language %1 is not supported for %2"
 msgctxt "Cli|"
 msgid "Error: Lingva engine is not supported"
-msgstr "Atlasītā valoda %1 netiek atbalstīta %2"
+msgstr "Kļūda: „Lingva“ dzinis nav atbalstīts"
 
 #: src/cli.cpp:223
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
-msgstr "Kļūda: nezināms dzinējs"
+msgstr "Kļūda: nezināma programma"
 
 #: src/cli.cpp:256
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
-msgstr "Nezināms valodas kods: %1"
+msgstr "Kļūda: nezināms TTS pakalpojumu sniedzējs „%1“"
 
 #: src/cli.cpp:335 src/cli.cpp:384
 #, qt-format
@@ -199,64 +189,61 @@ msgid "Error: %1"
 msgstr "Kļūda: %1"
 
 #: src/cli.cpp:337 src/cli.cpp:386
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "Cli|"
 msgid "Translation error occurred"
-msgstr "Tulkošanas režīms:"
+msgstr "Notikusi tulkošanas kļūda"
 
 #: src/cli.cpp:443
 msgctxt "Cli|"
 msgid "Error: TTS failed"
-msgstr ""
+msgstr "Kļūda: TTS nenostrādāja"
 
 #: src/cli.cpp:600
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
-msgstr "Kļūda: jūs nevarat lietot --%1 ar --%2"
+msgstr "Kļūda: nav atļauts lietot „--%1“ kopā ar „--%2“"
 
 #: src/cli.cpp:612 src/cli.cpp:633
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
-msgstr "Kļūda: fails neeksistē: %1"
+msgstr "Kļūda: datne nepastāv: %1"
 
 #: src/cli.cpp:617 src/cli.cpp:638
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
-msgstr "Kļūda: nevar atvērt failu: %1"
+msgstr "Kļūda: nevar atvērt datni: %1"
 
 #: src/contextmenu.h:35
 msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
-msgstr "Meklēt vietnē Forvo.com"
+msgstr "Meklēt vietnē „Forvo.com“"
 
 #: src/instancepinger.cpp:65
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Best instance URL is '%1' with time %2 ms"
-msgstr ""
+msgstr "Labākās instances URL ir „%1“ ar laiku %2 ms"
 
 #: src/instancepinger.cpp:84
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' takes longer then %2 ms"
-msgstr ""
+msgstr "Pings uz „%1“ aizņēma vairāk laika par %2 ms"
 
 #: src/instancepinger.cpp:99
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' successful, response time: %2 ms"
-msgstr ""
+msgstr "Pings uz „%1“ izdevās, atbildes laiks: %2 ms"
 
 #: src/instancepinger.cpp:111
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' failed, error: %2"
-msgstr ""
+msgstr "Pings uz „%1“ neizdevās, kļūda: %2"
 
 #: src/instancepingerdialog.cpp:23
 #, qt-format
@@ -265,21 +252,23 @@ msgid ""
 "Detecting fastest instance.\n"
 "Checking '%1'"
 msgstr ""
+"Meklē ātrāko instanci.\n"
+"Pārbauda „%1“"
 
 #: src/languagebuttonswidget.cpp:225
 msgctxt "LanguageButtonsWidget|"
 msgid "Window width is larger than screen due to the languages on the panel."
-msgstr "Loga platums ir lielāks par ekrāna platumu paneļa valodu dēļ."
+msgstr "Paneļa valodu dēļ loga platums ir lielāks par ekrāna platumu."
 
 #: src/languagebuttonswidget.cpp:226
 msgctxt "LanguageButtonsWidget|"
 msgid "Please reduce added languages."
-msgstr "Lūdzu, samazināt pievienoto valodu skaitu."
+msgstr "Samaziniet pievienoto valodu skaitu."
 
 #: src/languagebuttonswidget.cpp:302 src/languagebuttonswidget.cpp:304
 msgctxt "LanguageButtonsWidget|"
 msgid "Auto"
-msgstr "Auto"
+msgstr "Automātiski"
 
 #: src/languagebuttonswidget.ui:32
 msgctxt "LanguageButtonsWidget|"
@@ -305,52 +294,52 @@ msgstr "Pieejamās valodas:"
 #: src/languagesdialog.ui:104
 msgctxt "LanguagesDialog|"
 msgid "Current languages:"
-msgstr "Esošās valodas:"
+msgstr "Pašreizējās valodas:"
 
 #: src/main.cpp:76
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
-msgstr "D-Bus pakalpojums %1 jau ir reģistrēts citā lietojumprogrammā"
+msgstr "„D-Bus“ pakalpojums „%1“ jau ir reģistrēts citā programmā"
 
 #: src/main.cpp:109
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
-msgstr "Nevar reģistrēt D-Bus objektu %1"
+msgstr "Nevar reģistrēt „%1“ nepieciešamo „D-Bus“ objektu"
 
 #: src/mainwindow.cpp:343
 msgctxt "QApplication|"
 msgid "OCR"
-msgstr ""
+msgstr "OCR"
 
 #: src/mainwindow.cpp:344
 msgctxt "QApplication|"
 msgid "OCR image negated"
-msgstr ""
+msgstr "OCR attēls noliegts"
 
 #: src/mainwindow.cpp:344
 msgctxt "QApplication|"
 msgid "OCR image is normal"
-msgstr ""
+msgstr "OCR attēls ir normāls"
 
 #: src/mainwindow.cpp:498 src/mainwindow.cpp:518 src/mainwindow.cpp:566
 #: src/mainwindow.cpp:595
 msgctxt "Ocr|"
 msgid "OCR languages are not loaded"
-msgstr "OCR valodas netika ielādētas"
+msgstr "OCR valodas nav ielādētas"
 
 #: src/mainwindow.cpp:498 src/mainwindow.cpp:518 src/mainwindow.cpp:566
 #: src/mainwindow.cpp:595
 msgctxt "Ocr|"
 msgid "You should set at least one OCR language in the application settings"
-msgstr "Programmas iestatījumos ir jāiestata vismaz viena OCR valoda"
+msgstr "Programmas iestatījumos ir jānorāda vismaz viena OCR valoda"
 
 #: src/mainwindow.cpp:770
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
-msgstr ""
+msgstr "Šī programma tulkošanai izmanto „%1“"
 
 #: src/mainwindow.cpp:771
 #, qt-format
@@ -361,22 +350,26 @@ msgid ""
 "right now is '%1', but you can change it in the translation settings. See "
 "instance details in the link above."
 msgstr ""
+"Kamēr „Mozhi“ darbojas kā starpnieks, lai aizsargātu jūsu privātumu, trešās "
+"puses pakalpojumu sniedzēji, ko tas izmanto, var glabāt un analizēt jūsu "
+"nosūtīto tekstu. Jūsu instance šobrīd ir „%1“, bet to varat nomainīt "
+"tulkošanas iestatījumos. Skatiet informāciju par instanci saitē augstāk."
 
 #: src/mainwindow.cpp:778
 msgctxt "MainWindow|"
 msgid "Don't show again"
-msgstr ""
+msgstr "Vairs nerādīt"
 
 #: src/mainwindow.cpp:820
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
-msgstr "Nederīga teknes ikona"
+msgstr "Nederīga sistēmas ikonu joslas ikona"
 
 #: src/mainwindow.cpp:820
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
-msgstr "Norādītā ikona '%1' nav derīga. Tiks lietota noklusējuma ikona."
+msgstr "Norādītā ikona „%1“ nav derīga. Tiks lietota noklusējuma ikona."
 
 #: src/mainwindow.cpp:841
 msgctxt "Ocr|"
@@ -387,12 +380,12 @@ msgstr "Nevar iestatīt OCR valodas"
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
-msgstr "Nevar inicializēt Tesseract ar %1"
+msgstr "Nevar inicializēt „Tesseract“ ar „%1“"
 
 #: src/mainwindow.cpp:979
 msgctxt "MainWindow|"
 msgid "TTS Error"
-msgstr ""
+msgstr "TTS kļūda"
 
 #: src/mainwindow.cpp:979
 #, qt-format
@@ -404,14 +397,16 @@ msgid ""
 "\n"
 "Please check your TTS settings or try a different voice/locale."
 msgstr ""
+"Teksta pārvēršanas runā kļūda:\n"
+"\n"
+"%1\n"
+"\n"
+"Pārbaudiet TTS iestatījumus vai mēģiniet citu balsi/valodas paveidu."
 
 #: src/mainwindow.ui:14
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translate"
 msgctxt "MainWindow|"
 msgid "Crow Translate"
-msgstr "Tulkot"
+msgstr "Crow Translate"
 
 #: src/mainwindow.ui:29
 msgctxt "MainWindow|"
@@ -421,7 +416,7 @@ msgstr "Tulkot"
 #: src/mainwindow.ui:39
 msgctxt "MainWindow|"
 msgid "Swap languages"
-msgstr "Apmainīt valodas"
+msgstr "Mainīt vietām valodas"
 
 #: src/mainwindow.ui:52
 msgctxt "MainWindow|"
@@ -436,7 +431,7 @@ msgstr "Atcelt"
 #: src/mainwindow.ui:132 src/mainwindow.ui:261
 msgctxt "MainWindow|"
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: src/mainwindow.ui:142
 msgctxt "MainWindow|"
@@ -457,7 +452,7 @@ msgstr "Automātiskā tulkošana"
 #: src/mainwindow.ui:177
 msgctxt "MainWindow|"
 msgid "Clear"
-msgstr "Tīrīt"
+msgstr "Notīrīt"
 
 #: src/mainwindow.ui:204
 msgctxt "MainWindow|"
@@ -482,23 +477,23 @@ msgstr "Tulkot ekrāna apgabalu ar aizkavi"
 #: src/mainwindow.ui:381
 msgctxt "MainWindow|"
 msgid "Application settings"
-msgstr "Lietojumprogrammu iestatījumi"
+msgstr "Programmas iestatījumi"
 
 #: src/ocr/ocr.cpp:132
 #, qt-format
 msgctxt "Ocr|"
 msgid "%1 is not a valid Tesseract parameter name."
-msgstr "%1 nav derīgs Tesseract parametra nosaukums."
+msgstr "„%1“ nav derīgs „Tesseract“ parametra nosaukums."
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 msgctxt "AbstractScreenGrabber|"
 msgid "Unable to grab screen"
-msgstr "Nevar satvert ekrānu"
+msgstr "Nevar uzņemt ekrānu"
 
 #: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:48
 msgctxt "WaylandGnomeScreenGrabber|"
 msgid "GNOME failed to take screenshot."
-msgstr "GNOME neizdevās tvert ekrānuzņēmumu."
+msgstr "GNOME neizdevās uzņemt ekrānattēlu."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:55
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:333
@@ -510,7 +505,7 @@ msgstr "Nevar izveidot programmkanālu: %1."
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:84
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to detect active screen for screenshot"
-msgstr ""
+msgstr "Neizdodas noteikt aktīvo ekrānu ekrānattēlam"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:164
 #, qt-format
@@ -530,22 +525,19 @@ msgid "Unable to read data from socket: %1."
 msgstr "Nevar nolasīt datus no ligzdas: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:275
-#, fuzzy
-#| msgctxt "AbstractScreenGrabber|"
-#| msgid "Unable to grab screen"
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to determine target screen"
-msgstr "Nevar satvert ekrānu"
+msgstr "Neizdevās noteikt mērķa ekrānu"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:297
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Failed to extract screen area from workspace"
-msgstr ""
+msgstr "Neizdevās darbvirsmā izvilkt ekrāna zonu"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:315
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Screenshot Permission Required"
-msgstr ""
+msgstr "Nepieciešams atļaut uzņemt ekrānattēlus"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:316
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -553,6 +545,8 @@ msgid ""
 "Crow Translate needs permission to take screenshots. Please grant permission "
 "in your system settings or use the interactive screenshot mode."
 msgstr ""
+"„Crow Translate“ ir nepieciešama atļauja uzņemt ekrānattēlus. Sniedziet šādu "
+"atļauju sistēmas iestatījumos vai lietojiet interaktīva ekrānattēla režīmu."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:322
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -560,16 +554,18 @@ msgid ""
 "Screenshot permission denied. Please grant permission in system settings or "
 "try interactive mode."
 msgstr ""
+"Ekrānattēla uzņemšana nav atļauta. Sniedziet attiecīgu atļauju sistēmas "
+"iestatījumos vai mēģiniet interaktīvo režīmu."
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:57
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
-msgstr "Nav iespējams parakstīties uz xdg-desktop-portal atbildi."
+msgstr "Nav iespējams parakstīties uz „xdg-desktop-portal“ atbildi."
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:77
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
-msgstr "Saņemts tukšs ceļš no xdg-desktop-portal."
+msgstr "No „xdg-desktop-portal“ ir saņemts tukšs ceļš ."
 
 #: src/ocr/snippingarea.cpp:91
 msgctxt "SnippingArea|"
@@ -580,7 +576,7 @@ msgstr "Nevar izgriezt ekrāna apgabalu"
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
-msgstr "Saņemts nederīgs ekrāna %1 attēls."
+msgstr "Saņemts nederīgs ekrāna „%1“ attēls."
 
 #: src/ocr/snippingarea.cpp:644
 msgctxt "SnippingArea|"
@@ -588,8 +584,8 @@ msgid ""
 "Click and drag to draw a selection rectangle,\n"
 "or press Esc to quit"
 msgstr ""
-"Noklikšķiniet un velciet, lai uzzīmētu atlases taisnstūri, \n"
-"vai nospiediet Esc, lai to pārtrauktu."
+"Zīmējiet atlases zonu, klikšķinot un velkot,\n"
+"vai nospiediet „Esc“ taustiņu, lai to pārtrauktu."
 
 #: src/ocr/snippingarea.cpp:850
 msgctxt "SnippingArea|"
@@ -599,12 +595,12 @@ msgstr "Apstiprināt:"
 #: src/ocr/snippingarea.cpp:852
 msgctxt "SnippingArea|"
 msgid "Release left-click"
-msgstr "Atlaidiet kreiso pogu"
+msgstr "Atlaidiet peles kreiso pogu"
 
 #: src/ocr/snippingarea.cpp:852 src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Enter"
-msgstr "Ievadīt"
+msgstr "Apstiprināt"
 
 #: src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
@@ -624,7 +620,7 @@ msgstr "Velciet ārpus atlases taisnstūra"
 #: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
-msgstr "+ Shift: Lupa"
+msgstr "+ „Shift“: tālummaiņa"
 
 #: src/ocr/snippingarea.cpp:860
 msgctxt "SnippingArea|"
@@ -634,7 +630,7 @@ msgstr "Pārvietot atlases taisnstūri:"
 #: src/ocr/snippingarea.cpp:861
 msgctxt "SnippingArea|"
 msgid "Drag inside selection rectangle"
-msgstr "Velciet iekšā atlases taisnstūrī"
+msgstr "Velciet atlases taisnstūrī"
 
 #: src/ocr/snippingarea.cpp:861
 msgctxt "SnippingArea|"
@@ -644,7 +640,7 @@ msgstr "Bultu taustiņi"
 #: src/ocr/snippingarea.cpp:861
 msgctxt "SnippingArea|"
 msgid "+ Shift: Move in 1 pixel steps"
-msgstr "+ Shift: pārvietot pa 1 pikseļa solim"
+msgstr "+ „Shift“: pārvietot pa vienam pikselim"
 
 #: src/ocr/snippingarea.cpp:863
 msgctxt "SnippingArea|"
@@ -654,17 +650,17 @@ msgstr "Mainīt atlases taisnstūra izmēru:"
 #: src/ocr/snippingarea.cpp:864
 msgctxt "SnippingArea|"
 msgid "Drag handles"
-msgstr "Vilkšanas rokturi"
+msgstr "Vilkšanas atzīmes"
 
 #: src/ocr/snippingarea.cpp:864
 msgctxt "SnippingArea|"
 msgid "Arrow keys + Alt"
-msgstr "Bulttaustiņi + Alt"
+msgstr "Bultu taustiņi + „Alt“"
 
 #: src/ocr/snippingarea.cpp:864
 msgctxt "SnippingArea|"
 msgid "+ Shift: Resize in 1 pixel steps"
-msgstr "+ Shift: mainīt izmēru ar 1 pikseļa soli"
+msgstr "+ „Shift“: mainīt izmēru ar viena pikseļa"
 
 #: src/ocr/snippingarea.cpp:866
 msgctxt "SnippingArea|"
@@ -674,7 +670,7 @@ msgstr "Atiestatīt atlasi:"
 #: src/ocr/snippingarea.cpp:867
 msgctxt "SnippingArea|"
 msgid "Right-click"
-msgstr "Klikšķis ar labo peles pogu"
+msgstr "Labais klikšķis"
 
 #: src/ocr/snippingarea.cpp:870
 msgctxt "SnippingArea|"
@@ -684,12 +680,12 @@ msgstr "Atcelt:"
 #: src/ocr/snippingarea.cpp:871
 msgctxt "SnippingArea|"
 msgid "Esc key"
-msgstr "Esc taustiņš"
+msgstr "„Esc“ taustiņš"
 
 #: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
 msgid "DPI Detection Error"
-msgstr ""
+msgstr "DPI noteikšanas kļūda"
 
 #: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
@@ -697,37 +693,35 @@ msgid ""
 "Screen under cursor disappeared before we got dpi from it. Using primary "
 "screen for dpi information."
 msgstr ""
+"Ekrāns zem kursora pazuda pirms izdevās no tā izgūt DPI informāciju. DPI "
+"informācijai izmantos primāro ekrānu."
 
 #: src/onlinetranslator.cpp:273
-#, fuzzy, qt-format
-#| msgctxt "OnlineTts|"
-#| msgid "Selected language %1 is not supported for %2"
+#, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Language detection is not supported for %1"
-msgstr "Atlasītā valoda %1 netiek atbalstīta %2"
+msgstr "„%1“ neatbalsta programmas noteikto valodu"
 
 #: src/onlinetranslator.cpp:318
 msgctxt "OnlineTranslator|"
 msgid "Operation aborted by user"
-msgstr ""
+msgstr "Lietotājs ir atcēlis darbību"
 
 #: src/onlinetranslator.cpp:361
-#, fuzzy, qt-format
-#| msgctxt "OnlineTts|"
-#| msgid "%1 engine does not support TTS"
+#, qt-format
 msgctxt "OnlineTranslator|"
 msgid "%1 engine does not support TTS"
-msgstr "%1 dzinējs neatbalsta TTS"
+msgstr "„%1“ dzinis neatbalsta TTS"
 
 #: src/onlinetranslator.cpp:502
 msgctxt "OnlineTranslator|"
 msgid "Automatically detect"
-msgstr "Automātiski noteikt"
+msgstr "Noteikt automātiski"
 
 #: src/onlinetranslator.cpp:504
 msgctxt "OnlineTranslator|"
 msgid "Afrikaans"
-msgstr "Afrikāņu"
+msgstr "Afrikandu"
 
 #: src/onlinetranslator.cpp:506
 msgctxt "OnlineTranslator|"
@@ -752,17 +746,14 @@ msgstr "Armēņu"
 #: src/onlinetranslator.cpp:514
 msgctxt "OnlineTranslator|"
 msgid "Assamese"
-msgstr ""
+msgstr "Asamiešu"
 
 #: src/onlinetranslator.cpp:516
 msgctxt "OnlineTranslator|"
 msgid "Aymara"
-msgstr ""
+msgstr "Aimaru"
 
 #: src/onlinetranslator.cpp:518
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Azeerbaijani"
 msgctxt "OnlineTranslator|"
 msgid "Azerbaijani"
 msgstr "Azerbaidžāņu"
@@ -770,22 +761,22 @@ msgstr "Azerbaidžāņu"
 #: src/onlinetranslator.cpp:520
 msgctxt "OnlineTranslator|"
 msgid "Bajan"
-msgstr ""
+msgstr "Barbadosiešu"
 
 #: src/onlinetranslator.cpp:522
 msgctxt "OnlineTranslator|"
 msgid "Balkan Gipsy"
-msgstr ""
+msgstr "Balkānu romu"
 
 #: src/onlinetranslator.cpp:524
 msgctxt "OnlineTranslator|"
 msgid "Bambara"
-msgstr ""
+msgstr "Bambaru"
 
 #: src/onlinetranslator.cpp:526
 msgctxt "OnlineTranslator|"
 msgid "Bangla"
-msgstr ""
+msgstr "Bengāļu"
 
 #: src/onlinetranslator.cpp:528
 msgctxt "OnlineTranslator|"
@@ -805,17 +796,17 @@ msgstr "Baltkrievu"
 #: src/onlinetranslator.cpp:534
 msgctxt "OnlineTranslator|"
 msgid "Bemba"
-msgstr ""
+msgstr "Bemba"
 
 #: src/onlinetranslator.cpp:536
 msgctxt "OnlineTranslator|"
 msgid "Bhojpuri"
-msgstr ""
+msgstr "Bhodžpūru"
 
 #: src/onlinetranslator.cpp:538
 msgctxt "OnlineTranslator|"
 msgid "Bislama"
-msgstr ""
+msgstr "Bislama"
 
 #: src/onlinetranslator.cpp:540
 msgctxt "OnlineTranslator|"
@@ -825,7 +816,7 @@ msgstr "Bosniešu"
 #: src/onlinetranslator.cpp:542
 msgctxt "OnlineTranslator|"
 msgid "Breton"
-msgstr ""
+msgstr "Bretoņu"
 
 #: src/onlinetranslator.cpp:544
 msgctxt "OnlineTranslator|"
@@ -833,17 +824,14 @@ msgid "Bulgarian"
 msgstr "Bulgāru"
 
 #: src/onlinetranslator.cpp:546
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Chinese (Traditional)"
 msgctxt "OnlineTranslator|"
 msgid "Cantonese (Traditional)"
-msgstr "Ķīniešu (tradicionālā)"
+msgstr "Kantoniešu (tradicionālā)"
 
 #: src/onlinetranslator.cpp:548
 msgctxt "OnlineTranslator|"
 msgid "Catalan"
-msgstr "Kataloniešu"
+msgstr "Katalāņu"
 
 #: src/onlinetranslator.cpp:550
 msgctxt "OnlineTranslator|"
@@ -853,7 +841,7 @@ msgstr "Sebuāņu"
 #: src/onlinetranslator.cpp:552
 msgctxt "OnlineTranslator|"
 msgid "Chamorro"
-msgstr ""
+msgstr "Čamorru"
 
 #: src/onlinetranslator.cpp:554
 msgctxt "OnlineTranslator|"
@@ -861,12 +849,9 @@ msgid "Chichewa"
 msgstr "Čičeva"
 
 #: src/onlinetranslator.cpp:556
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Chinese (Traditional)"
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Literary)"
-msgstr "Ķīniešu (tradicionālā)"
+msgstr "Ķīniešu (literārā)"
 
 #: src/onlinetranslator.cpp:558
 msgctxt "OnlineTranslator|"
@@ -881,72 +866,72 @@ msgstr "Ķīniešu (tradicionālā)"
 #: src/onlinetranslator.cpp:562
 msgctxt "OnlineTranslator|"
 msgid "Chuvash"
-msgstr ""
+msgstr "Čuvašu"
 
 #: src/onlinetranslator.cpp:564
 msgctxt "OnlineTranslator|"
 msgid "Comorian (Ngazidja)"
-msgstr ""
+msgstr "Komoru (Ngazidža)"
 
 #: src/onlinetranslator.cpp:566
 msgctxt "OnlineTranslator|"
 msgid "Coptic"
-msgstr ""
+msgstr "Koptu"
 
 #: src/onlinetranslator.cpp:568
 msgctxt "OnlineTranslator|"
 msgid "Corsican"
-msgstr "Korsikas"
+msgstr "Korsikāņu"
 
 #: src/onlinetranslator.cpp:570
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Antigua and Barbuda)"
-msgstr ""
+msgstr "Kreolu angļu (Antigva un Barbuda)"
 
 #: src/onlinetranslator.cpp:572
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Bahamas)"
-msgstr ""
+msgstr "Kreolu angļu (bahamiešu)"
 
 #: src/onlinetranslator.cpp:574
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Grenadian)"
-msgstr ""
+msgstr "Kreolu angļu (grenādiešu)"
 
 #: src/onlinetranslator.cpp:576
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Guyanese)"
-msgstr ""
+msgstr "Kreolu angļu (gajāniešu)"
 
 #: src/onlinetranslator.cpp:578
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Jamaican)"
-msgstr ""
+msgstr "Kreolu angļu (jamaikiešu)"
 
 #: src/onlinetranslator.cpp:580
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Vincentian)"
-msgstr ""
+msgstr "Kreolu angļu (sentvinsentiešu)"
 
 #: src/onlinetranslator.cpp:582
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Virgin Islands)"
-msgstr ""
+msgstr "Kreolu angļu (Virdžīnu salas)"
 
 #: src/onlinetranslator.cpp:584
 msgctxt "OnlineTranslator|"
 msgid "Creole French (Saint Lucian)"
-msgstr ""
+msgstr "Kreolu franču (Sentlūsija)"
 
 #: src/onlinetranslator.cpp:586
 msgctxt "OnlineTranslator|"
 msgid "Creole French (Seselwa)"
-msgstr ""
+msgstr "Kreolu franču (Seišelu)"
 
 #: src/onlinetranslator.cpp:588
 msgctxt "OnlineTranslator|"
 msgid "Creole Portuguese (Upper Guinea)"
-msgstr ""
+msgstr "Kreolu portugāļu (Augšgvineja)"
 
 #: src/onlinetranslator.cpp:590
 msgctxt "OnlineTranslator|"
@@ -966,17 +951,17 @@ msgstr "Dāņu"
 #: src/onlinetranslator.cpp:596
 msgctxt "OnlineTranslator|"
 msgid "Dari"
-msgstr ""
+msgstr "Dari"
 
 #: src/onlinetranslator.cpp:598
 msgctxt "OnlineTranslator|"
 msgid "Divehi"
-msgstr ""
+msgstr "Divehi"
 
 #: src/onlinetranslator.cpp:600
 msgctxt "OnlineTranslator|"
 msgid "Dogri"
-msgstr ""
+msgstr "Dogru"
 
 #: src/onlinetranslator.cpp:602
 msgctxt "OnlineTranslator|"
@@ -986,17 +971,17 @@ msgstr "Holandiešu"
 #: src/onlinetranslator.cpp:604
 msgctxt "OnlineTranslator|"
 msgid "Dzongkha"
-msgstr ""
+msgstr "Dzongke"
 
 #: src/onlinetranslator.cpp:606
 msgctxt "OnlineTranslator|"
 msgid "Elvish (Sindarin)"
-msgstr ""
+msgstr "Elfu (sindarīna)"
 
 #: src/onlinetranslator.cpp:608
 msgctxt "OnlineTranslator|"
 msgid "Emoji"
-msgstr ""
+msgstr "Emocijzīmju"
 
 #: src/onlinetranslator.cpp:610
 msgctxt "OnlineTranslator|"
@@ -1016,20 +1001,17 @@ msgstr "Igauņu"
 #: src/onlinetranslator.cpp:616
 msgctxt "OnlineTranslator|"
 msgid "Ewe"
-msgstr ""
+msgstr "Evu"
 
 #: src/onlinetranslator.cpp:618
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Tagalog"
 msgctxt "OnlineTranslator|"
 msgid "Fanagalo"
-msgstr "Tagalogu"
+msgstr "Fanagalo"
 
 #: src/onlinetranslator.cpp:620
 msgctxt "OnlineTranslator|"
 msgid "Faroese"
-msgstr ""
+msgstr "Fēru"
 
 #: src/onlinetranslator.cpp:622
 msgctxt "OnlineTranslator|"
@@ -1054,7 +1036,7 @@ msgstr "Franču"
 #: src/onlinetranslator.cpp:630
 msgctxt "OnlineTranslator|"
 msgid "French (Canada)"
-msgstr ""
+msgstr "Franču (kanādiešu)"
 
 #: src/onlinetranslator.cpp:632
 msgctxt "OnlineTranslator|"
@@ -1069,7 +1051,7 @@ msgstr "Galisiešu"
 #: src/onlinetranslator.cpp:636
 msgctxt "OnlineTranslator|"
 msgid "Ganda"
-msgstr ""
+msgstr "Gandu"
 
 #: src/onlinetranslator.cpp:638
 msgctxt "OnlineTranslator|"
@@ -1089,22 +1071,22 @@ msgstr "Grieķu"
 #: src/onlinetranslator.cpp:644
 msgctxt "OnlineTranslator|"
 msgid "Greek (Classical)"
-msgstr ""
+msgstr "Grieķu (klasiskā)"
 
 #: src/onlinetranslator.cpp:646
 msgctxt "OnlineTranslator|"
 msgid "Guarani"
-msgstr ""
+msgstr "Gvaranu"
 
 #: src/onlinetranslator.cpp:648
 msgctxt "OnlineTranslator|"
 msgid "Gujarati"
-msgstr "Gudžarati"
+msgstr "Gudžaratu"
 
 #: src/onlinetranslator.cpp:650
 msgctxt "OnlineTranslator|"
 msgid "Haitian Creole"
-msgstr "Haiti kreolu"
+msgstr "Heitiešu kreolu"
 
 #: src/onlinetranslator.cpp:652
 msgctxt "OnlineTranslator|"
@@ -1124,7 +1106,7 @@ msgstr "Ebreju"
 #: src/onlinetranslator.cpp:658
 msgctxt "OnlineTranslator|"
 msgid "Hill Mari"
-msgstr "Hill Mari"
+msgstr "Kalnu mariešu"
 
 #: src/onlinetranslator.cpp:660
 msgctxt "OnlineTranslator|"
@@ -1134,15 +1116,12 @@ msgstr "Hindi"
 #: src/onlinetranslator.cpp:662
 msgctxt "OnlineTranslator|"
 msgid "Hmong"
-msgstr "Hmong"
+msgstr "Hmongu"
 
 #: src/onlinetranslator.cpp:664
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Hmong"
 msgctxt "OnlineTranslator|"
 msgid "Hmong Daw"
-msgstr "Hmong"
+msgstr "Hmongu davu"
 
 #: src/onlinetranslator.cpp:666
 msgctxt "OnlineTranslator|"
@@ -1162,7 +1141,7 @@ msgstr "Igbo"
 #: src/onlinetranslator.cpp:672
 msgctxt "OnlineTranslator|"
 msgid "Ilocano"
-msgstr ""
+msgstr "Iloku"
 
 #: src/onlinetranslator.cpp:674
 msgctxt "OnlineTranslator|"
@@ -1172,22 +1151,22 @@ msgstr "Indonēziešu"
 #: src/onlinetranslator.cpp:676
 msgctxt "OnlineTranslator|"
 msgid "Inuinnaqtun"
-msgstr ""
+msgstr "Inuinnaktunu"
 
 #: src/onlinetranslator.cpp:678
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut"
-msgstr ""
+msgstr "Inuktitutu"
 
 #: src/onlinetranslator.cpp:680
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Greenlandic)"
-msgstr ""
+msgstr "Inuktitutu (Grenlandes)"
 
 #: src/onlinetranslator.cpp:682
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Latin)"
-msgstr ""
+msgstr "Inuktitutu (latīņu)"
 
 #: src/onlinetranslator.cpp:684
 msgctxt "OnlineTranslator|"
@@ -1212,15 +1191,12 @@ msgstr "Javiešu"
 #: src/onlinetranslator.cpp:692
 msgctxt "OnlineTranslator|"
 msgid "Kabuverdianu"
-msgstr ""
+msgstr "Kabuverdiešu"
 
 #: src/onlinetranslator.cpp:694
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Italian"
 msgctxt "OnlineTranslator|"
 msgid "Kabylian"
-msgstr "Itāļu"
+msgstr "Kabilu"
 
 #: src/onlinetranslator.cpp:696
 msgctxt "OnlineTranslator|"
@@ -1233,12 +1209,9 @@ msgid "Kazakh"
 msgstr "Kazahu"
 
 #: src/onlinetranslator.cpp:700
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Serbian (Latin)"
 msgctxt "OnlineTranslator|"
 msgid "Kazakh (Latin)"
-msgstr "Serbu (latīņu)"
+msgstr "Kazahu (latīņu)"
 
 #: src/onlinetranslator.cpp:702
 msgctxt "OnlineTranslator|"
@@ -1248,25 +1221,22 @@ msgstr "Khmeru"
 #: src/onlinetranslator.cpp:704
 msgctxt "OnlineTranslator|"
 msgid "Kinyarwanda"
-msgstr "Kiņaruandiešu"
+msgstr "Kiņaruandu"
 
 #: src/onlinetranslator.cpp:706
 msgctxt "OnlineTranslator|"
 msgid "Kirundi"
-msgstr ""
+msgstr "Kirundi"
 
 #: src/onlinetranslator.cpp:708
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Klingon (PlqaD)"
 msgctxt "OnlineTranslator|"
 msgid "Klingon (Latin)"
-msgstr "Klingonu (PlqaD)"
+msgstr "Klingonu (latīņu)"
 
 #: src/onlinetranslator.cpp:710
 msgctxt "OnlineTranslator|"
 msgid "Konkani"
-msgstr ""
+msgstr "Konkanu"
 
 #: src/onlinetranslator.cpp:712
 msgctxt "OnlineTranslator|"
@@ -1276,25 +1246,22 @@ msgstr "Korejiešu"
 #: src/onlinetranslator.cpp:714
 msgctxt "OnlineTranslator|"
 msgid "Krio"
-msgstr ""
+msgstr "Krio"
 
 #: src/onlinetranslator.cpp:716
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Central)"
-msgstr ""
+msgstr "Kurdu (centrālā)"
 
 #: src/onlinetranslator.cpp:718
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Northern)"
-msgstr ""
+msgstr "Kurdu (ziemeļu)"
 
 #: src/onlinetranslator.cpp:720
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Kurdish"
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Sorani)"
-msgstr "Kurdu"
+msgstr "Kurdu (sorani)"
 
 #: src/onlinetranslator.cpp:722
 msgctxt "OnlineTranslator|"
@@ -1304,7 +1271,7 @@ msgstr "Kirgīzu"
 #: src/onlinetranslator.cpp:724
 msgctxt "OnlineTranslator|"
 msgid "Lao"
-msgstr "Laosas"
+msgstr "Laosiešu"
 
 #: src/onlinetranslator.cpp:726
 msgctxt "OnlineTranslator|"
@@ -1319,7 +1286,7 @@ msgstr "Latviešu"
 #: src/onlinetranslator.cpp:730
 msgctxt "OnlineTranslator|"
 msgid "Lingala"
-msgstr ""
+msgstr "Lingala"
 
 #: src/onlinetranslator.cpp:732
 msgctxt "OnlineTranslator|"
@@ -1329,12 +1296,12 @@ msgstr "Lietuviešu"
 #: src/onlinetranslator.cpp:734
 msgctxt "OnlineTranslator|"
 msgid "Lower Sorbian"
-msgstr ""
+msgstr "Lejassorbu"
 
 #: src/onlinetranslator.cpp:736
 msgctxt "OnlineTranslator|"
 msgid "Luganda"
-msgstr ""
+msgstr "Lugandu"
 
 #: src/onlinetranslator.cpp:738
 msgctxt "OnlineTranslator|"
@@ -1347,17 +1314,14 @@ msgid "Macedonian"
 msgstr "Maķedoniešu"
 
 #: src/onlinetranslator.cpp:742
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Swahili"
 msgctxt "OnlineTranslator|"
 msgid "Maithili"
-msgstr "Svahili"
+msgstr "Maithili"
 
 #: src/onlinetranslator.cpp:744
 msgctxt "OnlineTranslator|"
 msgid "Malagasy"
-msgstr "Malagasu"
+msgstr "Malgašu"
 
 #: src/onlinetranslator.cpp:746
 msgctxt "OnlineTranslator|"
@@ -1375,42 +1339,39 @@ msgid "Maltese"
 msgstr "Maltiešu"
 
 #: src/onlinetranslator.cpp:752
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Scots Gaelic"
 msgctxt "OnlineTranslator|"
 msgid "Manx Gaelic"
-msgstr "Skotu gēlu"
+msgstr "Meniešu"
 
 #: src/onlinetranslator.cpp:754
 msgctxt "OnlineTranslator|"
 msgid "Marathi"
-msgstr "Maratu"
+msgstr "Marathu"
 
 #: src/onlinetranslator.cpp:756
 msgctxt "OnlineTranslator|"
 msgid "Mari"
-msgstr "Māri"
+msgstr "Mariešu"
 
 #: src/onlinetranslator.cpp:758
 msgctxt "OnlineTranslator|"
 msgid "Marshallese"
-msgstr ""
+msgstr "Māršaliešu"
 
 #: src/onlinetranslator.cpp:760
 msgctxt "OnlineTranslator|"
 msgid "Meiteilon (Manipuri)"
-msgstr ""
+msgstr "Manipūru"
 
 #: src/onlinetranslator.cpp:762
 msgctxt "OnlineTranslator|"
 msgid "Mende"
-msgstr ""
+msgstr "Mende"
 
 #: src/onlinetranslator.cpp:764
 msgctxt "OnlineTranslator|"
 msgid "Mizo"
-msgstr ""
+msgstr "Mizo"
 
 #: src/onlinetranslator.cpp:766
 msgctxt "OnlineTranslator|"
@@ -1418,35 +1379,29 @@ msgid "Mongolian"
 msgstr "Mongoļu"
 
 #: src/onlinetranslator.cpp:768
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Serbian (Cyrillic)"
 msgctxt "OnlineTranslator|"
 msgid "Mongolian (Cyrillic)"
-msgstr "Serbu (kirilica)"
+msgstr "Mongoļu (kirilica)"
 
 #: src/onlinetranslator.cpp:770
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Chinese (Traditional)"
 msgctxt "OnlineTranslator|"
 msgid "Mongolian (Traditional)"
-msgstr "Ķīniešu (tradicionālā)"
+msgstr "Mongoļu (tradicionālā)"
 
 #: src/onlinetranslator.cpp:772
 msgctxt "OnlineTranslator|"
 msgid "Morisyen"
-msgstr ""
+msgstr "Maurīcijas kreolu"
 
 #: src/onlinetranslator.cpp:774
 msgctxt "OnlineTranslator|"
 msgid "Myanmar (Burmese)"
-msgstr ""
+msgstr "Birmiešu (mjanmu)"
 
 #: src/onlinetranslator.cpp:776
 msgctxt "OnlineTranslator|"
 msgid "Māori"
-msgstr ""
+msgstr "Maoru"
 
 #: src/onlinetranslator.cpp:778
 msgctxt "OnlineTranslator|"
@@ -1456,7 +1411,7 @@ msgstr "Nepāliešu"
 #: src/onlinetranslator.cpp:780
 msgctxt "OnlineTranslator|"
 msgid "Niuean"
-msgstr ""
+msgstr "Niuiešu"
 
 #: src/onlinetranslator.cpp:782
 msgctxt "OnlineTranslator|"
@@ -1466,30 +1421,27 @@ msgstr "Norvēģu"
 #: src/onlinetranslator.cpp:784
 msgctxt "OnlineTranslator|"
 msgid "Nyanja"
-msgstr ""
+msgstr "Njandžu"
 
 #: src/onlinetranslator.cpp:786
 msgctxt "OnlineTranslator|"
 msgid "Odia"
-msgstr ""
+msgstr "Oriju"
 
 #: src/onlinetranslator.cpp:788
 msgctxt "OnlineTranslator|"
 msgid "Oromo"
-msgstr ""
+msgstr "Oromu"
 
 #: src/onlinetranslator.cpp:790
 msgctxt "OnlineTranslator|"
 msgid "Palauan"
-msgstr ""
+msgstr "Palauiešu"
 
 #: src/onlinetranslator.cpp:792
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Papiamento"
 msgctxt "OnlineTranslator|"
 msgid "Papiamentu"
-msgstr "Papiamento"
+msgstr "Papjamento"
 
 #: src/onlinetranslator.cpp:794
 msgctxt "OnlineTranslator|"
@@ -1504,7 +1456,7 @@ msgstr "Persiešu"
 #: src/onlinetranslator.cpp:798
 msgctxt "OnlineTranslator|"
 msgid "Pijin"
-msgstr ""
+msgstr "Pidžins"
 
 #: src/onlinetranslator.cpp:800
 msgctxt "OnlineTranslator|"
@@ -1512,25 +1464,19 @@ msgid "Polish"
 msgstr "Poļu"
 
 #: src/onlinetranslator.cpp:802
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Portuguese"
 msgctxt "OnlineTranslator|"
 msgid "Portuguese (Brazilian)"
-msgstr "Portugāļu"
+msgstr "Portugāļu (Brazīlijas)"
 
 #: src/onlinetranslator.cpp:804
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Portuguese"
 msgctxt "OnlineTranslator|"
 msgid "Portuguese (Portugal)"
-msgstr "Portugāļu"
+msgstr "Portugāļu (Portugāles)"
 
 #: src/onlinetranslator.cpp:806
 msgctxt "OnlineTranslator|"
 msgid "Potawatomi"
-msgstr ""
+msgstr "Potavatomi"
 
 #: src/onlinetranslator.cpp:808
 msgctxt "OnlineTranslator|"
@@ -1540,15 +1486,12 @@ msgstr "Pandžabu"
 #: src/onlinetranslator.cpp:810
 msgctxt "OnlineTranslator|"
 msgid "Quechua"
-msgstr ""
+msgstr "Kečvu"
 
 #: src/onlinetranslator.cpp:812
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Queretaro Otomi"
 msgctxt "OnlineTranslator|"
 msgid "Querétaro Otomi"
-msgstr "Queretaro Otomi"
+msgstr "Keretaro otomi"
 
 #: src/onlinetranslator.cpp:814
 msgctxt "OnlineTranslator|"
@@ -1558,7 +1501,7 @@ msgstr "Rumāņu"
 #: src/onlinetranslator.cpp:816
 msgctxt "OnlineTranslator|"
 msgid "Rundi"
-msgstr ""
+msgstr "Rundu"
 
 #: src/onlinetranslator.cpp:818
 msgctxt "OnlineTranslator|"
@@ -1568,17 +1511,17 @@ msgstr "Krievu"
 #: src/onlinetranslator.cpp:820
 msgctxt "OnlineTranslator|"
 msgid "Samoan"
-msgstr "Samoa"
+msgstr "Samoāņu"
 
 #: src/onlinetranslator.cpp:822
 msgctxt "OnlineTranslator|"
 msgid "Sango"
-msgstr ""
+msgstr "Sangu"
 
 #: src/onlinetranslator.cpp:824
 msgctxt "OnlineTranslator|"
 msgid "Sanskrit"
-msgstr ""
+msgstr "Sanskrits"
 
 #: src/onlinetranslator.cpp:826
 msgctxt "OnlineTranslator|"
@@ -1601,32 +1544,29 @@ msgid "Sesotho"
 msgstr "Sesoto"
 
 #: src/onlinetranslator.cpp:834
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Sesotho"
 msgctxt "OnlineTranslator|"
 msgid "Sesotho sa Leboa"
-msgstr "Sesoto"
+msgstr "Ziemeļsotu"
 
 #: src/onlinetranslator.cpp:836
 msgctxt "OnlineTranslator|"
 msgid "Setswana"
-msgstr ""
+msgstr "Cvanu"
 
 #: src/onlinetranslator.cpp:838
 msgctxt "OnlineTranslator|"
 msgid "Shona"
-msgstr "Šona"
+msgstr "Šonu"
 
 #: src/onlinetranslator.cpp:840
 msgctxt "OnlineTranslator|"
 msgid "Sindhi"
-msgstr "Sindhi"
+msgstr "Sindhu"
 
 #: src/onlinetranslator.cpp:842
 msgctxt "OnlineTranslator|"
 msgid "Sinhala"
-msgstr "Sinhalu"
+msgstr "Singāļu"
 
 #: src/onlinetranslator.cpp:844
 msgctxt "OnlineTranslator|"
@@ -1641,7 +1581,7 @@ msgstr "Slovēņu"
 #: src/onlinetranslator.cpp:848
 msgctxt "OnlineTranslator|"
 msgid "Somali"
-msgstr "Somāliešu"
+msgstr "Somāļu"
 
 #: src/onlinetranslator.cpp:850
 msgctxt "OnlineTranslator|"
@@ -1651,12 +1591,12 @@ msgstr "Spāņu"
 #: src/onlinetranslator.cpp:852
 msgctxt "OnlineTranslator|"
 msgid "Sranan Tongo"
-msgstr ""
+msgstr "Srnantongo"
 
 #: src/onlinetranslator.cpp:854
 msgctxt "OnlineTranslator|"
 msgid "Sundanese"
-msgstr "Sundāņu"
+msgstr "Sundu"
 
 #: src/onlinetranslator.cpp:856
 msgctxt "OnlineTranslator|"
@@ -1671,7 +1611,7 @@ msgstr "Zviedru"
 #: src/onlinetranslator.cpp:860
 msgctxt "OnlineTranslator|"
 msgid "Syriac (Aramaic)"
-msgstr ""
+msgstr "Sīriešu (aramiešu)"
 
 #: src/onlinetranslator.cpp:862
 msgctxt "OnlineTranslator|"
@@ -1686,7 +1626,7 @@ msgstr "Tadžiku"
 #: src/onlinetranslator.cpp:866
 msgctxt "OnlineTranslator|"
 msgid "Tamashek (Tuareg)"
-msgstr ""
+msgstr "Tuaregu"
 
 #: src/onlinetranslator.cpp:868
 msgctxt "OnlineTranslator|"
@@ -1706,7 +1646,7 @@ msgstr "Telugu"
 #: src/onlinetranslator.cpp:874
 msgctxt "OnlineTranslator|"
 msgid "Tetum"
-msgstr ""
+msgstr "Tetunu"
 
 #: src/onlinetranslator.cpp:876
 msgctxt "OnlineTranslator|"
@@ -1716,35 +1656,32 @@ msgstr "Taju"
 #: src/onlinetranslator.cpp:878
 msgctxt "OnlineTranslator|"
 msgid "Tibetan"
-msgstr ""
+msgstr "Tibetiešu"
 
 #: src/onlinetranslator.cpp:880
 msgctxt "OnlineTranslator|"
 msgid "Tigrinya"
-msgstr ""
+msgstr "Tigrinja"
 
 #: src/onlinetranslator.cpp:882
 msgctxt "OnlineTranslator|"
 msgid "Tok Pisin"
-msgstr ""
+msgstr "Tokpisins"
 
 #: src/onlinetranslator.cpp:884
 msgctxt "OnlineTranslator|"
 msgid "Tokelauan"
-msgstr ""
+msgstr "Tokelaviešu"
 
 #: src/onlinetranslator.cpp:886
 msgctxt "OnlineTranslator|"
 msgid "Tongan"
-msgstr "Tonga"
+msgstr "Tongiešu"
 
 #: src/onlinetranslator.cpp:888
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Tongan"
 msgctxt "OnlineTranslator|"
 msgid "Tsonga"
-msgstr "Tonga"
+msgstr "Congu"
 
 #: src/onlinetranslator.cpp:890
 msgctxt "OnlineTranslator|"
@@ -1759,12 +1696,12 @@ msgstr "Turkmēņu"
 #: src/onlinetranslator.cpp:894
 msgctxt "OnlineTranslator|"
 msgid "Tuvaluan"
-msgstr ""
+msgstr "Tuvaliešu"
 
 #: src/onlinetranslator.cpp:896
 msgctxt "OnlineTranslator|"
 msgid "Twi"
-msgstr ""
+msgstr "Tvi"
 
 #: src/onlinetranslator.cpp:898
 msgctxt "OnlineTranslator|"
@@ -1779,12 +1716,12 @@ msgstr "Ukraiņu"
 #: src/onlinetranslator.cpp:902
 msgctxt "OnlineTranslator|"
 msgid "Uma"
-msgstr ""
+msgstr "Uma"
 
 #: src/onlinetranslator.cpp:904
 msgctxt "OnlineTranslator|"
 msgid "Upper Sorbian"
-msgstr ""
+msgstr "Augšsorbu"
 
 #: src/onlinetranslator.cpp:906
 msgctxt "OnlineTranslator|"
@@ -1792,28 +1729,19 @@ msgid "Urdu"
 msgstr "Urdu"
 
 #: src/onlinetranslator.cpp:908
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Uighur"
 msgctxt "OnlineTranslator|"
 msgid "Uyghur"
 msgstr "Uiguru"
 
 #: src/onlinetranslator.cpp:910
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Serbian (Cyrillic)"
 msgctxt "OnlineTranslator|"
 msgid "Uzbek (Cyrillic)"
-msgstr "Serbu (kirilica)"
+msgstr "Uzbeku (kirilica)"
 
 #: src/onlinetranslator.cpp:912
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Serbian (Latin)"
 msgctxt "OnlineTranslator|"
 msgid "Uzbek (Latin)"
-msgstr "Serbu (latīņu)"
+msgstr "Uzbeku (latīņu)"
 
 #: src/onlinetranslator.cpp:914
 msgctxt "OnlineTranslator|"
@@ -1821,12 +1749,9 @@ msgid "Vietnamese"
 msgstr "Vjetnamiešu"
 
 #: src/onlinetranslator.cpp:916
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Frisian"
 msgctxt "OnlineTranslator|"
 msgid "Wallisian"
-msgstr "Frīzu"
+msgstr "Uveiešu"
 
 #: src/onlinetranslator.cpp:918
 msgctxt "OnlineTranslator|"
@@ -1836,32 +1761,32 @@ msgstr "Velsiešu"
 #: src/onlinetranslator.cpp:920
 msgctxt "OnlineTranslator|"
 msgid "Wolof"
-msgstr ""
+msgstr "Volofu"
 
 #: src/onlinetranslator.cpp:922
 msgctxt "OnlineTranslator|"
 msgid "Xhosa"
-msgstr "Ksosa"
+msgstr "Isiķhosa"
 
 #: src/onlinetranslator.cpp:924
 msgctxt "OnlineTranslator|"
 msgid "Yakut"
-msgstr ""
+msgstr "Jakutu"
 
 #: src/onlinetranslator.cpp:926
 msgctxt "OnlineTranslator|"
 msgid "Yiddish"
-msgstr "Jidiša"
+msgstr "Jidišs"
 
 #: src/onlinetranslator.cpp:928
 msgctxt "OnlineTranslator|"
 msgid "Yoruba"
-msgstr "Joruba"
+msgstr "Jorubu"
 
 #: src/onlinetranslator.cpp:930
 msgctxt "OnlineTranslator|"
 msgid "Yucatec Maya"
-msgstr "Jukateka Maija"
+msgstr "Jukateku maiju"
 
 #: src/onlinetranslator.cpp:932
 msgctxt "OnlineTranslator|"
@@ -1872,23 +1797,23 @@ msgstr "Zulu"
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Instance error: %1"
-msgstr ""
+msgstr "Instances kļūda: %1"
 
 #: src/onlinetranslator.cpp:1294
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
-msgstr "Kļūda: nevar parsēt automātiski noteikto valodu"
+msgstr "Kļūda: neizdodas parsēt automātiski noteiktu valodu"
 
 #: src/popupwindow.ui:32
 msgctxt "PopupWindow|"
 msgid "Swap languages"
-msgstr "Mainīt valodas"
+msgstr "Mainīt vietām valodas"
 
 #: src/popupwindow.ui:60 src/popupwindow.ui:105 src/popupwindow.ui:202
 #: src/popupwindow.ui:247
 msgctxt "PopupWindow|"
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: src/popupwindow.ui:112
 msgctxt "PopupWindow|"
@@ -1920,30 +1845,30 @@ msgstr "Nevar piemērot automātiskās palaišanas iestatījumus"
 #, qt-format
 msgctxt "PortalAutostartManager|"
 msgid "Allow %1 to manage autostart setting for itself."
-msgstr "Ļaut %1 pārvaldīt automātiskās palaišanas iestatījumus."
+msgstr "Ļaut „%1“ pārvaldīt savus automātiskās palaišanas iestatījumus."
 
 #: src/settings/autostartmanager/portalautostartmanager.cpp:53
 msgctxt "PortalAutostartManager|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
-msgstr "Nevar abonēt atbildi no xdg-desktop-portal."
+msgstr "Nav iespējams parakstīties uz „xdg-desktop-portal“ atbildi."
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:35
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to create %1"
-msgstr "Nevar izveidot %1"
+msgstr "Neizdodas izveidot „%1“"
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:42
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to copy %1 to %2"
-msgstr "Nevar nokopēt %1 uz %2"
+msgstr "Neizdodas nokopēt „%1“ uz „%2“"
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:47
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
-msgstr "Nevar noņemt %1 no %2"
+msgstr "Neizdodas noņemt „%1“ no „%2“"
 
 #: src/settings/settingsdialog.cpp:35
 msgctxt "SettingsDialog|"
@@ -1954,7 +1879,7 @@ msgstr "Pārnēsājams režīms"
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
-msgstr "Izmantot %1 iestatījumu saglabāšanai"
+msgstr "Izmantot „%1“ iestatījumu saglabāšanai"
 
 #: src/settings/settingsdialog.cpp:52
 msgctxt "SettingsDialog|"
@@ -1962,22 +1887,19 @@ msgid "<System language>"
 msgstr "<Sistēmas valoda>"
 
 #: src/settings/settingsdialog.cpp:56 src/settings/settingsdialog.cpp:57
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Auto"
 msgctxt "SettingsDialog|"
 msgid "<Auto>"
-msgstr "Auto"
+msgstr "<Auto>"
 
 #: src/settings/settingsdialog.cpp:74
 msgctxt "SettingsDialog|"
 msgid "Copy"
-msgstr ""
+msgstr "Kopēt"
 
 #: src/settings/settingsdialog.cpp:78
 msgctxt "SettingsDialog|"
 msgid "None"
-msgstr ""
+msgstr "Nav"
 
 #: src/settings/settingsdialog.cpp:110
 msgctxt "SettingsDialog|"
@@ -2002,7 +1924,7 @@ msgstr "Izvēlēties ikonu"
 #: src/settings/settingsdialog.cpp:294
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
-msgstr "Attēli (*.png *.ico *.svg *.jpg);;Visi faili()"
+msgstr "Attēli (*.png *.ico *.svg *.jpg);;Visas datnes()"
 
 #: src/settings/settingsdialog.cpp:324
 msgctxt "SettingsDialog|"
@@ -2012,23 +1934,17 @@ msgstr "Atlasīt OCR valodu ceļu"
 #: src/settings/settingsdialog.cpp:339
 msgctxt "SettingsDialog|"
 msgid "Piper voices path:"
-msgstr ""
+msgstr "Ceļš uz „Piper“ balsīm:"
 
 #: src/settings/settingsdialog.cpp:353
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Directory with trained models"
 msgctxt "SettingsDialog|"
 msgid "Directory with voice models"
-msgstr "Katalogs ar apmācītiem modeļiem"
+msgstr "Mape ar balsu modeļiem"
 
 #: src/settings/settingsdialog.cpp:354 src/settings/settingsdialog.cpp:373
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Select OCR languages path"
 msgctxt "SettingsDialog|"
 msgid "Select Piper voices path"
-msgstr "Atlasīt OCR valodu ceļu"
+msgstr "Atlasīt „Piper“ valodu ceļu"
 
 #: src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
@@ -2048,7 +1964,7 @@ msgstr "Vispārīgi"
 #: src/settings/settingsdialog.ui:57
 msgctxt "SettingsDialog|"
 msgid "Interface"
-msgstr "Interfeiss"
+msgstr "Saskarne"
 
 #: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:783
 msgctxt "SettingsDialog|"
@@ -2058,12 +1974,12 @@ msgstr "Tulkošana"
 #: src/settings/settingsdialog.ui:73
 msgctxt "SettingsDialog|"
 msgid "Text-To-Speech"
-msgstr ""
+msgstr "Teksta izrunāšana"
 
 #: src/settings/settingsdialog.ui:81
 msgctxt "SettingsDialog|"
 msgid "Mozhi"
-msgstr ""
+msgstr "Mozhi"
 
 #: src/settings/settingsdialog.ui:97
 msgctxt "SettingsDialog|"
@@ -2073,7 +1989,7 @@ msgstr "Savienojums"
 #: src/settings/settingsdialog.ui:105
 msgctxt "SettingsDialog|"
 msgid "Shortcuts"
-msgstr "Īsceļi"
+msgstr "Saīsnes"
 
 #: src/settings/settingsdialog.ui:113
 msgctxt "SettingsDialog|"
@@ -2103,14 +2019,14 @@ msgid ""
 "match the screen orientation</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Galvenā loga izkārtojuma orientācija<br/>Izmantojot "
-"<span style=\" font-style:italic;\">Auto</span>, loga orientācija atbilst "
-"ekrāna orientācijai</p></body></html>"
+"<span style=\" font-style:italic;\">Automātiski</span>, loga orientācija "
+"atbilst ekrāna orientācijai</p></body></html>"
 
 #. Orientation
 #: src/settings/settingsdialog.ui:181
 msgctxt "SettingsDialog|"
 msgid "Auto"
-msgstr "Auto"
+msgstr "Automātiski"
 
 #. Orientation
 #: src/settings/settingsdialog.ui:186
@@ -2137,8 +2053,7 @@ msgid ""
 "html>"
 msgstr ""
 "<html><head/><body><p>Logs atlasītā teksta tulkošanai. Ja lietojumprogramma "
-"ir samazināta līdz minimumam, vienmēr tiks lietots galvenais logs.</p></"
-"body></html>"
+"ir minimizēta, vienmēr tiks lietots galvenais logs.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:210 src/settings/settingsdialog.ui:359
 msgctxt "SettingsDialog|"
@@ -2153,7 +2068,7 @@ msgstr "Galvenais logs"
 #: src/settings/settingsdialog.ui:220
 msgctxt "SettingsDialog|"
 msgid "Notification"
-msgstr "Paziņojums"
+msgstr "Paziņojumi"
 
 #: src/settings/settingsdialog.ui:228
 msgctxt "SettingsDialog|"
@@ -2172,17 +2087,18 @@ msgstr ""
 #: src/settings/settingsdialog.ui:244 src/settings/settingsdialog.ui:449
 msgctxt "SettingsDialog|"
 msgid " sec"
-msgstr " Sek"
+msgstr " sek."
 
 #: src/settings/settingsdialog.ui:257
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Display icon in the system tray</p></body></html>"
-msgstr "<html><head/><body><p>Rādīt ikonu sistēmas teknē</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Rādīt ikonu sistēmas ikonu joslā</p></body></html>"
 
 #: src/settings/settingsdialog.ui:260
 msgctxt "SettingsDialog|"
 msgid "Show tray icon"
-msgstr "Rādīt teknes ikonu"
+msgstr "Rādīt ikonu sistēmas ikonu joslā"
 
 #: src/settings/settingsdialog.ui:270
 msgctxt "SettingsDialog|"
@@ -2190,8 +2106,8 @@ msgid ""
 "<html><head/><body><p>Start application minimized to the system tray</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Sākt lietojumprogrammu, kas samazināta līdz sistēmas "
-"teknei</p></body></html>"
+"<html><head/><body><p>Sākt programmu minimizētu sistēmas ikonu joslā</p></"
+"body></html>"
 
 #: src/settings/settingsdialog.ui:273
 msgctxt "SettingsDialog|"
@@ -2203,13 +2119,13 @@ msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Run the application at system startup</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Palaidiet lietojumprogrammu sistēmas startēšanas "
-"laikā</p></body></html>"
+"<html><head/><body><p>Palaist programmu ierīces ieslēgšanas laikā</p></"
+"body></html>"
 
 #: src/settings/settingsdialog.ui:283
 msgctxt "SettingsDialog|"
 msgid "Launch at startup"
-msgstr "Palaist startēšanas laikā"
+msgstr "Palaist ieslēgšanas laikā"
 
 #: src/settings/settingsdialog.ui:316
 msgctxt "SettingsDialog|"
@@ -2273,7 +2189,7 @@ msgstr "Necaurredzamība:"
 #: src/settings/settingsdialog.ui:426
 msgctxt "SettingsDialog|"
 msgid "Show timeout:"
-msgstr "Rādīt taimautu:"
+msgstr "Rādīt noildzi:"
 
 #: src/settings/settingsdialog.ui:433
 msgctxt "SettingsDialog|"
@@ -2286,8 +2202,8 @@ msgid ""
 "<html><head/><body><p>The number of seconds after which the window will be "
 "hidden if it has no focus</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Sekunžu skaits, pēc kura logs tiks paslēpts, ja tam "
-"nav fokusa</p></body></html>"
+"<html><head/><body><p>Sekunžu skaits, pēc kura logs tiks paslēpts, ja tas "
+"nav fokusā</p></body></html>"
 
 #: src/settings/settingsdialog.ui:469
 msgctxt "SettingsDialog|"
@@ -2307,7 +2223,7 @@ msgstr "<html><head/><body><p>Valodu teksts uz pogām</p></body></html>"
 #: src/settings/settingsdialog.ui:486 src/settings/settingsdialog.ui:510
 msgctxt "SettingsDialog|"
 msgid "Full name"
-msgstr "Pilnais vārds"
+msgstr "Pilns nosaukums"
 
 #: src/settings/settingsdialog.ui:491 src/settings/settingsdialog.ui:515
 msgctxt "SettingsDialog|"
@@ -2322,7 +2238,7 @@ msgstr "Uznirstošais logs:"
 #: src/settings/settingsdialog.ui:526
 msgctxt "SettingsDialog|"
 msgid "Tray icon"
-msgstr "Teknes ikona"
+msgstr "Sistēmas ikonu joslas ikona"
 
 #: src/settings/settingsdialog.ui:532
 msgctxt "SettingsDialog|"
@@ -2332,7 +2248,7 @@ msgstr "Ikona:"
 #: src/settings/settingsdialog.ui:545
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>System tray icon</p></body></html>"
-msgstr "<html><head/><body><p>Sistēmas teknes ikona</p></body></html>"
+msgstr "<html><head/><body><p>Sistēmas ikonu joslas ikona</p></body></html>"
 
 #: src/settings/settingsdialog.ui:549
 msgctxt "SettingsDialog|"
@@ -2342,22 +2258,22 @@ msgstr "Noklusējums"
 #: src/settings/settingsdialog.ui:557
 msgctxt "SettingsDialog|"
 msgid "Monochrome (dark theme)"
-msgstr "Vienkrāsains (tumšs motīvs)"
+msgstr "Vienkrāsaina (tumšais motīvs)"
 
 #: src/settings/settingsdialog.ui:565
 msgctxt "SettingsDialog|"
 msgid "Monochrome (light theme)"
-msgstr "Vienkrāsains (gaiša tēma)"
+msgstr "Vienkrāsaina (gaišais motīvs)"
 
 #: src/settings/settingsdialog.ui:573
 msgctxt "SettingsDialog|"
 msgid "Custom"
-msgstr "Pielāgots"
+msgstr "Pielāgota"
 
 #: src/settings/settingsdialog.ui:587
 msgctxt "SettingsDialog|"
 msgid "Custom:"
-msgstr "Pielāgots:"
+msgstr "Pielāgota:"
 
 #: src/settings/settingsdialog.ui:599
 msgctxt "SettingsDialog|"
@@ -2370,12 +2286,9 @@ msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>Atlasīt ikonu</p></body></html>"
 
 #: src/settings/settingsdialog.ui:650
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation provider:"
-msgstr "Tulkošanas režīms:"
+msgstr "Tulkošanas pakalpojuma sniedzējs:"
 
 #: src/settings/settingsdialog.ui:673
 msgctxt "SettingsDialog|"
@@ -2417,7 +2330,7 @@ msgid ""
 "italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Automātiski pārslēgties uz <span style=\" font-style:"
-"italic;\">Automātiski</span>, kad izmantojat OCR un globālos saīsnes</p></"
+"italic;\">Automātiski</span>, kad izmantojat OCR un globālās saīsnes</p></"
 "body></html>"
 
 #: src/settings/settingsdialog.ui:710
@@ -2433,12 +2346,12 @@ msgstr "Piespiedu tulkošanas valodas noteikšana"
 #: src/settings/settingsdialog.ui:741
 msgctxt "SettingsDialog|"
 msgid "Text-to-Speech"
-msgstr ""
+msgstr "Teksta izrunāšana"
 
 #: src/settings/settingsdialog.ui:747
 msgctxt "SettingsDialog|"
 msgid "Provider:"
-msgstr ""
+msgstr "Pakalpojuma sniedzējs:"
 
 #: src/settings/settingsdialog.ui:789
 msgctxt "SettingsDialog|"
@@ -2446,13 +2359,13 @@ msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Iespējot vai atspējot avota transliterāciju</p></"
-"body></html>"
+"<html><head/><body><p>Ieslēgt vai izslēgt avota transliterāciju</p></body></"
+"html>"
 
 #: src/settings/settingsdialog.ui:792
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
-msgstr "Iespējot avota transliterāciju"
+msgstr "Ieslēgt avota transliterāciju"
 
 #: src/settings/settingsdialog.ui:799
 msgctxt "SettingsDialog|"
@@ -2460,13 +2373,13 @@ msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Iespējot vai atspējot tulkojumu transliterāciju</p></"
+"<html><head/><body><p>Ieslēgt vai izslēgt tulkojumu transliterāciju</p></"
 "body></html>"
 
 #: src/settings/settingsdialog.ui:802
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
-msgstr "Iespējot tulkojumu transliterāciju"
+msgstr "Ieslēgt tulkojumu transliterāciju"
 
 #: src/settings/settingsdialog.ui:809
 msgctxt "SettingsDialog|"
@@ -2474,39 +2387,39 @@ msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Iespējot vai atspējot avota transkripciju</p></body></"
+"<html><head/><body><p>Ieslēgt vai izslēgt avota transkripciju</p></body></"
 "html>"
 
 #: src/settings/settingsdialog.ui:812
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
-msgstr "Iespējot avota transkripciju"
+msgstr "Ieslēgt avota transkripciju"
 
 #: src/settings/settingsdialog.ui:819
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Iespējot vai atspējot tulkošanas opcijas</p></body></"
+"<html><head/><body><p>Ieslēgt vai izslēgt tulkošanas opcijas</p></body></"
 "html>"
 
 #: src/settings/settingsdialog.ui:822
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
-msgstr "Iespējot tulkošanas opcijas"
+msgstr "Ieslēgt tulkošanas opcijas"
 
 #: src/settings/settingsdialog.ui:829
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Iespējot vai atspējot lietojuma piemērus</p></body></"
-"html>"
+"<html><head/><body><p>Ieslēgt vai izslēgt lietojuma piemēru parādīšanu</p></"
+"body></html>"
 
 #: src/settings/settingsdialog.ui:832
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
-msgstr "Iespējot piemērus"
+msgstr "Rādīt piemērus"
 
 #: src/settings/settingsdialog.ui:839
 msgctxt "SettingsDialog|"
@@ -2515,32 +2428,29 @@ msgid ""
 "the ASCII characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' ') with a "
 "single space in queries</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Aizstāt katru atstarpju secību (tas ietver ASCII "
-"rakstzīmes '\\t', '\\n', '\\v', '\\f', '\\r', and ' ') ar vienu atstarpi "
-"pieprasījumos</p></body></html>"
+"<html><head/><body><p>Pieprasījumos aizstāt katru atstarpju secību (tostarp "
+"ASCII rakstzīmes '\\t', '\\n', '\\v', '\\f', '\\r' un ' ') ar vienu "
+"atstarpi</p></body></html>"
 
 #: src/settings/settingsdialog.ui:842
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
-msgstr "Vienkāršojiet avotu"
+msgstr "Vienkāršot avotu"
 
 #: src/settings/settingsdialog.ui:871
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
-msgstr ""
+msgstr "„Mozhi“ instances URL"
 
 #: src/settings/settingsdialog.ui:884
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
-msgstr ""
+msgstr "Automātiski izvēlieties ātrāko instanci, ņemot vērā „ping“ datus"
 
 #: src/settings/settingsdialog.ui:887
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Speech test:"
 msgctxt "SettingsDialog|"
 msgid "Detect fastest"
-msgstr "Runas pārbaude:"
+msgstr "Ātrākā noteikšana"
 
 #: src/settings/settingsdialog.ui:920
 msgctxt "SettingsDialog|"
@@ -2556,7 +2466,7 @@ msgid ""
 "body></html>"
 msgstr ""
 "<html><head/><body><p>Papildu valodu ielāde ietekmēs gan ātrumu, gan "
-"precizitāti, jo ir vairāk darba, lai izlemtu par piemērojamo valodu, un ir "
+"precizitāti, jo atbilstošās valodas noteikšana prasa vairāk darba, kā arī ir "
 "lielāka iespēja halucinēt nepareizus vārdus.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:933
@@ -2572,7 +2482,7 @@ msgstr "<html><head/><body><p>Atlasīt OCR valodu ceļu</p></body></html>"
 #: src/settings/settingsdialog.ui:950
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
-msgstr "<html><head/><body><p>Atvērt GitHub repozitoriju</p></body></html>"
+msgstr "<html><head/><body><p>Atvērt „GitHub“ repozitoriju</p></body></html>"
 
 #: src/settings/settingsdialog.ui:953
 msgctxt "SettingsDialog|"
@@ -2607,7 +2517,7 @@ msgstr "Pārvērst rindiņu pārtraukumus"
 #: src/settings/settingsdialog.ui:1046
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
-msgstr "Ekrāna uztveršana"
+msgstr "Ekrāna uzņemšana"
 
 #: src/settings/settingsdialog.ui:1058
 msgctxt "SettingsDialog|"
@@ -2641,12 +2551,12 @@ msgstr "Atcerēties vienmēr"
 #: src/settings/settingsdialog.ui:1087
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
-msgstr "Tveršanas aizkave:"
+msgstr "Uzņemšanas aizkave:"
 
 #: src/settings/settingsdialog.ui:1094
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
-msgstr "Aizkave pirms ekrāna tveršanas"
+msgstr "Aizkave pirms ekrāna uzņemšanas"
 
 #: src/settings/settingsdialog.ui:1097
 msgctxt "SettingsDialog|"
@@ -2666,23 +2576,18 @@ msgid "Show magnifier"
 msgstr "Rādīt palielinātāju"
 
 #: src/settings/settingsdialog.ui:1117
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "<html><head/><body><p>Replace all single line breaks with a space after "
-#| "text recognition</p></body></html>"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
 "text on dark background.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Pēc teksta atpazīšanas aizstāt visus vienas rindiņas "
-"pārtraukumus ar atstarpi</p></body></html>"
+"<html><head/><body><p>Pirms OCR invertēt attēlu. Izmantojiet gaiša teksta uz "
+"tumša fona gadījumos.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1120
 msgctxt "SettingsDialog|"
 msgid "Negate OCR"
-msgstr ""
+msgstr "Invertēt OCR"
 
 #: src/settings/settingsdialog.ui:1130
 msgctxt "SettingsDialog|"
@@ -2690,13 +2595,13 @@ msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
 "released</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Pabeidziet fragmenta tveršanu, kad peles poga ir "
-"atlaista</p></body></html>"
+"<html><head/><body><p>Pabeigt fragmenta uzņemšanu, kad ir atlaista peles "
+"poga</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1133
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
-msgstr "Apstipriniet pēc atbrīvošanas"
+msgstr "Apstiprināt atlaižot"
 
 #: src/settings/settingsdialog.ui:1140
 msgctxt "SettingsDialog|"
@@ -2710,7 +2615,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:1143
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
-msgstr "Uzklājiet vieglu masku"
+msgstr "Uzklāt vieglu masku"
 
 #: src/settings/settingsdialog.ui:1176
 msgctxt "SettingsDialog|"
@@ -2740,13 +2645,13 @@ msgstr "Nelietot starpniekserveri"
 #: src/settings/settingsdialog.ui:1225
 msgctxt "SettingsDialog|"
 msgid "Host:"
-msgstr "Saimniekdators:"
+msgstr "Resursdators:"
 
 #: src/settings/settingsdialog.ui:1235
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Starpniekservera saimniekdatora nosaukums</p></body></"
+"<html><head/><body><p>Starpniekservera resursdatora nosaukums</p></body></"
 "html>"
 
 #: src/settings/settingsdialog.ui:1248
@@ -2769,7 +2674,7 @@ msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Iespējot vai atspējot autentifikāciju</p></body></html>"
+"<html><head/><body><p>Ieslēgt vai izslēgt autentifikāciju</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1296
 msgctxt "SettingsDialog|"
@@ -2817,14 +2722,14 @@ msgstr ""
 #: src/settings/settingsdialog.ui:1388
 msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
-msgstr "Iespējot globālās saīsnes"
+msgstr "Ieslēgt globālo saīšņu izmantošanu"
 
 #: src/settings/settingsdialog.ui:1404
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Atiestatīt visus īsinājumtaustiņus uz noklusējuma "
-"iestatījumiem</p></body></html>"
+"<html><head/><body><p>Atiestatīt visas saīsnes uz noklusējuma iestatījumiem</"
+"p></body></html>"
 
 #: src/settings/settingsdialog.ui:1407
 msgctxt "SettingsDialog|"
@@ -2834,7 +2739,7 @@ msgstr "Atiestatīt visu"
 #: src/settings/settingsdialog.ui:1417
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
-msgstr "Īsceļš"
+msgstr "Saīsne"
 
 #: src/settings/settingsdialog.ui:1423
 msgctxt "SettingsDialog|"
@@ -2897,12 +2802,9 @@ msgid "Source code:"
 msgstr "Avota kods:"
 
 #: src/settings/settingsdialog.ui:1555
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation backend:"
-msgstr "Tulkošanas režīms:"
+msgstr "Tulkošanas aizmugursistēma:"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:21
 msgctxt "ShortcutsModel|"
@@ -2917,7 +2819,7 @@ msgstr "Tulkot atlasīto tekstu"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:26
 msgctxt "ShortcutsModel|"
 msgid "Speak selected text"
-msgstr "Runāt atlasīto tekstu"
+msgstr "Izrunāt atlasīto tekstu"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:29
 msgctxt "ShortcutsModel|"
@@ -2927,13 +2829,13 @@ msgstr "Izrunāt atlasītā teksta tulkojumu"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:32
 msgctxt "ShortcutsModel|"
 msgid "Stop text speaking"
-msgstr "Pārtraukt teksta runāšanu"
+msgstr "Pārtraukt teksta izrunāšanu"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:35
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:73
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause text speaking"
-msgstr "Runāt/pārtraukt teksta runāšanu"
+msgstr "Runāt/pārtraukt teksta izrunāšanu"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:38
 msgctxt "ShortcutsModel|"
@@ -2968,7 +2870,7 @@ msgstr "Tulkot tekstu ekrāna apgabalā ar aizkavi"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:56
 msgctxt "ShortcutsModel|"
 msgid "Toggle color inversion for OCR"
-msgstr ""
+msgstr "Pārslēgt krāsu invertēšanu OCR veikšanai"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
@@ -2983,7 +2885,7 @@ msgstr "Tulkot"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:64
 msgctxt "ShortcutsModel|"
 msgid "Swap languages"
-msgstr "Mainīt valodas"
+msgstr "Mainīt vietām valodas"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:67
 msgctxt "ShortcutsModel|"
@@ -2998,12 +2900,12 @@ msgstr "Avota teksts"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
 msgctxt "ShortcutsModel|"
 msgid "Translation"
-msgstr "Tulkošana"
+msgstr "Tulkojums"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:79
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause speaking"
-msgstr "Runāt / pārtraukt runāšanu"
+msgstr "Izrunāt / pārtraukt izrunāšanu"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:82
 msgctxt "ShortcutsModel|"
@@ -3018,12 +2920,12 @@ msgstr "Apraksts"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:130
 msgctxt "ShortcutsModel|"
 msgid "Shortcut"
-msgstr "Īsceļš"
+msgstr "Saīsne"
 
 #: src/settings/tesseractparameterstablewidget.cpp:16
 msgctxt "TesseractParametersTableWidget|"
 msgid "Property"
-msgstr "Īpašums"
+msgstr "Īpašība"
 
 #: src/settings/tesseractparameterstablewidget.cpp:16
 msgctxt "TesseractParametersTableWidget|"
@@ -3031,12 +2933,9 @@ msgid "Value"
 msgstr "Vērtība"
 
 #: src/translator/atranslationprovider.cpp:112
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "QObject|"
 msgid "Translation Provider Error"
-msgstr "Tulkošanas režīms:"
+msgstr "Tulkošanas sniedzēja kļūda"
 
 #: src/translator/atranslationprovider.cpp:113
 msgctxt "QObject|"
@@ -3045,19 +2944,17 @@ msgid ""
 "reset to 'Copy' to prevent further issues. You can try selecting a different "
 "provider in Settings → Translation."
 msgstr ""
+"Atlasītas tulkošanas pakalpojumu sniedzējs avarēja tā sākotnējās palaišanas "
+"laikā un, lai novērstu turpmākas problēmas, ir atiestatīts uz „Kopēt“. "
+"Mēģiniet izvēlēties citu pakalpojumu sniedzēju, ejot „Iestatījumi“ → "
+"„Tulkošana“."
 
 #: src/translator/mozhitranslationprovider.cpp:386
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "translation options:"
 msgctxt "MozhiTranslationProvider|"
 msgid "translation options:"
 msgstr "tulkošanas opcijas:"
 
 #: src/translator/mozhitranslationprovider.cpp:400
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "examples:"
 msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
 msgstr "piemēri:"
@@ -3085,7 +2982,7 @@ msgstr "Tulkošanas rezultāts"
 #: src/tts/attsprovider.cpp:69
 msgctxt "QObject|"
 msgid "TTS Provider Error"
-msgstr ""
+msgstr "TTS pakalpojuma sniedzēja kļūda"
 
 #: src/tts/attsprovider.cpp:70
 msgctxt "QObject|"
@@ -3094,86 +2991,81 @@ msgid ""
 "to 'None' to prevent further issues. You can try selecting a different "
 "provider in Settings → TTS."
 msgstr ""
+"Atlasītas teksta izrunāšanas pakalpojumu sniedzējs avarēja tā sākotnējās "
+"palaišanas laikā un, lai novērstu turpmākas problēmas, ir atiestatīts uz "
+"„Neviens“. Mēģiniet izvēlēties citu pakalpojumu sniedzēju, ejot "
+"„Iestatījumi“ → „TTS“."
 
 #: src/tts/mozhittsprovider.cpp:48
-#, fuzzy
-#| msgctxt "SpeakButtons|"
-#| msgid "Playback text is empty"
 msgctxt "MozhiTTSProvider|"
 msgid "Text is empty"
-msgstr "Atskaņošanas teksts ir tukšs"
+msgstr "Nav teksta"
 
 #: src/tts/mozhittsprovider.cpp:81
 msgctxt "MozhiTTSProvider|"
 msgid "No audio URLs generated"
-msgstr ""
+msgstr "Skaņas URL saites nav ģenerētas"
 
 #: src/tts/mozhittsprovider.cpp:263
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance failed: %1 (HTTP Server Error)"
-msgstr ""
+msgstr "„Mozhi“ instance avarēja: %1 (HTTP servera kļūda)"
 
 #: src/tts/mozhittsprovider.cpp:265 src/tts/mozhittsprovider.cpp:272
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Cannot connect to Mozhi instance: %1"
-msgstr ""
+msgstr "Neizdodas pievienoties „Mozhi“ instancei: %1"
 
 #: src/tts/mozhittsprovider.cpp:268
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance failed: %1 (HTTP 500 Internal Server Error)"
-msgstr ""
+msgstr "„Mozhi“ instance neizdevās: %1 (HTTP 500 iekšējā servera kļūda)"
 
 #: src/tts/mozhittsprovider.cpp:270
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
-msgstr ""
+msgstr "„Mozhi“ instances kļūda: %1 (HTTP 4XX klienta kļūda)"
 
 #: src/tts/piperttsprovider.cpp:115
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize Piper TTS"
-msgstr "Nevar inicializēt Tesseract ar %1"
+msgstr "Neizdevās inicializēt „Piper“ TTS"
 
 #: src/tts/piperttsprovider.cpp:121
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime exception: %1"
-msgstr ""
+msgstr "ONNX izpildlaika izņēmums: %1"
 
 #: src/tts/piperttsprovider.cpp:124
 msgctxt "PiperTTSProvider|"
 msgid "Unknown ONNX Runtime initialization error"
-msgstr ""
+msgstr "Nezināma ONNX izpildlaika inicializēšanas kļūda"
 
 #: src/tts/piperttsprovider.cpp:205
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize espeak-ng"
-msgstr "Nevar inicializēt Tesseract ar %1"
+msgstr "Neizdevās inicializēt „espeak-ng“"
 
 #: src/tts/piperttsprovider.cpp:247
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime initialization error: %1"
-msgstr ""
+msgstr "ONNX izpildlaika inicializēšanas kļūda: %1"
 
 #: src/tts/piperttsprovider.cpp:279
 msgctxt "PiperTTSProvider|"
 msgid "Privacy Notice - Neural TTS"
-msgstr ""
+msgstr "Privātuma paziņojums — neironu TTS"
 
 #: src/tts/piperttsprovider.cpp:281
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime Telemetry Information"
-msgstr ""
+msgstr "Informācija par ONNX izpildlaika telemetriju"
 
 #: src/tts/piperttsprovider.cpp:283
 msgctxt "PiperTTSProvider|"
@@ -3194,24 +3086,38 @@ msgid ""
 "On Unix systems, telemetry is inactive by default.\n"
 "This notice is shown once per installation."
 msgstr ""
+"„Crow Translate“ neironu teksta izrunāšanai izmanto ONNX izpildlaiku. "
+"„Windows“ binārā datne satur „Microsoft“ telemetriju, kas ievāc informāciju "
+"par lietošanu.\n"
+"\n"
+"Ievāktie dati:\n"
+"• Dati par ierīci un lietojuma dati, kļūdu ziņojumi, informācija par "
+"veiktspēju\n"
+"• Izmanto „Microsoft“, lai uzlabotu produkta kvalitāti un iespējas\n"
+"• Uz to attiecas „Microsoft“ privātuma paziņojums\n"
+"\n"
+"„Crow Translate“ darbības:\n"
+"• Automātiski izslēdz telemetriju, programmu palaižot\n"
+"• Izmanto gan vides mainīgos, gan izpildlaika API zvanus\n"
+"• Ievērībai: ONNX inicializēšanas laikā var tikt nosūtīti dati\n"
+"\n"
+"„Unix“ sistēmās telemetrija pēc noklusējuma ir izslēgta.\n"
+"Šis ziņojuma parādās vienu reizi."
 
 #: src/tts/piperttsprovider.cpp:1000
 msgctxt "PiperTTSProvider|"
 msgid "No audio data generated"
-msgstr ""
+msgstr "Audio dati nav ģenerēti"
 
 #: src/tts/piperttsprovider.cpp:1015
 msgctxt "PiperTTSProvider|"
 msgid "Failed to create temporary audio file"
-msgstr ""
+msgstr "Neizdevās izveidot pagaidu audio datni"
 
 #: src/tts/piperttsprovider.cpp:1024
-#, fuzzy
-#| msgctxt "UpdaterDialog|"
-#| msgid "Unable to write file"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to write audio data"
-msgstr "Nevar ierakstīt failu"
+msgstr "Neizdevās rakstīt audio datni"
 
 #: src/tts/piperttsprovider.cpp:1362
 msgctxt "PiperTTSProvider|"
@@ -3225,11 +3131,19 @@ msgid ""
 "cannot be used in commercial settings. Please check the license of each "
 "model before commercial use.</p>"
 msgstr ""
+"H3„Piper“ balss modeļi nav atrasti</h3><p>Standarta atrašanās vietās „Piper“ "
+"teksta izrunāšanas (TTS) modeļi nav atrasti.</p><p><b>Lai izmantotu „Piper“ "
+"TTS:</b></p><ol><li>Lejupielādējiet balss modeļus no <a href='https://"
+"huggingface.co/rhasspy/piper-voices'>HuggingFace Piper Voices</a></"
+"li><li>Atspiediet modeļus mapē</li><li>Norādiet šo mapi „Iestatījumi“ → TTS "
+"→ „Piper“ balss ceļš</li></ol><p><b>⚠️ Licences brīdinājums:</b> dažiem "
+"modeļiem var būt nebrīvas licences un tos nevar izmantot komerciāliem "
+"nolūkiem. Pirms to lietojat komerciāli, pārbaudiet katra modeļa licenci.</p>"
 
 #: src/tts/piperttsprovider.cpp:1374
 msgctxt "PiperTTSProvider|"
 msgid "Piper Voice Models Required"
-msgstr ""
+msgstr "Nepieciešami „Piper“ balss modeļi"
 
 #: src/tts/qtttsprovider.cpp:329
 #, qt-format
@@ -3245,11 +3159,21 @@ msgid ""
 "TTS. \"Narrator voices\" have licensing restrictions that are incompatible "
 "with this application.</p>"
 msgstr ""
+"<h3>„Windows“ teksta izrunas balss nav atrasta</h3><p>Nav atrasta Windows "
+"teksta izrunas balss <b>%1</b> valodai.</p><p><b>Lai ieinstalētu papildu "
+"valodas:</b></p><ol><li>Atveriet <b>Iestatījumi → Laiks un valoda → Valoda "
+"un reģions</b></li><li>Klikšķiniet uz <b>Pievienot valodu</b> un atlasiet "
+"vajadzīgo valodu</li><li>Klikšķiniet uz instalētās valodas un atlasiet "
+"<b>Valodas opcijas</b></li><li><b>Izruna</b> sadaļā, klikšķiniet uz izrunas "
+"pakas <b>lejupielādes</b> pogas</li></ol><p><b>⚠️ Licences brīdinājums:</b> "
+"„Crow Translate“ šobrīd atbalsta tikai „Windows“ TTS „Pamata balss modeļus“. "
+"„Diktora balsīm“ ir licences ierobežojumi, kas nav saderīgi ar šo programmu."
+"</p>"
 
 #: src/tts/qtttsprovider.cpp:343
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
-msgstr ""
+msgstr "„Windows“ TTS balss instalācija"
 
 #, fuzzy
 #~| msgctxt "SettingsDialog|"
