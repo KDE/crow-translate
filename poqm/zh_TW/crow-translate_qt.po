@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-10-01 22:15+0900\n"
+"PO-Revision-Date: 2025-11-24 19:56+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Language: zh-TW\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.11.70\n"
+"X-Generator: Lokalize 26.03.70\n"
 
 #: src/cli.cpp:37
 msgctxt "Cli|"
@@ -2967,12 +2967,12 @@ msgstr "無法初始化 Piper TTS"
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime exception: %1"
-msgstr ""
+msgstr "ONNX 執行時期例外：%1"
 
 #: src/tts/piperttsprovider.cpp:124
 msgctxt "PiperTTSProvider|"
 msgid "Unknown ONNX Runtime initialization error"
-msgstr ""
+msgstr "未知 ONNX 執行時期初始化錯誤"
 
 #: src/tts/piperttsprovider.cpp:205
 msgctxt "PiperTTSProvider|"
@@ -2983,7 +2983,7 @@ msgstr "無法初始化 espeak-ng"
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime initialization error: %1"
-msgstr ""
+msgstr "ONNX 執行時期初始化錯誤：%1"
 
 #: src/tts/piperttsprovider.cpp:279
 msgctxt "PiperTTSProvider|"
@@ -2993,7 +2993,7 @@ msgstr "隱私權聲明 - Neural TTS"
 #: src/tts/piperttsprovider.cpp:281
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime Telemetry Information"
-msgstr ""
+msgstr "ONNX 執行時期遙測資料資訊"
 
 #: src/tts/piperttsprovider.cpp:283
 msgctxt "PiperTTSProvider|"
@@ -3014,6 +3014,21 @@ msgid ""
 "On Unix systems, telemetry is inactive by default.\n"
 "This notice is shown once per installation."
 msgstr ""
+"Crow Translate 使用 ONNX 執行時期進行利用神經網路的文字轉語音。它的 Windows "
+"執行檔包含 Microsoft 的遙測資料收集，會收集使用資訊。\n"
+"\n"
+"資料收集：\n"
+"• 裝置與用量資訊、錯誤回報、效能資訊\n"
+"• 由 Microsoft 用來改善產品品質和功能\n"
+"• 依 Microsoft 隱私權聲明\n"
+"\n"
+"Crow Translate 的應對：\n"
+"• 啟動時自動停用遙測資料\n"
+"• 停用方式包含環境變數和執行時期 API 呼叫\n"
+"• 註：ONNX 初始化時可能還是會傳出一些資料\n"
+"\n"
+"在 Unix 系統上，遙測資料預設即已停用。\n"
+"這個告知每次安裝會顯示一次。"
 
 #: src/tts/piperttsprovider.cpp:1000
 msgctxt "PiperTTSProvider|"
@@ -3042,6 +3057,12 @@ msgid ""
 "cannot be used in commercial settings. Please check the license of each "
 "model before commercial use.</p>"
 msgstr ""
+"<h3>找不到 Piper 嗓音模型</h3><p>在標準位置沒有找到 Piper TTS 嗓音模型。</"
+"p><p><b>要使用 Piper TTS：</b></p><ol><li>從 <a href='https://huggingface.co/"
+"rhasspy/piper-voices'>HuggingFace Piper Voices</a> 下載嗓音模型</li><li>將模"
+"型解開到一個目錄</li><li>從 設定 → TTS → Piper 嗓音路徑 設定解開後模型所在的"
+"目錄</li></ol><p><b>⚠️ 授權警告：</b>某些模型的授權條款可能非自由或不能在商業"
+"情境下使用。商業使用前請查閱各個模型的授權條款。</p>"
 
 #: src/tts/piperttsprovider.cpp:1374
 msgctxt "PiperTTSProvider|"
@@ -3062,6 +3083,12 @@ msgid ""
 "TTS. \"Narrator voices\" have licensing restrictions that are incompatible "
 "with this application.</p>"
 msgstr ""
+"<h3>找不到 Windows TTS 嗓音</h3><p>找不到 <b>%1</b> 的 Windows TTS 嗓音。</"
+"p><p><b>要安裝額外語言：</b></p><ol><li>開啟 <b>設定 → 時間和語言 → 語言和地"
+"區</b></li><li>點擊 <b>新增語言</b> 然後選擇您需要的語言</li><li>點擊剛安裝的"
+"語言然後選擇 <b>語言選項</b></li><li>在 <b>語音</b> 下方點擊 <b>下載</b> 取得"
+"語音包</li></ol><p><b>⚠️ 關於授權：</b>Crow Translate 目前只支援 Windows TTS "
+"的「基礎語音模型」。「講述人語音」的授權限制與本應用程式不相容。</p>"
 
 #: src/tts/qtttsprovider.cpp:343
 msgctxt "QtTTSProvider|"
