@@ -1,26 +1,14 @@
-# SPDX-FileCopyrightText: 2024 Algent Albrahimi
-# SPDX-License-Identifier: GPL-3.0-or-later
-# SPDX-FileCopyrightText: 2025 Agron Selimaj <as9902613@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"PO-Revision-Date: 2025-12-29 11:33-0500\n"
-"Last-Translator: Agron Selimaj <as9902613@gmail.com>\n"
-"Language-Team: sq\n"
-"Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Language: sq\n"
-"X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.12.0\n"
 
 #: src/cli.cpp:37
 msgctxt "Cli|"
 msgid "Display all language codes."
-msgstr "Shfaq të gjitha kodet e gjuhës."
+msgstr ""
 
 #: src/cli.cpp:39
 msgctxt "Cli|"
@@ -28,8 +16,6 @@ msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
 msgstr ""
-"Specifikoni gjuhën e burimit (sipas parazgjedhjes, motori do të përpiqet të "
-"përcaktojë vetë gjuhën)."
 
 #: src/cli.cpp:43
 msgctxt "Cli|"
@@ -37,8 +23,6 @@ msgid ""
 "Specify the translation language(s), split by '+' (by default, the system "
 "language is used)."
 msgstr ""
-"Specifikoni gjuhët e përkthimit, të ndara nga '+' (si parazgjedhje, do "
-"përdoret gjuha e sistemit)."
 
 #: src/cli.cpp:47
 msgctxt "Cli|"
@@ -46,8 +30,6 @@ msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
 "or 'lingva'), Google is used by default."
 msgstr ""
-"Specifikoni motorin e përkthyesit ('google', 'yandex', 'bing', "
-"'libretranslate' ose 'lingva'), Google përdoret si parazgjedhje."
 
 #: src/cli.cpp:51
 msgctxt "Cli|"
@@ -73,54 +55,45 @@ msgstr ""
 #: src/cli.cpp:60
 msgctxt "Cli|"
 msgid "Speak the translation."
-msgstr "Thuaje përkthimin."
+msgstr ""
 
 #: src/cli.cpp:61
 msgctxt "Cli|"
 msgid "Speak the source."
-msgstr "Thuaje burimin."
+msgstr ""
 
 #: src/cli.cpp:62
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
 msgstr ""
-"Lexoni tekstin e burimit nga skedarët. Argumentet do të interpretohen si "
-"shtigje skedari."
 
 #: src/cli.cpp:63
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
-msgstr "Shtoni të dhëna stdin në tekstin e burimit."
+msgstr ""
 
 #: src/cli.cpp:65
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
-msgstr "Mos printo asnjë tekst kur përdoret --%1 ose --%2."
+msgstr ""
 
 #: src/cli.cpp:66
 msgctxt "Cli|"
 msgid "Print only translations."
-msgstr "Printo vetëm përkthimet."
+msgstr ""
 
 #: src/cli.cpp:67
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
-msgstr "Prodho printimin të formatuar si JSON."
+msgstr ""
 
 #: src/cli.cpp:70
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "A simple and lightweight translator that allows to translate and speak "
-#| "text using Google, Yandex, Bing, LibreTranslate and Lingva"
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
 msgstr ""
-"Një përkthyes i thjeshtë dhe i lehtë që lejon për të përkthyer dhe folur "
-"tekst duke përdorur Google, Yandex, Bing, LibreTranslate dhe Lingva"
 
 #: src/cli.cpp:71
 msgctxt "Cli|"
@@ -128,86 +101,67 @@ msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr ""
-"Tekst për tu përkthyer. Si parazgjedhje, përkthimi do të bëhet në gjuhën e "
-"sistemit."
 
 #: src/cli.cpp:95
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
-msgstr "Gabim: Për --%1 duhet të specifikoni --%2 dhe/ose --%3 opsione"
+msgstr ""
 
 #: src/cli.cpp:115
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
-msgstr "Kodi i gjuhës i panjohur: %1"
+msgstr ""
 
 #: src/cli.cpp:128
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
-msgstr "Kodi i gjuhës i panjohur: %1"
+msgstr ""
 
 #: src/cli.cpp:152
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
-msgstr "Gabim: Nuk ka asnjë tekst për përkthim"
+msgstr ""
 
 #: src/cli.cpp:165
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
-msgstr "Kodi i gjuhës i panjohur: %1"
+msgstr ""
 
 #: src/cli.cpp:175
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Speech test:"
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
-msgstr "Testi i fjalimit:"
+msgstr ""
 
 #: src/cli.cpp:214
-#, fuzzy
-#| msgctxt "OnlineTts|"
-#| msgid "Selected language %1 is not supported for %2"
 msgctxt "Cli|"
 msgid "Error: Lingva engine is not supported"
-msgstr "Gjuha e zgjedhur %1 nuk mbështetet për %2"
+msgstr ""
 
 #: src/cli.cpp:223
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
-msgstr "Gabim: Motor i panjohur"
+msgstr ""
 
 #: src/cli.cpp:256
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
-msgstr "Kodi i gjuhës i panjohur: %1"
+msgstr ""
 
 #: src/cli.cpp:335 src/cli.cpp:384
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
-msgstr "Gabim: %1"
+msgstr ""
 
 #: src/cli.cpp:337 src/cli.cpp:386
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "Cli|"
 msgid "Translation error occurred"
-msgstr "Mënyra e përkthimit:"
+msgstr ""
 
 #: src/cli.cpp:443
 msgctxt "Cli|"
@@ -218,24 +172,24 @@ msgstr ""
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
-msgstr "Gabim: Ju s'mund ta përdorni --%1 me --%2"
+msgstr ""
 
 #: src/cli.cpp:612 src/cli.cpp:633
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
-msgstr "Gabim: Skedari nuk ekziston: %1"
+msgstr ""
 
 #: src/cli.cpp:617 src/cli.cpp:638
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
-msgstr "Gabim: Nuk mund të hapet skedari: %1"
+msgstr ""
 
 #: src/contextmenu.h:35
 msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
-msgstr "Kërko në Forvo.com"
+msgstr ""
 
 #: src/instancepinger.cpp:65
 #, qt-format
@@ -273,55 +227,54 @@ msgstr ""
 msgctxt "LanguageButtonsWidget|"
 msgid "Window width is larger than screen due to the languages on the panel."
 msgstr ""
-"Gjerësia e dritares është më e madhe se ekrani për shkak të gjuhëve në panel."
 
 #: src/languagebuttonswidget.cpp:226
 msgctxt "LanguageButtonsWidget|"
 msgid "Please reduce added languages."
-msgstr "Ju lutemi hiqni disa nga gjuhët e shtuara."
+msgstr ""
 
 #: src/languagebuttonswidget.cpp:302 src/languagebuttonswidget.cpp:304
 msgctxt "LanguageButtonsWidget|"
 msgid "Auto"
-msgstr "Automatike"
+msgstr ""
 
 #: src/languagebuttonswidget.ui:32
 msgctxt "LanguageButtonsWidget|"
 msgid "Edit languages"
-msgstr "Përpuno gjuhët"
+msgstr ""
 
 #: src/languagesdialog.cpp:24
 #, qt-format
 msgctxt "LanguagesDialog|"
 msgid "Filter (%1)"
-msgstr "Filtro (%1)"
+msgstr ""
 
 #: src/languagesdialog.ui:14
 msgctxt "LanguagesDialog|"
 msgid "Edit languages"
-msgstr "Përpuno gjuhët"
+msgstr ""
 
 #: src/languagesdialog.ui:91
 msgctxt "LanguagesDialog|"
 msgid "Available languages:"
-msgstr "Gjuhët e disponueshme:"
+msgstr ""
 
 #: src/languagesdialog.ui:104
 msgctxt "LanguagesDialog|"
 msgid "Current languages:"
-msgstr "Gjuhët aktuale:"
+msgstr ""
 
 #: src/main.cpp:76
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
-msgstr "Shërbimi D-Bus %1 është regjistruar tashmë nga një aplikacion tjetër"
+msgstr ""
 
 #: src/main.cpp:109
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
-msgstr "Nuk mund të regjistrohet objekti D-Bus për %1"
+msgstr ""
 
 #: src/mainwindow.cpp:343
 msgctxt "QApplication|"
@@ -342,13 +295,13 @@ msgstr ""
 #: src/mainwindow.cpp:595
 msgctxt "Ocr|"
 msgid "OCR languages are not loaded"
-msgstr "Gjuhët OCR nuk janë të ngarkuara"
+msgstr ""
 
 #: src/mainwindow.cpp:498 src/mainwindow.cpp:518 src/mainwindow.cpp:566
 #: src/mainwindow.cpp:595
 msgctxt "Ocr|"
 msgid "You should set at least one OCR language in the application settings"
-msgstr "Duhet të vendosni të paktën një gjuhë OCR në cilësimet e aplikacionit"
+msgstr ""
 
 #: src/mainwindow.cpp:770
 #, qt-format
@@ -374,26 +327,24 @@ msgstr ""
 #: src/mainwindow.cpp:820
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
-msgstr "Ikona e shiritit e pavlefshme"
+msgstr ""
 
 #: src/mainwindow.cpp:820
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr ""
-"Ikona e specifikuar '%1' është e pavlefshme. Do të përdoret ikona e "
-"parazgjedhur."
 
 #: src/mainwindow.cpp:841
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
-msgstr "Nuk mund të vendosen gjuhët e OCR"
+msgstr ""
 
 #: src/mainwindow.cpp:841
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
-msgstr "Nuk mund të iniciohet Tesseract me %1"
+msgstr ""
 
 #: src/mainwindow.cpp:979
 msgctxt "MainWindow|"
@@ -412,32 +363,29 @@ msgid ""
 msgstr ""
 
 #: src/mainwindow.ui:14
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translate"
 msgctxt "MainWindow|"
 msgid "Crow Translate"
-msgstr "Përkthe"
+msgstr ""
 
 #: src/mainwindow.ui:29
 msgctxt "MainWindow|"
 msgid "Translate"
-msgstr "Përkthe"
+msgstr ""
 
 #: src/mainwindow.ui:39
 msgctxt "MainWindow|"
 msgid "Swap languages"
-msgstr "Shkëmbe gjuhët"
+msgstr ""
 
 #: src/mainwindow.ui:52
 msgctxt "MainWindow|"
 msgid "Source"
-msgstr "Burimi"
+msgstr ""
 
 #: src/mainwindow.ui:72
 msgctxt "MainWindow|"
 msgid "Cancel"
-msgstr "Anulo"
+msgstr ""
 
 #: src/mainwindow.ui:132 src/mainwindow.ui:261
 msgctxt "MainWindow|"
@@ -447,71 +395,71 @@ msgstr ""
 #: src/mainwindow.ui:142
 msgctxt "MainWindow|"
 msgid "Copy source text to the clipboard"
-msgstr "Kopjo tekstin e burimit në mbajtësen e shënimeve"
+msgstr ""
 
 #: src/mainwindow.ui:152
 msgctxt "MainWindow|"
 msgid "Recognize screen area with delay"
-msgstr "Njihni zonën e ekranit me vonesë"
+msgstr ""
 
 #. The text should be short to fit in portrait orientation on phones.
 #: src/mainwindow.ui:168
 msgctxt "MainWindow|"
 msgid "Auto-translation"
-msgstr "Përkthim automatik"
+msgstr ""
 
 #: src/mainwindow.ui:177
 msgctxt "MainWindow|"
 msgid "Clear"
-msgstr "Pastro"
+msgstr ""
 
 #: src/mainwindow.ui:204
 msgctxt "MainWindow|"
 msgid "Translation"
-msgstr "Përkthimi"
+msgstr ""
 
 #: src/mainwindow.ui:351
 msgctxt "MainWindow|"
 msgid "Copy translation to the clipboard"
-msgstr "Kopjo përkthimin në mbajtësen e shënimeve"
+msgstr ""
 
 #: src/mainwindow.ui:361
 msgctxt "MainWindow|"
 msgid "Copy all translation data to the clipboard"
-msgstr "Kopjo të gjitha përkthimet në mbajtësen e shënimeve"
+msgstr ""
 
 #: src/mainwindow.ui:371
 msgctxt "MainWindow|"
 msgid "Translate screen area with delay"
-msgstr "Përkthe zonën e ekranit me vonesë"
+msgstr ""
 
 #: src/mainwindow.ui:381
 msgctxt "MainWindow|"
 msgid "Application settings"
-msgstr "Cilësimet e aplikacionit"
+msgstr ""
 
 #: src/ocr/ocr.cpp:132
 #, qt-format
 msgctxt "Ocr|"
 msgid "%1 is not a valid Tesseract parameter name."
-msgstr "%1 nuk është një emër parametri i vlefshëm i Tesseract."
+msgstr ""
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 msgctxt "AbstractScreenGrabber|"
 msgid "Unable to grab screen"
-msgstr "Nuk mund të kapet ekrani"
+msgstr ""
 
 #: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:48
 msgctxt "WaylandGnomeScreenGrabber|"
 msgid "GNOME failed to take screenshot."
-msgstr "GNOME nuk arriti të marrë pamjen e ekranit."
+msgstr ""
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:55
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:333
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to create pipe: %1."
-msgstr "E pamundur të krijohet tubi: %1."
+msgstr ""
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:84
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -522,26 +470,23 @@ msgstr ""
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to wait for socket readiness: %1."
-msgstr "E pamundur të presë gatishmërinë e folesë: %1."
+msgstr ""
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:169
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Timeout reading from pipe."
-msgstr "Leximi i kohës limit nga tubi."
+msgstr ""
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:176
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to read data from socket: %1."
-msgstr "Nuk mund të lexohen të dhëna nga foleja: %1."
+msgstr ""
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:275
-#, fuzzy
-#| msgctxt "AbstractScreenGrabber|"
-#| msgid "Unable to grab screen"
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to determine target screen"
-msgstr "Nuk mund të kapet ekrani"
+msgstr ""
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:297
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -570,23 +515,23 @@ msgstr ""
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:57
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
-msgstr "Nuk mund të abonohet për përgjigjen nga xdg-desktop-portal."
+msgstr ""
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:77
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
-msgstr "U mor një shteg bosh nga xdg-desktop-portal."
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:91
 msgctxt "SnippingArea|"
 msgid "Unable to snip screen area"
-msgstr "Nuk mund të kapet zona e ekranit"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:92
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
-msgstr "U mor një imazh i pavlefshëm i ekranit %1."
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:644
 msgctxt "SnippingArea|"
@@ -594,103 +539,101 @@ msgid ""
 "Click and drag to draw a selection rectangle,\n"
 "or press Esc to quit"
 msgstr ""
-"Kliko dhe tërhiq për të vizatuar një drejtkëndësh përzgjedhje, ose shtypni "
-"Esc për të dalë"
 
 #: src/ocr/snippingarea.cpp:850
 msgctxt "SnippingArea|"
 msgid "Confirm:"
-msgstr "Konfirmo:"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:852
 msgctxt "SnippingArea|"
 msgid "Release left-click"
-msgstr "Lësho klikimin e majtë"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:852 src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Enter"
-msgstr "Dërgo"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:854
 msgctxt "SnippingArea|"
 msgid "Double-click"
-msgstr "Kliko dy herë"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:856
 msgctxt "SnippingArea|"
 msgid "Create new selection rectangle:"
-msgstr "Krijo një drejtkëndësh të ri të përzgjedhjes:"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "Drag outside selection rectangle"
-msgstr "Zvarrite jashtë drejtkëndëshit të përzgjedhjes"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:857
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
-msgstr "+ Shift: Zmadhues"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:860
 msgctxt "SnippingArea|"
 msgid "Move selection rectangle:"
-msgstr "Zhvendos drejtkëndëshin e përzgjedhjes:"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:861
 msgctxt "SnippingArea|"
 msgid "Drag inside selection rectangle"
-msgstr "Zvarrite brenda drejtkëndëshit të përzgjedhjes"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:861
 msgctxt "SnippingArea|"
 msgid "Arrow keys"
-msgstr "Tastet e shigjetave"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:861
 msgctxt "SnippingArea|"
 msgid "+ Shift: Move in 1 pixel steps"
-msgstr "+ Shift: Lëviz në hapa me 1 piksel"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:863
 msgctxt "SnippingArea|"
 msgid "Resize selection rectangle:"
-msgstr "Ndrysho madhësinë e drejtkëndëshit të përzgjedhjes:"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:864
 msgctxt "SnippingArea|"
 msgid "Drag handles"
-msgstr "Zvarrit dorezat"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:864
 msgctxt "SnippingArea|"
 msgid "Arrow keys + Alt"
-msgstr "Tastet e shigjetave + Alt"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:864
 msgctxt "SnippingArea|"
 msgid "+ Shift: Resize in 1 pixel steps"
-msgstr "+ Shift: Ndrysho madhësinë në hapa me 1 piksel"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:866
 msgctxt "SnippingArea|"
 msgid "Reset selection:"
-msgstr "Rivendos zgjedhjen:"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:867
 msgctxt "SnippingArea|"
 msgid "Right-click"
-msgstr "Kliko me të djathtën"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:870
 msgctxt "SnippingArea|"
 msgid "Cancel:"
-msgstr "Anulo:"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:871
 msgctxt "SnippingArea|"
 msgid "Esc key"
-msgstr "Tasti Esc"
+msgstr ""
 
 #: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
@@ -705,12 +648,10 @@ msgid ""
 msgstr ""
 
 #: src/onlinetranslator.cpp:273
-#, fuzzy, qt-format
-#| msgctxt "OnlineTts|"
-#| msgid "Selected language %1 is not supported for %2"
+#, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Language detection is not supported for %1"
-msgstr "Gjuha e zgjedhur %1 nuk mbështetet për %2"
+msgstr ""
 
 #: src/onlinetranslator.cpp:318
 msgctxt "OnlineTranslator|"
@@ -718,42 +659,40 @@ msgid "Operation aborted by user"
 msgstr ""
 
 #: src/onlinetranslator.cpp:361
-#, fuzzy, qt-format
-#| msgctxt "OnlineTts|"
-#| msgid "%1 engine does not support TTS"
+#, qt-format
 msgctxt "OnlineTranslator|"
 msgid "%1 engine does not support TTS"
-msgstr "Motori %1 nuk mbështet TTS"
+msgstr ""
 
 #: src/onlinetranslator.cpp:502
 msgctxt "OnlineTranslator|"
 msgid "Automatically detect"
-msgstr "Zbuloni automatikisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:504
 msgctxt "OnlineTranslator|"
 msgid "Afrikaans"
-msgstr "Afrikanisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:506
 msgctxt "OnlineTranslator|"
 msgid "Albanian"
-msgstr "Shqip"
+msgstr ""
 
 #: src/onlinetranslator.cpp:508
 msgctxt "OnlineTranslator|"
 msgid "Amharic"
-msgstr "Amharike"
+msgstr ""
 
 #: src/onlinetranslator.cpp:510
 msgctxt "OnlineTranslator|"
 msgid "Arabic"
-msgstr "Arabisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:512
 msgctxt "OnlineTranslator|"
 msgid "Armenian"
-msgstr "Armenisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:514
 msgctxt "OnlineTranslator|"
@@ -766,12 +705,9 @@ msgid "Aymara"
 msgstr ""
 
 #: src/onlinetranslator.cpp:518
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Azeerbaijani"
 msgctxt "OnlineTranslator|"
 msgid "Azerbaijani"
-msgstr "Azerbajxhanisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:520
 msgctxt "OnlineTranslator|"
@@ -796,17 +732,17 @@ msgstr ""
 #: src/onlinetranslator.cpp:528
 msgctxt "OnlineTranslator|"
 msgid "Bashkir"
-msgstr "Bashkirisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:530
 msgctxt "OnlineTranslator|"
 msgid "Basque"
-msgstr "Baskisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:532
 msgctxt "OnlineTranslator|"
 msgid "Belarusian"
-msgstr "Bjellorusisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:534
 msgctxt "OnlineTranslator|"
@@ -826,7 +762,7 @@ msgstr ""
 #: src/onlinetranslator.cpp:540
 msgctxt "OnlineTranslator|"
 msgid "Bosnian"
-msgstr "Boshnjake"
+msgstr ""
 
 #: src/onlinetranslator.cpp:542
 msgctxt "OnlineTranslator|"
@@ -836,25 +772,22 @@ msgstr ""
 #: src/onlinetranslator.cpp:544
 msgctxt "OnlineTranslator|"
 msgid "Bulgarian"
-msgstr "Bullgarisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:546
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Chinese (Traditional)"
 msgctxt "OnlineTranslator|"
 msgid "Cantonese (Traditional)"
-msgstr "Kinezisht (Tradicionale)"
+msgstr ""
 
 #: src/onlinetranslator.cpp:548
 msgctxt "OnlineTranslator|"
 msgid "Catalan"
-msgstr "Katalanisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:550
 msgctxt "OnlineTranslator|"
 msgid "Cebuano"
-msgstr "Sebuano"
+msgstr ""
 
 #: src/onlinetranslator.cpp:552
 msgctxt "OnlineTranslator|"
@@ -864,25 +797,22 @@ msgstr ""
 #: src/onlinetranslator.cpp:554
 msgctxt "OnlineTranslator|"
 msgid "Chichewa"
-msgstr "Chichewa"
+msgstr ""
 
 #: src/onlinetranslator.cpp:556
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Chinese (Traditional)"
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Literary)"
-msgstr "Kinezisht (Tradicionale)"
+msgstr ""
 
 #: src/onlinetranslator.cpp:558
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Simplified)"
-msgstr "Kinezishte (e Thjeshtuar)"
+msgstr ""
 
 #: src/onlinetranslator.cpp:560
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Traditional)"
-msgstr "Kinezisht (Tradicionale)"
+msgstr ""
 
 #: src/onlinetranslator.cpp:562
 msgctxt "OnlineTranslator|"
@@ -902,7 +832,7 @@ msgstr ""
 #: src/onlinetranslator.cpp:568
 msgctxt "OnlineTranslator|"
 msgid "Corsican"
-msgstr "Korsikane"
+msgstr ""
 
 #: src/onlinetranslator.cpp:570
 msgctxt "OnlineTranslator|"
@@ -957,17 +887,17 @@ msgstr ""
 #: src/onlinetranslator.cpp:590
 msgctxt "OnlineTranslator|"
 msgid "Croatian"
-msgstr "Kroatisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:592
 msgctxt "OnlineTranslator|"
 msgid "Czech"
-msgstr "Çekisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:594
 msgctxt "OnlineTranslator|"
 msgid "Danish"
-msgstr "Danezisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:596
 msgctxt "OnlineTranslator|"
@@ -987,7 +917,7 @@ msgstr ""
 #: src/onlinetranslator.cpp:602
 msgctxt "OnlineTranslator|"
 msgid "Dutch"
-msgstr "Holandisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:604
 msgctxt "OnlineTranslator|"
@@ -1007,17 +937,17 @@ msgstr ""
 #: src/onlinetranslator.cpp:610
 msgctxt "OnlineTranslator|"
 msgid "English"
-msgstr "Anglisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:612
 msgctxt "OnlineTranslator|"
 msgid "Esperanto"
-msgstr "Esperanto"
+msgstr ""
 
 #: src/onlinetranslator.cpp:614
 msgctxt "OnlineTranslator|"
 msgid "Estonian"
-msgstr "Estonisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:616
 msgctxt "OnlineTranslator|"
@@ -1025,12 +955,9 @@ msgid "Ewe"
 msgstr ""
 
 #: src/onlinetranslator.cpp:618
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Tagalog"
 msgctxt "OnlineTranslator|"
 msgid "Fanagalo"
-msgstr "Tagalogisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:620
 msgctxt "OnlineTranslator|"
@@ -1040,22 +967,22 @@ msgstr ""
 #: src/onlinetranslator.cpp:622
 msgctxt "OnlineTranslator|"
 msgid "Fijian"
-msgstr "Fixhian"
+msgstr ""
 
 #: src/onlinetranslator.cpp:624
 msgctxt "OnlineTranslator|"
 msgid "Filipino"
-msgstr "Filipine"
+msgstr ""
 
 #: src/onlinetranslator.cpp:626
 msgctxt "OnlineTranslator|"
 msgid "Finnish"
-msgstr "Finlandisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:628
 msgctxt "OnlineTranslator|"
 msgid "French"
-msgstr "Frëngjisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:630
 msgctxt "OnlineTranslator|"
@@ -1065,12 +992,12 @@ msgstr ""
 #: src/onlinetranslator.cpp:632
 msgctxt "OnlineTranslator|"
 msgid "Frisian"
-msgstr "Frisian"
+msgstr ""
 
 #: src/onlinetranslator.cpp:634
 msgctxt "OnlineTranslator|"
 msgid "Galician"
-msgstr "Galicianisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:636
 msgctxt "OnlineTranslator|"
@@ -1080,17 +1007,17 @@ msgstr ""
 #: src/onlinetranslator.cpp:638
 msgctxt "OnlineTranslator|"
 msgid "Georgian"
-msgstr "Gjeorgjisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:640
 msgctxt "OnlineTranslator|"
 msgid "German"
-msgstr "Gjermanisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:642
 msgctxt "OnlineTranslator|"
 msgid "Greek"
-msgstr "Greqisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:644
 msgctxt "OnlineTranslator|"
@@ -1105,65 +1032,62 @@ msgstr ""
 #: src/onlinetranslator.cpp:648
 msgctxt "OnlineTranslator|"
 msgid "Gujarati"
-msgstr "Guxharatisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:650
 msgctxt "OnlineTranslator|"
 msgid "Haitian Creole"
-msgstr "Haitiane Kreole"
+msgstr ""
 
 #: src/onlinetranslator.cpp:652
 msgctxt "OnlineTranslator|"
 msgid "Hausa"
-msgstr "Hausaishte"
+msgstr ""
 
 #: src/onlinetranslator.cpp:654
 msgctxt "OnlineTranslator|"
 msgid "Hawaiian"
-msgstr "Havajanisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:656
 msgctxt "OnlineTranslator|"
 msgid "Hebrew"
-msgstr "Hebreisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:658
 msgctxt "OnlineTranslator|"
 msgid "Hill Mari"
-msgstr "Hill Marinisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:660
 msgctxt "OnlineTranslator|"
 msgid "Hindi"
-msgstr "Hinduisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:662
 msgctxt "OnlineTranslator|"
 msgid "Hmong"
-msgstr "Hmongisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:664
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Hmong"
 msgctxt "OnlineTranslator|"
 msgid "Hmong Daw"
-msgstr "Hmongisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:666
 msgctxt "OnlineTranslator|"
 msgid "Hungarian"
-msgstr "Hungarisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:668
 msgctxt "OnlineTranslator|"
 msgid "Icelandic"
-msgstr "Islandisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:670
 msgctxt "OnlineTranslator|"
 msgid "Igbo"
-msgstr "Igboisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:672
 msgctxt "OnlineTranslator|"
@@ -1173,7 +1097,7 @@ msgstr ""
 #: src/onlinetranslator.cpp:674
 msgctxt "OnlineTranslator|"
 msgid "Indonesian"
-msgstr "Indonezisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:676
 msgctxt "OnlineTranslator|"
@@ -1198,22 +1122,22 @@ msgstr ""
 #: src/onlinetranslator.cpp:684
 msgctxt "OnlineTranslator|"
 msgid "Irish"
-msgstr "Irlandeze"
+msgstr ""
 
 #: src/onlinetranslator.cpp:686
 msgctxt "OnlineTranslator|"
 msgid "Italian"
-msgstr "Italisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:688
 msgctxt "OnlineTranslator|"
 msgid "Japanese"
-msgstr "Japonisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:690
 msgctxt "OnlineTranslator|"
 msgid "Javanese"
-msgstr "Javanisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:692
 msgctxt "OnlineTranslator|"
@@ -1221,40 +1145,34 @@ msgid "Kabuverdianu"
 msgstr ""
 
 #: src/onlinetranslator.cpp:694
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Italian"
 msgctxt "OnlineTranslator|"
 msgid "Kabylian"
-msgstr "Italisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:696
 msgctxt "OnlineTranslator|"
 msgid "Kannada"
-msgstr "Kanadisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:698
 msgctxt "OnlineTranslator|"
 msgid "Kazakh"
-msgstr "Kazakisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:700
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Serbian (Latin)"
 msgctxt "OnlineTranslator|"
 msgid "Kazakh (Latin)"
-msgstr "Serbisht (Latinisht)"
+msgstr ""
 
 #: src/onlinetranslator.cpp:702
 msgctxt "OnlineTranslator|"
 msgid "Khmer"
-msgstr "Khmerisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:704
 msgctxt "OnlineTranslator|"
 msgid "Kinyarwanda"
-msgstr "Kinjaruandishte"
+msgstr ""
 
 #: src/onlinetranslator.cpp:706
 msgctxt "OnlineTranslator|"
@@ -1262,12 +1180,9 @@ msgid "Kirundi"
 msgstr ""
 
 #: src/onlinetranslator.cpp:708
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Klingon (PlqaD)"
 msgctxt "OnlineTranslator|"
 msgid "Klingon (Latin)"
-msgstr "Klingonishte (PlqaD)"
+msgstr ""
 
 #: src/onlinetranslator.cpp:710
 msgctxt "OnlineTranslator|"
@@ -1277,7 +1192,7 @@ msgstr ""
 #: src/onlinetranslator.cpp:712
 msgctxt "OnlineTranslator|"
 msgid "Korean"
-msgstr "Koreanisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:714
 msgctxt "OnlineTranslator|"
@@ -1295,32 +1210,29 @@ msgid "Kurdish (Northern)"
 msgstr ""
 
 #: src/onlinetranslator.cpp:720
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Kurdish"
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Sorani)"
-msgstr "Kurdishte"
+msgstr ""
 
 #: src/onlinetranslator.cpp:722
 msgctxt "OnlineTranslator|"
 msgid "Kyrgyz"
-msgstr "Kirgistanisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:724
 msgctxt "OnlineTranslator|"
 msgid "Lao"
-msgstr "Laosianisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:726
 msgctxt "OnlineTranslator|"
 msgid "Latin"
-msgstr "Latinisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:728
 msgctxt "OnlineTranslator|"
 msgid "Latvian"
-msgstr "Letonisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:730
 msgctxt "OnlineTranslator|"
@@ -1330,7 +1242,7 @@ msgstr ""
 #: src/onlinetranslator.cpp:732
 msgctxt "OnlineTranslator|"
 msgid "Lithuanian"
-msgstr "Lituanisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:734
 msgctxt "OnlineTranslator|"
@@ -1345,58 +1257,52 @@ msgstr ""
 #: src/onlinetranslator.cpp:738
 msgctxt "OnlineTranslator|"
 msgid "Luxembourgish"
-msgstr "Luksemburgisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:740
 msgctxt "OnlineTranslator|"
 msgid "Macedonian"
-msgstr "Maqedonisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:742
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Swahili"
 msgctxt "OnlineTranslator|"
 msgid "Maithili"
-msgstr "Suahilisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:744
 msgctxt "OnlineTranslator|"
 msgid "Malagasy"
-msgstr "Malagasisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:746
 msgctxt "OnlineTranslator|"
 msgid "Malay"
-msgstr "Malajziane"
+msgstr ""
 
 #: src/onlinetranslator.cpp:748
 msgctxt "OnlineTranslator|"
 msgid "Malayalam"
-msgstr "Malajalamishte"
+msgstr ""
 
 #: src/onlinetranslator.cpp:750
 msgctxt "OnlineTranslator|"
 msgid "Maltese"
-msgstr "Malteze"
+msgstr ""
 
 #: src/onlinetranslator.cpp:752
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Scots Gaelic"
 msgctxt "OnlineTranslator|"
 msgid "Manx Gaelic"
-msgstr "Galike skoceze"
+msgstr ""
 
 #: src/onlinetranslator.cpp:754
 msgctxt "OnlineTranslator|"
 msgid "Marathi"
-msgstr "Marathisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:756
 msgctxt "OnlineTranslator|"
 msgid "Mari"
-msgstr "Mari"
+msgstr ""
 
 #: src/onlinetranslator.cpp:758
 msgctxt "OnlineTranslator|"
@@ -1421,23 +1327,17 @@ msgstr ""
 #: src/onlinetranslator.cpp:766
 msgctxt "OnlineTranslator|"
 msgid "Mongolian"
-msgstr "Mongolisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:768
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Serbian (Cyrillic)"
 msgctxt "OnlineTranslator|"
 msgid "Mongolian (Cyrillic)"
-msgstr "Serbisht (Sllavishte e vjetër)"
+msgstr ""
 
 #: src/onlinetranslator.cpp:770
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Chinese (Traditional)"
 msgctxt "OnlineTranslator|"
 msgid "Mongolian (Traditional)"
-msgstr "Kinezisht (Tradicionale)"
+msgstr ""
 
 #: src/onlinetranslator.cpp:772
 msgctxt "OnlineTranslator|"
@@ -1457,7 +1357,7 @@ msgstr ""
 #: src/onlinetranslator.cpp:778
 msgctxt "OnlineTranslator|"
 msgid "Nepali"
-msgstr "Nepalishte"
+msgstr ""
 
 #: src/onlinetranslator.cpp:780
 msgctxt "OnlineTranslator|"
@@ -1467,7 +1367,7 @@ msgstr ""
 #: src/onlinetranslator.cpp:782
 msgctxt "OnlineTranslator|"
 msgid "Norwegian"
-msgstr "Norvegjisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:784
 msgctxt "OnlineTranslator|"
@@ -1490,22 +1390,19 @@ msgid "Palauan"
 msgstr ""
 
 #: src/onlinetranslator.cpp:792
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Papiamento"
 msgctxt "OnlineTranslator|"
 msgid "Papiamentu"
-msgstr "Papiamento"
+msgstr ""
 
 #: src/onlinetranslator.cpp:794
 msgctxt "OnlineTranslator|"
 msgid "Pashto"
-msgstr "Pashtoisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:796
 msgctxt "OnlineTranslator|"
 msgid "Persian"
-msgstr "Persisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:798
 msgctxt "OnlineTranslator|"
@@ -1515,23 +1412,17 @@ msgstr ""
 #: src/onlinetranslator.cpp:800
 msgctxt "OnlineTranslator|"
 msgid "Polish"
-msgstr "Polonisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:802
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Portuguese"
 msgctxt "OnlineTranslator|"
 msgid "Portuguese (Brazilian)"
-msgstr "Portugalisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:804
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Portuguese"
 msgctxt "OnlineTranslator|"
 msgid "Portuguese (Portugal)"
-msgstr "Portugalisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:806
 msgctxt "OnlineTranslator|"
@@ -1541,7 +1432,7 @@ msgstr ""
 #: src/onlinetranslator.cpp:808
 msgctxt "OnlineTranslator|"
 msgid "Punjabi"
-msgstr "Panxhabisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:810
 msgctxt "OnlineTranslator|"
@@ -1549,17 +1440,14 @@ msgid "Quechua"
 msgstr ""
 
 #: src/onlinetranslator.cpp:812
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Queretaro Otomi"
 msgctxt "OnlineTranslator|"
 msgid "Querétaro Otomi"
-msgstr "Otomi"
+msgstr ""
 
 #: src/onlinetranslator.cpp:814
 msgctxt "OnlineTranslator|"
 msgid "Romanian"
-msgstr "Rumanisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:816
 msgctxt "OnlineTranslator|"
@@ -1569,12 +1457,12 @@ msgstr ""
 #: src/onlinetranslator.cpp:818
 msgctxt "OnlineTranslator|"
 msgid "Russian"
-msgstr "Rusisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:820
 msgctxt "OnlineTranslator|"
 msgid "Samoan"
-msgstr "Samoanisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:822
 msgctxt "OnlineTranslator|"
@@ -1589,30 +1477,27 @@ msgstr ""
 #: src/onlinetranslator.cpp:826
 msgctxt "OnlineTranslator|"
 msgid "Scots Gaelic"
-msgstr "Galike skoceze"
+msgstr ""
 
 #: src/onlinetranslator.cpp:828
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Cyrillic)"
-msgstr "Serbisht (Sllavishte e vjetër)"
+msgstr ""
 
 #: src/onlinetranslator.cpp:830
 msgctxt "OnlineTranslator|"
 msgid "Serbian (Latin)"
-msgstr "Serbisht (Latinisht)"
+msgstr ""
 
 #: src/onlinetranslator.cpp:832
 msgctxt "OnlineTranslator|"
 msgid "Sesotho"
-msgstr "Sesotoisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:834
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Sesotho"
 msgctxt "OnlineTranslator|"
 msgid "Sesotho sa Leboa"
-msgstr "Sesotoisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:836
 msgctxt "OnlineTranslator|"
@@ -1622,37 +1507,37 @@ msgstr ""
 #: src/onlinetranslator.cpp:838
 msgctxt "OnlineTranslator|"
 msgid "Shona"
-msgstr "Shonaisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:840
 msgctxt "OnlineTranslator|"
 msgid "Sindhi"
-msgstr "Sindishte"
+msgstr ""
 
 #: src/onlinetranslator.cpp:842
 msgctxt "OnlineTranslator|"
 msgid "Sinhala"
-msgstr "Sinhalaisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:844
 msgctxt "OnlineTranslator|"
 msgid "Slovak"
-msgstr "Sllovakisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:846
 msgctxt "OnlineTranslator|"
 msgid "Slovenian"
-msgstr "Sllovenisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:848
 msgctxt "OnlineTranslator|"
 msgid "Somali"
-msgstr "Somalisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:850
 msgctxt "OnlineTranslator|"
 msgid "Spanish"
-msgstr "Spanjisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:852
 msgctxt "OnlineTranslator|"
@@ -1662,17 +1547,17 @@ msgstr ""
 #: src/onlinetranslator.cpp:854
 msgctxt "OnlineTranslator|"
 msgid "Sundanese"
-msgstr "Sundanezisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:856
 msgctxt "OnlineTranslator|"
 msgid "Swahili"
-msgstr "Suahilisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:858
 msgctxt "OnlineTranslator|"
 msgid "Swedish"
-msgstr "Suedisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:860
 msgctxt "OnlineTranslator|"
@@ -1682,12 +1567,12 @@ msgstr ""
 #: src/onlinetranslator.cpp:862
 msgctxt "OnlineTranslator|"
 msgid "Tahitian"
-msgstr "Tahitianisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:864
 msgctxt "OnlineTranslator|"
 msgid "Tajik"
-msgstr "Taxhikistanisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:866
 msgctxt "OnlineTranslator|"
@@ -1697,17 +1582,17 @@ msgstr ""
 #: src/onlinetranslator.cpp:868
 msgctxt "OnlineTranslator|"
 msgid "Tamil"
-msgstr "Tamilisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:870
 msgctxt "OnlineTranslator|"
 msgid "Tatar"
-msgstr "Tatarisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:872
 msgctxt "OnlineTranslator|"
 msgid "Telugu"
-msgstr "Teluguisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:874
 msgctxt "OnlineTranslator|"
@@ -1717,7 +1602,7 @@ msgstr ""
 #: src/onlinetranslator.cpp:876
 msgctxt "OnlineTranslator|"
 msgid "Thai"
-msgstr "Tajlandisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:878
 msgctxt "OnlineTranslator|"
@@ -1742,25 +1627,22 @@ msgstr ""
 #: src/onlinetranslator.cpp:886
 msgctxt "OnlineTranslator|"
 msgid "Tongan"
-msgstr "Tonganisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:888
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Tongan"
 msgctxt "OnlineTranslator|"
 msgid "Tsonga"
-msgstr "Tonganisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:890
 msgctxt "OnlineTranslator|"
 msgid "Turkish"
-msgstr "Turqisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:892
 msgctxt "OnlineTranslator|"
 msgid "Turkmen"
-msgstr "Turkmenisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:894
 msgctxt "OnlineTranslator|"
@@ -1775,12 +1657,12 @@ msgstr ""
 #: src/onlinetranslator.cpp:898
 msgctxt "OnlineTranslator|"
 msgid "Udmurt"
-msgstr "Udmurtisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:900
 msgctxt "OnlineTranslator|"
 msgid "Ukrainian"
-msgstr "Ukrainisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:902
 msgctxt "OnlineTranslator|"
@@ -1795,49 +1677,37 @@ msgstr ""
 #: src/onlinetranslator.cpp:906
 msgctxt "OnlineTranslator|"
 msgid "Urdu"
-msgstr "Urduisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:908
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Uighur"
 msgctxt "OnlineTranslator|"
 msgid "Uyghur"
-msgstr "Ujgurisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:910
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Serbian (Cyrillic)"
 msgctxt "OnlineTranslator|"
 msgid "Uzbek (Cyrillic)"
-msgstr "Serbisht (Sllavishte e vjetër)"
+msgstr ""
 
 #: src/onlinetranslator.cpp:912
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Serbian (Latin)"
 msgctxt "OnlineTranslator|"
 msgid "Uzbek (Latin)"
-msgstr "Serbisht (Latinisht)"
+msgstr ""
 
 #: src/onlinetranslator.cpp:914
 msgctxt "OnlineTranslator|"
 msgid "Vietnamese"
-msgstr "Vietnamisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:916
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Frisian"
 msgctxt "OnlineTranslator|"
 msgid "Wallisian"
-msgstr "Frisian"
+msgstr ""
 
 #: src/onlinetranslator.cpp:918
 msgctxt "OnlineTranslator|"
 msgid "Welsh"
-msgstr "Uellsishte"
+msgstr ""
 
 #: src/onlinetranslator.cpp:920
 msgctxt "OnlineTranslator|"
@@ -1847,7 +1717,7 @@ msgstr ""
 #: src/onlinetranslator.cpp:922
 msgctxt "OnlineTranslator|"
 msgid "Xhosa"
-msgstr "Xhosaisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:924
 msgctxt "OnlineTranslator|"
@@ -1857,22 +1727,22 @@ msgstr ""
 #: src/onlinetranslator.cpp:926
 msgctxt "OnlineTranslator|"
 msgid "Yiddish"
-msgstr "Jidisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:928
 msgctxt "OnlineTranslator|"
 msgid "Yoruba"
-msgstr "Jorubisht"
+msgstr ""
 
 #: src/onlinetranslator.cpp:930
 msgctxt "OnlineTranslator|"
 msgid "Yucatec Maya"
-msgstr "Jukatek Majane"
+msgstr ""
 
 #: src/onlinetranslator.cpp:932
 msgctxt "OnlineTranslator|"
 msgid "Zulu"
-msgstr "Zuluishte"
+msgstr ""
 
 #: src/onlinetranslator.cpp:1280
 #, qt-format
@@ -1883,12 +1753,12 @@ msgstr ""
 #: src/onlinetranslator.cpp:1294
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
-msgstr "Gabim: Nuk mund të analizohet gjuha e autodetektuar"
+msgstr ""
 
 #: src/popupwindow.ui:32
 msgctxt "PopupWindow|"
 msgid "Swap languages"
-msgstr "Shkëmbe gjuhët"
+msgstr ""
 
 #: src/popupwindow.ui:60 src/popupwindow.ui:105 src/popupwindow.ui:202
 #: src/popupwindow.ui:247
@@ -1899,81 +1769,78 @@ msgstr ""
 #: src/popupwindow.ui:112
 msgctxt "PopupWindow|"
 msgid "Copy source text to the clipboard"
-msgstr "Kopjo tekstin e burimit në mbajtësen e shënimeve"
+msgstr ""
 
 #: src/popupwindow.ui:254
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
-msgstr "Kopjo të gjitha përkthimet në mbajtësen e shënimeve"
+msgstr ""
 
 #: src/popupwindow.ui:264
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
-msgstr "Kopjo përkthimin në mbajtësen e shënimeve"
+msgstr ""
 
 #: src/settings/appsettings.cpp:1195
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
-msgstr "Kodi i gjuhës i panjohur: %1"
+msgstr ""
 
 #: src/settings/autostartmanager/abstractautostartmanager.cpp:44
 msgctxt "AbstractAutostartManager|"
 msgid "Unable to apply autostart settings"
-msgstr "Nuk mund të zbatohen cilësimet e nisjes automatike"
+msgstr ""
 
 #: src/settings/autostartmanager/portalautostartmanager.cpp:34
 #, qt-format
 msgctxt "PortalAutostartManager|"
 msgid "Allow %1 to manage autostart setting for itself."
-msgstr "Lejo që %1 të menaxhojë vetë cilësimin e nisjes automatike."
+msgstr ""
 
 #: src/settings/autostartmanager/portalautostartmanager.cpp:53
 msgctxt "PortalAutostartManager|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
-msgstr "Nuk mund të abonohet për përgjigjen nga xdg-desktop-portal."
+msgstr ""
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:35
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to create %1"
-msgstr "Nuk mund të krijohet %1"
+msgstr ""
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:42
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to copy %1 to %2"
-msgstr "Nuk mund të kopjohet %1 në %2"
+msgstr ""
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:47
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
-msgstr "Nuk mund të hiqet %1 nga %2"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:35
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
-msgstr "Modaliteti i portativ"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:48
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
-msgstr "Përdor %1 për të ruajtur cilësimet"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:52
 msgctxt "SettingsDialog|"
 msgid "<System language>"
-msgstr "<Gjuha e sistemit>"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:56 src/settings/settingsdialog.cpp:57
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Auto"
 msgctxt "SettingsDialog|"
 msgid "<Auto>"
-msgstr "Automatike"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:74
 msgctxt "SettingsDialog|"
@@ -1988,32 +1855,32 @@ msgstr ""
 #: src/settings/settingsdialog.cpp:110
 msgctxt "SettingsDialog|"
 msgid "Icons:"
-msgstr "Ikona:"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:132
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
-msgstr "Fushat e parametrave të OCR nuk mund të jenë bosh."
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:133
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
-msgstr "Dëshironi të fshini parametrat e pavlefshëm?"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:294
 msgctxt "SettingsDialog|"
 msgid "Select icon"
-msgstr "Zgjidh ikonën"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:294
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
-msgstr "Imazhet (*.png *.ico *.svg *.jpg);;Të gjitha skedarët()"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:324
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
-msgstr "Zgjidh shtegun e gjuhëve OCR"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:339
 msgctxt "SettingsDialog|"
@@ -2021,45 +1888,39 @@ msgid "Piper voices path:"
 msgstr ""
 
 #: src/settings/settingsdialog.cpp:353
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Directory with trained models"
 msgctxt "SettingsDialog|"
 msgid "Directory with voice models"
-msgstr "Direktoria me modele të trajnuara"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:354 src/settings/settingsdialog.cpp:373
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Select OCR languages path"
 msgctxt "SettingsDialog|"
 msgid "Select Piper voices path"
-msgstr "Zgjidh shtegun e gjuhëve OCR"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
 msgid "Back"
-msgstr "Prapa"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:14
 msgctxt "SettingsDialog|"
 msgid "Settings"
-msgstr "Cilësimet"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:144
 msgctxt "SettingsDialog|"
 msgid "General"
-msgstr "Të përgjithshme"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:57
 msgctxt "SettingsDialog|"
 msgid "Interface"
-msgstr "Ndërfaqja"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:783
 msgctxt "SettingsDialog|"
 msgid "Translation"
-msgstr "Përkthimi"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:73
 msgctxt "SettingsDialog|"
@@ -2074,32 +1935,32 @@ msgstr ""
 #: src/settings/settingsdialog.ui:97
 msgctxt "SettingsDialog|"
 msgid "Connection"
-msgstr "Lidhje"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:105
 msgctxt "SettingsDialog|"
 msgid "Shortcuts"
-msgstr "Shkurtoret"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:113
 msgctxt "SettingsDialog|"
 msgid "About"
-msgstr "Rreth"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:156
 msgctxt "SettingsDialog|"
 msgid "Language:"
-msgstr "Gjuha:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:163
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Interface language</p></body></html>"
-msgstr "<html><head/><body><p>Gjuha e ndërfaqes</p></body></html>"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:170
 msgctxt "SettingsDialog|"
 msgid "Main window orientation:"
-msgstr "Orientimi i dritares kryesore:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:177
 msgctxt "SettingsDialog|"
@@ -2108,32 +1969,29 @@ msgid ""
 "<span style=\" font-style:italic;\">Auto</span>, the window orientation will "
 "match the screen orientation</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Orientimi i paraqitjes së dritares kryesore<br/>Kur "
-"përdor <span style=\" font-style:italic;\">Automatike</span>, orientimi i "
-"dritares do të përputhet me orientimin e ekranit</p></body></html>"
 
 #. Orientation
 #: src/settings/settingsdialog.ui:181
 msgctxt "SettingsDialog|"
 msgid "Auto"
-msgstr "Automatike"
+msgstr ""
 
 #. Orientation
 #: src/settings/settingsdialog.ui:186
 msgctxt "SettingsDialog|"
 msgid "Portrait"
-msgstr "Portret"
+msgstr ""
 
 #. Orientation
 #: src/settings/settingsdialog.ui:191
 msgctxt "SettingsDialog|"
 msgid "Landscape"
-msgstr "Peizazh"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:199
 msgctxt "SettingsDialog|"
 msgid "Translation mode:"
-msgstr "Mënyra e përkthimit:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:206
 msgctxt "SettingsDialog|"
@@ -2142,29 +2000,26 @@ msgid ""
 "application is minimized, the main window will always be used.</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Një dritare për përkthimin e tekstit të zgjedhur. Nëse "
-"aplikacioni minimizohet, dritarja kryesore do të përdoret gjithmonë.</p></"
-"body></html>"
 
 #: src/settings/settingsdialog.ui:210 src/settings/settingsdialog.ui:359
 msgctxt "SettingsDialog|"
 msgid "Pop-up window"
-msgstr "Dritare flluskë"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:215
 msgctxt "SettingsDialog|"
 msgid "Main window"
-msgstr "Dritarja kryesore"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:220
 msgctxt "SettingsDialog|"
 msgid "Notification"
-msgstr "Njoftime"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:228
 msgctxt "SettingsDialog|"
 msgid "Translation notification timeout:"
-msgstr "Koha limit e njoftimit të përkthimit:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:241
 msgctxt "SettingsDialog|"
@@ -2172,24 +2027,21 @@ msgid ""
 "<html><head/><body><p>Notification with translation display time</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Njoftimi me kohën e shfaqjes së përkthimit</p></body></"
-"html>"
 
 #: src/settings/settingsdialog.ui:244 src/settings/settingsdialog.ui:449
 msgctxt "SettingsDialog|"
 msgid " sec"
-msgstr " sekonda"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:257
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Display icon in the system tray</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Shfaq ikonën në shiritin e sistemit</p></body></html>"
 
 #: src/settings/settingsdialog.ui:260
 msgctxt "SettingsDialog|"
 msgid "Show tray icon"
-msgstr "Shfaq ikonën e shiritit"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:270
 msgctxt "SettingsDialog|"
@@ -2197,49 +2049,43 @@ msgid ""
 "<html><head/><body><p>Start application minimized to the system tray</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Niseni aplikacionin të minimizuar në shiritin e "
-"sistemit</p></body></html>"
 
 #: src/settings/settingsdialog.ui:273
 msgctxt "SettingsDialog|"
 msgid "Start minimized"
-msgstr "Fillo i minimizuar"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:280
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Run the application at system startup</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Filloni aplikacionin që në fillimin e sistemit</p></"
-"body></html>"
 
 #: src/settings/settingsdialog.ui:283
 msgctxt "SettingsDialog|"
 msgid "Launch at startup"
-msgstr "Lësho programin që në nisjen e sistemit"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:316
 msgctxt "SettingsDialog|"
 msgid "Font"
-msgstr "Shkronja"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:322
 msgctxt "SettingsDialog|"
 msgid "Name:"
-msgstr "Emri:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:329
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Translation and source text font</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Shkronjat e tekstit të përkthimit dhe të burimit</p></"
-"body></html>"
 
 #: src/settings/settingsdialog.ui:336
 msgctxt "SettingsDialog|"
 msgid "Size:"
-msgstr "Madhësia:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:343
 msgctxt "SettingsDialog|"
@@ -2247,46 +2093,41 @@ msgid ""
 "<html><head/><body><p>Font size of translation and source text</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Madhësia e shkronjave të tekstit të përkthimit dhe "
-"burimit</p></body></html>"
 
 #: src/settings/settingsdialog.ui:365
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window height in pixels</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Lartësia e dritares flluskë në piksel</p></body></html>"
 
 #: src/settings/settingsdialog.ui:375
 msgctxt "SettingsDialog|"
 msgid "Width:"
-msgstr "Gjerësia:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:382
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window width in pixels</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Gjerësia e dritares flluskë në piksel</p></body></html>"
 
 #: src/settings/settingsdialog.ui:392
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Pop-up window opacity</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Transparenca e dritares flluskë</p></body></html>"
 
 #: src/settings/settingsdialog.ui:419
 msgctxt "SettingsDialog|"
 msgid "Opacity:"
-msgstr "Transparenca:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:426
 msgctxt "SettingsDialog|"
 msgid "Show timeout:"
-msgstr "Shfaq kohën limit:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:433
 msgctxt "SettingsDialog|"
 msgid "Height:"
-msgstr "Lartësia:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:446
 msgctxt "SettingsDialog|"
@@ -2294,106 +2135,101 @@ msgid ""
 "<html><head/><body><p>The number of seconds after which the window will be "
 "hidden if it has no focus</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Numri i sekondave pas së cilës dritarja do të fshihet "
-"nëse nuk ka fokus</p></body></html>"
 
 #: src/settings/settingsdialog.ui:469
 msgctxt "SettingsDialog|"
 msgid "Language format"
-msgstr "Formati i gjuhës"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:475
 msgctxt "SettingsDialog|"
 msgid "Main window:"
-msgstr "Dritarja kryesore:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:482 src/settings/settingsdialog.ui:506
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Languages text on buttons</p></body></html>"
-msgstr "<html><head/><body><p>Gjuhët e tekstit në butona</p></body></html>"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:486 src/settings/settingsdialog.ui:510
 msgctxt "SettingsDialog|"
 msgid "Full name"
-msgstr "Emri i plotë"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:491 src/settings/settingsdialog.ui:515
 msgctxt "SettingsDialog|"
 msgid "ISO 639-1 code"
-msgstr "Kodi ISO 639-1"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:499
 msgctxt "SettingsDialog|"
 msgid "Pop-up:"
-msgstr "Dritare flluskë:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:526
 msgctxt "SettingsDialog|"
 msgid "Tray icon"
-msgstr "Ikona e shiritit"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:532
 msgctxt "SettingsDialog|"
 msgid "Icon:"
-msgstr "Ikona:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:545
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>System tray icon</p></body></html>"
-msgstr "<html><head/><body><p>Ikona e shiritit të sistemit</p></body></html>"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:549
 msgctxt "SettingsDialog|"
 msgid "Default"
-msgstr "Parazgjedhur"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:557
 msgctxt "SettingsDialog|"
 msgid "Monochrome (dark theme)"
-msgstr "Monokromatike (temë e errët)"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:565
 msgctxt "SettingsDialog|"
 msgid "Monochrome (light theme)"
-msgstr "Monokromatike (temë e çelët)"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:573
 msgctxt "SettingsDialog|"
 msgid "Custom"
-msgstr "E personalizuar"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:587
 msgctxt "SettingsDialog|"
 msgid "Custom:"
-msgstr "E personalizuar:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:599
 msgctxt "SettingsDialog|"
 msgid "Path to the icon or icon name from theme"
-msgstr "Shtegu për tek ikona ose emri i ikonës nga tema"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:609
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select icon</p></body></html>"
-msgstr "<html><head/><body><p>Zgjidh ikonën</p></body></html>"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:650
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation provider:"
-msgstr "Mënyra e përkthimit:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:673
 msgctxt "SettingsDialog|"
 msgid "Automatic language detection"
-msgstr "Zbulimi automatik i gjuhës"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:679
 msgctxt "SettingsDialog|"
 msgid "Primary translation language:"
-msgstr "Gjuha kryesore e përkthimit:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:686
 msgctxt "SettingsDialog|"
@@ -2401,13 +2237,11 @@ msgid ""
 "<html><head/><body><p>Language to which text will be translated when "
 "autodetecting</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Gjuha në të cilën do të përkthehet teksti gjatë "
-"zbulimit automatik</p></body></html>"
 
 #: src/settings/settingsdialog.ui:693
 msgctxt "SettingsDialog|"
 msgid "Secondary translation language:"
-msgstr "Gjuha dytësore e përkthimit:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:700
 msgctxt "SettingsDialog|"
@@ -2415,8 +2249,6 @@ msgid ""
 "<html><head/><body><p>Language to which the text will be translated if it is "
 "in the language selected above</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Gjuha në të cilën do të përkthehet teksti nëse është "
-"në gjuhën e zgjedhur më sipër</p></body></html>"
 
 #: src/settings/settingsdialog.ui:707 src/settings/settingsdialog.ui:717
 msgctxt "SettingsDialog|"
@@ -2424,19 +2256,16 @@ msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
 "italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Kaloni automatikisht në <span style=\" font-style:"
-"italic;\">Automatike</span> kur përdorni OCR dhe shkurtore globale</p></"
-"body></html>"
 
 #: src/settings/settingsdialog.ui:710
 msgctxt "SettingsDialog|"
 msgid "Force source language detection"
-msgstr "Detyro zbulimin e gjuhës së burimit"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:720
 msgctxt "SettingsDialog|"
 msgid "Force translation language detection"
-msgstr "Detyro zbulimin e gjuhës së përkthimit"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:741
 msgctxt "SettingsDialog|"
@@ -2454,13 +2283,11 @@ msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Aktivizoni ose çaktivizoni transliterimin e burimit</"
-"p></body></html>"
 
 #: src/settings/settingsdialog.ui:792
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
-msgstr "Aktivizo transliterimin e burimit"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:799
 msgctxt "SettingsDialog|"
@@ -2468,13 +2295,11 @@ msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Aktivizoni ose çaktivizoni transliterimin e "
-"përkthimit</p></body></html>"
 
 #: src/settings/settingsdialog.ui:802
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
-msgstr "Aktivizo transliterimin e përkthimit"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:809
 msgctxt "SettingsDialog|"
@@ -2482,39 +2307,33 @@ msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Aktivizo ose çaktivizo transkriptimin e burimit</p></"
-"body></html>"
 
 #: src/settings/settingsdialog.ui:812
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
-msgstr "Aktivizo transkriptimin e burimit"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:819
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Aktivizoni ose çaktivizoni opsionet e përkthimit</p></"
-"body></html>"
 
 #: src/settings/settingsdialog.ui:822
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
-msgstr "Aktivizo opsionet e përkthimit"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:829
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Aktivizoni ose çaktivizoni shembujt e përdorimit</p></"
-"body></html>"
 
 #: src/settings/settingsdialog.ui:832
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
-msgstr "Aktivizo shembujt"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:839
 msgctxt "SettingsDialog|"
@@ -2523,14 +2342,11 @@ msgid ""
 "the ASCII characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' ') with a "
 "single space in queries</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Zëvendëso çdo sekuencë të hapësirave të bardha (kjo "
-"përfshin karakteret ASCII '\\t', '\\n', '\\v', '\\f', '\\r', dhe ' ') me një "
-"hapësirë të vetme në pyetje</p></body></html>"
 
 #: src/settings/settingsdialog.ui:842
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
-msgstr "Thjeshto burimin"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:871
 msgctxt "SettingsDialog|"
@@ -2543,17 +2359,14 @@ msgid "Automatically pick the fastest instance based on the ping"
 msgstr ""
 
 #: src/settings/settingsdialog.ui:887
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Speech test:"
 msgctxt "SettingsDialog|"
 msgid "Detect fastest"
-msgstr "Testi i fjalimit:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:920
 msgctxt "SettingsDialog|"
 msgid "Languages"
-msgstr "Gjuhët"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:926
 msgctxt "SettingsDialog|"
@@ -2563,25 +2376,21 @@ msgid ""
 "language, and there is more chance of hallucinating incorrect words.</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Ngarkimi i gjuhëve shtesë do të ndikojë si në "
-"shpejtësi ashtu dhe në saktësi, pasi ka më shumë punë për të bërë për të "
-"vendosur për gjuhën e zbatueshme dhe ka më shumë mundësi për të patur fjalë "
-"të pasakta.</p></body></html>"
 
 #: src/settings/settingsdialog.ui:933
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
-msgstr "Shtegu i gjuhëve:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:940
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
-msgstr "<html><head/><body><p>Zgjidh shtegun e gjuhëve OCR</p></body></html>"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:950
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
-msgstr "<html><head/><body><p>Hap depozitën e GitHub</p></body></html>"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:953
 msgctxt "SettingsDialog|"
@@ -2590,14 +2399,11 @@ msgid ""
 "\"><span style=\" text-decoration: underline; color:#2980b9;\">Download "
 "more</span></a></p></body></html>"
 msgstr ""
-"<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
-"\"><span style=\" text-decoration: underline; color:#2980b9;\">Shkarko më "
-"shumë</span></a></p></body></html>"
 
 #: src/settings/settingsdialog.ui:963
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
-msgstr "Direktoria me modele të trajnuara"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:979
 msgctxt "SettingsDialog|"
@@ -2605,23 +2411,21 @@ msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
 "recognition</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Zëvendëso të gjitha ndërprerjet e një rreshti të vetëm "
-"me një hapësirë ​​pas njohjes së tekstit</p></body></html>"
 
 #: src/settings/settingsdialog.ui:982
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
-msgstr "Konverto ndërprerjet e rreshtave"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1046
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
-msgstr "Kapje e ekranit"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1058
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
-msgstr "Mbaj mend rajonin:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1065
 msgctxt "SettingsDialog|"
@@ -2629,64 +2433,54 @@ msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Kur të mbahet mend rajoni i fundit i zgjedhur</p></"
-"body></html>"
 
 #: src/settings/settingsdialog.ui:1069
 msgctxt "SettingsDialog|"
 msgid "Never"
-msgstr "Asnjëherë"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1074
 msgctxt "SettingsDialog|"
 msgid "Remember last"
-msgstr "Mbaj mend të fundit"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1079
 msgctxt "SettingsDialog|"
 msgid "Remember always"
-msgstr "Mbaj mend gjithmonë"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1087
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
-msgstr "Vonesa e kapjes:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1094
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
-msgstr "Vonimi para se të kapni ekranin"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1097
 msgctxt "SettingsDialog|"
 msgid " ms"
-msgstr " ms"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1107
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Shfaq një zmadhues pranë kursorit </p></body></html>"
 
 #: src/settings/settingsdialog.ui:1110
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
-msgstr "Shfaq zmadhuesin"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1117
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "<html><head/><body><p>Replace all single line breaks with a space after "
-#| "text recognition</p></body></html>"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
 "text on dark background.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Zëvendëso të gjitha ndërprerjet e një rreshti të vetëm "
-"me një hapësirë ​​pas njohjes së tekstit</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1120
 msgctxt "SettingsDialog|"
@@ -2699,13 +2493,11 @@ msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
 "released</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Përfundo kapjen e fragmentit kur të lëshohet butoni i "
-"mausit</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1133
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
-msgstr "Konfirmo në lëshim"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1140
 msgctxt "SettingsDialog|"
@@ -2713,140 +2505,130 @@ msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Vendos një mjegull të lehtë në pjesën e pazgjedhur</"
-"p></body></html>"
 
 #: src/settings/settingsdialog.ui:1143
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
-msgstr "Vendos maskë të lehtë"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1176
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
-msgstr "Server proxy"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1182
 msgctxt "SettingsDialog|"
 msgid "Type:"
-msgstr "Tipi:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1195
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
-msgstr "<html><head/><body><p>Tipi i proxyt</p></body></html>"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1199
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
-msgstr "Përdor cilësimet e sistemit"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1209
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
-msgstr "Mos përdorni një proxy"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1225
 msgctxt "SettingsDialog|"
 msgid "Host:"
-msgstr "Pritës:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1235
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
-msgstr "<html><head/><body><p>Emri i pritësit proxy</p></body></html>"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1248
 msgctxt "SettingsDialog|"
 msgid "Port:"
-msgstr "Porta:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1264
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
-msgstr "<html><head/><body><p>Porta proxy</p></body></html>"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1283
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
-msgstr "Info: proxy punon vetëm për përkthimin e tekstit"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1293
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Aktivizo ose çaktivizo vërtetimin</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1296
 msgctxt "SettingsDialog|"
 msgid "Authentication"
-msgstr "Vërtetimi"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1306
 msgctxt "SettingsDialog|"
 msgid "Username:"
-msgstr "Emri i përdoruesit:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1316
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Emri i përdoruesit të proxy për vërtetim</p></body></"
-"html>"
 
 #: src/settings/settingsdialog.ui:1326
 msgctxt "SettingsDialog|"
 msgid "Password:"
-msgstr "Fjalëkalimi:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1336
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Fjalëkalimi i proxy për vërtetim</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1349
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
-msgstr "Info: fjalëkalimi është ruajtur i pakriptuar"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1385
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Regjistro shkurtesat globale në sistem</p></body></"
-"html>"
 
 #: src/settings/settingsdialog.ui:1388
 msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
-msgstr "Aktivizo shkurtesat globale"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1404
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Rivendos të gjitha shkurtoret në parazgjedhje</p></"
-"body></html>"
 
 #: src/settings/settingsdialog.ui:1407
 msgctxt "SettingsDialog|"
 msgid "Reset all"
-msgstr "Rivendos të gjitha"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1417
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
-msgstr "Shkurtore"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1423
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
-msgstr "Sekuenca kryesore:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1430
 msgctxt "SettingsDialog|"
@@ -2854,123 +2636,117 @@ msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Sekuenca kryesore për veprimin e zgjedhur</p></body></"
-"html>"
 
 #: src/settings/settingsdialog.ui:1437
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
-msgstr "<html><head/><body><p>Prano shkurtoren</p></body></html>"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1440
 msgctxt "SettingsDialog|"
 msgid "Accept"
-msgstr "Prano"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1450
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
-msgstr "<html><head/><body><p>Pastro shkurtoren</p></body></html>"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1453
 msgctxt "SettingsDialog|"
 msgid "Clear"
-msgstr "Pastro"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1463
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Rivendos shkurtoren në parazgjedhje</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1466
 msgctxt "SettingsDialog|"
 msgid "Reset"
-msgstr "Rivendos"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1511
 msgctxt "SettingsDialog|"
 msgid "Version:"
-msgstr "Versioni:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1521
 msgctxt "SettingsDialog|"
 msgid "License:"
-msgstr "Liçensa:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1535
 msgctxt "SettingsDialog|"
 msgid "Source code:"
-msgstr "Kodi i burimit:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1555
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation backend:"
-msgstr "Mënyra e përkthimit:"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:21
 msgctxt "ShortcutsModel|"
 msgid "Global"
-msgstr "Globale"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:23
 msgctxt "ShortcutsModel|"
 msgid "Translate selected text"
-msgstr "Përkthe tekstin e zgjedhur"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:26
 msgctxt "ShortcutsModel|"
 msgid "Speak selected text"
-msgstr "Fol tekstin e zgjedhur"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:29
 msgctxt "ShortcutsModel|"
 msgid "Speak translation of selected text"
-msgstr "Fol përkthimin e tekstit të zgjedhur"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:32
 msgctxt "ShortcutsModel|"
 msgid "Stop text speaking"
-msgstr "Ndalo të folurin e tekstit"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:35
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:73
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause text speaking"
-msgstr "Fol / pusho të folurin e tekstit"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:38
 msgctxt "ShortcutsModel|"
 msgid "Show main window"
-msgstr "Shfaq dritaren kryesore"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:41
 msgctxt "ShortcutsModel|"
 msgid "Translate selected text and copy to clipboard"
-msgstr "Përkthe tekstin e zgjedhur dhe kopjo në mbajtësen e shënimeve"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:44
 msgctxt "ShortcutsModel|"
 msgid "Recognize text in screen area"
-msgstr "Njih tekstin në zonën e ekranit"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:47
 msgctxt "ShortcutsModel|"
 msgid "Translate text in screen area"
-msgstr "Përkthe tekstin në zonën e ekranit"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:50
 msgctxt "ShortcutsModel|"
 msgid "Recognize text in screen area with delay"
-msgstr "Njih tekstin në zonën e ekranit me vonesë"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:53
 msgctxt "ShortcutsModel|"
 msgid "Translate text in screen area with delay"
-msgstr "Përkthe tekstin në zonën e ekranit me vonesë"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:56
 msgctxt "ShortcutsModel|"
@@ -2980,70 +2756,67 @@ msgstr ""
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
 msgid "Main window"
-msgstr "Dritarja kryesore"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:61
 msgctxt "ShortcutsModel|"
 msgid "Translate"
-msgstr "Përkthe"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:64
 msgctxt "ShortcutsModel|"
 msgid "Swap languages"
-msgstr "Shkëmbe gjuhët"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:67
 msgctxt "ShortcutsModel|"
 msgid "Close window"
-msgstr "Mbyll dritaren"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:71
 msgctxt "ShortcutsModel|"
 msgid "Source text"
-msgstr "Teksti i burimit"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
 msgctxt "ShortcutsModel|"
 msgid "Translation"
-msgstr "Përkthimi"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:79
 msgctxt "ShortcutsModel|"
 msgid "Speak / pause speaking"
-msgstr "Fol / pusho të folurin"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:82
 msgctxt "ShortcutsModel|"
 msgid "Copy to clipboard"
-msgstr "Kopjo në mbajtëse shënimesh"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:128
 msgctxt "ShortcutsModel|"
 msgid "Description"
-msgstr "Përshkrimi"
+msgstr ""
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:130
 msgctxt "ShortcutsModel|"
 msgid "Shortcut"
-msgstr "Shkurtore"
+msgstr ""
 
 #: src/settings/tesseractparameterstablewidget.cpp:16
 msgctxt "TesseractParametersTableWidget|"
 msgid "Property"
-msgstr "Veti"
+msgstr ""
 
 #: src/settings/tesseractparameterstablewidget.cpp:16
 msgctxt "TesseractParametersTableWidget|"
 msgid "Value"
-msgstr "Vlera"
+msgstr ""
 
 #: src/translator/atranslationprovider.cpp:112
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "QObject|"
 msgid "Translation Provider Error"
-msgstr "Mënyra e përkthimit:"
+msgstr ""
 
 #: src/translator/atranslationprovider.cpp:113
 msgctxt "QObject|"
@@ -3054,40 +2827,34 @@ msgid ""
 msgstr ""
 
 #: src/translator/mozhitranslationprovider.cpp:386
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "translation options:"
 msgctxt "MozhiTranslationProvider|"
 msgid "translation options:"
-msgstr "opsionet e përkthimit:"
+msgstr ""
 
 #: src/translator/mozhitranslationprovider.cpp:400
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "examples:"
 msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
-msgstr "shembuj:"
+msgstr ""
 
 #: src/trayicon.cpp:19 src/trayicon.cpp:44
 msgctxt "TrayIcon|"
 msgid "Show window"
-msgstr "Shfaq dritaren"
+msgstr ""
 
 #: src/trayicon.cpp:20 src/trayicon.cpp:45
 msgctxt "TrayIcon|"
 msgid "Settings"
-msgstr "Cilësimet"
+msgstr ""
 
 #: src/trayicon.cpp:21 src/trayicon.cpp:46
 msgctxt "TrayIcon|"
 msgid "Quit"
-msgstr "Dil"
+msgstr ""
 
 #: src/trayicon.cpp:51
 msgctxt "TrayIcon|"
 msgid "Translation result"
-msgstr "Rezultati i përkthimit"
+msgstr ""
 
 #: src/tts/attsprovider.cpp:69
 msgctxt "QObject|"
@@ -3103,12 +2870,9 @@ msgid ""
 msgstr ""
 
 #: src/tts/mozhittsprovider.cpp:48
-#, fuzzy
-#| msgctxt "SpeakButtons|"
-#| msgid "Playback text is empty"
 msgctxt "MozhiTTSProvider|"
 msgid "Text is empty"
-msgstr "Teksti i riprodhimit është bosh"
+msgstr ""
 
 #: src/tts/mozhittsprovider.cpp:81
 msgctxt "MozhiTTSProvider|"
@@ -3140,12 +2904,9 @@ msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
 msgstr ""
 
 #: src/tts/piperttsprovider.cpp:115
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize Piper TTS"
-msgstr "Nuk mund të iniciohet Tesseract me %1"
+msgstr ""
 
 #: src/tts/piperttsprovider.cpp:121
 #, qt-format
@@ -3159,12 +2920,9 @@ msgid "Unknown ONNX Runtime initialization error"
 msgstr ""
 
 #: src/tts/piperttsprovider.cpp:205
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize espeak-ng"
-msgstr "Nuk mund të iniciohet Tesseract me %1"
+msgstr ""
 
 #: src/tts/piperttsprovider.cpp:247
 #, qt-format
@@ -3213,12 +2971,9 @@ msgid "Failed to create temporary audio file"
 msgstr ""
 
 #: src/tts/piperttsprovider.cpp:1024
-#, fuzzy
-#| msgctxt "UpdaterDialog|"
-#| msgid "Unable to write file"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to write audio data"
-msgstr "Nuk mund të shkruhet skedari"
+msgstr ""
 
 #: src/tts/piperttsprovider.cpp:1362
 msgctxt "PiperTTSProvider|"
@@ -3257,414 +3012,3 @@ msgstr ""
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
 msgstr ""
-
-#, fuzzy
-#~| msgctxt "SettingsDialog|"
-#~| msgid "Main window"
-#~ msgctxt "MainWindow|"
-#~ msgid "MainWindow"
-#~ msgstr "Dritarja kryesore"
-
-#~ msgctxt "MainWindow|"
-#~ msgid "Unable to detect language"
-#~ msgstr "Nuk mund të zbulohet gjuha"
-
-#~ msgctxt "MainWindow|"
-#~ msgid "Unable to translate text"
-#~ msgstr "Nuk mund të përkthehet teksti"
-
-#~ msgctxt "SpeakButtons|"
-#~ msgid "No text specified"
-#~ msgstr "Asnjë tekst i specifikuar"
-
-#~ msgctxt "SpeakButtons|"
-#~ msgid "Unable to generate URLs for TTS"
-#~ msgstr "Nuk mund të gjenerojë URL për TTS"
-
-#~ msgctxt "SpeakButtons|"
-#~ msgid "Speak / pause text speaking"
-#~ msgstr "Fol / pusho të folurin e tekstit"
-
-#~ msgctxt "SpeakButtons|"
-#~ msgid "Stop text speaking"
-#~ msgstr "Ndaloni të folurin e tekstit"
-
-#~ msgctxt "TranslationEdit|"
-#~ msgid "translation options:"
-#~ msgstr "opsionet e përkthimit:"
-
-#~ msgctxt "TranslationEdit|"
-#~ msgid "examples:"
-#~ msgstr "shembuj:"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid ""
-#~ "<html><head/><body><p>Lingva engine URL</p><p>All instances can be found "
-#~ "here: https://github.com/TheDavidDelta/lingva-translate#instances</p></"
-#~ "body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>URL e motorit Lingva</p><p>Të gjitha instancat mund "
-#~ "të gjenden këtu: https://github.com/TheDavidDelta/lingva-"
-#~ "translate#instances</p></body></html>"
-
-#~ msgctxt "Cli|"
-#~ msgid "%1 - translation options:"
-#~ msgstr "%1 - opsionet e përkthimit:"
-
-#~ msgctxt "Cli|"
-#~ msgid "%1 - examples:"
-#~ msgstr "%1 - shembuj:"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Flag icons:"
-#~ msgstr "Ikonat e flamujve:"
-
-#~ msgctxt "Cli|"
-#~ msgid ""
-#~ "Specify the translator language (by default, the system language is used)."
-#~ msgstr ""
-#~ "Specifikoni gjuhën e përkthyesit (si parazgjedhje, do përdoret gjuha e "
-#~ "sistemit)."
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Selected source language %1 is not supported for %2"
-#~ msgstr "Gjuha e zgjedhur e burimit %1 nuk mbështetet për %2"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Selected translation language %1 is not supported for %2"
-#~ msgstr "Gjuha e zgjedhur e përkthimit %1 nuk mbështetet për %2"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Selected ui language %1 is not supported for %2"
-#~ msgstr ""
-#~ "Gjuha e zgjedhur e ndërfaqes së përdoruesit %1 nuk mbështetet për %2"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "%1 URL can't be empty."
-#~ msgstr "%1 URL s'mund të lihet e paplotësuar."
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Bengali"
-#~ msgstr "Bengalisht"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Cantonese"
-#~ msgstr "Kantonisht"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Klingon"
-#~ msgstr "Klingonishte"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Levantine Arabic"
-#~ msgstr "Arabishte levantine"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Maori"
-#~ msgstr "Maorisht"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Myanmar"
-#~ msgstr "Birmanisht"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Oriya"
-#~ msgstr "Orijishte"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Uzbek"
-#~ msgstr "Uzbekishte"
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid ""
-#~ "Error: Engine systems have detected suspicious traffic from your computer "
-#~ "network. Please try your request again later."
-#~ msgstr ""
-#~ "Gabim: Sistemet motorike kanë zbuluar trafik të dyshimtë nga rrjeti i "
-#~ "kompjuterit tuaj. Ju lutemi provoni përsëri kërkesën tuaj më vonë."
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Error: Unable to find Bing credentials in web version."
-#~ msgstr ""
-#~ "Gabim: Nuk mund të gjenden kredencialet e Bing në versionin në internet."
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Error: Unable to extract Bing key from web version."
-#~ msgstr "Gabim: Nuk mund të nxirret çelësi i Bing nga versioni në internet."
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid "Error: Unable to extract Bing token from web version."
-#~ msgstr "Gabim: Nuk mund të nxirret tokeni i Bing nga versioni në internet."
-
-#~ msgctxt "OnlineTranslator|"
-#~ msgid ""
-#~ "Error: Unable to extract additional Bing information from web version."
-#~ msgstr ""
-#~ "Gabim: Nuk mund të nxirren informacione shtesë të Bing nga versioni ueb."
-
-#~ msgctxt "OnlineTts|"
-#~ msgid "Selected engine %1 does not support voice settings"
-#~ msgstr "Motori i zgjedhur %1 nuk mbështet cilësimet e zërit"
-
-#~ msgctxt "OnlineTts|"
-#~ msgid "Selected engine %1 does not support emotion settings"
-#~ msgstr "Motori i zgjedhur %1 nuk mbështet cilësimet e emocioneve"
-
-#~ msgctxt "OnlineTts|"
-#~ msgid "Selected voice %1 is not supported for %2"
-#~ msgstr "Zëri i zgjedhur %1 nuk mbështetet për %2"
-
-#~ msgctxt "OnlineTts|"
-#~ msgid "Selected emotion %1 is not supported by %2"
-#~ msgstr "Emocioni i zgjedhur %1 nuk mbështetet nga %2"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Happy New Year!"
-#~ msgstr "Gëzuar Vitin e Ri!"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Default region"
-#~ msgstr "Rajoni i parazgjedhur"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Mandarin (China)"
-#~ msgstr "Mandarin (Kinë)"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Nothing to play"
-#~ msgstr "Asgjë për të luajtur"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Playback text is empty"
-#~ msgstr "Teksti i riprodhimit është bosh"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Unable to detect language"
-#~ msgstr "Nuk mund të zbulohet gjuha"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Speech synthesis"
-#~ msgstr "Sinteza e të folurit"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid ""
-#~ "<html><head/><body><p>LibreTranslate instance API key</p><p>Free "
-#~ "instances listed here doesn't require a key, so field can be empty</p></"
-#~ "body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Çelësi API i instancës LibreTranslate</"
-#~ "p><p>Instancat falas të listuara këtu s'kërkojnë një çelës API, kështu që "
-#~ "fusha mund të jetë bosh</p></body></html>"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "API key:"
-#~ msgstr "Çelësi API:"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid ""
-#~ "<html><head/><body><p>LibreTranslate engine URL</p><p>All instances can "
-#~ "be found here: https://github.com/LibreTranslate/LibreTranslate#mirrors</"
-#~ "p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>URL e motorit LibreTranslate</p><p>Të gjitha "
-#~ "instancat mund të gjenden këtu: https://github.com/LibreTranslate/"
-#~ "LibreTranslate#mirrors</p></body></html>"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Voice:"
-#~ msgstr "Zëri:"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid ""
-#~ "<html><head/><body><p>Voice of the speech synthesis engine</p></body></"
-#~ "html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Zëri i motorit të sintezës së të folurit</p></"
-#~ "body></html>"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Zahar"
-#~ msgstr "Zahar"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Ermil"
-#~ msgstr "Ermil"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Jane"
-#~ msgstr "Jane"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Oksana"
-#~ msgstr "Oksana"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Alyss"
-#~ msgstr "Alisa"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Omazh"
-#~ msgstr "Omazh"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Emotional connotation:"
-#~ msgstr "Konotacion emocional:"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid ""
-#~ "<html><head/><body><p>Voice mood of the speech synthesis engine</p></"
-#~ "body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Gjendja e zërit e motorit të sintezës së të "
-#~ "folurit</p></body></html>"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Neutral"
-#~ msgstr "Neutral"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Good"
-#~ msgstr "Mirë"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Evil"
-#~ msgstr "Lig"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "<html><head/><body><p>Text to test speech</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Tekst për të provuar të folurit</p></body></html>"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "This is an example of speech synthesis."
-#~ msgstr "Ky është një shembull i sintezës së të folurit."
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Test voice"
-#~ msgstr "Zëri i provës"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Region:"
-#~ msgstr "Rajoni:"
-
-#~ msgctxt "QGitTag|"
-#~ msgid "Release number %1 is missing"
-#~ msgstr "Numri i lëshimit %1 mungon"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Updates"
-#~ msgstr "Përditësimet"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Check for updates:"
-#~ msgstr "Kontrollo për përditësime:"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Every day"
-#~ msgstr "Çdo ditë"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Every week"
-#~ msgstr "Çdo javë"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Every month"
-#~ msgstr "Çdo muaj"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Check now"
-#~ msgstr "Kontrollo tani"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Check for updates now"
-#~ msgstr "Kontrollo tani për përditësime"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Checking for updates..."
-#~ msgstr "Duke kontrolluar për përditësime..."
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Update available!"
-#~ msgstr "Disponohet përditësimi!"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "No updates available."
-#~ msgstr "Nuk ka përditësime."
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Changelog:"
-#~ msgstr "Regjistri i ndryshimeve:"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Downloading is complete"
-#~ msgstr "Shkarkimi përfundoi"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Exit the program and run the installer"
-#~ msgstr "Dilni nga programi dhe ekzekutoni instaluesin"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Install"
-#~ msgstr "Instalo"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Download the installer to the Downloads folder"
-#~ msgstr "Shkarko instaluesin në dosjen Shkarkime"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Download"
-#~ msgstr "Sharko"
-
-#, fuzzy
-#~| msgctxt "UpdaterDialog|"
-#~| msgid ""
-#~| "<html><head/><body><p>A new version of Crow Translate is available! "
-#~| "Updates add functionality and improve the stability of the application. "
-#~| "Most often.<br/>You can also download the release manually from this <a "
-#~| "href=\"https://github.com/crow-translate/crow-translate/releases\">link</"
-#~| "a>.</p></body></html>"
-#~ msgctxt "UpdaterDialog|"
-#~ msgid ""
-#~ "<html><head/><body><p>A new version of Crow Translate is available! "
-#~ "Updates add functionality and improve the stability of the application. "
-#~ "Most often.<br/>You can also download the release manually from this <a "
-#~ "href=\"https://download.kde.org/stable/crow-translate\">link</a>.</p></"
-#~ "body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Një version i ri i Crow Translate është në "
-#~ "dispozicion! Përditësimet shtojnë funksionalitetin dhe përmirësojnë "
-#~ "stabilitetin e aplikacionit. Më shpesh.<br/>Ju gjithashtu mund ta "
-#~ "shkarkoni versionin e ri manualisht nga kjo <a href=\"https://github.com/"
-#~ "crow-translate/crow-translate/releases\">adresë</a>.</p></body></html>"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Close this window"
-#~ msgstr "Mbylle këtë dritare"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Update later"
-#~ msgstr "Përditëso më vonë"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Cancel download"
-#~ msgstr "Anulo shkarkimin"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Cancel"
-#~ msgstr "Anulo"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Current version:"
-#~ msgstr "Versioni aktual:"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Available version:"
-#~ msgstr "Versioni i disponueshëm:"
-
-#~ msgctxt "QHotkey|"
-#~ msgid "Failed to register %1. Error: %2"
-#~ msgstr "Dështoi në regjistrim %1. Gabim: %2"
-
-#~ msgctxt "QHotkey|"
-#~ msgid "Failed to unregister %1. Error: %2"
-#~ msgstr "Dështoi në çregjistrim %1. Gabim: %2"
