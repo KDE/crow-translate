@@ -127,12 +127,12 @@ msgstr ""
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
-msgstr ""
+msgstr "Klaida: Nežinomas vertimo kalbos kodas „%1“"
 
 #: src/cli.cpp:152
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
-msgstr ""
+msgstr "Klaida: Nėra teksto vertimui"
 
 #: src/cli.cpp:165
 #, qt-format
@@ -165,17 +165,17 @@ msgstr ""
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
-msgstr ""
+msgstr "Klaida: %1"
 
 #: src/cli.cpp:337 src/cli.cpp:386
 msgctxt "Cli|"
 msgid "Translation error occurred"
-msgstr ""
+msgstr "Įvyko vertimo klaida"
 
 #: src/cli.cpp:443
 msgctxt "Cli|"
 msgid "Error: TTS failed"
-msgstr ""
+msgstr "Klaida: Garsinis teksto atkūrimas patyrė nesėkmę"
 
 #: src/cli.cpp:600
 #, qt-format
@@ -291,7 +291,7 @@ msgstr ""
 #: src/mainwindow.cpp:343
 msgctxt "QApplication|"
 msgid "OCR"
-msgstr ""
+msgstr "Optinis ženklų atpažinimas"
 
 #: src/mainwindow.cpp:344
 msgctxt "QApplication|"
@@ -307,7 +307,7 @@ msgstr ""
 #: src/mainwindow.cpp:595
 msgctxt "Ocr|"
 msgid "OCR languages are not loaded"
-msgstr ""
+msgstr "Optinio ženklų atpažinimo kalbos neįkeltos"
 
 #: src/mainwindow.cpp:498 src/mainwindow.cpp:518 src/mainwindow.cpp:566
 #: src/mainwindow.cpp:595
@@ -339,7 +339,7 @@ msgstr ""
 #: src/mainwindow.cpp:778
 msgctxt "MainWindow|"
 msgid "Don't show again"
-msgstr "Daugiau neberodyti."
+msgstr "Daugiau neberodyti"
 
 #: src/mainwindow.cpp:820
 msgctxt "TrayIcon|"
@@ -362,12 +362,12 @@ msgstr ""
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
-msgstr ""
+msgstr "Nepavyko inicijuoti Tesseract naudojant %1"
 
 #: src/mainwindow.cpp:979
 msgctxt "MainWindow|"
 msgid "TTS Error"
-msgstr ""
+msgstr "Garsinio teksto atkūrimo klaida"
 
 #: src/mainwindow.cpp:979
 #, qt-format
@@ -379,6 +379,12 @@ msgid ""
 "\n"
 "Please check your TTS settings or try a different voice/locale."
 msgstr ""
+"Garsinio teksto atkūrimo klaida:\n"
+"\n"
+"%1\n"
+"\n"
+"Patikrinkite savo garsinio teksto atkūrimo nuostatas arba pabandykite kitą "
+"balsą/lokalę."
 
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
@@ -413,7 +419,7 @@ msgstr "..."
 #: src/mainwindow.ui:142
 msgctxt "MainWindow|"
 msgid "Copy source text to the clipboard"
-msgstr ""
+msgstr "Kopijuoti šaltinio tekstą į iškarpinę"
 
 #: src/mainwindow.ui:152
 msgctxt "MainWindow|"
@@ -470,7 +476,7 @@ msgstr ""
 #: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:48
 msgctxt "WaylandGnomeScreenGrabber|"
 msgid "GNOME failed to take screenshot."
-msgstr ""
+msgstr "GNOME nepavyko padaryti ekrano kopijos."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:55
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:333
@@ -499,12 +505,12 @@ msgstr ""
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to read data from socket: %1."
-msgstr ""
+msgstr "Nepavyko perskaityti duomenų iš lizdo: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:275
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to determine target screen"
-msgstr ""
+msgstr "Nepavyko nustatyti paskirties ekrano"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:297
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -656,7 +662,7 @@ msgstr ""
 #: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
 msgid "DPI Detection Error"
-msgstr ""
+msgstr "DPI aptikimo klaida"
 
 #: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
@@ -674,7 +680,7 @@ msgstr ""
 #: src/onlinetranslator.cpp:318
 msgctxt "OnlineTranslator|"
 msgid "Operation aborted by user"
-msgstr ""
+msgstr "Naudotojas nutraukė operaciją"
 
 #: src/onlinetranslator.cpp:361
 #, qt-format
@@ -1786,7 +1792,7 @@ msgstr "Egzemplioriaus klaida: %1"
 #: src/onlinetranslator.cpp:1294
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
-msgstr ""
+msgstr "Klaida: Nepavyko išnagrinėti automatiškai aptiktos kalbos"
 
 #: src/popupwindow.ui:32
 msgctxt "PopupWindow|"
@@ -1802,17 +1808,17 @@ msgstr "..."
 #: src/popupwindow.ui:112
 msgctxt "PopupWindow|"
 msgid "Copy source text to the clipboard"
-msgstr ""
+msgstr "Kopijuoti šaltinio tekstą į iškarpinę"
 
 #: src/popupwindow.ui:254
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
-msgstr ""
+msgstr "Kopijuoti visus vertimo duomenis į iškarpinę"
 
 #: src/popupwindow.ui:264
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
-msgstr ""
+msgstr "Kopijuoti vertimą į iškarpinę"
 
 #: src/settings/appsettings.cpp:1195
 #, qt-format
@@ -1840,24 +1846,24 @@ msgstr ""
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to create %1"
-msgstr ""
+msgstr "Nepavyko sukurti %1"
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:42
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to copy %1 to %2"
-msgstr ""
+msgstr "Nepavyko nukopijuoti %1 į %2"
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:47
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
-msgstr ""
+msgstr "Nepavyko pašalinti %1 iš %2"
 
 #: src/settings/settingsdialog.cpp:35
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
-msgstr ""
+msgstr "Perkeliama veiksena"
 
 #: src/settings/settingsdialog.cpp:48
 #, qt-format
@@ -1883,32 +1889,32 @@ msgstr ""
 #: src/settings/settingsdialog.cpp:78
 msgctxt "SettingsDialog|"
 msgid "None"
-msgstr ""
+msgstr "Nėra"
 
 #: src/settings/settingsdialog.cpp:110
 msgctxt "SettingsDialog|"
 msgid "Icons:"
-msgstr ""
+msgstr "Piktogramos:"
 
 #: src/settings/settingsdialog.cpp:132
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
-msgstr ""
+msgstr "Optinio ženklų atpažinimo parametrų laukai negali būti tušti."
 
 #: src/settings/settingsdialog.cpp:133
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
-msgstr ""
+msgstr "Ar norite atmesti neteisingus parametrus?"
 
 #: src/settings/settingsdialog.cpp:294
 msgctxt "SettingsDialog|"
 msgid "Select icon"
-msgstr ""
+msgstr "Pasirinkti piktograma"
 
 #: src/settings/settingsdialog.cpp:294
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
-msgstr ""
+msgstr "Paveikslai (*.png *.ico *.svg *.jpg);;Visi failai()"
 
 #: src/settings/settingsdialog.cpp:324
 msgctxt "SettingsDialog|"
@@ -1933,37 +1939,37 @@ msgstr ""
 #: src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
 msgid "Back"
-msgstr ""
+msgstr "Atgal"
 
 #: src/settings/settingsdialog.ui:14
 msgctxt "SettingsDialog|"
 msgid "Settings"
-msgstr ""
+msgstr "Nuostatos"
 
 #: src/settings/settingsdialog.ui:49 src/settings/settingsdialog.ui:144
 msgctxt "SettingsDialog|"
 msgid "General"
-msgstr ""
+msgstr "Bendra"
 
 #: src/settings/settingsdialog.ui:57
 msgctxt "SettingsDialog|"
 msgid "Interface"
-msgstr ""
+msgstr "Sąsaja"
 
 #: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:783
 msgctxt "SettingsDialog|"
 msgid "Translation"
-msgstr ""
+msgstr "Vertimas"
 
 #: src/settings/settingsdialog.ui:73
 msgctxt "SettingsDialog|"
 msgid "Text-To-Speech"
-msgstr ""
+msgstr "Garsinis teksto atkūrimas"
 
 #: src/settings/settingsdialog.ui:81
 msgctxt "SettingsDialog|"
 msgid "Mozhi"
-msgstr ""
+msgstr "Mozhi"
 
 #: src/settings/settingsdialog.ui:97
 msgctxt "SettingsDialog|"
@@ -1973,22 +1979,22 @@ msgstr ""
 #: src/settings/settingsdialog.ui:105
 msgctxt "SettingsDialog|"
 msgid "Shortcuts"
-msgstr ""
+msgstr "Spartieji klavišai"
 
 #: src/settings/settingsdialog.ui:113
 msgctxt "SettingsDialog|"
 msgid "About"
-msgstr ""
+msgstr "Apie"
 
 #: src/settings/settingsdialog.ui:156
 msgctxt "SettingsDialog|"
 msgid "Language:"
-msgstr ""
+msgstr "Kalba:"
 
 #: src/settings/settingsdialog.ui:163
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Interface language</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p>Sąsajos kalba</p></body></html>"
 
 #: src/settings/settingsdialog.ui:170
 msgctxt "SettingsDialog|"
@@ -2024,7 +2030,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:199
 msgctxt "SettingsDialog|"
 msgid "Translation mode:"
-msgstr ""
+msgstr "Vertimo veiksena:"
 
 #: src/settings/settingsdialog.ui:206
 msgctxt "SettingsDialog|"
@@ -2037,12 +2043,12 @@ msgstr ""
 #: src/settings/settingsdialog.ui:210 src/settings/settingsdialog.ui:359
 msgctxt "SettingsDialog|"
 msgid "Pop-up window"
-msgstr ""
+msgstr "Iškylantysis langas"
 
 #: src/settings/settingsdialog.ui:215
 msgctxt "SettingsDialog|"
 msgid "Main window"
-msgstr ""
+msgstr "Pagrindinis langas"
 
 #: src/settings/settingsdialog.ui:220
 msgctxt "SettingsDialog|"
@@ -2064,7 +2070,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:244 src/settings/settingsdialog.ui:449
 msgctxt "SettingsDialog|"
 msgid " sec"
-msgstr ""
+msgstr " sek."
 
 #: src/settings/settingsdialog.ui:257
 msgctxt "SettingsDialog|"
@@ -2074,7 +2080,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:260
 msgctxt "SettingsDialog|"
 msgid "Show tray icon"
-msgstr ""
+msgstr "Rodyti dėklo piktogramą"
 
 #: src/settings/settingsdialog.ui:270
 msgctxt "SettingsDialog|"
@@ -2102,7 +2108,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:316
 msgctxt "SettingsDialog|"
 msgid "Font"
-msgstr ""
+msgstr "Šriftas"
 
 #: src/settings/settingsdialog.ui:322
 msgctxt "SettingsDialog|"
@@ -2118,7 +2124,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:336
 msgctxt "SettingsDialog|"
 msgid "Size:"
-msgstr ""
+msgstr "Dydis:"
 
 #: src/settings/settingsdialog.ui:343
 msgctxt "SettingsDialog|"
@@ -2135,7 +2141,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:375
 msgctxt "SettingsDialog|"
 msgid "Width:"
-msgstr ""
+msgstr "Plotis:"
 
 #: src/settings/settingsdialog.ui:382
 msgctxt "SettingsDialog|"
@@ -2150,7 +2156,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:419
 msgctxt "SettingsDialog|"
 msgid "Opacity:"
-msgstr ""
+msgstr "Nepermatomumas:"
 
 #: src/settings/settingsdialog.ui:426
 msgctxt "SettingsDialog|"
@@ -2160,7 +2166,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:433
 msgctxt "SettingsDialog|"
 msgid "Height:"
-msgstr ""
+msgstr "Aukštis:"
 
 #: src/settings/settingsdialog.ui:446
 msgctxt "SettingsDialog|"
@@ -2177,7 +2183,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:475
 msgctxt "SettingsDialog|"
 msgid "Main window:"
-msgstr ""
+msgstr "Pagrindinis langas:"
 
 #: src/settings/settingsdialog.ui:482 src/settings/settingsdialog.ui:506
 msgctxt "SettingsDialog|"
@@ -2202,17 +2208,17 @@ msgstr ""
 #: src/settings/settingsdialog.ui:526
 msgctxt "SettingsDialog|"
 msgid "Tray icon"
-msgstr ""
+msgstr "Dėklo piktograma"
 
 #: src/settings/settingsdialog.ui:532
 msgctxt "SettingsDialog|"
 msgid "Icon:"
-msgstr ""
+msgstr "Piktograma:"
 
 #: src/settings/settingsdialog.ui:545
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>System tray icon</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p>Sistemos dėklo piktograma</p></body></html>"
 
 #: src/settings/settingsdialog.ui:549
 msgctxt "SettingsDialog|"
@@ -2257,12 +2263,12 @@ msgstr ""
 #: src/settings/settingsdialog.ui:673
 msgctxt "SettingsDialog|"
 msgid "Automatic language detection"
-msgstr ""
+msgstr "Automatinis kalbos aptikimas"
 
 #: src/settings/settingsdialog.ui:679
 msgctxt "SettingsDialog|"
 msgid "Primary translation language:"
-msgstr ""
+msgstr "Pirminė vertimo kalba:"
 
 #: src/settings/settingsdialog.ui:686
 msgctxt "SettingsDialog|"
@@ -2274,7 +2280,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:693
 msgctxt "SettingsDialog|"
 msgid "Secondary translation language:"
-msgstr ""
+msgstr "Antrinė vertimo kalba:"
 
 #: src/settings/settingsdialog.ui:700
 msgctxt "SettingsDialog|"
@@ -2303,7 +2309,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:741
 msgctxt "SettingsDialog|"
 msgid "Text-to-Speech"
-msgstr ""
+msgstr "Garsinis teksto atkūrimas"
 
 #: src/settings/settingsdialog.ui:747
 msgctxt "SettingsDialog|"
@@ -2384,7 +2390,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:871
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
-msgstr ""
+msgstr "Mozhi egzemplioriaus URL adresas"
 
 #: src/settings/settingsdialog.ui:884
 msgctxt "SettingsDialog|"
@@ -2400,7 +2406,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:920
 msgctxt "SettingsDialog|"
 msgid "Languages"
-msgstr ""
+msgstr "Kalbos"
 
 #: src/settings/settingsdialog.ui:926
 msgctxt "SettingsDialog|"
@@ -2414,7 +2420,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:933
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
-msgstr ""
+msgstr "Kalbų kelias:"
 
 #: src/settings/settingsdialog.ui:940
 msgctxt "SettingsDialog|"
@@ -2471,7 +2477,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:1069
 msgctxt "SettingsDialog|"
 msgid "Never"
-msgstr ""
+msgstr "Niekada"
 
 #: src/settings/settingsdialog.ui:1074
 msgctxt "SettingsDialog|"
@@ -2491,12 +2497,12 @@ msgstr ""
 #: src/settings/settingsdialog.ui:1094
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
-msgstr ""
+msgstr "Delsa prieš fotografuojant ekraną"
 
 #: src/settings/settingsdialog.ui:1097
 msgctxt "SettingsDialog|"
 msgid " ms"
-msgstr ""
+msgstr " ms"
 
 #: src/settings/settingsdialog.ui:1107
 msgctxt "SettingsDialog|"
@@ -2507,7 +2513,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:1110
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
-msgstr ""
+msgstr "Rodyti didintuvą"
 
 #: src/settings/settingsdialog.ui:1117
 msgctxt "SettingsDialog|"
@@ -2548,27 +2554,27 @@ msgstr ""
 #: src/settings/settingsdialog.ui:1176
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
-msgstr ""
+msgstr "Įgaliotasis serveris"
 
 #: src/settings/settingsdialog.ui:1182
 msgctxt "SettingsDialog|"
 msgid "Type:"
-msgstr ""
+msgstr "Tipas:"
 
 #: src/settings/settingsdialog.ui:1195
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p>Įgaliotojo serverio tipas</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1199
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
-msgstr ""
+msgstr "Naudoti sistemos nuostatas"
 
 #: src/settings/settingsdialog.ui:1209
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
-msgstr ""
+msgstr "Nenaudoti įgaliotojo serverio"
 
 #: src/settings/settingsdialog.ui:1225
 msgctxt "SettingsDialog|"
@@ -2583,12 +2589,12 @@ msgstr ""
 #: src/settings/settingsdialog.ui:1248
 msgctxt "SettingsDialog|"
 msgid "Port:"
-msgstr ""
+msgstr "Prievadas:"
 
 #: src/settings/settingsdialog.ui:1264
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p>Įgaliotojo serverio prievadas</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1283
 msgctxt "SettingsDialog|"
@@ -2609,7 +2615,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:1306
 msgctxt "SettingsDialog|"
 msgid "Username:"
-msgstr ""
+msgstr "Naudotojo vardas:"
 
 #: src/settings/settingsdialog.ui:1316
 msgctxt "SettingsDialog|"
@@ -2620,7 +2626,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:1326
 msgctxt "SettingsDialog|"
 msgid "Password:"
-msgstr ""
+msgstr "Slaptažodis:"
 
 #: src/settings/settingsdialog.ui:1336
 msgctxt "SettingsDialog|"
@@ -2631,7 +2637,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:1349
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
-msgstr ""
+msgstr "Informacija: slaptažodis yra įrašomas nešifruotu pavidalu"
 
 #: src/settings/settingsdialog.ui:1385
 msgctxt "SettingsDialog|"
@@ -2662,7 +2668,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:1423
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
-msgstr ""
+msgstr "Klavišų seka:"
 
 #: src/settings/settingsdialog.ui:1430
 msgctxt "SettingsDialog|"
@@ -2689,7 +2695,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:1453
 msgctxt "SettingsDialog|"
 msgid "Clear"
-msgstr ""
+msgstr "Išvalyti"
 
 #: src/settings/settingsdialog.ui:1463
 msgctxt "SettingsDialog|"
@@ -2699,7 +2705,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:1466
 msgctxt "SettingsDialog|"
 msgid "Reset"
-msgstr ""
+msgstr "Atstatyti"
 
 #: src/settings/settingsdialog.ui:1511
 msgctxt "SettingsDialog|"
@@ -2729,22 +2735,22 @@ msgstr ""
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:23
 msgctxt "ShortcutsModel|"
 msgid "Translate selected text"
-msgstr ""
+msgstr "Versti pažymėtą tekstą"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:26
 msgctxt "ShortcutsModel|"
 msgid "Speak selected text"
-msgstr ""
+msgstr "Sakyti pažymėtą tekstą"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:29
 msgctxt "ShortcutsModel|"
 msgid "Speak translation of selected text"
-msgstr ""
+msgstr "Sakyti pažymėto teksto vertimą"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:32
 msgctxt "ShortcutsModel|"
 msgid "Stop text speaking"
-msgstr ""
+msgstr "Nustoti sakyti tekstą"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:35
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:73
@@ -2755,22 +2761,22 @@ msgstr ""
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:38
 msgctxt "ShortcutsModel|"
 msgid "Show main window"
-msgstr ""
+msgstr "Rodyti pagrindinį langą"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:41
 msgctxt "ShortcutsModel|"
 msgid "Translate selected text and copy to clipboard"
-msgstr ""
+msgstr "Versti pažymėtą tekstą ir kopijuoti į iškarpinę"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:44
 msgctxt "ShortcutsModel|"
 msgid "Recognize text in screen area"
-msgstr ""
+msgstr "Atpažinti tekstą ekrano srityje"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:47
 msgctxt "ShortcutsModel|"
 msgid "Translate text in screen area"
-msgstr ""
+msgstr "Versti tekstą ekrano srityje"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:50
 msgctxt "ShortcutsModel|"
@@ -2790,22 +2796,22 @@ msgstr ""
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
 msgid "Main window"
-msgstr ""
+msgstr "Pagrindinis langas"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:61
 msgctxt "ShortcutsModel|"
 msgid "Translate"
-msgstr ""
+msgstr "Versti"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:64
 msgctxt "ShortcutsModel|"
 msgid "Swap languages"
-msgstr ""
+msgstr "Apkeisti kalbas"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:67
 msgctxt "ShortcutsModel|"
 msgid "Close window"
-msgstr ""
+msgstr "Užverti langą"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:71
 msgctxt "ShortcutsModel|"
@@ -2815,7 +2821,7 @@ msgstr ""
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
 msgctxt "ShortcutsModel|"
 msgid "Translation"
-msgstr ""
+msgstr "Vertimas"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:79
 msgctxt "ShortcutsModel|"
@@ -2825,12 +2831,12 @@ msgstr ""
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:82
 msgctxt "ShortcutsModel|"
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopijuoti į iškarpinę"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:128
 msgctxt "ShortcutsModel|"
 msgid "Description"
-msgstr ""
+msgstr "Aprašas"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:130
 msgctxt "ShortcutsModel|"
@@ -2840,12 +2846,12 @@ msgstr ""
 #: src/settings/tesseractparameterstablewidget.cpp:16
 msgctxt "TesseractParametersTableWidget|"
 msgid "Property"
-msgstr ""
+msgstr "Savybė"
 
 #: src/settings/tesseractparameterstablewidget.cpp:16
 msgctxt "TesseractParametersTableWidget|"
 msgid "Value"
-msgstr ""
+msgstr "Reikšmė"
 
 #: src/translator/atranslationprovider.cpp:112
 msgctxt "QObject|"
@@ -2863,12 +2869,12 @@ msgstr ""
 #: src/translator/mozhitranslationprovider.cpp:386
 msgctxt "MozhiTranslationProvider|"
 msgid "translation options:"
-msgstr ""
+msgstr "vertimo parinktys:"
 
 #: src/translator/mozhitranslationprovider.cpp:400
 msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
-msgstr ""
+msgstr "pavyzdžiai:"
 
 #: src/trayicon.cpp:19 src/trayicon.cpp:44
 msgctxt "TrayIcon|"
@@ -2906,7 +2912,7 @@ msgstr ""
 #: src/tts/mozhittsprovider.cpp:48
 msgctxt "MozhiTTSProvider|"
 msgid "Text is empty"
-msgstr ""
+msgstr "Tekstas yra tuščias"
 
 #: src/tts/mozhittsprovider.cpp:81
 msgctxt "MozhiTTSProvider|"
@@ -2917,25 +2923,26 @@ msgstr ""
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance failed: %1 (HTTP Server Error)"
-msgstr ""
+msgstr "Mozhi egzempliorius patyrė nesėkmę: %1 (HTTP serverio klaida)"
 
 #: src/tts/mozhittsprovider.cpp:265 src/tts/mozhittsprovider.cpp:272
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Cannot connect to Mozhi instance: %1"
-msgstr ""
+msgstr "Nepavyksta prisijungti prie Mozhi egzemplioriaus: %1"
 
 #: src/tts/mozhittsprovider.cpp:268
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance failed: %1 (HTTP 500 Internal Server Error)"
 msgstr ""
+"Mozhi egzempliorius patyrė nesėkmę: %1 (HTTP 500 vidinė serverio klaida)"
 
 #: src/tts/mozhittsprovider.cpp:270
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
-msgstr ""
+msgstr "Mozhi egzemplioriaus klaida: %1 (HTTP 4XX kliento klaida)"
 
 #: src/tts/piperttsprovider.cpp:115
 msgctxt "PiperTTSProvider|"
