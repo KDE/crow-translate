@@ -1,10 +1,10 @@
 # SPDX-FileCopyrightText: 2024 jerry
 # SPDX-License-Identifier: GPL-3.0-or-later
-# SPDX-FileCopyrightText: 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2025, 2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-11-24 19:56+0900\n"
+"PO-Revision-Date: 2026-01-05 03:46+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -1438,7 +1438,7 @@ msgstr "波斯語"
 #: src/onlinetranslator.cpp:798
 msgctxt "OnlineTranslator|"
 msgid "Pijin"
-msgstr ""
+msgstr "皮金語"
 
 #: src/onlinetranslator.cpp:800
 msgctxt "OnlineTranslator|"
@@ -1458,7 +1458,7 @@ msgstr "葡萄牙語（葡萄牙）"
 #: src/onlinetranslator.cpp:806
 msgctxt "OnlineTranslator|"
 msgid "Potawatomi"
-msgstr ""
+msgstr "波塔瓦托米語"
 
 #: src/onlinetranslator.cpp:808
 msgctxt "OnlineTranslator|"
@@ -1570,10 +1570,12 @@ msgctxt "OnlineTranslator|"
 msgid "Spanish"
 msgstr "西班牙語"
 
+# Unicode CLDR says this is 蘇拉南東墎文 in zh_Hant but Googling it shows basically only CLDR uses that translation, plus 蘇拉南 is not the zh-TW translation of Suriname. I've opted for the Wikipedia name instead.
+# --Kisaragi
 #: src/onlinetranslator.cpp:852
 msgctxt "OnlineTranslator|"
 msgid "Sranan Tongo"
-msgstr ""
+msgstr "蘇利南語"
 
 #: src/onlinetranslator.cpp:854
 msgctxt "OnlineTranslator|"
@@ -1605,10 +1607,12 @@ msgctxt "OnlineTranslator|"
 msgid "Tajik"
 msgstr "塔吉克語"
 
+# CLDR says 塔馬奇克文 but I can't find anything with that as a keyword online. This is the Wikipedia name again.
+# --Kisaragi
 #: src/onlinetranslator.cpp:866
 msgctxt "OnlineTranslator|"
 msgid "Tamashek (Tuareg)"
-msgstr ""
+msgstr "塔馬舍克語（圖阿雷格語）"
 
 #: src/onlinetranslator.cpp:868
 msgctxt "OnlineTranslator|"
@@ -1625,10 +1629,12 @@ msgctxt "OnlineTranslator|"
 msgid "Telugu"
 msgstr "泰盧固語"
 
+# CLDR says 泰頓文 but looking that up online basically hits 100% entries about Thai.
+# --Kisaragi
 #: src/onlinetranslator.cpp:874
 msgctxt "OnlineTranslator|"
 msgid "Tetum"
-msgstr ""
+msgstr "德頓語"
 
 #: src/onlinetranslator.cpp:876
 msgctxt "OnlineTranslator|"
@@ -1645,10 +1651,11 @@ msgctxt "OnlineTranslator|"
 msgid "Tigrinya"
 msgstr "提格利尼亞語"
 
+# CLDR says 托比辛文 but again that has no hits online. 巴布亞皮欽語 is far more widespread.
 #: src/onlinetranslator.cpp:882
 msgctxt "OnlineTranslator|"
 msgid "Tok Pisin"
-msgstr ""
+msgstr "巴布亞皮欽語"
 
 #: src/onlinetranslator.cpp:884
 msgctxt "OnlineTranslator|"
@@ -1733,7 +1740,7 @@ msgstr "越南語"
 #: src/onlinetranslator.cpp:916
 msgctxt "OnlineTranslator|"
 msgid "Wallisian"
-msgstr ""
+msgstr "瓦利斯語"
 
 #: src/onlinetranslator.cpp:918
 msgctxt "OnlineTranslator|"
