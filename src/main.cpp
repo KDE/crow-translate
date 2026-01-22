@@ -41,6 +41,7 @@ int main(int argc, char *argv[])
 
 int launchGui(int argc, char *argv[])
 {
+    QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral(APPLICATION_ID)));
 #if defined(Q_OS_WIN)
     QGuiApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
 #endif
