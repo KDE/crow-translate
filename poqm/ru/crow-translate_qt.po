@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-02-13 22:38+0200\n"
+"PO-Revision-Date: 2026-02-14 12:09+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -2806,12 +2806,9 @@ msgid "Source code:"
 msgstr "Исходный код:"
 
 #: src/settings/settingsdialog.ui:1555
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation backend:"
-msgstr "Режим перевода:"
+msgstr "Модуль для перевода:"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:21
 msgctxt "ShortcutsModel|"
@@ -2940,12 +2937,9 @@ msgid "Value"
 msgstr "Значение"
 
 #: src/translator/atranslationprovider.cpp:112
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "QObject|"
 msgid "Translation Provider Error"
-msgstr "Режим перевода:"
+msgstr "Ошибка поставщика переводов"
 
 #: src/translator/atranslationprovider.cpp:113
 msgctxt "QObject|"
@@ -2956,17 +2950,11 @@ msgid ""
 msgstr ""
 
 #: src/translator/mozhitranslationprovider.cpp:386
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "translation options:"
 msgctxt "MozhiTranslationProvider|"
 msgid "translation options:"
 msgstr "варианты перевода:"
 
 #: src/translator/mozhitranslationprovider.cpp:400
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "examples:"
 msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
 msgstr "примеры:"
@@ -3005,12 +2993,9 @@ msgid ""
 msgstr ""
 
 #: src/tts/mozhittsprovider.cpp:48
-#, fuzzy
-#| msgctxt "SpeakButtons|"
-#| msgid "Playback text is empty"
 msgctxt "MozhiTTSProvider|"
 msgid "Text is empty"
-msgstr "Текст для воспроизведения пуст"
+msgstr "Текст пуст"
 
 #: src/tts/mozhittsprovider.cpp:81
 msgctxt "MozhiTTSProvider|"
@@ -3042,31 +3027,25 @@ msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
 msgstr ""
 
 #: src/tts/piperttsprovider.cpp:115
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize Piper TTS"
-msgstr "Не удалось инициализировать Tesseract с %1"
+msgstr "Не удалось инициализировать Piper TTS"
 
 #: src/tts/piperttsprovider.cpp:121
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime exception: %1"
-msgstr ""
+msgstr "Исключение ONNX Runtime: %1"
 
 #: src/tts/piperttsprovider.cpp:124
 msgctxt "PiperTTSProvider|"
 msgid "Unknown ONNX Runtime initialization error"
-msgstr ""
+msgstr "Неизвестная ошибка инициализации ONNX Runtime"
 
 #: src/tts/piperttsprovider.cpp:205
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize espeak-ng"
-msgstr "Не удалось инициализировать Tesseract с %1"
+msgstr "Не удалось инициализировать espeak-ng"
 
 #: src/tts/piperttsprovider.cpp:247
 #, qt-format
