@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-02-14 12:09+0200\n"
+"PO-Revision-Date: 2026-02-15 20:26+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -2874,7 +2874,7 @@ msgstr "Перевести текст в области экрана с заде
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:56
 msgctxt "ShortcutsModel|"
 msgid "Toggle color inversion for OCR"
-msgstr ""
+msgstr "Переключение инверсии цвета для оптического распознавания символов"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
@@ -2948,6 +2948,9 @@ msgid ""
 "reset to 'Copy' to prevent further issues. You can try selecting a different "
 "provider in Settings → Translation."
 msgstr ""
+"Выбранный модуль перевода завершился аварийно при инициализации и был "
+"сброшен на «Копирование» для предотвращения дальнейших проблем. В настройках "
+"→ Перевод можно выбрать другой модуль."
 
 #: src/translator/mozhitranslationprovider.cpp:386
 msgctxt "MozhiTranslationProvider|"
@@ -2982,7 +2985,7 @@ msgstr "Результат перевода"
 #: src/tts/attsprovider.cpp:69
 msgctxt "QObject|"
 msgid "TTS Provider Error"
-msgstr ""
+msgstr "Ошибка модуля синтеза речи"
 
 #: src/tts/attsprovider.cpp:70
 msgctxt "QObject|"
@@ -2991,6 +2994,9 @@ msgid ""
 "to 'None' to prevent further issues. You can try selecting a different "
 "provider in Settings → TTS."
 msgstr ""
+"Выбранный модуль синтеза речи завершился аварийно при инициализации и был "
+"сброшен в состояние «Отключён» во избежание дальнейших проблем. Попробуйте "
+"выбрать другой модуль в «Параметры» → «Синтез речи»."
 
 #: src/tts/mozhittsprovider.cpp:48
 msgctxt "MozhiTTSProvider|"
@@ -3000,31 +3006,31 @@ msgstr "Текст пуст"
 #: src/tts/mozhittsprovider.cpp:81
 msgctxt "MozhiTTSProvider|"
 msgid "No audio URLs generated"
-msgstr ""
+msgstr "Не удалось создать ссылки на аудиофайлы"
 
 #: src/tts/mozhittsprovider.cpp:263
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance failed: %1 (HTTP Server Error)"
-msgstr ""
+msgstr "Ошибка экземпляра Mozhi: %1 (ошибка HTTP-сервера)"
 
 #: src/tts/mozhittsprovider.cpp:265 src/tts/mozhittsprovider.cpp:272
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Cannot connect to Mozhi instance: %1"
-msgstr ""
+msgstr "Не удалось подключиться к экземпляру Mozhi: %1"
 
 #: src/tts/mozhittsprovider.cpp:268
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance failed: %1 (HTTP 500 Internal Server Error)"
-msgstr ""
+msgstr "Ошибка сервера Mozhi: %1 (HTTP 500 Внутренняя ошибка сервера)"
 
 #: src/tts/mozhittsprovider.cpp:270
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
-msgstr ""
+msgstr "Ошибка экземпляра Mozhi: %1 (ошибка клиента HTTP 4XX)"
 
 #: src/tts/piperttsprovider.cpp:115
 msgctxt "PiperTTSProvider|"
@@ -3051,17 +3057,17 @@ msgstr "Не удалось инициализировать espeak-ng"
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime initialization error: %1"
-msgstr ""
+msgstr "Ошибка инициализации ONNX Runtime: %1"
 
 #: src/tts/piperttsprovider.cpp:279
 msgctxt "PiperTTSProvider|"
 msgid "Privacy Notice - Neural TTS"
-msgstr ""
+msgstr "Уведомление о конфиденциальности — нейронный синтез речи"
 
 #: src/tts/piperttsprovider.cpp:281
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime Telemetry Information"
-msgstr ""
+msgstr "Сведения о телеметрии ONNX Runtime"
 
 #: src/tts/piperttsprovider.cpp:283
 msgctxt "PiperTTSProvider|"
@@ -3082,24 +3088,40 @@ msgid ""
 "On Unix systems, telemetry is inactive by default.\n"
 "This notice is shown once per installation."
 msgstr ""
+"В Crow Translate для нейронного синтеза речи используется ONNX Runtime. В "
+"версии для Windows включена телеметрия Microsoft, собирающая информацию об "
+"использовании.\n"
+"\n"
+"Собираемые данные:\n"
+"• Данные об устройстве и использовании, отчёты об ошибках, информация о "
+"производительности;\n"
+"• Используются Microsoft для улучшения качества и функций продукта;\n"
+"• Регулируются «Заявлением о конфиденциальности» Microsoft.\n"
+"\n"
+"Действия Crow Translate:\n"
+"• Автоматически отключает телеметрию при запуске;\n"
+"• Использует как переменные окружения, так и вызовы API во время "
+"выполнения;\n"
+"• Примечание: некоторые данные могут передаваться во время инициализации "
+"ONNX.\n"
+"\n"
+"В системах Unix телеметрия по умолчанию неактивна.\n"
+"Это уведомление показывается один раз при установке."
 
 #: src/tts/piperttsprovider.cpp:1000
 msgctxt "PiperTTSProvider|"
 msgid "No audio data generated"
-msgstr ""
+msgstr "Не удалось сгенерировать аудиоданные"
 
 #: src/tts/piperttsprovider.cpp:1015
 msgctxt "PiperTTSProvider|"
 msgid "Failed to create temporary audio file"
-msgstr ""
+msgstr "Не удалось создать временный аудиофайл"
 
 #: src/tts/piperttsprovider.cpp:1024
-#, fuzzy
-#| msgctxt "UpdaterDialog|"
-#| msgid "Unable to write file"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to write audio data"
-msgstr "Не удалось записать файл"
+msgstr "Ошибка записи аудиоданных"
 
 #: src/tts/piperttsprovider.cpp:1362
 msgctxt "PiperTTSProvider|"
@@ -3113,11 +3135,20 @@ msgid ""
 "cannot be used in commercial settings. Please check the license of each "
 "model before commercial use.</p>"
 msgstr ""
+"<h3>Не найдены голосовые модели Piper</h3> <p>Голосовые модели Piper TTS не "
+"обнаружены в стандартных расположениях.</p> <p><b>Для использования Piper "
+"TTS:</b></p> <ol><li>Загрузите голосовые модели с <a href='https://"
+"huggingface.co/rhasspy/piper-voices'>HuggingFace Piper Voices</a>;</li> "
+"<li>Распакуйте модели в каталог;</li><li>Задайте путь в Настройки → TTS → "
+"Путь к голосам Piper.</li></ol> <p><b>⚠️ Внимание, лицензия:</b> Некоторые "
+"модели могут распространяться под несвободными лицензиями и не могут "
+"использоваться в коммерческих целях. Проверьте лицензию каждой модели перед "
+"коммерческим использованием.</p>"
 
 #: src/tts/piperttsprovider.cpp:1374
 msgctxt "PiperTTSProvider|"
 msgid "Piper Voice Models Required"
-msgstr ""
+msgstr "Требуются голосовые модели Piper"
 
 #: src/tts/qtttsprovider.cpp:329
 #, qt-format
@@ -3133,11 +3164,21 @@ msgid ""
 "TTS. \"Narrator voices\" have licensing restrictions that are incompatible "
 "with this application.</p>"
 msgstr ""
+"<h3>Голос Windows TTS не найден</h3> <p>Для <b>%1</b> не найден голос "
+"Windows TTS.</p> <p><b>Чтобы установить дополнительные языки:</b></p> "
+"<ol><li>Откройте <b>Параметры → Время и язык → Язык и регион</b>;</li> "
+"<li>Нажмите <b>Добавить язык</b> и выберите нужный язык;</li> <li>Щёлкните "
+"по установленному языку и выберите <b>Параметры языка</b>;</li> <li>В "
+"разделе <b>Речь</b> нажмите <b>Загрузить</b> для речевого пакета.</li></ol> "
+"<p><b>⚠️ Примечание о лицензии:</b> Crow Translate в настоящее время "
+"поддерживает только «базовые голосовые модели» Windows TTS. Для голосов "
+"«Рассказчика» действуют лицензионные ограничения, несовместимые с данным "
+"приложением.</p>"
 
 #: src/tts/qtttsprovider.cpp:343
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
-msgstr ""
+msgstr "Установка голосов синтеза речи Windows"
 
 #, fuzzy
 #~| msgctxt "SettingsDialog|"
