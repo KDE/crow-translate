@@ -477,15 +477,41 @@
     <release version="3.1.0" date="2024-10-24">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Automate fastest Mozhi instance selection.</li>
+          <li xml:lang="he">ביצוע אוטומציה לבחירת מופע ה־Mozhi המהיר ביותר.</li>
+          <li xml:lang="ka">უსწრაფესი Mozhi-ის გაშვებული ასლის ავტომატური არჩევა.</li>
+          <li xml:lang="pt-BR">Automatização da seleção da instância Mozhi mais rápida.</li>
           <li>Automatically assign the fastest instance on the first startup instead of selecting it randomly.</li>
+          <li xml:lang="ka">უსწრაფესი გაშვებული ასლის ავტომატური მინიჭება პირველი გაშვებისას მისი შემთხვევით არჩევის მაგიერ.</li>
+          <li xml:lang="pt-BR">Atribuir automaticamente a instância mais rápida na primeira inicialização, em vez de selecioná-la aleatoriamente.</li>
           <li>CLI: By default, use the instance from settings.</li>
+          <li xml:lang="he">שורת פקודות: כברירת מחדל, להשתמש במופע מההגדרות.</li>
+          <li xml:lang="ka">CLI: ნაგულისხმევად გამოყენებული იქნება გაშვებული ასლი არამეტრებიდან.</li>
+          <li xml:lang="pt-BR">CLI: Por padrão, utiliza a instância definida nas configurações.</li>
           <li>CLI: Verify language codes.</li>
+          <li xml:lang="he">שורת פקודות: אימות קודים של שפות.</li>
+          <li xml:lang="ka">CLI: ენის კოდების შემოწმება.</li>
+          <li xml:lang="pt-BR">CLI: Verificar códigos de idioma.</li>
           <li>CLI: Do not print empty translations on error.</li>
+          <li xml:lang="he">שורת פקודות: לא להציג תרגומים ריקים כשמתרחשת שגיאה.</li>
+          <li xml:lang="ka">CLI: შეცდომისას ცარიელი თარგმანები გამოტანილი არ იქნება.</li>
+          <li xml:lang="pt-BR">CLI: Não imprimir traduções vazias em caso de erro.</li>
           <li>CLI: The --help command returns exit code 1.</li>
+          <li xml:lang="he">שורת פקודות: פקודת ‎--help מחזירה קוד יציאה 1.</li>
+          <li xml:lang="ka">CLI: ბრძანება --help აბრუნებს შეცდომის კოდს 1.</li>
+          <li xml:lang="pt-BR">CLI: O comando --help retorna o código de saída 1.</li>
           <li>Fix language codes for Persian and Chinese Simplified.</li>
+          <li xml:lang="he">הקודים של השפות פרסית וסינית מפושטת תוקנו.</li>
+          <li xml:lang="ka">გასწორდა ენის კოდები სპარსულისთვის და გამარტივებული ჩინურისთვის.</li>
+          <li xml:lang="pt-BR">Corrigidos os códigos de idioma para persa e chinês simplificado.</li>
           <li>Fix loading of Qt translations.</li>
+          <li xml:lang="he">תוקנה טעינת תרגומי Qt.</li>
+          <li xml:lang="ka">გასწორდა Qt-ის თარგმანების ჩატვირთვა.</li>
+          <li xml:lang="pt-BR">Corrigido o carregamento de traduções do Qt.</li>
         </ul>
       </description>
       <artifacts>
@@ -506,17 +532,46 @@
     <release version="3.0.0" date="2024-09-04">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Migrate from direct API calls to Mozhi. If you experience slow translation speeds, try selecting a closer instance in the settings.</li>
+          <li xml:lang="ka">პირდაპირი API-ის გამოძახებების მიგრაცია Mozhi-ზე. თუ თარგმანის სიჩქარე დაბალი გექნებათ, სცადეთ, პარამეტრებში უფრო ახლო გაშვებული ასლი აირჩიოთ.</li>
+          <li xml:lang="pt-BR">Migração de chamadas diretas à API para o Mozhi. Se você notar lentidão na tradução, tente selecionar uma instância mais próxima nas configurações.</li>
           <li>Change short option for --speak-translation to -r.</li>
+          <li xml:lang="ka">შეიცვალა --speak-translation პარამეტრის მოკლე ვერსია პარამეტრით -r.</li>
+          <li xml:lang="pt-BR">Alteração da opção abreviada para --speak-translation para -r.</li>
           <li>Change short option for --speak-source to -o.</li>
+          <li xml:lang="ka">შეიცვალა --speak-source პარამეტრის მოკლე ვერსია პარამეტრით -o.</li>
+          <li xml:lang="pt-BR">Alteração da opção abreviada para --speak-source para -o.</li>
           <li>Remove flags from languages.</li>
+          <li xml:lang="he">הסרת דגלונים משפות.</li>
+          <li xml:lang="ka">ენებს ალმები მოსცილდა.</li>
+          <li xml:lang="pt-BR">Remoção das bandeiras dos idiomas.</li>
           <li>Fix autotranslate checkbox overlap.</li>
+          <li xml:lang="ka">გასწორდა ავტოთარგმანის თოლიას გადაფარვა.</li>
+          <li xml:lang="pt-BR">Correção da sobreposição das caixas de seleção de tradução automática.</li>
           <li>Change application ID to org.kde.CrowTranslate.</li>
+          <li xml:lang="he">מזהה היישום התחלף ל־org.kde.CrowTranslate.</li>
+          <li xml:lang="ka">აპლიკაციის ID შეიცვალა მნიშვნელობაზე org.kde.CrowTranslate.</li>
+          <li xml:lang="pt-BR">Alteração do ID do aplicativo para org.kde.CrowTranslate.</li>
           <li>Disable "Start minimized" by default.</li>
+          <li xml:lang="he">השבתת „הפעלה ממוזערת” כברירת מחדל.</li>
+          <li xml:lang="ka">"ჩაკეცილად გაშვების" ნაგულისხმევად გამორთვა.</li>
+          <li xml:lang="pt-BR">Opção "Iniciar minimizado" desativada por padrão.</li>
           <li>Use icons that are compatible with Adwaita.</li>
+          <li xml:lang="he">להשתמש בסמלים תואמי Adwaita.</li>
+          <li xml:lang="ka">Adwaita-ისთან თავსებადი ხატულების გამოყენება.</li>
+          <li xml:lang="pt-BR">Usar ícones compatíveis com o Adwaita.</li>
           <li>Use Breeze icons as fallback.</li>
+          <li xml:lang="he">להשתמש בסמלים של בריזה כנסיגה.</li>
+          <li xml:lang="ka">Breeze-ის ხატულების გამოყენება გადასართავად.</li>
+          <li xml:lang="pt-BR">Usar os ícones do Breeze como alternativa.</li>
           <li>Remove updater functionality for Windows.</li>
+          <li xml:lang="he">הוסרה יכולת המעדכן ב־Windows.</li>
+          <li xml:lang="ka">განახლების პროგრამის წაშლა Windows-ისთვის.</li>
+          <li xml:lang="pt-BR">Remoção da funcionalidade de atualização para Windows.</li>
         </ul>
       </description>
       <artifacts>
@@ -537,184 +592,331 @@
     <release version="2.11.1" date="2024-01-04">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Enable new LibreTranslate langs.</li>
+          <li xml:lang="he">הופעלו שפות חדשות ב־LibreTranslate.</li>
+          <li xml:lang="ka">ახალი LibreTranslate-ის ენების ჩართვა.</li>
+          <li xml:lang="pt-BR">Ativação dos novos idiomas do LibreTranslate.</li>
           <li>Require Qt5X11Extras on Linux.</li>
+          <li xml:lang="he">דרישה ל־Qt5X11Extras בלינוקס.</li>
+          <li xml:lang="ka">Qt5X11Extras-ის მოთხოვნა Linux-ზე.</li>
+          <li xml:lang="pt-BR">Requerer o pacote Qt5X11Extras no Linux.</li>
           <li>Add and remove old, non-existed, broken Libre and Lingva instances.</li>
+          <li xml:lang="ka">დაემატა და წაიშალა ძველი, არარსებული, გაფუჭებული Libre-ის და Lingva-ის გაშვებული ასლები.</li>
+          <li xml:lang="pt-BR">Adicionar e remover instâncias antigas, inexistentes ou corrompidas do LibreOffice e do Lingva.</li>
           <li>Improve accessibility for screen readers.</li>
+          <li xml:lang="ka">გაუმჯობესდა წვდომადობა ეკრანის წამკითხველებისთვის.</li>
+          <li xml:lang="pt-BR">Melhoria na acessibilidade para leitores de tela.</li>
         </ul>
       </description>
     </release>
     <release version="2.11.0" date="2023-10-14">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Remove spaces in settings paths. Everywhere instead of "Crow Translate" now "crow-translate".</li>
+          <li xml:lang="ka">წაიშალა ჰარეები პარამეტრების ბილიკში. ყველგან "Crow Translate"-ის მაგიერ ახლა არის "crow-translate".</li>
+          <li xml:lang="pt-BR">Remoção dos espaços nos caminhos das configurações. Em todos os lugares, em vez de "Crow Translate", agora é "crow-translate".</li>
           <li>Use lingva.garudalinux.org by default for Lingva engine.</li>
+          <li xml:lang="ka">lingva.garudalinux.org-ის ნაგულისხმევად გამოყენება ძრავისთვის Lingva.</li>
+          <li xml:lang="pt-BR">Por padrão, usar lingva.garudalinux.org para o mecanismo Lingva.</li>
         </ul>
       </description>
     </release>
     <release version="2.10.10" date="2023-08-02">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Fix selection translation on Windows.</li>
+          <li xml:lang="ka">გასწორდა მონიშნულის თარგმნა Windows-ზე.</li>
+          <li xml:lang="pt-BR">Correção da tradução de seleção no Windows.</li>
         </ul>
       </description>
     </release>
     <release version="2.10.9" date="2023-08-02">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Fix selection translation regression.</li>
+          <li xml:lang="ka">გასწორდა მონიშნულის თარგმნის რეგრესია.</li>
+          <li xml:lang="pt-BR">Correção da regressão na tradução da seleção.</li>
         </ul>
       </description>
     </release>
     <release version="2.10.8" date="2023-08-01">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Fix selection translation on Wayland.</li>
+          <li xml:lang="ka">გასწორდა მონიშნულის თარგმნა Wayland-ზე.</li>
+          <li xml:lang="pt-BR">Correção da tradução de seleção no Wayland.</li>
         </ul>
       </description>
     </release>
     <release version="2.10.7" date="2023-07-13">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Fix settings in portable mode.</li>
+          <li xml:lang="ka">გასწორდა პარამეტრები გადატანად რეჟიმში.</li>
+          <li xml:lang="pt-BR">Correção das configurações no modo portátil.</li>
         </ul>
       </description>
     </release>
     <release version="2.10.6" date="2023-06-29">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Fix screen capture DPI.</li>
+          <li xml:lang="ka">გასწორდა ეკრანის გადაღების DPI.</li>
+          <li xml:lang="pt-BR">Correção do DPI da captura de tela.</li>
           <li>Do not apply smoothing to the magnifier's image.</li>
+          <li xml:lang="ka">გამადიდებლის გამოსახულებაზე მოგლუვება არ მოხდება.</li>
+          <li xml:lang="pt-BR">Não aplicar suavização à imagem da lupa.</li>
           <li>Read settings from application directory when building in portable mode.</li>
+          <li xml:lang="ka">პარამეტრების წაკითხვა აპლიკაციის საქაღალდიდან გადატანადი რეჟიმისთვის აგებისას.</li>
+          <li xml:lang="pt-BR">Ao compilar em modo portátil, lê as configurações do diretório do aplicativo.</li>
           <li>Add missing Basque localization.</li>
+          <li xml:lang="ka">დაემატა ნაკლული ბასკური ლოკალიზაცია.</li>
+          <li xml:lang="pt-BR">Adicionada a localização basca que faltava.</li>
           <li>Use correct flags for Cantonese, Chinese (Traditional), and Uighur.</li>
+          <li xml:lang="ka">სწორი ალმების გამოყენება კანტონურისთვის, ტრადიციული ჩინურისთვის და უიღურულისთვის.</li>
+          <li xml:lang="pt-BR">Uso das bandeiras corretas para cantonês, chinês (tradicional) e uigur.</li>
         </ul>
       </description>
     </release>
     <release version="2.10.5" date="2023-05-18">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Fix Yandex translation due to API changes.</li>
+          <li xml:lang="ka">გასწორდა Yandex თარგმანი API-ის ცვლილებების გამო.</li>
+          <li xml:lang="pt-BR">Corrigido o problema de tradução do Yandex devido a alterações na API.</li>
         </ul>
       </description>
     </release>
     <release version="2.10.4" date="2023-04-16">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Added OCR actions to desktop file.</li>
+          <li xml:lang="ka">დაემატა OCR-ის ქმედებები სამუშაო მაგიდის ფაილში.</li>
+          <li xml:lang="pt-BR">Adicionadas ações de OCR ao arquivo da área de trabalho.</li>
           <li>Autoselect source text when showing main window.</li>
+          <li xml:lang="ka">წყარო ტექსტის ავტომონიშვნა მთავარი ფანჯრის ჩვენებისას.</li>
+          <li xml:lang="pt-BR">Selecionar automaticamente o texto de origem ao exibir a janela principal.</li>
           <li>Fixed an issue where the TTS engine would sometimes pronounce the space as "percent twenty".</li>
+          <li xml:lang="ka">გასწორდა პრობლემა, როცა TTS-ის ძრავა ჰარეს წარმოთქვამდა, როგორც "პროცენტი ოცი".</li>
+          <li xml:lang="pt-BR">Corrigido um problema em que o mecanismo de TTS às vezes pronunciava o espaço como "vinte por cento".</li>
         </ul>
       </description>
     </release>
     <release version="2.10.3" date="2023-01-25">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Add examples support for Lingva.</li>
+          <li xml:lang="he">נוספה תמיכה בדוגמאות ל־Lingva.</li>
+          <li xml:lang="ka">დაემატა მაგალითების მხარდაჭერა Lingva-ისთვის.</li>
+          <li xml:lang="pt-BR">Adicionado suporte a exemplos para Lingva.</li>
           <li>Parse all examples for Google.</li>
+          <li xml:lang="he">פיענוח כל הדוגמאות ל־Google.</li>
+          <li xml:lang="ka">ყველა მაგალითის დამუშავება Google-ისთვის.</li>
+          <li xml:lang="pt-BR">Analisar todos os exemplos para o Google.</li>
         </ul>
       </description>
     </release>
     <release version="2.10.2" date="2023-01-18">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Add transliterations and type of speeches for Lingva.</li>
+          <li xml:lang="he">נוספו תעתיקים וסוגי שיח ל־Ligva.</li>
+          <li xml:lang="ka">დაემატა ტრანსლიტერაციები და წარმოთქმის ტიპები Lingva-ისთვის.</li>
+          <li xml:lang="pt-BR">Adicionadas transliterações e tipos de discurso para Lingva.</li>
           <li>Fix Bing translation.</li>
+          <li xml:lang="he">תרגום Bing תוקן.</li>
+          <li xml:lang="ka">გასწორდა Bng-ით თარგმანი.</li>
+          <li xml:lang="pt-BR">Corrigida tradução do Bing.</li>
         </ul>
       </description>
     </release>
     <release version="2.10.1" date="2022-10-24">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Remove Network category from desktop file.</li>
+          <li xml:lang="ka">წაიშალა ქსელის კატეგორია სამუშაო მაგიდის ფაილიდან.</li>
+          <li xml:lang="pt-BR">Remoção da categoria Rede dos arquivos da área de trabalho.</li>
         </ul>
       </description>
     </release>
     <release version="2.10.0" date="2022-09-05">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Add an option to select regional voice for Google.</li>
+          <li xml:lang="ka">დაემატა არჩევანი, რომ აირჩიოთ რეგიონალური ხმა Google-ისთვის.</li>
+          <li xml:lang="pt-BR">Adicionada uma opção para selecionar a voz regional no Google.</li>
         </ul>
       </description>
     </release>
     <release version="2.9.12" date="2022-08-12">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Use the correct approach to remove invalid symbols from translations.</li>
+          <li xml:lang="ka">თარგმანიდან არასწორი სიმბოლოების წასაშლელად სწორი მიდგომის გამოყენება.</li>
+          <li xml:lang="pt-BR">Uso da abordagem correta para remover símbolos inválidos das traduções.</li>
         </ul>
       </description>
     </release>
     <release version="2.9.11" date="2022-08-11">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Fix regression in translation formatting.</li>
+          <li xml:lang="ka">გასწორდა რეგრესია თარგმანის დაფორმატებში.</li>
+          <li xml:lang="pt-BR">Corrigido erro na formatação da tradução.</li>
         </ul>
       </description>
     </release>
     <release version="2.9.10" date="2022-08-07">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Fix popup window not displaying text if text contains UTF-8 special characters.</li>
+          <li xml:lang="ka">გასწორდა შეცდომა, როცა მხტუნარა ფანჯარა ტექსტს არ აჩვენებდა, თუ ტექსტი შეიცავდა UTF-8-ის სპეციალურ სიმბოლოებს.</li>
+          <li xml:lang="pt-BR">Corrigido problema em janela pop-up que não exibe texto se o texto contiver caracteres especiais UTF-8.</li>
         </ul>
       </description>
     </release>
     <release version="2.9.9" date="2022-08-06">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Add missing Basque and Finnish localizations.</li>
+          <li xml:lang="he">נוספו התרגומים החסרים לבסקית ולפינית.</li>
+          <li xml:lang="ka">დაემატა ნაკლული ბასკური და ფინური ლოკალიზაციები.</li>
+          <li xml:lang="pt-BR">Adicionadas as localizações basca e finlandesa que faltavam.</li>
           <li>Respect URL settings in CLI.</li>
+          <li xml:lang="he">לכבד הגדרות כתובות בשורת הפקודות.</li>
+          <li xml:lang="ka">URL-ის პარამეტრების გათვალისწინება CLI-ში.</li>
+          <li xml:lang="pt-BR">Respeitar as configurações de URL na CLI.</li>
         </ul>
       </description>
     </release>
     <release version="2.9.8" date="2022-05-16">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Bundle application icons only for Windows.</li>
+          <li xml:lang="ka">აპლიკაციის ხატულების გაყოლება, მხოლოდ, Windows-ზე.</li>
+          <li xml:lang="pt-BR">Agrupar ícones de aplicativos somente para Windows.</li>
           <li>Make XDG dialogs modal on Wayland.</li>
+          <li xml:lang="ka">XDG დიალოგები გადაკეთდა მოდალებად Wayland-ზე.</li>
+          <li xml:lang="pt-BR">Tornar os diálogos XDG modais no Wayland.</li>
         </ul>
       </description>
     </release>
     <release version="2.9.7" date="2022-05-14">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Autostart support via xdg-desktop-portal.</li>
+          <li xml:lang="ka">ავტოგაშვების მხარდაჭერა xdg-desktop-portal-ით.</li>
+          <li xml:lang="pt-BR">Suporte para inicialização automática via xdg-desktop-portal.</li>
           <li>Close settings window after all settings applied.</li>
+          <li xml:lang="ka">მორგების ფანჯრის დახურვა ყველა პარამეტრის გადატარების შემდეგ.</li>
+          <li xml:lang="pt-BR">Fechar a janela de configurações após aplicar todas as configurações.</li>
           <li>Retrieve parent window ID for XDG desktop portal dialogs.</li>
+          <li xml:lang="ka">მშობელი ფანჯრის ID-ის მიღება XDG-ის სამუშაო მაგიდის პორტალის დიალოგებისთვის.</li>
+          <li xml:lang="pt-BR">Recuperar o ID da janela principal para diálogos do portal de desktop XDG.</li>
         </ul>
       </description>
     </release>
     <release version="2.9.6" date="2022-05-12">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Fix icons fallback on GNOME.</li>
+          <li xml:lang="he">תוקנה נסיגת הסמלים ב־GNOME.</li>
+          <li xml:lang="ka">გასწორდა ხატულების გადართვა GNOME-ზე.</li>
+          <li xml:lang="pt-BR">Corrigidos os ícones de fallback no GNOME.</li>
         </ul>
       </description>
     </release>
     <release version="2.9.5" date="2022-05-11">
       <description>
         <p>Changelog:</p>
+        <p xml:lang="he">יומן שינויים:</p>
+        <p xml:lang="ka">ცვლილებები:</p>
+        <p xml:lang="pt-BR">Registro de alterações:</p>
         <ul>
           <li>Remove "The application is already running" dialog.</li>
+          <li xml:lang="he">הוסרה החלונית „היישום כבר פעיל”.</li>
+          <li xml:lang="ka">მოცილებულია დიალოგი "აპლიკაცია უკვე გაშვებულია".</li>
+          <li xml:lang="pt-BR">Remoção da caixa de diálogo "O aplicativo já está em execução".</li>
         </ul>
       </description>
     </release>
