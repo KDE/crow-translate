@@ -61,7 +61,7 @@
   <summary xml:lang="pt-BR">Aplicativo que permite traduzir e falar textos usando o Mozhi</summary>
   <summary xml:lang="sl">Prevajalnik, ki vam omogoča prevajanje in izgovorjavo besedila z uporabo Mozhi</summary>
   <summary xml:lang="sv">Program som gör det möjligt att översätta och läsa upp text med Mozhi</summary>
-  <summary xml:lang="tr">Metinleri çevirmek ve seslendirmek için basit bir çeviri yazılımı</summary>
+  <summary xml:lang="tr">Mozhi’yi kullanarak metin çevirmenize ve seslendirmenize olanak tanıyan bir uygulama</summary>
   <summary xml:lang="uk">Програма, яка надає вам змогу перекладати і озвучувати тексти за допомогою Mozhi</summary>
   <summary xml:lang="zh-TW">讓您利用 Mozhi 翻譯與朗讀文字的應用程式</summary>
   <metadata_license>CC0-1.0</metadata_license>
@@ -485,6 +485,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Automate fastest Mozhi instance selection.</li>
@@ -495,6 +496,7 @@
           <li xml:lang="ka">უსწრაფესი Mozhi-ის გაშვებული ასლის ავტომატური არჩევა.</li>
           <li xml:lang="pt-BR">Automatização da seleção da instância Mozhi mais rápida.</li>
           <li xml:lang="sl">Avtomatizira najhitrejšo izbiro pojavka Mozhi.</li>
+          <li xml:lang="tr">Automate fastest Mozhi instance selection.</li>
           <li xml:lang="uk">Автоматичний вибір найшвидшого екземпляра Mozhi.</li>
           <li>Automatically assign the fastest instance on the first startup instead of selecting it randomly.</li>
           <li xml:lang="ar">تعيين أسرع نسخة آلياً عند بدء التشغيل الأول بدلاً من اختيارها عشوائياً.</li>
@@ -503,6 +505,7 @@
           <li xml:lang="ka">უსწრაფესი გაშვებული ასლის ავტომატური მინიჭება პირველი გაშვებისას მისი შემთხვევით არჩევის მაგიერ.</li>
           <li xml:lang="pt-BR">Atribuir automaticamente a instância mais rápida na primeira inicialização, em vez de selecioná-la aleatoriamente.</li>
           <li xml:lang="sl">Samodejno dodeli najhitrejši pojavek ob prvem zagonu, namesto da ga izbere naključno.</li>
+          <li xml:lang="tr">Automatically assign the fastest instance on the first startup instead of selecting it randomly.</li>
           <li xml:lang="uk">Автоматично призначати найшвидший екземпляр під час першого запуску, замість випадкового вибору.</li>
           <li>CLI: By default, use the instance from settings.</li>
           <li xml:lang="ar">واجهة سطر الأوامر: استخدام النسخة من الإعدادات مبدئياً.</li>
@@ -512,6 +515,7 @@
           <li xml:lang="ka">CLI: ნაგულისხმევად გამოყენებული იქნება გაშვებული ასლი არამეტრებიდან.</li>
           <li xml:lang="pt-BR">CLI: Por padrão, utiliza a instância definida nas configurações.</li>
           <li xml:lang="sl">CLI: Privzeto uporabi pojavek iz nastavitev.</li>
+          <li xml:lang="tr">CLI: By default, use the instance from settings.</li>
           <li xml:lang="uk">CLI: реалізовано типове використання екземпляра з параметрів.</li>
           <li>CLI: Verify language codes.</li>
           <li xml:lang="ar">واجهة سطر الأوامر: التحقق من رموز اللغات.</li>
@@ -521,6 +525,7 @@
           <li xml:lang="ka">CLI: ენის კოდების შემოწმება.</li>
           <li xml:lang="pt-BR">CLI: Verificar códigos de idioma.</li>
           <li xml:lang="sl">CLI: Preveri jezikovne kode.</li>
+          <li xml:lang="tr">CLI: Verify language codes.</li>
           <li xml:lang="uk">CLI: реалізовано перевірку кодів мов.</li>
           <li>CLI: Do not print empty translations on error.</li>
           <li xml:lang="ar">واجهة سطر الأوامر: عدم طباعة ترجمات فارغة عند حدوث خطأ.</li>
@@ -530,6 +535,7 @@
           <li xml:lang="ka">CLI: შეცდომისას ცარიელი თარგმანები გამოტანილი არ იქნება.</li>
           <li xml:lang="pt-BR">CLI: Não imprimir traduções vazias em caso de erro.</li>
           <li xml:lang="sl">CLI: V primeru napake ne izpisuje praznih prevodov.</li>
+          <li xml:lang="tr">CLI: Do not print empty translations on error.</li>
           <li xml:lang="uk">CLI: усунено виведення порожніх перекладів при помилці.</li>
           <li>CLI: The --help command returns exit code 1.</li>
           <li xml:lang="ar">واجهة سطر الأوامر: يرجع الأمر help-- رمز الخروج 1.</li>
@@ -539,6 +545,7 @@
           <li xml:lang="ka">CLI: ბრძანება --help აბრუნებს შეცდომის კოდს 1.</li>
           <li xml:lang="pt-BR">CLI: O comando --help retorna o código de saída 1.</li>
           <li xml:lang="sl">CLI: Ukaz --help vrne izhodno kodo 1.</li>
+          <li xml:lang="tr">CLI: The --help command returns exit code 1.</li>
           <li xml:lang="uk">CLI: команда --help повертає код виходу 1.</li>
           <li>Fix language codes for Persian and Chinese Simplified.</li>
           <li xml:lang="ar">إصلاح رموز اللغات للفارسية والصينية المبسطة.</li>
@@ -548,6 +555,7 @@
           <li xml:lang="ka">გასწორდა ენის კოდები სპარსულისთვის და გამარტივებული ჩინურისთვის.</li>
           <li xml:lang="pt-BR">Corrigidos os códigos de idioma para persa e chinês simplificado.</li>
           <li xml:lang="sl">Popravi jezikovne kode za perzijščino in poenostavljeno kitajščino.</li>
+          <li xml:lang="tr">Fix language codes for Persian and Chinese Simplified.</li>
           <li xml:lang="uk">Виправлено коди мови для перської та спрощеної китайської.</li>
           <li>Fix loading of Qt translations.</li>
           <li xml:lang="ar">إصلاح تحميل ترجمات كيو تي.</li>
@@ -557,6 +565,7 @@
           <li xml:lang="ka">გასწორდა Qt-ის თარგმანების ჩატვირთვა.</li>
           <li xml:lang="pt-BR">Corrigido o carregamento de traduções do Qt.</li>
           <li xml:lang="sl">Popravljeno nalaganje prevodov Qt.</li>
+          <li xml:lang="tr">Fix loading of Qt translations.</li>
           <li xml:lang="uk">Виправлено завантаження перекладів Qt.</li>
         </ul>
       </description>
@@ -586,6 +595,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Migrate from direct API calls to Mozhi. If you experience slow translation speeds, try selecting a closer instance in the settings.</li>
@@ -595,6 +605,7 @@
           <li xml:lang="ka">პირდაპირი API-ის გამოძახებების მიგრაცია Mozhi-ზე. თუ თარგმანის სიჩქარე დაბალი გექნებათ, სცადეთ, პარამეტრებში უფრო ახლო გაშვებული ასლი აირჩიოთ.</li>
           <li xml:lang="pt-BR">Migração de chamadas diretas à API para o Mozhi. Se você notar lentidão na tradução, tente selecionar uma instância mais próxima nas configurações.</li>
           <li xml:lang="sl">Preseli se z neposrednih klicev API-ja na Mozhi. Če imate počasne hitrosti prevajanja, poskusite v nastavitvah izbrati bližji pojavek.</li>
+          <li xml:lang="tr">Migrate from direct API calls to Mozhi. If you experience slow translation speeds, try selecting a closer instance in the settings.</li>
           <li xml:lang="uk">Перехід з прямих викликів програмного інтерфейсу на Mozhi. Якщо ви спостерігаєте низьку швидкість перекладу, спробуйте вибрати ближчий екземпляр у налаштуваннях.</li>
           <li>Change short option for --speak-translation to -r.</li>
           <li xml:lang="ar">تغيير الخيار القصير لـ speak-translation-- إلى r-.</li>
@@ -603,6 +614,7 @@
           <li xml:lang="ka">შეიცვალა --speak-translation პარამეტრის მოკლე ვერსია პარამეტრით -r.</li>
           <li xml:lang="pt-BR">Alteração da opção abreviada para --speak-translation para -r.</li>
           <li xml:lang="sl">Spremeni kratko možnost za --speak-translation v -r.</li>
+          <li xml:lang="tr">Change short option for --speak-translation to -r.</li>
           <li xml:lang="uk">Змінено скорочений варіант параметра --speak-translation на -r.</li>
           <li>Change short option for --speak-source to -o.</li>
           <li xml:lang="ar">تغيير الخيار القصير لـ speak-source-- إلى o-.</li>
@@ -611,6 +623,7 @@
           <li xml:lang="ka">შეიცვალა --speak-source პარამეტრის მოკლე ვერსია პარამეტრით -o.</li>
           <li xml:lang="pt-BR">Alteração da opção abreviada para --speak-source para -o.</li>
           <li xml:lang="sl">Spremeni kratko možnost za --speak-source v -o.</li>
+          <li xml:lang="tr">Change short option for --speak-source to -o.</li>
           <li xml:lang="uk">Змінено скорочений варіант параметра --speak-source на -o.</li>
           <li>Remove flags from languages.</li>
           <li xml:lang="ar">إزالة الأعلام من اللغات.</li>
@@ -620,6 +633,7 @@
           <li xml:lang="ka">ენებს ალმები მოსცილდა.</li>
           <li xml:lang="pt-BR">Remoção das bandeiras dos idiomas.</li>
           <li xml:lang="sl">Odstrani zastavice iz jezikov.</li>
+          <li xml:lang="tr">Remove flags from languages.</li>
           <li xml:lang="uk">Вилучено прапорці для пунктів мов.</li>
           <li>Fix autotranslate checkbox overlap.</li>
           <li xml:lang="ar">إصلاح تداخل مربع اختيار الترجمة الآلية.</li>
@@ -628,6 +642,7 @@
           <li xml:lang="ka">გასწორდა ავტოთარგმანის თოლიას გადაფარვა.</li>
           <li xml:lang="pt-BR">Correção da sobreposição das caixas de seleção de tradução automática.</li>
           <li xml:lang="sl">Odpravi prekrivanje potrditvenih polj za samodejno prevajanje.</li>
+          <li xml:lang="tr">Fix autotranslate checkbox overlap.</li>
           <li xml:lang="uk">Виправлено перекриття пункту автоперекладу.</li>
           <li>Change application ID to org.kde.CrowTranslate.</li>
           <li xml:lang="ar">تغيير معرف التطبيق إلى org.kde.CrowTranslate.</li>
@@ -637,6 +652,7 @@
           <li xml:lang="ka">აპლიკაციის ID შეიცვალა მნიშვნელობაზე org.kde.CrowTranslate.</li>
           <li xml:lang="pt-BR">Alteração do ID do aplicativo para org.kde.CrowTranslate.</li>
           <li xml:lang="sl">Spremeni ID aplikacije v org.kde.CrowTranslate.</li>
+          <li xml:lang="tr">Change application ID to org.kde.CrowTranslate.</li>
           <li xml:lang="uk">Змінено ідентифікатор програми на org.kde.CrowTranslate.</li>
           <li>Disable "Start minimized" by default.</li>
           <li xml:lang="ar">تعطيل "ابدأ مصغراً" مبدئياً.</li>
@@ -646,6 +662,7 @@
           <li xml:lang="ka">"ჩაკეცილად გაშვების" ნაგულისხმევად გამორთვა.</li>
           <li xml:lang="pt-BR">Opção "Iniciar minimizado" desativada por padrão.</li>
           <li xml:lang="sl">Privzeto onemogoči možnost "Začni strnjeno".</li>
+          <li xml:lang="tr">Disable "Start minimized" by default.</li>
           <li xml:lang="uk">Типово вимкнено «Запускати мінімізованим».</li>
           <li>Use icons that are compatible with Adwaita.</li>
           <li xml:lang="ar">استخدام أيقونات متوافقة مع Adwaita.</li>
@@ -655,6 +672,7 @@
           <li xml:lang="ka">Adwaita-ისთან თავსებადი ხატულების გამოყენება.</li>
           <li xml:lang="pt-BR">Usar ícones compatíveis com o Adwaita.</li>
           <li xml:lang="sl">Uporabi ikone, ki so združljive z Adwaito.</li>
+          <li xml:lang="tr">Use icons that are compatible with Adwaita.</li>
           <li xml:lang="uk">Реалізовано використання піктограм, які сумісні з Adwaita.</li>
           <li>Use Breeze icons as fallback.</li>
           <li xml:lang="ar">استخدام أيقونات Breeze كبديل احتياطي.</li>
@@ -664,6 +682,7 @@
           <li xml:lang="ka">Breeze-ის ხატულების გამოყენება გადასართავად.</li>
           <li xml:lang="pt-BR">Usar os ícones do Breeze como alternativa.</li>
           <li xml:lang="sl">Uporabi ikone Breeze kot rezervo.</li>
+          <li xml:lang="tr">Use Breeze icons as fallback.</li>
           <li xml:lang="uk">Реалізовано використання резервних піктограм Breeze.</li>
           <li>Remove updater functionality for Windows.</li>
           <li xml:lang="ar">إزالة وظيفة المحدث لنظام ويندوز.</li>
@@ -673,6 +692,7 @@
           <li xml:lang="ka">განახლების პროგრამის წაშლა Windows-ისთვის.</li>
           <li xml:lang="pt-BR">Remoção da funcionalidade de atualização para Windows.</li>
           <li xml:lang="sl">Odstrani zmožnost posodabljanja za Windows.</li>
+          <li xml:lang="tr">Remove updater functionality for Windows.</li>
           <li xml:lang="uk">Вилучено можливості з оновлення для Windows.</li>
         </ul>
       </description>
@@ -702,6 +722,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Enable new LibreTranslate langs.</li>
@@ -712,6 +733,7 @@
           <li xml:lang="ka">ახალი LibreTranslate-ის ენების ჩართვა.</li>
           <li xml:lang="pt-BR">Ativação dos novos idiomas do LibreTranslate.</li>
           <li xml:lang="sl">Omogoči nove jezike LibreTranslate.</li>
+          <li xml:lang="tr">Enable new LibreTranslate langs.</li>
           <li xml:lang="uk">Увімкнено нові мови у LibreTranslate.</li>
           <li>Require Qt5X11Extras on Linux.</li>
           <li xml:lang="ar">تطلب حزمة Qt5X11Extras على لينكس.</li>
@@ -721,6 +743,7 @@
           <li xml:lang="ka">Qt5X11Extras-ის მოთხოვნა Linux-ზე.</li>
           <li xml:lang="pt-BR">Requerer o pacote Qt5X11Extras no Linux.</li>
           <li xml:lang="sl">Zahteva Qt5X11Extras na Linuxu.</li>
+          <li xml:lang="tr">Require Qt5X11Extras on Linux.</li>
           <li xml:lang="uk">Реалізовано вимогу щодо встановлення Qt5X11Extras у Linux.</li>
           <li>Add and remove old, non-existed, broken Libre and Lingva instances.</li>
           <li xml:lang="ar">إضافة وإزالة نسخ Libre و Lingva القديمة وغير الموجودة والمعطلة.</li>
@@ -729,6 +752,7 @@
           <li xml:lang="ka">დაემატა და წაიშალა ძველი, არარსებული, გაფუჭებული Libre-ის და Lingva-ის გაშვებული ასლები.</li>
           <li xml:lang="pt-BR">Adicionar e remover instâncias antigas, inexistentes ou corrompidas do LibreOffice e do Lingva.</li>
           <li xml:lang="sl">Doda in odstrani stare, neobstoječe, pokvarjene pojavke Libre in Lingva.</li>
+          <li xml:lang="tr">Add and remove old, non-existed, broken Libre and Lingva instances.</li>
           <li xml:lang="uk">Додано нові і вилучено старі, непрацездатні екземпляри Libre і Lingva.</li>
           <li>Improve accessibility for screen readers.</li>
           <li xml:lang="ar">تحسين إمكانية الوصول لقارئات الشاشة.</li>
@@ -737,6 +761,7 @@
           <li xml:lang="ka">გაუმჯობესდა წვდომადობა ეკრანის წამკითხველებისთვის.</li>
           <li xml:lang="pt-BR">Melhoria na acessibilidade para leitores de tela.</li>
           <li xml:lang="sl">Izboljša dostopnost za bralnike zaslona.</li>
+          <li xml:lang="tr">Improve accessibility for screen readers.</li>
           <li xml:lang="uk">Удосконалено доступність для засобів читання з екрана.</li>
         </ul>
       </description>
@@ -752,6 +777,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Remove spaces in settings paths. Everywhere instead of "Crow Translate" now "crow-translate".</li>
@@ -761,6 +787,7 @@
           <li xml:lang="ka">წაიშალა ჰარეები პარამეტრების ბილიკში. ყველგან "Crow Translate"-ის მაგიერ ახლა არის "crow-translate".</li>
           <li xml:lang="pt-BR">Remoção dos espaços nos caminhos das configurações. Em todos os lugares, em vez de "Crow Translate", agora é "crow-translate".</li>
           <li xml:lang="sl">Odstrani presledke v poteh nastavitev. Povsod namesto "Crow Translate" je zdaj "crow-translate".</li>
+          <li xml:lang="tr">Remove spaces in settings paths. Everywhere instead of "Crow Translate" now "crow-translate".</li>
           <li xml:lang="uk">Вилучено пробіли у шляхах у параметрах. Усюди, замість «Crow Translate» у новій версії маємо «crow-translate».</li>
           <li>Use lingva.garudalinux.org by default for Lingva engine.</li>
           <li xml:lang="ar">استخدام lingva.garudalinux.org مبدئياً لمحرك Lingva.</li>
@@ -769,6 +796,7 @@
           <li xml:lang="ka">lingva.garudalinux.org-ის ნაგულისხმევად გამოყენება ძრავისთვის Lingva.</li>
           <li xml:lang="pt-BR">Por padrão, usar lingva.garudalinux.org para o mecanismo Lingva.</li>
           <li xml:lang="sl">Privzeto uporabi lingva.garudalinux.org za Lingva mehanizem.</li>
+          <li xml:lang="tr">Use lingva.garudalinux.org by default for Lingva engine.</li>
           <li xml:lang="uk">Типово використано lingva.garudalinux.org для рушія Lingva.</li>
         </ul>
       </description>
@@ -784,6 +812,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Fix selection translation on Windows.</li>
@@ -793,6 +822,7 @@
           <li xml:lang="ka">გასწორდა მონიშნულის თარგმნა Windows-ზე.</li>
           <li xml:lang="pt-BR">Correção da tradução de seleção no Windows.</li>
           <li xml:lang="sl">Popravljen prevod izbire v sistemu Windows.</li>
+          <li xml:lang="tr">Fix selection translation on Windows.</li>
           <li xml:lang="uk">Виправлено вибір перекладів у Windows.</li>
         </ul>
       </description>
@@ -808,6 +838,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Fix selection translation regression.</li>
@@ -817,6 +848,7 @@
           <li xml:lang="ka">გასწორდა მონიშნულის თარგმნის რეგრესია.</li>
           <li xml:lang="pt-BR">Correção da regressão na tradução da seleção.</li>
           <li xml:lang="sl">Popravi regresijo prevajanja izbire.</li>
+          <li xml:lang="tr">Fix selection translation regression.</li>
           <li xml:lang="uk">Виправлено регресію у виборі перекладу.</li>
         </ul>
       </description>
@@ -832,6 +864,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Fix selection translation on Wayland.</li>
@@ -841,6 +874,7 @@
           <li xml:lang="ka">გასწორდა მონიშნულის თარგმნა Wayland-ზე.</li>
           <li xml:lang="pt-BR">Correção da tradução de seleção no Wayland.</li>
           <li xml:lang="sl">Popravi prevod izbire na Waylandu.</li>
+          <li xml:lang="tr">Fix selection translation on Wayland.</li>
           <li xml:lang="uk">Виправлено вибір перекладу у Wayland.</li>
         </ul>
       </description>
@@ -856,6 +890,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Fix settings in portable mode.</li>
@@ -865,6 +900,7 @@
           <li xml:lang="ka">გასწორდა პარამეტრები გადატანად რეჟიმში.</li>
           <li xml:lang="pt-BR">Correção das configurações no modo portátil.</li>
           <li xml:lang="sl">Popravi nastavitve v prenosnem načinu.</li>
+          <li xml:lang="tr">Fix settings in portable mode.</li>
           <li xml:lang="uk">Виправлено параметри у портативному режимі.</li>
         </ul>
       </description>
@@ -880,6 +916,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Fix screen capture DPI.</li>
@@ -889,6 +926,7 @@
           <li xml:lang="ka">გასწორდა ეკრანის გადაღების DPI.</li>
           <li xml:lang="pt-BR">Correção do DPI da captura de tela.</li>
           <li xml:lang="sl">Popravi DPI za zajem zaslona.</li>
+          <li xml:lang="tr">Fix screen capture DPI.</li>
           <li xml:lang="uk">Виправлено роздільність при захопленні зображення з екрана.</li>
           <li>Do not apply smoothing to the magnifier's image.</li>
           <li xml:lang="ar">عدم تطبيق التنعيم على صورة المكبر.</li>
@@ -897,6 +935,7 @@
           <li xml:lang="ka">გამადიდებლის გამოსახულებაზე მოგლუვება არ მოხდება.</li>
           <li xml:lang="pt-BR">Não aplicar suavização à imagem da lupa.</li>
           <li xml:lang="sl">Ne uporablja glajenja na sliki povečevalnega stekla.</li>
+          <li xml:lang="tr">Do not apply smoothing to the magnifier's image.</li>
           <li xml:lang="uk">Усунено застосування згладжування збільшеного зображення.</li>
           <li>Read settings from application directory when building in portable mode.</li>
           <li xml:lang="ar">قراءة الإعدادات من دليل التطبيق عند البناء في الوضع المحمول.</li>
@@ -905,6 +944,7 @@
           <li xml:lang="ka">პარამეტრების წაკითხვა აპლიკაციის საქაღალდიდან გადატანადი რეჟიმისთვის აგებისას.</li>
           <li xml:lang="pt-BR">Ao compilar em modo portátil, lê as configurações do diretório do aplicativo.</li>
           <li xml:lang="sl">Preberi nastavitve iz imenika aplikacije pri gradnji v prenosnem načinu.</li>
+          <li xml:lang="tr">Read settings from application directory when building in portable mode.</li>
           <li xml:lang="uk">Реалізовано читання параметрів з каталогу програми при збиранні у портативному режимі.</li>
           <li>Add missing Basque localization.</li>
           <li xml:lang="ar">إضافة الترجمة الباسكية الناقصة.</li>
@@ -913,6 +953,7 @@
           <li xml:lang="ka">დაემატა ნაკლული ბასკური ლოკალიზაცია.</li>
           <li xml:lang="pt-BR">Adicionada a localização basca que faltava.</li>
           <li xml:lang="sl">Dodajte manjkajočo baskovsko lokalizacijo.</li>
+          <li xml:lang="tr">Add missing Basque localization.</li>
           <li xml:lang="uk">Додано пропущено локалізацію баскською.</li>
           <li>Use correct flags for Cantonese, Chinese (Traditional), and Uighur.</li>
           <li xml:lang="ar">استخدام الأعلام الصحيحة للكانتونية والصينية (التقليدية) والأويغورية.</li>
@@ -921,6 +962,7 @@
           <li xml:lang="ka">სწორი ალმების გამოყენება კანტონურისთვის, ტრადიციული ჩინურისთვის და უიღურულისთვის.</li>
           <li xml:lang="pt-BR">Uso das bandeiras corretas para cantonês, chinês (tradicional) e uigur.</li>
           <li xml:lang="sl">Uporabite pravilne zastave za kantonščino, kitajščino (tradicionalno) in ujgurščino.</li>
+          <li xml:lang="tr">Use correct flags for Cantonese, Chinese (Traditional), and Uighur.</li>
           <li xml:lang="uk">Використано належні прапорі для кантонської, китайської (традиційної) та уйгурської.</li>
         </ul>
       </description>
@@ -936,6 +978,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Fix Yandex translation due to API changes.</li>
@@ -945,6 +988,7 @@
           <li xml:lang="ka">გასწორდა Yandex თარგმანი API-ის ცვლილებების გამო.</li>
           <li xml:lang="pt-BR">Corrigido o problema de tradução do Yandex devido a alterações na API.</li>
           <li xml:lang="sl">Popravi prevod Yandexa zaradi sprememb API-ja.</li>
+          <li xml:lang="tr">Fix Yandex translation due to API changes.</li>
           <li xml:lang="uk">Виправлено переклад Yandex через зміни у програмному інтерфейсі.</li>
         </ul>
       </description>
@@ -960,6 +1004,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Added OCR actions to desktop file.</li>
@@ -969,6 +1014,7 @@
           <li xml:lang="ka">დაემატა OCR-ის ქმედებები სამუშაო მაგიდის ფაილში.</li>
           <li xml:lang="pt-BR">Adicionadas ações de OCR ao arquivo da área de trabalho.</li>
           <li xml:lang="sl">Dodana dejanja OCR v datoteko na namizju.</li>
+          <li xml:lang="tr">Added OCR actions to desktop file.</li>
           <li xml:lang="uk">У файл desktop додано дії з розпізнавання тексту.</li>
           <li>Autoselect source text when showing main window.</li>
           <li xml:lang="ar">اختيار نص المصدر آلياً عند إظهار النافذة الرئيسة.</li>
@@ -977,6 +1023,7 @@
           <li xml:lang="ka">წყარო ტექსტის ავტომონიშვნა მთავარი ფანჯრის ჩვენებისას.</li>
           <li xml:lang="pt-BR">Selecionar automaticamente o texto de origem ao exibir a janela principal.</li>
           <li xml:lang="sl">Samodejna izbira izvornega besedila pri prikazu glavnega okna.</li>
+          <li xml:lang="tr">Autoselect source text when showing main window.</li>
           <li xml:lang="uk">Реалізовано автоматичне позначення початкового тексту при показі головного вікна.</li>
           <li>Fixed an issue where the TTS engine would sometimes pronounce the space as "percent twenty".</li>
           <li xml:lang="ar">إصلاح مشكلة كانت تجعل محرك نطق النصوص ينطق المسافة أحياناً كـ "بالمئة عشرين".</li>
@@ -985,6 +1032,7 @@
           <li xml:lang="ka">გასწორდა პრობლემა, როცა TTS-ის ძრავა ჰარეს წარმოთქვამდა, როგორც "პროცენტი ოცი".</li>
           <li xml:lang="pt-BR">Corrigido um problema em que o mecanismo de TTS às vezes pronunciava o espaço como "vinte por cento".</li>
           <li xml:lang="sl">Odpravljena je bila težava, pri kateri je mehanizem za pretvorbo besedila v besedilo včasih izgovoril presledek kot »odstotek dvajset«.</li>
+          <li xml:lang="tr">Fixed an issue where the TTS engine would sometimes pronounce the space as "percent twenty".</li>
           <li xml:lang="uk">Виправлено проблему, через яку механізм синтезу мовлення іноді вимовляв пробіл як «відсоток двадцять».</li>
         </ul>
       </description>
@@ -1000,6 +1048,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Add examples support for Lingva.</li>
@@ -1010,6 +1059,7 @@
           <li xml:lang="ka">დაემატა მაგალითების მხარდაჭერა Lingva-ისთვის.</li>
           <li xml:lang="pt-BR">Adicionado suporte a exemplos para Lingva.</li>
           <li xml:lang="sl">Doda podporo za primere za Lingvo.</li>
+          <li xml:lang="tr">Add examples support for Lingva.</li>
           <li xml:lang="uk">Додано підтримку прикладів для Lingva.</li>
           <li>Parse all examples for Google.</li>
           <li xml:lang="ar">تحليل كافة الأمثلة لجوجل.</li>
@@ -1019,6 +1069,7 @@
           <li xml:lang="ka">ყველა მაგალითის დამუშავება Google-ისთვის.</li>
           <li xml:lang="pt-BR">Analisar todos os exemplos para o Google.</li>
           <li xml:lang="sl">Razčleni vse primere za Google.</li>
+          <li xml:lang="tr">Parse all examples for Google.</li>
           <li xml:lang="uk">Реалізовано обробку усіх прикладів для Google.</li>
         </ul>
       </description>
@@ -1034,6 +1085,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Add transliterations and type of speeches for Lingva.</li>
@@ -1044,6 +1096,7 @@
           <li xml:lang="ka">დაემატა ტრანსლიტერაციები და წარმოთქმის ტიპები Lingva-ისთვის.</li>
           <li xml:lang="pt-BR">Adicionadas transliterações e tipos de discurso para Lingva.</li>
           <li xml:lang="sl">Dodajte transliteracije in vrste govorov za Lingvo.</li>
+          <li xml:lang="tr">Add transliterations and type of speeches for Lingva.</li>
           <li xml:lang="uk">Додано транслітерації і тип мовлення для Lingva.</li>
           <li>Fix Bing translation.</li>
           <li xml:lang="ar">إصلاح ترجمة بينج.</li>
@@ -1053,6 +1106,7 @@
           <li xml:lang="ka">გასწორდა Bng-ით თარგმანი.</li>
           <li xml:lang="pt-BR">Corrigida tradução do Bing.</li>
           <li xml:lang="sl">Popravi prevajanje Binga.</li>
+          <li xml:lang="tr">Fix Bing translation.</li>
           <li xml:lang="uk">Виправлено переклади Bing.</li>
         </ul>
       </description>
@@ -1068,6 +1122,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Remove Network category from desktop file.</li>
@@ -1077,6 +1132,7 @@
           <li xml:lang="ka">წაიშალა ქსელის კატეგორია სამუშაო მაგიდის ფაილიდან.</li>
           <li xml:lang="pt-BR">Remoção da categoria Rede dos arquivos da área de trabalho.</li>
           <li xml:lang="sl">Odstrani kategorijo Omrežje iz datoteke namizja.</li>
+          <li xml:lang="tr">Remove Network category from desktop file.</li>
           <li xml:lang="uk">Вилучено категорію Network з файла desktop.</li>
         </ul>
       </description>
@@ -1092,6 +1148,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Add an option to select regional voice for Google.</li>
@@ -1101,6 +1158,7 @@
           <li xml:lang="ka">დაემატა არჩევანი, რომ აირჩიოთ რეგიონალური ხმა Google-ისთვის.</li>
           <li xml:lang="pt-BR">Adicionada uma opção para selecionar a voz regional no Google.</li>
           <li xml:lang="sl">Doda možnost izbire regionalnega glasu za Google.</li>
+          <li xml:lang="tr">Add an option to select regional voice for Google.</li>
           <li xml:lang="uk">Додано пункт для вибору регіонального диктора у Google.</li>
         </ul>
       </description>
@@ -1116,6 +1174,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Use the correct approach to remove invalid symbols from translations.</li>
@@ -1125,6 +1184,7 @@
           <li xml:lang="ka">თარგმანიდან არასწორი სიმბოლოების წასაშლელად სწორი მიდგომის გამოყენება.</li>
           <li xml:lang="pt-BR">Uso da abordagem correta para remover símbolos inválidos das traduções.</li>
           <li xml:lang="sl">Uporabite pravilen pristop za odstranitev neveljavnih simbolov iz prevodov.</li>
+          <li xml:lang="tr">Use the correct approach to remove invalid symbols from translations.</li>
           <li xml:lang="uk">Реалізовано використання правильного підходу для вилучення некоректних символів з перекладу</li>
         </ul>
       </description>
@@ -1140,6 +1200,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Fix regression in translation formatting.</li>
@@ -1149,6 +1210,7 @@
           <li xml:lang="ka">გასწორდა რეგრესია თარგმანის დაფორმატებში.</li>
           <li xml:lang="pt-BR">Corrigido erro na formatação da tradução.</li>
           <li xml:lang="sl">Popravi regresijo v oblikovanju prevodov.</li>
+          <li xml:lang="tr">Fix regression in translation formatting.</li>
           <li xml:lang="uk">Виправлено регресію у форматуванні перекладу.</li>
         </ul>
       </description>
@@ -1164,6 +1226,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Fix popup window not displaying text if text contains UTF-8 special characters.</li>
@@ -1173,6 +1236,7 @@
           <li xml:lang="ka">გასწორდა შეცდომა, როცა მხტუნარა ფანჯარა ტექსტს არ აჩვენებდა, თუ ტექსტი შეიცავდა UTF-8-ის სპეციალურ სიმბოლოებს.</li>
           <li xml:lang="pt-BR">Corrigido problema em janela pop-up que não exibe texto se o texto contiver caracteres especiais UTF-8.</li>
           <li xml:lang="sl">Odpravljena napaka, zaradi katere pojavno okno ne prikazuje besedila, če besedilo vsebuje posebne znake UTF-8.</li>
+          <li xml:lang="tr">Fix popup window not displaying text if text contains UTF-8 special characters.</li>
           <li xml:lang="uk">Виправлено показ тексту у контекстному вікні, якщо у тексті містяться спеціальні символи UTF-8.</li>
         </ul>
       </description>
@@ -1188,6 +1252,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Add missing Basque and Finnish localizations.</li>
@@ -1198,6 +1263,7 @@
           <li xml:lang="ka">დაემატა ნაკლული ბასკური და ფინური ლოკალიზაციები.</li>
           <li xml:lang="pt-BR">Adicionadas as localizações basca e finlandesa que faltavam.</li>
           <li xml:lang="sl">Dodaj manjkajoče baskovske in finske lokalizacije.</li>
+          <li xml:lang="tr">Add missing Basque and Finnish localizations.</li>
           <li xml:lang="uk">Додано пропущені баскську та фінську локалізації.</li>
           <li>Respect URL settings in CLI.</li>
           <li xml:lang="ar">احترام إعدادات العناوين (URL) في واجهة سطر الأوامر.</li>
@@ -1207,6 +1273,7 @@
           <li xml:lang="ka">URL-ის პარამეტრების გათვალისწინება CLI-ში.</li>
           <li xml:lang="pt-BR">Respeitar as configurações de URL na CLI.</li>
           <li xml:lang="sl">Upošteva nastavitve URL-jev v CLI.</li>
+          <li xml:lang="tr">Respect URL settings in CLI.</li>
           <li xml:lang="uk">Реалізовано врахування параметрів адреси у командному інтерфейсі.</li>
         </ul>
       </description>
@@ -1222,6 +1289,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Bundle application icons only for Windows.</li>
@@ -1231,6 +1299,7 @@
           <li xml:lang="ka">აპლიკაციის ხატულების გაყოლება, მხოლოდ, Windows-ზე.</li>
           <li xml:lang="pt-BR">Agrupar ícones de aplicativos somente para Windows.</li>
           <li xml:lang="sl">Združi ikone aplikacij samo za Windows.</li>
+          <li xml:lang="tr">Bundle application icons only for Windows.</li>
           <li xml:lang="uk">Реалізовано додавання піктограм програми до пакета лише у Windows.</li>
           <li>Make XDG dialogs modal on Wayland.</li>
           <li xml:lang="ar">جعل حوارات XDG مشروطة على Wayland.</li>
@@ -1239,6 +1308,7 @@
           <li xml:lang="ka">XDG დიალოგები გადაკეთდა მოდალებად Wayland-ზე.</li>
           <li xml:lang="pt-BR">Tornar os diálogos XDG modais no Wayland.</li>
           <li xml:lang="sl">Naj bodo pogovorna okna XDG modalna na Waylandu.</li>
+          <li xml:lang="tr">Make XDG dialogs modal on Wayland.</li>
           <li xml:lang="uk">Вікна XDG у Wayland зроблено модальними.</li>
         </ul>
       </description>
@@ -1254,6 +1324,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Autostart support via xdg-desktop-portal.</li>
@@ -1263,6 +1334,7 @@
           <li xml:lang="ka">ავტოგაშვების მხარდაჭერა xdg-desktop-portal-ით.</li>
           <li xml:lang="pt-BR">Suporte para inicialização automática via xdg-desktop-portal.</li>
           <li xml:lang="sl">Podpora za samodejni zagon prek xdg-desktop-portala.</li>
+          <li xml:lang="tr">Autostart support via xdg-desktop-portal.</li>
           <li xml:lang="uk">Реалізовано підтримку автозапуску за допомогою xdg-desktop-portal.</li>
           <li>Close settings window after all settings applied.</li>
           <li xml:lang="ar">إغلاق نافذة الإعدادات بعد تطبيق كافة الإعدادات.</li>
@@ -1271,6 +1343,7 @@
           <li xml:lang="ka">მორგების ფანჯრის დახურვა ყველა პარამეტრის გადატარების შემდეგ.</li>
           <li xml:lang="pt-BR">Fechar a janela de configurações após aplicar todas as configurações.</li>
           <li xml:lang="sl">Zapre okno z nastavitvami po uporabi vseh nastavitev.</li>
+          <li xml:lang="tr">Close settings window after all settings applied.</li>
           <li xml:lang="uk">Реалізовано закриття вікна параметрів після того, як усі значення застосовано.</li>
           <li>Retrieve parent window ID for XDG desktop portal dialogs.</li>
           <li xml:lang="ar">جلب معرف النافذة الأب لحوارات xdg-desktop-portal.</li>
@@ -1279,6 +1352,7 @@
           <li xml:lang="ka">მშობელი ფანჯრის ID-ის მიღება XDG-ის სამუშაო მაგიდის პორტალის დიალოგებისთვის.</li>
           <li xml:lang="pt-BR">Recuperar o ID da janela principal para diálogos do portal de desktop XDG.</li>
           <li xml:lang="sl">Pridobi ID nadrejenega okna za pogovorna okna namiznega portala XDG.</li>
+          <li xml:lang="tr">Retrieve parent window ID for XDG desktop portal dialogs.</li>
           <li xml:lang="uk">Реалізовано отримання ідентифікатора батьківського вікна для вікон порталу стільниці XDG.</li>
         </ul>
       </description>
@@ -1294,6 +1368,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Fix icons fallback on GNOME.</li>
@@ -1304,6 +1379,7 @@
           <li xml:lang="ka">გასწორდა ხატულების გადართვა GNOME-ზე.</li>
           <li xml:lang="pt-BR">Corrigidos os ícones de fallback no GNOME.</li>
           <li xml:lang="sl">Popravljena nadomestna uporaba ikon v okolju GNOME.</li>
+          <li xml:lang="tr">Fix icons fallback on GNOME.</li>
           <li xml:lang="uk">Виправлено використання резервних піктограм у GNOME.</li>
         </ul>
       </description>
@@ -1319,6 +1395,7 @@
         <p xml:lang="ka">ცვლილებები:</p>
         <p xml:lang="pt-BR">Registro de alterações:</p>
         <p xml:lang="sl">Dnevnik sprememb:</p>
+        <p xml:lang="tr">Değişiklik günlüğü:</p>
         <p xml:lang="uk">Журнал змін:</p>
         <ul>
           <li>Remove "The application is already running" dialog.</li>
@@ -1329,6 +1406,7 @@
           <li xml:lang="ka">მოცილებულია დიალოგი "აპლიკაცია უკვე გაშვებულია".</li>
           <li xml:lang="pt-BR">Remoção da caixa de diálogo "O aplicativo já está em execução".</li>
           <li xml:lang="sl">Odstrani pogovorno okno "Aplikacija se že izvaja".</li>
+          <li xml:lang="tr">Remove "The application is already running" dialog.</li>
           <li xml:lang="uk">Вилучено вікно «Програму вже запущено».</li>
         </ul>
       </description>
