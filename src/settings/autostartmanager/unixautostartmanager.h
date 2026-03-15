@@ -20,6 +20,9 @@ public:
 
     bool isAutostartEnabled() const override;
     void setAutostartEnabled(bool enabled) override;
+
+private:
+    QString desktopFileFullName() const;
 };
 
 #endif // UNIXAUTOSTARTMANAGER_H

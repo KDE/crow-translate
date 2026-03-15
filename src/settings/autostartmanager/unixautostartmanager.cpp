@@ -16,9 +16,14 @@ UnixAutostartManager::UnixAutostartManager(QObject *parent)
 {
 }
 
+QString UnixAutostartManager::desktopFileFullName() const
+{
+    return QGuiApplication::desktopFileName() + ".desktop";
+}
+
 bool UnixAutostartManager::isAutostartEnabled() const
 {
-    return QFileInfo::exists(QStringLiteral("%1/autostart/%2").arg(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation), QGuiApplication::desktopFileName()));
+    return QFileInfo::exists(QStringLiteral("%1/autostart/%2").arg(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation), desktopFileFullName()));
 }
 
 void UnixAutostartManager::setAutostartEnabled(bool enabled)
@@ -27,7 +32,7 @@ void UnixAutostartManager::setAutostartEnabled(bool enabled)
 
     if (enabled) {
         // Create autorun file
-        if (autostartDir.exists(QGuiApplication::desktopFileName()))
+        if (autostartDir.exists(desktopFileFullName()))
             return;
 
         if (!autostartDir.exists()) {
@@ -37,13 +42,13 @@ void UnixAutostartManager::setAutostartEnabled(bool enabled)
             }
         }
 
-        const QString desktopFileName = QStringLiteral("/usr/share/applications/%1").arg(QGuiApplication::desktopFileName());
-        if (!QFile::copy(desktopFileName, autostartDir.filePath(QGuiApplication::desktopFileName())))
+        const QString desktopFileName = QStringLiteral("/usr/share/applications/%1").arg(desktopFileFullName());
+        if (!QFile::copy(desktopFileName, autostartDir.filePath(desktopFileFullName())))
             showError(tr("Unable to copy %1 to %2").arg(desktopFileName, autostartDir.path()));
 
-    } else if (autostartDir.exists(QGuiApplication::desktopFileName())) {
+    } else if (autostartDir.exists(desktopFileFullName())) {
         // Remove autorun file
-        if (!autostartDir.remove(QGuiApplication::desktopFileName()))
-            showError(tr("Unable to remove %1 from %2").arg(QGuiApplication::desktopFileName(), autostartDir.path()));
+        if (!autostartDir.remove(desktopFileFullName()))
+            showError(tr("Unable to remove %1 from %2").arg(desktopFileFullName(), autostartDir.path()));
     }
 }
