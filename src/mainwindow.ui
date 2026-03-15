@@ -80,8 +80,8 @@
        <layout class="QHBoxLayout" name="sourceButtonsLayout">
         <item>
          <widget class="QToolButton" name="sourcePlayPauseButton">
-          <property name="text">
-           <string/>
+          <property name="toolTip">
+           <string>Start/pause saying the source text aloud</string>
           </property>
           <property name="icon">
            <iconset theme="media-playback-start"/>
@@ -128,8 +128,8 @@
         </item>
         <item>
          <widget class="QToolButton" name="sourceStopButton">
-          <property name="text">
-           <string>...</string>
+          <property name="toolTip">
+           <string>Stop saying the source text aloud</string>
           </property>
           <property name="icon">
            <iconset theme="media-playback-stop"/>
@@ -209,8 +209,8 @@
        <layout class="QHBoxLayout" name="translationButtonsLayout">
         <item>
          <widget class="QToolButton" name="translationPlayPauseButton">
-          <property name="text">
-           <string/>
+          <property name="toolTip">
+           <string>Start/pause saying the translated text aloud</string>
           </property>
           <property name="icon">
            <iconset theme="media-playback-start"/>
@@ -257,8 +257,8 @@
         </item>
         <item>
          <widget class="QToolButton" name="translationStopButton">
-          <property name="text">
-           <string>...</string>
+          <property name="toolTip">
+           <string>Stop saying the translated text aloud</string>
           </property>
           <property name="icon">
            <iconset theme="media-playback-stop"/>
