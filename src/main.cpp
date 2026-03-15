@@ -46,7 +46,7 @@ int launchGui(int argc, char *argv[])
     QGuiApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
 #endif
 #if defined(Q_OS_LINUX)
-    QGuiApplication::setDesktopFileName(QStringLiteral(DESKTOP_FILE));
+    QGuiApplication::setDesktopFileName(QStringLiteral(DESKTOP_FILE_BASENAME));
 #elif defined(Q_OS_WIN) || defined(Q_OS_DARWIN)
     QIcon::setThemeName("hicolor");
 #endif
