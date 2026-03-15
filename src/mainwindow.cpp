@@ -294,6 +294,11 @@ QToolButton *MainWindow::swapButton() const
     return ui->swapButton;
 }
 
+QToolButton *MainWindow::translateButton() const
+{
+    return ui->translateButton;
+}
+
 QToolButton *MainWindow::copySourceButton() const
 {
     return ui->copySourceButton;

@@ -57,6 +57,7 @@ public:
     LanguageButtonsWidget *translationLanguageButtons() const;
     QToolButton *copyTranslationButton() const;
     QToolButton *swapButton() const;
+    QToolButton *translateButton() const;
     QToolButton *copySourceButton() const;
     QToolButton *copyAllTranslationButton() const;
     QTextEdit *translationEdit() const;
