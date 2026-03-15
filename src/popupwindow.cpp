@@ -105,6 +105,9 @@ PopupWindow::PopupWindow(MainWindow *parent)
     }
 
     // Buttons
+    if (parent->translateButton() != nullptr) {
+        connect(ui->translateButton, &QToolButton::clicked, parent->translateButton(), &QToolButton::click);
+    }
     if (parent->copyTranslationButton() != nullptr) {
         ui->copyTranslationButton->setShortcut(parent->copyTranslationButton()->shortcut());
         connect(ui->copyTranslationButton, &QToolButton::clicked, parent->copyTranslationButton(), &QToolButton::click);
