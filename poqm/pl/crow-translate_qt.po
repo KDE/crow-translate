@@ -1,10 +1,10 @@
 # SPDX-FileCopyrightText: 2024 dmocha
 # SPDX-License-Identifier: GPL-3.0-or-later
-# SPDX-FileCopyrightText: 2024, 2025 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-08-25 16:28+0200\n"
+"PO-Revision-Date: 2026-04-11 08:05+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.2\n"
 "X-Qt-Contexts: true\n"
 
 #: src/cli.cpp:37
@@ -59,7 +59,7 @@ msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
-"Wpisz adres URL wystąpienia Mozhi. Domyślnie zostanie użyty adres URL z "
+"Wpisz adres URL usługodawcy Mozhi. Domyślnie zostanie użyty adres URL z "
 "ustawień aplikacji."
 
 #: src/cli.cpp:55
@@ -183,7 +183,7 @@ msgstr "Błąd: Nieznany kod języka docelowego '%1'"
 #: src/cli.cpp:175
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
-msgstr "Wykrywanie najszybszego wystąpienia"
+msgstr "Wykrywanie najszybszego usługodawcy"
 
 #: src/cli.cpp:214
 #, fuzzy
@@ -223,7 +223,7 @@ msgstr "Silnik tłumaczenia:"
 #: src/cli.cpp:443
 msgctxt "Cli|"
 msgid "Error: TTS failed"
-msgstr ""
+msgstr "Błąd: niepowodzenie TTS"
 
 #: src/cli.cpp:600
 #, qt-format
@@ -252,7 +252,7 @@ msgstr "Szukaj na Forvo.com"
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Best instance URL is '%1' with time %2 ms"
-msgstr "Adres URL najlepszego wystąpienia to '%1' z czasem %2 ms"
+msgstr "Adres URL najlepszego usługodawcy to '%1' z czasem %2 ms"
 
 #: src/instancepinger.cpp:84
 #, qt-format
@@ -279,7 +279,7 @@ msgid ""
 "Detecting fastest instance.\n"
 "Checking '%1'"
 msgstr ""
-"Wykrywanie najszybszego wystąpienia.\n"
+"Wykrywanie najszybszego usługodawcy.\n"
 "Sprawdzanie '%1'"
 
 #: src/languagebuttonswidget.cpp:225
@@ -338,7 +338,7 @@ msgstr "Nie można zarejestrować obiektu D-Bus dla %1"
 #: src/mainwindow.cpp:343
 msgctxt "QApplication|"
 msgid "OCR"
-msgstr ""
+msgstr "OCR"
 
 #: src/mainwindow.cpp:344
 #, fuzzy
@@ -380,10 +380,10 @@ msgid ""
 "right now is '%1', but you can change it in the translation settings. See "
 "instance details in the link above."
 msgstr ""
-"Podczas gdy Mozhi pełni rolę pośrednika, aby chronić twoją prywatność, to "
-"usługi stron trzecich, których używa przechowują i przetwarzają tekst, który "
-"im wysyła. Obecnie twoim wystąpieniem jet '%1', ale możesz je zmienić w "
-"ustawieniach tłumaczeń. Zobacz szczegóły wystąpienia w odnośniku powyżej."
+"Mozhi pełni rolę pośrednika, aby chronić twoją prywatność, jednak usługi z "
+"których korzysta, mogą przechowywać i przetwarzać tekst, który im wysyła. "
+"Obecnie twoim usługodawcą jest '%1', ale możesz go zmienić w ustawieniach "
+"tłumaczeń. Zobacz szczegóły wystąpienia w odnośniku powyżej."
 
 #: src/mainwindow.cpp:778
 msgctxt "MainWindow|"
@@ -1819,7 +1819,7 @@ msgstr "Zulu"
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Instance error: %1"
-msgstr "Błąd wystąpienia: %1"
+msgstr "Błąd usługodawcy: %1"
 
 #: src/onlinetranslator.cpp:1294
 msgctxt "OnlineTranslator|"
@@ -2476,12 +2476,12 @@ msgstr "Uprość źródło"
 #: src/settings/settingsdialog.ui:871
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
-msgstr "Adres URL wystąpienia Mozhi"
+msgstr "Adres URL usługodawcy Mozhi"
 
 #: src/settings/settingsdialog.ui:884
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
-msgstr "Sam wybierz najszybsze wystąpienie na podstawie pingu"
+msgstr "Sam wybierz najszybszego usługodawcę na podstawie pingu"
 
 #: src/settings/settingsdialog.ui:887
 msgctxt "SettingsDialog|"
@@ -3049,25 +3049,25 @@ msgstr ""
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance failed: %1 (HTTP Server Error)"
-msgstr ""
+msgstr "Niepowodzenie usługodawcy Mozhi: %1 (Błąd serwera HTTP)"
 
 #: src/tts/mozhittsprovider.cpp:265 src/tts/mozhittsprovider.cpp:272
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Cannot connect to Mozhi instance: %1"
-msgstr ""
+msgstr "Nie można podłączyć do usługodawcy Mozhi: %1"
 
 #: src/tts/mozhittsprovider.cpp:268
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance failed: %1 (HTTP 500 Internal Server Error)"
-msgstr ""
+msgstr "Niepowodzenie usługodawcy Mozhi: %1 (Wewnętrzny błąd serwera HTTP 500)"
 
 #: src/tts/mozhittsprovider.cpp:270
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
-msgstr ""
+msgstr "Niepowodzenie usługodawcy Mozhi: %1 (Błąd klienta HTTP 4XX)"
 
 #: src/tts/piperttsprovider.cpp:115
 #, fuzzy
