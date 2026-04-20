@@ -314,41 +314,41 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "No se puede registrar el objeto D-Bus para %1"
 
-#: src/mainwindow.cpp:343
+#: src/mainwindow.cpp:348
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "OCR"
 
-#: src/mainwindow.cpp:344
+#: src/mainwindow.cpp:349
 msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "Negativo de imagen OCR"
 
-#: src/mainwindow.cpp:344
+#: src/mainwindow.cpp:349
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr "La imagen OCR es normal"
 
-#: src/mainwindow.cpp:498 src/mainwindow.cpp:518 src/mainwindow.cpp:566
-#: src/mainwindow.cpp:595
+#: src/mainwindow.cpp:503 src/mainwindow.cpp:523 src/mainwindow.cpp:571
+#: src/mainwindow.cpp:600
 msgctxt "Ocr|"
 msgid "OCR languages are not loaded"
 msgstr "Los idiomas de OCR no están cargados"
 
-#: src/mainwindow.cpp:498 src/mainwindow.cpp:518 src/mainwindow.cpp:566
-#: src/mainwindow.cpp:595
+#: src/mainwindow.cpp:503 src/mainwindow.cpp:523 src/mainwindow.cpp:571
+#: src/mainwindow.cpp:600
 msgctxt "Ocr|"
 msgid "You should set at least one OCR language in the application settings"
 msgstr ""
 "Debe configurar al menos un idioma de OCR en los ajustes de la aplicación"
 
-#: src/mainwindow.cpp:770
+#: src/mainwindow.cpp:775
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "Esta aplicación usa %1 para proporcionar traducciones."
 
-#: src/mainwindow.cpp:771
+#: src/mainwindow.cpp:776
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -362,39 +362,39 @@ msgstr ""
 "instancia es ahora «%1», aunque puede cambiarla en las preferencias de "
 "traducción. Consulte los detalles de la instancia en el enlace anterior."
 
-#: src/mainwindow.cpp:778
+#: src/mainwindow.cpp:783
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "No volver a mostrar"
 
-#: src/mainwindow.cpp:820
+#: src/mainwindow.cpp:825
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Icono de bandeja de sistema no válido"
 
-#: src/mainwindow.cpp:820
+#: src/mainwindow.cpp:825
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "El icono «%1» indicado no es válido. Se usará el icono predeterminado."
 
-#: src/mainwindow.cpp:841
+#: src/mainwindow.cpp:846
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "No se pueden establecer los idiomas de OCR"
 
-#: src/mainwindow.cpp:841
+#: src/mainwindow.cpp:846
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "No se puede inicializar Tesseract con %1"
 
-#: src/mainwindow.cpp:979
+#: src/mainwindow.cpp:984
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr "Error de TTS"
 
-#: src/mainwindow.cpp:979
+#: src/mainwindow.cpp:984
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -436,10 +436,15 @@ msgctxt "MainWindow|"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/mainwindow.ui:132 src/mainwindow.ui:261
+#: src/mainwindow.ui:84
 msgctxt "MainWindow|"
-msgid "..."
-msgstr "…"
+msgid "Start/pause saying the source text aloud"
+msgstr ""
+
+#: src/mainwindow.ui:132
+msgctxt "MainWindow|"
+msgid "Stop saying the source text aloud"
+msgstr ""
 
 #: src/mainwindow.ui:142
 msgctxt "MainWindow|"
@@ -466,6 +471,16 @@ msgstr "Borrar todo"
 msgctxt "MainWindow|"
 msgid "Translation"
 msgstr "Traducción"
+
+#: src/mainwindow.ui:213
+msgctxt "MainWindow|"
+msgid "Start/pause saying the translated text aloud"
+msgstr ""
+
+#: src/mainwindow.ui:261
+msgctxt "MainWindow|"
+msgid "Stop saying the translated text aloud"
+msgstr ""
 
 #: src/mainwindow.ui:351
 msgctxt "MainWindow|"
@@ -1818,23 +1833,45 @@ msgctxt "PopupWindow|"
 msgid "Swap languages"
 msgstr "Intercambiar idiomas"
 
-#: src/popupwindow.ui:60 src/popupwindow.ui:105 src/popupwindow.ui:202
-#: src/popupwindow.ui:247
+#: src/popupwindow.ui:66
+#, fuzzy
+#| msgctxt "MainWindow|"
+#| msgid "Translate"
 msgctxt "PopupWindow|"
-msgid "..."
-msgstr "…"
+msgid "Translate"
+msgstr "Traducir"
 
-#: src/popupwindow.ui:112
+#: src/popupwindow.ui:80
+msgctxt "PopupWindow|"
+msgid "Start/pause saying the source text aloud"
+msgstr ""
+
+#: src/popupwindow.ui:125
+msgctxt "PopupWindow|"
+msgid "Stop saying the source text aloud"
+msgstr ""
+
+#: src/popupwindow.ui:132
 msgctxt "PopupWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "Copiar el texto original al portapapeles"
 
-#: src/popupwindow.ui:254
+#: src/popupwindow.ui:222
+msgctxt "PopupWindow|"
+msgid "Start/pause saying the translated text aloud"
+msgstr ""
+
+#: src/popupwindow.ui:267
+msgctxt "PopupWindow|"
+msgid "Stop saying the translated text aloud"
+msgstr ""
+
+#: src/popupwindow.ui:274
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "Copiar todas las traducciones al portapapeles"
 
-#: src/popupwindow.ui:264
+#: src/popupwindow.ui:284
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Copiar la traducción al portapapeles"
@@ -3197,3 +3234,11 @@ msgstr ""
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
 msgstr "Instalación de voces de TTS para Windows"
+
+#~ msgctxt "MainWindow|"
+#~ msgid "..."
+#~ msgstr "…"
+
+#~ msgctxt "PopupWindow|"
+#~ msgid "..."
+#~ msgstr "…"

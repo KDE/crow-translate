@@ -326,12 +326,12 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "%1의 D-Bus 객체를 등록할 수 없음"
 
-#: src/mainwindow.cpp:343
+#: src/mainwindow.cpp:348
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "OCR"
 
-#: src/mainwindow.cpp:344
+#: src/mainwindow.cpp:349
 #, fuzzy
 #| msgctxt "MainWindow|"
 #| msgid "Toggled OCR image negate"
@@ -339,30 +339,30 @@ msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "OCR 이미지 반전 전환"
 
-#: src/mainwindow.cpp:344
+#: src/mainwindow.cpp:349
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr ""
 
-#: src/mainwindow.cpp:498 src/mainwindow.cpp:518 src/mainwindow.cpp:566
-#: src/mainwindow.cpp:595
+#: src/mainwindow.cpp:503 src/mainwindow.cpp:523 src/mainwindow.cpp:571
+#: src/mainwindow.cpp:600
 msgctxt "Ocr|"
 msgid "OCR languages are not loaded"
 msgstr "OCR 언어를 불러오지 않았음"
 
-#: src/mainwindow.cpp:498 src/mainwindow.cpp:518 src/mainwindow.cpp:566
-#: src/mainwindow.cpp:595
+#: src/mainwindow.cpp:503 src/mainwindow.cpp:523 src/mainwindow.cpp:571
+#: src/mainwindow.cpp:600
 msgctxt "Ocr|"
 msgid "You should set at least one OCR language in the application settings"
 msgstr "앱 설정에서 OCR 언어를 하나 이상 설정해야 함"
 
-#: src/mainwindow.cpp:770
+#: src/mainwindow.cpp:775
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "이 앱에서는 %1을(를) 사용하여 번역을 제공합니다."
 
-#: src/mainwindow.cpp:771
+#: src/mainwindow.cpp:776
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -376,39 +376,39 @@ msgstr ""
 "스는 '%1'이며, 번역 설정에서 변경할 수 있습니다. 위에 있는 링크에서 인스턴스 "
 "정보를 참조하십시오."
 
-#: src/mainwindow.cpp:778
+#: src/mainwindow.cpp:783
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "다시 표시하지 않기"
 
-#: src/mainwindow.cpp:820
+#: src/mainwindow.cpp:825
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "잘못된 트레이 아이콘"
 
-#: src/mainwindow.cpp:820
+#: src/mainwindow.cpp:825
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "지정한 아이콘 '%1'이(가) 잘못되었습니다. 기본 아이콘이 사용됩니다."
 
-#: src/mainwindow.cpp:841
+#: src/mainwindow.cpp:846
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
 msgstr "OCR 언어를 설정할 수 없음"
 
-#: src/mainwindow.cpp:841
+#: src/mainwindow.cpp:846
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "%1(으)로 Tesseract를 초기화할 수 없음"
 
-#: src/mainwindow.cpp:979
+#: src/mainwindow.cpp:984
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr ""
 
-#: src/mainwindow.cpp:979
+#: src/mainwindow.cpp:984
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -444,9 +444,14 @@ msgctxt "MainWindow|"
 msgid "Cancel"
 msgstr "취소"
 
-#: src/mainwindow.ui:132 src/mainwindow.ui:261
+#: src/mainwindow.ui:84
 msgctxt "MainWindow|"
-msgid "..."
+msgid "Start/pause saying the source text aloud"
+msgstr ""
+
+#: src/mainwindow.ui:132
+msgctxt "MainWindow|"
+msgid "Stop saying the source text aloud"
 msgstr ""
 
 #: src/mainwindow.ui:142
@@ -474,6 +479,16 @@ msgstr "지우기"
 msgctxt "MainWindow|"
 msgid "Translation"
 msgstr "번역"
+
+#: src/mainwindow.ui:213
+msgctxt "MainWindow|"
+msgid "Start/pause saying the translated text aloud"
+msgstr ""
+
+#: src/mainwindow.ui:261
+msgctxt "MainWindow|"
+msgid "Stop saying the translated text aloud"
+msgstr ""
 
 #: src/mainwindow.ui:351
 msgctxt "MainWindow|"
@@ -1822,23 +1837,45 @@ msgctxt "PopupWindow|"
 msgid "Swap languages"
 msgstr "언어 맞바꾸기"
 
-#: src/popupwindow.ui:60 src/popupwindow.ui:105 src/popupwindow.ui:202
-#: src/popupwindow.ui:247
+#: src/popupwindow.ui:66
+#, fuzzy
+#| msgctxt "MainWindow|"
+#| msgid "Translate"
 msgctxt "PopupWindow|"
-msgid "..."
+msgid "Translate"
+msgstr "번역"
+
+#: src/popupwindow.ui:80
+msgctxt "PopupWindow|"
+msgid "Start/pause saying the source text aloud"
 msgstr ""
 
-#: src/popupwindow.ui:112
+#: src/popupwindow.ui:125
+msgctxt "PopupWindow|"
+msgid "Stop saying the source text aloud"
+msgstr ""
+
+#: src/popupwindow.ui:132
 msgctxt "PopupWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "원본 텍스트를 클립보드에 복사"
 
-#: src/popupwindow.ui:254
+#: src/popupwindow.ui:222
+msgctxt "PopupWindow|"
+msgid "Start/pause saying the translated text aloud"
+msgstr ""
+
+#: src/popupwindow.ui:267
+msgctxt "PopupWindow|"
+msgid "Stop saying the translated text aloud"
+msgstr ""
+
+#: src/popupwindow.ui:274
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "모든 번역 데이터를 클립보드에 복사"
 
-#: src/popupwindow.ui:264
+#: src/popupwindow.ui:284
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "번역을 클립보드에 복사"
