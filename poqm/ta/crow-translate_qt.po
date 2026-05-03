@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-04-12 16:58+0530\n"
+"PO-Revision-Date: 2026-05-02 18:19+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
 "Language: ta\n"
@@ -11,12 +11,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #: src/cli.cpp:37
 msgctxt "Cli|"
 msgid "Display all language codes."
-msgstr ""
+msgstr "அனைத்து மொழிக்குறியீடுகளையும் காட்டு."
 
 #: src/cli.cpp:39
 msgctxt "Cli|"
@@ -24,6 +24,8 @@ msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
 msgstr ""
+"மூல மொழியை குறிப்பிடுவதற்கு (குறிப்பிடவில்லையெனில், மொழியை தானாக கண்டறிய பின்நிரல் "
+"முயற்சிக்கும்)"
 
 #: src/cli.cpp:43
 msgctxt "Cli|"
@@ -180,19 +182,19 @@ msgstr ""
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
-msgstr ""
+msgstr "பிழை: --%1 மற்றும் --%2 தனை சேர்த்து பயன்படுத்த முடியாது"
 
 #: src/cli.cpp:612 src/cli.cpp:633
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
-msgstr ""
+msgstr "சிக்கல்: இப்படி ஒரு கோப்பு இல்லை: %1"
 
 #: src/cli.cpp:617 src/cli.cpp:638
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
-msgstr ""
+msgstr "சிக்கல்: கோப்பைத் திறக்க முடியவில்லை: %1"
 
 #: src/contextmenu.h:35
 msgctxt "ContextMenu|"
@@ -230,6 +232,8 @@ msgid ""
 "Detecting fastest instance.\n"
 "Checking '%1'"
 msgstr ""
+"அதிவேகமான சேவையகம் கண்டறியப்படுகிறது.\n"
+"'%1' சோதிக்கப்படுகிறது"
 
 #: src/languagebuttonswidget.cpp:225
 msgctxt "LanguageButtonsWidget|"
@@ -239,7 +243,7 @@ msgstr ""
 #: src/languagebuttonswidget.cpp:226
 msgctxt "LanguageButtonsWidget|"
 msgid "Please reduce added languages."
-msgstr ""
+msgstr "மொழிகளின் எண்ணிக்கையை குறைக்கவும்"
 
 #: src/languagebuttonswidget.cpp:302 src/languagebuttonswidget.cpp:304
 msgctxt "LanguageButtonsWidget|"
@@ -674,12 +678,12 @@ msgstr ""
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Language detection is not supported for %1"
-msgstr ""
+msgstr "மொழியைக் கண்டறிவதை %1 ஆதரிக்காது"
 
 #: src/onlinetranslator.cpp:318
 msgctxt "OnlineTranslator|"
 msgid "Operation aborted by user"
-msgstr ""
+msgstr "செயலை பயனர் ரத்து செய்தார்"
 
 #: src/onlinetranslator.cpp:361
 #, qt-format
@@ -2801,32 +2805,32 @@ msgstr ""
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:59
 msgctxt "ShortcutsModel|"
 msgid "Main window"
-msgstr ""
+msgstr "பிரதான சாளரம்"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:61
 msgctxt "ShortcutsModel|"
 msgid "Translate"
-msgstr ""
+msgstr "மொழிபெயர்"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:64
 msgctxt "ShortcutsModel|"
 msgid "Swap languages"
-msgstr ""
+msgstr "மொழிகளை இடமாற்று"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:67
 msgctxt "ShortcutsModel|"
 msgid "Close window"
-msgstr ""
+msgstr "சாளரத்தை மூடு"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:71
 msgctxt "ShortcutsModel|"
 msgid "Source text"
-msgstr ""
+msgstr "மூல உரை"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
 msgctxt "ShortcutsModel|"
 msgid "Translation"
-msgstr ""
+msgstr "மொழிபெயர்ப்பு"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:79
 msgctxt "ShortcutsModel|"
@@ -2836,17 +2840,17 @@ msgstr ""
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:82
 msgctxt "ShortcutsModel|"
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "பிடிப்புப்பலகைக்கு நகலெடு"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:128
 msgctxt "ShortcutsModel|"
 msgid "Description"
-msgstr ""
+msgstr "விவரணம்"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:130
 msgctxt "ShortcutsModel|"
 msgid "Shortcut"
-msgstr ""
+msgstr "சுருக்குவழி"
 
 #: src/settings/tesseractparameterstablewidget.cpp:16
 msgctxt "TesseractParametersTableWidget|"
@@ -2861,7 +2865,7 @@ msgstr ""
 #: src/translator/atranslationprovider.cpp:112
 msgctxt "QObject|"
 msgid "Translation Provider Error"
-msgstr ""
+msgstr "பின்நிரலில் சிக்கல்"
 
 #: src/translator/atranslationprovider.cpp:113
 msgctxt "QObject|"
@@ -2874,32 +2878,32 @@ msgstr ""
 #: src/translator/mozhitranslationprovider.cpp:386
 msgctxt "MozhiTranslationProvider|"
 msgid "translation options:"
-msgstr ""
+msgstr "மொழிபெயர்ப்பு விருப்பங்கள்:"
 
 #: src/translator/mozhitranslationprovider.cpp:400
 msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
-msgstr ""
+msgstr "உதாரணங்கள்:"
 
 #: src/trayicon.cpp:19 src/trayicon.cpp:44
 msgctxt "TrayIcon|"
 msgid "Show window"
-msgstr ""
+msgstr "சாளரத்தைக் காட்டு"
 
 #: src/trayicon.cpp:20 src/trayicon.cpp:45
 msgctxt "TrayIcon|"
 msgid "Settings"
-msgstr ""
+msgstr "அமைப்புகள்"
 
 #: src/trayicon.cpp:21 src/trayicon.cpp:46
 msgctxt "TrayIcon|"
 msgid "Quit"
-msgstr ""
+msgstr "வெளியேறு"
 
 #: src/trayicon.cpp:51
 msgctxt "TrayIcon|"
 msgid "Translation result"
-msgstr ""
+msgstr "மொழிபெயர்ப்பு"
 
 #: src/tts/attsprovider.cpp:69
 msgctxt "QObject|"
@@ -2917,7 +2921,7 @@ msgstr ""
 #: src/tts/mozhittsprovider.cpp:48
 msgctxt "MozhiTTSProvider|"
 msgid "Text is empty"
-msgstr ""
+msgstr "உரை ஏதுமில்லை"
 
 #: src/tts/mozhittsprovider.cpp:81
 msgctxt "MozhiTTSProvider|"
@@ -2934,7 +2938,7 @@ msgstr ""
 #, qt-format
 msgctxt "MozhiTTSProvider|"
 msgid "Cannot connect to Mozhi instance: %1"
-msgstr ""
+msgstr "சேவையகத்தைத் தொடர்புகொள்ள முடியவில்லை: %1"
 
 #: src/tts/mozhittsprovider.cpp:268
 #, qt-format
