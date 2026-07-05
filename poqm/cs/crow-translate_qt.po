@@ -1,22 +1,23 @@
 # SPDX-FileCopyrightText: 2024 Vit Pelcak <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-09-18 09:41+0200\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-07-04 23:48+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 26.04.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/cli.cpp:37
 msgctxt "Cli|"
 msgid "Display all language codes."
-msgstr ""
+msgstr "Zobrazit všechny jazykové kódy."
 
 #: src/cli.cpp:39
 msgctxt "Cli|"
@@ -24,6 +25,8 @@ msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
 msgstr ""
+"Zadejte zdrojový jazyk (ve výchozím nastavení se modul pokusí jazyk určit "
+"sám)."
 
 #: src/cli.cpp:43
 msgctxt "Cli|"
@@ -31,6 +34,8 @@ msgid ""
 "Specify the translation language(s), split by '+' (by default, the system "
 "language is used)."
 msgstr ""
+"Zadejte jazyk(y) překladu, oddělené znakem '+' (ve výchozím nastavení se "
+"použije jazyk systému)."
 
 #: src/cli.cpp:47
 msgctxt "Cli|"
@@ -38,6 +43,8 @@ msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
 "or 'lingva'), Google is used by default."
 msgstr ""
+"Zadejte překladatelské jádro ('google', 'yandex', 'bing', 'libretranslate' "
+"nebo 'lingva'); ve výchozím nastavení se používá Google."
 
 #: src/cli.cpp:51
 msgctxt "Cli|"
@@ -45,6 +52,8 @@ msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
+"Zadejte URL instance Mozhi. Ve výchozím nastavení se použije URL instance z "
+"nastavení aplikace."
 
 #: src/cli.cpp:55
 msgctxt "Cli|"
@@ -52,6 +61,8 @@ msgid ""
 "Specify translation provider ('copy' or 'mozhi'). Provider from app settings "
 "will be used by default."
 msgstr ""
+"Zadejte poskytovatele překladu ('copy' nebo 'mozhi'). Ve výchozím nastavení "
+"se použije poskytovatel z nastavení aplikace."
 
 #: src/cli.cpp:58
 msgctxt "Cli|"
@@ -59,49 +70,55 @@ msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from app "
 "settings will be used by default."
 msgstr ""
+"Zadejte poskytovatele služby TTS ('none', 'mozhi', 'qt' nebo 'piper'). Ve "
+"výchozím nastavení se použije poskytovatel z nastavení aplikace."
 
 #: src/cli.cpp:60
 msgctxt "Cli|"
 msgid "Speak the translation."
-msgstr ""
+msgstr "Přečíst překlad."
 
 #: src/cli.cpp:61
 msgctxt "Cli|"
 msgid "Speak the source."
-msgstr ""
+msgstr "Přečíst zdroj."
 
 #: src/cli.cpp:62
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
 msgstr ""
+"Načte zdrojový text ze souborů. Argumenty budou interpretovány jako cesty k "
+"souborům."
 
 #: src/cli.cpp:63
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
-msgstr ""
+msgstr "Přidá data ze standardního vstupu ke zdrojovému textu."
 
 #: src/cli.cpp:65
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
-msgstr ""
+msgstr "Při použití parametrů --%1 nebo --%2 nevytisknete žádný text."
 
 #: src/cli.cpp:66
 msgctxt "Cli|"
 msgid "Print only translations."
-msgstr ""
+msgstr "Tisknout pouze překlady."
 
 #: src/cli.cpp:67
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
-msgstr ""
+msgstr "Tisknout výstup ve formátu JSON."
 
 #: src/cli.cpp:70
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
 msgstr ""
+"Aplikace, která umožňuje překládat a přečíst texty s využitím různých "
+"poskytovatelů služeb"
 
 #: src/cli.cpp:71
 msgctxt "Cli|"
@@ -109,12 +126,14 @@ msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr ""
+"Text k překladu. Ve výchozím nastavení bude překlad proveden do jazyka "
+"systému."
 
 #: src/cli.cpp:95
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
-msgstr ""
+msgstr "Chyba: Pro --%1 je nutné zadat volby --%2 a/nebo --%3"
 
 #: src/cli.cpp:115
 #, qt-format
@@ -131,34 +150,34 @@ msgstr "Chyba: Neznámý kód jazyka překladu '%1'"
 #: src/cli.cpp:152
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
-msgstr ""
+msgstr "Chyba: Není žádný text k překladu"
 
 #: src/cli.cpp:165
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
-msgstr ""
+msgstr "Chyba: Neznámý poskytovatel překladu '%1'"
 
 #: src/cli.cpp:175
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
-msgstr ""
+msgstr "Vyhledání nejrychlejší instance"
 
 #: src/cli.cpp:214
 msgctxt "Cli|"
 msgid "Error: Lingva engine is not supported"
-msgstr ""
+msgstr "Chyba: Jádro Lingva není podporováno"
 
 #: src/cli.cpp:223
 msgctxt "Cli|"
 msgid "Error: Unknown engine"
-msgstr ""
+msgstr "Chyba: Neznámé jádro"
 
 #: src/cli.cpp:256
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
-msgstr ""
+msgstr "Chyba: Neznámý poskytovatel služby TTS '%1'"
 
 #: src/cli.cpp:335 src/cli.cpp:384
 #, qt-format
@@ -169,59 +188,59 @@ msgstr "Chyba: %1"
 #: src/cli.cpp:337 src/cli.cpp:386
 msgctxt "Cli|"
 msgid "Translation error occurred"
-msgstr ""
+msgstr "Došlo k chybě při překladu"
 
 #: src/cli.cpp:443
 msgctxt "Cli|"
 msgid "Error: TTS failed"
-msgstr ""
+msgstr "Chyba: Selhání TTS"
 
 #: src/cli.cpp:600
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
-msgstr ""
+msgstr "Chyba: Nelze použít --%1 společně s --%2"
 
 #: src/cli.cpp:612 src/cli.cpp:633
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
-msgstr ""
+msgstr "Chyba: Soubor neexistuje: %1"
 
 #: src/cli.cpp:617 src/cli.cpp:638
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
-msgstr ""
+msgstr "Chyba: Nelze otevřít soubor: %1"
 
 #: src/contextmenu.h:35
 msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
-msgstr ""
+msgstr "Vyhledat na Forvo.com"
 
 #: src/instancepinger.cpp:65
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Best instance URL is '%1' with time %2 ms"
-msgstr ""
+msgstr "Nejlepší URL instance je '%1' s časem %2 ms"
 
 #: src/instancepinger.cpp:84
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' takes longer then %2 ms"
-msgstr ""
+msgstr "Ping na adresu '%1' trvá déle než %2 ms"
 
 #: src/instancepinger.cpp:99
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' successful, response time: %2 ms"
-msgstr ""
+msgstr "Ping na '%1' proběhl úspěšně, doba odezvy: %2 ms"
 
 #: src/instancepinger.cpp:111
 #, qt-format
 msgctxt "InstancePinger|"
 msgid "Ping to '%1' failed, error: %2"
-msgstr ""
+msgstr "Ping na '%1' selhal, chyba: %2"
 
 #: src/instancepingerdialog.cpp:23
 #, qt-format
@@ -230,16 +249,18 @@ msgid ""
 "Detecting fastest instance.\n"
 "Checking '%1'"
 msgstr ""
+"Vyhledávání nejrychlejší instance.\n"
+"Kontrola '%1'"
 
 #: src/languagebuttonswidget.cpp:225
 msgctxt "LanguageButtonsWidget|"
 msgid "Window width is larger than screen due to the languages on the panel."
-msgstr ""
+msgstr "Šířka okna je větší než šířka obrazovky kvůli jazykům na panelu."
 
 #: src/languagebuttonswidget.cpp:226
 msgctxt "LanguageButtonsWidget|"
 msgid "Please reduce added languages."
-msgstr ""
+msgstr "Omezte prosím počet přidaných jazyků."
 
 #: src/languagebuttonswidget.cpp:302 src/languagebuttonswidget.cpp:304
 msgctxt "LanguageButtonsWidget|"
@@ -265,57 +286,57 @@ msgstr "Upravit jazyky"
 #: src/languagesdialog.ui:91
 msgctxt "LanguagesDialog|"
 msgid "Available languages:"
-msgstr ""
+msgstr "Dostupné jazyky:"
 
 #: src/languagesdialog.ui:104
 msgctxt "LanguagesDialog|"
 msgid "Current languages:"
-msgstr ""
+msgstr "Aktuální jazyky:"
 
 #: src/main.cpp:77
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
-msgstr ""
+msgstr "Služba D-Bus %1 je již zaregistrována jinou aplikací"
 
 #: src/main.cpp:110
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
-msgstr ""
+msgstr "Nelze zaregistrovat objekt D-Bus pro %1"
 
 #: src/mainwindow.cpp:348
 msgctxt "QApplication|"
 msgid "OCR"
-msgstr ""
+msgstr "OCR"
 
 #: src/mainwindow.cpp:349
 msgctxt "QApplication|"
 msgid "OCR image negated"
-msgstr ""
+msgstr "OCR obrázek zrušen"
 
 #: src/mainwindow.cpp:349
 msgctxt "QApplication|"
 msgid "OCR image is normal"
-msgstr ""
+msgstr "OCR obrázek je normální"
 
 #: src/mainwindow.cpp:503 src/mainwindow.cpp:523 src/mainwindow.cpp:571
 #: src/mainwindow.cpp:600
 msgctxt "Ocr|"
 msgid "OCR languages are not loaded"
-msgstr ""
+msgstr "Jazyky OCR nejsou načteny"
 
 #: src/mainwindow.cpp:503 src/mainwindow.cpp:523 src/mainwindow.cpp:571
 #: src/mainwindow.cpp:600
 msgctxt "Ocr|"
 msgid "You should set at least one OCR language in the application settings"
-msgstr ""
+msgstr "V nastavení aplikace byste měli nastavit alespoň jeden jazyk pro OCR"
 
 #: src/mainwindow.cpp:775
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
-msgstr ""
+msgstr "Tato aplikace využívá %1 k poskytování překladů."
 
 #: src/mainwindow.cpp:776
 #, qt-format
@@ -326,6 +347,10 @@ msgid ""
 "right now is '%1', but you can change it in the translation settings. See "
 "instance details in the link above."
 msgstr ""
+"Ačkoli Mozhi funguje jako proxy server, který chrání vaše soukromí, služby "
+"třetích stran, které využívá, mohou ukládat a analyzovat text, který "
+"odešlete. Vaše instance se momentálně jmenuje '%1', ale můžete ji změnit v "
+"nastavení překladu. Podrobnosti o instanci najdete v odkazu výše."
 
 #: src/mainwindow.cpp:783
 msgctxt "MainWindow|"
@@ -335,29 +360,29 @@ msgstr "Již nezobrazovat"
 #: src/mainwindow.cpp:825
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
-msgstr ""
+msgstr "Neplatná ikona v systémové liště"
 
 #: src/mainwindow.cpp:825
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
-msgstr ""
+msgstr "Zadaná ikona '%1' je neplatná. Bude použita výchozí ikona."
 
 #: src/mainwindow.cpp:846
 msgctxt "Ocr|"
 msgid "Unable to set OCR languages"
-msgstr ""
+msgstr "Nelze nastavit jazyky pro OCR"
 
 #: src/mainwindow.cpp:846
 #, qt-format
 msgctxt "Ocr|"
 msgid "Unable to initialize Tesseract with %1"
-msgstr ""
+msgstr "Nelze inicializovat Tesseract s %1"
 
 #: src/mainwindow.cpp:984
 msgctxt "MainWindow|"
 msgid "TTS Error"
-msgstr ""
+msgstr "Chyba TTS"
 
 #: src/mainwindow.cpp:984
 #, qt-format
@@ -369,11 +394,17 @@ msgid ""
 "\n"
 "Please check your TTS settings or try a different voice/locale."
 msgstr ""
+"Chyba funkce převodu textu na řeč:\n"
+"\n"
+"%1\n"
+"\n"
+"Zkontrolujte prosím nastavení funkce TTS nebo zkuste jiný hlas či jazykovou "
+"lokalizaci."
 
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
 msgid "Crow Translate"
-msgstr ""
+msgstr "Crow Translate"
 
 #: src/mainwindow.ui:29
 msgctxt "MainWindow|"
@@ -383,7 +414,7 @@ msgstr "Přeložit"
 #: src/mainwindow.ui:39
 msgctxt "MainWindow|"
 msgid "Swap languages"
-msgstr ""
+msgstr "Prohodit jazyky"
 
 #: src/mainwindow.ui:52
 msgctxt "MainWindow|"
@@ -398,33 +429,33 @@ msgstr "Zrušit"
 #: src/mainwindow.ui:84
 msgctxt "MainWindow|"
 msgid "Start/pause saying the source text aloud"
-msgstr ""
+msgstr "Spustit/pozastavit čtení zdrojového textu"
 
 #: src/mainwindow.ui:132
 msgctxt "MainWindow|"
 msgid "Stop saying the source text aloud"
-msgstr ""
+msgstr "Zastavit čtení zdrojového textu"
 
 #: src/mainwindow.ui:142
 msgctxt "MainWindow|"
 msgid "Copy source text to the clipboard"
-msgstr ""
+msgstr "Zkopírovat zdrojový text do schránky"
 
 #: src/mainwindow.ui:152
 msgctxt "MainWindow|"
 msgid "Recognize screen area with delay"
-msgstr ""
+msgstr "Rozpoznání oblasti obrazovky se zpožděním"
 
 #. The text should be short to fit in portrait orientation on phones.
 #: src/mainwindow.ui:168
 msgctxt "MainWindow|"
 msgid "Auto-translation"
-msgstr ""
+msgstr "Automatický překlad"
 
 #: src/mainwindow.ui:177
 msgctxt "MainWindow|"
 msgid "Clear"
-msgstr "Vyprázdnit"
+msgstr "Vymazat"
 
 #: src/mainwindow.ui:204
 msgctxt "MainWindow|"
@@ -434,27 +465,27 @@ msgstr "Překlad"
 #: src/mainwindow.ui:213
 msgctxt "MainWindow|"
 msgid "Start/pause saying the translated text aloud"
-msgstr ""
+msgstr "Spustit/pozastavit čtení přeloženého textu"
 
 #: src/mainwindow.ui:261
 msgctxt "MainWindow|"
 msgid "Stop saying the translated text aloud"
-msgstr ""
+msgstr "Zastavit čtení přeloženého textu"
 
 #: src/mainwindow.ui:351
 msgctxt "MainWindow|"
 msgid "Copy translation to the clipboard"
-msgstr ""
+msgstr "Zkopírovat text do schránky"
 
 #: src/mainwindow.ui:361
 msgctxt "MainWindow|"
 msgid "Copy all translation data to the clipboard"
-msgstr ""
+msgstr "Zkopírovat všechna přeložená data do schránky"
 
 #: src/mainwindow.ui:371
 msgctxt "MainWindow|"
 msgid "Translate screen area with delay"
-msgstr ""
+msgstr "Přeložit oblast obrazovky se zpožděním"
 
 #: src/mainwindow.ui:381
 msgctxt "MainWindow|"
@@ -465,61 +496,61 @@ msgstr "Nastavení aplikace"
 #, qt-format
 msgctxt "Ocr|"
 msgid "%1 is not a valid Tesseract parameter name."
-msgstr ""
+msgstr "%1 není platný název parametru Tesseract."
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 msgctxt "AbstractScreenGrabber|"
 msgid "Unable to grab screen"
-msgstr ""
+msgstr "Nelze pořídit snímek obrazovky"
 
 #: src/ocr/screengrabbers/waylandgnomescreengrabber.cpp:48
 msgctxt "WaylandGnomeScreenGrabber|"
 msgid "GNOME failed to take screenshot."
-msgstr ""
+msgstr "GNOME se nepodařilo pořídit snímek obrazovky."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:55
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:333
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to create pipe: %1."
-msgstr ""
+msgstr "Nelze vytvořit rouru: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:84
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to detect active screen for screenshot"
-msgstr ""
+msgstr "Nelze rozpoznat aktivní obrazovku pro pořízení snímku obrazovky"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:164
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to wait for socket readiness: %1."
-msgstr ""
+msgstr "Nelze počkat na dostupnost soketu: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:169
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Timeout reading from pipe."
-msgstr ""
+msgstr "Došlo k překročení časového limitu při čtení z roury."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:176
 #, qt-format
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to read data from socket: %1."
-msgstr ""
+msgstr "Nelze načíst data ze soketu: %1."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:275
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to determine target screen"
-msgstr ""
+msgstr "Nelze určit cílovou obrazovku"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:297
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Failed to extract screen area from workspace"
-msgstr ""
+msgstr "Nepodařilo se extrahovat oblast obrazovky z pracovního prostoru"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:315
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Screenshot Permission Required"
-msgstr ""
+msgstr "Je vyžadováno oprávnění k pořízení snímku obrazovky"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:316
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -527,6 +558,9 @@ msgid ""
 "Crow Translate needs permission to take screenshots. Please grant permission "
 "in your system settings or use the interactive screenshot mode."
 msgstr ""
+"Aplikace Crow Translate potřebuje oprávnění k pořizování snímků obrazovky. "
+"Udělejte prosím toto oprávnění v nastavení systému nebo použijte "
+"interaktivní režim pořizování snímků obrazovky."
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:322
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -534,27 +568,29 @@ msgid ""
 "Screenshot permission denied. Please grant permission in system settings or "
 "try interactive mode."
 msgstr ""
+"Oprávnění k pořízení snímku obrazovky bylo odepřeno. Udělejte prosím "
+"oprávnění v nastavení systému nebo zkuste interaktivní režim."
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:57
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
-msgstr ""
+msgstr "Nelze se přihlásit k odběru odpovědí z xdg-desktop-portal."
 
 #: src/ocr/screengrabbers/waylandportalscreengrabber.cpp:77
 msgctxt "WaylandPortalScreenGrabber|"
 msgid "Received an empty path from xdg-desktop-portal."
-msgstr ""
+msgstr "Z xdg-desktop-portal byla přijata prázdná cesta."
 
 #: src/ocr/snippingarea.cpp:91
 msgctxt "SnippingArea|"
 msgid "Unable to snip screen area"
-msgstr ""
+msgstr "Nelze vyříznout část obrazovky"
 
 #: src/ocr/snippingarea.cpp:92
 #, qt-format
 msgctxt "SnippingArea|"
 msgid "Received an invalid image of screen %1."
-msgstr ""
+msgstr "Byl přijat neplatný snímek obrazovky %1."
 
 #: src/ocr/snippingarea.cpp:644
 msgctxt "SnippingArea|"
@@ -562,6 +598,8 @@ msgid ""
 "Click and drag to draw a selection rectangle,\n"
 "or press Esc to quit"
 msgstr ""
+"Kliknutím a tažením nakreslete výběrový obdélník,\n"
+"nebo stiskněte klávesu Esc pro ukončení"
 
 #: src/ocr/snippingarea.cpp:850
 msgctxt "SnippingArea|"
@@ -656,12 +694,12 @@ msgstr "Zrušit:"
 #: src/ocr/snippingarea.cpp:871
 msgctxt "SnippingArea|"
 msgid "Esc key"
-msgstr ""
+msgstr "Klávesa Esc"
 
 #: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
 msgid "DPI Detection Error"
-msgstr ""
+msgstr "Chyba detekce DPI"
 
 #: src/ocr/snippingarea.cpp:896
 msgctxt "SnippingArea|"
@@ -669,23 +707,25 @@ msgid ""
 "Screen under cursor disappeared before we got dpi from it. Using primary "
 "screen for dpi information."
 msgstr ""
+"Obrazovka pod kurzorem zmizela dříve, než z ní byla získána hodnota DPI. Pro "
+"získání informace o DPI se používá primární obrazovka."
 
 #: src/onlinetranslator.cpp:273
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Language detection is not supported for %1"
-msgstr ""
+msgstr "Rozpoznávání jazyka není pro %1 podporováno"
 
 #: src/onlinetranslator.cpp:318
 msgctxt "OnlineTranslator|"
 msgid "Operation aborted by user"
-msgstr ""
+msgstr "Operace byla přerušena uživatelem"
 
 #: src/onlinetranslator.cpp:361
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "%1 engine does not support TTS"
-msgstr ""
+msgstr "Jádro %1 nepodporuje funkci TTS"
 
 #: src/onlinetranslator.cpp:502
 msgctxt "OnlineTranslator|"
@@ -736,12 +776,12 @@ msgstr "Ázerbájdžánština"
 #: src/onlinetranslator.cpp:520
 msgctxt "OnlineTranslator|"
 msgid "Bajan"
-msgstr ""
+msgstr "Bajan"
 
 #: src/onlinetranslator.cpp:522
 msgctxt "OnlineTranslator|"
 msgid "Balkan Gipsy"
-msgstr ""
+msgstr "Balkan Gipsy"
 
 #: src/onlinetranslator.cpp:524
 msgctxt "OnlineTranslator|"
@@ -751,7 +791,7 @@ msgstr "Bambara"
 #: src/onlinetranslator.cpp:526
 msgctxt "OnlineTranslator|"
 msgid "Bangla"
-msgstr ""
+msgstr "Bangla"
 
 #: src/onlinetranslator.cpp:528
 msgctxt "OnlineTranslator|"
@@ -801,7 +841,7 @@ msgstr "Bulharština"
 #: src/onlinetranslator.cpp:546
 msgctxt "OnlineTranslator|"
 msgid "Cantonese (Traditional)"
-msgstr ""
+msgstr "Kantonština (tradiční)"
 
 #: src/onlinetranslator.cpp:548
 msgctxt "OnlineTranslator|"
@@ -827,17 +867,17 @@ msgstr "Chichewa"
 #: src/onlinetranslator.cpp:556
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Literary)"
-msgstr ""
+msgstr "Čínština (literární)"
 
 #: src/onlinetranslator.cpp:558
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Simplified)"
-msgstr "Zjednodušená čínština"
+msgstr "Čínština (zjednodušená)"
 
 #: src/onlinetranslator.cpp:560
 msgctxt "OnlineTranslator|"
 msgid "Chinese (Traditional)"
-msgstr "Tradiční čínština"
+msgstr "Čínština (tradiční)"
 
 #: src/onlinetranslator.cpp:562
 msgctxt "OnlineTranslator|"
@@ -847,7 +887,7 @@ msgstr "Čuvaština"
 #: src/onlinetranslator.cpp:564
 msgctxt "OnlineTranslator|"
 msgid "Comorian (Ngazidja)"
-msgstr ""
+msgstr "Komorština (Ngazidja)"
 
 #: src/onlinetranslator.cpp:566
 msgctxt "OnlineTranslator|"
@@ -862,52 +902,52 @@ msgstr "Korsičtina"
 #: src/onlinetranslator.cpp:570
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Antigua and Barbuda)"
-msgstr ""
+msgstr "Kreolská angličtina (Antigua and Barbuda)"
 
 #: src/onlinetranslator.cpp:572
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Bahamas)"
-msgstr ""
+msgstr "Kreolská angličtina (Bahamy)"
 
 #: src/onlinetranslator.cpp:574
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Grenadian)"
-msgstr ""
+msgstr "Kreolská angličtina (Grenady)"
 
 #: src/onlinetranslator.cpp:576
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Guyanese)"
-msgstr ""
+msgstr "Kreolská angličtina (Guyana)"
 
 #: src/onlinetranslator.cpp:578
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Jamaican)"
-msgstr ""
+msgstr "Kreolská angličtina (Jamajka)"
 
 #: src/onlinetranslator.cpp:580
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Vincentian)"
-msgstr ""
+msgstr "Kreolská angličtina (Vincent)"
 
 #: src/onlinetranslator.cpp:582
 msgctxt "OnlineTranslator|"
 msgid "Creole English (Virgin Islands)"
-msgstr ""
+msgstr "Kreolská angličtina (Panenské ostrovy)"
 
 #: src/onlinetranslator.cpp:584
 msgctxt "OnlineTranslator|"
 msgid "Creole French (Saint Lucian)"
-msgstr ""
+msgstr "Kreolská francouzština (Svatá Lucie)"
 
 #: src/onlinetranslator.cpp:586
 msgctxt "OnlineTranslator|"
 msgid "Creole French (Seselwa)"
-msgstr ""
+msgstr "Kreolská francouzština (Seselwa)"
 
 #: src/onlinetranslator.cpp:588
 msgctxt "OnlineTranslator|"
 msgid "Creole Portuguese (Upper Guinea)"
-msgstr ""
+msgstr "Kreolská portugalština (Horní Guinea)"
 
 #: src/onlinetranslator.cpp:590
 msgctxt "OnlineTranslator|"
@@ -927,32 +967,33 @@ msgstr "Dánština"
 #: src/onlinetranslator.cpp:596
 msgctxt "OnlineTranslator|"
 msgid "Dari"
-msgstr ""
+msgstr "Dari"
 
 #: src/onlinetranslator.cpp:598
 msgctxt "OnlineTranslator|"
 msgid "Divehi"
-msgstr ""
+msgstr "Divehi"
 
 #: src/onlinetranslator.cpp:600
 msgctxt "OnlineTranslator|"
 msgid "Dogri"
-msgstr ""
+msgstr "Dogri"
 
 #: src/onlinetranslator.cpp:602
 msgctxt "OnlineTranslator|"
 msgid "Dutch"
 msgstr "Holandština"
 
+# TO
 #: src/onlinetranslator.cpp:604
 msgctxt "OnlineTranslator|"
 msgid "Dzongkha"
-msgstr ""
+msgstr "Dzongkha"
 
 #: src/onlinetranslator.cpp:606
 msgctxt "OnlineTranslator|"
 msgid "Elvish (Sindarin)"
-msgstr ""
+msgstr "Elvish (Sindarin)"
 
 #: src/onlinetranslator.cpp:608
 msgctxt "OnlineTranslator|"
@@ -977,12 +1018,12 @@ msgstr "Estonština"
 #: src/onlinetranslator.cpp:616
 msgctxt "OnlineTranslator|"
 msgid "Ewe"
-msgstr ""
+msgstr "Ewe"
 
 #: src/onlinetranslator.cpp:618
 msgctxt "OnlineTranslator|"
 msgid "Fanagalo"
-msgstr ""
+msgstr "Fanagalo"
 
 #: src/onlinetranslator.cpp:620
 msgctxt "OnlineTranslator|"
@@ -1048,7 +1089,7 @@ msgstr "Řečtina"
 #: src/onlinetranslator.cpp:644
 msgctxt "OnlineTranslator|"
 msgid "Greek (Classical)"
-msgstr ""
+msgstr "Řečtina (klasická)"
 
 #: src/onlinetranslator.cpp:646
 msgctxt "OnlineTranslator|"
@@ -1063,7 +1104,7 @@ msgstr "Gudžarátština"
 #: src/onlinetranslator.cpp:650
 msgctxt "OnlineTranslator|"
 msgid "Haitian Creole"
-msgstr "Haitská Kreolština"
+msgstr "Haitská kreolština"
 
 #: src/onlinetranslator.cpp:652
 msgctxt "OnlineTranslator|"
@@ -1098,7 +1139,7 @@ msgstr "Hmong"
 #: src/onlinetranslator.cpp:664
 msgctxt "OnlineTranslator|"
 msgid "Hmong Daw"
-msgstr ""
+msgstr "Hmong Daw"
 
 #: src/onlinetranslator.cpp:666
 msgctxt "OnlineTranslator|"
@@ -1118,7 +1159,7 @@ msgstr "Igbo"
 #: src/onlinetranslator.cpp:672
 msgctxt "OnlineTranslator|"
 msgid "Ilocano"
-msgstr ""
+msgstr "Ilocano"
 
 #: src/onlinetranslator.cpp:674
 msgctxt "OnlineTranslator|"
@@ -1128,7 +1169,7 @@ msgstr "Indonéština"
 #: src/onlinetranslator.cpp:676
 msgctxt "OnlineTranslator|"
 msgid "Inuinnaqtun"
-msgstr ""
+msgstr "Inuinnaqtun"
 
 #: src/onlinetranslator.cpp:678
 msgctxt "OnlineTranslator|"
@@ -1138,12 +1179,12 @@ msgstr "Inuktitut"
 #: src/onlinetranslator.cpp:680
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Greenlandic)"
-msgstr ""
+msgstr "Inuktitut (Grónská)"
 
 #: src/onlinetranslator.cpp:682
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Latin)"
-msgstr ""
+msgstr "Inuktitut (latinka)"
 
 #: src/onlinetranslator.cpp:684
 msgctxt "OnlineTranslator|"
@@ -1168,12 +1209,12 @@ msgstr "Jávština"
 #: src/onlinetranslator.cpp:692
 msgctxt "OnlineTranslator|"
 msgid "Kabuverdianu"
-msgstr ""
+msgstr "Kabuverdianu"
 
 #: src/onlinetranslator.cpp:694
 msgctxt "OnlineTranslator|"
 msgid "Kabylian"
-msgstr ""
+msgstr "Kabylian"
 
 #: src/onlinetranslator.cpp:696
 msgctxt "OnlineTranslator|"
@@ -1183,17 +1224,17 @@ msgstr "Kannada"
 #: src/onlinetranslator.cpp:698
 msgctxt "OnlineTranslator|"
 msgid "Kazakh"
-msgstr "Kazachština"
+msgstr "Kazaština"
 
 #: src/onlinetranslator.cpp:700
 msgctxt "OnlineTranslator|"
 msgid "Kazakh (Latin)"
-msgstr ""
+msgstr "Kazaština (latinka)"
 
 #: src/onlinetranslator.cpp:702
 msgctxt "OnlineTranslator|"
 msgid "Khmer"
-msgstr "Khmérské"
+msgstr "Khmérština"
 
 #: src/onlinetranslator.cpp:704
 msgctxt "OnlineTranslator|"
@@ -1208,7 +1249,7 @@ msgstr "Kirundi"
 #: src/onlinetranslator.cpp:708
 msgctxt "OnlineTranslator|"
 msgid "Klingon (Latin)"
-msgstr "Klingonština (Latinka)"
+msgstr "Klingonština (latinka)"
 
 #: src/onlinetranslator.cpp:710
 msgctxt "OnlineTranslator|"
@@ -1223,22 +1264,22 @@ msgstr "Korejština"
 #: src/onlinetranslator.cpp:714
 msgctxt "OnlineTranslator|"
 msgid "Krio"
-msgstr ""
+msgstr "Krio"
 
 #: src/onlinetranslator.cpp:716
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Central)"
-msgstr ""
+msgstr "Kurdština (centrální)"
 
 #: src/onlinetranslator.cpp:718
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Northern)"
-msgstr ""
+msgstr "Kurdština (severní)"
 
 #: src/onlinetranslator.cpp:720
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Sorani)"
-msgstr ""
+msgstr "Kurdština (Sorani)"
 
 #: src/onlinetranslator.cpp:722
 msgctxt "OnlineTranslator|"
@@ -1260,10 +1301,11 @@ msgctxt "OnlineTranslator|"
 msgid "Latvian"
 msgstr "Lotyština"
 
+# AO
 #: src/onlinetranslator.cpp:730
 msgctxt "OnlineTranslator|"
 msgid "Lingala"
-msgstr ""
+msgstr "Lingala"
 
 #: src/onlinetranslator.cpp:732
 msgctxt "OnlineTranslator|"
@@ -1273,7 +1315,7 @@ msgstr "Litevština"
 #: src/onlinetranslator.cpp:734
 msgctxt "OnlineTranslator|"
 msgid "Lower Sorbian"
-msgstr "Dolnolužicko srbský"
+msgstr "Dolnolužická srbština"
 
 #: src/onlinetranslator.cpp:736
 msgctxt "OnlineTranslator|"
@@ -1318,7 +1360,7 @@ msgstr "Maltština"
 #: src/onlinetranslator.cpp:752
 msgctxt "OnlineTranslator|"
 msgid "Manx Gaelic"
-msgstr ""
+msgstr "Manx Gaelic"
 
 #: src/onlinetranslator.cpp:754
 msgctxt "OnlineTranslator|"
@@ -1339,7 +1381,7 @@ msgstr "Marshallský"
 #: src/onlinetranslator.cpp:760
 msgctxt "OnlineTranslator|"
 msgid "Meiteilon (Manipuri)"
-msgstr ""
+msgstr "Meiteilon (Manipuri)"
 
 #: src/onlinetranslator.cpp:762
 msgctxt "OnlineTranslator|"
@@ -1349,7 +1391,7 @@ msgstr "Mende"
 #: src/onlinetranslator.cpp:764
 msgctxt "OnlineTranslator|"
 msgid "Mizo"
-msgstr ""
+msgstr "Mizo"
 
 #: src/onlinetranslator.cpp:766
 msgctxt "OnlineTranslator|"
@@ -1369,27 +1411,28 @@ msgstr "Mongolština (tradiční)"
 #: src/onlinetranslator.cpp:772
 msgctxt "OnlineTranslator|"
 msgid "Morisyen"
-msgstr ""
+msgstr "Morisyen"
 
 #: src/onlinetranslator.cpp:774
 msgctxt "OnlineTranslator|"
 msgid "Myanmar (Burmese)"
-msgstr ""
+msgstr "Myanmar (barmština)"
 
 #: src/onlinetranslator.cpp:776
 msgctxt "OnlineTranslator|"
 msgid "Māori"
-msgstr ""
+msgstr "Māori"
 
 #: src/onlinetranslator.cpp:778
 msgctxt "OnlineTranslator|"
 msgid "Nepali"
 msgstr "Nepálština"
 
+# NU
 #: src/onlinetranslator.cpp:780
 msgctxt "OnlineTranslator|"
 msgid "Niuean"
-msgstr ""
+msgstr "Niuean"
 
 #: src/onlinetranslator.cpp:782
 msgctxt "OnlineTranslator|"
@@ -1404,7 +1447,7 @@ msgstr "Nyanja"
 #: src/onlinetranslator.cpp:786
 msgctxt "OnlineTranslator|"
 msgid "Odia"
-msgstr ""
+msgstr "Odia"
 
 #: src/onlinetranslator.cpp:788
 msgctxt "OnlineTranslator|"
@@ -1434,7 +1477,7 @@ msgstr "Perština"
 #: src/onlinetranslator.cpp:798
 msgctxt "OnlineTranslator|"
 msgid "Pijin"
-msgstr ""
+msgstr "Pijin"
 
 #: src/onlinetranslator.cpp:800
 msgctxt "OnlineTranslator|"
@@ -1444,17 +1487,17 @@ msgstr "Polština"
 #: src/onlinetranslator.cpp:802
 msgctxt "OnlineTranslator|"
 msgid "Portuguese (Brazilian)"
-msgstr "Portugalština (Brazilská)"
+msgstr "Portugalština (brazilská)"
 
 #: src/onlinetranslator.cpp:804
 msgctxt "OnlineTranslator|"
 msgid "Portuguese (Portugal)"
-msgstr "Portugalština (Portugalská)"
+msgstr "Portugalština (portugalská)"
 
 #: src/onlinetranslator.cpp:806
 msgctxt "OnlineTranslator|"
 msgid "Potawatomi"
-msgstr ""
+msgstr "Potawatomi"
 
 #: src/onlinetranslator.cpp:808
 msgctxt "OnlineTranslator|"
@@ -1469,7 +1512,7 @@ msgstr "Kečuánština"
 #: src/onlinetranslator.cpp:812
 msgctxt "OnlineTranslator|"
 msgid "Querétaro Otomi"
-msgstr ""
+msgstr "Querétaro Otomi"
 
 #: src/onlinetranslator.cpp:814
 msgctxt "OnlineTranslator|"
@@ -1525,7 +1568,7 @@ msgstr "Sesotho"
 #: src/onlinetranslator.cpp:834
 msgctxt "OnlineTranslator|"
 msgid "Sesotho sa Leboa"
-msgstr ""
+msgstr "Sesotho sa Leboa"
 
 #: src/onlinetranslator.cpp:836
 msgctxt "OnlineTranslator|"
@@ -1570,7 +1613,7 @@ msgstr "Španělština"
 #: src/onlinetranslator.cpp:852
 msgctxt "OnlineTranslator|"
 msgid "Sranan Tongo"
-msgstr ""
+msgstr "Sranan Tongo"
 
 #: src/onlinetranslator.cpp:854
 msgctxt "OnlineTranslator|"
@@ -1590,7 +1633,7 @@ msgstr "Švédština"
 #: src/onlinetranslator.cpp:860
 msgctxt "OnlineTranslator|"
 msgid "Syriac (Aramaic)"
-msgstr ""
+msgstr "Syrština (aramejská)"
 
 #: src/onlinetranslator.cpp:862
 msgctxt "OnlineTranslator|"
@@ -1605,7 +1648,7 @@ msgstr "Tádžičtina"
 #: src/onlinetranslator.cpp:866
 msgctxt "OnlineTranslator|"
 msgid "Tamashek (Tuareg)"
-msgstr ""
+msgstr "Tamashek (Tuareg)"
 
 #: src/onlinetranslator.cpp:868
 msgctxt "OnlineTranslator|"
@@ -1646,12 +1689,12 @@ msgstr "Tigriňa"
 #: src/onlinetranslator.cpp:882
 msgctxt "OnlineTranslator|"
 msgid "Tok Pisin"
-msgstr ""
+msgstr "Tok Pisin"
 
 #: src/onlinetranslator.cpp:884
 msgctxt "OnlineTranslator|"
 msgid "Tokelauan"
-msgstr ""
+msgstr "Tokelauan"
 
 #: src/onlinetranslator.cpp:886
 msgctxt "OnlineTranslator|"
@@ -1677,7 +1720,7 @@ msgstr "Turečtina"
 #: src/onlinetranslator.cpp:894
 msgctxt "OnlineTranslator|"
 msgid "Tuvaluan"
-msgstr ""
+msgstr "Tuvaluan"
 
 #: src/onlinetranslator.cpp:896
 msgctxt "OnlineTranslator|"
@@ -1697,12 +1740,12 @@ msgstr "Ukrajinština"
 #: src/onlinetranslator.cpp:902
 msgctxt "OnlineTranslator|"
 msgid "Uma"
-msgstr ""
+msgstr "Uma"
 
 #: src/onlinetranslator.cpp:904
 msgctxt "OnlineTranslator|"
 msgid "Upper Sorbian"
-msgstr "Horní lužičtina"
+msgstr "Hornolužická srbština"
 
 #: src/onlinetranslator.cpp:906
 msgctxt "OnlineTranslator|"
@@ -1722,7 +1765,7 @@ msgstr "Uzbečtina (azbuka)"
 #: src/onlinetranslator.cpp:912
 msgctxt "OnlineTranslator|"
 msgid "Uzbek (Latin)"
-msgstr "Uzbečtina Uzbečtina (latinka)"
+msgstr "Uzbečtina (latinka)"
 
 #: src/onlinetranslator.cpp:914
 msgctxt "OnlineTranslator|"
@@ -1732,7 +1775,7 @@ msgstr "Vietnamština"
 #: src/onlinetranslator.cpp:916
 msgctxt "OnlineTranslator|"
 msgid "Wallisian"
-msgstr ""
+msgstr "Wallisian"
 
 #: src/onlinetranslator.cpp:918
 msgctxt "OnlineTranslator|"
@@ -1767,7 +1810,7 @@ msgstr "Jarubština"
 #: src/onlinetranslator.cpp:930
 msgctxt "OnlineTranslator|"
 msgid "Yucatec Maya"
-msgstr ""
+msgstr "Yucatec Maya"
 
 #: src/onlinetranslator.cpp:932
 msgctxt "OnlineTranslator|"
@@ -1778,7 +1821,7 @@ msgstr "Zulu"
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Instance error: %1"
-msgstr ""
+msgstr "Chyba instance: %1"
 
 #: src/onlinetranslator.cpp:1294
 msgctxt "OnlineTranslator|"
@@ -1788,12 +1831,9 @@ msgstr "Chyba: Nelze zpracovat automaticky detekovaný jazyk"
 #: src/popupwindow.ui:32
 msgctxt "PopupWindow|"
 msgid "Swap languages"
-msgstr ""
+msgstr "Prohodit jazyky"
 
 #: src/popupwindow.ui:66
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translate"
 msgctxt "PopupWindow|"
 msgid "Translate"
 msgstr "Přeložit"
@@ -1801,59 +1841,60 @@ msgstr "Přeložit"
 #: src/popupwindow.ui:80
 msgctxt "PopupWindow|"
 msgid "Start/pause saying the source text aloud"
-msgstr ""
+msgstr "Spustit/pozastavit čtení zdrojového textu"
 
 #: src/popupwindow.ui:125
 msgctxt "PopupWindow|"
 msgid "Stop saying the source text aloud"
-msgstr ""
+msgstr "Zastavit čtení zdrojového textu"
 
 #: src/popupwindow.ui:132
 msgctxt "PopupWindow|"
 msgid "Copy source text to the clipboard"
-msgstr ""
+msgstr "Zkopírovat zdrojový text do schránky"
 
 #: src/popupwindow.ui:222
 msgctxt "PopupWindow|"
 msgid "Start/pause saying the translated text aloud"
-msgstr ""
+msgstr "Spustit/pozastavit čtení přeloženého textu"
 
 #: src/popupwindow.ui:267
 msgctxt "PopupWindow|"
 msgid "Stop saying the translated text aloud"
-msgstr ""
+msgstr "Zastavit čtení přeloženého textu"
 
 #: src/popupwindow.ui:274
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
-msgstr ""
+msgstr "Zkopírovat všechna přeložená data do schránky"
 
 #: src/popupwindow.ui:284
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
-msgstr ""
+msgstr "Zkopírovat text do schránky"
 
 #: src/settings/appsettings.cpp:1195
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
-msgstr ""
+msgstr "Neznámý kód jazyka: %1"
 
 #: src/settings/autostartmanager/abstractautostartmanager.cpp:44
 msgctxt "AbstractAutostartManager|"
 msgid "Unable to apply autostart settings"
-msgstr ""
+msgstr "Nelze použít nastavení automatického spuštění"
 
 #: src/settings/autostartmanager/portalautostartmanager.cpp:34
 #, qt-format
 msgctxt "PortalAutostartManager|"
 msgid "Allow %1 to manage autostart setting for itself."
 msgstr ""
+"Povolit aplikaci %1, aby si sama spravovala nastavení automatického spuštění."
 
 #: src/settings/autostartmanager/portalautostartmanager.cpp:53
 msgctxt "PortalAutostartManager|"
 msgid "Unable to subscribe to response from xdg-desktop-portal."
-msgstr ""
+msgstr "Nelze se přihlásit k odběru odpovědí z xdg-desktop-portal."
 
 #: src/settings/autostartmanager/unixautostartmanager.cpp:40
 #, qt-format
@@ -1871,38 +1912,39 @@ msgstr "Nelze zkopírovat %1 do %2"
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
-msgstr ""
+msgstr "Nelze odstranit %1 z %2"
 
 #: src/settings/settingsdialog.cpp:35
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
-msgstr ""
+msgstr "Přenosný režim"
 
 #: src/settings/settingsdialog.cpp:48
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
-msgstr ""
+msgstr "Použít %1 pro uložení nastavení"
 
 #: src/settings/settingsdialog.cpp:52
 msgctxt "SettingsDialog|"
 msgid "<System language>"
-msgstr ""
+msgstr "<systémový jazyk>"
 
 #: src/settings/settingsdialog.cpp:56 src/settings/settingsdialog.cpp:57
 msgctxt "SettingsDialog|"
 msgid "<Auto>"
-msgstr ""
+msgstr "<automaticky>"
 
 #: src/settings/settingsdialog.cpp:74
 msgctxt "SettingsDialog|"
 msgid "Copy"
-msgstr ""
+msgstr "Kopírovat"
 
+# žádné parametry funkce v inspektoru funkcí
 #: src/settings/settingsdialog.cpp:78
 msgctxt "SettingsDialog|"
 msgid "None"
-msgstr ""
+msgstr "Nic"
 
 #: src/settings/settingsdialog.cpp:110
 msgctxt "SettingsDialog|"
@@ -1977,7 +2019,7 @@ msgstr "Překlad"
 #: src/settings/settingsdialog.ui:73
 msgctxt "SettingsDialog|"
 msgid "Text-To-Speech"
-msgstr ""
+msgstr "Převod textu na řeč"
 
 #: src/settings/settingsdialog.ui:81
 msgctxt "SettingsDialog|"
@@ -2221,7 +2263,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:526
 msgctxt "SettingsDialog|"
 msgid "Tray icon"
-msgstr "Ikona v systémové části:"
+msgstr "Ikona v systémové části"
 
 #: src/settings/settingsdialog.ui:532
 msgctxt "SettingsDialog|"
@@ -2322,12 +2364,12 @@ msgstr ""
 #: src/settings/settingsdialog.ui:741
 msgctxt "SettingsDialog|"
 msgid "Text-to-Speech"
-msgstr ""
+msgstr "Převod textu na řeč"
 
 #: src/settings/settingsdialog.ui:747
 msgctxt "SettingsDialog|"
 msgid "Provider:"
-msgstr ""
+msgstr "Poskytovatel:"
 
 #: src/settings/settingsdialog.ui:789
 msgctxt "SettingsDialog|"
@@ -2707,7 +2749,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:1453
 msgctxt "SettingsDialog|"
 msgid "Clear"
-msgstr "Vyprázdnit"
+msgstr "Vymazat"
 
 #: src/settings/settingsdialog.ui:1463
 msgctxt "SettingsDialog|"
@@ -2747,22 +2789,22 @@ msgstr "Globální"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:23
 msgctxt "ShortcutsModel|"
 msgid "Translate selected text"
-msgstr ""
+msgstr "Přeložit vybraný text"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:26
 msgctxt "ShortcutsModel|"
 msgid "Speak selected text"
-msgstr ""
+msgstr "Přečíst vybraný text"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:29
 msgctxt "ShortcutsModel|"
 msgid "Speak translation of selected text"
-msgstr ""
+msgstr "Přečíst překlad vybraného textu"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:32
 msgctxt "ShortcutsModel|"
 msgid "Stop text speaking"
-msgstr ""
+msgstr "Zastavit čtení textu"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:35
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:73
@@ -2778,17 +2820,17 @@ msgstr "Zobrazit hlavní okno"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:41
 msgctxt "ShortcutsModel|"
 msgid "Translate selected text and copy to clipboard"
-msgstr ""
+msgstr "Přeložit vybraný text a zkopírovat do schránky"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:44
 msgctxt "ShortcutsModel|"
 msgid "Recognize text in screen area"
-msgstr ""
+msgstr "Rozpoznat text v oblasti obrazovky"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:47
 msgctxt "ShortcutsModel|"
 msgid "Translate text in screen area"
-msgstr ""
+msgstr "Přeložit text v oblasti obrazovky"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:50
 msgctxt "ShortcutsModel|"
@@ -2818,7 +2860,7 @@ msgstr "Přeložit"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:64
 msgctxt "ShortcutsModel|"
 msgid "Swap languages"
-msgstr ""
+msgstr "Prohodit jazyky"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:67
 msgctxt "ShortcutsModel|"
@@ -2886,7 +2928,7 @@ msgstr ""
 #: src/translator/mozhitranslationprovider.cpp:400
 msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
-msgstr ""
+msgstr "příklady:"
 
 #: src/trayicon.cpp:19 src/trayicon.cpp:44
 msgctxt "TrayIcon|"
@@ -3011,6 +3053,23 @@ msgid ""
 "On Unix systems, telemetry is inactive by default.\n"
 "This notice is shown once per installation."
 msgstr ""
+"Crow Translate využívá ONNX Runtime pro neurální převod textu na řeč. "
+"Binární soubor pro Windows obsahuje telemetrii společnosti Microsoft, která "
+"shromažďuje informace o používání.\n"
+"\n"
+"Sběr dat:\n"
+"• Údaje o zařízení a používání, hlášení o chybách, informace o výkonu\n"
+"• Společnost Microsoft tyto údaje využívá ke zlepšování kvality a funkcí "
+"produktu\n"
+"• Vztahuje se na Prohlášení o ochraně osobních údajů společnosti Microsoft\n"
+"\n"
+"Akce aplikace Crow Translate:\n"
+"• Při spuštění automaticky deaktivuje telemetrii\n"
+"• Využívá jak proměnné prostředí, tak volání API běhového prostředí\n"
+"• Poznámka: Během inicializace ONNX mohou být přenášena některá data\n"
+"\n"
+"V systémech Unix je telemetrie ve výchozím nastavení neaktivní.\n"
+"Toto upozornění se zobrazí jednou při každé instalaci."
 
 #: src/tts/piperttsprovider.cpp:1000
 msgctxt "PiperTTSProvider|"
