@@ -20,6 +20,7 @@
 #include "tts/attsprovider.h"
 
 #include <QComboBox>
+#include <QIcon>
 #include <QKeySequence>
 #include <QLocale>
 #include <QMainWindow>
@@ -32,6 +33,7 @@ class LanguageButtonsWidget;
 class PopupWindow;
 class SourceTextEdit;
 class ProviderOptionsManager;
+class QLabel;
 
 namespace Ui
 {
@@ -47,6 +49,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
+    bool eventFilter(QObject *obj, QEvent *event) override;
+    void keyPressEvent(QKeyEvent *event) override;
     Ocr *ocr() const;
     QComboBox *getEngineComboBox() const;
     QComboBox *sourceVoiceComboBox() const;
@@ -130,6 +134,15 @@ private:
     Language m_destLang = Language::autoLanguage();
     bool m_listenForContentChanges = false;
     void setListenForContentChanges(bool listen);
+    // Saved Mozhi engine combo items (restored after switching back from LocalAI)
+    QStringList m_engineItemsText;
+    QStringList m_engineItemsData;
+    QList<QIcon> m_engineItemsIcons;
+    void clearSourceImage();
+    void setSourceImageInternal(const QImage &img);
+    bool m_hasSourceImage = false;
+    QPixmap m_originalPixmap;
+    QLabel *m_imagePreview = nullptr;
 public slots:
     void on_translateButton_clicked();
     // Global shortcuts

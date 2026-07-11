@@ -1,6 +1,7 @@
 /*
  * SPDX-FileCopyrightText: 2018 Hennadii Chernyshchyk <genaloner@gmail.com>
  * SPDX-FileCopyrightText: 2022 Volk Milit <javirrdar@gmail.com>
+ * SPDX-FileCopyrightText: 2026 Oleksandr Mikriukov <ur3ley@gmail.com>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -21,11 +22,57 @@
 #include "translator/atranslationprovider.h"
 #include "tts/attsprovider.h"
 
+#include <QButtonGroup>
+#include <QCheckBox>
+#include <QComboBox>
 #include <QDate>
+#include <QEventLoop>
 #include <QFileDialog>
+#include <QFormLayout>
+#include <QFrame>
+#include <QGridLayout>
+#include <QHBoxLayout>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QLabel>
+#include <QLineEdit>
 #include <QMessageBox>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QNetworkRequest>
+#include <QPlainTextEdit>
+#include <QPushButton>
 #include <QScreen>
+#include <QSpinBox>
+#include <QStackedWidget>
 #include <QStandardItemModel>
+#include <QUrl>
+#include <QVBoxLayout>
+#include <QWidget>
+
+namespace
+{
+void widenComboPopup(QComboBox *combo)
+{
+    if (!combo)
+        return;
+    const QFontMetrics fm(combo->font());
+    int w = 0;
+    for (int i = 0; i < combo->count(); ++i)
+        w = qMax(w, fm.horizontalAdvance(combo->itemText(i)));
+    if (w > 0) {
+        combo->view()->setMinimumWidth(w + 40);
+        combo->setSizeAdjustPolicy(QComboBox::AdjustToContents);
+        int cap = 480;
+        if (const QWidget *win = combo->window()) {
+            if (win->width() > 240)
+                cap = win->width() - 120;
+        }
+        combo->setMaximumWidth(cap);
+    }
+}
+}
 
 SettingsDialog::SettingsDialog(MainWindow *parent)
     : QDialog(parent)
@@ -70,9 +117,40 @@ SettingsDialog::SettingsDialog(MainWindow *parent)
     ui->mozhiUrlComboBox->addItems(InstancePinger::instances());
     connect(ui->mozhiUrlComboBox, &QComboBox::currentTextChanged, this, &SettingsDialog::mozhiInstanceChanged);
 
+    buildLocalAiTabs();
+
+    // Adjust tab widgets to fit the scroll area viewport (sidebar occupies ~200 px).
+    connect(ui->pagesStackedWidget, &QStackedWidget::currentChanged, this, [this](int /*idx*/) {
+        QWidget *vp = ui->scrollArea->viewport();
+        if (!vp) {
+            return;
+        }
+        int avail = vp->width() - 40;
+        if (avail <= 0) {
+            return;
+        }
+        for (int i = 0; i < ui->localAiTabWidget->count(); ++i) {
+            QWidget *w = ui->localAiTabWidget->widget(i);
+            if (w) {
+                w->setMaximumWidth(avail);
+            }
+        }
+        ui->localAiTabWidget->updateGeometry();
+    });
+
+    // Language detection (LocalAI) — on the Translation page.
+    const QStringList providerIds = AppSettings::localProviderIds();
+    for (const QString &id : providerIds) {
+        ui->detectProviderComboBox->addItem(AppSettings::localProviderDisplayName(id), id);
+    }
+    connect(ui->detectProviderComboBox, &QComboBox::currentIndexChanged, this, [this]() {
+        populateDetectModels();
+    });
+
     // Populate translation providers dynamically
     ui->translationProviderComboBox->addItem(tr("Copy"), QVariant::fromValue(ATranslationProvider::ProviderBackend::Copy));
     ui->translationProviderComboBox->addItem("Mozhi", QVariant::fromValue(ATranslationProvider::ProviderBackend::Mozhi));
+    ui->translationProviderComboBox->addItem("LocalAI", QVariant::fromValue(ATranslationProvider::ProviderBackend::LocalAI));
 
     // Populate TTS providers dynamically
     ui->ttsProviderComboBox->addItem(tr("None"), QVariant::fromValue(ATTSProvider::ProviderBackend::None));
@@ -203,6 +281,12 @@ void SettingsDialog::accept()
     // Mozhi instance settings
     settings.setInstance(ui->mozhiUrlComboBox->currentText());
 
+    // LocalAI settings
+    saveLocalAiSettings();
+    settings.setDetectViaLlm(ui->detectViaLlmCheckBox->isChecked());
+    settings.setDetectProvider(ui->detectProviderComboBox->currentData().toString());
+    settings.setDetectModel(ui->detectModelComboBox->currentText());
+
     // OCR
     settings.setConvertLineBreaks(ui->convertLineBreaksCheckBox->isChecked());
     settings.setOcrLanguagesPath(ui->ocrLanguagesPathEdit->text().toLocal8Bit());
@@ -242,6 +326,491 @@ void SettingsDialog::setCurrentPage(int index)
     ui->pagesStackedWidget->currentWidget()->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
     ui->pagesStackedWidget->setCurrentIndex(index);
     ui->pagesStackedWidget->currentWidget()->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+}
+
+void SettingsDialog::buildLocalAiTabs()
+{
+    const QStringList providerIds = AppSettings::localProviderIds();
+    for (const QString &id : providerIds) {
+        auto *outer = new QWidget(ui->localAiTabWidget);
+        auto *grid = new QGridLayout(outer);
+        grid->setContentsMargins(10, 10, 10, 10);
+        grid->setHorizontalSpacing(12);
+        grid->setVerticalSpacing(8);
+
+        auto *urlLabel = new QLabel(tr("URL:"), outer);
+        auto *url = new QLineEdit(outer);
+        url->setPlaceholderText(AppSettings::defaultLocalProviderUrl(id));
+        auto *refresh = new QPushButton(tr("Refresh models"), outer);
+        auto *urlLayout = new QHBoxLayout();
+        urlLayout->addWidget(urlLabel);
+        urlLayout->addWidget(url);
+        grid->addLayout(urlLayout, 0, 0, Qt::AlignVCenter);
+        grid->addWidget(refresh, 0, 1, Qt::AlignRight | Qt::AlignVCenter);
+
+        auto *toggleWidget = new QWidget(outer);
+        auto *toggleHL = new QHBoxLayout(toggleWidget);
+        toggleHL->setContentsMargins(0, 0, 0, 0);
+        toggleHL->setSpacing(0);
+
+        auto *visionToggle = new QPushButton(tr("Vision"), outer);
+        visionToggle->setCheckable(true);
+        visionToggle->setObjectName(QStringLiteral("visionToggle"));
+        auto *textToggle = new QPushButton(tr("Text"), outer);
+        textToggle->setCheckable(true);
+        textToggle->setObjectName(QStringLiteral("textToggle"));
+        textToggle->setChecked(true);
+        toggleWidget->setStyleSheet(QStringLiteral(
+            "QPushButton#visionToggle:checked, QPushButton#textToggle:checked{font-weight:bold;font-style:normal}"
+            "QPushButton#visionToggle:not(:checked), QPushButton#textToggle:not(:checked){font-weight:normal;font-style:italic}"));
+
+        auto *modeGroup = new QButtonGroup(outer);
+        modeGroup->setExclusive(true);
+        modeGroup->addButton(visionToggle, 0);
+        modeGroup->addButton(textToggle, 1);
+
+        auto *helpBtn = new QPushButton(tr("?"), outer);
+        helpBtn->setFixedWidth(helpBtn->fontMetrics().horizontalAdvance(QStringLiteral(" ?? ")));
+        helpBtn->setToolTip(tr("How to use this tab"));
+
+        toggleHL->addWidget(visionToggle);
+        toggleHL->addWidget(textToggle);
+        toggleHL->addWidget(helpBtn);
+        grid->addWidget(toggleWidget, 1, 1, Qt::AlignRight | Qt::AlignVCenter);
+
+        auto *debugCheck = new QCheckBox(tr("Show both"), outer);
+        debugCheck->setToolTip(tr("Debug: show Text and Vision blocks simultaneously"));
+        debugCheck->setVisible(false);
+        grid->addWidget(debugCheck, 1, 0, Qt::AlignLeft | Qt::AlignVCenter);
+
+        auto *stack = new QStackedWidget(outer);
+        LocalProviderTab t;
+
+        {
+            t.text.page = new QWidget();
+            auto *vl = new QVBoxLayout(t.text.page);
+            vl->setContentsMargins(0, 0, 0, 0);
+            vl->setSpacing(8);
+            auto *modelRow = new QHBoxLayout();
+            t.text.modelLabel = new QLabel(tr("Translation model:"), t.text.page);
+            t.text.model = new QComboBox(t.text.page);
+            t.text.model->setEditable(true);
+            t.text.model->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+            modelRow->addWidget(t.text.modelLabel);
+            modelRow->addWidget(t.text.model);
+            modelRow->addSpacing(12);
+            auto *textTimeoutLabel = new QLabel(tr("Timeout:"), t.text.page);
+            t.text.timeout = new QSpinBox(t.text.page);
+            t.text.timeout->setRange(60, 3600);
+            t.text.timeout->setSingleStep(30);
+            t.text.timeout->setSuffix(QStringLiteral(" s"));
+            t.text.timeout->setToolTip(tr("Maximum time to wait for a translation or detection response."));
+            modelRow->addWidget(textTimeoutLabel);
+            modelRow->addWidget(t.text.timeout);
+            vl->addLayout(modelRow);
+            if (id == QLatin1String("ollama")) {
+                t.text.disableThinking = new QCheckBox(tr("Disable reasoning"), t.text.page);
+                vl->addWidget(t.text.disableThinking);
+            }
+            auto *sep = new QFrame(t.text.page);
+            sep->setFrameShape(QFrame::HLine);
+            sep->setFrameShadow(QFrame::Sunken);
+            vl->addWidget(sep);
+            auto *hint = new QLabel(tr("Placeholders: %1").arg(QStringLiteral("{source_lang} {source_code} {target_lang} {target_code} {text}")), t.text.page);
+            hint->setWordWrap(true);
+            vl->addWidget(hint);
+            auto *resetBtn = new QPushButton(tr("Reset Text prompt"), t.text.page);
+            vl->addWidget(resetBtn);
+            t.text.prompt = new QPlainTextEdit(t.text.page);
+            vl->addWidget(t.text.prompt, 1);
+            connect(resetBtn, &QPushButton::clicked, this, [this, id]() {
+                m_localTabs[id].text.prompt->setPlainText(AppSettings::defaultLocalAiPrompt());
+            });
+        }
+
+        {
+            t.vision.page = new QWidget();
+            auto *vl = new QVBoxLayout(t.vision.page);
+            vl->setContentsMargins(0, 0, 0, 0);
+            vl->setSpacing(8);
+            auto *modelRow = new QHBoxLayout();
+            t.vision.modelLabel = new QLabel(tr("Vision model:"), t.vision.page);
+            t.vision.model = new QComboBox(t.vision.page);
+            t.vision.model->setEditable(true);
+            t.vision.model->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+            modelRow->addWidget(t.vision.modelLabel);
+            modelRow->addWidget(t.vision.model);
+            modelRow->addSpacing(12);
+            auto *visionTimeoutLabel = new QLabel(tr("Timeout:"), t.vision.page);
+            t.vision.timeout = new QSpinBox(t.vision.page);
+            t.vision.timeout->setRange(60, 3600);
+            t.vision.timeout->setSingleStep(30);
+            t.vision.timeout->setSuffix(QStringLiteral(" s"));
+            t.vision.timeout->setToolTip(tr("Maximum time to wait for a translation or detection response."));
+            modelRow->addWidget(visionTimeoutLabel);
+            modelRow->addWidget(t.vision.timeout);
+            vl->addLayout(modelRow);
+            if (id == QLatin1String("ollama")) {
+                t.vision.disableThinking = new QCheckBox(tr("Disable reasoning"), t.vision.page);
+                vl->addWidget(t.vision.disableThinking);
+            }
+            auto *sep = new QFrame(t.vision.page);
+            sep->setFrameShape(QFrame::HLine);
+            sep->setFrameShadow(QFrame::Sunken);
+            vl->addWidget(sep);
+            auto *hint = new QLabel(tr("Placeholders: %1").arg(QStringLiteral("{source_lang} {source_code} {target_lang} {target_code}")), t.vision.page);
+            hint->setWordWrap(true);
+            vl->addWidget(hint);
+            auto *resetBtn = new QPushButton(tr("Reset Vision prompt"), t.vision.page);
+            vl->addWidget(resetBtn);
+            t.vision.prompt = new QPlainTextEdit(t.vision.page);
+            vl->addWidget(t.vision.prompt, 1);
+            connect(resetBtn, &QPushButton::clicked, this, [this, id]() {
+                m_localTabs[id].vision.prompt->setPlainText(AppSettings::defaultVisionPrompt());
+            });
+        }
+
+        stack->addWidget(t.vision.page);
+        stack->addWidget(t.text.page);
+        stack->setCurrentIndex(1);
+        grid->addWidget(stack, 2, 0, 1, 2);
+
+        auto *debugContainer = new QWidget(outer);
+        auto *debugLayout = new QVBoxLayout(debugContainer);
+        debugLayout->setContentsMargins(0, 0, 0, 0);
+        debugLayout->setSpacing(12);
+        debugContainer->hide();
+        grid->addWidget(debugContainer, 2, 0, 1, 2);
+
+        grid->setColumnStretch(0, 1);
+        grid->setColumnStretch(1, 0);
+        grid->setRowStretch(2, 1);
+
+        ui->localAiTabWidget->addTab(outer, AppSettings::localProviderDisplayName(id));
+
+        t.url = url;
+        t.refresh = refresh;
+        t.visionToggle = visionToggle;
+        t.textToggle = textToggle;
+        t.modeGroup = modeGroup;
+        t.stack = stack;
+        t.debugContainer = debugContainer;
+        t.debugCheckBox = debugCheck;
+        m_localTabs.insert(id, t);
+
+        connect(helpBtn, &QPushButton::clicked, this, [this]() {
+            const QString helpText = tr(
+                                         "<h3>How the LocalAI tab works</h3>"
+                                         "<p><b>Text / Vision modes:</b> Each provider has two independent "
+                                         "blocks — <i>Text</i> for translating text and <i>Vision</i> for "
+                                         "translating text from images (drag &amp; drop or paste an image "
+                                         "into the source field). Switch with the [Vision] [Text] buttons.</p>"
+                                         "<p><b>Prompts are per-model:</b> <u>Each model has its own prompt.</u> "
+                                         "When you change the model, its saved prompt is loaded. "
+                                         "Your edits are saved automatically as you type — no need to click Save.</p>"
+                                         "<p><b>Default text prompt:</b><br>"
+                                         "<code>%1</code></p>"
+                                         "<p><b>Default vision prompt:</b><br>"
+                                         "<code>%2</code></p>"
+                                         "<p><b>Example — describe a photo (vision mode):</b><br>"
+                                         "<code>You are a visual analyst. Examine the image and provide "
+                                         "a detailed description in {target_lang} ({target_code}). "
+                                         "Include: scene type, subjects, colors, lighting, notable details. "
+                                         "If there is text, translate it. Output only the description, "
+                                         "3–6 sentences.</code></p>"
+                                         "<p><b>Placeholders:</b><br>"
+                                         "<code>{source_lang}</code> — source language name<br>"
+                                         "<code>{source_code}</code> — source language ISO code<br>"
+                                         "<code>{target_lang}</code> — target language name<br>"
+                                         "<code>{target_code}</code> — target language ISO code<br>"
+                                         "<code>{text}</code> — the input text (text mode only)</p>"
+                                         "<p><b>Disable reasoning:</b> Skips thinking tokens on supported "
+                                         "models. Only shown for Ollama providers.</p>"
+                                         "<p><b>Timeout:</b> Maximum time to wait for a response.</p>")
+                                         .arg(AppSettings::defaultLocalAiPrompt().toHtmlEscaped(),
+                                              AppSettings::defaultVisionPrompt().toHtmlEscaped());
+            auto *msg = new QMessageBox(QMessageBox::Information, tr("LocalAI Tab Help"),
+                                        helpText, QMessageBox::Ok, this);
+            msg->setMinimumWidth(680);
+            msg->exec();
+        });
+
+        connect(modeGroup, &QButtonGroup::idClicked, this, [this, id](int mode) {
+            LocalProviderTab &tab = m_localTabs[id];
+            if (tab.debugCheckBox && tab.debugCheckBox->isChecked()) {
+                return;
+            }
+            tab.stack->setCurrentIndex(mode == 0 ? 0 : 1);
+        });
+
+        connect(debugCheck, &QCheckBox::toggled, this, [this, id](bool checked) {
+            LocalProviderTab &tab = m_localTabs[id];
+            if (checked) {
+                const int idx = tab.stack->currentIndex();
+                tab.stack->removeWidget(tab.text.page);
+                tab.stack->removeWidget(tab.vision.page);
+                auto *debugLayout = tab.debugContainer->layout();
+                debugLayout->addWidget(tab.text.page);
+                debugLayout->addWidget(tab.vision.page);
+                tab.text.page->show();
+                tab.vision.page->show();
+                tab.stack->hide();
+                tab.debugContainer->show();
+                if (idx == 0) {
+                    tab.visionToggle->setChecked(true);
+                }
+            } else {
+                auto *debugLayout = tab.debugContainer->layout();
+                debugLayout->removeWidget(tab.text.page);
+                debugLayout->removeWidget(tab.vision.page);
+                tab.stack->addWidget(tab.vision.page);
+                tab.stack->addWidget(tab.text.page);
+                tab.stack->setCurrentIndex(tab.modeGroup->checkedId() == 0 ? 0 : 1);
+                tab.debugContainer->hide();
+                tab.stack->show();
+            }
+        });
+
+        connect(refresh, &QPushButton::clicked, this, [this, id]() {
+            refreshLocalModels(id);
+        });
+
+        connect(url, &QLineEdit::textChanged, this, [this, id](const QString &text) {
+            AppSettings().setLocalProviderUrl(id, text);
+        });
+
+        // Text page signal handlers
+        connect(t.text.model, &QComboBox::currentTextChanged, this, [this, id](const QString &m) {
+            LocalProviderTab &tab = m_localTabs[id];
+            AppSettings().setLocalProviderModel(id, m);
+            const QString p = AppSettings().localAiPrompt(m);
+            tab.text.prompt->setPlainText(p);
+        });
+        connect(t.text.timeout, qOverload<int>(&QSpinBox::valueChanged), this, [this, id](int val) {
+            AppSettings().setLocalAiTimeout(id, val);
+        });
+        connect(t.text.prompt, &QPlainTextEdit::textChanged, this, [this, id]() {
+            LocalProviderTab &tab = m_localTabs[id];
+            const QString curModel = tab.text.model->currentText();
+            if (!curModel.isEmpty()) {
+                AppSettings().setLocalAiPrompt(curModel, tab.text.prompt->toPlainText());
+            }
+        });
+        if (t.text.disableThinking) {
+            connect(t.text.disableThinking, &QCheckBox::toggled, this, [this, id](bool checked) {
+                AppSettings().setLocalAiDisableThinking(id, checked);
+            });
+        }
+
+        // Vision page signal handlers
+        connect(t.vision.model, &QComboBox::currentTextChanged, this, [this, id](const QString &m) {
+            LocalProviderTab &tab = m_localTabs[id];
+            AppSettings().setLocalVisionModel(id, m);
+            const QString p = AppSettings().localVisionPrompt(m);
+            tab.vision.prompt->setPlainText(p);
+        });
+        connect(t.vision.timeout, qOverload<int>(&QSpinBox::valueChanged), this, [this, id](int val) {
+            AppSettings().setLocalAiVisionTimeout(id, val);
+        });
+        connect(t.vision.prompt, &QPlainTextEdit::textChanged, this, [this, id]() {
+            LocalProviderTab &tab = m_localTabs[id];
+            const QString curModel = tab.vision.model->currentText();
+            if (!curModel.isEmpty()) {
+                AppSettings().setLocalVisionPrompt(curModel, tab.vision.prompt->toPlainText());
+            }
+        });
+        if (t.vision.disableThinking) {
+            connect(t.vision.disableThinking, &QCheckBox::toggled, this, [this, id](bool checked) {
+                AppSettings().setLocalAiDisableVisionThinking(id, checked);
+            });
+        }
+    }
+}
+
+void SettingsDialog::loadLocalAiSettings()
+{
+    const AppSettings settings;
+    const QStringList providerIds = AppSettings::localProviderIds();
+    for (const QString &id : providerIds) {
+        LocalProviderTab &tab = m_localTabs[id];
+        QSignalBlocker urlBlocker(tab.url);
+        tab.url->setText(settings.localProviderUrl(id));
+
+        const bool isVision = settings.isVisionEnabled(id);
+        {
+            QSignalBlocker blocker(tab.modeGroup);
+            if (isVision) {
+                tab.visionToggle->setChecked(true);
+                tab.stack->setCurrentIndex(0);
+            } else {
+                tab.textToggle->setChecked(true);
+                tab.stack->setCurrentIndex(1);
+            }
+        }
+
+        QStringList models = settings.localProviderModels(id);
+        const QString textModel = settings.localProviderModel(id);
+        if (!textModel.isEmpty() && !models.contains(textModel)) {
+            models.prepend(textModel);
+        }
+        {
+            QSignalBlocker b(tab.text.model);
+            tab.text.model->clear();
+            tab.text.model->addItems(models);
+            tab.text.model->setCurrentText(textModel);
+        }
+        widenComboPopup(tab.text.model);
+
+        const QString visionModel = settings.localVisionModel(id);
+        if (!visionModel.isEmpty() && !models.contains(visionModel)) {
+            models.prepend(visionModel);
+        }
+        {
+            QSignalBlocker b(tab.vision.model);
+            tab.vision.model->clear();
+            tab.vision.model->addItems(models);
+            tab.vision.model->setCurrentText(visionModel);
+        }
+        widenComboPopup(tab.vision.model);
+
+        tab.text.prompt->setPlainText(settings.localAiPrompt(textModel));
+        tab.vision.prompt->setPlainText(settings.localVisionPrompt(visionModel));
+        tab.text.timeout->setValue(settings.localAiTimeout(id));
+        tab.vision.timeout->setValue(settings.localAiVisionTimeout(id));
+        if (tab.text.disableThinking) {
+            tab.text.disableThinking->setChecked(settings.localAiDisableThinking(id));
+        }
+        if (tab.vision.disableThinking) {
+            tab.vision.disableThinking->setChecked(settings.localAiDisableVisionThinking(id));
+        }
+    }
+
+    const int di = ui->detectProviderComboBox->findData(settings.detectProvider());
+    {
+        QSignalBlocker blocker(ui->detectProviderComboBox);
+        if (di >= 0) {
+            ui->detectProviderComboBox->setCurrentIndex(di);
+        }
+    }
+    ui->detectViaLlmCheckBox->setChecked(settings.detectViaLlm());
+    populateDetectModels();
+    {
+        QSignalBlocker blocker(ui->detectModelComboBox);
+        ui->detectModelComboBox->setCurrentText(settings.detectModel());
+    }
+}
+
+void SettingsDialog::saveLocalAiSettings()
+{
+    AppSettings settings;
+    const QStringList providerIds = AppSettings::localProviderIds();
+    for (const QString &id : providerIds) {
+        const LocalProviderTab &tab = m_localTabs[id];
+        settings.setLocalProviderUrl(id, tab.url->text());
+        settings.setVisionEnabled(id, tab.modeGroup->checkedId() == 0);
+        settings.setLocalProviderModel(id, tab.text.model->currentText());
+        settings.setLocalVisionModel(id, tab.vision.model->currentText());
+        settings.setLocalAiTimeout(id, tab.text.timeout->value());
+        settings.setLocalAiVisionTimeout(id, tab.vision.timeout->value());
+        if (tab.text.disableThinking) {
+            settings.setLocalAiDisableThinking(id, tab.text.disableThinking->isChecked());
+        }
+        if (tab.vision.disableThinking) {
+            settings.setLocalAiDisableVisionThinking(id, tab.vision.disableThinking->isChecked());
+        }
+        const QString tModel = tab.text.model->currentText();
+        if (!tModel.isEmpty()) {
+            settings.setLocalAiPrompt(tModel, tab.text.prompt->toPlainText());
+        }
+        const QString vModel = tab.vision.model->currentText();
+        if (!vModel.isEmpty()) {
+            settings.setLocalVisionPrompt(vModel, tab.vision.prompt->toPlainText());
+        }
+    }
+}
+
+void SettingsDialog::populateDetectModels()
+{
+    const QString id = ui->detectProviderComboBox->currentData().toString();
+    const QStringList models = AppSettings().localProviderModels(id);
+    const QString cur = ui->detectModelComboBox->currentText();
+    {
+        QSignalBlocker blocker(ui->detectModelComboBox);
+        ui->detectModelComboBox->clear();
+        ui->detectModelComboBox->addItems(models);
+        if (!cur.isEmpty()) {
+            ui->detectModelComboBox->setCurrentText(cur);
+        }
+    }
+    widenComboPopup(ui->detectModelComboBox);
+}
+
+void SettingsDialog::refreshLocalModels(const QString &id)
+{
+    QString base = m_localTabs[id].url->text().trimmed();
+    if (base.isEmpty()) {
+        base = AppSettings::defaultLocalProviderUrl(id);
+    }
+    while (base.endsWith(QLatin1Char('/'))) {
+        base.chop(1);
+    }
+
+    QNetworkAccessManager manager;
+    manager.setTransferTimeout(5000);
+    QNetworkReply *reply = manager.get(QNetworkRequest(QUrl(base + QStringLiteral("/v1/models"))));
+    QEventLoop loop;
+    connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
+    loop.exec();
+
+    const QString display = AppSettings::localProviderDisplayName(id);
+    if (reply->error() != QNetworkReply::NoError) {
+        QMessageBox::warning(this, display, tr("Could not reach %1 at %2:\n%3").arg(display, base, reply->errorString()));
+        reply->deleteLater();
+        return;
+    }
+    const QJsonArray data = QJsonDocument::fromJson(reply->readAll()).object().value(QStringLiteral("data")).toArray();
+    reply->deleteLater();
+
+    QStringList names;
+    for (const QJsonValue &m : data) {
+        const QString name = m.toObject().value(QStringLiteral("id")).toString();
+        if (!name.isEmpty()) {
+            names.append(name);
+        }
+    }
+    if (names.isEmpty()) {
+        QMessageBox::information(this, display, tr("No models found."));
+        return;
+    }
+
+    AppSettings().setLocalProviderModels(id, names);
+
+    LocalProviderTab &tab = m_localTabs[id];
+    const QString curText = tab.text.model->currentText();
+    {
+        QSignalBlocker blocker(tab.text.model);
+        tab.text.model->clear();
+        tab.text.model->addItems(names);
+        if (!curText.isEmpty()) {
+            tab.text.model->setCurrentText(curText);
+        }
+    }
+    widenComboPopup(tab.text.model);
+
+    const QString curVision = tab.vision.model->currentText();
+    {
+        QSignalBlocker blocker(tab.vision.model);
+        tab.vision.model->clear();
+        tab.vision.model->addItems(names);
+        if (!curVision.isEmpty()) {
+            tab.vision.model->setCurrentText(curVision);
+        }
+    }
+    widenComboPopup(tab.vision.model);
+
+    if (ui->detectProviderComboBox->currentData().toString() == id) {
+        populateDetectModels();
+    }
 }
 
 void SettingsDialog::onProxyTypeChanged(int type)
@@ -310,7 +879,7 @@ void SettingsDialog::detectFastestInstance()
         ui->detectFastestButton->setEnabled(true);
         dialog->deleteLater();
     });
-    connect(dialog, &InstancePingerDialog::accepted, [this, dialog]() {
+    connect(dialog, &InstancePingerDialog::accepted, dialog, [this, dialog]() {
         ui->mozhiUrlComboBox->setCurrentText(dialog->fastestUrl());
         ui->detectFastestButton->setEnabled(true);
         dialog->deleteLater();
@@ -604,6 +1173,9 @@ void SettingsDialog::loadSettings()
     disconnect(ui->mozhiUrlComboBox, &QComboBox::currentTextChanged, this, &SettingsDialog::mozhiInstanceChanged);
     ui->mozhiUrlComboBox->setCurrentText(settings.instance());
     connect(ui->mozhiUrlComboBox, &QComboBox::currentTextChanged, this, &SettingsDialog::mozhiInstanceChanged);
+
+    // LocalAI
+    loadLocalAiSettings();
 
     // OCR
     ui->convertLineBreaksCheckBox->setChecked(settings.isConvertLineBreaks());

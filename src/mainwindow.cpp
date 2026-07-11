@@ -2,6 +2,7 @@
  * SPDX-FileCopyrightText: 2018 Hennadii Chernyshchyk <genaloner@gmail.com>
  * SPDX-FileCopyrightText: 2022 Volk Milit <javirrdar@gmail.com>
  * SPDX-FileCopyrightText: 2025 Mauritius Clemens <gitlab@janitor.chat>
+ * SPDX-FileCopyrightText: 2026 Oleksandr Mikriukov <ur3ley@gmail.com>
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
@@ -21,11 +22,21 @@
 #include "tts/attsprovider.h"
 #include "tts/voice.h"
 
+#include <QAbstractItemView>
 #include <QApplication>
+#include <QBuffer>
 #include <QButtonGroup>
 #include <QClipboard>
 #include <QCloseEvent>
+#include <QDragEnterEvent>
+#include <QDropEvent>
+#include <QFile>
+#include <QFontMetrics>
+#include <QImage>
+#include <QKeyEvent>
+#include <QLabel>
 #include <QMessageBox>
+#include <QMimeData>
 #include <QSet>
 #include <QTimer>
 
@@ -56,6 +67,13 @@ MainWindow::MainWindow(QWidget *parent)
     , m_screenGrabber(AbstractScreenGrabber::createScreenGrabber(this))
 {
     ui->setupUi(this);
+    // Save original Mozhi engine combo items so they can be restored after
+    // switching to LocalAI (which clears the combo).
+    for (int i = 0; i < ui->engineComboBox->count(); ++i) {
+        m_engineItemsText.append(ui->engineComboBox->itemText(i));
+        m_engineItemsData.append(ui->engineComboBox->itemData(i).toString());
+        m_engineItemsIcons.append(ui->engineComboBox->itemIcon(i));
+    }
     // Screen orientation
     connect(m_orientationWatcher, &ScreenWatcher::screenOrientationChanged, this, &MainWindow::setOrientation);
 
@@ -100,11 +118,23 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->translationStopButton, &QToolButton::clicked, this, &MainWindow::translationStopClicked);
     connect(ui->settingsButton, &QToolButton::clicked, this, &MainWindow::openSettings);
     connect(m_tts, &ATTSProvider::stateChanged, this, &MainWindow::ttsStateChanged);
+    connect(ui->sourceEdit, &SourceTextEdit::textEdited, this, &MainWindow::updateTranslateButtonState);
     connect(ui->sourceEdit, &SourceTextEdit::textEdited, this, &MainWindow::updateTTSButtonStates);
     connect(ui->sourceEdit, &SourceTextEdit::textEdited, this, &MainWindow::updateAutoLocales);
     connect(ui->sourceEdit, &SourceTextEdit::textEdited, this, &MainWindow::handleAutoTranslation);
 
     ui->sourceEdit->setListenForEdits(true);
+    ui->sourceEdit->viewport()->setAcceptDrops(true);
+    ui->sourceEdit->viewport()->installEventFilter(this);
+    ui->sourceEdit->installEventFilter(this);
+
+    // Image preview overlay — child of sourceEdit's parent, positioned manually
+    m_imagePreview = new QLabel(ui->sourceEdit->parentWidget());
+    m_imagePreview->setAlignment(Qt::AlignCenter);
+    m_imagePreview->setStyleSheet(QStringLiteral("QLabel{background:#1e1e1e;border:1px solid #555;border-radius:4px}"));
+    m_imagePreview->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_imagePreview->hide();
+    ui->sourceEdit->parentWidget()->installEventFilter(this);
 
     connect(ui->sourceVoiceComboBox, qOverload<int>(&QComboBox::currentIndexChanged), this, [this]() {
         if (m_tts && ui->sourceVoiceComboBox->currentData().isValid()) {
@@ -212,6 +242,8 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     loadMainWindowSettings();
+
+    updateTranslateButtonState();
 
     refreshLanguageWidgetsWithSupportedLanguages();
 
@@ -1267,10 +1299,10 @@ void MainWindow::updateTTSButtonStates()
 
 void MainWindow::updateTranslateButtonState()
 {
-    const bool hasText = !ui->sourceEdit->toPlainText().isEmpty();
+    const bool hasContent = !ui->sourceEdit->toPlainText().isEmpty() || m_hasSourceImage;
     const bool translatorReady = (m_translator != nullptr) && m_translator->getState() == ATranslationProvider::State::Ready;
     const bool translatorProcessing = (m_translator != nullptr) && m_translator->getState() == ATranslationProvider::State::Processing;
-    ui->translateButton->setEnabled(hasText && translatorReady);
+    ui->translateButton->setEnabled(hasContent && translatorReady);
     ui->abortButton->setEnabled(translatorProcessing);
 }
 
@@ -1287,6 +1319,15 @@ void MainWindow::setupEngineComboBoxConnection()
                 auto options = std::make_unique<ProviderOptions>();
                 options->setOption("engine", index);
                 m_translator->applyOptions(*options);
+            } else if (reqs.supportedCapabilities.contains("providerSelection")) {
+                // LocalAI: the combo lists local providers (Ollama/FastFlowLM/LM Studio).
+                const QString providerId = ui->engineComboBox->itemData(index).toString();
+                if (!providerId.isEmpty()) {
+                    AppSettings settings;
+                    settings.setActiveLocalProvider(providerId);
+                    // Re-apply so URL/model/prompt follow the chosen provider.
+                    applyTranslationProviderSettings();
+                }
             }
         }
     });
@@ -1302,7 +1343,41 @@ void MainWindow::updateProviderUI()
         // Set current engine selection for providers that support it
         if (translationReqs.supportedCapabilities.contains("engineSelection")) {
             const AppSettings settings;
+            // Restore Mozhi engine items if LocalAI replaced them
+            const bool isMozhi = !m_engineItemsText.isEmpty()
+                && (ui->engineComboBox->count() == 0
+                    || ui->engineComboBox->itemText(0) != m_engineItemsText.at(0));
+            if (isMozhi) {
+                QSignalBlocker blocker(ui->engineComboBox);
+                ui->engineComboBox->clear();
+                for (int i = 0; i < m_engineItemsText.size(); ++i) {
+                    ui->engineComboBox->addItem(m_engineItemsIcons.at(i),
+                                                m_engineItemsText.at(i),
+                                                m_engineItemsData.at(i));
+                }
+            }
             ui->engineComboBox->setCurrentIndex(static_cast<int>(settings.currentEngine()));
+        } else if (translationReqs.supportedCapabilities.contains("providerSelection")) {
+            // LocalAI: populate the combo with local providers, select the active one.
+            const AppSettings settings;
+            QSignalBlocker blocker(ui->engineComboBox);
+            ui->engineComboBox->clear();
+            const QStringList providerIds = AppSettings::localProviderIds();
+            for (const QString &id : providerIds) {
+                ui->engineComboBox->addItem(AppSettings::localProviderDisplayName(id), id);
+            }
+            const int idx = ui->engineComboBox->findData(settings.activeLocalProvider());
+            if (idx >= 0) {
+                ui->engineComboBox->setCurrentIndex(idx);
+            }
+            const QFontMetrics fm(ui->engineComboBox->font());
+            int popupWidth = 0;
+            for (int i = 0; i < ui->engineComboBox->count(); ++i) {
+                popupWidth = qMax(popupWidth, fm.horizontalAdvance(ui->engineComboBox->itemText(i)));
+            }
+            if (popupWidth > 0) {
+                ui->engineComboBox->view()->setMinimumWidth(popupWidth + 40);
+            }
         }
     }
 
@@ -1603,6 +1678,19 @@ void MainWindow::on_translateButton_clicked()
 
 void MainWindow::on_swapButton_clicked()
 {
+    if (m_hasSourceImage) {
+        const QString translationText = ui->translationEdit->toPlainText();
+        clearSourceImage();
+        ui->sourceEdit->setPlainText(translationText);
+        ui->translationEdit->clear();
+        LanguageButtonsWidget::swapCurrentLanguages(ui->sourceLanguagesWidget, ui->translationLanguagesWidget);
+        m_sourceLang = ui->sourceLanguagesWidget->checkedLanguage();
+        m_destLang = ui->translationLanguagesWidget->checkedLanguage();
+        updateTranslateButtonState();
+        updateTTSButtonStates();
+        return;
+    }
+
     LanguageButtonsWidget::swapCurrentLanguages(ui->sourceLanguagesWidget, ui->translationLanguagesWidget);
 
     m_sourceLang = ui->sourceLanguagesWidget->checkedLanguage();
@@ -1657,6 +1745,11 @@ void MainWindow::on_copyAllTranslationButton_clicked()
 
 void MainWindow::on_clearButton_clicked()
 {
+    if (m_hasSourceImage) {
+        clearSourceImage();
+        ui->translationEdit->clear();
+        return;
+    }
     ui->sourceEdit->clear();
     ui->translationEdit->clear();
 }
@@ -1714,4 +1807,180 @@ void MainWindow::handleTranslationRequest(const QString &text, const Language &d
              << "destLang:" << destLang.name() << "actualDest:" << actualDestLang.name();
 
     m_translator->translate(text, actualDestLang, srcLang);
+}
+
+void MainWindow::setSourceImageInternal(const QImage &src)
+{
+    QImage img = src;
+
+    if (img.width() * img.height() > AppSettings::maxSourceImagePixels) {
+        ui->sourceEdit->setPlainText(tr("Image too large (%1 MP). Max %2 MP.")
+                                         .arg(img.width() * img.height() / 1000000.0, 0, 'f', 0)
+                                         .arg(AppSettings::maxSourceImagePixels / 1000000.0, 0, 'f', 0));
+        return;
+    }
+
+    if (img.width() > AppSettings::maxSourceImageDimension || img.height() > AppSettings::maxSourceImageDimension) {
+        img = img.scaled(AppSettings::maxSourceImageDimension, AppSettings::maxSourceImageDimension, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    }
+
+    QByteArray data;
+    QBuffer buf(&data);
+    buf.open(QIODevice::WriteOnly);
+    img.save(&buf, "JPEG", AppSettings::sourceImageJpegQuality);
+
+    if (data.size() > AppSettings::maxSourceImageBytes) {
+        ui->sourceEdit->setPlainText(tr("Image too large (%1 MB). Max %2 MB.")
+                                         .arg(data.size() / (1024.0 * 1024.0), 0, 'f', 1)
+                                         .arg(AppSettings::maxSourceImageBytes / (1024.0 * 1024.0), 0, 'f', 1));
+        return;
+    }
+
+    m_translator->setSourceImage(data);
+
+    // Show preview over sourceEdit using geometry
+    m_originalPixmap = QPixmap::fromImage(img);
+    const QRect geo = ui->sourceEdit->geometry();
+    m_imagePreview->setGeometry(geo);
+    m_imagePreview->setPixmap(m_originalPixmap.scaled(geo.size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    m_imagePreview->show();
+    m_hasSourceImage = true;
+    ui->sourceLanguagesWidget->setEnabled(false);
+
+    updateTranslateButtonState();
+
+    if (ui->autoTranslateCheckBox->isChecked()) {
+        on_translateButton_clicked();
+    }
+}
+
+void MainWindow::clearSourceImage()
+{
+    if (!m_hasSourceImage) {
+        return;
+    }
+    m_hasSourceImage = false;
+    m_translator->clearSourceImage();
+    m_imagePreview->hide();
+    m_originalPixmap = QPixmap();
+    ui->sourceLanguagesWidget->setEnabled(true);
+}
+
+static QByteArray stripNonStandardPngChunks(const QByteArray &data)
+{
+    constexpr int SIG_LEN = 8;
+    if (data.size() < SIG_LEN + 12 || data.left(SIG_LEN) != QByteArray("\x89PNG\r\n\x1a\n", SIG_LEN)) {
+        return data;
+    }
+
+    QByteArray out = data.left(SIG_LEN);
+
+    static const QSet<QByteArray> standardChunks = {
+        QByteArrayLiteral("IHDR"), QByteArrayLiteral("PLTE"),
+        QByteArrayLiteral("IDAT"), QByteArrayLiteral("IEND"),
+        QByteArrayLiteral("tRNS"), QByteArrayLiteral("cHRM"), QByteArrayLiteral("gAMA"),
+        QByteArrayLiteral("iCCP"), QByteArrayLiteral("sBIT"), QByteArrayLiteral("sRGB"),
+        QByteArrayLiteral("bKGD"), QByteArrayLiteral("hIST"), QByteArrayLiteral("tEXt"),
+        QByteArrayLiteral("zTXt"), QByteArrayLiteral("iTXt"), QByteArrayLiteral("pHYs"),
+        QByteArrayLiteral("sPLT"), QByteArrayLiteral("tIME"), QByteArrayLiteral("eXIf"),
+        QByteArrayLiteral("oFFs"), QByteArrayLiteral("pCAL"), QByteArrayLiteral("sCAL"),
+        QByteArrayLiteral("gIFg"), QByteArrayLiteral("gIFx")};
+
+    int pos = SIG_LEN;
+    while (pos + 12 <= data.size()) {
+        const quint32 length = qFromBigEndian<quint32>(reinterpret_cast<const uchar *>(data.constData() + pos));
+        const QByteArray type = data.mid(pos + 4, 4);
+        const int chunkTotal = 12 + static_cast<int>(length);
+
+        if (pos + chunkTotal > data.size()) {
+            return data;
+        }
+
+        if (standardChunks.contains(type)) {
+            out.append(data.mid(pos, chunkTotal));
+        }
+
+        pos += chunkTotal;
+        if (type == QByteArrayLiteral("IEND")) {
+            break;
+        }
+    }
+
+    return out;
+}
+
+bool MainWindow::eventFilter(QObject *obj, QEvent *event)
+{
+    // Resize preview overlay when parent resizes
+    if (obj == ui->sourceEdit->parentWidget() && event->type() == QEvent::Resize && m_hasSourceImage) {
+        const QRect geo = ui->sourceEdit->geometry();
+        m_imagePreview->setGeometry(geo);
+        if (!m_originalPixmap.isNull()) {
+            m_imagePreview->setPixmap(m_originalPixmap.scaled(geo.size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        }
+    }
+    if (obj == ui->sourceEdit->viewport()) {
+        if (event->type() == QEvent::DragEnter || event->type() == QEvent::DragMove) {
+            auto *de = static_cast<QDropEvent *>(event);
+            if (de->mimeData()->hasUrls() || de->mimeData()->hasImage()) {
+                de->acceptProposedAction();
+                return true;
+            }
+        }
+        if (event->type() == QEvent::Drop) {
+            auto *drop = static_cast<QDropEvent *>(event);
+            QImage img;
+            if (drop->mimeData()->hasUrls()) {
+                const QString path = drop->mimeData()->urls().constFirst().toLocalFile();
+                if (!img.load(path)) {
+                    QFile f(path);
+                    if (f.open(QIODevice::ReadOnly)) {
+                        const QByteArray raw = f.readAll();
+                        const QByteArray clean = stripNonStandardPngChunks(raw);
+                        if (clean != raw) {
+                            img.loadFromData(clean);
+                        }
+                    }
+                    if (img.isNull()) {
+                        ui->sourceEdit->setPlainText(tr("Cannot open image:\n%1").arg(path));
+                        return true;
+                    }
+                }
+            }
+            if (img.isNull() && drop->mimeData()->hasImage()) {
+                img = qvariant_cast<QImage>(drop->mimeData()->imageData());
+            }
+            if (img.isNull()) {
+                return true;
+            }
+            setSourceImageInternal(img);
+            return true;
+        }
+    }
+    if (obj == ui->sourceEdit) {
+        if (event->type() == QEvent::KeyPress) {
+            auto *ke = static_cast<QKeyEvent *>(event);
+            // Ctrl+V paste image from clipboard
+            if (ke->matches(QKeySequence::Paste)) {
+                const QClipboard *clip = QApplication::clipboard();
+                if (clip->mimeData()->hasImage()) {
+                    QImage img = qvariant_cast<QImage>(clip->mimeData()->imageData());
+                    if (!img.isNull()) {
+                        setSourceImageInternal(img);
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    return QMainWindow::eventFilter(obj, event);
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_Escape && m_hasSourceImage) {
+        clearSourceImage();
+        return;
+    }
+    QMainWindow::keyPressEvent(event);
 }

@@ -46,6 +46,7 @@ private:
     // Helper methods for translation providers
     std::unique_ptr<ProviderOptions> createMozhiTranslationOptionsFromSettings();
     std::unique_ptr<ProviderOptions> createCopyTranslationOptionsFromSettings();
+    std::unique_ptr<ProviderOptions> createLocalAiTranslationOptionsFromSettings();
 
     // Helper methods for TTS providers
     std::unique_ptr<ProviderOptions> createMozhiTTSOptionsFromSettings();

@@ -1,6 +1,7 @@
 /*
  * SPDX-FileCopyrightText: 2018 Hennadii Chernyshchyk <genaloner@gmail.com>
  * SPDX-FileCopyrightText: 2022 Volk Milit <javirrdar@gmail.com>
+ * SPDX-FileCopyrightText: 2026 Oleksandr Mikriukov <ur3ley@gmail.com>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -12,14 +13,23 @@
 #include "tts/attsprovider.h"
 
 #include <QDialog>
+#include <QMap>
+#include <QString>
 
 class MainWindow;
 class AbstractAutostartManager;
+class QLineEdit;
+class QComboBox;
+class QPlainTextEdit;
+class QCheckBox;
+class QSpinBox;
+class QButtonGroup;
+class QPushButton;
+class QStackedWidget;
 class OnlineTranslator;
 class QMediaPlayer;
 class QMediaPlaylist;
 class QLabel;
-class QLineEdit;
 class QToolButton;
 class ShortcutItem;
 #ifdef WITH_PORTABLE_MODE
@@ -84,6 +94,35 @@ private:
     void loadSettings();
 
     Ui::SettingsDialog *ui;
+
+    // LocalAI settings (Ollama / FastFlowLM / LM Studio) — dynamic sub-tabs.
+    struct LocalProviderMode {
+        QWidget *page = nullptr;
+        QLabel *modelLabel = nullptr;
+        QComboBox *model = nullptr;
+        QSpinBox *timeout = nullptr;
+        QCheckBox *disableThinking = nullptr;
+        QPlainTextEdit *prompt = nullptr;
+    };
+    struct LocalProviderTab {
+        QLineEdit *url = nullptr;
+        QPushButton *refresh = nullptr;
+        QPushButton *visionToggle = nullptr;
+        QPushButton *textToggle = nullptr;
+        QButtonGroup *modeGroup = nullptr;
+        QStackedWidget *stack = nullptr;
+        QWidget *debugContainer = nullptr;
+        QCheckBox *debugCheckBox = nullptr;
+        LocalProviderMode text;
+        LocalProviderMode vision;
+    };
+    void buildLocalAiTabs();
+    void loadLocalAiSettings();
+    void saveLocalAiSettings();
+    void refreshLocalModels(const QString &id);
+    void populateDetectModels();
+
+    QMap<QString, LocalProviderTab> m_localTabs; // provider id -> widgets
 
     // Manage platform-dependant autostart
     AbstractAutostartManager *m_autostartManager;

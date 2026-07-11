@@ -31,7 +31,8 @@ public:
     };
     enum class ProviderBackend : uint8_t {
         Copy,
-        Mozhi
+        Mozhi,
+        LocalAI
     };
     Q_ENUM(ProviderBackend)
 
@@ -49,6 +50,16 @@ public:
     virtual void abort();
     virtual void reset();
     virtual void finish();
+    virtual void setSourceImage(const QByteArray & /*imageData*/)
+    {
+    }
+    virtual void clearSourceImage()
+    {
+    }
+    virtual bool hasSourceImage() const
+    {
+        return false;
+    }
     virtual QVector<Language> supportedSourceLanguages() = 0;
     virtual QVector<Language> supportedDestinationLanguages() = 0;
     virtual bool supportsAutodetection() const = 0;

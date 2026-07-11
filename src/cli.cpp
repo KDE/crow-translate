@@ -161,6 +161,8 @@ void Cli::process(const QCoreApplication &app)
             translationBackend = ATranslationProvider::ProviderBackend::Copy;
         } else if (providerName == "mozhi") {
             translationBackend = ATranslationProvider::ProviderBackend::Mozhi;
+        } else if (providerName == "localai" || providerName == "ollama") {
+            translationBackend = ATranslationProvider::ProviderBackend::LocalAI;
         } else {
             qCritical() << tr("Error: Unknown translation provider '%1'").arg(providerName) << '\n';
             parser.showHelp(1);

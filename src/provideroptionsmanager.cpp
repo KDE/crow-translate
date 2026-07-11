@@ -28,6 +28,8 @@ std::unique_ptr<ProviderOptions> ProviderOptionsManager::createTranslationOption
         return createMozhiTranslationOptionsFromSettings();
     } else if (providerType == "CopyTranslationProvider") {
         return createCopyTranslationOptionsFromSettings();
+    } else if (providerType == "LocalAiTranslationProvider") {
+        return createLocalAiTranslationOptionsFromSettings();
     }
 
     return nullptr;
@@ -96,6 +98,34 @@ std::unique_ptr<ProviderOptions> ProviderOptionsManager::createMozhiTranslationO
 std::unique_ptr<ProviderOptions> ProviderOptionsManager::createCopyTranslationOptionsFromSettings()
 {
     return std::make_unique<ProviderOptions>();
+}
+
+std::unique_ptr<ProviderOptions> ProviderOptionsManager::createLocalAiTranslationOptionsFromSettings()
+{
+    const AppSettings settings;
+    auto options = std::make_unique<ProviderOptions>();
+
+    const QString active = settings.activeLocalProvider();
+    const QString model = settings.localProviderModel(active);
+    options->setOption("url", settings.localProviderUrl(active));
+    options->setOption("model", model);
+    options->setOption("prompt", settings.localAiPrompt(model));
+    options->setOption("disable_thinking", settings.localAiDisableThinking(active));
+    options->setOption("timeout", settings.localAiTimeout(active));
+
+    options->setOption("vision_enabled", settings.isVisionEnabled(active));
+    const QString visionModel = settings.localVisionModel(active);
+    options->setOption("vision_model", visionModel);
+    options->setOption("vision_prompt", settings.localVisionPrompt(visionModel));
+    options->setOption("vision_disable_thinking", settings.localAiDisableVisionThinking(active));
+    options->setOption("vision_timeout", settings.localAiVisionTimeout(active));
+
+    const QString detectProvider = settings.detectProvider();
+    options->setOption("detect_via_llm", settings.detectViaLlm());
+    options->setOption("detect_url", settings.localProviderUrl(detectProvider));
+    options->setOption("detect_model", settings.detectModel());
+
+    return options;
 }
 
 // TTS Provider Helper Methods

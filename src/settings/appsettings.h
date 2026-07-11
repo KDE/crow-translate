@@ -1,6 +1,7 @@
 /*
  * SPDX-FileCopyrightText: 2018 Hennadii Chernyshchyk <genaloner@gmail.com>
  * SPDX-FileCopyrightText: 2022 Volk Milit <javirrdar@gmail.com>
+ * SPDX-FileCopyrightText: 2026 Oleksandr Mikriukov <ur3ley@gmail.com>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -188,6 +189,55 @@ public:
 
     QString instance() const;
     void setInstance(const QString &url);
+
+    // LocalAI backend (Ollama / FastFlowLM / LM Studio via OpenAI /v1)
+    static QStringList localProviderIds();
+    static QString localProviderDisplayName(const QString &id);
+    static QString defaultLocalProviderUrl(const QString &id);
+    static QString defaultLocalProviderModel(const QString &id);
+
+    QString activeLocalProvider() const;
+    void setActiveLocalProvider(const QString &id);
+    QString localProviderUrl(const QString &id) const;
+    void setLocalProviderUrl(const QString &id, const QString &url);
+    QString localProviderModel(const QString &id) const;
+    void setLocalProviderModel(const QString &id, const QString &model);
+    QStringList localProviderModels(const QString &id) const;
+    void setLocalProviderModels(const QString &id, const QStringList &models);
+
+    bool detectViaLlm() const;
+    void setDetectViaLlm(bool enabled);
+    QString detectProvider() const;
+    void setDetectProvider(const QString &id);
+    QString detectModel() const;
+    void setDetectModel(const QString &model);
+
+    int localAiTimeout(const QString &providerId) const;
+    void setLocalAiTimeout(const QString &providerId, int seconds);
+    static int defaultLocalAiTimeout();
+    bool localAiDisableThinking(const QString &providerId) const;
+    void setLocalAiDisableThinking(const QString &providerId, bool disable);
+
+    int localAiVisionTimeout(const QString &providerId) const;
+    void setLocalAiVisionTimeout(const QString &providerId, int seconds);
+    bool localAiDisableVisionThinking(const QString &providerId) const;
+    void setLocalAiDisableVisionThinking(const QString &providerId, bool disable);
+
+    QString localAiPrompt(const QString &model) const;
+    void setLocalAiPrompt(const QString &model, const QString &prompt);
+    static QString defaultLocalAiPrompt();
+    QString localVisionPrompt(const QString &model) const;
+    void setLocalVisionPrompt(const QString &model, const QString &prompt);
+    static QString defaultVisionPrompt();
+    QString localVisionModel(const QString &providerId) const;
+    void setLocalVisionModel(const QString &providerId, const QString &model);
+    bool isVisionEnabled(const QString &providerId) const;
+    void setVisionEnabled(const QString &providerId, bool enabled);
+
+    static constexpr qint64 maxSourceImagePixels = 100LL * 1000 * 1000;
+    static constexpr int maxSourceImageDimension = 2048;
+    static constexpr qint64 maxSourceImageBytes = 20LL * 1024 * 1024;
+    static constexpr int sourceImageJpegQuality = 85;
 
     ATranslationProvider::ProviderBackend translationProviderBackend() const;
     void setTranslationProviderBackend(ATranslationProvider::ProviderBackend newBackend);

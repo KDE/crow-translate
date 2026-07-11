@@ -223,6 +223,8 @@ add_executable(${PROJECT_NAME}
     src/translator/copytranslationprovider.cpp
     src/translator/mozhitranslationprovider.h
     src/translator/mozhitranslationprovider.cpp
+    src/translator/localaitranslationprovider.h
+    src/translator/localaitranslationprovider.cpp
     src/provideroptions.h
     src/provideroptions.cpp
     src/provideroptionsmanager.h

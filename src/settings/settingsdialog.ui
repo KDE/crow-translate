@@ -86,6 +86,14 @@
       </item>
       <item>
        <property name="text">
+        <string notr="true">LocalAI</string>
+       </property>
+       <property name="icon">
+        <iconset theme="preferences-desktop-locale"/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
         <string notr="true">OCR</string>
        </property>
        <property name="icon">
@@ -711,17 +719,51 @@
                   </property>
                  </widget>
                 </item>
-                <item row="3" column="0" colspan="2">
-                 <widget class="QCheckBox" name="forceTranslationAutodetectCheckBox">
-                  <property name="toolTip">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically switch to &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; when using OCR and global shortcuts&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                  </property>
-                  <property name="text">
-                   <string>Force translation language detection</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
+                 <item row="3" column="0" colspan="2">
+                  <widget class="QCheckBox" name="forceTranslationAutodetectCheckBox">
+                   <property name="toolTip">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Automatically switch to &lt;span style=&quot; font-style:italic;&quot;&gt;Auto&lt;/span&gt; when using OCR and global shortcuts&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                   <property name="text">
+                    <string>Force translation language detection</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="0" colspan="2">
+                  <widget class="QCheckBox" name="detectViaLlmCheckBox">
+                   <property name="toolTip">
+                    <string>Detect the source language using a LocalAI model instead of the built-in heuristic. Choose the provider and model below.</string>
+                   </property>
+                   <property name="text">
+                    <string>Detect language via LLM (LocalAI)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="0">
+                  <widget class="QLabel" name="detectProviderLabel">
+                   <property name="text">
+                    <string>Detection provider:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="1">
+                  <widget class="QComboBox" name="detectProviderComboBox"/>
+                 </item>
+                 <item row="6" column="0">
+                  <widget class="QLabel" name="detectModelLabel">
+                   <property name="text">
+                    <string>Detection model:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="1">
+                  <widget class="QComboBox" name="detectModelComboBox">
+                   <property name="editable">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
               </widget>
              </item>
             </layout>
@@ -903,6 +945,29 @@
                </size>
               </property>
              </spacer>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="localAiPage">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+            <layout class="QVBoxLayout" name="localAiLayout">
+             <item>
+              <widget class="QLabel" name="localAiHintLabel">
+               <property name="text">
+               <string>Local OpenAI-compatible servers. Set URL, translation model and prompt for each. Language detection is configured on the Translation page.</string>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTabWidget" name="localAiTabWidget"/>
             </item>
            </layout>
           </widget>

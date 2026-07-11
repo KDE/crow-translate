@@ -1,6 +1,7 @@
 /*
  * SPDX-FileCopyrightText: 2018 Hennadii Chernyshchyk <genaloner@gmail.com>
  * SPDX-FileCopyrightText: 2022 Volk Milit <javirrdar@gmail.com>
+ * SPDX-FileCopyrightText: 2026 Oleksandr Mikriukov <ur3ley@gmail.com>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -630,6 +631,228 @@ QString AppSettings::instance() const
 void AppSettings::setInstance(const QString &url)
 {
     m_settings->setValue(QStringLiteral("Translation/Instance"), url);
+}
+
+// ── LocalAI backend ───────────────────────────────────────────
+
+QStringList AppSettings::localProviderIds()
+{
+    return {QStringLiteral("ollama"), QStringLiteral("fastflowlm"), QStringLiteral("lmstudio")};
+}
+
+QString AppSettings::localProviderDisplayName(const QString &id)
+{
+    if (id == QLatin1String("ollama")) {
+        return QStringLiteral("Ollama");
+    }
+    if (id == QLatin1String("fastflowlm")) {
+        return QStringLiteral("FastFlowLM");
+    }
+    if (id == QLatin1String("lmstudio")) {
+        return QStringLiteral("LM Studio");
+    }
+    return id;
+}
+
+QString AppSettings::defaultLocalProviderUrl(const QString &id)
+{
+    if (id == QLatin1String("fastflowlm")) {
+        return QStringLiteral("http://localhost:8082");
+    }
+    if (id == QLatin1String("lmstudio")) {
+        return QStringLiteral("http://localhost:1234");
+    }
+    return QStringLiteral("http://localhost:11434"); // ollama
+}
+
+QString AppSettings::defaultLocalProviderModel(const QString &id)
+{
+    if (id == QLatin1String("ollama")) {
+        return QStringLiteral("translategemma_12b_128k:latest");
+    }
+    return QString();
+}
+
+QString AppSettings::activeLocalProvider() const
+{
+    return m_settings->value(QStringLiteral("LocalAI/ActiveProvider"), QStringLiteral("ollama")).toString();
+}
+
+void AppSettings::setActiveLocalProvider(const QString &id)
+{
+    m_settings->setValue(QStringLiteral("LocalAI/ActiveProvider"), id);
+}
+
+QString AppSettings::localProviderUrl(const QString &id) const
+{
+    return m_settings->value(QStringLiteral("LocalAI/") + id + QStringLiteral("/Url"), defaultLocalProviderUrl(id)).toString();
+}
+
+void AppSettings::setLocalProviderUrl(const QString &id, const QString &url)
+{
+    m_settings->setValue(QStringLiteral("LocalAI/") + id + QStringLiteral("/Url"), url);
+}
+
+QString AppSettings::localProviderModel(const QString &id) const
+{
+    return m_settings->value(QStringLiteral("LocalAI/") + id + QStringLiteral("/Model"), defaultLocalProviderModel(id)).toString();
+}
+
+void AppSettings::setLocalProviderModel(const QString &id, const QString &model)
+{
+    m_settings->setValue(QStringLiteral("LocalAI/") + id + QStringLiteral("/Model"), model);
+}
+
+QStringList AppSettings::localProviderModels(const QString &id) const
+{
+    return m_settings->value(QStringLiteral("LocalAI/") + id + QStringLiteral("/Models")).toStringList();
+}
+
+void AppSettings::setLocalProviderModels(const QString &id, const QStringList &models)
+{
+    m_settings->setValue(QStringLiteral("LocalAI/") + id + QStringLiteral("/Models"), models);
+}
+
+bool AppSettings::detectViaLlm() const
+{
+    return m_settings->value(QStringLiteral("Translation/DetectViaLLM"), false).toBool();
+}
+
+void AppSettings::setDetectViaLlm(bool enabled)
+{
+    m_settings->setValue(QStringLiteral("Translation/DetectViaLLM"), enabled);
+}
+
+QString AppSettings::detectProvider() const
+{
+    return m_settings->value(QStringLiteral("LocalAI/DetectProvider"), QStringLiteral("ollama")).toString();
+}
+
+void AppSettings::setDetectProvider(const QString &id)
+{
+    m_settings->setValue(QStringLiteral("LocalAI/DetectProvider"), id);
+}
+
+QString AppSettings::detectModel() const
+{
+    return m_settings->value(QStringLiteral("LocalAI/DetectModel")).toString();
+}
+
+void AppSettings::setDetectModel(const QString &model)
+{
+    m_settings->setValue(QStringLiteral("LocalAI/DetectModel"), model);
+}
+
+int AppSettings::localAiTimeout(const QString &providerId) const
+{
+    return m_settings->value(QStringLiteral("LocalAI/") + providerId + QStringLiteral("/Timeout"), defaultLocalAiTimeout()).toInt();
+}
+
+void AppSettings::setLocalAiTimeout(const QString &providerId, int seconds)
+{
+    m_settings->setValue(QStringLiteral("LocalAI/") + providerId + QStringLiteral("/Timeout"), seconds);
+}
+
+int AppSettings::defaultLocalAiTimeout()
+{
+    return 300;
+}
+
+bool AppSettings::localAiDisableThinking(const QString &providerId) const
+{
+    return m_settings->value(QStringLiteral("LocalAI/") + providerId + QStringLiteral("/DisableThinking"), false).toBool();
+}
+
+void AppSettings::setLocalAiDisableThinking(const QString &providerId, bool disable)
+{
+    m_settings->setValue(QStringLiteral("LocalAI/") + providerId + QStringLiteral("/DisableThinking"), disable);
+}
+
+int AppSettings::localAiVisionTimeout(const QString &providerId) const
+{
+    return m_settings->value(QStringLiteral("LocalAI/") + providerId + QStringLiteral("/VisionTimeout"), defaultLocalAiTimeout()).toInt();
+}
+
+void AppSettings::setLocalAiVisionTimeout(const QString &providerId, int seconds)
+{
+    m_settings->setValue(QStringLiteral("LocalAI/") + providerId + QStringLiteral("/VisionTimeout"), seconds);
+}
+
+bool AppSettings::localAiDisableVisionThinking(const QString &providerId) const
+{
+    return m_settings->value(QStringLiteral("LocalAI/") + providerId + QStringLiteral("/DisableVisionThinking"), false).toBool();
+}
+
+void AppSettings::setLocalAiDisableVisionThinking(const QString &providerId, bool disable)
+{
+    m_settings->setValue(QStringLiteral("LocalAI/") + providerId + QStringLiteral("/DisableVisionThinking"), disable);
+}
+
+bool AppSettings::isVisionEnabled(const QString &providerId) const
+{
+    return m_settings->value(QStringLiteral("LocalAI/") + providerId + QStringLiteral("/VisionEnabled"), false).toBool();
+}
+
+void AppSettings::setVisionEnabled(const QString &providerId, bool enabled)
+{
+    m_settings->setValue(QStringLiteral("LocalAI/") + providerId + QStringLiteral("/VisionEnabled"), enabled);
+}
+
+QString AppSettings::localVisionModel(const QString &providerId) const
+{
+    return m_settings->value(QStringLiteral("LocalAI/") + providerId + QStringLiteral("/VisionModel")).toString();
+}
+
+void AppSettings::setLocalVisionModel(const QString &providerId, const QString &model)
+{
+    m_settings->setValue(QStringLiteral("LocalAI/") + providerId + QStringLiteral("/VisionModel"), model);
+}
+
+QString AppSettings::defaultVisionPrompt()
+{
+    return QStringLiteral(
+        "Replace EVERY piece of text visible in the image with its {target_lang} ({target_code}) translation. "
+        "Do NOT show original text — no arrows, no \"->\", no showing both languages. "
+        "Preserve the original formatting (line breaks, paragraphs). "
+        "Output only the translated text, nothing else.");
+}
+
+QString AppSettings::defaultLocalAiPrompt()
+{
+    return QStringLiteral(
+        "You are a professional {source_lang} ({source_code}) to {target_lang} ({target_code}) translator. "
+        "Your goal is to accurately convey the meaning and nuances of the original {source_lang} text "
+        "while adhering to {target_lang} grammar, vocabulary, and cultural sensitivities.\n"
+        "Produce only the {target_lang} translation, without any additional explanations or commentary. "
+        "Please translate the following {source_lang} text into {target_lang}:\n\n\n{text}");
+}
+
+QString AppSettings::localAiPrompt(const QString &model) const
+{
+    QString key = model;
+    key.replace(QLatin1Char('/'), QLatin1Char('_'));
+    return m_settings->value(QStringLiteral("LocalAI/Prompts/") + key, defaultLocalAiPrompt()).toString();
+}
+
+void AppSettings::setLocalAiPrompt(const QString &model, const QString &prompt)
+{
+    QString key = model;
+    key.replace(QLatin1Char('/'), QLatin1Char('_'));
+    m_settings->setValue(QStringLiteral("LocalAI/Prompts/") + key, prompt);
+}
+
+QString AppSettings::localVisionPrompt(const QString &model) const
+{
+    QString key = model;
+    key.replace(QLatin1Char('/'), QLatin1Char('_'));
+    return m_settings->value(QStringLiteral("LocalAI/VisionPrompts/") + key, defaultVisionPrompt()).toString();
+}
+
+void AppSettings::setLocalVisionPrompt(const QString &model, const QString &prompt)
+{
+    QString key = model;
+    key.replace(QLatin1Char('/'), QLatin1Char('_'));
+    m_settings->setValue(QStringLiteral("LocalAI/VisionPrompts/") + key, prompt);
 }
 
 QNetworkProxy::ProxyType AppSettings::proxyType() const

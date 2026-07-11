@@ -7,6 +7,7 @@
 
 #include "settings/appsettings.h"
 #include "translator/copytranslationprovider.h"
+#include "translator/localaitranslationprovider.h"
 #include "translator/mozhitranslationprovider.h"
 
 #include <QMessageBox>
@@ -24,6 +25,9 @@ ATranslationProvider *ATranslationProvider::createTranslationProvider(QObject *p
 
         case ProviderBackend::Mozhi:
             return new MozhiTranslationProvider(parent);
+
+        case ProviderBackend::LocalAI:
+            return new LocalAiTranslationProvider(parent);
         }
     } catch (const std::exception &e) {
         qWarning() << "ATranslationProvider::createTranslationProvider - Exception creating provider" << static_cast<int>(chosenBackend) << ":" << e.what();
