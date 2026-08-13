@@ -637,7 +637,8 @@ void AppSettings::setInstance(const QString &url)
 
 QStringList AppSettings::localProviderIds()
 {
-    return {QStringLiteral("ollama"), QStringLiteral("fastflowlm"), QStringLiteral("lmstudio")};
+    return {QStringLiteral("ollama"), QStringLiteral("fastflowlm"), QStringLiteral("lmstudio"),
+            QStringLiteral("openai_custom"), QStringLiteral("anthropic")};
 }
 
 QString AppSettings::localProviderDisplayName(const QString &id)
@@ -651,6 +652,12 @@ QString AppSettings::localProviderDisplayName(const QString &id)
     if (id == QLatin1String("lmstudio")) {
         return QStringLiteral("LM Studio");
     }
+    if (id == QLatin1String("openai_custom")) {
+        return QStringLiteral("OpenAI-compatible (custom)");
+    }
+    if (id == QLatin1String("anthropic")) {
+        return QStringLiteral("Anthropic");
+    }
     return id;
 }
 
@@ -662,6 +669,12 @@ QString AppSettings::defaultLocalProviderUrl(const QString &id)
     if (id == QLatin1String("lmstudio")) {
         return QStringLiteral("http://localhost:1234");
     }
+    if (id == QLatin1String("openai_custom")) {
+        return QString(); // no sensible default - user's own/cloud endpoint
+    }
+    if (id == QLatin1String("anthropic")) {
+        return QStringLiteral("https://api.anthropic.com");
+    }
     return QStringLiteral("http://localhost:11434"); // ollama
 }
 
@@ -671,6 +684,11 @@ QString AppSettings::defaultLocalProviderModel(const QString &id)
         return QStringLiteral("translategemma_12b_128k:latest");
     }
     return QString();
+}
+
+bool AppSettings::localProviderIsAnthropic(const QString &id)
+{
+    return id == QLatin1String("anthropic");
 }
 
 QString AppSettings::activeLocalProvider() const
@@ -711,6 +729,16 @@ QStringList AppSettings::localProviderModels(const QString &id) const
 void AppSettings::setLocalProviderModels(const QString &id, const QStringList &models)
 {
     m_settings->setValue(QStringLiteral("LocalAI/") + id + QStringLiteral("/Models"), models);
+}
+
+QString AppSettings::localProviderApiKey(const QString &id) const
+{
+    return m_settings->value(QStringLiteral("LocalAI/") + id + QStringLiteral("/ApiKey")).toString();
+}
+
+void AppSettings::setLocalProviderApiKey(const QString &id, const QString &apiKey)
+{
+    m_settings->setValue(QStringLiteral("LocalAI/") + id + QStringLiteral("/ApiKey"), apiKey);
 }
 
 bool AppSettings::detectViaLlm() const

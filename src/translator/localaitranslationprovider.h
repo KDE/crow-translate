@@ -15,11 +15,16 @@
 
 class QNetworkAccessManager;
 class QNetworkReply;
+class QNetworkRequest;
 
-// Private translation backend for local, OpenAI-compatible servers
-// (Ollama, FastFlowLM, LM Studio). Talks /v1/chat/completions and /v1/models.
-// Translation runs on the active provider; language detection can use a
-// different provider/model. No proxy, no cache of text, no request logging.
+// Translation backend for local, OpenAI-compatible servers (Ollama,
+// FastFlowLM, LM Studio) as well as arbitrary remote endpoints: a custom
+// OpenAI-compatible host/cloud API, or Anthropic. Local ids talk
+// /v1/chat/completions + /v1/models; the "anthropic" id talks
+// /v1/messages + /v1/models with Anthropic's request/response shape
+// instead. Translation runs on the active provider; language detection can
+// use a different provider/model. No proxy, no cache of text, no request
+// logging.
 class LocalAiTranslationProvider : public ATranslationProvider
 {
     Q_OBJECT
@@ -49,6 +54,10 @@ public:
 
     void saveOptionToSettings(const QString &optionKey, const QVariant &value) override;
 
+    // Shared with SettingsDialog's "Refresh models" probe, which hits the
+    // same /v1/models endpoint and needs the same auth shape.
+    static void setAuthHeaders(QNetworkRequest &request, bool isAnthropic, const QString &apiKey);
+
 public slots:
     void translate(const QString &inputText, const Language &translationLanguage, const Language &sourceLanguage) override;
 
@@ -58,8 +67,9 @@ private slots:
 
 private:
     QString buildPrompt(const QString &srcCode, const QString &dstCode, const QString &text) const;
+    static QString languageDisplayName(const QString &code);
     static QString formatResult(const QString &text);
-    static QString chatUrl(const QString &baseUrl);
+    static QString completionsUrl(const QString &baseUrl, bool isAnthropic);
     void sendDetection(const QString &text);
     void sendTranslation(const QString &srcCode, const QString &dstCode, const QString &text);
 
@@ -72,11 +82,15 @@ private:
     QString m_model;
     QString m_prompt;
     bool m_disableThinking = false;
+    bool m_isAnthropic = false;
+    QString m_apiKey;
 
     // Detection (independent provider/model)
     bool m_detectViaLlm;
     QString m_detectUrl;
     QString m_detectModel;
+    bool m_detectIsAnthropic = false;
+    QString m_detectApiKey;
 
     // In-flight state
     bool m_sourceWasAuto;

@@ -41,6 +41,11 @@ namespace Ui
 class SettingsDialog;
 } // namespace Ui
 
+// Widens a combo box's popup (and the box itself) to fit its longest item.
+// Shared by SettingsDialog's LocalAI provider tabs and MainWindow's engine
+// combo, both of which populate the same combo box with provider names.
+void widenComboPopup(QComboBox *combo);
+
 class SettingsDialog : public QDialog
 {
     Q_OBJECT
@@ -106,6 +111,7 @@ private:
     };
     struct LocalProviderTab {
         QLineEdit *url = nullptr;
+        QLineEdit *apiKey = nullptr;
         QPushButton *refresh = nullptr;
         QPushButton *visionToggle = nullptr;
         QPushButton *textToggle = nullptr;

@@ -20,13 +20,13 @@
 #include "shortcutsmodel/shortcutitem.h"
 #include "shortcutsmodel/shortcutsmodel.h"
 #include "translator/atranslationprovider.h"
+#include "translator/localaitranslationprovider.h"
 #include "tts/attsprovider.h"
 
 #include <QButtonGroup>
 #include <QCheckBox>
 #include <QComboBox>
 #include <QDate>
-#include <QEventLoop>
 #include <QFileDialog>
 #include <QFormLayout>
 #include <QFrame>
@@ -51,8 +51,6 @@
 #include <QVBoxLayout>
 #include <QWidget>
 
-namespace
-{
 void widenComboPopup(QComboBox *combo)
 {
     if (!combo)
@@ -71,7 +69,6 @@ void widenComboPopup(QComboBox *combo)
         }
         combo->setMaximumWidth(cap);
     }
-}
 }
 
 SettingsDialog::SettingsDialog(MainWindow *parent)
@@ -341,10 +338,16 @@ void SettingsDialog::buildLocalAiTabs()
         auto *urlLabel = new QLabel(tr("URL:"), outer);
         auto *url = new QLineEdit(outer);
         url->setPlaceholderText(AppSettings::defaultLocalProviderUrl(id));
+        auto *apiKeyLabel = new QLabel(tr("Key:"), outer);
+        auto *apiKey = new QLineEdit(outer);
+        apiKey->setEchoMode(QLineEdit::Password);
+        apiKey->setPlaceholderText(tr("optional, e.g. for a cloud endpoint"));
         auto *refresh = new QPushButton(tr("Refresh models"), outer);
         auto *urlLayout = new QHBoxLayout();
         urlLayout->addWidget(urlLabel);
         urlLayout->addWidget(url);
+        urlLayout->addWidget(apiKeyLabel);
+        urlLayout->addWidget(apiKey);
         grid->addLayout(urlLayout, 0, 0, Qt::AlignVCenter);
         grid->addWidget(refresh, 0, 1, Qt::AlignRight | Qt::AlignVCenter);
 
@@ -489,6 +492,7 @@ void SettingsDialog::buildLocalAiTabs()
         ui->localAiTabWidget->addTab(outer, AppSettings::localProviderDisplayName(id));
 
         t.url = url;
+        t.apiKey = apiKey;
         t.refresh = refresh;
         t.visionToggle = visionToggle;
         t.textToggle = textToggle;
@@ -579,6 +583,10 @@ void SettingsDialog::buildLocalAiTabs()
             AppSettings().setLocalProviderUrl(id, text);
         });
 
+        connect(apiKey, &QLineEdit::textChanged, this, [this, id](const QString &text) {
+            AppSettings().setLocalProviderApiKey(id, text);
+        });
+
         // Text page signal handlers
         connect(t.text.model, &QComboBox::currentTextChanged, this, [this, id](const QString &m) {
             LocalProviderTab &tab = m_localTabs[id];
@@ -635,6 +643,8 @@ void SettingsDialog::loadLocalAiSettings()
         LocalProviderTab &tab = m_localTabs[id];
         QSignalBlocker urlBlocker(tab.url);
         tab.url->setText(settings.localProviderUrl(id));
+        QSignalBlocker apiKeyBlocker(tab.apiKey);
+        tab.apiKey->setText(settings.localProviderApiKey(id));
 
         const bool isVision = settings.isVisionEnabled(id);
         {
@@ -707,6 +717,7 @@ void SettingsDialog::saveLocalAiSettings()
     for (const QString &id : providerIds) {
         const LocalProviderTab &tab = m_localTabs[id];
         settings.setLocalProviderUrl(id, tab.url->text());
+        settings.setLocalProviderApiKey(id, tab.apiKey->text());
         settings.setVisionEnabled(id, tab.modeGroup->checkedId() == 0);
         settings.setLocalProviderModel(id, tab.text.model->currentText());
         settings.setLocalVisionModel(id, tab.vision.model->currentText());
@@ -755,62 +766,75 @@ void SettingsDialog::refreshLocalModels(const QString &id)
         base.chop(1);
     }
 
-    QNetworkAccessManager manager;
-    manager.setTransferTimeout(5000);
-    QNetworkReply *reply = manager.get(QNetworkRequest(QUrl(base + QStringLiteral("/v1/models"))));
-    QEventLoop loop;
-    connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
-    loop.exec();
+    QPushButton *refreshButton = m_localTabs[id].refresh;
+    if (refreshButton) {
+        refreshButton->setEnabled(false);
+    }
 
-    const QString display = AppSettings::localProviderDisplayName(id);
-    if (reply->error() != QNetworkReply::NoError) {
-        QMessageBox::warning(this, display, tr("Could not reach %1 at %2:\n%3").arg(display, base, reply->errorString()));
+    QNetworkRequest request(QUrl(base + QStringLiteral("/v1/models")));
+    LocalAiTranslationProvider::setAuthHeaders(request, AppSettings::localProviderIsAnthropic(id), m_localTabs[id].apiKey->text());
+
+    auto *manager = new QNetworkAccessManager(this);
+    manager->setTransferTimeout(5000);
+    QNetworkReply *reply = manager->get(request);
+
+    connect(reply, &QNetworkReply::finished, this, [this, id, base, reply, manager]() {
         reply->deleteLater();
-        return;
-    }
-    const QJsonArray data = QJsonDocument::fromJson(reply->readAll()).object().value(QStringLiteral("data")).toArray();
-    reply->deleteLater();
+        manager->deleteLater();
 
-    QStringList names;
-    for (const QJsonValue &m : data) {
-        const QString name = m.toObject().value(QStringLiteral("id")).toString();
-        if (!name.isEmpty()) {
-            names.append(name);
+        QPushButton *refreshButton = m_localTabs.contains(id) ? m_localTabs[id].refresh : nullptr;
+        if (refreshButton) {
+            refreshButton->setEnabled(true);
         }
-    }
-    if (names.isEmpty()) {
-        QMessageBox::information(this, display, tr("No models found."));
-        return;
-    }
 
-    AppSettings().setLocalProviderModels(id, names);
-
-    LocalProviderTab &tab = m_localTabs[id];
-    const QString curText = tab.text.model->currentText();
-    {
-        QSignalBlocker blocker(tab.text.model);
-        tab.text.model->clear();
-        tab.text.model->addItems(names);
-        if (!curText.isEmpty()) {
-            tab.text.model->setCurrentText(curText);
+        const QString display = AppSettings::localProviderDisplayName(id);
+        if (reply->error() != QNetworkReply::NoError) {
+            QMessageBox::warning(this, display, tr("Could not reach %1 at %2:\n%3").arg(display, base, reply->errorString()));
+            return;
         }
-    }
-    widenComboPopup(tab.text.model);
+        const QJsonArray data = QJsonDocument::fromJson(reply->readAll()).object().value(QStringLiteral("data")).toArray();
 
-    const QString curVision = tab.vision.model->currentText();
-    {
-        QSignalBlocker blocker(tab.vision.model);
-        tab.vision.model->clear();
-        tab.vision.model->addItems(names);
-        if (!curVision.isEmpty()) {
-            tab.vision.model->setCurrentText(curVision);
+        QStringList names;
+        for (const QJsonValue &m : data) {
+            const QString name = m.toObject().value(QStringLiteral("id")).toString();
+            if (!name.isEmpty()) {
+                names.append(name);
+            }
         }
-    }
-    widenComboPopup(tab.vision.model);
+        if (names.isEmpty()) {
+            QMessageBox::information(this, display, tr("No models found."));
+            return;
+        }
 
-    if (ui->detectProviderComboBox->currentData().toString() == id) {
-        populateDetectModels();
-    }
+        AppSettings().setLocalProviderModels(id, names);
+
+        LocalProviderTab &tab = m_localTabs[id];
+        const QString curText = tab.text.model->currentText();
+        {
+            QSignalBlocker blocker(tab.text.model);
+            tab.text.model->clear();
+            tab.text.model->addItems(names);
+            if (!curText.isEmpty()) {
+                tab.text.model->setCurrentText(curText);
+            }
+        }
+        widenComboPopup(tab.text.model);
+
+        const QString curVision = tab.vision.model->currentText();
+        {
+            QSignalBlocker blocker(tab.vision.model);
+            tab.vision.model->clear();
+            tab.vision.model->addItems(names);
+            if (!curVision.isEmpty()) {
+                tab.vision.model->setCurrentText(curVision);
+            }
+        }
+        widenComboPopup(tab.vision.model);
+
+        if (ui->detectProviderComboBox->currentData().toString() == id) {
+            populateDetectModels();
+        }
+    });
 }
 
 void SettingsDialog::onProxyTypeChanged(int type)

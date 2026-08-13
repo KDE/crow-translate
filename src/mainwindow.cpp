@@ -1343,11 +1343,10 @@ void MainWindow::updateProviderUI()
         // Set current engine selection for providers that support it
         if (translationReqs.supportedCapabilities.contains("engineSelection")) {
             const AppSettings settings;
-            // Restore Mozhi engine items if LocalAI replaced them
-            const bool isMozhi = !m_engineItemsText.isEmpty()
-                && (ui->engineComboBox->count() == 0
-                    || ui->engineComboBox->itemText(0) != m_engineItemsText.at(0));
-            if (isMozhi) {
+            // We're in the Mozhi-style engineSelection branch, so the combo
+            // must show Mozhi's engines regardless of what it held before
+            // (e.g. LocalAI's provider list, if we just switched back).
+            if (!m_engineItemsText.isEmpty()) {
                 QSignalBlocker blocker(ui->engineComboBox);
                 ui->engineComboBox->clear();
                 for (int i = 0; i < m_engineItemsText.size(); ++i) {
@@ -1370,14 +1369,7 @@ void MainWindow::updateProviderUI()
             if (idx >= 0) {
                 ui->engineComboBox->setCurrentIndex(idx);
             }
-            const QFontMetrics fm(ui->engineComboBox->font());
-            int popupWidth = 0;
-            for (int i = 0; i < ui->engineComboBox->count(); ++i) {
-                popupWidth = qMax(popupWidth, fm.horizontalAdvance(ui->engineComboBox->itemText(i)));
-            }
-            if (popupWidth > 0) {
-                ui->engineComboBox->view()->setMinimumWidth(popupWidth + 40);
-            }
+            widenComboPopup(ui->engineComboBox);
         }
     }
 

@@ -190,11 +190,15 @@ public:
     QString instance() const;
     void setInstance(const QString &url);
 
-    // LocalAI backend (Ollama / FastFlowLM / LM Studio via OpenAI /v1)
+    // LocalAI backend: local OpenAI-compatible servers (Ollama / FastFlowLM
+    // / LM Studio), a custom OpenAI-compatible remote endpoint, or Anthropic.
     static QStringList localProviderIds();
     static QString localProviderDisplayName(const QString &id);
     static QString defaultLocalProviderUrl(const QString &id);
     static QString defaultLocalProviderModel(const QString &id);
+    // Whether id speaks Anthropic's Messages API shape (/v1/messages,
+    // x-api-key) rather than the OpenAI-compatible one every other id uses.
+    static bool localProviderIsAnthropic(const QString &id);
 
     QString activeLocalProvider() const;
     void setActiveLocalProvider(const QString &id);
@@ -204,6 +208,12 @@ public:
     void setLocalProviderModel(const QString &id, const QString &model);
     QStringList localProviderModels(const QString &id) const;
     void setLocalProviderModels(const QString &id, const QStringList &models);
+    // Blank for the local, trusted servers (Ollama/FastFlowLM/LM Studio);
+    // required in practice for a real cloud endpoint (custom OpenAI-
+    // compatible or Anthropic), but still just optional, blank-friendly
+    // per-id state alongside url/model - not a dedicated secrets store.
+    QString localProviderApiKey(const QString &id) const;
+    void setLocalProviderApiKey(const QString &id, const QString &apiKey);
 
     bool detectViaLlm() const;
     void setDetectViaLlm(bool enabled);
