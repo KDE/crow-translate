@@ -150,7 +150,10 @@ public:
     std::unique_ptr<ATranslationProvider> createForFailure(Language &source, Language &target) override
     {
         m_server = std::make_unique<MockHttpServer>();
-        m_server->queueResponse(MockHttpServer::Response{.status = 500, .body = QByteArrayLiteral("internal error")});
+        MockHttpServer::Response errorResponse;
+        errorResponse.status = 500;
+        errorResponse.body = QByteArrayLiteral("internal error");
+        m_server->queueResponse(errorResponse);
         source = sourceLanguage();
         target = targetLanguage();
         return makeProvider();
@@ -164,7 +167,9 @@ public:
     std::unique_ptr<ATranslationProvider> createForHang() override
     {
         m_server = std::make_unique<MockHttpServer>();
-        m_server->queueResponse(MockHttpServer::Response{.hang = true});
+        MockHttpServer::Response hangResponse;
+        hangResponse.hang = true;
+        m_server->queueResponse(hangResponse);
         return makeProvider();
     }
 

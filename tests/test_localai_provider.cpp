@@ -93,7 +93,9 @@ private slots:
     void testTimeoutDoesNotWedgeProvider()
     {
         MockHttpServer server;
-        server.queueResponse(Response{.hang = true});
+        Response hangResponse;
+        hangResponse.hang = true;
+        server.queueResponse(hangResponse);
 
         auto provider = makeProvider(server.baseUrl(), /*timeoutSeconds=*/1);
         QSignalSpy stateSpy(provider.get(), &ATranslationProvider::stateChanged);
@@ -125,7 +127,9 @@ private slots:
     void testStaleAbortedReplyDiscardedAfterNewTranslation()
     {
         MockHttpServer server;
-        server.queueResponse(Response{.hang = true}); // request A: held
+        Response heldResponse; // request A: held
+        heldResponse.hang = true;
+        server.queueResponse(heldResponse);
 
         auto provider = makeProvider(server.baseUrl());
         QSignalSpy stateSpy(provider.get(), &ATranslationProvider::stateChanged);
@@ -148,7 +152,10 @@ private slots:
         QCOMPARE(provider->result, QStringLiteral("segunda"));
 
         // Let the stale request A finally "respond" - must not touch state/result.
-        server.releaseHeldRequest(0, Response{.status = 200, .body = chatCompletionJson(QStringLiteral("STALE - should never be seen"))});
+        Response staleResponse;
+        staleResponse.status = 200;
+        staleResponse.body = chatCompletionJson(QStringLiteral("STALE - should never be seen"));
+        server.releaseHeldRequest(0, staleResponse);
         QTest::qWait(300);
         QCOMPARE(provider->getState(), ATranslationProvider::State::Processed);
         QCOMPARE(provider->result, QStringLiteral("segunda"));
