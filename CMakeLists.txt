@@ -82,7 +82,7 @@ find_package(ECM 6.4.0 REQUIRED CONFIG)
 list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 include(KDEClangFormat)
-file(GLOB_RECURSE CLANG_FORMAT_SOURCES src/*.cpp src/*.h)
+file(GLOB_RECURSE CLANG_FORMAT_SOURCES src/*.cpp src/*.h tests/*.cpp tests/*.h)
 list(FILTER CLANG_FORMAT_SOURCES EXCLUDE REGEX ".*/src/3rdparty/.*" )
 list(FILTER CLANG_FORMAT_SOURCES EXCLUDE REGEX ".*${PROJECT_NAME}_autogen.*" )
 kde_clang_format(${CLANG_FORMAT_SOURCES})
@@ -144,7 +144,8 @@ endforeach()
 
 configure_file(src/cmake.h.in cmake.h)
 
-add_executable(${PROJECT_NAME}
+# Create library with all application logic (for reuse by tests)
+add_library(${PROJECT_NAME}-lib STATIC
     data/icons/icon-theme.qrc
     data/icons/engines/engines.qrc
     src/languagesdialog.h
@@ -161,7 +162,6 @@ add_executable(${PROJECT_NAME}
     src/languagebuttonswidget.h
     src/languagebuttonswidget.cpp
     src/languagebuttonswidget.ui
-    src/main.cpp
     src/mainwindow.h
     src/mainwindow.cpp
     src/mainwindow.ui
@@ -233,8 +233,9 @@ add_executable(${PROJECT_NAME}
     src/language.cpp
 )
 
+# Platform-specific sources for the library
 if(UNIX AND NOT APPLE)
-    target_sources(${PROJECT_NAME} PRIVATE
+    target_sources(${PROJECT_NAME}-lib PRIVATE
         src/xdgdesktopportal.cpp
         src/ocr/screengrabbers/dbusscreengrabber.h
         src/ocr/screengrabbers/dbusscreengrabber.cpp
@@ -250,7 +251,7 @@ if(UNIX AND NOT APPLE)
         src/settings/autostartmanager/portalautostartmanager.cpp
     )
     if(WITH_KWAYLAND)
-        target_sources(${PROJECT_NAME} PRIVATE
+        target_sources(${PROJECT_NAME}-lib PRIVATE
           src/waylandhelper.h
           src/waylandhelper.cpp
         )
@@ -258,7 +259,7 @@ if(UNIX AND NOT APPLE)
 elseif(APPLE)
     ecm_add_app_icon(MACOS_ICON ICONS ${APP_ICONS})
 
-    target_sources(${PROJECT_NAME} PRIVATE
+    target_sources(${PROJECT_NAME}-lib PRIVATE
         ${MACOS_ICON}
         data/icons/app/app.qrc
         src/settings/autostartmanager/macosautostartmanager.h
@@ -267,7 +268,7 @@ elseif(APPLE)
 elseif(WIN32)
     ecm_add_app_icon(WINDOWS_ICON ICONS ${APP_ICONS})
 
-    target_sources(${PROJECT_NAME} PRIVATE
+    target_sources(${PROJECT_NAME}-lib PRIVATE
         ${WINDOWS_ICON}
         data/icons/app/app.qrc
         src/settings/autostartmanager/windowsautostartmanager.h
@@ -275,17 +276,29 @@ elseif(WIN32)
     )
 endif()
 
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+target_include_directories(${PROJECT_NAME}-lib PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${CMAKE_BINARY_DIR}
+)
+
+# Create executable with just main.cpp
+add_executable(${PROJECT_NAME}
+    src/main.cpp
+)
+
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${EXECUTABLE_NAME})
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
+# Link executable against library
+target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}-lib)
 
-# Handle espeak-ng submodule for Piper TTS  
+# Note: ONNX Runtime configuration moved after find_package(ONNXRuntime) below
+
+# Handle espeak-ng submodule for Piper TTS
 if(WITH_PIPER_TTS)
     # Build espeak-ng from submodule
     set(ESPEAKNG_BUILD_DIR ${CMAKE_BINARY_DIR}/espeak_ng)
     set(ESPEAKNG_INSTALL_DIR ${CMAKE_BINARY_DIR}/espeak_ng-install)
-    
+
     if(WIN32)
         set(ESPEAKNG_STATIC_LIB ${ESPEAKNG_INSTALL_DIR}/lib/espeak-ng.lib)
         set(UCD_STATIC_LIB ${ESPEAKNG_BUILD_DIR}/src/espeak_ng_submodule-build/src/ucd-tools/ucd.lib)
@@ -322,61 +335,64 @@ if(WITH_PIPER_TTS)
 
     # Find ONNX Runtime (tries system packages first, then static linking fallback)
     find_package(ONNXRuntime 1.22.1 REQUIRED)
-    
+
     # If using static linking, build from source with telemetry disabled
     if(ONNXRuntime_USE_STATIC)
         build_onnxruntime_static()
-        # Add dependency to ensure ONNX Runtime is built before main target
-        add_dependencies(${PROJECT_NAME} onnxruntime_ready)
+        # Add dependency to ensure ONNX Runtime is built before library target
+        add_dependencies(${PROJECT_NAME}-lib onnxruntime_ready)
     endif()
 
     # Add compile definition and sources when dependencies are found
-    target_compile_definitions(${PROJECT_NAME} PRIVATE WITH_PIPER_TTS)
-    
+    target_compile_definitions(${PROJECT_NAME}-lib PUBLIC WITH_PIPER_TTS)
+
     # On Windows, tell espeak-ng we're linking statically
     if(WIN32)
-        target_compile_definitions(${PROJECT_NAME} PRIVATE LIBESPEAK_NG_EXPORT=)
+        target_compile_definitions(${PROJECT_NAME}-lib PUBLIC LIBESPEAK_NG_EXPORT=)
     endif()
-    
+
     # Configure ONNX Runtime includes - different for dynamic vs static
     if(NOT ONNXRuntime_USE_STATIC)
-        target_include_directories(${PROJECT_NAME} PRIVATE 
+        target_include_directories(${PROJECT_NAME}-lib PUBLIC
             ${ONNXRuntime_INCLUDE_DIRS}
             ${ESPEAKNG_INSTALL_DIR}/include
         )
     else()
-        # Static linking configuration will set includes via configure_onnxruntime_static()
-        target_include_directories(${PROJECT_NAME} PRIVATE 
+        # Static linking: library needs includes to compile, executables need link options
+        target_include_directories(${PROJECT_NAME}-lib PUBLIC
+            ${CMAKE_BINARY_DIR}/onnxruntime-src/src/onnxruntime/include
+            ${CMAKE_BINARY_DIR}/onnxruntime-src/src/onnxruntime/include/onnxruntime
+            ${CMAKE_BINARY_DIR}/onnxruntime-src/src/onnxruntime/include/onnxruntime/core/session
             ${ESPEAKNG_INSTALL_DIR}/include
         )
     endif()
-    target_sources(${PROJECT_NAME} PRIVATE
+    target_sources(${PROJECT_NAME}-lib PRIVATE
         src/tts/piperttsprovider.h
         src/tts/piperttsprovider.cpp
     )
-    
+
     # Add dependency on espeak-ng build
-    add_dependencies(${PROJECT_NAME} espeak_ng_submodule)
-    
+    add_dependencies(${PROJECT_NAME}-lib espeak_ng_submodule)
+
     # Copy/install espeak-ng data files
     if(WIN32)
         # On Windows, copy to build directory (next to binary)
         add_custom_target(copy_espeak_data
-            COMMAND ${CMAKE_COMMAND} -E copy_directory 
-                ${ESPEAKNG_INSTALL_DIR}/share/espeak-ng-data 
+            COMMAND ${CMAKE_COMMAND} -E copy_directory
+                ${ESPEAKNG_INSTALL_DIR}/share/espeak-ng-data
                 ${CMAKE_BINARY_DIR}/espeak-ng-data
             DEPENDS espeak_ng_submodule
             COMMENT "Copying espeak-ng data files to build directory"
         )
         add_dependencies(${PROJECT_NAME} copy_espeak_data)
-        
+
         # Also install espeak-ng data next to the binary on Windows
         install(DIRECTORY ${CMAKE_BINARY_DIR}/espeak-ng-data
                 DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
-        
+
         # Copy ONNX Runtime DLLs to bin directory on Windows
         # Check multiple locations where DLLs might end up
-        file(GLOB ONNX_DLLS 
+        file(GLOB ONNX_DLLS
             # From system ONNX Runtime
             "${CMAKE_INSTALL_PREFIX}/lib/onnxruntime*.dll"
             "${CMAKE_INSTALL_PREFIX}/bin/onnxruntime*.dll"
@@ -387,7 +403,7 @@ if(WITH_PIPER_TTS)
             "${ONNX_LIB_DIR}/onnxruntime*.dll"
             "${ONNX_LIB_DIR}/../bin/onnxruntime*.dll"
         )
-        
+
         if(ONNX_DLLS)
             install(FILES ${ONNX_DLLS} DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
             message(STATUS "Will copy ONNX Runtime DLLs to bin: ${ONNX_DLLS}")
@@ -399,13 +415,13 @@ if(WITH_PIPER_TTS)
         install(DIRECTORY ${ESPEAKNG_INSTALL_DIR}/share/espeak-ng-data
                 DESTINATION ${CMAKE_INSTALL_PREFIX}/share/crow-translate)
     endif()
-    
+
     message(STATUS "Piper TTS support enabled with built-in espeak-ng")
 else()
     message(STATUS "Piper TTS support disabled (enable with -DWITH_PIPER_TTS=ON)")
 endif()
 
-target_link_libraries(${PROJECT_NAME} PRIVATE
+target_link_libraries(${PROJECT_NAME}-lib PUBLIC
     Qt6::Network
     Qt6::Multimedia
     SingleApplication::SingleApplication
@@ -420,13 +436,13 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 if(WITH_PIPER_TTS)
     if(NOT ONNXRuntime_USE_STATIC)
         # Dynamic linking: use system ONNX Runtime
-        target_compile_definitions(${PROJECT_NAME} PRIVATE WITH_ONNX_RUNTIME_DYNAMIC=1)
-        target_link_libraries(${PROJECT_NAME} PRIVATE
+        target_compile_definitions(${PROJECT_NAME}-lib PUBLIC WITH_ONNX_RUNTIME_DYNAMIC=1)
+        target_link_libraries(${PROJECT_NAME}-lib PUBLIC
             ${ONNXRuntime_LIBRARIES}
             ${ESPEAKNG_STATIC_LIB}
             ${UCD_STATIC_LIB}
         )
-        
+
         # Set RPATH for dynamic ONNX Runtime
         if(NOT WIN32)
             set_target_properties(${PROJECT_NAME} PROPERTIES
@@ -435,30 +451,45 @@ if(WITH_PIPER_TTS)
             )
         endif()
     else()
-        # Static linking: configure via our custom function
-        configure_onnxruntime_static(${PROJECT_NAME})
-        target_link_libraries(${PROJECT_NAME} PRIVATE
+        # Static linking: Don't configure on library (it's just an archive)
+        # ONNX Runtime will be configured on final executables instead
+        # Just link espeak-ng which the library needs
+        target_link_libraries(${PROJECT_NAME}-lib PUBLIC
             ${ESPEAKNG_STATIC_LIB}
             ${UCD_STATIC_LIB}
         )
+
+        # Configure static ONNX Runtime on the executable (not on library)
+        # This must come AFTER find_package(ONNXRuntime) so the function exists
+        configure_onnxruntime_static(${PROJECT_NAME})
+        add_dependencies(${PROJECT_NAME} onnxruntime_ready)
     endif()
 endif()
 
 if(UNIX)
-    target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::DBus)
+    target_link_libraries(${PROJECT_NAME}-lib PUBLIC Qt6::DBus)
     if(NOT APPLE)
-        target_link_libraries(${PROJECT_NAME} PRIVATE
+        target_link_libraries(${PROJECT_NAME}-lib PUBLIC
             XCB::XCB
         )
         if(WITH_KWAYLAND)
-            target_link_libraries(${PROJECT_NAME} PRIVATE Plasma::KWaylandClient)
-            target_compile_definitions(${PROJECT_NAME} PRIVATE WITH_KWAYLAND)
+            target_link_libraries(${PROJECT_NAME}-lib PUBLIC Plasma::KWaylandClient)
+            target_compile_definitions(${PROJECT_NAME}-lib PUBLIC WITH_KWAYLAND)
         endif()
     endif()
 endif()
 
 if(WITH_PORTABLE_MODE)
-    target_compile_definitions(${PROJECT_NAME} PRIVATE WITH_PORTABLE_MODE)
+    target_compile_definitions(${PROJECT_NAME}-lib PUBLIC WITH_PORTABLE_MODE)
+endif()
+
+option(BUILD_TESTING "Build tests" OFF)
+if(BUILD_TESTING)
+    target_compile_definitions(${PROJECT_NAME}-lib PUBLIC BUILD_TESTING)
+endif()
+if(BUILD_TESTING OR CMAKE_EXPORT_COMPILE_COMMANDS)
+    enable_testing()
+    add_subdirectory(tests)
 endif()
 
 ecm_install_po_files_as_qm(poqm)

@@ -27,6 +27,7 @@
 #include <QCheckBox>
 #include <QComboBox>
 #include <QDate>
+#include <QEventLoop>
 #include <QFileDialog>
 #include <QFormLayout>
 #include <QFrame>
@@ -337,12 +338,15 @@ void SettingsDialog::buildLocalAiTabs()
 
         auto *urlLabel = new QLabel(tr("URL:"), outer);
         auto *url = new QLineEdit(outer);
+        url->setObjectName(QStringLiteral("localAiUrlEdit"));
         url->setPlaceholderText(AppSettings::defaultLocalProviderUrl(id));
         auto *apiKeyLabel = new QLabel(tr("Key:"), outer);
         auto *apiKey = new QLineEdit(outer);
+        apiKey->setObjectName(QStringLiteral("localAiApiKeyEdit"));
         apiKey->setEchoMode(QLineEdit::Password);
         apiKey->setPlaceholderText(tr("optional, e.g. for a cloud endpoint"));
         auto *refresh = new QPushButton(tr("Refresh models"), outer);
+        refresh->setObjectName(QStringLiteral("localAiRefreshButton"));
         auto *urlLayout = new QHBoxLayout();
         urlLayout->addWidget(urlLabel);
         urlLayout->addWidget(url);
@@ -397,6 +401,7 @@ void SettingsDialog::buildLocalAiTabs()
             auto *modelRow = new QHBoxLayout();
             t.text.modelLabel = new QLabel(tr("Translation model:"), t.text.page);
             t.text.model = new QComboBox(t.text.page);
+            t.text.model->setObjectName(QStringLiteral("localAiTextModelCombo"));
             t.text.model->setEditable(true);
             t.text.model->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
             modelRow->addWidget(t.text.modelLabel);
@@ -439,6 +444,7 @@ void SettingsDialog::buildLocalAiTabs()
             auto *modelRow = new QHBoxLayout();
             t.vision.modelLabel = new QLabel(tr("Vision model:"), t.vision.page);
             t.vision.model = new QComboBox(t.vision.page);
+            t.vision.model->setObjectName(QStringLiteral("localAiVisionModelCombo"));
             t.vision.model->setEditable(true);
             t.vision.model->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
             modelRow->addWidget(t.vision.modelLabel);

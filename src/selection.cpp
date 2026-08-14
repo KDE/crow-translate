@@ -13,11 +13,11 @@
 #include <QClipboard>
 #include <QDebug>
 #include <QGuiApplication>
+#include <QTimer>
 #include <QWindow>
 
 #ifdef Q_OS_WIN
 #include <QMimeData>
-#include <QTimer>
 
 #include <windows.h>
 
@@ -60,6 +60,11 @@ void Selection::requestSelection()
 
             qDebug() << "Selection::requestSelection - emitting windowActivationNeeded";
             emit windowActivationNeeded();
+
+            // See m_activationTimeoutTimer's declaration - activation can
+            // silently never complete, which without this leaves the
+            // selection stuck forever.
+            m_activationTimeoutTimer->start();
         }
     } else {
         getSelection();
@@ -106,7 +111,15 @@ void Selection::requestSelection()
 #endif
 }
 
-#ifdef Q_OS_WIN
+#if defined(Q_OS_LINUX)
+Selection::Selection()
+    : m_activationTimeoutTimer(new QTimer(this))
+{
+    m_activationTimeoutTimer->setSingleShot(true);
+    m_activationTimeoutTimer->setInterval(2000);
+    m_activationTimeoutTimer->callOnTimeout(this, &Selection::onActivationTimeout);
+}
+#elif defined(Q_OS_WIN)
 Selection::Selection()
     : m_maxSelectionDelay(new QTimer(this))
 {
@@ -129,11 +142,31 @@ void Selection::onWindowReady()
     if (m_waitingForActivation) {
         m_waitingForActivation = false;
         disconnect(m_activationConnection);
+#if defined(Q_OS_LINUX)
+        m_activationTimeoutTimer->stop();
+#endif
 
         qDebug() << "Selection::onWindowReady - calling getSelection()";
         getSelection();
     }
 }
+
+#if defined(Q_OS_LINUX)
+void Selection::onActivationTimeout()
+{
+    // requestSelection() already gave up waiting - nothing to do (this
+    // guard also covers the timer firing just after a successful
+    // activation raced past m_activationTimeoutTimer->stop()).
+    if (!m_waitingForActivation)
+        return;
+
+    qWarning() << "Selection::onActivationTimeout - window activation did not complete in time - "
+                  "reading the selection anyway rather than dropping it";
+    m_waitingForActivation = false;
+    disconnect(m_activationConnection);
+    getSelection();
+}
+#endif
 
 void Selection::onApplicationStateChanged(Qt::ApplicationState state)
 {
@@ -142,6 +175,9 @@ void Selection::onApplicationStateChanged(Qt::ApplicationState state)
     if (m_waitingForActivation && state == Qt::ApplicationActive) {
         m_waitingForActivation = false;
         disconnect(m_activationConnection);
+#if defined(Q_OS_LINUX)
+        m_activationTimeoutTimer->stop();
+#endif
 
         qDebug() << "Selection::onApplicationStateChanged - calling getSelection()";
         getSelection();
@@ -155,6 +191,9 @@ void Selection::getSelection()
 
     // On X11 with Selection support, use Selection clipboard (middle-click buffer)
     // On Wayland without Selection support, fall back to regular Clipboard
+    qDebug() << "Selection::getSelection - supportsSelection:" << clipboard->supportsSelection()
+             << "Selection text:" << clipboard->text(QClipboard::Selection)
+             << "Clipboard text:" << clipboard->text(QClipboard::Clipboard);
     if (clipboard->supportsSelection()) {
         emit requestedSelectionAvailable(clipboard->text(QClipboard::Selection));
     } else {

@@ -78,9 +78,12 @@ function(configure_onnxruntime_static TARGET_NAME)
         # Use a link script that discovers libraries at build time (Windows)
         set(LINK_SCRIPT "${CMAKE_BINARY_DIR}/onnx_link_script_win.txt")
         set(BUILD_DIR "${CMAKE_BINARY_DIR}/onnxruntime-src/src/onnxruntime_build-build")
-        
-        # Create a script that generates the Windows link script at build time
-        set(GENERATE_LINK_SCRIPT "${CMAKE_BINARY_DIR}/generate_onnx_link_win.cmake")
+
+        # Create the global Windows link-script target only once (this function
+        # is called for every executable that links the app library).
+        if(NOT TARGET onnx_link_script_win)
+            # Create a script that generates the Windows link script at build time
+            set(GENERATE_LINK_SCRIPT "${CMAKE_BINARY_DIR}/generate_onnx_link_win.cmake")
         file(WRITE ${GENERATE_LINK_SCRIPT} "
 # Set CMake policies to avoid warnings
 cmake_policy(SET CMP0009 NEW)
@@ -132,7 +135,9 @@ message(STATUS \"Generated Windows link script with \${ORDERED_LIBS}\")
         add_custom_target(onnx_link_script_win
             DEPENDS ${LINK_SCRIPT}
         )
-        
+
+        endif()
+
         # Add dependency and use the link script
         add_dependencies(${TARGET_NAME} onnx_link_script_win)
         
@@ -159,9 +164,12 @@ message(STATUS \"Generated Windows link script with \${ORDERED_LIBS}\")
         # Use individual libraries (find all available static libraries)
         message(STATUS "Using individual ONNX Runtime static libraries")
         
-        # Create an interface library that will be populated after build
-        add_library(onnxruntime_discovered INTERFACE)
-        
+        # The build-time discovery + link-script machinery creates global CMake
+        # targets, so it must only run once - even though this function is
+        # called for every executable that links the app library (main binary
+        # plus each test target).
+        if(NOT TARGET onnx_link_script)
+
         # Create a custom target that discovers libraries after ONNX Runtime is built
         set(BUILD_DIR "${CMAKE_BINARY_DIR}/onnxruntime-src/src/onnxruntime_build-build")
         set(DISCOVERY_SCRIPT "${CMAKE_BINARY_DIR}/discover_onnx_libs.cmake")
@@ -306,7 +314,23 @@ message(STATUS \"Generated link script with \${ORDERED_LIBS}\")
         add_custom_target(onnx_link_script
             DEPENDS ${LINK_SCRIPT}
         )
-        
+
+        endif()
+
+        # These are needed on every call to apply per-target linking, but the
+        # guarded block above only executes once, so (re)compute them here.
+        if(CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
+            set(SYSTEM_LIBS pthread m dl rt execinfo)
+        else()
+            set(SYSTEM_LIBS pthread m dl rt z stdc++fs)
+        endif()
+        set(LINK_SCRIPT "${CMAKE_BINARY_DIR}/onnx_link_script.txt")
+
+        # Static .a files are discovered at build time, so this stays empty at
+        # configure time. Kept (with LIB_COUNT) for the diagnostics below.
+        set(ONNXRUNTIME_STATIC_LIBS)
+        list(LENGTH ONNXRUNTIME_STATIC_LIBS LIB_COUNT)
+
         # Add dependency and use the link script
         add_dependencies(${TARGET_NAME} onnx_link_script)
         

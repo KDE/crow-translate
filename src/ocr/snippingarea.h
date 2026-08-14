@@ -27,6 +27,11 @@ public:
     explicit SnippingArea(QWidget *parent = nullptr);
     ~SnippingArea() override;
 
+    // Public so it's directly unit-testable in isolation: on Wayland, Qt::Popup
+    // requires a visible transient parent that has received input, or popup
+    // creation silently fails, so a hidden parent must fall back to Qt::Tool.
+    static Qt::WindowFlags getWindowFlags(QWidget *parent);
+
     AppSettings::RegionRememberType regionRememberType() const;
 
     void setCaptureOnRelese(bool onRelease);
@@ -60,8 +65,6 @@ private:
         TopOrBottom = Top & Bottom, // 10000
         RightOrLeft = Right & Left // 100000
     };
-
-    static Qt::WindowFlags getWindowFlags(QWidget *parent);
 
     void changeEvent(QEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;

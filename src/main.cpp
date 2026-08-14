@@ -41,6 +41,9 @@ int main(int argc, char *argv[])
 
 int launchGui(int argc, char *argv[])
 {
+    Q_INIT_RESOURCE(engines);
+    Q_INIT_RESOURCE(icon_theme);
+
     QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral(APPLICATION_ID)));
 #if defined(Q_OS_WIN)
     QGuiApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
@@ -87,6 +90,9 @@ int launchGui(int argc, char *argv[])
 
 int launchCli(int argc, char *argv[])
 {
+    Q_INIT_RESOURCE(engines);
+    Q_INIT_RESOURCE(icon_theme);
+
     const QCoreApplication app(argc, argv);
 
     AppSettings settings;

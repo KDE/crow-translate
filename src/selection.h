@@ -10,8 +10,8 @@
 
 #include <QObject>
 
-#ifdef Q_OS_WIN
 class QTimer;
+#ifdef Q_OS_WIN
 class QMimeData;
 #endif
 
@@ -39,10 +39,23 @@ protected:
 private slots:
     void getSelection();
     void onApplicationStateChanged(Qt::ApplicationState state);
+#if defined(Q_OS_LINUX)
+    void onActivationTimeout();
+#endif
 
 private:
     QMetaObject::Connection m_activationConnection;
     bool m_waitingForActivation = false;
+
+#if defined(Q_OS_LINUX)
+    // activateWindow() can fail to complete on Wayland (KWin's focus-stealing
+    // prevention does not always grant activation) regardless of whether
+    // translateSelection()/etc. was triggered by the QHotkey global shortcut
+    // or a direct D-Bus call - both reach this same code path identically.
+    // Without this timer, windowActivationNeeded's wait below can stall
+    // forever with the selection silently dropped and no feedback.
+    QTimer *m_activationTimeoutTimer;
+#endif
 
 #ifdef Q_OS_WIN
     QScopedPointer<QMimeData> m_originalClipboardData;

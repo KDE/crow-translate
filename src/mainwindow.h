@@ -143,6 +143,12 @@ private:
     bool m_hasSourceImage = false;
     QPixmap m_originalPixmap;
     QLabel *m_imagePreview = nullptr;
+    // Disconnected explicitly in ~MainWindow() before `delete ui` - QWidget's
+    // own destructor destroys child widgets (deleteChildren(), which runs
+    // the popup's destroyed() lambda below) *before* QObject's destructor
+    // gets to auto-sever connections where `this` is the context, so relying
+    // on that auto-disconnect alone isn't enough here.
+    QMetaObject::Connection m_popupDestroyedConnection;
 public slots:
     void on_translateButton_clicked();
     // Global shortcuts
@@ -180,6 +186,13 @@ signals:
     void translationRequested(const QString &inputText, const Language &translationLang, const Language &sourceLang);
     void translationAccepted();
     void resetTranslator();
+
+#ifdef BUILD_TESTING
+    // Test observability: Forward provider state changes as signals for QSignalSpy.
+    // The slot versions (ttsStateChanged/translatorStateChanged) handle UI updates but aren't signals.
+    void ttsStateChangedSignal(QTextToSpeech::State newState);
+    void translatorStateChangedSignal(ATranslationProvider::State newState);
+#endif
 };
 
 #endif // MAINWINDOW_H

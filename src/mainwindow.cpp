@@ -74,6 +74,16 @@ MainWindow::MainWindow(QWidget *parent)
         m_engineItemsData.append(ui->engineComboBox->itemData(i).toString());
         m_engineItemsIcons.append(ui->engineComboBox->itemIcon(i));
     }
+
+    // Accessible names for assistive technology and automated UI testing (AT-SPI/UIA/AX
+    // report the widget's text content or nothing at all without these, since Qt doesn't
+    // default an accessible name from objectName())
+    ui->sourceEdit->setAccessibleName(QStringLiteral("sourceEdit"));
+    ui->translationEdit->setAccessibleName(QStringLiteral("translationEdit"));
+    ui->translateButton->setAccessibleName(QStringLiteral("translateButton"));
+    ui->sourcePlayPauseButton->setAccessibleName(QStringLiteral("sourcePlayPauseButton"));
+    ui->translationPlayPauseButton->setAccessibleName(QStringLiteral("translationPlayPauseButton"));
+
     // Screen orientation
     connect(m_orientationWatcher, &ScreenWatcher::screenOrientationChanged, this, &MainWindow::setOrientation);
 
@@ -273,6 +283,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    disconnect(m_popupDestroyedConnection);
     delete ui;
 }
 
@@ -752,7 +763,11 @@ void MainWindow::showTranslationWindow()
         // Force listening for changes in source field
         if (!m_listenForContentChanges) {
             setListenForContentChanges(true);
-            connect(popup, &PopupWindow::destroyed, [this] {
+            // Stored and explicitly disconnected in ~MainWindow() before
+            // `delete ui` - see m_popupDestroyedConnection's declaration for
+            // why the `this` context argument alone isn't sufficient here.
+            disconnect(m_popupDestroyedConnection);
+            m_popupDestroyedConnection = connect(popup, &PopupWindow::destroyed, this, [this] {
                 setListenForContentChanges(ui->autoTranslateCheckBox->isChecked());
             });
         }
@@ -987,6 +1002,10 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
 void MainWindow::ttsStateChanged(QTextToSpeech::State newState)
 {
+#ifdef BUILD_TESTING
+    emit ttsStateChangedSignal(newState);
+#endif
+
     switch (newState) {
     case QTextToSpeech::Ready:
         ui->sourcePlayPauseButton->setIcon(QIcon::fromTheme("media-playback-start"));
@@ -1019,6 +1038,9 @@ void MainWindow::onTTSError(QTextToSpeech::ErrorReason reason, const QString &er
 void MainWindow::translatorStateChanged(ATranslationProvider::State newState)
 {
     qDebug() << "MainWindow::translatorStateChanged - newState:" << static_cast<int>(newState);
+#ifdef BUILD_TESTING
+    emit translatorStateChangedSignal(newState);
+#endif
     updateTranslateButtonState();
     ui->abortButton->setEnabled(newState == ATranslationProvider::State::Processing);
     switch (newState) {

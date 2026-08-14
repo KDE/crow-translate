@@ -13,6 +13,7 @@
 #include "translationedit.h"
 
 #include <QCloseEvent>
+#include <QDebug>
 #include <QScreen>
 #include <QShortcut>
 #include <QTimer>
@@ -158,7 +159,19 @@ void PopupWindow::loadSettings()
 void PopupWindow::showEvent(QShowEvent *event)
 {
     QPoint position = QCursor::pos(); // Cursor position
-    const QSize availableSize = QGuiApplication::screenAt(position)->availableSize();
+    // screenAt() returns nullptr when the point isn't within any screen's
+    // geometry (stale/unreliable cursor tracking, a monitor hot-unplug, or -
+    // as this project's own test suite found - the popup's own parent window
+    // never having been shown/exposed at all, which is the normal state when
+    // PopupWindow mode is triggered from the tray/a hotkey with the main
+    // window hidden). Fall back to the screen this window itself is on, or
+    // the primary screen, rather than crashing.
+    const QScreen *screen = QGuiApplication::screenAt(position);
+    if (screen == nullptr)
+        screen = QWidget::screen();
+    if (screen == nullptr)
+        screen = QGuiApplication::primaryScreen();
+    const QSize availableSize = screen != nullptr ? screen->availableSize() : size();
 
     if (availableSize.width() - position.x() - geometry().width() < 0) {
         position.rx() -= frameGeometry().width();
@@ -179,9 +192,11 @@ bool PopupWindow::event(QEvent *event)
 {
     switch (event->type()) {
     case QEvent::WindowActivate:
+        qDebug() << "PopupWindow::event - WindowActivate";
         emit windowReady();
         break;
     case QEvent::WindowDeactivate:
+        qDebug() << "PopupWindow::event - WindowDeactivate, activeModalWidget:" << QApplication::activeModalWidget();
         // Do not close the window if the language selection menu is active
         if (QApplication::activeModalWidget() == nullptr)
             close();
