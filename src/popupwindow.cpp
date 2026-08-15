@@ -50,15 +50,19 @@ PopupWindow::PopupWindow(MainWindow *parent)
     // TTS buttons - copy icons and connect to MainWindow TTS methods
     if (parent->sourcePlayPauseButton() != nullptr) {
         ui->sourcePlayPauseButton->setIcon(parent->sourcePlayPauseButton()->icon());
+        ui->sourcePlayPauseButton->setVisible(parent->sourcePlayPauseButton()->isVisible());
     }
     if (parent->sourceStopButton() != nullptr) {
         ui->sourceStopButton->setIcon(parent->sourceStopButton()->icon());
+        ui->sourceStopButton->setVisible(parent->sourceStopButton()->isVisible());
     }
     if (parent->translationPlayPauseButton() != nullptr) {
         ui->translationPlayPauseButton->setIcon(parent->translationPlayPauseButton()->icon());
+        ui->translationPlayPauseButton->setVisible(parent->translationPlayPauseButton()->isVisible());
     }
     if (parent->translationStopButton() != nullptr) {
         ui->translationStopButton->setIcon(parent->translationStopButton()->icon());
+        ui->translationStopButton->setVisible(parent->translationStopButton()->isVisible());
     }
     connect(ui->sourcePlayPauseButton, &QToolButton::clicked, parent, &MainWindow::sourcePlayPauseClicked);
     connect(ui->sourceStopButton, &QToolButton::clicked, parent, &MainWindow::sourceStopClicked);

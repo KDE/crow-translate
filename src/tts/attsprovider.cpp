@@ -5,9 +5,11 @@
 
 #include "attsprovider.h"
 
-#include "tts/mozhittsprovider.h"
 #include "tts/noopttsprovider.h"
+#ifdef WITH_TTS
+#include "tts/mozhittsprovider.h"
 #include "tts/qtttsprovider.h"
+#endif
 #ifdef WITH_PIPER_TTS
 #include "tts/piperttsprovider.h"
 #endif
@@ -24,10 +26,12 @@ ATTSProvider *ATTSProvider::createTTSProvider(QObject *parent, ATTSProvider::Pro
         switch (chosenBackend) {
         case ProviderBackend::None:
             return new NoopTTSProvider(parent);
+#ifdef WITH_TTS
         case ProviderBackend::Qt:
             return new QtTTSProvider(parent);
         case ProviderBackend::Mozhi:
             return new MozhiTTSProvider(parent);
+#endif
         case ProviderBackend::Piper:
 #ifdef WITH_PIPER_TTS
             return new PiperTTSProvider(parent);

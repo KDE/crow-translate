@@ -248,13 +248,20 @@ void Cli::process(const QCoreApplication &app)
             const QString providerName = parser.value(ttsProvider).toLower();
             if (providerName == "none") {
                 ttsBackend = ATTSProvider::ProviderBackend::None;
-            } else if (providerName == "mozhi") {
+            }
+#ifdef WITH_TTS
+            else if (providerName == "mozhi") {
                 ttsBackend = ATTSProvider::ProviderBackend::Mozhi;
             } else if (providerName == "qt") {
                 ttsBackend = ATTSProvider::ProviderBackend::Qt;
-            } else if (providerName == "piper") {
+            }
+#endif
+#ifdef WITH_PIPER_TTS
+            else if (providerName == "piper") {
                 ttsBackend = ATTSProvider::ProviderBackend::Piper;
-            } else {
+            }
+#endif
+            else {
                 qCritical() << tr("Error: Unknown TTS provider '%1'").arg(providerName) << '\n';
                 parser.showHelp(1);
             }

@@ -72,6 +72,7 @@ endif()
 option(WITH_KWAYLAND "Use KWayland for better Wayland integration" ON)
 
 option(WITH_PIPER_TTS "Enable Piper neural TTS provider (requires onnxruntime and espeak-ng)" ON)
+option(WITH_TTS "Enable text-to-speech support (Mozhi and Qt providers, plus Piper if WITH_PIPER_TTS)" ON)
 
 
 if(CMAKE_EXPORT_COMPILE_COMMANDS AND DEFINED ENV{NIX_CFLAGS_COMPILE})
@@ -213,10 +214,6 @@ add_library(${PROJECT_NAME}-lib STATIC
     src/tts/voice.cpp
     src/translator/atranslationprovider.h
     src/translator/atranslationprovider.cpp
-    src/tts/qtttsprovider.h
-    src/tts/qtttsprovider.cpp
-    src/tts/mozhittsprovider.h
-    src/tts/mozhittsprovider.cpp
     src/tts/noopttsprovider.h
     src/tts/noopttsprovider.cpp
     src/translator/copytranslationprovider.h
@@ -294,6 +291,20 @@ target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}-lib)
 # Note: ONNX Runtime configuration moved after find_package(ONNXRuntime) below
 
 # Handle espeak-ng submodule for Piper TTS
+if(WITH_TTS)
+    target_sources(${PROJECT_NAME}-lib PRIVATE
+        src/tts/qtttsprovider.h
+        src/tts/qtttsprovider.cpp
+        src/tts/mozhittsprovider.h
+        src/tts/mozhittsprovider.cpp
+    )
+    target_compile_definitions(${PROJECT_NAME}-lib PUBLIC WITH_TTS)
+else()
+    if(WITH_PIPER_TTS)
+        message(FATAL_ERROR "WITH_PIPER_TTS requires WITH_TTS")
+    endif()
+endif()
+
 if(WITH_PIPER_TTS)
     # Build espeak-ng from submodule
     set(ESPEAKNG_BUILD_DIR ${CMAKE_BINARY_DIR}/espeak_ng)
@@ -429,8 +440,9 @@ target_link_libraries(${PROJECT_NAME}-lib PUBLIC
     Qt6::Concurrent
     Qt6::StateMachine
     Tesseract::Tesseract
-    Qt6::TextToSpeech
 )
+
+target_link_libraries(${PROJECT_NAME}-lib PUBLIC Qt6::TextToSpeech)
 
 # Link Piper dependencies if enabled
 if(WITH_PIPER_TTS)

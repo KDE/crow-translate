@@ -152,14 +152,20 @@ SettingsDialog::SettingsDialog(MainWindow *parent)
 
     // Populate TTS providers dynamically
     ui->ttsProviderComboBox->addItem(tr("None"), QVariant::fromValue(ATTSProvider::ProviderBackend::None));
+#ifdef WITH_TTS
     ui->ttsProviderComboBox->addItem("Mozhi", QVariant::fromValue(ATTSProvider::ProviderBackend::Mozhi));
     ui->ttsProviderComboBox->addItem("Qt", QVariant::fromValue(ATTSProvider::ProviderBackend::Qt));
+#endif
 #ifdef WITH_PIPER_TTS
     ui->ttsProviderComboBox->addItem("Piper", QVariant::fromValue(ATTSProvider::ProviderBackend::Piper));
 #endif
 
 #ifdef WITH_PIPER_TTS
     setupPiperVoicesPathUI();
+#endif
+#ifndef WITH_TTS
+    // Built without TTS support: hide the whole TTS group box
+    ui->ttsGroupBox->setVisible(false);
 #endif
 
     // Sort languages in comboboxes alphabetically

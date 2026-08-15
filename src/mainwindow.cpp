@@ -1402,7 +1402,28 @@ void MainWindow::updateProviderUI()
         ui->translationVoiceComboBox->setVisible(ttsReqs.requiredUIElements.contains("translationVoiceComboBox"));
         ui->sourceSpeakerComboBox->setVisible(ttsReqs.requiredUIElements.contains("sourceSpeakerComboBox"));
         ui->translationSpeakerComboBox->setVisible(ttsReqs.requiredUIElements.contains("translationSpeakerComboBox"));
+
+        // Hide playback controls entirely when the provider has no TTS UI (e.g. None)
+        const bool hasVoiceUI = !ttsReqs.requiredUIElements.isEmpty();
+        ui->sourcePlayPauseButton->setVisible(hasVoiceUI);
+        ui->sourceStopButton->setVisible(hasVoiceUI);
+        ui->translationPlayPauseButton->setVisible(hasVoiceUI);
+        ui->translationStopButton->setVisible(hasVoiceUI);
     }
+#ifndef WITH_TTS
+    // Built without TTS support: no provider other than "None" exists, hide all TTS UI
+    for (QWidget *w : {static_cast<QWidget *>(ui->sourcePlayPauseButton),
+                       static_cast<QWidget *>(ui->sourceStopButton),
+                       static_cast<QWidget *>(ui->translationPlayPauseButton),
+                       static_cast<QWidget *>(ui->translationStopButton),
+                       static_cast<QWidget *>(ui->sourceVoiceComboBox),
+                       static_cast<QWidget *>(ui->translationVoiceComboBox),
+                       static_cast<QWidget *>(ui->sourceSpeakerComboBox),
+                       static_cast<QWidget *>(ui->translationSpeakerComboBox)}) {
+        w->setVisible(false);
+        w->setEnabled(false);
+    }
+#endif
 }
 
 void MainWindow::updateVoiceComboBoxes()
