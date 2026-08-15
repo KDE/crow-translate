@@ -334,7 +334,7 @@ if(WITH_PIPER_TTS)
     )
 
     # Find ONNX Runtime (tries system packages first, then static linking fallback)
-    find_package(ONNXRuntime 1.22.1 REQUIRED)
+    find_package(ONNXRuntime 1.27.0 REQUIRED)
 
     # If using static linking, build from source with telemetry disabled
     if(ONNXRuntime_USE_STATIC)

@@ -6,7 +6,7 @@
 # Finds ONNX Runtime using system packages first, then falls back to static linking
 # Handles platform-specific library configurations and dependencies
 #
-# Usage: find_package(ONNXRuntime 1.22.0 REQUIRED)
+# Usage: find_package(ONNXRuntime 1.27.0 REQUIRED)
 #
 # Variables set:
 #   ONNXRuntime_FOUND - True if ONNX Runtime found
@@ -17,7 +17,7 @@
 # Get version from find_package() call
 set(ONNX_VERSION ${ONNXRuntime_FIND_VERSION})
 if(NOT ONNX_VERSION)
-    set(ONNX_VERSION "1.22.0")  # fallback
+    set(ONNX_VERSION "1.27.0")  # fallback
 endif()
 
 # First try to find ONNX Runtime via pkg-config or system paths
@@ -28,15 +28,21 @@ endif()
 
 # Try to find onnxruntime directly if pkg-config didn't work
 find_path(ONNXRuntime_INCLUDE_DIR onnxruntime_cxx_api.h
-    PATHS 
+    HINTS
+        ${CMAKE_PREFIX_PATH}
         ${PC_ONNXRUNTIME_INCLUDE_DIRS}
+    PATH_SUFFIXES
+        onnxruntime
+    PATHS
         /usr/include/onnxruntime 
         /usr/local/include/onnxruntime
 )
 
 find_library(ONNXRuntime_LIBRARY onnxruntime
-    PATHS 
+    HINTS
+        ${CMAKE_PREFIX_PATH}
         ${PC_ONNXRUNTIME_LIBRARY_DIRS}
+    PATHS 
         /usr/lib 
         /usr/local/lib
 )
@@ -92,6 +98,7 @@ cmake_policy(SET CMP0009 NEW)
 file(GLOB_RECURSE ALL_LIBS \"${BUILD_DIR}/*.lib\")
 list(FILTER ALL_LIBS INCLUDE REGEX \".*/((onnxruntime_|re2|onnx|protobuf|absl_|cpuinfo).*|libprotobuf)\\\\.lib$\")
 list(FILTER ALL_LIBS EXCLUDE REGEX \".*protobuf-lite.*\")
+list(FILTER ALL_LIBS EXCLUDE REGEX \".*onnx_proto.*\")
 
 # Order libraries: common first, session last
 set(ORDERED_LIBS)
@@ -182,6 +189,7 @@ file(GLOB_RECURSE ALL_LIBS \"${BUILD_DIR}/*.a\")
 # Filter for relevant libraries
 list(FILTER ALL_LIBS INCLUDE REGEX \".*/lib(onnxruntime_|re2|onnx|protobuf|absl_|cpuinfo).*\\\\.a$\")
 list(FILTER ALL_LIBS EXCLUDE REGEX \".*protobuf-lite.*\")
+list(FILTER ALL_LIBS EXCLUDE REGEX \".*onnx_proto.*\")
 
 # Basic ordering: common first, session last
 set(ORDERED_LIBS)
@@ -270,6 +278,7 @@ cmake_policy(SET CMP0009 NEW)
 file(GLOB_RECURSE ALL_LIBS \"${BUILD_DIR}/*.a\")
 list(FILTER ALL_LIBS INCLUDE REGEX \".*/lib(onnxruntime_|re2|onnx|protobuf|absl_|cpuinfo).*\\\\.a$\")
 list(FILTER ALL_LIBS EXCLUDE REGEX \".*protobuf-lite.*\")
+list(FILTER ALL_LIBS EXCLUDE REGEX \".*onnx_proto.*\")
 
 # Order libraries: common first, session last
 set(ORDERED_LIBS)
@@ -380,15 +389,11 @@ function(build_onnxruntime_static)
             PREFIX ${CMAKE_BINARY_DIR}/onnxruntime-src
             SOURCE_DIR ${CMAKE_BINARY_DIR}/onnxruntime-src/src/onnxruntime
             SOURCE_SUBDIR cmake
-            # Patches required because ONNX Runtime isn't designed for static linking in external projects:
-            PATCH_COMMAND 
-                # ONNX Runtime assumes controlled build environment, but CI hosts vary in compiler strictness
-                sed -i [=[/include(\${target_name}\.cmake)/a set(CMAKE_CXX_FLAGS \"${CMAKE_CXX_FLAGS} -Wno-error\")\nset(CMAKE_C_FLAGS \"${CMAKE_C_FLAGS} -Wno-error\")]=] <SOURCE_DIR>/cmake/CMakeLists.txt
-                # MLAS library designed for internal ONNX Runtime use, not external static linking
-                && sed -i [=[49a set_target_properties(onnxruntime_mlas PROPERTIES COMPILE_WARNING_AS_ERROR OFF)]=] <SOURCE_DIR>/cmake/onnxruntime_mlas.cmake
-                # Optimizer components assume warnings won't be treated as errors in external builds
-                && sed -i [=[/selector_action_transformer\.cc.*COMPILE_FLAGS.*-Wno-maybe-uninitialized/a set_source_files_properties(\"$\{ONNXRUNTIME_ROOT}/core/optimizer/nchwc_transformer.cc\" PROPERTIES COMPILE_FLAGS \"-Wno-maybe-uninitialized\")]=] <SOURCE_DIR>/cmake/onnxruntime_optimizer.cmake
-                # Header files assume internal build system will provide standard library includes. Gcc-13 changed standard includes.
+            # onnxruntime hard-sets COMPILE_WARNING_AS_ERROR ON on every target in cmake/CMakeLists.txt.
+            # Newer gcc (16.x: -Wsfinae-incomplete, -Wdangling-pointer) turns clean upstream code into
+            # build failures. Flip it OFF; keep the gcc13 <cstdint> header workaround.
+            PATCH_COMMAND
+                sed -i [=[s/COMPILE_WARNING_AS_ERROR ON/COMPILE_WARNING_AS_ERROR OFF/g]=] <SOURCE_DIR>/cmake/CMakeLists.txt
                 && sed -i [=[1i #include <cstdint>]=] <SOURCE_DIR>/onnxruntime/core/optimizer/transpose_optimization/optimizer_api.h
             CMAKE_ARGS
                 -DCMAKE_BUILD_TYPE=Release
@@ -405,7 +410,7 @@ function(build_onnxruntime_static)
                 -Donnxruntime_USE_AVX=OFF
                 -Donnxruntime_USE_AVX2=OFF
                 -Donnxruntime_USE_AVX512=OFF
-                -DCMAKE_CXX_STANDARD=17
+                -DCMAKE_CXX_STANDARD=20
                 -DCMAKE_CXX_STANDARD_REQUIRED=ON
                 -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=NEVER
                 -DBUILD_SHARED_LIBS=OFF
