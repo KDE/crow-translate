@@ -18,6 +18,12 @@
 #include <KIconTheme>
 #endif
 
+#ifdef Q_OS_WIN
+#define WIN32_LEAN_AND_MEAN
+#define NOMINMAX
+#include <windows.h>
+#endif
+
 #ifdef Q_OS_UNIX
 #include "ocr/ocr.h"
 
@@ -69,6 +75,12 @@ int launchGui(int argc, char *argv[])
 
 #if defined(Q_OS_WIN)
     QGuiApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
+    // Request per-monitor DPI awareness (V2) explicitly so that the screen
+    // geometry and grabbed images reported by Qt use a single, consistent scale
+    // regardless of any application manifest. Without this, on a scaled main
+    // monitor alongside a second monitor the capture area maps its coordinates
+    // incorrectly and the grabbed pixmap is offset or clipped.
+    SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
 #endif
 #if defined(Q_OS_LINUX)
     QGuiApplication::setDesktopFileName(QStringLiteral(DESKTOP_FILE_BASENAME));

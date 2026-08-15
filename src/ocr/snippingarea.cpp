@@ -449,7 +449,7 @@ int SnippingArea::boundsLeft(int newTopLeftX, bool mouse)
 int SnippingArea::boundsRight(int newTopLeftX, bool mouse)
 {
     // The max X coordinate of the top left point
-    const int realMaxX = qRound((width() - m_selection.width()) * devicePixelRatioF());
+    const int realMaxX = width() - m_selection.width();
     const int xOffset = newTopLeftX - realMaxX;
     if (xOffset > 0) {
         if (mouse)
@@ -763,16 +763,62 @@ SnippingArea::MouseState SnippingArea::mouseLocation(QPointF pos) const
 
 QPixmap SnippingArea::selectedPixmap() const
 {
-    return m_screenPixmap.copy(m_selection);
+    // The selection is stored in the overlay's logical (device-independent)
+    // coordinates, but each screen image is captured at its native
+    // (device-pixel) resolution. Extract the selection at full resolution by
+    // intersecting it with every screen and scaling by that screen's
+    // devicePixelRatio, preserving the pixels for OCR.
+    const QRect deviceSelection = toDeviceRect(m_selection);
+    QPixmap result(deviceSelection.size());
+    result.fill(Qt::transparent);
+
+    QPainter painter(&result);
+    for (auto it = m_images.constBegin(); it != m_images.constEnd(); ++it) {
+        const QRect screenArea = deviceGeometry(it.key()).translated(-m_deviceScreensRect.topLeft());
+        const QRect matched = screenArea.intersected(deviceSelection);
+        if (matched.isEmpty())
+            continue;
+
+        const QRect sourceRect = matched.translated(-screenArea.topLeft());
+        painter.drawImage(matched.translated(-deviceSelection.topLeft()), it.value(), sourceRect);
+    }
+    return result;
+}
+
+QRect SnippingArea::deviceGeometry(const QScreen *screen)
+{
+    const qreal dpr = screen->devicePixelRatio();
+    const QRect geometry = screen->geometry();
+    return QRect(qRound(geometry.x() * dpr),
+                 qRound(geometry.y() * dpr),
+                 qRound(geometry.width() * dpr),
+                 qRound(geometry.height() * dpr));
+}
+
+QRect SnippingArea::toDeviceRect(const QRect &rect) const
+{
+    // Map a rectangle expressed in the overlay's logical coordinates to the
+    // device-pixel space of the composited screenshot. Use the screen under the
+    // rectangle's center so that a single consistent scale factor is applied.
+    const QPointF overlayCenter = rect.center() + m_screensRect.topLeft();
+    const QScreen *screen = QGuiApplication::screenAt(overlayCenter.toPoint());
+    if (screen == nullptr)
+        screen = QGuiApplication::primaryScreen();
+
+    const qreal dpr = screen->devicePixelRatio();
+    const QPointF screenRelativeTopLeft = rect.topLeft() + m_screensRect.topLeft() - screen->geometry().topLeft();
+    const QPointF deviceTopLeft = screenRelativeTopLeft * dpr + deviceGeometry(screen).topLeft() - m_deviceScreensRect.topLeft();
+    return QRect(deviceTopLeft.toPoint(), QSizeF(rect.width() * dpr, rect.height() * dpr).toSize());
 }
 
 void SnippingArea::createPixmapFromScreens()
 {
-    m_screenPixmap = QPixmap(m_screensRect.width(), m_screensRect.height());
+    m_screenPixmap = QPixmap(m_screensRect.size());
     QPainter painter(&m_screenPixmap);
     // Geometry can have negative coordinates, so it is necessary to subtract the upper left point, because coordinates on the widget are counted from 0
+    // Each screen image is grabbed at its native resolution, so it must be scaled down to the screen's logical geometry when composited
     for (auto it = m_images.constBegin(); it != m_images.constEnd(); ++it)
-        painter.drawImage(it.key()->geometry().topLeft() - m_screensRect.topLeft(), it.value());
+        painter.drawImage(it.key()->geometry().translated(-m_screensRect.topLeft()), it.value());
 }
 
 void SnippingArea::setGeometryToScreenPixmap()
@@ -880,8 +926,10 @@ void SnippingArea::setBottomHelpText()
 void SnippingArea::preparePaint()
 {
     m_screensRect = {};
+    m_deviceScreensRect = {};
     for (auto it = m_images.constBegin(); it != m_images.constEnd(); ++it) {
         m_screensRect = m_screensRect.united(it.key()->geometry());
+        m_deviceScreensRect = m_deviceScreensRect.united(deviceGeometry(it.key()));
     }
 }
 

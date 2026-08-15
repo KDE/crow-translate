@@ -104,6 +104,9 @@ private:
     static bool isPointInsideCircle(QPointF circleCenter, qreal radius, QPointF point);
     static bool isInRange(qreal low, qreal high, qreal value);
     static bool isWithinThreshold(qreal offset, qreal threshold);
+    static QRect deviceGeometry(const QScreen *screen);
+
+    QRect toDeviceRect(const QRect &rect) const;
 
     static constexpr int s_handleRadiusMouse = 9;
     static constexpr int s_handleRadiusTouch = 12;
@@ -146,6 +149,7 @@ private:
     QPointF m_startPos;
     QPointF m_initialTopLeft;
     QRect m_screensRect;
+    QRect m_deviceScreensRect;
 
     QMap<const QScreen *, QImage> m_images;
 
