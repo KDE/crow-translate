@@ -495,6 +495,26 @@ void OnlineTranslator::setInstance(QString url)
     m_instance = qMove(url);
 }
 
+const QString &OnlineTranslator::apiKey()
+{
+    return m_apiKey;
+}
+
+void OnlineTranslator::setApiKey(QString apiKey)
+{
+    m_apiKey = qMove(apiKey);
+}
+
+bool OnlineTranslator::isDirect() const
+{
+    return m_direct;
+}
+
+void OnlineTranslator::setDirect(bool direct)
+{
+    m_direct = direct;
+}
+
 QString OnlineTranslator::languageName(Language lang)
 {
     switch (lang) {
@@ -1260,6 +1280,27 @@ void OnlineTranslator::requestTranslate()
 {
     const QString sourceText = sender()->property(s_textProperty).toString();
 
+    // LibreTranslate speaks its own REST API (POST /translate), not the Mozhi
+    // aggregator's GET /api/translate; this is what lets a self-hosted instance
+    // and its API key be used directly.
+    if (m_engine == LibreTranslate && m_direct) {
+        QUrl url(m_instance + QStringLiteral("/translate"));
+
+        QJsonObject body;
+        body.insert(QStringLiteral("q"), sourceText);
+        body.insert(QStringLiteral("source"), m_sourceLang == Auto ? QStringLiteral("auto") : languageApiCode(m_engine, m_sourceLang));
+        body.insert(QStringLiteral("target"), languageApiCode(m_engine, m_translationLang));
+        body.insert(QStringLiteral("format"), QStringLiteral("text"));
+        if (!m_apiKey.isEmpty())
+            body.insert(QStringLiteral("api_key"), m_apiKey);
+
+        QNetworkRequest request(url);
+        request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
+        request.setAttribute(QNetworkRequest::Http2AllowedAttribute, false);
+        m_currentReply = m_networkManager->post(request, QJsonDocument(body).toJson(QJsonDocument::Compact));
+        return;
+    }
+
     // Generate API url
     QUrl url(m_instance + "/api/translate");
     url.setQuery(QStringLiteral("engine=%1&from=%2&to=%3&text=%4").arg(QString(QMetaEnum::fromType<OnlineTranslator::Engine>().valueToKey(m_engine)).toLower(), languageApiCode(m_engine, m_sourceLang), languageApiCode(m_engine, m_translationLang), QUrl::toPercentEncoding(sourceText)));
@@ -1286,6 +1327,25 @@ void OnlineTranslator::parseTranslate()
     // Read Json
     m_jsonResponse = QJsonDocument::fromJson(m_currentReply->readAll());
     const QJsonObject jsonData = m_jsonResponse.object();
+
+    // LibreTranslate returns { "translatedText", "detectedLanguage": { "language" } }
+    // instead of Mozhi's { "translated-text", "detected" }.
+    if (m_engine == LibreTranslate && m_direct) {
+        if (m_sourceLang == Auto) {
+            const QString detectedCode = jsonData.value(QStringLiteral("detectedLanguage")).toObject().value(QStringLiteral("language")).toString();
+            m_sourceLang = language(m_engine, detectedCode);
+            if (m_sourceLang == NoLanguage) {
+                resetData(ParsingError, tr("Error: Unable to parse autodetected language"));
+                return;
+            }
+            if (m_onlyDetectLanguage)
+                return;
+        }
+
+        addSpaceBetweenParts(m_translation);
+        m_translation.append(jsonData.value(QStringLiteral("translatedText")).toString());
+        return;
+    }
 
     if (m_sourceLang == Auto) {
         // Parse language

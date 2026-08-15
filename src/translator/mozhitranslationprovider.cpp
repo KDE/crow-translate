@@ -318,6 +318,14 @@ void MozhiTranslationProvider::applyOptions(const ProviderOptions &options)
             setEngine(static_cast<OnlineTranslator::Engine>(engineValue));
         }
     }
+
+    if (options.hasOption("apikey")) {
+        m_translator->setApiKey(options.getOption("apikey").toString());
+    }
+
+    if (options.hasOption("direct")) {
+        m_translator->setDirect(options.getOption("direct").toBool());
+    }
 }
 
 std::unique_ptr<ProviderOptions> MozhiTranslationProvider::getDefaultOptions() const
@@ -325,12 +333,14 @@ std::unique_ptr<ProviderOptions> MozhiTranslationProvider::getDefaultOptions() c
     auto options = std::make_unique<ProviderOptions>();
     options->setOption("instance", "https://mozhi.aryak.me");
     options->setOption("engine", static_cast<int>(OnlineTranslator::LibreTranslate));
+    options->setOption("apikey", QString());
+    options->setOption("direct", false);
     return options;
 }
 
 QStringList MozhiTranslationProvider::getAvailableOptions() const
 {
-    return {"instance", "engine"};
+    return {"instance", "engine", "apikey", "direct"};
 }
 
 ProviderUIRequirements MozhiTranslationProvider::getUIRequirements() const
@@ -349,6 +359,10 @@ void MozhiTranslationProvider::saveOptionToSettings(const QString &optionKey, co
         settings.setCurrentEngine(static_cast<OnlineTranslator::Engine>(value.toInt()));
     } else if (optionKey == "instance") {
         settings.setInstance(value.toString());
+    } else if (optionKey == "apikey") {
+        settings.setLibreTranslateApiKey(value.toString());
+    } else if (optionKey == "direct") {
+        settings.setLibreTranslateDirect(value.toBool());
     }
 }
 

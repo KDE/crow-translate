@@ -278,6 +278,8 @@ void SettingsDialog::accept()
     settings.setForceTranslationAutodetect(ui->forceTranslationAutodetectCheckBox->isChecked());
     // Mozhi instance settings
     settings.setInstance(ui->mozhiUrlComboBox->currentText());
+    settings.setLibreTranslateApiKey(ui->mozhiApiKeyEdit->text());
+    settings.setLibreTranslateDirect(ui->mozhiDirectCheckBox->isChecked());
 
     // LocalAI settings
     saveLocalAiSettings();
@@ -1202,6 +1204,8 @@ void SettingsDialog::loadSettings()
     // Temporarily disconnect signal to avoid triggering provider updates while loading settings
     disconnect(ui->mozhiUrlComboBox, &QComboBox::currentTextChanged, this, &SettingsDialog::mozhiInstanceChanged);
     ui->mozhiUrlComboBox->setCurrentText(settings.instance());
+    ui->mozhiApiKeyEdit->setText(settings.libreTranslateApiKey());
+    ui->mozhiDirectCheckBox->setChecked(settings.libreTranslateDirect());
     connect(ui->mozhiUrlComboBox, &QComboBox::currentTextChanged, this, &SettingsDialog::mozhiInstanceChanged);
 
     // LocalAI

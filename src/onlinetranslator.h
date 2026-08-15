@@ -538,6 +538,36 @@ public:
     void setInstance(QString url);
 
     /**
+     * @brief Returns the API key used for the LibreTranslate engine.
+     *
+     * @return API key (empty for open instances that require none)
+     */
+    const QString &apiKey();
+
+    /**
+     * @brief Sets the API key used for the LibreTranslate engine.
+     *
+     * The key is sent as `api_key` to LibreTranslate instances (self-hosted
+     * and libretranslate.com require it; open instances ignore it).
+     *
+     * @param apiKey API key, or an empty string for instances that require none
+     */
+    void setApiKey(QString apiKey);
+
+    /**
+     * @brief Returns whether the LibreTranslate engine uses the direct
+     * LibreTranslate REST API rather than the Mozhi-shaped API.
+     */
+    bool isDirect() const;
+
+    /**
+     * @brief Sets the LibreTranslate API mode.
+     *
+     * @param direct true for the direct LibreTranslate API, false for Mozhi
+     */
+    void setDirect(bool direct);
+
+    /**
      * @brief Language name
      *
      * @param lang language
@@ -646,6 +676,8 @@ private:
     QString m_errorString;
 
     QString m_instance;
+    QString m_apiKey;
+    bool m_direct = false;
 
     QVector<TranslationOptions> m_translationOptions;
     QVector<TranslationExample> m_examples;

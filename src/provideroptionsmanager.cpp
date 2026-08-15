@@ -91,6 +91,8 @@ std::unique_ptr<ProviderOptions> ProviderOptionsManager::createMozhiTranslationO
 
     options->setOption("instance", settings.instance());
     options->setOption("engine", static_cast<int>(settings.currentEngine()));
+    options->setOption("apikey", settings.libreTranslateApiKey());
+    options->setOption("direct", settings.libreTranslateDirect());
 
     return options;
 }

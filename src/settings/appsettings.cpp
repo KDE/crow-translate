@@ -633,6 +633,26 @@ void AppSettings::setInstance(const QString &url)
     m_settings->setValue(QStringLiteral("Translation/Instance"), url);
 }
 
+QString AppSettings::libreTranslateApiKey() const
+{
+    return m_settings->value(QStringLiteral("Translation/LibreTranslateApiKey")).toString();
+}
+
+void AppSettings::setLibreTranslateApiKey(const QString &apiKey)
+{
+    m_settings->setValue(QStringLiteral("Translation/LibreTranslateApiKey"), apiKey);
+}
+
+bool AppSettings::libreTranslateDirect() const
+{
+    return m_settings->value(QStringLiteral("Translation/LibreTranslateDirect")).toBool();
+}
+
+void AppSettings::setLibreTranslateDirect(bool direct)
+{
+    m_settings->setValue(QStringLiteral("Translation/LibreTranslateDirect"), direct);
+}
+
 // ── LocalAI backend ───────────────────────────────────────────
 
 QStringList AppSettings::localProviderIds()

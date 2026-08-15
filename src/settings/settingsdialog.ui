@@ -893,42 +893,80 @@
               <property name="title">
                <string notr="true">Mozhi</string>
               </property>
-              <layout class="QHBoxLayout" name="horizontalLayout">
+              <layout class="QVBoxLayout" name="mozhiGroupBoxLayout">
                <item>
-                <widget class="QLabel" name="mozhiUrlLabel">
-                 <property name="text">
-                  <string notr="true">URL:</string>
-                 </property>
-                </widget>
+                <layout class="QHBoxLayout" name="instanceRowLayout">
+                 <item>
+                  <widget class="QLabel" name="mozhiUrlLabel">
+                   <property name="text">
+                    <string notr="true">URL:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="mozhiUrlComboBox">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="toolTip">
+                    <string>Mozhi instance URL</string>
+                   </property>
+                   <property name="editable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="currentText">
+                    <string notr="true"/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="detectFastestButton">
+                   <property name="toolTip">
+                    <string>Automatically pick the fastest instance based on the ping</string>
+                   </property>
+                   <property name="text">
+                    <string>Detect fastest</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </item>
                <item>
-                <widget class="QComboBox" name="mozhiUrlComboBox">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="toolTip">
-                  <string>Mozhi instance URL</string>
-                 </property>
-                 <property name="editable">
-                  <bool>true</bool>
-                 </property>
-                 <property name="currentText">
-                  <string notr="true"/>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="detectFastestButton">
-                 <property name="toolTip">
-                  <string>Automatically pick the fastest instance based on the ping</string>
-                 </property>
-                 <property name="text">
-                  <string>Detect fastest</string>
-                 </property>
-                </widget>
+                <layout class="QHBoxLayout" name="apiKeyRowLayout">
+                 <item>
+                  <widget class="QLabel" name="mozhiApiKeyLabel">
+                   <property name="text">
+                    <string notr="true">LibreTranslate API key:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="mozhiApiKeyEdit">
+                   <property name="echoMode">
+                    <enum>QLineEdit::Password</enum>
+                   </property>
+                   <property name="toolTip">
+                    <string>Optional. Required by self-hosted LibreTranslate instances and libretranslate.com; the Mozhi front-end ignores it.</string>
+                   </property>
+                   <property name="placeholderText">
+                    <string notr="true">optional</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mozhiDirectCheckBox">
+                   <property name="text">
+                    <string notr="true">Use direct LibreTranslate API</string>
+                   </property>
+                   <property name="toolTip">
+                    <string>Talk the direct LibreTranslate REST API to the instance URL instead of the Mozhi-compatible API; use this for self-hosted LibreTranslate servers.</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </item>
               </layout>
              </widget>

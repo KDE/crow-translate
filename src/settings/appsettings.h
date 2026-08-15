@@ -189,6 +189,10 @@ public:
 
     QString instance() const;
     void setInstance(const QString &url);
+    QString libreTranslateApiKey() const;
+    void setLibreTranslateApiKey(const QString &apiKey);
+    bool libreTranslateDirect() const;
+    void setLibreTranslateDirect(bool direct);
 
     // LocalAI backend: local OpenAI-compatible servers (Ollama / FastFlowLM
     // / LM Studio), a custom OpenAI-compatible remote endpoint, or Anthropic.
