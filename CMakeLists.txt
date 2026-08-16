@@ -292,6 +292,16 @@ set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${EXECUTABLE_NAME})
 # Link executable against library
 target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}-lib)
 
+# ecm_add_app_icon() attaches WINDOWS_ICON.rc to the static library above.
+# The MSVC linker drops resources that are compiled into a static library
+# when the executable does not reference them (resources expose no symbol
+# that would force the object to be pulled in), so the application icon
+# never ends up in crow.exe and Windows shows a generic icon. Attach the
+# .rc to the executable as well so IDI_ICON1 is always embedded.
+if(WIN32 AND WINDOWS_ICON)
+    target_sources(${PROJECT_NAME} PRIVATE ${WINDOWS_ICON})
+endif()
+
 # Note: ONNX Runtime configuration moved after find_package(ONNXRuntime) below
 
 # Handle espeak-ng submodule for Piper TTS

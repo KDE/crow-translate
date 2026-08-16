@@ -48,6 +48,14 @@ int launchGui(int argc, char *argv[])
 {
     Q_INIT_RESOURCE(engines);
     Q_INIT_RESOURCE(icon_theme);
+#if defined(Q_OS_WIN) || defined(Q_OS_DARWIN)
+    // app.qrc (which holds the application icon) is only compiled into the
+    // STATIC crow-translate-lib on Windows and macOS (see the APPLE/WIN32
+    // target_sources blocks in CMakeLists.txt). Nothing references the
+    // resource initializer from the executable, so the linker drops it and
+    // QIcon::fromTheme() cannot find :/icons/hicolor. Register it here.
+    Q_INIT_RESOURCE(app);
+#endif
 
 #ifdef WITH_KICONTHEMES
     // Set up KDE icon theming before the application object exists (required;
