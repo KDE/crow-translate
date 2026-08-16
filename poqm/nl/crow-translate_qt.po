@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-04-20 13:13+0200\n"
+"PO-Revision-Date: 2026-08-15 17:08+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Language: nl\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 26.04.0\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: src/cli.cpp:37
 msgctxt "Cli|"
@@ -410,13 +410,13 @@ msgstr ""
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
-msgstr ""
+msgstr "Afbeelding te groot (%1 MP). Max %2 MP."
 
 #: src/mainwindow.cpp:1847
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MB). Max %2 MB."
-msgstr ""
+msgstr "Afbeelding te groot (%1 MB). Max %2 MB."
 
 #: src/mainwindow.cpp:1959
 #, qt-format
@@ -425,6 +425,8 @@ msgid ""
 "Cannot open image:\n"
 "%1"
 msgstr ""
+"Kan afbeelding niet openen:\n"
+"%1"
 
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
@@ -1977,108 +1979,93 @@ msgstr "Wilt u de ongeldige opties verwijderen?"
 #: src/settings/settingsdialog.cpp:339
 msgctxt "SettingsDialog|"
 msgid "URL:"
-msgstr ""
+msgstr "URL:"
 
 #: src/settings/settingsdialog.cpp:343
 msgctxt "SettingsDialog|"
 msgid "Key:"
-msgstr ""
+msgstr "Sleutel:"
 
 #: src/settings/settingsdialog.cpp:347
 msgctxt "SettingsDialog|"
 msgid "optional, e.g. for a cloud endpoint"
-msgstr ""
+msgstr "optioneel, bijv. voor een cloud-eindpunt"
 
 #: src/settings/settingsdialog.cpp:348
 msgctxt "SettingsDialog|"
 msgid "Refresh models"
-msgstr ""
+msgstr "Modellen vernieuwen"
 
 #: src/settings/settingsdialog.cpp:363
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Version:"
 msgctxt "SettingsDialog|"
 msgid "Vision"
-msgstr "Versie:"
+msgstr "Visie"
 
 #: src/settings/settingsdialog.cpp:366
 msgctxt "SettingsDialog|"
 msgid "Text"
-msgstr ""
+msgstr "Tekst"
 
 #: src/settings/settingsdialog.cpp:379
 msgctxt "SettingsDialog|"
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #: src/settings/settingsdialog.cpp:381
 msgctxt "SettingsDialog|"
 msgid "How to use this tab"
-msgstr ""
+msgstr "Hoe dit tabblad te gebruiken"
 
 #: src/settings/settingsdialog.cpp:388
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
 msgctxt "SettingsDialog|"
 msgid "Show both"
-msgstr "Time-out tonen:"
+msgstr "Beide tonen"
 
 #: src/settings/settingsdialog.cpp:389
 msgctxt "SettingsDialog|"
 msgid "Debug: show Text and Vision blocks simultaneously"
-msgstr ""
+msgstr "Debug: tekst- end visieblokken tegelijk tonen"
 
 #: src/settings/settingsdialog.cpp:402
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation model:"
-msgstr "Vertaalmodus:"
+msgstr "Vertaalmodel:"
 
 #: src/settings/settingsdialog.cpp:410 src/settings/settingsdialog.cpp:453
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
 msgctxt "SettingsDialog|"
 msgid "Timeout:"
-msgstr "Time-out tonen:"
+msgstr "Tijdslimiet:"
 
 #: src/settings/settingsdialog.cpp:415 src/settings/settingsdialog.cpp:458
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a translation or detection response."
-msgstr ""
+msgstr "Maximum tijd om te wachten op een vertaling of detectierespons."
 
 #: src/settings/settingsdialog.cpp:420 src/settings/settingsdialog.cpp:463
 msgctxt "SettingsDialog|"
 msgid "Disable reasoning"
-msgstr ""
+msgstr "Redenering uitschakelen"
 
 #: src/settings/settingsdialog.cpp:427 src/settings/settingsdialog.cpp:470
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Placeholders: %1"
-msgstr ""
+msgstr "Plaatshouders: %1"
 
 #: src/settings/settingsdialog.cpp:430
 msgctxt "SettingsDialog|"
 msgid "Reset Text prompt"
-msgstr ""
+msgstr "Tekstprompt resetten"
 
 #: src/settings/settingsdialog.cpp:445
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Vision model:"
-msgstr "Vertaalmodus:"
+msgstr "Visiemodel:"
 
 #: src/settings/settingsdialog.cpp:473
 msgctxt "SettingsDialog|"
 msgid "Reset Vision prompt"
-msgstr ""
+msgstr "Visieprompt resetten"
 
 #: src/settings/settingsdialog.cpp:512
 #, qt-format
@@ -2105,11 +2092,34 @@ msgid ""
 "Skips thinking tokens on supported models. Only shown for Ollama providers.</"
 "p><p><b>Timeout:</b> Maximum time to wait for a response.</p>"
 msgstr ""
+"<h3>Hoe het LocalAI-tabblad werkt</h3><p><b>Tekst-/Visie-modi:</b> Elke "
+"leverancier heeft twee onafhankelijke blokken: <i>Tekst</i> voor het "
+"vertalen van tekst en <i>Visie</i> voor het vertalen van tekst uit "
+"afbeeldingen (sleep een afbeelding naar het bronveld of plak deze erin). "
+"Schakel tussen de modi met de knoppen [Visie] en [Tekst].</p><p><b>Prompts "
+"per model:</b> <u>Elk model heeft zijn eigen prompt.</u> Wanneer u van model "
+"wisselt, wordt de bijbehorende opgeslagen prompt geladen. Uw wijzigingen "
+"worden automatisch opgeslagen terwijl u typt; u hoeft niet op 'Opslaan' te "
+"klikken.</p><p><b>Standaardtekstprompt:</b><br><code>%1</code></"
+"p><p><b>Standaard-visie-prompt:</b><br><code>%2</code></p><p><b>Voorbeeld — "
+"een foto beschrijven (visiemodus):</b><br><code>U bent een visuele analist. "
+"Bekijk de afbeelding en geef een gedetailleerde beschrijving in het "
+"{target_lang} ({target_code}). Vermeld: type scène, onderwerpen, kleuren, "
+"belichting en opvallende details. Vertaal eventuele tekst. Geef alleen de "
+"beschrijving weer, bestaande uit 3 tot 6 zinnen.</code></"
+"p><p><b>Plaatshouders:</b><br><code>{source_lang}</code> — naam van de "
+"brontaal<br><code>{source_code}</code> — ISO-code van de "
+"brontaal<br><code>{target_lang}</code> — naam van de "
+"doeltaal<br><code>{target_code}</code> — ISO-code van de "
+"doeltaal<br><code>{text}</code> — de invoertekst (alleen in tekstmodus)</"
+"p><p><b>Redenering uitschakelen:</b> Slaat 'thinking tokens' (denk-tokens) "
+"over bij ondersteunde modellen. Alleen zichtbaar voor Ollama-leveranciers.</"
+"p><p><b>Tijdslimiet:</b> Maximale wachttijd voor een reactie.</p>"
 
 #: src/settings/settingsdialog.cpp:542
 msgctxt "SettingsDialog|"
 msgid "LocalAI Tab Help"
-msgstr ""
+msgstr "LocalAI-tabblad Help"
 
 #: src/settings/settingsdialog.cpp:798
 #, qt-format
@@ -2118,11 +2128,13 @@ msgid ""
 "Could not reach %1 at %2:\n"
 "%3"
 msgstr ""
+"Kon %1 opt %2 niet bereiken:\n"
+"%3"
 
 #: src/settings/settingsdialog.cpp:811
 msgctxt "SettingsDialog|"
 msgid "No models found."
-msgstr ""
+msgstr "Geen modellen gevonden."
 
 #: src/settings/settingsdialog.cpp:893
 msgctxt "SettingsDialog|"
@@ -2559,27 +2571,23 @@ msgid ""
 "Detect the source language using a LocalAI model instead of the built-in "
 "heuristic. Choose the provider and model below."
 msgstr ""
+"Detecteer de brontaal met behulp van een LocalAI-model in plaats van de "
+"ingebouwde heuristiek. Kies hieronder de leverancier en het model."
 
 #: src/settings/settingsdialog.ui:738
 msgctxt "SettingsDialog|"
 msgid "Detect language via LLM (LocalAI)"
-msgstr ""
+msgstr "Taal detecteren via LLM (LocalAI)"
 
 #: src/settings/settingsdialog.ui:745
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation provider:"
 msgctxt "SettingsDialog|"
 msgid "Detection provider:"
-msgstr "Leverancier van vertaling:"
+msgstr "Detectieleverancier:"
 
 #: src/settings/settingsdialog.ui:755
-#, fuzzy
-#| msgctxt "SnippingArea|"
-#| msgid "DPI Detection Error"
 msgctxt "SettingsDialog|"
 msgid "Detection model:"
-msgstr "DPI-detectiefout"
+msgstr "Detectiemodel:"
 
 #: src/settings/settingsdialog.ui:783
 msgctxt "SettingsDialog|"
@@ -2692,6 +2700,9 @@ msgid ""
 "Local OpenAI-compatible servers. Set URL, translation model and prompt for "
 "each. Language detection is configured on the Translation page."
 msgstr ""
+"Lokale OpenAI-compatibele servers. Stel voor elke server de URL, het "
+"vertaalmodel en de prompt in. Taalherkenning wordt geconfigureerd op de "
+"pagina 'Vertaling'."
 
 #: src/settings/settingsdialog.ui:985
 msgctxt "SettingsDialog|"

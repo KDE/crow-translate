@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-08 11:50+0200\n"
+"PO-Revision-Date: 2026-08-15 08:21+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -402,13 +402,13 @@ msgstr ""
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
-msgstr ""
+msgstr "Bild för stor (%1 MP) Maximalt %2 MP."
 
 #: src/mainwindow.cpp:1847
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MB). Max %2 MB."
-msgstr ""
+msgstr "Bild för stor (%1 MB). Maximalt %2 MB."
 
 #: src/mainwindow.cpp:1959
 #, qt-format
@@ -417,6 +417,8 @@ msgid ""
 "Cannot open image:\n"
 "%1"
 msgstr ""
+"Kan inte öppna bild:\n"
+"%1"
 
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
@@ -557,7 +559,7 @@ msgstr "Kan inte läsa data från uttag: %1"
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:275
 msgctxt "WaylandPlasmaScreenGrabber|"
 msgid "Unable to determine target screen"
-msgstr "Kan inte fastställa målskärm"
+msgstr "Kan inte fastställa resultatskärm"
 
 #: src/ocr/screengrabbers/waylandplasmascreengrabber.cpp:297
 msgctxt "WaylandPlasmaScreenGrabber|"
@@ -1968,108 +1970,93 @@ msgstr "Vill du bortse från de ogiltiga parametrarna?"
 #: src/settings/settingsdialog.cpp:339
 msgctxt "SettingsDialog|"
 msgid "URL:"
-msgstr ""
+msgstr "Webbadress:"
 
 #: src/settings/settingsdialog.cpp:343
 msgctxt "SettingsDialog|"
 msgid "Key:"
-msgstr ""
+msgstr "Nyckel:"
 
 #: src/settings/settingsdialog.cpp:347
 msgctxt "SettingsDialog|"
 msgid "optional, e.g. for a cloud endpoint"
-msgstr ""
+msgstr "valfri, t.ex. för en molnslutpunkt"
 
 #: src/settings/settingsdialog.cpp:348
 msgctxt "SettingsDialog|"
 msgid "Refresh models"
-msgstr ""
+msgstr "Uppdatera modeller"
 
 #: src/settings/settingsdialog.cpp:363
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Version:"
 msgctxt "SettingsDialog|"
 msgid "Vision"
-msgstr "Version:"
+msgstr "Bild"
 
 #: src/settings/settingsdialog.cpp:366
 msgctxt "SettingsDialog|"
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: src/settings/settingsdialog.cpp:379
 msgctxt "SettingsDialog|"
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #: src/settings/settingsdialog.cpp:381
 msgctxt "SettingsDialog|"
 msgid "How to use this tab"
-msgstr ""
+msgstr "Hur fliken används"
 
 #: src/settings/settingsdialog.cpp:388
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
 msgctxt "SettingsDialog|"
 msgid "Show both"
-msgstr "Visa tidsgräns:"
+msgstr "Visa båda"
 
 #: src/settings/settingsdialog.cpp:389
 msgctxt "SettingsDialog|"
 msgid "Debug: show Text and Vision blocks simultaneously"
-msgstr ""
+msgstr "Felsökning: Visa text text- och bildblock samtidigt"
 
 #: src/settings/settingsdialog.cpp:402
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation model:"
-msgstr "Översättningsmetod:"
+msgstr "Översättningsmodell:"
 
 #: src/settings/settingsdialog.cpp:410 src/settings/settingsdialog.cpp:453
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
 msgctxt "SettingsDialog|"
 msgid "Timeout:"
-msgstr "Visa tidsgräns:"
+msgstr "Tidsgräns:"
 
 #: src/settings/settingsdialog.cpp:415 src/settings/settingsdialog.cpp:458
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a translation or detection response."
-msgstr ""
+msgstr "Maximal tid att vänta på ett översättnings- eller detekteringssvar."
 
 #: src/settings/settingsdialog.cpp:420 src/settings/settingsdialog.cpp:463
 msgctxt "SettingsDialog|"
 msgid "Disable reasoning"
-msgstr ""
+msgstr "Inaktivera resonemang"
 
 #: src/settings/settingsdialog.cpp:427 src/settings/settingsdialog.cpp:470
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Placeholders: %1"
-msgstr ""
+msgstr "Platsmarkörer: %1"
 
 #: src/settings/settingsdialog.cpp:430
 msgctxt "SettingsDialog|"
 msgid "Reset Text prompt"
-msgstr ""
+msgstr "Nollställ textprompt"
 
 #: src/settings/settingsdialog.cpp:445
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Vision model:"
-msgstr "Översättningsmetod:"
+msgstr "Bildmodell:"
 
 #: src/settings/settingsdialog.cpp:473
 msgctxt "SettingsDialog|"
 msgid "Reset Vision prompt"
-msgstr ""
+msgstr "Nollställ bildprompt"
 
 #: src/settings/settingsdialog.cpp:512
 #, qt-format
@@ -2096,11 +2083,31 @@ msgid ""
 "Skips thinking tokens on supported models. Only shown for Ollama providers.</"
 "p><p><b>Timeout:</b> Maximum time to wait for a response.</p>"
 msgstr ""
+"<h3>Hur den lokala AI-fliken fungerar</h3><p><b>Text- och bildlägen:</b> "
+"Varje leverantör har två oberoende block: <i>Text</i> för att översätta text "
+"och <i>Bild</i> för att översätta text från bilder (dra och släpp eller "
+"klistra in en källbild i källfältet). Byt med knapparna [Bild] [Text].</"
+"p><p><b>Prompt gäller per modell:</b> <u>Varje modell har sin egen prompt.</"
+"u> När modellen ändras, läses dess sparade prompt in. Redigeringar sparas "
+"automatiskt medan de skrivs in: det finns inget behov av att klicka på Spara."
+"</p><p><b>Normal textprompt:</b><br><code>%1</code></p><p><b>Normal "
+"bildprompt:</b><br><code>%2</code></p><p><b>Exempel: beskriv ett foto "
+"(bildläge):</b><br><code>You are a visual analyst. Examine the image and "
+"provide a detailed description in {target_lang} ({target_code}). Include: "
+"scene type, subjects, colors, lighting, notable details. If there is text, "
+"translate it. Output only the description, 3–6 sentences.</code></"
+"p><p><b>Platsmarkörer:</b><br><code>{source_lang}</code>: källspråkets "
+"namn<br><code>{source_code}</code>: källspråkets ISO-"
+"kod<br><code>{target_lang}</code>: resultatspråkets "
+"namn<br><code>{target_code}</code>: resultatspråkets ISO-kod<br><code>{text}"
+"</code>: inmatad text (bara textläge)</p><p><b>Inaktivera resonemang:</b> "
+"Hoppar över tankar för modeller som stöder det. Visas bara för Ollama-"
+"leverantörer.</p><p><b>Tidsgräns:</b> Maximal tid att vänta på ett svar.</p>"
 
 #: src/settings/settingsdialog.cpp:542
 msgctxt "SettingsDialog|"
 msgid "LocalAI Tab Help"
-msgstr ""
+msgstr "Lokal AI hjälpflik"
 
 #: src/settings/settingsdialog.cpp:798
 #, qt-format
@@ -2109,11 +2116,13 @@ msgid ""
 "Could not reach %1 at %2:\n"
 "%3"
 msgstr ""
+"Kunde inte nå %1 på %2:\n"
+"%3"
 
 #: src/settings/settingsdialog.cpp:811
 msgctxt "SettingsDialog|"
 msgid "No models found."
-msgstr ""
+msgstr "Inga modeller hittades."
 
 #: src/settings/settingsdialog.cpp:893
 msgctxt "SettingsDialog|"
@@ -2548,27 +2557,23 @@ msgid ""
 "Detect the source language using a LocalAI model instead of the built-in "
 "heuristic. Choose the provider and model below."
 msgstr ""
+"Detektera källspråket med en lokal AI-modell istället för den inbyggda "
+"heuristiska. Välj leverantör och modell nedan."
 
 #: src/settings/settingsdialog.ui:738
 msgctxt "SettingsDialog|"
 msgid "Detect language via LLM (LocalAI)"
-msgstr ""
+msgstr "Detektera språk via LLM (lokal AI)"
 
 #: src/settings/settingsdialog.ui:745
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation provider:"
 msgctxt "SettingsDialog|"
 msgid "Detection provider:"
-msgstr "Översättningsleverantör:"
+msgstr "Detekteringsleverantör:"
 
 #: src/settings/settingsdialog.ui:755
-#, fuzzy
-#| msgctxt "SnippingArea|"
-#| msgid "DPI Detection Error"
 msgctxt "SettingsDialog|"
 msgid "Detection model:"
-msgstr "Fel vid detektering av punkter/tum"
+msgstr "Detekteringsmodell:"
 
 #: src/settings/settingsdialog.ui:783
 msgctxt "SettingsDialog|"
@@ -2685,6 +2690,8 @@ msgid ""
 "Local OpenAI-compatible servers. Set URL, translation model and prompt for "
 "each. Language detection is configured on the Translation page."
 msgstr ""
+"Lokala OpenAI-kompatibla servrar. Ange webbadress, översättningsmodell och "
+"prompt för var och en. Språkdetektering ställs in på översättningssidan."
 
 #: src/settings/settingsdialog.ui:985
 msgctxt "SettingsDialog|"

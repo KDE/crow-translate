@@ -402,13 +402,13 @@ msgstr ""
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
-msgstr ""
+msgstr "გამოსახულება მეტისმეტად დიდია (%1 მპ). მაქს %2 მპ."
 
 #: src/mainwindow.cpp:1847
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MB). Max %2 MB."
-msgstr ""
+msgstr "გამოსახულება მეტისმეტად დიდია (%1 მბ). მაქს %2 მბ."
 
 #: src/mainwindow.cpp:1959
 #, qt-format
@@ -417,6 +417,8 @@ msgid ""
 "Cannot open image:\n"
 "%1"
 msgstr ""
+"გამოსახულების გახსნა შეუძლებელია:\n"
+"%1"
 
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
@@ -1969,108 +1971,93 @@ msgstr "გსურთ არასწორი პარამეტრებ�
 #: src/settings/settingsdialog.cpp:339
 msgctxt "SettingsDialog|"
 msgid "URL:"
-msgstr ""
+msgstr "URL:"
 
 #: src/settings/settingsdialog.cpp:343
 msgctxt "SettingsDialog|"
 msgid "Key:"
-msgstr ""
+msgstr "გასაღები:"
 
 #: src/settings/settingsdialog.cpp:347
 msgctxt "SettingsDialog|"
 msgid "optional, e.g. for a cloud endpoint"
-msgstr ""
+msgstr "არასავალდებულოა. მაგ: ღრუბლოვანი ბოლოწერტილისთვის"
 
 #: src/settings/settingsdialog.cpp:348
 msgctxt "SettingsDialog|"
 msgid "Refresh models"
-msgstr ""
+msgstr "მოდელების განახლება"
 
 #: src/settings/settingsdialog.cpp:363
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Version:"
 msgctxt "SettingsDialog|"
 msgid "Vision"
-msgstr "ვერსია:"
+msgstr "ხედვა"
 
 #: src/settings/settingsdialog.cpp:366
 msgctxt "SettingsDialog|"
 msgid "Text"
-msgstr ""
+msgstr "ტექსტი"
 
 #: src/settings/settingsdialog.cpp:379
 msgctxt "SettingsDialog|"
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #: src/settings/settingsdialog.cpp:381
 msgctxt "SettingsDialog|"
 msgid "How to use this tab"
-msgstr ""
+msgstr "როგორ გამოვიყენოთ ეს ჩანართი"
 
 #: src/settings/settingsdialog.cpp:388
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
 msgctxt "SettingsDialog|"
 msgid "Show both"
-msgstr "ჩვენების მოლოდინის ვადა:"
+msgstr "ორივეს ჩვენება"
 
 #: src/settings/settingsdialog.cpp:389
 msgctxt "SettingsDialog|"
 msgid "Debug: show Text and Vision blocks simultaneously"
-msgstr ""
+msgstr "გამართვა: მხედველობისა და ტექსტის ბლოკების ერთდროული ჩვენება"
 
 #: src/settings/settingsdialog.cpp:402
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation model:"
-msgstr "თარგმანის რეჟიმი:"
+msgstr "თარგმანის მოდელი:"
 
 #: src/settings/settingsdialog.cpp:410 src/settings/settingsdialog.cpp:453
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
 msgctxt "SettingsDialog|"
 msgid "Timeout:"
-msgstr "ჩვენების მოლოდინის ვადა:"
+msgstr "მოლოდინის ვადა:"
 
 #: src/settings/settingsdialog.cpp:415 src/settings/settingsdialog.cpp:458
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a translation or detection response."
-msgstr ""
+msgstr "მაქს. დრო თარგმანის, ან დადგენის პასუხის ლოდინისთვის."
 
 #: src/settings/settingsdialog.cpp:420 src/settings/settingsdialog.cpp:463
 msgctxt "SettingsDialog|"
 msgid "Disable reasoning"
-msgstr ""
+msgstr "მსჯელობის გამორთვა"
 
 #: src/settings/settingsdialog.cpp:427 src/settings/settingsdialog.cpp:470
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Placeholders: %1"
-msgstr ""
+msgstr "ადგილმჭერები: %1"
 
 #: src/settings/settingsdialog.cpp:430
 msgctxt "SettingsDialog|"
 msgid "Reset Text prompt"
-msgstr ""
+msgstr "ტექსტური მოთხოვნის ჩამოყრა"
 
 #: src/settings/settingsdialog.cpp:445
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Vision model:"
-msgstr "თარგმანის რეჟიმი:"
+msgstr "ხედვის მოდელი:"
 
 #: src/settings/settingsdialog.cpp:473
 msgctxt "SettingsDialog|"
 msgid "Reset Vision prompt"
-msgstr ""
+msgstr "მხედველობითი მოთხოვნის ჩამოყრა"
 
 #: src/settings/settingsdialog.cpp:512
 #, qt-format
@@ -2097,11 +2084,33 @@ msgid ""
 "Skips thinking tokens on supported models. Only shown for Ollama providers.</"
 "p><p><b>Timeout:</b> Maximum time to wait for a response.</p>"
 msgstr ""
+"<h3>როგორ მუშაობს LocalAI</h3><p><b>ტექსტის/ხედვის რეჟიმები:</b> თითოეულ "
+"მომწოდებელს აქვს ორი დამოუკიდებელი ბლოკი — <i>ტექსტური</i> ტექსტის "
+"თარგმანისთვის და <i>ხედვა</i> ტექსტის სათარგმნელად სურათებიდან (გადაათრიეთ "
+"&amp; დაყარეთ, ან ჩასვით გამოსახულებები წყაროს ველში). გადართვა "
+"[მხედველობის] და [ტექსტის] ღილაკებით ხდება.</p><p><b>თითოეულ მოდელს თავისი "
+"მოთხოვნის ველი აქვს:</b> <u>ყველა მოდელს თავისი მოთხოვნა აქვს.</u> როცა "
+"ცვლით მოდელს, მისი შენახული მოთხოვნის ველი იტვირთება. თქვენი ჩასწორებების "
+"შენახვა ავტომატურად, კრეფისთანავე ხდება — შენახვის ღილაკზე დაჭერა საჭირო "
+"არაა.</p><p><b>ნაგულისხმევი ტექსტური მოთხოვნა:</b><br><code>%1</code></"
+"p><p><b>ნაგულისხმევი ხედვის მოთხოვნა:</b><br><code>%2</code></p><p><b>მაგ — "
+"აღწერე სურათი (ხედვის რეჟიმი):</b><br><code>შენ ვიზუალური ანალიტიკოსი ხარ. "
+"შეამოწმე სურათი და მომეცი დეტალური აღწერა {target_lang}-ში ({target_code}). "
+"ჩასვი: სცენის ტიპი, სუბიექტები, ფერები, განათება, შესამჩნევი დეტალები. თუ "
+"არსებობს ტექსტიც, მითარგმნე ის. გამოიტანე, მხოლოდ, აღწერა, 3-6 წინადადება.</"
+"code></p><p><b>ადგილმჭერები:</b><br><code>{source_lang}</code> — წყარო ენის "
+"სახელი<br><code>{source_code}</code> — წყარო ენის ISO "
+"კოდი<br><code>{target_lang}</code> — სამიზნე ენის "
+"სახელი<br><code>{target_code}</code> — სამიზნე ენის ISO კოდი<br><code>{text}"
+"</code> — შეყვანილი ტექსტი (მხოლოდ, ტექსტურ რეჟიმში)</p><p><b>მსჯელობის "
+"გამორთვა:</b> გამოტოვებს ფიქრის ტოკენებს მოდელებზე, რომლებსაც ამისი "
+"მხარდაჭერა აქვს. ნაჩვენებია, მხოლოდ, Ollama-ზე.</p><p><b>მოლოდინის ვადა:</b> "
+"მაქსიმალური დრო პასუხისთვის დასალოდებლად.</p>"
 
 #: src/settings/settingsdialog.cpp:542
 msgctxt "SettingsDialog|"
 msgid "LocalAI Tab Help"
-msgstr ""
+msgstr "LocalAI-ის ჩანართის დახმარება"
 
 #: src/settings/settingsdialog.cpp:798
 #, qt-format
@@ -2110,11 +2119,13 @@ msgid ""
 "Could not reach %1 at %2:\n"
 "%3"
 msgstr ""
+"%1-ის %2-ზე წვდომა შეუძლებელია:\n"
+"%3"
 
 #: src/settings/settingsdialog.cpp:811
 msgctxt "SettingsDialog|"
 msgid "No models found."
-msgstr ""
+msgstr "მოდელები აღმოჩენილი არაა."
 
 #: src/settings/settingsdialog.cpp:893
 msgctxt "SettingsDialog|"
@@ -2548,27 +2559,23 @@ msgid ""
 "Detect the source language using a LocalAI model instead of the built-in "
 "heuristic. Choose the provider and model below."
 msgstr ""
+"წყარო ენის დადგენა LocalAI-ის მოდელით ჩაშენებული ევრისტიკის მაგიერ. აირჩიეთ "
+"ქვემოთ მომწოდებელი და მოდელი."
 
 #: src/settings/settingsdialog.ui:738
 msgctxt "SettingsDialog|"
 msgid "Detect language via LLM (LocalAI)"
-msgstr ""
+msgstr "ენის დადგენა LLM-ით (LocalAI)"
 
 #: src/settings/settingsdialog.ui:745
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation provider:"
 msgctxt "SettingsDialog|"
 msgid "Detection provider:"
-msgstr "თარგმანის მომწოდებელი:"
+msgstr "დადგენის მომწოდებელი:"
 
 #: src/settings/settingsdialog.ui:755
-#, fuzzy
-#| msgctxt "SnippingArea|"
-#| msgid "DPI Detection Error"
 msgctxt "SettingsDialog|"
 msgid "Detection model:"
-msgstr "DPI-ის დადგენის შეცდომა"
+msgstr "აღმოჩენის მოდელი:"
 
 #: src/settings/settingsdialog.ui:783
 msgctxt "SettingsDialog|"
@@ -2685,6 +2692,9 @@ msgid ""
 "Local OpenAI-compatible servers. Set URL, translation model and prompt for "
 "each. Language detection is configured on the Translation page."
 msgstr ""
+"ლოკალური OpenAI-სთან თავსებადი სერვერები. დააყენეთ URL, თარგმანის მოდელი და "
+"მოთხოვნის ტიპი ყველა მათგანისთვის. ენის მოდელების მორგება 'თარგმანის' "
+"გვერდზე ხდება."
 
 #: src/settings/settingsdialog.ui:985
 msgctxt "SettingsDialog|"

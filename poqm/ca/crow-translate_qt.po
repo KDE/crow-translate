@@ -3,12 +3,12 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2024, 2025, 2026 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2024-2026 Josep M. Ferrer <txemaq@gmail.com>
 # SPDX-FileCopyrightText: 2024, 2025 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: crow-translate\n"
-"PO-Revision-Date: 2026-04-20 10:00+0200\n"
+"PO-Revision-Date: 2026-08-15 12:18+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 26.04.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/cli.cpp:37
@@ -417,13 +417,13 @@ msgstr ""
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
-msgstr ""
+msgstr "Imatge massa gran (%1 MP). Màx. %2 MP."
 
 #: src/mainwindow.cpp:1847
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MB). Max %2 MB."
-msgstr ""
+msgstr "Imatge massa gran (%1 MB) Màx. %2 MB."
 
 #: src/mainwindow.cpp:1959
 #, qt-format
@@ -432,6 +432,8 @@ msgid ""
 "Cannot open image:\n"
 "%1"
 msgstr ""
+"No s'ha pogut obrir la imatge:\n"
+"%1"
 
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
@@ -1985,108 +1987,93 @@ msgstr "Voleu descartar els paràmetres no vàlids?"
 #: src/settings/settingsdialog.cpp:339
 msgctxt "SettingsDialog|"
 msgid "URL:"
-msgstr ""
+msgstr "URL:"
 
 #: src/settings/settingsdialog.cpp:343
 msgctxt "SettingsDialog|"
 msgid "Key:"
-msgstr ""
+msgstr "Clau:"
 
 #: src/settings/settingsdialog.cpp:347
 msgctxt "SettingsDialog|"
 msgid "optional, e.g. for a cloud endpoint"
-msgstr ""
+msgstr "opcional, p. ex. per a punt final de núvol"
 
 #: src/settings/settingsdialog.cpp:348
 msgctxt "SettingsDialog|"
 msgid "Refresh models"
-msgstr ""
+msgstr "Actualitza els models"
 
 #: src/settings/settingsdialog.cpp:363
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Version:"
 msgctxt "SettingsDialog|"
 msgid "Vision"
-msgstr "Versió:"
+msgstr "Visió"
 
 #: src/settings/settingsdialog.cpp:366
 msgctxt "SettingsDialog|"
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: src/settings/settingsdialog.cpp:379
 msgctxt "SettingsDialog|"
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #: src/settings/settingsdialog.cpp:381
 msgctxt "SettingsDialog|"
 msgid "How to use this tab"
-msgstr ""
+msgstr "Com fer servir aquesta pestanya"
 
 #: src/settings/settingsdialog.cpp:388
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
 msgctxt "SettingsDialog|"
 msgid "Show both"
-msgstr "Mostra el temps d'espera:"
+msgstr "Mostra'ls tots dos"
 
 #: src/settings/settingsdialog.cpp:389
 msgctxt "SettingsDialog|"
 msgid "Debug: show Text and Vision blocks simultaneously"
-msgstr ""
+msgstr "Depuració: mostra els blocs Text i Visió simultàniament"
 
 #: src/settings/settingsdialog.cpp:402
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation model:"
-msgstr "Mode de traducció:"
+msgstr "Model de traducció:"
 
 #: src/settings/settingsdialog.cpp:410 src/settings/settingsdialog.cpp:453
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
 msgctxt "SettingsDialog|"
 msgid "Timeout:"
-msgstr "Mostra el temps d'espera:"
+msgstr "Temps d'espera:"
 
 #: src/settings/settingsdialog.cpp:415 src/settings/settingsdialog.cpp:458
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a translation or detection response."
-msgstr ""
+msgstr "Temps màxim a esperar per a una traducció o detecció de resposta."
 
 #: src/settings/settingsdialog.cpp:420 src/settings/settingsdialog.cpp:463
 msgctxt "SettingsDialog|"
 msgid "Disable reasoning"
-msgstr ""
+msgstr "Desactiva el raonament"
 
 #: src/settings/settingsdialog.cpp:427 src/settings/settingsdialog.cpp:470
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Placeholders: %1"
-msgstr ""
+msgstr "Variables de substitució: %1"
 
 #: src/settings/settingsdialog.cpp:430
 msgctxt "SettingsDialog|"
 msgid "Reset Text prompt"
-msgstr ""
+msgstr "Reinicia l'indicador de text"
 
 #: src/settings/settingsdialog.cpp:445
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Vision model:"
-msgstr "Mode de traducció:"
+msgstr "Model de visió:"
 
 #: src/settings/settingsdialog.cpp:473
 msgctxt "SettingsDialog|"
 msgid "Reset Vision prompt"
-msgstr ""
+msgstr "Reinicia l'indicador de visió"
 
 #: src/settings/settingsdialog.cpp:512
 #, qt-format
@@ -2113,11 +2100,33 @@ msgid ""
 "Skips thinking tokens on supported models. Only shown for Ollama providers.</"
 "p><p><b>Timeout:</b> Maximum time to wait for a response.</p>"
 msgstr ""
+"<h3>Com funciona la pestanya LocalAI</h3><p><b>Modes de Text / Visió:</b> "
+"Cada proveïdor té dos blocs independents: <i>Text</i> per traduir text i "
+"<i>Visió</i> per traduir text a partir d'imatges (arrossegueu i deixeu anar "
+"o enganxeu una imatge en el camp d'origen). Canvieu amb els botons [Visió] "
+"[Text].</p><p><b>Els indicadors són per cada model:</b> <u>Cada model té el "
+"seu propi indicador.</u> Quan canvieu el model, es carrega el seu indicador "
+"desat. Les vostres edicions es desearan automàticament mentre teclegeu, no "
+"cal fer clic a Desa.</p><p><b>Indicador predeterminat de text:</b><br><code>"
+"%1</code></p><p><b>Indicador predeterminat de visió:</b><br><code>%2</code></"
+"p><p><b>Exemple — descriu una foto (mode visió):</b><br><code>Ets analista "
+"visual. Examina la imatge i proporciona una descripció detallada a "
+"{target_lang} ({target_code}). Inclou: tipus d'escena, temes, colors, "
+"il·luminació, detalls notables. Si hi ha text, tradueix-lo. Sortida només de "
+"la descripció, 3-6 frases.</code></p><p><b>Variables de substitució:</"
+"b><br><code>{source_lang}</code> — nom de l'idioma "
+"d'origen<br><code>{source_code}</code> — codi ISO de l'idioma "
+"d'origen<br><code>{target_lang}</code> — nom de l'idioma de "
+"destí<br><code>{target_code}</code> — codi ISO de l'idioma de "
+"destí<br><code>{text}</code> — el text d'entrada (només mode text)</"
+"p><p><b>Desactiva el raonament:</b> Omet els segments textuals de pensament "
+"en els models compatibles. Només es mostra per als proveïdors d'Ollama.</"
+"p><p><b>Temps d'espera:</b> Temps màxim d'espera d'una resposta.</p>"
 
 #: src/settings/settingsdialog.cpp:542
 msgctxt "SettingsDialog|"
 msgid "LocalAI Tab Help"
-msgstr ""
+msgstr "Ajuda de la pestanya LocalAI"
 
 #: src/settings/settingsdialog.cpp:798
 #, qt-format
@@ -2126,11 +2135,13 @@ msgid ""
 "Could not reach %1 at %2:\n"
 "%3"
 msgstr ""
+"No s'ha pogut assolir %1 a %2:\n"
+"%3"
 
 #: src/settings/settingsdialog.cpp:811
 msgctxt "SettingsDialog|"
 msgid "No models found."
-msgstr ""
+msgstr "No s'ha trobat cap model."
 
 #: src/settings/settingsdialog.cpp:893
 msgctxt "SettingsDialog|"
@@ -2571,27 +2582,23 @@ msgid ""
 "Detect the source language using a LocalAI model instead of the built-in "
 "heuristic. Choose the provider and model below."
 msgstr ""
+"Detecta l'idioma d'origen utilitzant un model LocalAI en lloc de l'heurístic "
+"integrat. Trieu el proveïdor i el model a continuació."
 
 #: src/settings/settingsdialog.ui:738
 msgctxt "SettingsDialog|"
 msgid "Detect language via LLM (LocalAI)"
-msgstr ""
+msgstr "Detecta l'idioma via LLM (LocalAI)"
 
 #: src/settings/settingsdialog.ui:745
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation provider:"
 msgctxt "SettingsDialog|"
 msgid "Detection provider:"
-msgstr "Proveïdor de traduccions:"
+msgstr "Proveïdor de detecció:"
 
 #: src/settings/settingsdialog.ui:755
-#, fuzzy
-#| msgctxt "SnippingArea|"
-#| msgid "DPI Detection Error"
 msgctxt "SettingsDialog|"
 msgid "Detection model:"
-msgstr "Error de detecció de PPP"
+msgstr "Model de detecció:"
 
 #: src/settings/settingsdialog.ui:783
 msgctxt "SettingsDialog|"
@@ -2707,6 +2714,9 @@ msgid ""
 "Local OpenAI-compatible servers. Set URL, translation model and prompt for "
 "each. Language detection is configured on the Translation page."
 msgstr ""
+"Servidors compatibles amb OpenAI locals. Estableix l'URL, el model de "
+"traducció i l'indicador per a cadascun. La detecció de la llengua està "
+"configurada a la pàgina de traducció."
 
 #: src/settings/settingsdialog.ui:985
 msgctxt "SettingsDialog|"

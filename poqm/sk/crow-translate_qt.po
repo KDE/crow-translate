@@ -404,13 +404,13 @@ msgstr ""
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
-msgstr ""
+msgstr "Obrázok je príliš veľký (%1 MP). Maximum je %2 MP."
 
 #: src/mainwindow.cpp:1847
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MB). Max %2 MB."
-msgstr ""
+msgstr "Obrázok je príliš veľký (%1 MB). Maximum je %2 MB."
 
 #: src/mainwindow.cpp:1959
 #, qt-format
@@ -419,6 +419,8 @@ msgid ""
 "Cannot open image:\n"
 "%1"
 msgstr ""
+"Nedá sa otvoriť obrázok:\n"
+"%1"
 
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
@@ -1970,108 +1972,93 @@ msgstr "Naozaj chcete discard the invalid parameters?"
 #: src/settings/settingsdialog.cpp:339
 msgctxt "SettingsDialog|"
 msgid "URL:"
-msgstr ""
+msgstr "URL:"
 
 #: src/settings/settingsdialog.cpp:343
 msgctxt "SettingsDialog|"
 msgid "Key:"
-msgstr ""
+msgstr "Kľúč:"
 
 #: src/settings/settingsdialog.cpp:347
 msgctxt "SettingsDialog|"
 msgid "optional, e.g. for a cloud endpoint"
-msgstr ""
+msgstr "voliteľné, napr. pre cloudový koncový bod"
 
 #: src/settings/settingsdialog.cpp:348
 msgctxt "SettingsDialog|"
 msgid "Refresh models"
-msgstr ""
+msgstr "Obnoviť modely"
 
 #: src/settings/settingsdialog.cpp:363
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Version:"
 msgctxt "SettingsDialog|"
 msgid "Vision"
-msgstr "Verzia:"
+msgstr "Obraz"
 
 #: src/settings/settingsdialog.cpp:366
 msgctxt "SettingsDialog|"
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: src/settings/settingsdialog.cpp:379
 msgctxt "SettingsDialog|"
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #: src/settings/settingsdialog.cpp:381
 msgctxt "SettingsDialog|"
 msgid "How to use this tab"
-msgstr ""
+msgstr "Ako používať túto kartu"
 
 #: src/settings/settingsdialog.cpp:388
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
 msgctxt "SettingsDialog|"
 msgid "Show both"
-msgstr "Zobraziť časový limit:"
+msgstr "Zobraziť oboje"
 
 #: src/settings/settingsdialog.cpp:389
 msgctxt "SettingsDialog|"
 msgid "Debug: show Text and Vision blocks simultaneously"
-msgstr ""
+msgstr "Ladenie: zobraziť bloky Text a Obraz súčasne"
 
 #: src/settings/settingsdialog.cpp:402
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation model:"
-msgstr "Režim prekladu:"
+msgstr "Model prekladu:"
 
 #: src/settings/settingsdialog.cpp:410 src/settings/settingsdialog.cpp:453
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
 msgctxt "SettingsDialog|"
 msgid "Timeout:"
-msgstr "Zobraziť časový limit:"
+msgstr "Časový limit:"
 
 #: src/settings/settingsdialog.cpp:415 src/settings/settingsdialog.cpp:458
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a translation or detection response."
-msgstr ""
+msgstr "Maximálny čas čakania na odpoveď prekladu alebo detekcie."
 
 #: src/settings/settingsdialog.cpp:420 src/settings/settingsdialog.cpp:463
 msgctxt "SettingsDialog|"
 msgid "Disable reasoning"
-msgstr ""
+msgstr "Vypnúť uvažovanie"
 
 #: src/settings/settingsdialog.cpp:427 src/settings/settingsdialog.cpp:470
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Placeholders: %1"
-msgstr ""
+msgstr "Zástupné symboly: %1"
 
 #: src/settings/settingsdialog.cpp:430
 msgctxt "SettingsDialog|"
 msgid "Reset Text prompt"
-msgstr ""
+msgstr "Obnoviť prompt pre Text"
 
 #: src/settings/settingsdialog.cpp:445
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Vision model:"
-msgstr "Režim prekladu:"
+msgstr "Model pre Obraz:"
 
 #: src/settings/settingsdialog.cpp:473
 msgctxt "SettingsDialog|"
 msgid "Reset Vision prompt"
-msgstr ""
+msgstr "Obnoviť prompt pre Obraz"
 
 #: src/settings/settingsdialog.cpp:512
 #, qt-format
@@ -2098,11 +2085,32 @@ msgid ""
 "Skips thinking tokens on supported models. Only shown for Ollama providers.</"
 "p><p><b>Timeout:</b> Maximum time to wait for a response.</p>"
 msgstr ""
+"<h3>Ako funguje karta LocalAI</h3><p><b>Režimy Text/Obraz:</b> Každý "
+"poskytovateľ má dva nezávislé bloky — <i>Text</i> na preklad textu a "
+"<i>Obraz</i> na preklad textu z obrázkov (obrázok pretiahnite &amp; pustite "
+"do poľa so zdrojom alebo ho tam vložte). Prepínate ich tlačidlami [Obraz] "
+"[Text].</p><p><b>Prompty sú viazané na model:</b> <u>Každý model má vlastný "
+"prompt.</u> Keď zmeníte model, načíta sa jeho uložený prompt. Vaše úpravy sa "
+"ukladajú automaticky počas písania — netreba klikať na Uložiť.</"
+"p><p><b>Predvolený prompt pre text:</b><br><code>%1</code></"
+"p><p><b>Predvolený prompt pre obraz:</b><br><code>%2</code></p><p><b>Príklad "
+"— opíš fotografiu (režim obrazu):</b><br><code>You are a visual analyst. "
+"Examine the image and provide a detailed description in {target_lang} "
+"({target_code}). Include: scene type, subjects, colors, lighting, notable "
+"details. If there is text, translate it. Output only the description, 3–6 "
+"sentences.</code></p><p><b>Zástupné symboly:</b><br><code>{source_lang}</"
+"code> — názov zdrojového jazyka<br><code>{source_code}</code> — kód ISO "
+"zdrojového jazyka<br><code>{target_lang}</code> — názov cieľového "
+"jazyka<br><code>{target_code}</code> — kód ISO cieľového "
+"jazyka<br><code>{text}</code> — vstupný text (len v režime textu)</"
+"p><p><b>Vypnúť uvažovanie:</b> Na podporovaných modeloch preskočí tokeny "
+"uvažovania. Zobrazuje sa len pri poskytovateľoch Ollama.</p><p><b>Časový "
+"limit:</b> Maximálny čas čakania na odpoveď.</p>"
 
 #: src/settings/settingsdialog.cpp:542
 msgctxt "SettingsDialog|"
 msgid "LocalAI Tab Help"
-msgstr ""
+msgstr "Pomocník ku karte LocalAI"
 
 #: src/settings/settingsdialog.cpp:798
 #, qt-format
@@ -2111,11 +2119,13 @@ msgid ""
 "Could not reach %1 at %2:\n"
 "%3"
 msgstr ""
+"Nepodarilo sa spojiť s %1 na %2:\n"
+"%3"
 
 #: src/settings/settingsdialog.cpp:811
 msgctxt "SettingsDialog|"
 msgid "No models found."
-msgstr ""
+msgstr "Nenašli sa žiadne modely."
 
 #: src/settings/settingsdialog.cpp:893
 msgctxt "SettingsDialog|"
@@ -2547,27 +2557,23 @@ msgid ""
 "Detect the source language using a LocalAI model instead of the built-in "
 "heuristic. Choose the provider and model below."
 msgstr ""
+"Zisťovať zdrojový jazyk pomocou modelu LocalAI namiesto vstavanej "
+"heuristiky. Nižšie vyberte poskytovateľa a model."
 
 #: src/settings/settingsdialog.ui:738
 msgctxt "SettingsDialog|"
 msgid "Detect language via LLM (LocalAI)"
-msgstr ""
+msgstr "Zisťovať jazyk cez LLM (LocalAI)"
 
 #: src/settings/settingsdialog.ui:745
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation provider:"
 msgctxt "SettingsDialog|"
 msgid "Detection provider:"
-msgstr "Preklad"
+msgstr "Poskytovateľ detekcie:"
 
 #: src/settings/settingsdialog.ui:755
-#, fuzzy
-#| msgctxt "SnippingArea|"
-#| msgid "DPI Detection Error"
 msgctxt "SettingsDialog|"
 msgid "Detection model:"
-msgstr "Chyba detekcie DPI"
+msgstr "Model detekcie:"
 
 #: src/settings/settingsdialog.ui:783
 msgctxt "SettingsDialog|"
@@ -2684,6 +2690,8 @@ msgid ""
 "Local OpenAI-compatible servers. Set URL, translation model and prompt for "
 "each. Language detection is configured on the Translation page."
 msgstr ""
+"Lokálne servery kompatibilné s OpenAI. Pre každý nastavte URL, model "
+"prekladu a prompt. Detekcia jazyka sa nastavuje na stránke Preklad."
 
 #: src/settings/settingsdialog.ui:985
 msgctxt "SettingsDialog|"

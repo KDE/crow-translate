@@ -1,10 +1,10 @@
 # SPDX-FileCopyrightText: 2024 bodqhrohro
 # SPDX-License-Identifier: GPL-3.0-or-later
-# Yuri Chornoivan <yurchor@ukr.net>, 2024, 2025, 2026.
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Yuri Chornoivan <yurchor@ukr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-04-20 08:50+0300\n"
+"PO-Revision-Date: 2026-08-15 13:58+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Language: uk\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: src/cli.cpp:37
 msgctxt "Cli|"
@@ -407,13 +407,13 @@ msgstr ""
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
-msgstr ""
+msgstr "Зображення є надто великим (%1 Мпк). Максимальне значення — %2 Мпк."
 
 #: src/mainwindow.cpp:1847
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MB). Max %2 MB."
-msgstr ""
+msgstr "Зображення є надто великим (%1 МБ) Максимальне значення — %2 МБ."
 
 #: src/mainwindow.cpp:1959
 #, qt-format
@@ -422,6 +422,8 @@ msgid ""
 "Cannot open image:\n"
 "%1"
 msgstr ""
+"Не вдалося відкрити зображення:\n"
+"%1"
 
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
@@ -1975,108 +1977,93 @@ msgstr "Ви бажаєте скасувати неправильні парам
 #: src/settings/settingsdialog.cpp:339
 msgctxt "SettingsDialog|"
 msgid "URL:"
-msgstr ""
+msgstr "Адреса:"
 
 #: src/settings/settingsdialog.cpp:343
 msgctxt "SettingsDialog|"
 msgid "Key:"
-msgstr ""
+msgstr "Ключ:"
 
 #: src/settings/settingsdialog.cpp:347
 msgctxt "SettingsDialog|"
 msgid "optional, e.g. for a cloud endpoint"
-msgstr ""
+msgstr "необов'язкове, наприклад кінцева точка «хмари»"
 
 #: src/settings/settingsdialog.cpp:348
 msgctxt "SettingsDialog|"
 msgid "Refresh models"
-msgstr ""
+msgstr "Освіжити моделі"
 
 #: src/settings/settingsdialog.cpp:363
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Version:"
 msgctxt "SettingsDialog|"
 msgid "Vision"
-msgstr "Версія:"
+msgstr "Бачення"
 
 #: src/settings/settingsdialog.cpp:366
 msgctxt "SettingsDialog|"
 msgid "Text"
-msgstr ""
+msgstr "Текст"
 
 #: src/settings/settingsdialog.cpp:379
 msgctxt "SettingsDialog|"
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #: src/settings/settingsdialog.cpp:381
 msgctxt "SettingsDialog|"
 msgid "How to use this tab"
-msgstr ""
+msgstr "Як користуватися цією вкладкою"
 
 #: src/settings/settingsdialog.cpp:388
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
 msgctxt "SettingsDialog|"
 msgid "Show both"
-msgstr "Приховувати через:"
+msgstr "Показати обидва"
 
 #: src/settings/settingsdialog.cpp:389
 msgctxt "SettingsDialog|"
 msgid "Debug: show Text and Vision blocks simultaneously"
-msgstr ""
+msgstr "Діагностика: показати блоки тексту і бачення одночасно"
 
 #: src/settings/settingsdialog.cpp:402
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation model:"
-msgstr "Режим перекладу:"
+msgstr "Модель перекладу:"
 
 #: src/settings/settingsdialog.cpp:410 src/settings/settingsdialog.cpp:453
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
 msgctxt "SettingsDialog|"
 msgid "Timeout:"
-msgstr "Приховувати через:"
+msgstr "Час очікування:"
 
 #: src/settings/settingsdialog.cpp:415 src/settings/settingsdialog.cpp:458
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a translation or detection response."
-msgstr ""
+msgstr "Максимальний час очікування на відповідь з перекладом або виявленням."
 
 #: src/settings/settingsdialog.cpp:420 src/settings/settingsdialog.cpp:463
 msgctxt "SettingsDialog|"
 msgid "Disable reasoning"
-msgstr ""
+msgstr "Вимкнути міркування"
 
 #: src/settings/settingsdialog.cpp:427 src/settings/settingsdialog.cpp:470
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Placeholders: %1"
-msgstr ""
+msgstr "Заповнювачі: %1"
 
 #: src/settings/settingsdialog.cpp:430
 msgctxt "SettingsDialog|"
 msgid "Reset Text prompt"
-msgstr ""
+msgstr "Скинути текстовий запит"
 
 #: src/settings/settingsdialog.cpp:445
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Vision model:"
-msgstr "Режим перекладу:"
+msgstr "Модель бачення:"
 
 #: src/settings/settingsdialog.cpp:473
 msgctxt "SettingsDialog|"
 msgid "Reset Vision prompt"
-msgstr ""
+msgstr "Скинути запит щодо бачення"
 
 #: src/settings/settingsdialog.cpp:512
 #, qt-format
@@ -2103,11 +2090,33 @@ msgid ""
 "Skips thinking tokens on supported models. Only shown for Ollama providers.</"
 "p><p><b>Timeout:</b> Maximum time to wait for a response.</p>"
 msgstr ""
+"<h3>Як працює вкладка LocalAI</h3><p><b>Режими «Текст» / «Бачення»:</b> "
+"Кожен постачальник має два незалежні блоки — <i>Текст</i> для перекладу "
+"тексту та <i>Бачення</i> для перекладу тексту із зображень (перетягніть або "
+"вставте зображення у поле джерела). Перемикайтеся за допомогою кнопок "
+"[Бачення] [Текст].</p><p><b>Підказки залежать від моделі:</b> <u>Кожна "
+"модель має свою власну підказку.</u> Коли ви змінюєте модель, її збережена "
+"підказка завантажується. Ваші зміни зберігаються автоматично під час "
+"введення — не потрібно натискати кнопку «Зберегти».</p><p><b>Типова текстова "
+"підказка:</b><br><code>%1</code></p><p><b>Типова підказка бачення:</"
+"b><br><code>%2</code></p><p><b>Приклад — опис фотографії (режим бачення):</"
+"b><br><code>Ви — візуальний аналітик. Перегляньте зображення та надайте "
+"детальний опис мовою {target_lang} ({target_code}). Вкажіть: тип сцени, "
+"об'єкти, кольори, освітлення, помітні деталі. Якщо є текст, перекладіть "
+"його. Виведіть лише опис, 3–6 речень.</code></p><p><b>Заповнювачі:</"
+"b><br><code>{source_lang}<code> — назва початкової "
+"мови<br><code>{source_code}<code> — код ISO початкової "
+"мови<br><code>{target_lang}<code> — назва мови "
+"перекладу<br><code>{target_code}<code> — код ISO мови "
+"перекладу<br><code>{text}<code> — вхідний текст (лише в текстовому режимі)</"
+"p><p><b>Вимкнути міркування:</b> Пропускає жетони міркування на "
+"підтримуваних моделях. Буде показано лише для надавачів даних Ollama.</"
+"p><p><b>Час очікування:</b> Максимальний час очікування відповіді.</p>"
 
 #: src/settings/settingsdialog.cpp:542
 msgctxt "SettingsDialog|"
 msgid "LocalAI Tab Help"
-msgstr ""
+msgstr "Вкладка довідки LocalAI"
 
 #: src/settings/settingsdialog.cpp:798
 #, qt-format
@@ -2116,11 +2125,13 @@ msgid ""
 "Could not reach %1 at %2:\n"
 "%3"
 msgstr ""
+"Не вдалося досягти %1 у %2:\n"
+"%3"
 
 #: src/settings/settingsdialog.cpp:811
 msgctxt "SettingsDialog|"
 msgid "No models found."
-msgstr ""
+msgstr "Не знайдено моделей."
 
 #: src/settings/settingsdialog.cpp:893
 msgctxt "SettingsDialog|"
@@ -2554,27 +2565,23 @@ msgid ""
 "Detect the source language using a LocalAI model instead of the built-in "
 "heuristic. Choose the provider and model below."
 msgstr ""
+"Визначити початкову мову за допомогою моделі LocalAI замість вбудованої "
+"евристики. Виберіть постачальника та модель нижче."
 
 #: src/settings/settingsdialog.ui:738
 msgctxt "SettingsDialog|"
 msgid "Detect language via LLM (LocalAI)"
-msgstr ""
+msgstr "Виявити мову за допомогою ВММ (LocalAI)"
 
 #: src/settings/settingsdialog.ui:745
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation provider:"
 msgctxt "SettingsDialog|"
 msgid "Detection provider:"
-msgstr "Надавач перекладу:"
+msgstr "Надавач виявлення:"
 
 #: src/settings/settingsdialog.ui:755
-#, fuzzy
-#| msgctxt "SnippingArea|"
-#| msgid "DPI Detection Error"
 msgctxt "SettingsDialog|"
 msgid "Detection model:"
-msgstr "Помилка визначення щільності пікселів"
+msgstr "Модель виявлення:"
 
 #: src/settings/settingsdialog.ui:783
 msgctxt "SettingsDialog|"
@@ -2691,6 +2698,8 @@ msgid ""
 "Local OpenAI-compatible servers. Set URL, translation model and prompt for "
 "each. Language detection is configured on the Translation page."
 msgstr ""
+"Локальні сервери, сумісні з OpenAI. Встановіть адресу, модель перекладу та "
+"запит для кожної. Виявлення мови налаштовується на сторінці перекладу."
 
 #: src/settings/settingsdialog.ui:985
 msgctxt "SettingsDialog|"

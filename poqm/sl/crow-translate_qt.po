@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-04-20 08:32+0200\n"
+"PO-Revision-Date: 2026-08-15 07:58+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -403,13 +403,13 @@ msgstr ""
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
-msgstr ""
+msgstr "Slika je prevelika (%1 MP). Največ %2 MP."
 
 #: src/mainwindow.cpp:1847
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MB). Max %2 MB."
-msgstr ""
+msgstr "Slika je prevelika (%1 MB). Največ %2 MB."
 
 #: src/mainwindow.cpp:1959
 #, qt-format
@@ -418,6 +418,8 @@ msgid ""
 "Cannot open image:\n"
 "%1"
 msgstr ""
+"Ni mogoče odpreti slike:\n"
+"%1"
 
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
@@ -1970,108 +1972,93 @@ msgstr "Ali želite zavreči neveljavne parametre?"
 #: src/settings/settingsdialog.cpp:339
 msgctxt "SettingsDialog|"
 msgid "URL:"
-msgstr ""
+msgstr "URL:"
 
 #: src/settings/settingsdialog.cpp:343
 msgctxt "SettingsDialog|"
 msgid "Key:"
-msgstr ""
+msgstr "Ključ:"
 
 #: src/settings/settingsdialog.cpp:347
 msgctxt "SettingsDialog|"
 msgid "optional, e.g. for a cloud endpoint"
-msgstr ""
+msgstr "neobvezno, npr. za končno točko oblaka"
 
 #: src/settings/settingsdialog.cpp:348
 msgctxt "SettingsDialog|"
 msgid "Refresh models"
-msgstr ""
+msgstr "Osveži modele"
 
 #: src/settings/settingsdialog.cpp:363
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Version:"
 msgctxt "SettingsDialog|"
 msgid "Vision"
-msgstr "Različica:"
+msgstr "Različica"
 
 #: src/settings/settingsdialog.cpp:366
 msgctxt "SettingsDialog|"
 msgid "Text"
-msgstr ""
+msgstr "Besedilo"
 
 #: src/settings/settingsdialog.cpp:379
 msgctxt "SettingsDialog|"
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #: src/settings/settingsdialog.cpp:381
 msgctxt "SettingsDialog|"
 msgid "How to use this tab"
-msgstr ""
+msgstr "Kako uporabljati ta zavihek"
 
 #: src/settings/settingsdialog.cpp:388
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
 msgctxt "SettingsDialog|"
 msgid "Show both"
-msgstr "Pokaži časovno omejitev:"
+msgstr "Pokaži oba"
 
 #: src/settings/settingsdialog.cpp:389
 msgctxt "SettingsDialog|"
 msgid "Debug: show Text and Vision blocks simultaneously"
-msgstr ""
+msgstr "Odpravljanje napak: hkratno prikazovanje blokov besedila in vida"
 
 #: src/settings/settingsdialog.cpp:402
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation model:"
-msgstr "Način prevajanja:"
+msgstr "Model prevajanja:"
 
 #: src/settings/settingsdialog.cpp:410 src/settings/settingsdialog.cpp:453
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
 msgctxt "SettingsDialog|"
 msgid "Timeout:"
-msgstr "Pokaži časovno omejitev:"
+msgstr "Časovna omejitev:"
 
 #: src/settings/settingsdialog.cpp:415 src/settings/settingsdialog.cpp:458
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a translation or detection response."
-msgstr ""
+msgstr "Najdaljši čas čakanja na odgovor prevoda ali odziva."
 
 #: src/settings/settingsdialog.cpp:420 src/settings/settingsdialog.cpp:463
 msgctxt "SettingsDialog|"
 msgid "Disable reasoning"
-msgstr ""
+msgstr "Onemogoči sklepanje"
 
 #: src/settings/settingsdialog.cpp:427 src/settings/settingsdialog.cpp:470
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Placeholders: %1"
-msgstr ""
+msgstr "Nadomestni znaki: %1"
 
 #: src/settings/settingsdialog.cpp:430
 msgctxt "SettingsDialog|"
 msgid "Reset Text prompt"
-msgstr ""
+msgstr "Ponastavi besedilni poziv"
 
 #: src/settings/settingsdialog.cpp:445
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Vision model:"
-msgstr "Način prevajanja:"
+msgstr "Model vida:"
 
 #: src/settings/settingsdialog.cpp:473
 msgctxt "SettingsDialog|"
 msgid "Reset Vision prompt"
-msgstr ""
+msgstr "Ponastavi poziv vida"
 
 #: src/settings/settingsdialog.cpp:512
 #, qt-format
@@ -2098,11 +2085,32 @@ msgid ""
 "Skips thinking tokens on supported models. Only shown for Ollama providers.</"
 "p><p><b>Timeout:</b> Maximum time to wait for a response.</p>"
 msgstr ""
+"<h3>Kako deluje zavihek LocalAI</h3><p><b>Načini besedila / vida:</b> Vsak "
+"ponudnik ima dva neodvisna bloka – <i>Besedilo</i> za prevajanje besedila in "
+"<i>Vid</i> za prevajanje besedila iz slik (povlecite in spustite ali "
+"prilepite sliko v izvorno polje). Preklapljajte z gumboma [Vid] [Besedilo].</"
+"p><p><b>Pozivi so na voljo za vsak model posebej:</b> <u>Vsak model ima svoj "
+"poziv.</u> Ko spremenite model, se naloži shranjeni poziv. Vaše spremembe se "
+"samodejno shranijo med tipkanjem – ni treba klikniti Shrani.</"
+"p><p><b>Privzeti besedilni poziv:</b><br><code>%1</code></p><p><b>Privzeti "
+"vidni poziv:</b><br><code>%2</code></p><p><b>Primer – opis fotografije "
+"(vidni način):</b><br><code>Ste vizualni analitik. Preglejte sliko in jo "
+"podajte podroben opis v jeziku {target_lang} ({target_code}). Vključite: "
+"vrsto prizora, motive, barve, osvetlitev, pomembne podrobnosti. Če je "
+"besedilo, ga prevedite. Izpišite samo opis, 3–6 stavkov.</code></"
+"p><p><b>Nadomestna besedila:</b><br><code>{source_lang}<code> — ime "
+"izvornega jezika<br><code>{source_code}<code> — koda ISO izvornega "
+"jezika<br><code>{target_lang}<code> — ime ciljnega "
+"jezika<br><code>{target_code}<code> — koda ISO ciljnega "
+"jezika<br><code>{text}<code> — vhodno besedilo (samo v besedilnem načinu)</"
+"p><p><b>Onemogoči sklepanje:</b> Preskoči žetone za razmišljanje v podprtih "
+"modelih. Prikazano samo za ponudnike Ollama.</p><p><b>Časovna omejitev:</b> "
+"Najdaljši čas čakanja na odgovor.</p>"
 
 #: src/settings/settingsdialog.cpp:542
 msgctxt "SettingsDialog|"
 msgid "LocalAI Tab Help"
-msgstr ""
+msgstr "Pomoč za zavihek LocalAI"
 
 #: src/settings/settingsdialog.cpp:798
 #, qt-format
@@ -2111,11 +2119,13 @@ msgid ""
 "Could not reach %1 at %2:\n"
 "%3"
 msgstr ""
+"Ni bilo mogoče doseči %1 pri %2:\n"
+"%3"
 
 #: src/settings/settingsdialog.cpp:811
 msgctxt "SettingsDialog|"
 msgid "No models found."
-msgstr ""
+msgstr "Ni najdenih modelov."
 
 #: src/settings/settingsdialog.cpp:893
 msgctxt "SettingsDialog|"
@@ -2548,27 +2558,23 @@ msgid ""
 "Detect the source language using a LocalAI model instead of the built-in "
 "heuristic. Choose the provider and model below."
 msgstr ""
+"Zaznaj izvorni jezik z uporabo modela LocalAI namesto vgrajene hevristike. "
+"Spodaj izberi ponudnika in model."
 
 #: src/settings/settingsdialog.ui:738
 msgctxt "SettingsDialog|"
 msgid "Detect language via LLM (LocalAI)"
-msgstr ""
+msgstr "Zaznaj jezik prek LLM (LocalAI)"
 
 #: src/settings/settingsdialog.ui:745
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation provider:"
 msgctxt "SettingsDialog|"
 msgid "Detection provider:"
-msgstr "Ponudnik prevajanja:"
+msgstr "Ponudnik zaznavanja:"
 
 #: src/settings/settingsdialog.ui:755
-#, fuzzy
-#| msgctxt "SnippingArea|"
-#| msgid "DPI Detection Error"
 msgctxt "SettingsDialog|"
 msgid "Detection model:"
-msgstr "Napaka zaznavanja ločljivosti"
+msgstr "Model zaznavanja:"
 
 #: src/settings/settingsdialog.ui:783
 msgctxt "SettingsDialog|"
@@ -2683,6 +2689,8 @@ msgid ""
 "Local OpenAI-compatible servers. Set URL, translation model and prompt for "
 "each. Language detection is configured on the Translation page."
 msgstr ""
+"Lokalni strežniki, združljivi z OpenAI. Nastavite URL, model prevajanja in "
+"poziv za vsakega. Zaznavanje jezika je konfigurirano na strani za prevajanje."
 
 #: src/settings/settingsdialog.ui:985
 msgctxt "SettingsDialog|"
