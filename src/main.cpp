@@ -7,11 +7,16 @@
 
 #include "cli.h"
 #include "cmake.h"
+#include "iconutils.h"
 #include "instancepingerdialog.h"
 #include "language.h"
 #include "mainwindow.h"
 #include "singleapplication.h"
 #include "settings/appsettings.h"
+
+#ifdef WITH_KICONTHEMES
+#include <KIconTheme>
+#endif
 
 #ifdef Q_OS_UNIX
 #include "ocr/ocr.h"
@@ -44,7 +49,16 @@ int launchGui(int argc, char *argv[])
     Q_INIT_RESOURCE(engines);
     Q_INIT_RESOURCE(icon_theme);
 
-    QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral(APPLICATION_ID)));
+#ifdef WITH_KICONTHEMES
+    // Set up KDE icon theming before the application object exists (required;
+    // it installs a startup hook). This makes QIcon::fromTheme() calls go
+    // through KIconEngine, which resolves icons through the full KDE theme
+    // chain (configured theme -> its Inherits -> fallback), so names that only
+    // exist in newer themes (e.g. "edit-clear-all" under Oxygen, bug 509329)
+    // still resolve. On the KDE platform theme it is a no-op.
+    KIconTheme::initTheme();
+#endif
+
 #if defined(Q_OS_WIN)
     QGuiApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
 #endif
@@ -55,6 +69,11 @@ int launchGui(int argc, char *argv[])
 #endif
 
     const SingleApplication app(argc, argv, true);
+
+    // KIconLoader::global() requires a live QGuiApplication; set the window
+    // icon only after the application object exists (loading it earlier
+    // crashes in the color-scheme lookup on a null application).
+    QGuiApplication::setWindowIcon(IconUtils::loadDesktop(QStringLiteral(APPLICATION_ID)));
 
     AppSettings settings;
     settings.loadCustomLanguageRegistry(); // Load persisted custom languages

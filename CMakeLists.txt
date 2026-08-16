@@ -70,6 +70,7 @@ else()
     option(WITH_PORTABLE_MODE "Enable portable functionality" OFF)
 endif()
 option(WITH_KWAYLAND "Use KWayland for better Wayland integration" ON)
+option(WITH_KICONTHEMES "Use KIconThemes for proper icon theme fallback" ON)
 
 option(WITH_PIPER_TTS "Enable Piper neural TTS provider (requires onnxruntime and espeak-ng)" ON)
 option(WITH_TTS "Enable text-to-speech support (Mozhi and Qt providers, plus Piper if WITH_PIPER_TTS)" ON)
@@ -96,6 +97,9 @@ add_subdirectory(src/3rdparty/qhotkey)
 find_package(Qt6 REQUIRED COMPONENTS Widgets Multimedia Network LinguistTools Concurrent StateMachine TextToSpeech)
 
 find_package(Tesseract REQUIRED)
+if(WITH_KICONTHEMES)
+    find_package(KF6 REQUIRED COMPONENTS IconThemes)
+endif()
 if(UNIX)
     find_package(Qt6 REQUIRED COMPONENTS DBus)
     if(NOT APPLE)
@@ -443,6 +447,11 @@ target_link_libraries(${PROJECT_NAME}-lib PUBLIC
 )
 
 target_link_libraries(${PROJECT_NAME}-lib PUBLIC Qt6::TextToSpeech)
+
+if(WITH_KICONTHEMES)
+    target_link_libraries(${PROJECT_NAME}-lib PUBLIC KF6::IconThemes)
+    target_compile_definitions(${PROJECT_NAME}-lib PUBLIC WITH_KICONTHEMES)
+endif()
 
 # Link Piper dependencies if enabled
 if(WITH_PIPER_TTS)

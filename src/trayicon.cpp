@@ -7,6 +7,7 @@
 
 #include "trayicon.h"
 
+#include "iconutils.h"
 #include "mainwindow.h"
 
 #include <QAction>
@@ -22,9 +23,9 @@
 TrayIcon::TrayIcon(MainWindow *parent)
     : QSystemTrayIcon(parent)
     , m_trayMenu(new QMenu(parent))
-    , m_showMainWindowAction(m_trayMenu->addAction(QIcon::fromTheme(QStringLiteral(APPLICATION_ID "-tray")), tr("Show window"), parent, &MainWindow::open))
-    , m_openSettingsAction(m_trayMenu->addAction(QIcon::fromTheme(QStringLiteral("preferences-other")), tr("Settings"), parent, &MainWindow::openSettings))
-    , m_quitAction(m_trayMenu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), tr("Quit"), parent, &MainWindow::quit))
+    , m_showMainWindowAction(m_trayMenu->addAction(IconUtils::load(QStringLiteral(APPLICATION_ID "-tray")), tr("Show window"), parent, &MainWindow::open))
+    , m_openSettingsAction(m_trayMenu->addAction(IconUtils::load(QStringLiteral("preferences-other")), tr("Settings"), parent, &MainWindow::openSettings))
+    , m_quitAction(m_trayMenu->addAction(IconUtils::load(QStringLiteral("application-exit")), tr("Quit"), parent, &MainWindow::quit))
 {
     m_reportBugAction = m_trayMenu->addAction(tr("Report Bug…"));
     connect(m_reportBugAction, &QAction::triggered, this, []() {
