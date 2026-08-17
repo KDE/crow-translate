@@ -952,6 +952,12 @@ void SnippingArea::acceptSelection()
         } else {
             emit snipped(selectedPixmap(), static_cast<int>(dpi));
         }
+    } else {
+        // An empty selection (click without a drag) still has to emit a
+        // terminal signal: without one, a pending translate-screen-area
+        // stays armed for the *next* recognition and the status strip
+        // sticks on "Select a region".
+        emit cancelled();
     }
     hide();
     releaseKeyboard();

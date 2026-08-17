@@ -170,8 +170,13 @@ add_library(${PROJECT_NAME}-lib STATIC
     src/mainwindow.h
     src/mainwindow.cpp
     src/mainwindow.ui
-    src/ocr/ocr.h
-    src/ocr/ocr.cpp
+    src/modulestatus.h
+    src/modulestatus.cpp
+    src/ocr/aocrprovider.h
+    src/ocr/tesseractocr.h
+    src/ocr/tesseractocr.cpp
+    src/ocr/llmocr.h
+    src/ocr/llmocr.cpp
     src/ocr/screengrabbers/abstractscreengrabber.h
     src/ocr/screengrabbers/abstractscreengrabber.cpp
     src/ocr/screengrabbers/genericscreengrabber.h
@@ -185,6 +190,9 @@ add_library(${PROJECT_NAME}-lib STATIC
     src/popupwindow.ui
     src/screenwatcher.h
     src/screenwatcher.cpp
+    src/statusstrip.h
+    src/statusstrip.cpp
+    src/statusstrip.ui
     src/selection.h
     src/selection.cpp
     src/settings/appsettings.h
@@ -226,6 +234,12 @@ add_library(${PROJECT_NAME}-lib STATIC
     src/translator/mozhitranslationprovider.cpp
     src/translator/localaitranslationprovider.h
     src/translator/localaitranslationprovider.cpp
+    src/translator/translationlogic.h
+    src/translator/translationlogic.cpp
+    src/llm/openaiendpoint.h
+    src/llm/openaiendpoint.cpp
+    src/llm/visionmodelprobe.h
+    src/llm/visionmodelprobe.cpp
     src/provideroptions.h
     src/provideroptions.cpp
     src/provideroptionsmanager.h

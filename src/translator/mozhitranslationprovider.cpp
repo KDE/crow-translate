@@ -58,6 +58,7 @@ Language MozhiTranslationProvider::detectLanguage(const QString &text)
 {
     qDebug() << "MozhiTranslationProvider::detectLanguage - text:" << text.left(50) << "current state:" << static_cast<int>(state);
     m_isDetecting = true;
+    emit detectionStarted();
     m_translator->detectLanguage(text, m_engine);
 
     return QLocale::system();
@@ -169,6 +170,13 @@ void MozhiTranslationProvider::onTranslationFinished()
                      << "new state:" << static_cast<int>(state);
             emit languageDetected(detectedLanguage, false); // Detection context only
             emit stateChanged(state);
+        } else {
+            // A failed detection must still emit a terminal languageDetected
+            // (with the same placeholder detectLanguage() returns), or a
+            // "Detecting language" status would strand forever. The state
+            // machine is untouched: state stays Ready either way.
+            qDebug() << "MozhiTranslationProvider::onTranslationFinished - detection failed";
+            emit languageDetected(Language(QLocale::system()), false);
         }
         return;
     }

@@ -12,9 +12,10 @@
 #include "qhotkey.h"
 #include "screenwatcher.h"
 #include "trayicon.h"
-#include "ocr/ocr.h"
+#include "ocr/aocrprovider.h"
 #include "ocr/screengrabbers/abstractscreengrabber.h"
 #include "ocr/snippingarea.h"
+#include "ocr/tesseractocr.h"
 #include "settings/appsettings.h"
 #include "translator/atranslationprovider.h"
 #include "tts/attsprovider.h"
@@ -33,7 +34,12 @@ class LanguageButtonsWidget;
 class PopupWindow;
 class SourceTextEdit;
 class ProviderOptionsManager;
+class ModuleStatus;
+class StatusStrip;
 class QLabel;
+class AOcrProvider;
+class LlmOcr;
+class TesseractOcr;
 
 namespace Ui
 {
@@ -51,7 +57,8 @@ public:
     ~MainWindow() override;
     bool eventFilter(QObject *obj, QEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
-    Ocr *ocr() const;
+    AOcrProvider *ocr() const;
+    TesseractOcr *tesseractOcr() const;
     QComboBox *getEngineComboBox() const;
     QComboBox *sourceVoiceComboBox() const;
     QComboBox *translationVoiceComboBox() const;
@@ -66,6 +73,7 @@ public:
     QToolButton *copyAllTranslationButton() const;
     QTextEdit *translationEdit() const;
     SourceTextEdit *sourceEdit() const;
+    ModuleStatus *moduleStatus() const;
     QToolButton *sourcePlayPauseButton() const;
     QToolButton *sourceStopButton() const;
     QToolButton *translationPlayPauseButton() const;
@@ -108,9 +116,15 @@ private:
     ATranslationProvider *m_translator;
     ATranslationProvider::ProviderBackend m_chosenTranslationBackend;
     ProviderOptionsManager *m_optionsManager;
-    Ocr *m_ocr;
+    TesseractOcr *m_tesseractOcr;
+    LlmOcr *m_llmOcr;
     QTimer *m_screenCaptureTimer;
     SnippingArea *m_snippingArea;
+    ModuleStatus *m_moduleStatus;
+    StatusStrip *m_statusStrip = nullptr;
+    // Reports the capture start to the status model; grab() itself has no
+    // "started" signal and adding one would touch every grabber subclass.
+    void startScreenCapture();
     void loadAppSettings();
     void swapTranslator(ATranslationProvider::ProviderBackend newBackend);
     void setupEngineComboBoxConnection();
@@ -140,9 +154,27 @@ private:
     QList<QIcon> m_engineItemsIcons;
     void clearSourceImage();
     void setSourceImageInternal(const QImage &img);
+    bool loadImageFromFile(const QString &path, QImage &out);
     bool m_hasSourceImage = false;
     QPixmap m_originalPixmap;
     QLabel *m_imagePreview = nullptr;
+    QImage m_pendingOcrImage;
+    AOcrProvider *activeOcr() const;
+    void configureLlmOcr();
+    // Configures the active engine from settings and reports whether it is
+    // usable; every OCR entry point goes through it.
+    bool prepareOcr();
+    void recognizeSourceImage();
+    // Chains a translation onto the next recognition. Armed by the
+    // translate-screen-area paths and by an image drop while auto-translate is
+    // on; disarmed on cancel so it never fires for an unrelated later OCR.
+    void armOcrTranslation();
+    void disarmOcrTranslation();
+    QMetaObject::Connection m_ocrTranslateConnection;
+    QMetaObject::Connection m_ocrTranslatorReadyConnection;
+    QMetaObject::Connection m_imageOcrRecognizedConnection;
+    QMetaObject::Connection m_imageOcrCanceledConnection;
+    QMetaObject::Connection m_imageOcrFailedConnection;
     // Disconnected explicitly in ~MainWindow() before `delete ui` - QWidget's
     // own destructor destroys child widgets (deleteChildren(), which runs
     // the popup's destroyed() lambda below) *before* QObject's destructor
@@ -173,6 +205,7 @@ private slots:
     void on_swapButton_clicked();
     void on_abortButton_clicked();
     void on_copySourceButton_clicked();
+    void on_openImageButton_clicked();
     void on_delayedRecognizeScreenAreaButton_clicked();
     void on_clearButton_clicked();
     void on_copyTranslationButton_clicked();

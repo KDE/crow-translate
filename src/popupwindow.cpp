@@ -131,6 +131,11 @@ PopupWindow::PopupWindow(MainWindow *parent)
     m_closeWindowsShortcut->setKey(parent->closeWindowShortcut());
     connect(m_closeWindowsShortcut, &QShortcut::activated, this, &PopupWindow::close);
 
+    // Status strip: mirrors MainWindow's model, and only appears while
+    // something is running so the resting pop-up is unchanged.
+    ui->statusStrip->setModel(parent->moduleStatus());
+    ui->statusStrip->setHideWhenIdle(true);
+
     loadSettings();
 }
 
@@ -147,6 +152,7 @@ void PopupWindow::loadSettings()
     const AppSettings settings;
     setWindowOpacity(settings.popupOpacity());
     resize(settings.popupWidth(), settings.popupHeight());
+    ui->statusStrip->setShown(settings.isShowStatusBar());
 
     ui->sourceLanguagesWidget->setLanguageFormat(settings.popupLanguageFormat());
     ui->translationLanguagesWidget->setLanguageFormat(settings.popupLanguageFormat());

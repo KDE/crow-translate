@@ -278,27 +278,43 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QToolButton" name="copyTranslationButton">
-       <property name="toolTip">
-        <string>Copy translation to the clipboard</string>
-       </property>
-       <property name="icon">
-        <iconset theme="edit-copy"/>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-  </layout>
- </widget>
- <customwidgets>
-  <customwidget>
-   <class>LanguageButtonsWidget</class>
-   <extends>QWidget</extends>
-   <header>languagebuttonswidget.h</header>
-   <container>1</container>
-  </customwidget>
+      <item>
+       <widget class="QToolButton" name="copyTranslationButton">
+        <property name="toolTip">
+         <string>Copy translation to the clipboard</string>
+        </property>
+        <property name="icon">
+         <iconset theme="edit-copy"/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="StatusStrip" name="statusStrip">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <customwidgets>
+   <customwidget>
+    <class>LanguageButtonsWidget</class>
+    <extends>QWidget</extends>
+    <header>languagebuttonswidget.h</header>
+    <container>1</container>
+   </customwidget>
+   <customwidget>
+    <class>StatusStrip</class>
+    <extends>QWidget</extends>
+    <header>statusstrip.h</header>
+    <container>1</container>
+   </customwidget>
   <customwidget>
    <class>TranslationEdit</class>
    <extends>QTextEdit</extends>

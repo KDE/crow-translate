@@ -101,6 +101,16 @@ target_link_libraries(test_localai_provider PRIVATE
 )
 add_test(NAME LocalAiProviderTest COMMAND test_localai_provider)
 
+# Canonical auto-destination language rule - pure, headless (see gotcha list).
+add_executable(test_translationlogic
+    test_translationlogic.cpp
+)
+target_link_libraries(test_translationlogic PRIVATE
+    ${PROJECT_NAME}-lib
+    Qt6::Test
+)
+add_test(NAME TranslationLogicTest COMMAND test_translationlogic)
+
 # LocalAI settings dialog tests (gotchas #6/#7) - needs a display (real
 # MainWindow + SettingsDialog).
 add_executable(test_settingsdialog_localai
@@ -112,6 +122,103 @@ target_link_libraries(test_settingsdialog_localai PRIVATE
     Qt6::Test
 )
 add_test(NAME SettingsDialogLocalAiTest COMMAND test_settingsdialog_localai)
+
+# LlmOcr (vision-model OCR engine) contract tests - headless OK.
+add_executable(test_llmocr
+    test_llmocr.cpp
+)
+target_link_libraries(test_llmocr PRIVATE
+    ${PROJECT_NAME}-lib
+    test-support
+    Qt6::Test
+)
+add_test(NAME LlmOcrTest COMMAND test_llmocr)
+
+# Live LlmOcr regression against a real, locally-running Ollama + vision-OCR
+# model - see test_llmocr_live.cpp for why MockHttpServer can't stand in for
+# this one. Headless OK; self-skips (not fails) when Ollama/the model isn't
+# available, so it is safe in the default test run on machines without it.
+add_executable(test_llmocr_live
+    test_llmocr_live.cpp
+)
+target_link_libraries(test_llmocr_live PRIVATE
+    ${PROJECT_NAME}-lib
+    Qt6::Test
+)
+add_test(NAME LlmOcrLiveTest COMMAND test_llmocr_live)
+
+# ModuleStatus aggregator contract - headless OK (nothing is ever shown).
+add_executable(test_modulestatus
+    test_modulestatus.cpp
+)
+target_link_libraries(test_modulestatus PRIVATE
+    ${PROJECT_NAME}-lib
+    Qt6::Test
+)
+add_test(NAME ModuleStatusTest COMMAND test_modulestatus)
+
+# StatusStrip view contract - headless OK: visibility is asserted through
+# isHidden() on never-shown widgets, so no window exposure is needed.
+add_executable(test_statusstrip
+    test_statusstrip.cpp
+)
+target_link_libraries(test_statusstrip PRIVATE
+    ${PROJECT_NAME}-lib
+    Qt6::Test
+)
+add_test(NAME StatusStripTest COMMAND test_statusstrip)
+
+# SnippingArea terminal-signal regression guard (empty selection used to emit
+# nothing at all) - key/mouse events on a never-shown widget, headless OK.
+add_executable(test_snippingarea_terminal
+    test_snippingarea_terminal.cpp
+)
+target_link_libraries(test_snippingarea_terminal PRIVATE
+    ${PROJECT_NAME}-lib
+    Qt6::Test
+)
+add_test(NAME SnippingAreaTerminalTest COMMAND test_snippingarea_terminal)
+
+# Module status through a real MainWindow (Copy backend, no network): busy
+# observation during the synchronous cascade, sticky errors through
+# MainWindow's own reset wiring, the pop-up strip, and the ShowStatusBar
+# pick-up - needs a display.
+add_executable(test_mainwindow_status
+    test_mainwindow_status.cpp
+)
+target_compile_definitions(test_mainwindow_status PRIVATE BUILD_TESTING)
+target_link_libraries(test_mainwindow_status PRIVATE
+    ${PROJECT_NAME}-lib
+    Qt6::Test
+)
+add_test(NAME MainWindowStatusTest COMMAND test_mainwindow_status)
+
+# Everyday MainWindow features end-to-end, offline: swap, clear, copy
+# buttons, abort, paste-image OCR chain, Escape-cancel, ShowStatusBar
+# settings round-trip - LocalAI translation and LLM OCR both pointed at
+# MockHttpServer - needs a display.
+add_executable(test_mainwindow_features
+    test_mainwindow_features.cpp
+)
+target_compile_definitions(test_mainwindow_features PRIVATE BUILD_TESTING)
+target_link_libraries(test_mainwindow_features PRIVATE
+    ${PROJECT_NAME}-lib
+    test-support
+    Qt6::Test
+)
+add_test(NAME MainWindowFeaturesTest COMMAND test_mainwindow_features)
+
+# LocalAI prompt resolution: stored-vs-default precedence, including the
+# superseded default that master still persists - headless OK.
+add_executable(test_appsettings_prompts
+    test_appsettings_prompts.cpp
+)
+target_link_libraries(test_appsettings_prompts PRIVATE
+    ${PROJECT_NAME}-lib
+    test-support
+    Qt6::Test
+)
+add_test(NAME AppSettingsPromptsTest COMMAND test_appsettings_prompts)
 
 # Generic ATranslationProvider contract - runs the same invariants (state
 # machine, MainWindow's finish()/reset() cascades, the Q_UNREACHABLE()-
@@ -132,7 +239,7 @@ add_test(NAME TranslationProviderContractTest COMMAND test_translation_provider_
 # When using static ONNX Runtime, also configure test executables that link
 # the app library (they pull in Piper TTS transitively through it).
 if(WITH_PIPER_TTS AND ONNXRuntime_USE_STATIC)
-    foreach(_test_target IN ITEMS test_popupwindow_lifetime test_snippingarea_flags test_ttsprovider_isolation test_translation test_localai_provider test_settingsdialog_localai test_translation_provider_contract)
+    foreach(_test_target IN ITEMS test_popupwindow_lifetime test_snippingarea_flags test_ttsprovider_isolation test_translation test_localai_provider test_settingsdialog_localai test_llmocr test_llmocr_live test_translationlogic test_modulestatus test_statusstrip test_snippingarea_terminal test_mainwindow_status test_mainwindow_features test_appsettings_prompts test_translation_provider_contract)
         configure_onnxruntime_static(${_test_target})
         add_dependencies(${_test_target} onnxruntime_ready)
     endforeach()
@@ -149,7 +256,7 @@ endif()
 # configuration (see build.zsh's build-test/build-test-nopiper) still builds
 # and runs them.
 if(NOT BUILD_TESTING)
-    foreach(_test_target IN ITEMS test_helper_window test_dbus_static_init test_popupwindow_lifetime test_snippingarea_flags test_ttsprovider_isolation test_translation test_localai_provider test_settingsdialog_localai test_translation_provider_contract)
+    foreach(_test_target IN ITEMS test_helper_window test_dbus_static_init test_popupwindow_lifetime test_snippingarea_flags test_ttsprovider_isolation test_translation test_localai_provider test_settingsdialog_localai test_llmocr test_llmocr_live test_translationlogic test_modulestatus test_statusstrip test_snippingarea_terminal test_mainwindow_status test_mainwindow_features test_appsettings_prompts test_translation_provider_contract)
         set_target_properties(${_test_target} PROPERTIES EXCLUDE_FROM_ALL TRUE)
     endforeach()
     if(TARGET test_singleapplication_recovery)

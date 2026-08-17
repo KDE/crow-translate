@@ -5,27 +5,30 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef OCR_H
-#define OCR_H
+#ifndef TESSERACTOCR_H
+#define TESSERACTOCR_H
 
+#include "aocrprovider.h"
 #include "cmake.h"
 
 #include <QFuture>
-#include <QObject>
 
 #include <tesseract/baseapi.h>
 #include <tesseract/ocrclass.h>
 
 class QDir;
 
-class Ocr : public QObject
+// Tesseract-backed OCR engine. Tesseract-specific configuration (language
+// packs, parameters) lives here and on the OCR settings page; the active
+// engine is selected by AppSettings::ocrEngine().
+class TesseractOcr : public AOcrProvider
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", APPLICATION_ID ".Ocr")
-    Q_DISABLE_COPY(Ocr)
+    Q_CLASSINFO("D-Bus Interface", APPLICATION_ID ".TesseractOcr")
+    Q_DISABLE_COPY(TesseractOcr)
 
 public:
-    explicit Ocr(QObject *parent = nullptr);
+    explicit TesseractOcr(QObject *parent = nullptr);
 
     void setConvertLineBreaks(bool convert);
 
@@ -33,17 +36,15 @@ public:
     QByteArray languagesString() const;
     bool init(const QByteArray &languages, const QByteArray &languagesPath, const QMap<QString, QVariant> &parameters);
 
-    void recognize(const QPixmap &pixmap, int dpi);
-    void cancel();
+    QString engineName() const override;
+    bool isConfigured() const override;
+    void recognize(const QImage &image, int dpi) override;
+    void cancel() override;
 
     static QStringList availableLanguages(const QString &languagesPath);
 
 public slots:
     Q_SCRIPTABLE void applyParameters(const QMap<QString, QVariant> &parameters, bool saveSettings = false);
-
-signals:
-    void recognized(const QString &text);
-    void canceled();
 
 private:
     static QStringList parseLanguageFiles(const QDir &directory);
@@ -61,4 +62,4 @@ private:
     bool m_convertLineBreaks = false;
 };
 
-#endif // OCR_H
+#endif // TESSERACTOCR_H

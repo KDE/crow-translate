@@ -626,8 +626,27 @@
               </layout>
              </widget>
             </item>
-            <item>
-             <spacer name="interfacePageSpacer">
+             <item>
+              <widget class="QGroupBox" name="statusBarGroupBox">
+               <property name="title">
+                <string>Status bar</string>
+               </property>
+               <layout class="QVBoxLayout" name="statusBarLayout">
+                <item>
+                 <widget class="QCheckBox" name="showStatusBarCheckBox">
+                  <property name="toolTip">
+                   <string>&lt;html&gt;&lt;head/&lt;body&gt;&lt;p&gt;Show what the application is currently doing at the bottom of the main and pop-up windows&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
+                  <property name="text">
+                   <string>Show status bar</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <spacer name="interfacePageSpacer">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
               </property>
@@ -729,37 +748,34 @@
                    </property>
                   </widget>
                  </item>
-                 <item row="4" column="0" colspan="2">
-                  <widget class="QCheckBox" name="detectViaLlmCheckBox">
-                   <property name="toolTip">
-                    <string>Detect the source language using a LocalAI model instead of the built-in heuristic. Choose the provider and model below.</string>
-                   </property>
-                   <property name="text">
-                    <string>Detect language via LLM (LocalAI)</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="5" column="0">
+                 <item row="4" column="0">
                   <widget class="QLabel" name="detectProviderLabel">
                    <property name="text">
                     <string>Detection provider:</string>
                    </property>
                   </widget>
                  </item>
-                 <item row="5" column="1">
-                  <widget class="QComboBox" name="detectProviderComboBox"/>
+                 <item row="4" column="1">
+                  <widget class="QComboBox" name="detectProviderComboBox">
+                   <property name="toolTip">
+                    <string>Provider and model used to detect the source language when it is set to Auto. If no detection model is selected, translation falls back to the configured primary language above.</string>
+                   </property>
+                  </widget>
                  </item>
-                 <item row="6" column="0">
+                 <item row="5" column="0">
                   <widget class="QLabel" name="detectModelLabel">
                    <property name="text">
                     <string>Detection model:</string>
                    </property>
                   </widget>
                  </item>
-                 <item row="6" column="1">
+                 <item row="5" column="1">
                   <widget class="QComboBox" name="detectModelComboBox">
                    <property name="editable">
                     <bool>true</bool>
+                   </property>
+                   <property name="toolTip">
+                    <string>Provider and model used to detect the source language when it is set to Auto. If no detection model is selected, translation falls back to the configured primary language above.</string>
                    </property>
                   </widget>
                  </item>

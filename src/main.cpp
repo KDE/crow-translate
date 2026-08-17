@@ -25,7 +25,7 @@
 #endif
 
 #ifdef Q_OS_UNIX
-#include "ocr/ocr.h"
+#include "ocr/tesseractocr.h"
 
 #include <QDBusConnection>
 #include <QDBusError>

@@ -12,7 +12,7 @@
 #include "singleapplication.h"
 #include "sourcetextedit.h"
 #include "testisolation.h"
-#include "ocr/ocr.h"
+#include "ocr/tesseractocr.h"
 #include "settings/appsettings.h"
 #include "translator/atranslationprovider.h"
 #include "tts/attsprovider.h"

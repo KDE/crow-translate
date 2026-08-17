@@ -50,16 +50,6 @@ public:
     virtual void abort();
     virtual void reset();
     virtual void finish();
-    virtual void setSourceImage(const QByteArray & /*imageData*/)
-    {
-    }
-    virtual void clearSourceImage()
-    {
-    }
-    virtual bool hasSourceImage() const
-    {
-        return false;
-    }
     virtual QVector<Language> supportedSourceLanguages() = 0;
     virtual QVector<Language> supportedDestinationLanguages() = 0;
     virtual bool supportsAutodetection() const = 0;
@@ -93,6 +83,10 @@ protected:
 
 signals:
     void stateChanged(State newState);
+    // A real (asynchronous) language detection has begun. Copy's
+    // detectLanguage() is synchronous and never emits this. Terminates via
+    // languageDetected() or any stateChanged() (abort/cancel safety net).
+    void detectionStarted();
     void languageDetected(const Language &detectedLanguage, bool isTranslationContext = true);
     void engineChanged(int engineIndex);
 };

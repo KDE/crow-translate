@@ -17,6 +17,8 @@
 #include "mockhttpserver.h"
 #include "provideroptions.h"
 #include "testisolation.h"
+#include "llm/openaiendpoint.h"
+#include "settings/appsettings.h"
 #include "translator/atranslationprovider.h"
 #include "translator/localaitranslationprovider.h"
 
@@ -163,7 +165,7 @@ private slots:
 
     // Gotcha #4: buildPrompt() round-trips the language code through
     // QLocale, which silently collapses an unrecognized/custom code to the
-    // C locale, corrupting the prompt with "You are a professional C ...".
+    // C locale, corrupting the prompt with "... professional C ...".
     // Fixed by 797fedec on localai-backend-salvage.
     void testCustomLanguageCodeDoesNotCorruptPrompt()
     {
@@ -173,6 +175,15 @@ private slots:
         server.queueJson(200, chatCompletionJson(QStringLiteral("translated")));
 
         auto provider = makeProvider(server.baseUrl());
+        ProviderOptions opts = *provider->getDefaultOptions();
+        opts.setOption(QStringLiteral("url"), server.baseUrl());
+        // The default prompt no longer renders {source_lang} (it lets the
+        // model infer the source language itself) - use a custom prompt
+        // that does, to keep exercising buildPrompt()'s
+        // languageDisplayName()/QLocale-collapse regression coverage.
+        opts.setOption(QStringLiteral("prompt"), QStringLiteral("Translate this {source_lang} text into {target_lang}: {text}"));
+        provider->applyOptions(opts);
+
         provider->translate(QStringLiteral("Hello"), Language(QStringLiteral("es")), Language(QStringLiteral("zzq")));
 
         QVERIFY(QTest::qWaitFor([&server]() {
@@ -181,7 +192,8 @@ private slots:
                                 5000));
         const QByteArray body = server.requestBody(0);
 
-        QVERIFY2(!body.contains("professional C "), qUtf8Printable(QStringLiteral("Prompt corrupted to C-locale for a custom language code:\n") + QString::fromUtf8(body)));
+        QVERIFY2(body.contains("Zzqian"), qUtf8Printable(QStringLiteral("Custom language name not substituted:\n") + QString::fromUtf8(body)));
+        QVERIFY2(!body.contains("this C text"), qUtf8Printable(QStringLiteral("Prompt corrupted to C-locale for a custom language code:\n") + QString::fromUtf8(body)));
     }
 
     // Gotcha #5: the detection regex must take the FIRST match in the
@@ -195,7 +207,6 @@ private slots:
         auto provider = makeProvider(server.baseUrl());
         ProviderOptions opts = *provider->getDefaultOptions();
         opts.setOption(QStringLiteral("url"), server.baseUrl());
-        opts.setOption(QStringLiteral("detect_via_llm"), true);
         opts.setOption(QStringLiteral("detect_url"), server.baseUrl());
         opts.setOption(QStringLiteral("detect_model"), QStringLiteral("some-model"));
         provider->applyOptions(opts);
@@ -206,6 +217,132 @@ private slots:
         QVERIFY(detectSpy.wait(5000));
         const Language detected = qvariant_cast<Language>(detectSpy.constFirst().at(0));
         QCOMPARE(detected.toCode(), QStringLiteral("en"));
+    }
+
+    // detectLanguage() must be honest about supportsAutodetection() == true:
+    // when a detect provider/model is actually configured, it should fire a
+    // real async detection call (mirroring MozhiTranslationProvider), not
+    // silently substitute the primary language.
+    void testDetectLanguageWithDetectModelConfiguredHitsNetworkAndEmitsRealResult()
+    {
+        MockHttpServer server;
+        server.queueJson(200, chatCompletionJson(QStringLiteral("de - German text")));
+
+        auto provider = makeProvider(server.baseUrl());
+        ProviderOptions opts = *provider->getDefaultOptions();
+        opts.setOption(QStringLiteral("url"), server.baseUrl());
+        opts.setOption(QStringLiteral("detect_url"), server.baseUrl());
+        opts.setOption(QStringLiteral("detect_model"), QStringLiteral("some-model"));
+        provider->applyOptions(opts);
+
+        QSignalSpy detectSpy(provider.get(), &ATranslationProvider::languageDetected);
+        provider->detectLanguage(QStringLiteral("Guten Tag"));
+
+        QVERIFY(detectSpy.wait(5000));
+        const Language detected = qvariant_cast<Language>(detectSpy.constFirst().at(0));
+        QCOMPARE(detected.toCode(), QStringLiteral("de"));
+        QCOMPARE(server.requestCount(), 1);
+        QVERIFY(server.requestPath(0).contains(QStringLiteral("/v1/chat/completions")));
+    }
+
+    // Without a configured detect model, no real detection is possible:
+    // detectLanguage() must fall back to the primary language synchronously
+    // and must not make a network call.
+    void testDetectLanguageWithoutDetectModelFallsBackToPrimaryLanguageSynchronously()
+    {
+        AppSettings().setPrimaryLanguage(Language(QStringLiteral("fr")));
+
+        MockHttpServer server;
+        auto provider = makeProvider(server.baseUrl());
+
+        QSignalSpy detectSpy(provider.get(), &ATranslationProvider::languageDetected);
+        const Language detected = provider->detectLanguage(QStringLiteral("Bonjour"));
+
+        QCOMPARE(detected.toCode(), QStringLiteral("fr"));
+        QCOMPARE(detectSpy.count(), 1);
+        const Language emitted = qvariant_cast<Language>(detectSpy.constFirst().at(0));
+        QCOMPARE(emitted.toCode(), QStringLiteral("fr"));
+        QCOMPARE(server.requestCount(), 0);
+    }
+
+    // URL normalization: users paste either a base URL (SDK style) or a full
+    // endpoint URL (docs style). completionsUrl()/modelsUrl() must accept
+    // both without doubling or mangling the path.
+    void testCompletionsUrlNormalizesBaseUrlVsEndpoint()
+    {
+        // Base URLs get the kind-specific suffix appended.
+        QCOMPARE(OpenAiEndpoint::completionsUrl(QStringLiteral("http://localhost:11434"), false),
+                 QStringLiteral("http://localhost:11434/v1/chat/completions"));
+        QCOMPARE(OpenAiEndpoint::completionsUrl(QStringLiteral("http://localhost:11434/v1"), false),
+                 QStringLiteral("http://localhost:11434/v1/chat/completions"));
+        QCOMPARE(OpenAiEndpoint::completionsUrl(QStringLiteral("https://api.example.com/"), true),
+                 QStringLiteral("https://api.example.com/v1/messages"));
+
+        // Full endpoint URLs are used as typed - no doubling.
+        QCOMPARE(OpenAiEndpoint::completionsUrl(QStringLiteral("https://api.example.com/v1/chat/completions"), false),
+                 QStringLiteral("https://api.example.com/v1/chat/completions"));
+        QCOMPARE(OpenAiEndpoint::completionsUrl(QStringLiteral("https://api.example.com/v1/messages"), true),
+                 QStringLiteral("https://api.example.com/v1/messages"));
+
+        // Cross-kind endpoint URLs that ARE recognized suffixes are still
+        // honored as typed (user knows best) - only the kind of the suffix
+        // matters for recognition, not the isAnthropic flag passed in.
+        QCOMPARE(OpenAiEndpoint::completionsUrl(QStringLiteral("https://api.example.com/v1/messages"), false),
+                 QStringLiteral("https://api.example.com/v1/messages"));
+
+        // A base that already carries its own path is the complete SDK base
+        // (z.ai's base is ".../paas/v4", not "/v1"): only the kind suffix is
+        // appended - never a second version segment.
+        QCOMPARE(OpenAiEndpoint::completionsUrl(QStringLiteral("https://api.z.ai/api/coding/paas/v4"), false),
+                 QStringLiteral("https://api.z.ai/api/coding/paas/v4/chat/completions"));
+
+        // "/api/chat" (Ollama's native, non-OpenAI-compatible endpoint) is
+        // intentionally NOT recognized as a complete endpoint here - this
+        // codebase only ever builds OpenAI-compatible request bodies, so
+        // treating it as "already complete" would silently point at an
+        // endpoint expecting a different wire shape. It's now treated as an
+        // ordinary path segment and gets the OpenAI suffix appended,
+        // producing an obviously-broken URL rather than a silently-wrong
+        // one - a saved "/api/chat" URL should be changed to
+        // "/v1/chat/completions" instead.
+        QCOMPARE(OpenAiEndpoint::completionsUrl(QStringLiteral("http://host:8080/api/chat"), false),
+                 QStringLiteral("http://host:8080/api/chat/chat/completions"));
+
+        // Trailing slashes are still stripped first, same doubled-path result.
+        QCOMPARE(OpenAiEndpoint::completionsUrl(QStringLiteral("http://host:8080/api/chat/"), false),
+                 QStringLiteral("http://host:8080/api/chat/chat/completions"));
+        QCOMPARE(OpenAiEndpoint::completionsUrl(QStringLiteral("http://host:8080///"), false),
+                 QStringLiteral("http://host:8080/v1/chat/completions"));
+    }
+
+    void testModelsUrlDerivesBaseFromEndpointUrl()
+    {
+        // Plain base URLs go straight to /v1/models.
+        QCOMPARE(OpenAiEndpoint::modelsUrl(QStringLiteral("http://localhost:11434")),
+                 QStringLiteral("http://localhost:11434/v1/models"));
+        QCOMPARE(OpenAiEndpoint::modelsUrl(QStringLiteral("https://api.example.com/v1")),
+                 QStringLiteral("https://api.example.com/v1/models"));
+
+        // Full endpoint URLs have their path stripped back to the base first.
+        QCOMPARE(OpenAiEndpoint::modelsUrl(QStringLiteral("https://api.example.com/v1/chat/completions")),
+                 QStringLiteral("https://api.example.com/v1/models"));
+        QCOMPARE(OpenAiEndpoint::modelsUrl(QStringLiteral("https://api.example.com/v1/messages")),
+                 QStringLiteral("https://api.example.com/v1/models"));
+        QCOMPARE(OpenAiEndpoint::modelsUrl(QStringLiteral("http://host:8080/v1/models")),
+                 QStringLiteral("http://host:8080/v1/models"));
+
+        // "/api/chat" is intentionally not a recognized suffix (see
+        // completionsUrl's test above for why) - it's treated as an
+        // ordinary path segment the probe lives under.
+        QCOMPARE(OpenAiEndpoint::modelsUrl(QStringLiteral("http://host:8080/api/chat")),
+                 QStringLiteral("http://host:8080/api/chat/models"));
+
+        // A path-bearing SDK base keeps its own version segment; the probe is
+        // "<base>/models", never ".../v4/v1/models" (z.ai's base is "/v4").
+        QCOMPARE(OpenAiEndpoint::modelsUrl(QStringLiteral("https://api.z.ai/api/coding/paas/v4")),
+                 QStringLiteral("https://api.z.ai/api/coding/paas/v4/models"));
+        QCOMPARE(OpenAiEndpoint::modelsUrl(QStringLiteral("http://host:8080/some/custom/path")),
+                 QStringLiteral("http://host:8080/some/custom/path/models"));
     }
 };
 

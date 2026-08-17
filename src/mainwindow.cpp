@@ -9,28 +9,34 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "modulestatus.h"
 #include "popupwindow.h"
 #include "provideroptions.h"
 #include "provideroptionsmanager.h"
 #include "screenwatcher.h"
 #include "selection.h"
 #include "singleapplication.h"
+#include "statusstrip.h"
+#include "ocr/aocrprovider.h"
+#include "ocr/llmocr.h"
 #include "ocr/screengrabbers/abstractscreengrabber.h"
+#include "ocr/tesseractocr.h"
 #include "settings/appsettings.h"
 #include "settings/settingsdialog.h"
 #include "translator/atranslationprovider.h"
+#include "translator/translationlogic.h"
 #include "tts/attsprovider.h"
 #include "tts/voice.h"
 
 #include <QAbstractItemView>
 #include <QApplication>
-#include <QBuffer>
 #include <QButtonGroup>
 #include <QClipboard>
 #include <QCloseEvent>
 #include <QDragEnterEvent>
 #include <QDropEvent>
 #include <QFile>
+#include <QFileDialog>
 #include <QFontMetrics>
 #include <QImage>
 #include <QKeyEvent>
@@ -38,6 +44,7 @@
 #include <QMessageBox>
 #include <QMimeData>
 #include <QSet>
+#include <QStandardPaths>
 #include <QTimer>
 
 #include <cassert>
@@ -59,14 +66,24 @@ MainWindow::MainWindow(QWidget *parent)
     , m_closeWindowsShortcut(new QShortcut(this))
     , ui(new Ui::MainWindow)
     , m_optionsManager(new ProviderOptionsManager(this))
-    , m_ocr(new Ocr())
+    , m_tesseractOcr(new TesseractOcr(this))
+    , m_llmOcr(new LlmOcr(this))
     , m_screenCaptureTimer(new QTimer(this))
     , m_snippingArea(new SnippingArea(this))
     , m_trayIcon(new TrayIcon(this))
     , m_orientationWatcher(new ScreenWatcher(this))
     , m_screenGrabber(AbstractScreenGrabber::createScreenGrabber(this))
+    , m_moduleStatus(new ModuleStatus(this))
 {
     ui->setupUi(this);
+
+    // The status strip lives in the status bar rather than centralLayout:
+    // setOrientation() reassigns that layout's direction per screen
+    // orientation, which would place the strip beside the columns in
+    // landscape and invert its position in InvertedPortraitOrientation.
+    m_statusStrip = new StatusStrip;
+    m_statusStrip->setModel(m_moduleStatus);
+    ui->statusbar->addWidget(m_statusStrip, 1);
     // Save original Mozhi engine combo items so they can be restored after
     // switching to LocalAI (which clears the combo).
     for (int i = 0; i < ui->engineComboBox->count(); ++i) {
@@ -81,8 +98,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->sourceEdit->setAccessibleName(QStringLiteral("sourceEdit"));
     ui->translationEdit->setAccessibleName(QStringLiteral("translationEdit"));
     ui->translateButton->setAccessibleName(QStringLiteral("translateButton"));
+    ui->abortButton->setAccessibleName(QStringLiteral("abortButton"));
     ui->sourcePlayPauseButton->setAccessibleName(QStringLiteral("sourcePlayPauseButton"));
     ui->translationPlayPauseButton->setAccessibleName(QStringLiteral("translationPlayPauseButton"));
+    ui->openImageButton->setAccessibleName(QStringLiteral("openImageButton"));
 
     // Screen orientation
     connect(m_orientationWatcher, &ScreenWatcher::screenOrientationChanged, this, &MainWindow::setOrientation);
@@ -110,15 +129,51 @@ MainWindow::MainWindow(QWidget *parent)
 
     // OCR logic
     connect(m_screenGrabber, &AbstractScreenGrabber::grabbed, m_snippingArea, &SnippingArea::snip);
-    connect(m_snippingArea, &SnippingArea::snipped, m_ocr, &Ocr::recognize);
-    connect(m_ocr, &Ocr::recognized, ui->sourceEdit, &SourceTextEdit::replaceText);
+    connect(m_snippingArea, &SnippingArea::snipped, this, [this](const QPixmap &pixmap, int dpi) {
+        activeOcr()->recognize(pixmap.toImage(), dpi);
+    });
+    // An abandoned snip must not leave a translation armed for whatever gets
+    // recognized next.
+    connect(m_snippingArea, &SnippingArea::cancelled, this, &MainWindow::disarmOcrTranslation);
+    // A failed grab never opens the snipping area, so it emits no SnippingArea
+    // signal either - the same armed-connection leak as an abandoned snip.
+    connect(m_screenGrabber, &AbstractScreenGrabber::grabbingFailed, this, &MainWindow::disarmOcrTranslation);
+    connect(m_tesseractOcr, &TesseractOcr::recognized, ui->sourceEdit, &SourceTextEdit::replaceText);
+    connect(m_llmOcr, &LlmOcr::recognized, ui->sourceEdit, &SourceTextEdit::replaceText);
+    // Text inserted through replaceText() deliberately suppresses
+    // SourceTextEdit::textEdited (the armed flows chain their own follow-up),
+    // so an UNarmed recognition - a plain recognize-screen-area, or an image
+    // with auto-translate off - used to leave the translate button disabled
+    // and language detection not running until the user typed something:
+    // any real edit fires textEdited, which drives all of these. Run the
+    // same follow-ups typed text gets. These permanent connections are
+    // created before any armed/temporary one, so the gate below sees the
+    // current armed state correctly.
+    const auto handleRecognizedText = [this]() {
+        if (m_ocrTranslateConnection)
+            return; // the armed path chains its own translation
+        updateTranslateButtonState();
+        updateTTSButtonStates();
+        updateAutoLocales();
+        handleAutoTranslation();
+    };
+    connect(m_tesseractOcr, &TesseractOcr::recognized, this, handleRecognizedText);
+    connect(m_llmOcr, &LlmOcr::recognized, this, handleRecognizedText);
     m_screenCaptureTimer->setSingleShot(true);
+
+    // Both engines and the grabber/snipping area are long-lived; bind them
+    // once. Both engines, not activeOcr(): the active one switches per
+    // settings read.
+    m_moduleStatus->bindOcr(m_tesseractOcr, m_llmOcr);
+    m_moduleStatus->bindCapture(m_screenGrabber, m_snippingArea);
 
     loadAppSettings();
     m_tts = ATTSProvider::createTTSProvider(this, m_chosenTTSBackend);
     connect(m_tts, &ATTSProvider::errorOccurred, this, &MainWindow::onTTSError);
+    m_moduleStatus->bindTtsProvider(m_tts);
     applyTTSProviderSettings();
     m_translator = ATranslationProvider::createTranslationProvider(this, m_chosenTranslationBackend);
+    m_moduleStatus->bindTranslator(m_translator);
 
     updateProviderUI();
 
@@ -287,9 +342,33 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-Ocr *MainWindow::ocr() const
+AOcrProvider *MainWindow::ocr() const
 {
-    return m_ocr;
+    return activeOcr();
+}
+
+TesseractOcr *MainWindow::tesseractOcr() const
+{
+    return m_tesseractOcr;
+}
+
+AOcrProvider *MainWindow::activeOcr() const
+{
+    if (AppSettings().ocrEngine() == AppSettings::OcrEngine::Llm) {
+        return m_llmOcr;
+    }
+    return m_tesseractOcr;
+}
+
+void MainWindow::configureLlmOcr()
+{
+    const AppSettings settings;
+    const QString providerId = settings.ocrLlmProvider();
+    m_llmOcr->setEndpoint(settings.localProviderUrl(providerId), AppSettings::localProviderIsAnthropic(providerId), settings.localProviderApiKey(providerId));
+    m_llmOcr->setModel(settings.ocrLlmModel(providerId));
+    m_llmOcr->setTimeout(settings.ocrLlmTimeout(providerId));
+    m_llmOcr->setPrompt(settings.ocrLlmPrompt(settings.ocrLlmModel(providerId)));
+    m_llmOcr->setDisableThinking(settings.localAiDisableThinking(providerId));
 }
 
 QComboBox *MainWindow::getEngineComboBox() const
@@ -360,6 +439,11 @@ QTextEdit *MainWindow::translationEdit() const
 SourceTextEdit *MainWindow::sourceEdit() const
 {
     return ui->sourceEdit;
+}
+
+ModuleStatus *MainWindow::moduleStatus() const
+{
+    return m_moduleStatus;
 }
 
 QToolButton *MainWindow::sourcePlayPauseButton() const
@@ -540,87 +624,100 @@ Q_SCRIPTABLE void MainWindow::copyTranslatedSelection()
     }
 }
 
-Q_SCRIPTABLE void MainWindow::recognizeScreenArea()
+// Common preamble for every OCR entry point. Configuring the LLM engine
+// before asking whether it is configured is not optional: LlmOcr::isConfigured()
+// reports the state of the last configureLlmOcr() call, not the state of the
+// settings, so checking first rejects an engine the user has just set up.
+bool MainWindow::prepareOcr()
 {
-    if (m_ocr->languagesString().isEmpty()) {
-        QMessageBox::critical(this, Ocr::tr("OCR languages are not loaded"), Ocr::tr("You should set at least one OCR language in the application settings"));
-        return;
+    configureLlmOcr();
+    if (!activeOcr()->isConfigured()) {
+        QMessageBox::critical(this, TesseractOcr::tr("OCR is not configured"), TesseractOcr::tr("Set up the OCR engine in the application settings"));
+        return false;
     }
 
-    AppSettings settings;
+    const AppSettings settings;
     if (settings.isForceSourceAutodetect()) {
         ui->sourceLanguagesWidget->checkAutoButton();
     }
     if (settings.isForceTranslationAutodetect()) {
         ui->translationLanguagesWidget->checkAutoButton();
     }
+    return true;
+}
+
+// Chains one translation onto the next successful recognition. The recognized
+// text reaches the source edit through the permanent
+// AOcrProvider::recognized -> SourceTextEdit::replaceText connections; this
+// only adds the translation, so the text is never written twice.
+//
+// The connection is a member rather than a local shared_ptr because it has to
+// survive until it fires *or* until something cancels the capture - a snip
+// abandoned with Escape used to leave it armed, so the next recognition of any
+// kind (including a plain "recognize screen area") translated unexpectedly.
+void MainWindow::armOcrTranslation()
+{
+    disarmOcrTranslation();
+    m_ocrTranslateConnection = connect(activeOcr(), &AOcrProvider::recognized, this, [this](const QString &text) {
+        disarmOcrTranslation();
+        ui->sourceEdit->stopEditTimer(); // Prevent delayed textEdited signal
+
+        // Use auto-detect for OCR text if auto button is checked, otherwise use selected language
+        const bool isSourceAutoChecked = ui->sourceLanguagesWidget->isAutoButtonChecked();
+        const bool isTranslationAutoChecked = ui->translationLanguagesWidget->isAutoButtonChecked();
+        const Language sourceLanguage = isSourceAutoChecked ? Language::autoLanguage() : m_sourceLang;
+        const Language destinationLanguage = isTranslationAutoChecked ? Language::autoLanguage() : m_destLang;
+
+        if (m_translator && m_translator->getState() == ATranslationProvider::State::Ready) {
+            emit translationRequested(text, destinationLanguage, sourceLanguage);
+            return;
+        }
+        // Wait for translator to be ready
+        disconnect(m_ocrTranslatorReadyConnection);
+        m_ocrTranslatorReadyConnection =
+            connect(m_translator, &ATranslationProvider::stateChanged, this, [this, text, sourceLanguage, destinationLanguage](ATranslationProvider::State state) {
+                if (state == ATranslationProvider::State::Ready) {
+                    disconnect(m_ocrTranslatorReadyConnection);
+                    emit translationRequested(text, destinationLanguage, sourceLanguage);
+                }
+            });
+    });
+}
+
+void MainWindow::disarmOcrTranslation()
+{
+    disconnect(m_ocrTranslateConnection);
+    disconnect(m_ocrTranslatorReadyConnection);
+}
+
+Q_SCRIPTABLE void MainWindow::recognizeScreenArea()
+{
+    if (!prepareOcr()) {
+        return;
+    }
 
     if (m_screenGrabber != nullptr) {
-        m_screenGrabber->grab();
+        disarmOcrTranslation();
+        startScreenCapture();
     }
 }
 
 Q_SCRIPTABLE void MainWindow::translateScreenArea()
 {
-    if (m_ocr->languagesString().isEmpty()) {
-        QMessageBox::critical(this, Ocr::tr("OCR languages are not loaded"), Ocr::tr("You should set at least one OCR language in the application settings"));
+    if (!prepareOcr()) {
         return;
     }
 
-    AppSettings settings;
-    if (settings.isForceSourceAutodetect()) {
-        ui->sourceLanguagesWidget->checkAutoButton();
-    }
-    if (settings.isForceTranslationAutodetect()) {
-        ui->translationLanguagesWidget->checkAutoButton();
-    }
-
     if (m_screenGrabber != nullptr) {
-        auto ocrConnection = std::make_shared<QMetaObject::Connection>();
-        *ocrConnection = connect(m_ocr, &Ocr::recognized, this, [this, ocrConnection](const QString &text) {
-            ui->sourceEdit->setPlainText(text);
-            ui->sourceEdit->stopEditTimer(); // Prevent delayed textEdited signal
-
-            // Use auto-detect for OCR text if auto button is checked, otherwise use selected language
-            const bool isSourceAutoChecked = ui->sourceLanguagesWidget->isAutoButtonChecked();
-            const bool isTranslationAutoChecked = ui->translationLanguagesWidget->isAutoButtonChecked();
-            const Language sourceLanguage = isSourceAutoChecked ? Language::autoLanguage() : m_sourceLang;
-            const Language destinationLanguage = isTranslationAutoChecked ? Language::autoLanguage() : m_destLang;
-            qDebug() << "OCR: sourceAutoChecked:" << isSourceAutoChecked << "translationAutoChecked:" << isTranslationAutoChecked
-                     << "sourceLanguage:" << sourceLanguage.name() << "destinationLanguage:" << destinationLanguage.name();
-
-            if (m_translator && m_translator->getState() == ATranslationProvider::State::Ready) {
-                emit translationRequested(text, destinationLanguage, sourceLanguage);
-            } else {
-                // Wait for translator to be ready
-                auto connection = std::make_shared<QMetaObject::Connection>();
-                *connection =
-                    connect(m_translator, &ATranslationProvider::stateChanged, this, [this, text, sourceLanguage, destinationLanguage, connection](ATranslationProvider::State state) {
-                        if (state == ATranslationProvider::State::Ready) {
-                            emit translationRequested(text, destinationLanguage, sourceLanguage);
-                            disconnect(*connection);
-                        }
-                    });
-            }
-            disconnect(*ocrConnection);
-        });
-        m_screenGrabber->grab();
+        armOcrTranslation();
+        startScreenCapture();
     }
 }
 
 Q_SCRIPTABLE void MainWindow::delayedRecognizeScreenArea()
 {
-    if (m_ocr->languagesString().isEmpty()) {
-        QMessageBox::critical(this, Ocr::tr("OCR languages are not loaded"), Ocr::tr("You should set at least one OCR language in the application settings"));
+    if (!prepareOcr()) {
         return;
-    }
-
-    AppSettings settings;
-    if (settings.isForceSourceAutodetect()) {
-        ui->sourceLanguagesWidget->checkAutoButton();
-    }
-    if (settings.isForceTranslationAutodetect()) {
-        ui->translationLanguagesWidget->checkAutoButton();
     }
 
     if ((m_screenCaptureTimer != nullptr) && (m_screenGrabber != nullptr)) {
@@ -631,7 +728,8 @@ Q_SCRIPTABLE void MainWindow::delayedRecognizeScreenArea()
             &QTimer::timeout,
             this,
             [this]() {
-                m_screenGrabber->grab();
+                disarmOcrTranslation();
+                startScreenCapture();
             },
             Qt::SingleShotConnection);
     }
@@ -639,17 +737,8 @@ Q_SCRIPTABLE void MainWindow::delayedRecognizeScreenArea()
 
 Q_SCRIPTABLE void MainWindow::delayedTranslateScreenArea()
 {
-    if (m_ocr->languagesString().isEmpty()) {
-        QMessageBox::critical(this, Ocr::tr("OCR languages are not loaded"), Ocr::tr("You should set at least one OCR language in the application settings"));
+    if (!prepareOcr()) {
         return;
-    }
-
-    AppSettings settings;
-    if (settings.isForceSourceAutodetect()) {
-        ui->sourceLanguagesWidget->checkAutoButton();
-    }
-    if (settings.isForceTranslationAutodetect()) {
-        ui->translationLanguagesWidget->checkAutoButton();
     }
 
     if ((m_screenCaptureTimer != nullptr) && (m_screenGrabber != nullptr)) {
@@ -660,37 +749,8 @@ Q_SCRIPTABLE void MainWindow::delayedTranslateScreenArea()
             &QTimer::timeout,
             this,
             [this]() {
-                auto ocrConnection = std::make_shared<QMetaObject::Connection>();
-                *ocrConnection = connect(m_ocr, &Ocr::recognized, this, [this, ocrConnection](const QString &text) {
-                    ui->sourceEdit->setPlainText(text);
-                    ui->sourceEdit->stopEditTimer(); // Prevent delayed textEdited signal
-
-                    // Use auto-detect for OCR text if auto button is checked, otherwise use selected language
-                    const bool isSourceAutoChecked = ui->sourceLanguagesWidget->isAutoButtonChecked();
-                    const bool isTranslationAutoChecked = ui->translationLanguagesWidget->isAutoButtonChecked();
-                    const Language sourceLanguage = isSourceAutoChecked ? Language::autoLanguage() : m_sourceLang;
-                    const Language destinationLanguage = isTranslationAutoChecked ? Language::autoLanguage() : m_destLang;
-                    qDebug() << "Delayed OCR: sourceAutoChecked:" << isSourceAutoChecked << "translationAutoChecked:" << isTranslationAutoChecked
-                             << "sourceLanguage:" << sourceLanguage.name() << "destinationLanguage:" << destinationLanguage.name();
-
-                    if (m_translator && m_translator->getState() == ATranslationProvider::State::Ready) {
-                        emit translationRequested(text, destinationLanguage, sourceLanguage);
-                    } else {
-                        // Wait for translator to be ready
-                        auto connection = std::make_shared<QMetaObject::Connection>();
-                        *connection = connect(m_translator,
-                                              &ATranslationProvider::stateChanged,
-                                              this,
-                                              [this, text, sourceLanguage, destinationLanguage, connection](ATranslationProvider::State state) {
-                                                  if (state == ATranslationProvider::State::Ready) {
-                                                      emit translationRequested(text, destinationLanguage, sourceLanguage);
-                                                      disconnect(*connection);
-                                                  }
-                                              });
-                    }
-                    disconnect(*ocrConnection);
-                });
-                m_screenGrabber->grab();
+                armOcrTranslation();
+                startScreenCapture();
             },
             Qt::SingleShotConnection);
     }
@@ -700,6 +760,15 @@ Q_SCRIPTABLE void MainWindow::clearText()
 {
     ui->sourceEdit->removeText();
     ui->translationEdit->clear();
+}
+
+void MainWindow::startScreenCapture()
+{
+    if (m_screenGrabber == nullptr)
+        return;
+
+    m_moduleStatus->beginScreenCapture();
+    m_screenGrabber->grab();
 }
 
 Q_SCRIPTABLE void MainWindow::openSettings()
@@ -861,6 +930,11 @@ void MainWindow::loadAppSettings()
     // Interface
     ui->translationEdit->setFont(settings.font());
     ui->sourceEdit->setFont(settings.font());
+    // De-identify BEFORE hiding the status bar: the AT-SPI bridge ignores
+    // property updates for widgets in an already-hidden hierarchy, so the
+    // strip's labels would keep announcing their last name indefinitely.
+    m_statusStrip->setShown(settings.isShowStatusBar());
+    ui->statusbar->setVisible(settings.isShowStatusBar());
 
     ui->sourceLanguagesWidget->setLanguageFormat(settings.mainWindowLanguageFormat());
     ui->translationLanguagesWidget->setLanguageFormat(settings.mainWindowLanguageFormat());
@@ -888,16 +962,17 @@ void MainWindow::loadAppSettings()
     ui->sourceEdit->setSimplifySource(settings.isSimplifySource());
 
     if (const QByteArray languages = settings.ocrLanguagesString(), path = settings.ocrLanguagesPath();
-        !m_ocr->init(languages, path, settings.tesseractParameters())) {
+        !m_tesseractOcr->init(languages, path, settings.tesseractParameters())) {
         if (languages != AppSettings::defaultOcrLanguagesString() || path != AppSettings::defaultOcrLanguagesPath())
-            m_trayIcon->showMessage(Ocr::tr("Unable to set OCR languages"), Ocr::tr("Unable to initialize Tesseract with %1").arg(QString(languages)));
+            m_trayIcon->showMessage(TesseractOcr::tr("Unable to set OCR languages"), TesseractOcr::tr("Unable to initialize Tesseract with %1").arg(QString(languages)));
     }
     if (const AppSettings::RegionRememberType type = settings.regionRememberType(); m_snippingArea->regionRememberType() != type) {
         m_snippingArea->setRegionRememberType(type);
         if (type == AppSettings::RememberAlways)
             m_snippingArea->setCropRegion(settings.cropRegion());
     }
-    m_ocr->setConvertLineBreaks(settings.isConvertLineBreaks());
+    m_tesseractOcr->setConvertLineBreaks(settings.isConvertLineBreaks());
+    configureLlmOcr();
     m_screenCaptureTimer->setInterval(settings.captureDelay());
     m_snippingArea->setCaptureOnRelese(settings.isConfirmOnRelease());
     m_snippingArea->setShowMagnifier(settings.isShowMagnifier());
@@ -1167,6 +1242,7 @@ void MainWindow::swapTranslator(ATranslationProvider::ProviderBackend newBackend
 
     m_chosenTranslationBackend = newBackend;
     m_translator = ATranslationProvider::createTranslationProvider(this, m_chosenTranslationBackend);
+    m_moduleStatus->bindTranslator(m_translator);
 
     updateProviderUI();
 
@@ -1235,6 +1311,7 @@ void MainWindow::swapTTSProvider(ATTSProvider::ProviderBackend newBackend)
 
     m_chosenTTSBackend = newBackend;
     m_tts = ATTSProvider::createTTSProvider(this, m_chosenTTSBackend);
+    m_moduleStatus->bindTtsProvider(m_tts);
 
     connect(m_tts, &ATTSProvider::stateChanged, this, &MainWindow::ttsStateChanged);
     connect(m_tts, &ATTSProvider::errorOccurred, this, &MainWindow::onTTSError);
@@ -1708,6 +1785,13 @@ void MainWindow::on_translateButton_clicked()
     const Language sourceLanguage = isSourceAutoChecked ? Language::autoLanguage() : m_sourceLang;
     const Language destinationLanguage = isTranslationAutoChecked ? Language::autoLanguage() : m_destLang;
 
+    if (m_hasSourceImage) {
+        // Recognition is still running on the image; translate whatever it
+        // produces rather than translating an empty source edit.
+        armOcrTranslation();
+        return;
+    }
+
     emit translationRequested(ui->sourceEdit->toSourceText(), destinationLanguage, sourceLanguage);
 }
 
@@ -1802,24 +1886,10 @@ void MainWindow::on_delayedTranslateScreenAreaButton_clicked()
 Language MainWindow::preferredTranslationLanguage(const Language &sourceLang) const
 {
     const AppSettings settings;
-    Language primaryLang = settings.primaryLanguage();
-    if (primaryLang == Language::autoLanguage())
-        primaryLang = Language(QLocale::system());
-
-    // First choice: use primary if different from source
-    if (primaryLang != sourceLang)
-        return primaryLang;
-
-    // Primary same as source, try secondary
-    Language secondaryLang = settings.secondaryLanguage();
-    if (secondaryLang == Language::autoLanguage())
-        secondaryLang = Language(QLocale::system());
-
-    if (secondaryLang != sourceLang)
-        return secondaryLang;
-
-    // Both primary and secondary same as source, fall back to system language
-    return Language(QLocale::system());
+    return TranslationLogic::preferredDestination(sourceLang,
+                                                  settings.primaryLanguage(),
+                                                  settings.secondaryLanguage(),
+                                                  Language(QLocale::system()));
 }
 
 void MainWindow::handleTranslationRequest(const QString &text, const Language &destLang, const Language &srcLang)
@@ -1859,19 +1929,7 @@ void MainWindow::setSourceImageInternal(const QImage &src)
         img = img.scaled(AppSettings::maxSourceImageDimension, AppSettings::maxSourceImageDimension, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     }
 
-    QByteArray data;
-    QBuffer buf(&data);
-    buf.open(QIODevice::WriteOnly);
-    img.save(&buf, "JPEG", AppSettings::sourceImageJpegQuality);
-
-    if (data.size() > AppSettings::maxSourceImageBytes) {
-        ui->sourceEdit->setPlainText(tr("Image too large (%1 MB). Max %2 MB.")
-                                         .arg(data.size() / (1024.0 * 1024.0), 0, 'f', 1)
-                                         .arg(AppSettings::maxSourceImageBytes / (1024.0 * 1024.0), 0, 'f', 1));
-        return;
-    }
-
-    m_translator->setSourceImage(data);
+    m_pendingOcrImage = img;
 
     // Show preview over sourceEdit using geometry
     m_originalPixmap = QPixmap::fromImage(img);
@@ -1884,9 +1942,7 @@ void MainWindow::setSourceImageInternal(const QImage &src)
 
     updateTranslateButtonState();
 
-    if (ui->autoTranslateCheckBox->isChecked()) {
-        on_translateButton_clicked();
-    }
+    recognizeSourceImage();
 }
 
 void MainWindow::clearSourceImage()
@@ -1894,11 +1950,100 @@ void MainWindow::clearSourceImage()
     if (!m_hasSourceImage) {
         return;
     }
+    // Recognition now starts the moment an image arrives, so dropping the
+    // image while it is still running has to stop it too - otherwise Clear or
+    // Swap leaves a request in flight that lands its text (and possibly a
+    // translation) in a source edit the user has already emptied. The
+    // recognized/failed/canceled handlers disconnect themselves before calling
+    // this, so a still-connected handler is exactly the "aborted early" case.
+    if (m_imageOcrRecognizedConnection) {
+        disconnect(m_imageOcrRecognizedConnection);
+        disconnect(m_imageOcrCanceledConnection);
+        disconnect(m_imageOcrFailedConnection);
+        disarmOcrTranslation();
+        activeOcr()->cancel();
+    }
+
     m_hasSourceImage = false;
-    m_translator->clearSourceImage();
+    m_pendingOcrImage = QImage();
     m_imagePreview->hide();
     m_originalPixmap = QPixmap();
     ui->sourceLanguagesWidget->setEnabled(true);
+}
+
+static QByteArray stripNonStandardPngChunks(const QByteArray &data);
+
+// An image that arrives by drop, paste or the open button is transcribed
+// straight away, the same way a screen-area capture is: the point of dropping
+// an image is to see its text. Whether that text then gets translated is the
+// auto-translate setting's business, exactly as it is for typed text.
+void MainWindow::recognizeSourceImage()
+{
+    if (!prepareOcr()) {
+        clearSourceImage();
+        return;
+    }
+
+    AOcrProvider *engine = activeOcr();
+
+    disconnect(m_imageOcrRecognizedConnection);
+    disconnect(m_imageOcrCanceledConnection);
+    disconnect(m_imageOcrFailedConnection);
+
+    if (ui->autoTranslateCheckBox->isChecked()) {
+        armOcrTranslation();
+    } else {
+        disarmOcrTranslation();
+    }
+
+    // The recognized text itself lands in the source edit through the
+    // permanent recognized -> replaceText connection; these only manage the
+    // preview overlay that the text replaces.
+    m_imageOcrRecognizedConnection = connect(engine, &AOcrProvider::recognized, this, [this]() {
+        disconnect(m_imageOcrRecognizedConnection);
+        disconnect(m_imageOcrCanceledConnection);
+        disconnect(m_imageOcrFailedConnection);
+        clearSourceImage();
+    });
+    m_imageOcrCanceledConnection = connect(engine, &AOcrProvider::canceled, this, [this]() {
+        disconnect(m_imageOcrRecognizedConnection);
+        disconnect(m_imageOcrCanceledConnection);
+        disconnect(m_imageOcrFailedConnection);
+        disarmOcrTranslation();
+        clearSourceImage();
+        updateTranslateButtonState();
+    });
+    m_imageOcrFailedConnection = connect(engine, &AOcrProvider::failed, this, [this](const QString &error) {
+        disconnect(m_imageOcrRecognizedConnection);
+        disconnect(m_imageOcrCanceledConnection);
+        disconnect(m_imageOcrFailedConnection);
+        disarmOcrTranslation();
+        clearSourceImage();
+        ui->sourceEdit->replaceText(tr("OCR failed: %1").arg(error));
+        updateTranslateButtonState();
+    });
+
+    engine->recognize(m_pendingOcrImage, 96);
+}
+
+// Loads an image file, retrying through a PNG repair pass for the files Qt
+// refuses because of non-standard ancillary chunks (screenshots from some
+// tools carry them). Shared by drag-and-drop and the open-image button.
+bool MainWindow::loadImageFromFile(const QString &path, QImage &out)
+{
+    if (out.load(path)) {
+        return true;
+    }
+    QFile file(path);
+    if (!file.open(QIODevice::ReadOnly)) {
+        return false;
+    }
+    const QByteArray raw = file.readAll();
+    const QByteArray clean = stripNonStandardPngChunks(raw);
+    if (clean != raw) {
+        out.loadFromData(clean);
+    }
+    return !out.isNull();
 }
 
 static QByteArray stripNonStandardPngChunks(const QByteArray &data)
@@ -1967,19 +2112,9 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
             QImage img;
             if (drop->mimeData()->hasUrls()) {
                 const QString path = drop->mimeData()->urls().constFirst().toLocalFile();
-                if (!img.load(path)) {
-                    QFile f(path);
-                    if (f.open(QIODevice::ReadOnly)) {
-                        const QByteArray raw = f.readAll();
-                        const QByteArray clean = stripNonStandardPngChunks(raw);
-                        if (clean != raw) {
-                            img.loadFromData(clean);
-                        }
-                    }
-                    if (img.isNull()) {
-                        ui->sourceEdit->setPlainText(tr("Cannot open image:\n%1").arg(path));
-                        return true;
-                    }
+                if (!loadImageFromFile(path, img)) {
+                    ui->sourceEdit->replaceText(tr("Cannot open image:\n%1").arg(path));
+                    return true;
                 }
             }
             if (img.isNull() && drop->mimeData()->hasImage()) {
@@ -2014,8 +2149,29 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape && m_hasSourceImage) {
+        // clearSourceImage() cancels the engine that is actually running.
+        // Cancelling both unconditionally used to make LlmOcr::cancel() emit a
+        // spurious canceled() for a Tesseract run (and vice versa).
         clearSourceImage();
         return;
     }
     QMainWindow::keyPressEvent(event);
+}
+
+void MainWindow::on_openImageButton_clicked()
+{
+    const QString path = QFileDialog::getOpenFileName(this,
+                                                      tr("Open image"),
+                                                      QStandardPaths::writableLocation(QStandardPaths::PicturesLocation),
+                                                      tr("Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"));
+    if (path.isEmpty()) {
+        return;
+    }
+
+    QImage img;
+    if (!loadImageFromFile(path, img)) {
+        QMessageBox::warning(this, tr("Open image"), tr("Cannot open image:\n%1").arg(path));
+        return;
+    }
+    setSourceImageInternal(img);
 }

@@ -147,6 +147,16 @@
          </widget>
         </item>
         <item>
+         <widget class="QToolButton" name="openImageButton">
+          <property name="toolTip">
+           <string>Recognize text in an image file</string>
+          </property>
+          <property name="icon">
+           <iconset theme="insert-image"/>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QToolButton" name="delayedRecognizeScreenAreaButton">
           <property name="toolTip">
            <string>Recognize screen area with delay</string>
@@ -387,12 +397,13 @@
         </item>
        </layout>
       </item>
-     </layout>
-    </item>
-   </layout>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QStatusBar" name="statusbar"/>
   </widget>
- </widget>
- <customwidgets>
+  <customwidgets>
   <customwidget>
    <class>LanguageButtonsWidget</class>
    <extends>QWidget</extends>

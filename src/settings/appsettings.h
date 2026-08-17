@@ -138,6 +138,10 @@ public:
     void setCustomIconPath(const QString &path);
     static QString defaultCustomIconPath();
 
+    bool isShowStatusBar() const;
+    void setShowStatusBar(bool visible);
+    static bool defaultShowStatusBar();
+
     // Translation settings
     bool isSourceTranslitEnabled() const;
     void setSourceTranslitEnabled(bool enable);
@@ -219,8 +223,6 @@ public:
     QString localProviderApiKey(const QString &id) const;
     void setLocalProviderApiKey(const QString &id, const QString &apiKey);
 
-    bool detectViaLlm() const;
-    void setDetectViaLlm(bool enabled);
     QString detectProvider() const;
     void setDetectProvider(const QString &id);
     QString detectModel() const;
@@ -232,21 +234,9 @@ public:
     bool localAiDisableThinking(const QString &providerId) const;
     void setLocalAiDisableThinking(const QString &providerId, bool disable);
 
-    int localAiVisionTimeout(const QString &providerId) const;
-    void setLocalAiVisionTimeout(const QString &providerId, int seconds);
-    bool localAiDisableVisionThinking(const QString &providerId) const;
-    void setLocalAiDisableVisionThinking(const QString &providerId, bool disable);
-
     QString localAiPrompt(const QString &model) const;
     void setLocalAiPrompt(const QString &model, const QString &prompt);
     static QString defaultLocalAiPrompt();
-    QString localVisionPrompt(const QString &model) const;
-    void setLocalVisionPrompt(const QString &model, const QString &prompt);
-    static QString defaultVisionPrompt();
-    QString localVisionModel(const QString &providerId) const;
-    void setLocalVisionModel(const QString &providerId, const QString &model);
-    bool isVisionEnabled(const QString &providerId) const;
-    void setVisionEnabled(const QString &providerId, bool enabled);
 
     static constexpr qint64 maxSourceImagePixels = 100LL * 1000 * 1000;
     static constexpr int maxSourceImageDimension = 2048;
@@ -368,6 +358,41 @@ public:
     static QKeySequence defaultCopyTranslationShortcut();
 
     // OCR settings
+    enum class OcrEngine {
+        Tesseract,
+        Llm
+    };
+    OcrEngine ocrEngine() const;
+    void setOcrEngine(OcrEngine engine);
+    static OcrEngine defaultOcrEngine();
+
+    // Vision-model OCR engine. Its provider ids are the same kinds as the
+    // LocalAI translation backend's (localProviderIds()), but every value
+    // lives under its own "OcrLlm/" group: the endpoint that transcribes your
+    // screenshots is not the endpoint that translates your text, and changing
+    // one must never move the other. Url falls back to the same per-kind
+    // default the translation backend uses, so a fresh install still points
+    // at localhost rather than nowhere.
+    QString ocrLlmProvider() const;
+    void setOcrLlmProvider(const QString &providerId);
+    QString ocrLlmUrl(const QString &providerId) const;
+    void setOcrLlmUrl(const QString &providerId, const QString &url);
+    QString ocrLlmApiKey(const QString &providerId) const;
+    void setOcrLlmApiKey(const QString &providerId, const QString &apiKey);
+    QString ocrLlmModel(const QString &providerId) const;
+    void setOcrLlmModel(const QString &providerId, const QString &model);
+    // Full model list from the last probe, and the subset the server proved
+    // vision-capable. A model absent from the vision list is "unproven", not
+    // "unsupported" - most OpenAI-compatible /v1/models responses carry no
+    // capability information at all, so nothing is ever hidden on that basis.
+    QStringList ocrLlmModels(const QString &providerId) const;
+    void setOcrLlmModels(const QString &providerId, const QStringList &models);
+    QStringList ocrLlmVisionModels(const QString &providerId) const;
+    void setOcrLlmVisionModels(const QString &providerId, const QStringList &models);
+    QString ocrLlmPrompt(const QString &model) const;
+    void setOcrLlmPrompt(const QString &model, const QString &prompt);
+    int ocrLlmTimeout(const QString &providerId) const;
+    void setOcrLlmTimeout(const QString &providerId, int seconds);
     bool isConvertLineBreaks() const;
     void setConvertLineBreaks(bool convert);
     static bool defaultConvertLineBreaks();

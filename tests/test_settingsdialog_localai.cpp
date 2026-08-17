@@ -17,6 +17,7 @@
 #include "translator/atranslationprovider.h"
 
 #include <QComboBox>
+#include <QGroupBox>
 #include <QLineEdit>
 #include <QListWidget>
 #include <QPushButton>
@@ -90,9 +91,8 @@ private slots:
         QVERIFY(urlEdit != nullptr);
         urlEdit->setText(server.baseUrl());
 
-        // The tab now has separate Text/Vision model combos (vision-mode UI);
-        // the dialog defaults to the Text sub-page, which is what "Refresh
-        // models" against a plain chat-completions mock exercises.
+        // The tab has a single text-model combo; "Refresh models" against a
+        // plain chat-completions mock exercises the /v1/models probe.
         auto *modelCombo = ollamaPage->findChild<QComboBox *>(QStringLiteral("localAiTextModelCombo"));
         QVERIFY(modelCombo != nullptr);
 
@@ -160,6 +160,52 @@ private slots:
             restoredItems << engineCombo3->itemText(i);
 
         QCOMPARE(restoredItems, originalItems);
+    }
+
+    // The OCR settings page's Tesseract-only widgets (languages,
+    // parameters) must only show up when Tesseract is the selected engine;
+    // the engine-agnostic screen-capture options stay visible either way.
+    void testOcrEngineVisibilitySwitchesTesseractSpecificGroups()
+    {
+        AppSettings settings;
+        settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Copy);
+
+        MainWindow window;
+        SettingsDialog dialog(&window);
+        dialog.show();
+        QVERIFY(QTest::qWaitForWindowExposed(&dialog));
+
+        auto *ocrPage = dialog.findChild<QWidget *>(QStringLiteral("ocrPage"));
+        QVERIFY(ocrPage != nullptr);
+        auto *pagesStack = dialog.findChild<QStackedWidget *>(QStringLiteral("pagesStackedWidget"));
+        QVERIFY(pagesStack != nullptr);
+        auto *pagesList = dialog.findChild<QListWidget *>(QStringLiteral("pagesListWidget"));
+        QVERIFY(pagesList != nullptr);
+        pagesList->setCurrentRow(pagesStack->indexOf(ocrPage));
+
+        auto *engineCombo = dialog.findChild<QComboBox *>(QStringLiteral("ocrEngineCombo"));
+        QVERIFY(engineCombo != nullptr);
+        auto *languagesGroupBox = dialog.findChild<QGroupBox *>(QStringLiteral("languagesGroupBox"));
+        QVERIFY(languagesGroupBox != nullptr);
+        auto *ocrParametersGroupBox = dialog.findChild<QGroupBox *>(QStringLiteral("ocrParametersGroupBox"));
+        QVERIFY(ocrParametersGroupBox != nullptr);
+        auto *screenCaptureGroupBox = dialog.findChild<QGroupBox *>(QStringLiteral("screenCaptureGroupBox"));
+        QVERIFY(screenCaptureGroupBox != nullptr);
+
+        const int tesseractIndex = engineCombo->findData(static_cast<int>(AppSettings::OcrEngine::Tesseract));
+        const int llmIndex = engineCombo->findData(static_cast<int>(AppSettings::OcrEngine::Llm));
+        QVERIFY(tesseractIndex >= 0);
+        QVERIFY(llmIndex >= 0);
+
+        engineCombo->setCurrentIndex(tesseractIndex);
+        QVERIFY(languagesGroupBox->isVisible());
+        QVERIFY(ocrParametersGroupBox->isVisible());
+        QVERIFY(screenCaptureGroupBox->isVisible());
+
+        engineCombo->setCurrentIndex(llmIndex);
+        QVERIFY(!languagesGroupBox->isVisible());
+        QVERIFY(!ocrParametersGroupBox->isVisible());
+        QVERIFY(screenCaptureGroupBox->isVisible());
     }
 };
 

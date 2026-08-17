@@ -16,11 +16,13 @@
 #include "screenwatcher.h"
 #include "trayicon.h"
 #include "autostartmanager/abstractautostartmanager.h"
-#include "ocr/ocr.h"
+#include "llm/openaiendpoint.h"
+#include "llm/visionmodelprobe.h"
+#include "ocr/llmocr.h"
+#include "ocr/tesseractocr.h"
 #include "shortcutsmodel/shortcutitem.h"
 #include "shortcutsmodel/shortcutsmodel.h"
 #include "translator/atranslationprovider.h"
-#include "translator/localaitranslationprovider.h"
 #include "tts/attsprovider.h"
 
 #include <QButtonGroup>
@@ -109,13 +111,14 @@ SettingsDialog::SettingsDialog(MainWindow *parent)
         }
     }
 
-    ui->ocrLanguagesListWidget->addLanguages(parent->ocr()->availableLanguages());
+    ui->ocrLanguagesListWidget->addLanguages(parent->tesseractOcr()->availableLanguages());
 
     // Set all available instances
     ui->mozhiUrlComboBox->addItems(InstancePinger::instances());
     connect(ui->mozhiUrlComboBox, &QComboBox::currentTextChanged, this, &SettingsDialog::mozhiInstanceChanged);
 
     buildLocalAiTabs();
+    buildOcrEngineUi();
 
     // Adjust tab widgets to fit the scroll area viewport (sidebar occupies ~200 px).
     connect(ui->pagesStackedWidget, &QStackedWidget::currentChanged, this, [this](int /*idx*/) {
@@ -252,6 +255,7 @@ void SettingsDialog::accept()
 
     settings.setTrayIconType(static_cast<AppSettings::IconType>(ui->trayIconComboBox->currentIndex()));
     settings.setCustomIconPath(ui->customTrayIconEdit->text());
+    settings.setShowStatusBar(ui->showStatusBarCheckBox->isChecked());
     // Translation settings
     const ATranslationProvider::ProviderBackend currentBackend = settings.translationProviderBackend();
     const ATranslationProvider::ProviderBackend newBackend = ui->translationProviderComboBox->currentData().value<ATranslationProvider::ProviderBackend>();
@@ -289,7 +293,7 @@ void SettingsDialog::accept()
 
     // LocalAI settings
     saveLocalAiSettings();
-    settings.setDetectViaLlm(ui->detectViaLlmCheckBox->isChecked());
+    saveOcrEngineSettings();
     settings.setDetectProvider(ui->detectProviderComboBox->currentData().toString());
     settings.setDetectModel(ui->detectModelComboBox->currentText());
 
@@ -363,42 +367,6 @@ void SettingsDialog::buildLocalAiTabs()
         grid->addLayout(urlLayout, 0, 0, Qt::AlignVCenter);
         grid->addWidget(refresh, 0, 1, Qt::AlignRight | Qt::AlignVCenter);
 
-        auto *toggleWidget = new QWidget(outer);
-        auto *toggleHL = new QHBoxLayout(toggleWidget);
-        toggleHL->setContentsMargins(0, 0, 0, 0);
-        toggleHL->setSpacing(0);
-
-        auto *visionToggle = new QPushButton(tr("Vision"), outer);
-        visionToggle->setCheckable(true);
-        visionToggle->setObjectName(QStringLiteral("visionToggle"));
-        auto *textToggle = new QPushButton(tr("Text"), outer);
-        textToggle->setCheckable(true);
-        textToggle->setObjectName(QStringLiteral("textToggle"));
-        textToggle->setChecked(true);
-        toggleWidget->setStyleSheet(QStringLiteral(
-            "QPushButton#visionToggle:checked, QPushButton#textToggle:checked{font-weight:bold;font-style:normal}"
-            "QPushButton#visionToggle:not(:checked), QPushButton#textToggle:not(:checked){font-weight:normal;font-style:italic}"));
-
-        auto *modeGroup = new QButtonGroup(outer);
-        modeGroup->setExclusive(true);
-        modeGroup->addButton(visionToggle, 0);
-        modeGroup->addButton(textToggle, 1);
-
-        auto *helpBtn = new QPushButton(tr("?"), outer);
-        helpBtn->setFixedWidth(helpBtn->fontMetrics().horizontalAdvance(QStringLiteral(" ?? ")));
-        helpBtn->setToolTip(tr("How to use this tab"));
-
-        toggleHL->addWidget(visionToggle);
-        toggleHL->addWidget(textToggle);
-        toggleHL->addWidget(helpBtn);
-        grid->addWidget(toggleWidget, 1, 1, Qt::AlignRight | Qt::AlignVCenter);
-
-        auto *debugCheck = new QCheckBox(tr("Show both"), outer);
-        debugCheck->setToolTip(tr("Debug: show Text and Vision blocks simultaneously"));
-        debugCheck->setVisible(false);
-        grid->addWidget(debugCheck, 1, 0, Qt::AlignLeft | Qt::AlignVCenter);
-
-        auto *stack = new QStackedWidget(outer);
         LocalProviderTab t;
 
         {
@@ -442,62 +410,10 @@ void SettingsDialog::buildLocalAiTabs()
             connect(resetBtn, &QPushButton::clicked, this, [this, id]() {
                 m_localTabs[id].text.prompt->setPlainText(AppSettings::defaultLocalAiPrompt());
             });
+            t.text.promptModel.clear();
         }
 
-        {
-            t.vision.page = new QWidget();
-            auto *vl = new QVBoxLayout(t.vision.page);
-            vl->setContentsMargins(0, 0, 0, 0);
-            vl->setSpacing(8);
-            auto *modelRow = new QHBoxLayout();
-            t.vision.modelLabel = new QLabel(tr("Vision model:"), t.vision.page);
-            t.vision.model = new QComboBox(t.vision.page);
-            t.vision.model->setObjectName(QStringLiteral("localAiVisionModelCombo"));
-            t.vision.model->setEditable(true);
-            t.vision.model->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-            modelRow->addWidget(t.vision.modelLabel);
-            modelRow->addWidget(t.vision.model);
-            modelRow->addSpacing(12);
-            auto *visionTimeoutLabel = new QLabel(tr("Timeout:"), t.vision.page);
-            t.vision.timeout = new QSpinBox(t.vision.page);
-            t.vision.timeout->setRange(60, 3600);
-            t.vision.timeout->setSingleStep(30);
-            t.vision.timeout->setSuffix(QStringLiteral(" s"));
-            t.vision.timeout->setToolTip(tr("Maximum time to wait for a translation or detection response."));
-            modelRow->addWidget(visionTimeoutLabel);
-            modelRow->addWidget(t.vision.timeout);
-            vl->addLayout(modelRow);
-            if (id == QLatin1String("ollama")) {
-                t.vision.disableThinking = new QCheckBox(tr("Disable reasoning"), t.vision.page);
-                vl->addWidget(t.vision.disableThinking);
-            }
-            auto *sep = new QFrame(t.vision.page);
-            sep->setFrameShape(QFrame::HLine);
-            sep->setFrameShadow(QFrame::Sunken);
-            vl->addWidget(sep);
-            auto *hint = new QLabel(tr("Placeholders: %1").arg(QStringLiteral("{source_lang} {source_code} {target_lang} {target_code}")), t.vision.page);
-            hint->setWordWrap(true);
-            vl->addWidget(hint);
-            auto *resetBtn = new QPushButton(tr("Reset Vision prompt"), t.vision.page);
-            vl->addWidget(resetBtn);
-            t.vision.prompt = new QPlainTextEdit(t.vision.page);
-            vl->addWidget(t.vision.prompt, 1);
-            connect(resetBtn, &QPushButton::clicked, this, [this, id]() {
-                m_localTabs[id].vision.prompt->setPlainText(AppSettings::defaultVisionPrompt());
-            });
-        }
-
-        stack->addWidget(t.vision.page);
-        stack->addWidget(t.text.page);
-        stack->setCurrentIndex(1);
-        grid->addWidget(stack, 2, 0, 1, 2);
-
-        auto *debugContainer = new QWidget(outer);
-        auto *debugLayout = new QVBoxLayout(debugContainer);
-        debugLayout->setContentsMargins(0, 0, 0, 0);
-        debugLayout->setSpacing(12);
-        debugContainer->hide();
-        grid->addWidget(debugContainer, 2, 0, 1, 2);
+        grid->addWidget(t.text.page, 2, 0, 1, 2);
 
         grid->setColumnStretch(0, 1);
         grid->setColumnStretch(1, 0);
@@ -508,144 +424,344 @@ void SettingsDialog::buildLocalAiTabs()
         t.url = url;
         t.apiKey = apiKey;
         t.refresh = refresh;
-        t.visionToggle = visionToggle;
-        t.textToggle = textToggle;
-        t.modeGroup = modeGroup;
-        t.stack = stack;
-        t.debugContainer = debugContainer;
-        t.debugCheckBox = debugCheck;
         m_localTabs.insert(id, t);
-
-        connect(helpBtn, &QPushButton::clicked, this, [this]() {
-            const QString helpText = tr(
-                                         "<h3>How the LocalAI tab works</h3>"
-                                         "<p><b>Text / Vision modes:</b> Each provider has two independent "
-                                         "blocks — <i>Text</i> for translating text and <i>Vision</i> for "
-                                         "translating text from images (drag &amp; drop or paste an image "
-                                         "into the source field). Switch with the [Vision] [Text] buttons.</p>"
-                                         "<p><b>Prompts are per-model:</b> <u>Each model has its own prompt.</u> "
-                                         "When you change the model, its saved prompt is loaded. "
-                                         "Your edits are saved automatically as you type — no need to click Save.</p>"
-                                         "<p><b>Default text prompt:</b><br>"
-                                         "<code>%1</code></p>"
-                                         "<p><b>Default vision prompt:</b><br>"
-                                         "<code>%2</code></p>"
-                                         "<p><b>Example — describe a photo (vision mode):</b><br>"
-                                         "<code>You are a visual analyst. Examine the image and provide "
-                                         "a detailed description in {target_lang} ({target_code}). "
-                                         "Include: scene type, subjects, colors, lighting, notable details. "
-                                         "If there is text, translate it. Output only the description, "
-                                         "3–6 sentences.</code></p>"
-                                         "<p><b>Placeholders:</b><br>"
-                                         "<code>{source_lang}</code> — source language name<br>"
-                                         "<code>{source_code}</code> — source language ISO code<br>"
-                                         "<code>{target_lang}</code> — target language name<br>"
-                                         "<code>{target_code}</code> — target language ISO code<br>"
-                                         "<code>{text}</code> — the input text (text mode only)</p>"
-                                         "<p><b>Disable reasoning:</b> Skips thinking tokens on supported "
-                                         "models. Only shown for Ollama providers.</p>"
-                                         "<p><b>Timeout:</b> Maximum time to wait for a response.</p>")
-                                         .arg(AppSettings::defaultLocalAiPrompt().toHtmlEscaped(),
-                                              AppSettings::defaultVisionPrompt().toHtmlEscaped());
-            auto *msg = new QMessageBox(QMessageBox::Information, tr("LocalAI Tab Help"),
-                                        helpText, QMessageBox::Ok, this);
-            msg->setMinimumWidth(680);
-            msg->exec();
-        });
-
-        connect(modeGroup, &QButtonGroup::idClicked, this, [this, id](int mode) {
-            LocalProviderTab &tab = m_localTabs[id];
-            if (tab.debugCheckBox && tab.debugCheckBox->isChecked()) {
-                return;
-            }
-            tab.stack->setCurrentIndex(mode == 0 ? 0 : 1);
-        });
-
-        connect(debugCheck, &QCheckBox::toggled, this, [this, id](bool checked) {
-            LocalProviderTab &tab = m_localTabs[id];
-            if (checked) {
-                const int idx = tab.stack->currentIndex();
-                tab.stack->removeWidget(tab.text.page);
-                tab.stack->removeWidget(tab.vision.page);
-                auto *debugLayout = tab.debugContainer->layout();
-                debugLayout->addWidget(tab.text.page);
-                debugLayout->addWidget(tab.vision.page);
-                tab.text.page->show();
-                tab.vision.page->show();
-                tab.stack->hide();
-                tab.debugContainer->show();
-                if (idx == 0) {
-                    tab.visionToggle->setChecked(true);
-                }
-            } else {
-                auto *debugLayout = tab.debugContainer->layout();
-                debugLayout->removeWidget(tab.text.page);
-                debugLayout->removeWidget(tab.vision.page);
-                tab.stack->addWidget(tab.vision.page);
-                tab.stack->addWidget(tab.text.page);
-                tab.stack->setCurrentIndex(tab.modeGroup->checkedId() == 0 ? 0 : 1);
-                tab.debugContainer->hide();
-                tab.stack->show();
-            }
-        });
 
         connect(refresh, &QPushButton::clicked, this, [this, id]() {
             refreshLocalModels(id);
         });
 
-        connect(url, &QLineEdit::textChanged, this, [this, id](const QString &text) {
-            AppSettings().setLocalProviderUrl(id, text);
-        });
+        // URL and key are written by saveLocalAiSettings() on accept, so
+        // Cancel actually cancels them. refreshLocalModels() reads the widget
+        // directly, so probing an unsaved URL still works.
 
-        connect(apiKey, &QLineEdit::textChanged, this, [this, id](const QString &text) {
-            AppSettings().setLocalProviderApiKey(id, text);
-        });
-
-        // Text page signal handlers
-        connect(t.text.model, &QComboBox::currentTextChanged, this, [this, id](const QString &m) {
-            LocalProviderTab &tab = m_localTabs[id];
-            AppSettings().setLocalProviderModel(id, m);
-            const QString p = AppSettings().localAiPrompt(m);
-            tab.text.prompt->setPlainText(p);
+        // Text page signal handlers. The model combo is editable, so its
+        // currentTextChanged fires per keystroke - binding a settings write to
+        // it saved a model (and a prompt) under every prefix of what was being
+        // typed. textActivated only fires when a model is actually picked from
+        // the list; everything else is written by saveLocalAiSettings() when
+        // the dialog is accepted.
+        //
+        // Deliberately not QLineEdit::editingFinished: it also fires on
+        // focus-out, including the focus-out that ~QDialog() triggers while
+        // hiding itself - by then SettingsDialog's own members (m_localTabs
+        // among them) have already been destroyed, and the handler crashes.
+        connect(t.text.model, &QComboBox::textActivated, this, [this, id](const QString &m) {
+            showLocalAiPromptFor(id, m);
         });
         connect(t.text.timeout, qOverload<int>(&QSpinBox::valueChanged), this, [this, id](int val) {
             AppSettings().setLocalAiTimeout(id, val);
-        });
-        connect(t.text.prompt, &QPlainTextEdit::textChanged, this, [this, id]() {
-            LocalProviderTab &tab = m_localTabs[id];
-            const QString curModel = tab.text.model->currentText();
-            if (!curModel.isEmpty()) {
-                AppSettings().setLocalAiPrompt(curModel, tab.text.prompt->toPlainText());
-            }
         });
         if (t.text.disableThinking) {
             connect(t.text.disableThinking, &QCheckBox::toggled, this, [this, id](bool checked) {
                 AppSettings().setLocalAiDisableThinking(id, checked);
             });
         }
+    }
+}
 
-        // Vision page signal handlers
-        connect(t.vision.model, &QComboBox::currentTextChanged, this, [this, id](const QString &m) {
-            LocalProviderTab &tab = m_localTabs[id];
-            AppSettings().setLocalVisionModel(id, m);
-            const QString p = AppSettings().localVisionPrompt(m);
-            tab.vision.prompt->setPlainText(p);
-        });
-        connect(t.vision.timeout, qOverload<int>(&QSpinBox::valueChanged), this, [this, id](int val) {
-            AppSettings().setLocalAiVisionTimeout(id, val);
-        });
-        connect(t.vision.prompt, &QPlainTextEdit::textChanged, this, [this, id]() {
-            LocalProviderTab &tab = m_localTabs[id];
-            const QString curModel = tab.vision.model->currentText();
-            if (!curModel.isEmpty()) {
-                AppSettings().setLocalVisionPrompt(curModel, tab.vision.prompt->toPlainText());
+void SettingsDialog::buildOcrEngineUi()
+{
+    auto *engineRow = new QWidget(ui->ocrPage);
+    auto *engineLayout = new QHBoxLayout(engineRow);
+    engineLayout->setContentsMargins(0, 0, 0, 0);
+
+    auto *engineLabel = new QLabel(tr("OCR engine:"), engineRow);
+    m_ocrEngineCombo = new QComboBox(engineRow);
+    m_ocrEngineCombo->setObjectName(QStringLiteral("ocrEngineCombo"));
+    m_ocrEngineCombo->addItem(tr("Tesseract"), static_cast<int>(AppSettings::OcrEngine::Tesseract));
+    m_ocrEngineCombo->addItem(tr("Vision model (LLM)"), static_cast<int>(AppSettings::OcrEngine::Llm));
+    engineLayout->addWidget(engineLabel);
+    engineLayout->addWidget(m_ocrEngineCombo);
+    engineLayout->addStretch(1);
+
+    m_ocrEngineStack = new QStackedWidget(ui->ocrPage);
+
+    auto *tesseractPage = new QWidget(m_ocrEngineStack);
+    auto *tesseractLayout = new QVBoxLayout(tesseractPage);
+    tesseractLayout->setContentsMargins(0, 0, 0, 0);
+    auto *tesseractNote = new QLabel(tr("Tesseract runs locally. Configure languages and parameters below."), tesseractPage);
+    tesseractNote->setWordWrap(true);
+    tesseractLayout->addWidget(tesseractNote);
+    m_ocrEngineStack->addWidget(tesseractPage);
+
+    auto *llmPage = new QWidget(m_ocrEngineStack);
+    auto *llmLayout = new QVBoxLayout(llmPage);
+    llmLayout->setContentsMargins(0, 0, 0, 0);
+    llmLayout->setSpacing(8);
+
+    auto *providerRow = new QHBoxLayout();
+    auto *providerLabel = new QLabel(tr("Provider:"), llmPage);
+    m_ocrLlmProviderCombo = new QComboBox(llmPage);
+    m_ocrLlmProviderCombo->setObjectName(QStringLiteral("ocrLlmProviderCombo"));
+    for (const QString &id : AppSettings::localProviderIds()) {
+        m_ocrLlmProviderCombo->addItem(AppSettings::localProviderDisplayName(id), id);
+    }
+    providerRow->addWidget(providerLabel);
+    providerRow->addWidget(m_ocrLlmProviderCombo);
+    providerRow->addSpacing(12);
+    auto *timeoutLabel = new QLabel(tr("Timeout:"), llmPage);
+    m_ocrLlmTimeoutSpin = new QSpinBox(llmPage);
+    m_ocrLlmTimeoutSpin->setRange(60, 3600);
+    m_ocrLlmTimeoutSpin->setSingleStep(30);
+    m_ocrLlmTimeoutSpin->setSuffix(QStringLiteral(" s"));
+    m_ocrLlmTimeoutSpin->setToolTip(tr("Maximum time to wait for a transcription response."));
+    providerRow->addWidget(timeoutLabel);
+    providerRow->addWidget(m_ocrLlmTimeoutSpin);
+    providerRow->addStretch(1);
+    llmLayout->addLayout(providerRow);
+
+    // The OCR endpoint is configured here in full. It is deliberately not the
+    // translation backend's endpoint: transcribing a screenshot and
+    // translating a sentence are different jobs, often on different hosts and
+    // certainly on different models.
+    auto *urlRow = new QHBoxLayout();
+    auto *urlLabel = new QLabel(tr("URL:"), llmPage);
+    m_ocrLlmUrlEdit = new QLineEdit(llmPage);
+    m_ocrLlmUrlEdit->setObjectName(QStringLiteral("ocrLlmUrlEdit"));
+    auto *apiKeyLabel = new QLabel(tr("Key:"), llmPage);
+    m_ocrLlmApiKeyEdit = new QLineEdit(llmPage);
+    m_ocrLlmApiKeyEdit->setObjectName(QStringLiteral("ocrLlmApiKeyEdit"));
+    m_ocrLlmApiKeyEdit->setEchoMode(QLineEdit::Password);
+    m_ocrLlmApiKeyEdit->setPlaceholderText(tr("optional, e.g. for a cloud endpoint"));
+    m_ocrLlmRefreshButton = new QPushButton(tr("Refresh models"), llmPage);
+    m_ocrLlmRefreshButton->setObjectName(QStringLiteral("ocrLlmRefreshButton"));
+    urlRow->addWidget(urlLabel);
+    urlRow->addWidget(m_ocrLlmUrlEdit);
+    urlRow->addWidget(apiKeyLabel);
+    urlRow->addWidget(m_ocrLlmApiKeyEdit);
+    urlRow->addWidget(m_ocrLlmRefreshButton);
+    llmLayout->addLayout(urlRow);
+
+    auto *modelRow = new QHBoxLayout();
+    auto *modelLabel = new QLabel(tr("Model:"), llmPage);
+    m_ocrLlmModelCombo = new QComboBox(llmPage);
+    m_ocrLlmModelCombo->setObjectName(QStringLiteral("ocrLlmModelCombo"));
+    m_ocrLlmModelCombo->setEditable(true);
+    m_ocrLlmModelCombo->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    modelRow->addWidget(modelLabel);
+    modelRow->addWidget(m_ocrLlmModelCombo);
+    llmLayout->addLayout(modelRow);
+
+    m_ocrLlmCapabilityHint = new QLabel(llmPage);
+    m_ocrLlmCapabilityHint->setWordWrap(true);
+    llmLayout->addWidget(m_ocrLlmCapabilityHint);
+
+    m_ocrLlmResetPromptButton = new QPushButton(tr("Reset OCR prompt"), llmPage);
+    llmLayout->addWidget(m_ocrLlmResetPromptButton);
+    m_ocrLlmPromptEdit = new QPlainTextEdit(llmPage);
+    m_ocrLlmPromptEdit->setPlaceholderText(LlmOcr::defaultPrompt());
+    llmLayout->addWidget(m_ocrLlmPromptEdit, 1);
+    m_ocrEngineStack->addWidget(llmPage);
+
+    if (auto *ocrLayout = ui->ocrPage->findChild<QVBoxLayout *>(QStringLiteral("ocrLayout"))) {
+        ocrLayout->insertWidget(0, engineRow);
+        ocrLayout->insertWidget(1, m_ocrEngineStack);
+    }
+
+    connect(m_ocrEngineCombo, qOverload<int>(&QComboBox::currentIndexChanged), this, [this](int index) {
+        m_ocrEngineStack->setCurrentIndex(index);
+        updateOcrEngineVisibility(m_ocrEngineCombo->itemData(index).toInt());
+    });
+    connect(m_ocrLlmProviderCombo, &QComboBox::currentIndexChanged, this, [this]() {
+        loadOcrLlmProvider(m_ocrLlmProviderCombo->currentData().toString());
+    });
+    // Persist on commit, never per keystroke: an editable combo emits
+    // currentTextChanged for every character typed, which used to write a
+    // settings key (and a prompt) for each prefix of a model name. See
+    // buildLocalAiTabs() for why editingFinished is not used either.
+    connect(m_ocrLlmModelCombo, &QComboBox::textActivated, this, [this](const QString &model) {
+        showOcrPromptFor(model);
+    });
+    connect(m_ocrLlmRefreshButton, &QPushButton::clicked, this, &SettingsDialog::refreshOcrModels);
+    connect(m_ocrLlmResetPromptButton, &QPushButton::clicked, this, [this]() {
+        m_ocrLlmPromptEdit->setPlainText(QString());
+    });
+}
+
+// Lists every model the last probe returned, grouped by whether the server
+// vouched for image support. Nothing is filtered out: most OpenAI-compatible
+// endpoints report no capabilities at all, so hiding the unvouched ones would
+// hide every working model behind such an endpoint.
+void SettingsDialog::populateOcrModelCombo(const QString &id)
+{
+    const AppSettings settings;
+    const QStringList all = settings.ocrLlmModels(id);
+    const QStringList vision = settings.ocrLlmVisionModels(id);
+    const QString current = m_ocrLlmModelCombo->currentText().isEmpty() ? settings.ocrLlmModel(id)
+                                                                        : m_ocrLlmModelCombo->currentText();
+
+    QStringList proven;
+    QStringList unproven;
+    for (const QString &model : all) {
+        (vision.contains(model) ? proven : unproven).append(model);
+    }
+
+    QSignalBlocker blocker(m_ocrLlmModelCombo);
+    m_ocrLlmModelCombo->clear();
+
+    const auto addHeader = [this](const QString &text) {
+        m_ocrLlmModelCombo->addItem(text);
+        const int row = m_ocrLlmModelCombo->count() - 1;
+        m_ocrLlmModelCombo->setItemData(row, QVariant(), Qt::UserRole - 1); // non-selectable
+    };
+
+    const bool grouped = !proven.isEmpty() && !unproven.isEmpty();
+    if (grouped) {
+        addHeader(tr("— Server reports image support —"));
+    }
+    m_ocrLlmModelCombo->addItems(proven);
+    if (grouped) {
+        addHeader(tr("— Image support not reported —"));
+    }
+    m_ocrLlmModelCombo->addItems(unproven);
+
+    if (!current.isEmpty() && m_ocrLlmModelCombo->findText(current) < 0) {
+        m_ocrLlmModelCombo->insertItem(0, current);
+    }
+    m_ocrLlmModelCombo->setCurrentText(current);
+    blocker.unblock();
+
+    widenComboPopup(m_ocrLlmModelCombo);
+
+    if (all.isEmpty()) {
+        m_ocrLlmCapabilityHint->setText(tr("No models loaded yet — press \"Refresh models\", or type a model name."));
+    } else if (!VisionModelProbe::reportsCapabilities(id)) {
+        m_ocrLlmCapabilityHint->setText(tr("This endpoint does not report model capabilities, so image support cannot be verified here. "
+                                           "Pick a model you know accepts images."));
+    } else if (proven.isEmpty()) {
+        m_ocrLlmCapabilityHint->setText(tr("The server reported no image-capable models. A model listed here may still work, "
+                                           "but recognition will fail if it cannot accept images."));
+    } else {
+        m_ocrLlmCapabilityHint->setText(tr("%n model(s) reported as image-capable.", nullptr, static_cast<int>(proven.size())));
+    }
+}
+
+void SettingsDialog::loadOcrLlmProvider(const QString &id)
+{
+    storeOcrPromptEdits();
+
+    const AppSettings settings;
+    {
+        QSignalBlocker urlBlocker(m_ocrLlmUrlEdit);
+        m_ocrLlmUrlEdit->setText(settings.ocrLlmUrl(id));
+        m_ocrLlmUrlEdit->setPlaceholderText(AppSettings::defaultLocalProviderUrl(id));
+        QSignalBlocker keyBlocker(m_ocrLlmApiKeyEdit);
+        m_ocrLlmApiKeyEdit->setText(settings.ocrLlmApiKey(id));
+        QSignalBlocker timeoutBlocker(m_ocrLlmTimeoutSpin);
+        m_ocrLlmTimeoutSpin->setValue(settings.ocrLlmTimeout(id));
+        QSignalBlocker modelBlocker(m_ocrLlmModelCombo);
+        m_ocrLlmModelCombo->setCurrentText(settings.ocrLlmModel(id));
+    }
+    populateOcrModelCombo(id);
+
+    m_ocrLlmPromptModel.clear();
+    showOcrPromptFor(m_ocrLlmModelCombo->currentText());
+}
+
+// Files whatever is in the prompt editor under the model it was written for,
+// before the selection moves on to a different model.
+void SettingsDialog::storeOcrPromptEdits()
+{
+    if (m_ocrLlmPromptModel.isEmpty()) {
+        return;
+    }
+    AppSettings settings;
+    const QString edited = m_ocrLlmPromptEdit->toPlainText();
+    if (edited != settings.ocrLlmPrompt(m_ocrLlmPromptModel)) {
+        settings.setOcrLlmPrompt(m_ocrLlmPromptModel, edited);
+    }
+}
+
+void SettingsDialog::showOcrPromptFor(const QString &model)
+{
+    if (model == m_ocrLlmPromptModel) {
+        return;
+    }
+    storeOcrPromptEdits();
+    m_ocrLlmPromptModel = model;
+    m_ocrLlmPromptEdit->setPlainText(AppSettings().ocrLlmPrompt(model));
+}
+
+void SettingsDialog::refreshOcrModels()
+{
+    const QString id = m_ocrLlmProviderCombo->currentData().toString();
+    QString base = m_ocrLlmUrlEdit->text().trimmed();
+    if (base.isEmpty()) {
+        base = AppSettings::defaultLocalProviderUrl(id);
+    }
+    if (base.isEmpty()) {
+        QMessageBox::warning(this, tr("Vision model"), tr("Enter the endpoint URL first."));
+        return;
+    }
+
+    if (m_ocrLlmProbe == nullptr) {
+        m_ocrLlmProbe = new VisionModelProbe(this);
+        connect(m_ocrLlmProbe, &VisionModelProbe::finished, this, [this](const QStringList &all, const QStringList &vision) {
+            m_ocrLlmRefreshButton->setEnabled(true);
+            const QString probedId = m_ocrLlmProviderCombo->currentData().toString();
+            if (all.isEmpty()) {
+                QMessageBox::information(this, AppSettings::localProviderDisplayName(probedId), tr("No models found."));
+                return;
             }
+            AppSettings settings;
+            settings.setOcrLlmModels(probedId, all);
+            settings.setOcrLlmVisionModels(probedId, vision);
+            populateOcrModelCombo(probedId);
         });
-        if (t.vision.disableThinking) {
-            connect(t.vision.disableThinking, &QCheckBox::toggled, this, [this, id](bool checked) {
-                AppSettings().setLocalAiDisableVisionThinking(id, checked);
-            });
-        }
+        connect(m_ocrLlmProbe, &VisionModelProbe::failed, this, [this](const QString &error) {
+            m_ocrLlmRefreshButton->setEnabled(true);
+            const QString probedId = m_ocrLlmProviderCombo->currentData().toString();
+            QMessageBox::warning(this,
+                                 AppSettings::localProviderDisplayName(probedId),
+                                 tr("Could not reach %1 at %2:\n%3")
+                                     .arg(AppSettings::localProviderDisplayName(probedId), m_ocrLlmUrlEdit->text(), error));
+        });
+    }
+
+    m_ocrLlmRefreshButton->setEnabled(false);
+    m_ocrLlmProbe->probe(id, base, m_ocrLlmApiKeyEdit->text());
+}
+
+void SettingsDialog::updateOcrEngineVisibility(int engineValue)
+{
+    const bool isTesseract = (engineValue == static_cast<int>(AppSettings::OcrEngine::Tesseract));
+    ui->languagesGroupBox->setVisible(isTesseract);
+    ui->ocrParametersGroupBox->setVisible(isTesseract);
+    // screenCaptureGroupBox is engine-agnostic and stays visible always.
+}
+
+void SettingsDialog::loadOcrEngineSettings()
+{
+    const AppSettings settings;
+    const int index = m_ocrEngineCombo->findData(static_cast<int>(settings.ocrEngine()));
+    if (index >= 0) {
+        m_ocrEngineCombo->setCurrentIndex(index);
+    }
+    const QString providerId = settings.ocrLlmProvider();
+    const int providerIndex = m_ocrLlmProviderCombo->findData(providerId);
+    if (providerIndex >= 0) {
+        QSignalBlocker blocker(m_ocrLlmProviderCombo);
+        m_ocrLlmProviderCombo->setCurrentIndex(providerIndex);
+    }
+    loadOcrLlmProvider(m_ocrLlmProviderCombo->currentData().toString());
+    updateOcrEngineVisibility(static_cast<int>(settings.ocrEngine()));
+}
+
+void SettingsDialog::saveOcrEngineSettings()
+{
+    AppSettings settings;
+    const QString id = m_ocrLlmProviderCombo->currentData().toString();
+    const QString model = m_ocrLlmModelCombo->currentText();
+    settings.setOcrEngine(static_cast<AppSettings::OcrEngine>(m_ocrEngineCombo->currentData().toInt()));
+    settings.setOcrLlmProvider(id);
+    settings.setOcrLlmUrl(id, m_ocrLlmUrlEdit->text().trimmed());
+    settings.setOcrLlmApiKey(id, m_ocrLlmApiKeyEdit->text());
+    settings.setOcrLlmModel(id, model);
+    settings.setOcrLlmTimeout(id, m_ocrLlmTimeoutSpin->value());
+    // The editor's contents belong to the model that is about to be used - a
+    // model typed by hand and never picked from the list included.
+    if (!model.isEmpty()) {
+        settings.setOcrLlmPrompt(model, m_ocrLlmPromptEdit->toPlainText());
     }
 }
 
@@ -660,18 +776,6 @@ void SettingsDialog::loadLocalAiSettings()
         QSignalBlocker apiKeyBlocker(tab.apiKey);
         tab.apiKey->setText(settings.localProviderApiKey(id));
 
-        const bool isVision = settings.isVisionEnabled(id);
-        {
-            QSignalBlocker blocker(tab.modeGroup);
-            if (isVision) {
-                tab.visionToggle->setChecked(true);
-                tab.stack->setCurrentIndex(0);
-            } else {
-                tab.textToggle->setChecked(true);
-                tab.stack->setCurrentIndex(1);
-            }
-        }
-
         QStringList models = settings.localProviderModels(id);
         const QString textModel = settings.localProviderModel(id);
         if (!textModel.isEmpty() && !models.contains(textModel)) {
@@ -685,27 +789,11 @@ void SettingsDialog::loadLocalAiSettings()
         }
         widenComboPopup(tab.text.model);
 
-        const QString visionModel = settings.localVisionModel(id);
-        if (!visionModel.isEmpty() && !models.contains(visionModel)) {
-            models.prepend(visionModel);
-        }
-        {
-            QSignalBlocker b(tab.vision.model);
-            tab.vision.model->clear();
-            tab.vision.model->addItems(models);
-            tab.vision.model->setCurrentText(visionModel);
-        }
-        widenComboPopup(tab.vision.model);
-
-        tab.text.prompt->setPlainText(settings.localAiPrompt(textModel));
-        tab.vision.prompt->setPlainText(settings.localVisionPrompt(visionModel));
+        tab.text.promptModel.clear();
+        showLocalAiPromptFor(id, textModel);
         tab.text.timeout->setValue(settings.localAiTimeout(id));
-        tab.vision.timeout->setValue(settings.localAiVisionTimeout(id));
         if (tab.text.disableThinking) {
             tab.text.disableThinking->setChecked(settings.localAiDisableThinking(id));
-        }
-        if (tab.vision.disableThinking) {
-            tab.vision.disableThinking->setChecked(settings.localAiDisableVisionThinking(id));
         }
     }
 
@@ -716,7 +804,6 @@ void SettingsDialog::loadLocalAiSettings()
             ui->detectProviderComboBox->setCurrentIndex(di);
         }
     }
-    ui->detectViaLlmCheckBox->setChecked(settings.detectViaLlm());
     populateDetectModels();
     {
         QSignalBlocker blocker(ui->detectModelComboBox);
@@ -732,26 +819,43 @@ void SettingsDialog::saveLocalAiSettings()
         const LocalProviderTab &tab = m_localTabs[id];
         settings.setLocalProviderUrl(id, tab.url->text());
         settings.setLocalProviderApiKey(id, tab.apiKey->text());
-        settings.setVisionEnabled(id, tab.modeGroup->checkedId() == 0);
         settings.setLocalProviderModel(id, tab.text.model->currentText());
-        settings.setLocalVisionModel(id, tab.vision.model->currentText());
         settings.setLocalAiTimeout(id, tab.text.timeout->value());
-        settings.setLocalAiVisionTimeout(id, tab.vision.timeout->value());
         if (tab.text.disableThinking) {
             settings.setLocalAiDisableThinking(id, tab.text.disableThinking->isChecked());
         }
-        if (tab.vision.disableThinking) {
-            settings.setLocalAiDisableVisionThinking(id, tab.vision.disableThinking->isChecked());
-        }
-        const QString tModel = tab.text.model->currentText();
-        if (!tModel.isEmpty()) {
-            settings.setLocalAiPrompt(tModel, tab.text.prompt->toPlainText());
-        }
-        const QString vModel = tab.vision.model->currentText();
-        if (!vModel.isEmpty()) {
-            settings.setLocalVisionPrompt(vModel, tab.vision.prompt->toPlainText());
+        const QString model = tab.text.model->currentText();
+        if (!model.isEmpty()) {
+            settings.setLocalAiPrompt(model, tab.text.prompt->toPlainText());
         }
     }
+}
+
+// Same commit-on-switch discipline as the OCR prompt: whatever is in the
+// editor belongs to the model it was typed for, not to whichever model gets
+// selected next.
+void SettingsDialog::storeLocalAiPromptEdits(const QString &id)
+{
+    LocalProviderTab &tab = m_localTabs[id];
+    if (tab.text.promptModel.isEmpty()) {
+        return;
+    }
+    AppSettings settings;
+    const QString edited = tab.text.prompt->toPlainText();
+    if (edited != settings.localAiPrompt(tab.text.promptModel)) {
+        settings.setLocalAiPrompt(tab.text.promptModel, edited);
+    }
+}
+
+void SettingsDialog::showLocalAiPromptFor(const QString &id, const QString &model)
+{
+    LocalProviderTab &tab = m_localTabs[id];
+    if (model == tab.text.promptModel) {
+        return;
+    }
+    storeLocalAiPromptEdits(id);
+    tab.text.promptModel = model;
+    tab.text.prompt->setPlainText(AppSettings().localAiPrompt(model));
 }
 
 void SettingsDialog::populateDetectModels()
@@ -785,8 +889,8 @@ void SettingsDialog::refreshLocalModels(const QString &id)
         refreshButton->setEnabled(false);
     }
 
-    QNetworkRequest request(QUrl(base + QStringLiteral("/v1/models")));
-    LocalAiTranslationProvider::setAuthHeaders(request, AppSettings::localProviderIsAnthropic(id), m_localTabs[id].apiKey->text());
+    QNetworkRequest request(QUrl(OpenAiEndpoint::modelsUrl(base)));
+    OpenAiEndpoint::setAuthHeaders(request, AppSettings::localProviderIsAnthropic(id), m_localTabs[id].apiKey->text());
 
     auto *manager = new QNetworkAccessManager(this);
     manager->setTransferTimeout(5000);
@@ -833,17 +937,6 @@ void SettingsDialog::refreshLocalModels(const QString &id)
             }
         }
         widenComboPopup(tab.text.model);
-
-        const QString curVision = tab.vision.model->currentText();
-        {
-            QSignalBlocker blocker(tab.vision.model);
-            tab.vision.model->clear();
-            tab.vision.model->addItems(names);
-            if (!curVision.isEmpty()) {
-                tab.vision.model->setCurrentText(curVision);
-            }
-        }
-        widenComboPopup(tab.vision.model);
 
         if (ui->detectProviderComboBox->currentData().toString() == id) {
             populateDetectModels();
@@ -936,7 +1029,7 @@ void SettingsDialog::selectOcrLanguagesPath()
 void SettingsDialog::onOcrLanguagesPathChanged(const QString &path)
 {
     ui->ocrLanguagesListWidget->clear();
-    ui->ocrLanguagesListWidget->addLanguages(Ocr::availableLanguages(path));
+    ui->ocrLanguagesListWidget->addLanguages(TesseractOcr::availableLanguages(path));
 }
 
 #ifdef WITH_PIPER_TTS
@@ -1064,6 +1157,7 @@ void SettingsDialog::restoreDefaults()
 
     ui->trayIconComboBox->setCurrentIndex(AppSettings::defaultTrayIconType());
     ui->customTrayIconEdit->setText(AppSettings::defaultCustomIconPath());
+    ui->showStatusBarCheckBox->setChecked(AppSettings::defaultShowStatusBar());
 
     // Translation settings
     const int defaultTranslationBackendIndex = ui->translationProviderComboBox->findData(QVariant::fromValue(AppSettings().defaultTranslationProviderBackend()));
@@ -1180,6 +1274,7 @@ void SettingsDialog::loadSettings()
 
     ui->trayIconComboBox->setCurrentIndex(settings.trayIconType());
     ui->customTrayIconEdit->setText(settings.customIconPath());
+    ui->showStatusBarCheckBox->setChecked(settings.isShowStatusBar());
 
     // Translation settings
     // Translation provider backend
@@ -1216,6 +1311,7 @@ void SettingsDialog::loadSettings()
 
     // LocalAI
     loadLocalAiSettings();
+    loadOcrEngineSettings();
 
     // OCR
     ui->convertLineBreaksCheckBox->setChecked(settings.isConvertLineBreaks());

@@ -117,15 +117,7 @@ std::unique_ptr<ProviderOptions> ProviderOptionsManager::createLocalAiTranslatio
     options->setOption("api_key", settings.localProviderApiKey(active));
     options->setOption("is_anthropic", AppSettings::localProviderIsAnthropic(active));
 
-    options->setOption("vision_enabled", settings.isVisionEnabled(active));
-    const QString visionModel = settings.localVisionModel(active);
-    options->setOption("vision_model", visionModel);
-    options->setOption("vision_prompt", settings.localVisionPrompt(visionModel));
-    options->setOption("vision_disable_thinking", settings.localAiDisableVisionThinking(active));
-    options->setOption("vision_timeout", settings.localAiVisionTimeout(active));
-
     const QString detectProvider = settings.detectProvider();
-    options->setOption("detect_via_llm", settings.detectViaLlm());
     options->setOption("detect_url", settings.localProviderUrl(detectProvider));
     options->setOption("detect_model", settings.detectModel());
     options->setOption("detect_api_key", settings.localProviderApiKey(detectProvider));

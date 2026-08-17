@@ -32,6 +32,7 @@ class QMediaPlaylist;
 class QLabel;
 class QToolButton;
 class ShortcutItem;
+class VisionModelProbe;
 #ifdef WITH_PORTABLE_MODE
 class QCheckBox;
 #endif
@@ -100,6 +101,27 @@ private:
 
     Ui::SettingsDialog *ui;
 
+    // OCR engine selection (Tesseract / LLM) — dynamic widgets on the OCR page.
+    // The LLM engine carries a complete endpoint of its own (URL, key, model
+    // list); it shares nothing but the provider *kinds* with the LocalAI
+    // translation backend.
+    QComboBox *m_ocrEngineCombo = nullptr;
+    QStackedWidget *m_ocrEngineStack = nullptr;
+    QComboBox *m_ocrLlmProviderCombo = nullptr;
+    QLineEdit *m_ocrLlmUrlEdit = nullptr;
+    QLineEdit *m_ocrLlmApiKeyEdit = nullptr;
+    QPushButton *m_ocrLlmRefreshButton = nullptr;
+    QComboBox *m_ocrLlmModelCombo = nullptr;
+    QSpinBox *m_ocrLlmTimeoutSpin = nullptr;
+    QLabel *m_ocrLlmCapabilityHint = nullptr;
+    QPlainTextEdit *m_ocrLlmPromptEdit = nullptr;
+    QPushButton *m_ocrLlmResetPromptButton = nullptr;
+    VisionModelProbe *m_ocrLlmProbe = nullptr;
+    // Which model the prompt editor is currently showing text for, so a
+    // model switch can file the edits under the model they were written for
+    // instead of under whatever is selected afterwards.
+    QString m_ocrLlmPromptModel;
+
     // LocalAI settings (Ollama / FastFlowLM / LM Studio) — dynamic sub-tabs.
     struct LocalProviderMode {
         QWidget *page = nullptr;
@@ -108,23 +130,28 @@ private:
         QSpinBox *timeout = nullptr;
         QCheckBox *disableThinking = nullptr;
         QPlainTextEdit *prompt = nullptr;
+        QString promptModel;
     };
     struct LocalProviderTab {
         QLineEdit *url = nullptr;
         QLineEdit *apiKey = nullptr;
         QPushButton *refresh = nullptr;
-        QPushButton *visionToggle = nullptr;
-        QPushButton *textToggle = nullptr;
-        QButtonGroup *modeGroup = nullptr;
-        QStackedWidget *stack = nullptr;
-        QWidget *debugContainer = nullptr;
-        QCheckBox *debugCheckBox = nullptr;
         LocalProviderMode text;
-        LocalProviderMode vision;
     };
     void buildLocalAiTabs();
+    void buildOcrEngineUi();
+    void loadOcrEngineSettings();
+    void saveOcrEngineSettings();
+    void updateOcrEngineVisibility(int engineValue);
+    void loadOcrLlmProvider(const QString &id);
+    void populateOcrModelCombo(const QString &id);
+    void refreshOcrModels();
+    void showOcrPromptFor(const QString &model);
+    void storeOcrPromptEdits();
     void loadLocalAiSettings();
     void saveLocalAiSettings();
+    void showLocalAiPromptFor(const QString &id, const QString &model);
+    void storeLocalAiPromptEdits(const QString &id);
     void refreshLocalModels(const QString &id);
     void populateDetectModels();
 

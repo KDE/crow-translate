@@ -6,12 +6,14 @@
 #include "localaitranslationprovider.h"
 
 #include "provideroptions.h"
+#include "llm/openaiendpoint.h"
 #include "settings/appsettings.h"
 
 #include <QFile>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QLocale>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
@@ -30,7 +32,6 @@ LocalAiTranslationProvider::LocalAiTranslationProvider(QObject *parent)
     , m_url(AppSettings::defaultLocalProviderUrl(QStringLiteral("ollama")))
     , m_model(AppSettings::defaultLocalProviderModel(QStringLiteral("ollama")))
     , m_prompt(AppSettings::defaultLocalAiPrompt())
-    , m_detectViaLlm(false)
     , m_detectUrl(AppSettings::defaultLocalProviderUrl(QStringLiteral("ollama")))
     , m_detectModel()
     , m_sourceWasAuto(false)
@@ -45,28 +46,6 @@ LocalAiTranslationProvider::~LocalAiTranslationProvider() = default;
 QString LocalAiTranslationProvider::getProviderType() const
 {
     return QStringLiteral("LocalAiTranslationProvider");
-}
-
-QString LocalAiTranslationProvider::completionsUrl(const QString &baseUrl, bool isAnthropic)
-{
-    QString base = baseUrl;
-    while (base.endsWith(QLatin1Char('/'))) {
-        base.chop(1);
-    }
-    return base + (isAnthropic ? QStringLiteral("/v1/messages") : QStringLiteral("/v1/chat/completions"));
-}
-
-void LocalAiTranslationProvider::setAuthHeaders(QNetworkRequest &request, bool isAnthropic, const QString &apiKey)
-{
-    if (apiKey.isEmpty()) {
-        return;
-    }
-    if (isAnthropic) {
-        request.setRawHeader("x-api-key", apiKey.toUtf8());
-        request.setRawHeader("anthropic-version", "2023-06-01");
-    } else {
-        request.setRawHeader("Authorization", "Bearer " + apiKey.toUtf8());
-    }
 }
 
 // ── Supported languages ───────────────────────────────────────
@@ -91,26 +70,23 @@ bool LocalAiTranslationProvider::supportsAutodetection() const
 
 Language LocalAiTranslationProvider::detectLanguage(const QString &text)
 {
-    Q_UNUSED(text);
+    if (!m_detectModel.isEmpty()) {
+        // Real detection is possible: fire it async through the same
+        // machinery translate() uses for auto-source detection. This is a
+        // detect-only call (no translate follow-up), so make sure that flag
+        // is false regardless of what any in-flight translate()-triggered
+        // detection left it as - onDetectFinished() branches on it.
+        m_detectThenTranslate = false;
+        sendDetection(text);
+        return Language(QLocale::system()); // placeholder; real result via languageDetected
+    }
+
+    // No detection model configured: no real detection is possible right
+    // now, fall back to the configured primary language.
     const Language lang = AppSettings().primaryLanguage();
     sourceLanguage = lang;
     emit languageDetected(lang, false);
     return lang;
-}
-
-void LocalAiTranslationProvider::setSourceImage(const QByteArray &imageData)
-{
-    m_imageData = imageData;
-}
-
-void LocalAiTranslationProvider::clearSourceImage()
-{
-    m_imageData.clear();
-}
-
-bool LocalAiTranslationProvider::hasSourceImage() const
-{
-    return !m_imageData.isEmpty();
 }
 
 // ── Prompt & formatting ───────────────────────────────────────
@@ -172,8 +148,10 @@ void LocalAiTranslationProvider::translate(const QString &inputText, const Langu
 
     m_sourceWasAuto = (sourceLang == Language::autoLanguage());
 
-    // Model-based detection (opt-in): detect first, then translate.
-    if (m_sourceWasAuto && m_detectViaLlm && !m_detectModel.isEmpty()) {
+    // Detect the source language whenever a detect provider/model is
+    // actually configured (the capability genuinely exists) - the same
+    // machinery detectLanguage() uses.
+    if (m_sourceWasAuto && !m_detectModel.isEmpty()) {
         m_detectThenTranslate = true;
         m_pendingDstCode = dstCode;
         sendDetection(inputText);
@@ -187,7 +165,7 @@ void LocalAiTranslationProvider::translate(const QString &inputText, const Langu
     }
     const QString srcCode = srcLang.toCode();
 
-    if (srcCode == dstCode && !hasSourceImage()) {
+    if (srcCode == dstCode) {
         result = formatResult(inputText);
         error = TranslationError::NoError;
         state = State::Processed;
@@ -210,56 +188,15 @@ void LocalAiTranslationProvider::sendTranslation(const QString &srcCode, const Q
         m_reply = nullptr;
     }
 
-    const bool isVision = !m_imageData.isEmpty();
-
     QJsonObject message;
     message.insert(QStringLiteral("role"), QStringLiteral("user"));
-
-    if (isVision) {
-        const QString srcName = languageDisplayName(srcCode);
-        const QString dstName = languageDisplayName(dstCode);
-        QString vp = m_visionPrompt.isEmpty() ? AppSettings::defaultVisionPrompt() : m_visionPrompt;
-        vp.replace(QStringLiteral("{source_lang}"), srcName);
-        vp.replace(QStringLiteral("{source_code}"), srcCode);
-        vp.replace(QStringLiteral("{target_lang}"), dstName);
-        vp.replace(QStringLiteral("{target_code}"), dstCode);
-
-        QJsonArray content;
-        QJsonObject textPart;
-        textPart.insert(QStringLiteral("type"), QStringLiteral("text"));
-        textPart.insert(QStringLiteral("text"), vp);
-        content.append(textPart);
-
-        QJsonObject imagePart;
-        const QString base64Data = QString::fromLatin1(m_imageData.toBase64());
-        if (m_isAnthropic) {
-            imagePart.insert(QStringLiteral("type"), QStringLiteral("image"));
-            QJsonObject source;
-            source.insert(QStringLiteral("type"), QStringLiteral("base64"));
-            source.insert(QStringLiteral("media_type"), QStringLiteral("image/jpeg"));
-            source.insert(QStringLiteral("data"), base64Data);
-            imagePart.insert(QStringLiteral("source"), source);
-        } else {
-            imagePart.insert(QStringLiteral("type"), QStringLiteral("image_url"));
-            QJsonObject imageUrl;
-            imageUrl.insert(QStringLiteral("url"), QStringLiteral("data:image/jpeg;base64,") + base64Data);
-            imagePart.insert(QStringLiteral("image_url"), imageUrl);
-        }
-        content.append(imagePart);
-
-        message.insert(QStringLiteral("content"), content);
-    } else {
-        const QString prompt = buildPrompt(srcCode, dstCode, text);
-        message.insert(QStringLiteral("content"), prompt);
-    }
+    message.insert(QStringLiteral("content"), buildPrompt(srcCode, dstCode, text));
 
     QJsonArray messages;
     messages.append(message);
 
-    const QString model = isVision ? m_visionModel : m_model;
-
     QJsonObject body;
-    body.insert(QStringLiteral("model"), model);
+    body.insert(QStringLiteral("model"), m_model);
     body.insert(QStringLiteral("messages"), messages);
     body.insert(QStringLiteral("temperature"), 0.0);
     if (m_isAnthropic) {
@@ -268,15 +205,15 @@ void LocalAiTranslationProvider::sendTranslation(const QString &srcCode, const Q
         body.insert(QStringLiteral("max_tokens"), 4096);
     } else {
         body.insert(QStringLiteral("stream"), false);
-        if ((isVision ? m_visionDisableThinking : m_disableThinking)) {
+        if (m_disableThinking) {
             body.insert(QStringLiteral("reasoning_effort"), QStringLiteral("none"));
         }
     }
 
-    QNetworkRequest request(QUrl(completionsUrl(m_url, m_isAnthropic)));
+    QNetworkRequest request(QUrl(OpenAiEndpoint::completionsUrl(m_url, m_isAnthropic)));
     request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
-    setAuthHeaders(request, m_isAnthropic, m_apiKey);
-    m_network->setTransferTimeout((isVision ? m_visionTimeout : m_timeout) * 1000);
+    OpenAiEndpoint::setAuthHeaders(request, m_isAnthropic, m_apiKey);
+    m_network->setTransferTimeout(m_timeout * 1000);
 
     m_reply = m_network->post(request, QJsonDocument(body).toJson(QJsonDocument::Compact));
     connect(m_reply, &QNetworkReply::finished, this, &LocalAiTranslationProvider::onReplyFinished);
@@ -303,6 +240,8 @@ static QString detectPrompt()
 
 void LocalAiTranslationProvider::sendDetection(const QString &text)
 {
+    emit detectionStarted();
+
     if (m_detectReply != nullptr) {
         m_detectReply->disconnect(this);
         m_detectReply->abort();
@@ -333,34 +272,13 @@ void LocalAiTranslationProvider::sendDetection(const QString &text)
         }
     }
 
-    QNetworkRequest request(QUrl(completionsUrl(m_detectUrl, m_detectIsAnthropic)));
+    QNetworkRequest request(QUrl(OpenAiEndpoint::completionsUrl(m_detectUrl, m_detectIsAnthropic)));
     request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
-    setAuthHeaders(request, m_detectIsAnthropic, m_detectApiKey);
+    OpenAiEndpoint::setAuthHeaders(request, m_detectIsAnthropic, m_detectApiKey);
     m_network->setTransferTimeout(m_timeout * 1000);
 
     m_detectReply = m_network->post(request, QJsonDocument(body).toJson(QJsonDocument::Compact));
     connect(m_detectReply, &QNetworkReply::finished, this, &LocalAiTranslationProvider::onDetectFinished);
-}
-
-static QString extractContent(const QByteArray &data, bool isAnthropic)
-{
-    const QJsonObject obj = QJsonDocument::fromJson(data).object();
-    if (isAnthropic) {
-        const QJsonArray blocks = obj.value(QStringLiteral("content")).toArray();
-        for (const QJsonValue &block : blocks) {
-            const QJsonObject blockObj = block.toObject();
-            if (blockObj.value(QStringLiteral("type")).toString() == QLatin1String("text")) {
-                return blockObj.value(QStringLiteral("text")).toString();
-            }
-        }
-        return QString();
-    }
-    const QJsonArray choices = obj.value(QStringLiteral("choices")).toArray();
-    if (!choices.isEmpty()) {
-        return choices.first().toObject().value(QStringLiteral("message")).toObject().value(QStringLiteral("content")).toString();
-    }
-    // Fallback for Ollama native shape, just in case.
-    return obj.value(QStringLiteral("message")).toObject().value(QStringLiteral("content")).toString();
 }
 
 void LocalAiTranslationProvider::onReplyFinished()
@@ -395,7 +313,7 @@ void LocalAiTranslationProvider::onReplyFinished()
         return;
     }
 
-    const QString translated = extractContent(reply->readAll(), m_isAnthropic);
+    const QString translated = OpenAiEndpoint::extractContent(reply->readAll(), m_isAnthropic);
     if (translated.isEmpty()) {
         error = TranslationError::Custom;
         errorString = QStringLiteral("LocalAI returned an empty response");
@@ -445,7 +363,7 @@ void LocalAiTranslationProvider::onDetectFinished()
 
     QString code;
     if (reply->error() == QNetworkReply::NoError) {
-        const QString resp = extractContent(reply->readAll(), m_detectIsAnthropic).toLower();
+        const QString resp = OpenAiEndpoint::extractContent(reply->readAll(), m_detectIsAnthropic).toLower();
         static const QRegularExpression re(QStringLiteral("\\b[a-z]{2,3}([-][A-Za-z0-9]+)*\\b"));
         QRegularExpressionMatchIterator it = re.globalMatch(resp);
         if (it.hasNext()) {
@@ -464,7 +382,7 @@ void LocalAiTranslationProvider::onDetectFinished()
         const QString srcCode = detected.toCode();
         emit languageDetected(detected, true);
 
-        if (srcCode == m_pendingDstCode && !hasSourceImage()) {
+        if (srcCode == m_pendingDstCode) {
             result = formatResult(m_pendingText);
             error = TranslationError::NoError;
             state = State::Processed;
@@ -524,9 +442,6 @@ void LocalAiTranslationProvider::applyOptions(const ProviderOptions &options)
     if (options.hasOption("is_anthropic")) {
         m_isAnthropic = options.getOption("is_anthropic").toBool();
     }
-    if (options.hasOption("detect_via_llm")) {
-        m_detectViaLlm = options.getOption("detect_via_llm").toBool();
-    }
     if (options.hasOption("detect_url")) {
         m_detectUrl = options.getOption("detect_url").toString();
     }
@@ -538,21 +453,6 @@ void LocalAiTranslationProvider::applyOptions(const ProviderOptions &options)
     }
     if (options.hasOption("detect_is_anthropic")) {
         m_detectIsAnthropic = options.getOption("detect_is_anthropic").toBool();
-    }
-    if (options.hasOption("vision_enabled")) {
-        m_visionEnabled = options.getOption("vision_enabled").toBool();
-    }
-    if (options.hasOption("vision_model")) {
-        m_visionModel = options.getOption("vision_model").toString();
-    }
-    if (options.hasOption("vision_prompt")) {
-        m_visionPrompt = options.getOption("vision_prompt").toString();
-    }
-    if (options.hasOption("vision_disable_thinking")) {
-        m_visionDisableThinking = options.getOption("vision_disable_thinking").toBool();
-    }
-    if (options.hasOption("vision_timeout")) {
-        m_visionTimeout = options.getOption("vision_timeout").toInt();
     }
 }
 
@@ -566,16 +466,10 @@ std::unique_ptr<ProviderOptions> LocalAiTranslationProvider::getDefaultOptions()
     options->setOption("timeout", AppSettings::defaultLocalAiTimeout());
     options->setOption("api_key", QString());
     options->setOption("is_anthropic", false);
-    options->setOption("detect_via_llm", false);
     options->setOption("detect_url", AppSettings::defaultLocalProviderUrl(QStringLiteral("ollama")));
     options->setOption("detect_model", QString());
     options->setOption("detect_api_key", QString());
     options->setOption("detect_is_anthropic", false);
-    options->setOption("vision_enabled", false);
-    options->setOption("vision_model", QString());
-    options->setOption("vision_prompt", AppSettings::defaultVisionPrompt());
-    options->setOption("vision_disable_thinking", false);
-    options->setOption("vision_timeout", AppSettings::defaultLocalAiTimeout());
     return options;
 }
 
@@ -584,10 +478,8 @@ QStringList LocalAiTranslationProvider::getAvailableOptions() const
     return {QStringLiteral("url"), QStringLiteral("model"), QStringLiteral("prompt"),
             QStringLiteral("disable_thinking"), QStringLiteral("timeout"),
             QStringLiteral("api_key"), QStringLiteral("is_anthropic"),
-            QStringLiteral("detect_via_llm"), QStringLiteral("detect_url"), QStringLiteral("detect_model"),
-            QStringLiteral("detect_api_key"), QStringLiteral("detect_is_anthropic"),
-            QStringLiteral("vision_enabled"), QStringLiteral("vision_model"), QStringLiteral("vision_prompt"),
-            QStringLiteral("vision_disable_thinking"), QStringLiteral("vision_timeout")};
+            QStringLiteral("detect_url"), QStringLiteral("detect_model"),
+            QStringLiteral("detect_api_key"), QStringLiteral("detect_is_anthropic")};
 }
 
 ProviderUIRequirements LocalAiTranslationProvider::getUIRequirements() const

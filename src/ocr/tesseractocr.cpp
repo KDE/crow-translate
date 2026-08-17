@@ -5,19 +5,18 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "ocr.h"
+#include "tesseractocr.h"
 
 #include "settings/appsettings.h"
 
-#include <QPixmap>
 #include <QtConcurrent>
 
 #if TESSERACT_MAJOR_VERSION < 5
 #include <tesseract/genericvector.h>
 #endif
 
-Ocr::Ocr(QObject *parent)
-    : QObject(parent)
+TesseractOcr::TesseractOcr(QObject *parent)
+    : AOcrProvider(parent)
 {
     // For the ability to cancel task
     m_monitor.cancel_this = &m_future;
@@ -26,12 +25,22 @@ Ocr::Ocr(QObject *parent)
     };
 }
 
-void Ocr::setConvertLineBreaks(bool convert)
+void TesseractOcr::setConvertLineBreaks(bool convert)
 {
     m_convertLineBreaks = convert;
 }
 
-QStringList Ocr::availableLanguages() const
+QString TesseractOcr::engineName() const
+{
+    return QStringLiteral("tesseract");
+}
+
+bool TesseractOcr::isConfigured() const
+{
+    return !languagesString().isEmpty();
+}
+
+QStringList TesseractOcr::availableLanguages() const
 {
     QStringList availableLanguages;
 #if TESSERACT_MAJOR_VERSION < 5
@@ -53,12 +62,12 @@ QStringList Ocr::availableLanguages() const
     return availableLanguages;
 }
 
-QByteArray Ocr::languagesString() const
+QByteArray TesseractOcr::languagesString() const
 {
     return QByteArray::fromRawData(m_tesseract.GetInitLanguagesAsString(), static_cast<int>(qstrlen(m_tesseract.GetInitLanguagesAsString())));
 }
 
-bool Ocr::init(const QByteArray &languages, const QByteArray &languagesPath, const QMap<QString, QVariant> &parameters)
+bool TesseractOcr::init(const QByteArray &languages, const QByteArray &languagesPath, const QMap<QString, QVariant> &parameters)
 {
     // Call even if the specified language is empty to initialize (Tesseract will try to load eng by default)
     if (languagesString() != languages || languages.isEmpty() || m_parameters != parameters) {
@@ -73,12 +82,13 @@ bool Ocr::init(const QByteArray &languages, const QByteArray &languagesPath, con
     return true;
 }
 
-void Ocr::recognize(const QPixmap &pixmap, int dpi)
+void TesseractOcr::recognize(const QImage &image, int dpi)
 {
     Q_ASSERT_X(qstrlen(m_tesseract.GetInitLanguagesAsString()) != 0, "recognize", "You should call init first");
 
+    emit started();
     m_future.waitForFinished();
-    m_future = QtConcurrent::run([this, dpi, image = pixmap.toImage()] {
+    m_future = QtConcurrent::run([this, dpi, image] {
         m_tesseract.SetImage(image.constBits(), image.width(), image.height(), image.depth() / 8, image.bytesPerLine());
         m_tesseract.SetSourceResolution(dpi);
         m_tesseract.Recognize(&m_monitor);
@@ -95,12 +105,12 @@ void Ocr::recognize(const QPixmap &pixmap, int dpi)
     });
 }
 
-void Ocr::cancel()
+void TesseractOcr::cancel()
 {
     m_future.cancel();
 }
 
-QStringList Ocr::availableLanguages(const QString &languagesPath)
+QStringList TesseractOcr::availableLanguages(const QString &languagesPath)
 {
     // From the specified directory
     if (!languagesPath.isEmpty())
@@ -121,7 +131,7 @@ QStringList Ocr::availableLanguages(const QString &languagesPath)
     return {};
 }
 
-void Ocr::applyParameters(const QMap<QString, QVariant> &parameters, bool saveSettings)
+void TesseractOcr::applyParameters(const QMap<QString, QVariant> &parameters, bool saveSettings)
 {
     // Apply new parameters
     for (auto it = parameters.cbegin(); it != parameters.cend(); ++it) {
@@ -137,7 +147,7 @@ void Ocr::applyParameters(const QMap<QString, QVariant> &parameters, bool saveSe
         AppSettings().setTesseractParameters(m_parameters);
 }
 
-QStringList Ocr::parseLanguageFiles(const QDir &directory)
+QStringList TesseractOcr::parseLanguageFiles(const QDir &directory)
 {
     const QFileInfoList files = directory.entryInfoList({QStringLiteral("*.traineddata")}, QDir::Files);
     QStringList languages;

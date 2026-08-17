@@ -15,7 +15,6 @@
 
 class QNetworkAccessManager;
 class QNetworkReply;
-class QNetworkRequest;
 
 // Translation backend for local, OpenAI-compatible servers (Ollama,
 // FastFlowLM, LM Studio) as well as arbitrary remote endpoints: a custom
@@ -42,10 +41,6 @@ public:
     Language detectLanguage(const QString &text) override;
     void abort() override;
 
-    void setSourceImage(const QByteArray &imageData) override;
-    void clearSourceImage() override;
-    bool hasSourceImage() const override;
-
     void applyOptions(const ProviderOptions &options) override;
     std::unique_ptr<ProviderOptions> getDefaultOptions() const override;
     QStringList getAvailableOptions() const override;
@@ -53,10 +48,6 @@ public:
     ProviderUIRequirements getUIRequirements() const override;
 
     void saveOptionToSettings(const QString &optionKey, const QVariant &value) override;
-
-    // Shared with SettingsDialog's "Refresh models" probe, which hits the
-    // same /v1/models endpoint and needs the same auth shape.
-    static void setAuthHeaders(QNetworkRequest &request, bool isAnthropic, const QString &apiKey);
 
 public slots:
     void translate(const QString &inputText, const Language &translationLanguage, const Language &sourceLanguage) override;
@@ -69,7 +60,6 @@ private:
     QString buildPrompt(const QString &srcCode, const QString &dstCode, const QString &text) const;
     static QString languageDisplayName(const QString &code);
     static QString formatResult(const QString &text);
-    static QString completionsUrl(const QString &baseUrl, bool isAnthropic);
     void sendDetection(const QString &text);
     void sendTranslation(const QString &srcCode, const QString &dstCode, const QString &text);
 
@@ -86,7 +76,6 @@ private:
     QString m_apiKey;
 
     // Detection (independent provider/model)
-    bool m_detectViaLlm;
     QString m_detectUrl;
     QString m_detectModel;
     bool m_detectIsAnthropic = false;
@@ -100,14 +89,6 @@ private:
     QString m_pendingDstCode;
 
     int m_timeout = 300;
-
-    // Vision
-    bool m_visionEnabled = false;
-    QString m_visionModel;
-    QString m_visionPrompt;
-    bool m_visionDisableThinking = false;
-    int m_visionTimeout = 300;
-    QByteArray m_imageData;
 };
 
 #endif // LOCALAITRANSLATIONPROVIDER_H
