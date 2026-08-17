@@ -28,6 +28,9 @@
      </item>
      <item>
       <widget class="QToolButton" name="swapButton">
+       <property name="accessibleName">
+        <string>Swap languages</string>
+       </property>
        <property name="toolTip">
         <string>Swap languages</string>
        </property>
@@ -62,6 +65,9 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="accessibleName">
+        <string>Translate</string>
+       </property>
        <property name="toolTip">
         <string>Translate</string>
        </property>
@@ -76,6 +82,9 @@
     <layout class="QHBoxLayout" name="buttomLayout">
      <item>
       <widget class="QToolButton" name="sourcePlayPauseButton">
+       <property name="accessibleName">
+        <string>Start/pause saying the source text aloud</string>
+       </property>
        <property name="toolTip">
         <string>Start/pause saying the source text aloud</string>
        </property>
@@ -121,6 +130,9 @@
      </item>
      <item>
       <widget class="QToolButton" name="sourceStopButton">
+       <property name="accessibleName">
+        <string>Stop saying the source text aloud</string>
+       </property>
        <property name="toolTip">
         <string>Stop saying the source text aloud</string>
        </property>
@@ -128,6 +140,9 @@
      </item>
      <item>
       <widget class="QToolButton" name="copySourceButton">
+       <property name="accessibleName">
+        <string>Copy source text to the clipboard</string>
+       </property>
        <property name="toolTip">
         <string>Copy source text to the clipboard</string>
        </property>
@@ -218,6 +233,9 @@
      </item>
      <item>
       <widget class="QToolButton" name="translationPlayPauseButton">
+       <property name="accessibleName">
+        <string>Start/pause saying the translated text aloud</string>
+       </property>
        <property name="toolTip">
         <string>Start/pause saying the translated text aloud</string>
        </property>
@@ -263,6 +281,9 @@
      </item>
      <item>
       <widget class="QToolButton" name="translationStopButton">
+       <property name="accessibleName">
+        <string>Stop saying the translated text aloud</string>
+       </property>
        <property name="toolTip">
         <string>Stop saying the translated text aloud</string>
        </property>
@@ -270,6 +291,9 @@
      </item>
      <item>
       <widget class="QToolButton" name="copyAllTranslationButton">
+       <property name="accessibleName">
+        <string>Copy all translation data to the clipboard</string>
+       </property>
        <property name="toolTip">
         <string>Copy all translation data to the clipboard</string>
        </property>
@@ -280,6 +304,9 @@
      </item>
       <item>
        <widget class="QToolButton" name="copyTranslationButton">
+        <property name="accessibleName">
+         <string>Copy translation to the clipboard</string>
+        </property>
         <property name="toolTip">
          <string>Copy translation to the clipboard</string>
         </property>

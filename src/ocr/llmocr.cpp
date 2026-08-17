@@ -261,19 +261,19 @@ void LlmOcr::onFinished()
         if (m_userCanceled) {
             emit canceled();
         } else {
-            emit failed(QStringLiteral("LLM OCR request timed out"));
+            emit failed(tr("LLM OCR request timed out"));
         }
         return;
     }
 
     if (reply->error() != QNetworkReply::NoError) {
-        emit failed(QStringLiteral("LLM OCR error: ") + reply->errorString());
+        emit failed(tr("LLM OCR error: %1").arg(reply->errorString()));
         return;
     }
 
     const QString text = OpenAiEndpoint::extractContent(reply->readAll(), m_isAnthropic);
     if (text.isEmpty()) {
-        emit failed(QStringLiteral("LLM OCR returned an empty response"));
+        emit failed(tr("LLM OCR returned an empty response"));
         return;
     }
 

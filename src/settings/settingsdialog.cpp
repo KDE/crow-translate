@@ -387,7 +387,7 @@ void SettingsDialog::buildLocalAiTabs()
             t.text.timeout = new QSpinBox(t.text.page);
             t.text.timeout->setRange(60, 3600);
             t.text.timeout->setSingleStep(30);
-            t.text.timeout->setSuffix(QStringLiteral(" s"));
+            t.text.timeout->setSuffix(tr(" s"));
             t.text.timeout->setToolTip(tr("Maximum time to wait for a translation or detection response."));
             modelRow->addWidget(textTimeoutLabel);
             modelRow->addWidget(t.text.timeout);
@@ -467,6 +467,7 @@ void SettingsDialog::buildOcrEngineUi()
 
     auto *engineLabel = new QLabel(tr("OCR engine:"), engineRow);
     m_ocrEngineCombo = new QComboBox(engineRow);
+    engineLabel->setBuddy(m_ocrEngineCombo);
     m_ocrEngineCombo->setObjectName(QStringLiteral("ocrEngineCombo"));
     m_ocrEngineCombo->addItem(tr("Tesseract"), static_cast<int>(AppSettings::OcrEngine::Tesseract));
     m_ocrEngineCombo->addItem(tr("Vision model (LLM)"), static_cast<int>(AppSettings::OcrEngine::Llm));
@@ -492,6 +493,7 @@ void SettingsDialog::buildOcrEngineUi()
     auto *providerRow = new QHBoxLayout();
     auto *providerLabel = new QLabel(tr("Provider:"), llmPage);
     m_ocrLlmProviderCombo = new QComboBox(llmPage);
+    providerLabel->setBuddy(m_ocrLlmProviderCombo);
     m_ocrLlmProviderCombo->setObjectName(QStringLiteral("ocrLlmProviderCombo"));
     for (const QString &id : AppSettings::localProviderIds()) {
         m_ocrLlmProviderCombo->addItem(AppSettings::localProviderDisplayName(id), id);
@@ -501,9 +503,10 @@ void SettingsDialog::buildOcrEngineUi()
     providerRow->addSpacing(12);
     auto *timeoutLabel = new QLabel(tr("Timeout:"), llmPage);
     m_ocrLlmTimeoutSpin = new QSpinBox(llmPage);
+    timeoutLabel->setBuddy(m_ocrLlmTimeoutSpin);
     m_ocrLlmTimeoutSpin->setRange(60, 3600);
     m_ocrLlmTimeoutSpin->setSingleStep(30);
-    m_ocrLlmTimeoutSpin->setSuffix(QStringLiteral(" s"));
+    m_ocrLlmTimeoutSpin->setSuffix(tr(" s"));
     m_ocrLlmTimeoutSpin->setToolTip(tr("Maximum time to wait for a transcription response."));
     providerRow->addWidget(timeoutLabel);
     providerRow->addWidget(m_ocrLlmTimeoutSpin);
@@ -517,9 +520,11 @@ void SettingsDialog::buildOcrEngineUi()
     auto *urlRow = new QHBoxLayout();
     auto *urlLabel = new QLabel(tr("URL:"), llmPage);
     m_ocrLlmUrlEdit = new QLineEdit(llmPage);
+    urlLabel->setBuddy(m_ocrLlmUrlEdit);
     m_ocrLlmUrlEdit->setObjectName(QStringLiteral("ocrLlmUrlEdit"));
     auto *apiKeyLabel = new QLabel(tr("Key:"), llmPage);
     m_ocrLlmApiKeyEdit = new QLineEdit(llmPage);
+    apiKeyLabel->setBuddy(m_ocrLlmApiKeyEdit);
     m_ocrLlmApiKeyEdit->setObjectName(QStringLiteral("ocrLlmApiKeyEdit"));
     m_ocrLlmApiKeyEdit->setEchoMode(QLineEdit::Password);
     m_ocrLlmApiKeyEdit->setPlaceholderText(tr("optional, e.g. for a cloud endpoint"));
@@ -535,6 +540,7 @@ void SettingsDialog::buildOcrEngineUi()
     auto *modelRow = new QHBoxLayout();
     auto *modelLabel = new QLabel(tr("Model:"), llmPage);
     m_ocrLlmModelCombo = new QComboBox(llmPage);
+    modelLabel->setBuddy(m_ocrLlmModelCombo);
     m_ocrLlmModelCombo->setObjectName(QStringLiteral("ocrLlmModelCombo"));
     m_ocrLlmModelCombo->setEditable(true);
     m_ocrLlmModelCombo->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);

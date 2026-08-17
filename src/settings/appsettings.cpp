@@ -697,7 +697,7 @@ QString AppSettings::localProviderDisplayName(const QString &id)
         return QStringLiteral("LM Studio");
     }
     if (id == QLatin1String("openai_custom")) {
-        return QStringLiteral("OpenAI-compatible (custom)");
+        return tr("OpenAI-compatible (custom)");
     }
     if (id == QLatin1String("anthropic")) {
         return QStringLiteral("Anthropic");

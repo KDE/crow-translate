@@ -92,17 +92,6 @@ MainWindow::MainWindow(QWidget *parent)
         m_engineItemsIcons.append(ui->engineComboBox->itemIcon(i));
     }
 
-    // Accessible names for assistive technology and automated UI testing (AT-SPI/UIA/AX
-    // report the widget's text content or nothing at all without these, since Qt doesn't
-    // default an accessible name from objectName())
-    ui->sourceEdit->setAccessibleName(QStringLiteral("sourceEdit"));
-    ui->translationEdit->setAccessibleName(QStringLiteral("translationEdit"));
-    ui->translateButton->setAccessibleName(QStringLiteral("translateButton"));
-    ui->abortButton->setAccessibleName(QStringLiteral("abortButton"));
-    ui->sourcePlayPauseButton->setAccessibleName(QStringLiteral("sourcePlayPauseButton"));
-    ui->translationPlayPauseButton->setAccessibleName(QStringLiteral("translationPlayPauseButton"));
-    ui->openImageButton->setAccessibleName(QStringLiteral("openImageButton"));
-
     // Screen orientation
     connect(m_orientationWatcher, &ScreenWatcher::screenOrientationChanged, this, &MainWindow::setOrientation);
 
