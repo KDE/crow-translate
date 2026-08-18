@@ -4,6 +4,43 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.0] - 2026-08-18
+
+### New Features
+
+- **LocalAI Translation Backend**: Translate through any OpenAI-compatible endpoint (Ollama, LM Studio, FastFlowLM, Anthropic or a custom server), with model discovery and configurable prompts
+- **Vision-Model OCR**: A second OCR engine that transcribes images with a vision model, selectable alongside Tesseract in settings
+- **Modular OCR**: Screen capture, image drop/paste and the D-Bus interface all route through whichever OCR engine is active
+- **Open an Image for OCR**: Drop, paste or open an image file directly, with a preview overlay; Escape cancels
+- **Module Status Strip**: A strip at the bottom of the main and popup windows showing what is currently running - capture, recognition, detection, translation or speech - and what failed
+- **LibreTranslate API Key**: Mozhi instances can take an API key, with a toggle between Mozhi-proxied and direct LibreTranslate API shapes
+- **Report Bug Action**: A tray-menu entry that opens bugs.kde.org with the version and OS pre-filled
+- **Build Without TTS**: A `WITH_TTS` CMake option that compiles out the text-to-speech engines and their UI
+- **Translate Button in the Popup Window**: The popup window gained the main window's translate action
+
+### Fixes
+
+- Fixed the capture area on Windows with multiple monitors at per-monitor DPI scaling
+- Fixed the missing application icon on Windows and macOS
+- Icons now load through KIconThemes with a theme fallback
+- Fixed recovery after an unclean shutdown, which could leave the application unable to start
+- Fixed the "translate selection" shortcut on Wayland
+- Fixed Hebrew on the Yandex and DuckDuckGo engines
+- Fixed the autostart desktop file name
+- Translation failures are now shown instead of being swallowed, and their messages are translatable
+- Fixed various typos
+
+### Accessibility and Localization
+
+- Icon-only buttons throughout the main window, popup window, settings dialog and languages dialog now carry accessible names
+- Label and control pairs are associated for screen readers and keyboard navigation
+- User-facing error messages from every translation backend are now translatable
+
+### Development
+
+- Added a regression test suite covering the translation providers, OCR engines, settings, status model and window behaviour
+- ONNX Runtime is found from craft installs, builds against 1.27, and tolerates newer GCC
+
 ## [4.0.0] - 2025-09-05
 
 ### Major Changes

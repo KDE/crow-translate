@@ -44,11 +44,15 @@ Application written in **C++ / Qt6** that allows you to translate and speak text
 
 - **Provider System**: Modular translation and TTS providers with runtime switching
 - **Multiple Translation Engines**: [Multiple engines](https://codeberg.org/aryak/mozhi#supported-engines) provided by Mozhi (some instances can disable specific engines)*
+- **LocalAI Backend**: Translate through any OpenAI-compatible endpoint - Ollama, LM Studio, FastFlowLM, Anthropic or a custom server - with model discovery and configurable prompts
+- **LibreTranslate**: Use a LibreTranslate instance through Mozhi or directly, with an optional API key
 - **Advanced TTS Options**:
   - **Piper Neural TTS**: High-quality offline neural text-to-speech with ONNX Runtime
   - **Qt TextToSpeech**: System TTS integration
   - **Mozhi TTS**: Online TTS via Mozhi proxy
-- **Enhanced OCR**: Tesseract-based OCR with image inversion option for improved accuracy
+- **Modular OCR**: Two interchangeable engines - Tesseract, with an image inversion option, and any vision model reachable over an OpenAI-compatible endpoint
+- **Image Input**: Open, drop or paste an image to recognize and translate the text in it
+- **Status Strip**: See what is currently running - capture, recognition, detection, translation or speech - and what failed
 - **Custom Language Support**: Register and persist custom languages beyond standard locales
 - **Screen Translation**: Translate and speak text from screen captures or text selection
 - **Wayland Support**: Improved screenshot integration with KWin ScreenShot2 API
@@ -278,7 +282,8 @@ craft crow-translate
 
 - `WITH_PORTABLE_MODE` - Enable portable functionality. If you create file named `settings.ini` in the app folder and Crow will store the configuration in it. It also adds the “Portable Mode” option to the application settings, which does the same.
 - `WITH_KWAYLAND` - Find and use KWayland library for better Wayland integration.
-- `WITH_PIPER_TTS` - Enable Piper neural TTS provider (requires ONNX Runtime and espeak-ng).
+- `WITH_TTS` - Build the text-to-speech engines and their UI (default ON). Turning it off removes the speech providers, the play/pause/stop buttons and the voice selection.
+- `WITH_PIPER_TTS` - Enable Piper neural TTS provider (requires ONNX Runtime and espeak-ng, and `WITH_TTS`).
 - `ESPEAKNG_USE_SYSTEM` - Link against a system espeak-ng instead of building the bundled submodule. Useful for distribution packaging. Crow requires `espeak_TextToPhonemesWithTerminator`, an API that is not part of the espeak-ng 1.52.0 release, so the system espeak-ng must be built from git (see [espeak-ng!2127](https://github.com/espeak-ng/espeak-ng/pull/2127)); the build verifies this at configure time and fails otherwise. Linux only.
 
 Build parameters are passed at configuration stage: `cmake -D WITH_PORTABLE_MODE=ON -D WITH_PIPER_TTS=ON ..`.

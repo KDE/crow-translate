@@ -515,6 +515,67 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="4.1.0" date="2026-08-18">
+      <description>
+        <p>Changelog:</p>
+        <ul>
+          <li>Translate through any OpenAI-compatible endpoint with the new LocalAI backend.</li>
+          <li>Recognize text in images with a vision model, as an alternative OCR engine to Tesseract.</li>
+          <li>Open, drop or paste an image to recognize text from it.</li>
+          <li>Show what is currently running, and what failed, in a status strip.</li>
+          <li>Use an API key with LibreTranslate, either through Mozhi or directly.</li>
+          <li>Report a bug from the tray menu.</li>
+          <li>Fix the capture area on Windows with multiple monitors at different scaling.</li>
+          <li>Fix the missing application icon on Windows and macOS.</li>
+          <li>Fix starting up again after an unclean shutdown.</li>
+          <li>Fix the translate selection shortcut on Wayland.</li>
+          <li>Name icon-only buttons for screen readers, and make error messages translatable.</li>
+        </ul>
+      </description>
+    </release>
+    <release version="4.0.2" date="2025-09-07">
+      <description>
+        <p>Changelog:</p>
+        <ul>
+          <li>Work around broken text-to-speech on Windows with Qt 6.9.x by building the Windows binaries against Qt 6.8.3.</li>
+        </ul>
+      </description>
+      <artifacts>
+        <artifact type="binary" platform="x86_64-linux-gnu">
+          <location>https://download.kde.org/stable/crow-translate/4.0.2/crow-translate-master-598-linux-gcc-x86_64.AppImage</location>
+        </artifact>
+        <artifact type="binary" platform="x86_64-windows-msvc">
+          <location>https://download.kde.org/stable/crow-translate/4.0.2/crow-translate-4.0.0-hotfix2-c9dfc26-master-windows-cl-msvc2022-x86_64.exe</location>
+        </artifact>
+        <artifact type="binary" platform="x86_64-windows-msvc">
+          <location>https://download.kde.org/stable/crow-translate/4.0.2/crow-translate-4.0.0-hotfix2-c9dfc26-master-windows-cl-msvc2022-x86_64.7z</location>
+        </artifact>
+        <artifact type="source">
+          <location>https://download.kde.org/stable/crow-translate/4.0.2/crow-translate-4.0.2.tar.gz</location>
+        </artifact>
+      </artifacts>
+    </release>
+    <release version="4.0.1" date="2025-09-06">
+      <description>
+        <p>Changelog:</p>
+        <ul>
+          <li>Fix Windows packaging: some libraries were installed next to the libraries instead of next to the program.</li>
+        </ul>
+      </description>
+    </release>
+    <release version="4.0.0" date="2025-09-05">
+      <description>
+        <p>Changelog:</p>
+        <ul>
+          <li>Port to Qt 6.</li>
+          <li>Rework translation and text-to-speech into interchangeable providers.</li>
+          <li>Speak text with the system voice through Qt TextToSpeech.</li>
+          <li>Speak text offline with Piper neural text-to-speech.</li>
+          <li>Support custom languages beyond the standard locales.</li>
+          <li>Invert images before recognition to read light text on a dark background.</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.1.0" date="2024-10-24">
       <description>
         <p>Changelog:</p>
