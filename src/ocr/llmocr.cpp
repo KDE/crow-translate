@@ -118,10 +118,12 @@ QString LlmOcr::collapseRepeatedTranscription(const QString &text)
     // transcription, then the same block re-emitted verbatim until the token
     // budget runs out - which typically cuts the FINAL copy mid-block, leaving
     // a partial tail whose last line is a prefix of the block's next line.
-    // Poetry can legitimately repeat lines, so single-line loops stay intact
-    // unless they run very long (>= 4 copies); a multi-line block repeated
-    // twice or more is collapsed even at 2 copies (user decision 2026-08-17),
-    // accepting that a 2-line refrain doubled verbatim would also collapse.
+    // Any such tiling is collapsed to a single unit, with no exception for
+    // text that legitimately repeats: a scanned poem whose lines tile exactly
+    // loses its repeats, and the reader can restore them (user decision
+    // 2026-08-18). Trying to tell a refrain from a decoding loop by copy count
+    // or line length only made the real failures depend on how many copies the
+    // model happened to emit.
     for (int period = 1; period <= n / 2; ++period) {
         const int copies = n / period;
         if (copies < 2) {
@@ -139,11 +141,7 @@ QString LlmOcr::collapseRepeatedTranscription(const QString &text)
         if (!tiled) {
             continue;
         }
-        const bool runAwayLoop = (period == 1 && copies >= 4) || (period >= 2 && copies >= 2);
-        if (runAwayLoop) {
-            QStringList unit = lines.mid(0, period);
-            return unit.join(newline);
-        }
+        return lines.mid(0, period).join(newline);
     }
     return text.trimmed();
 }

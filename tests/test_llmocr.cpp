@@ -100,19 +100,19 @@ private slots:
         QCOMPARE(LlmOcr::collapseRepeatedTranscription(QString()), QString());
         QCOMPARE(LlmOcr::collapseRepeatedTranscription(QStringLiteral(" ")), QString());
 
-        // A single line looped to runaway length collapses.
+        // A single line looped collapses.
         QCOMPARE(LlmOcr::collapseRepeatedTranscription(QStringLiteral("no\nno\nno\nno")), QStringLiteral("no"));
 
-        // A multi-line block repeated twice now collapses too (2-copy bar,
-        // user decision): a 2-line refrain poem doubled verbatim is the known,
-        // accepted edge.
+        // Any exact tiling collapses, down to two copies.
         const QString twoCopies = block + QStringLiteral("\n\n") + block;
         QCOMPARE(LlmOcr::collapseRepeatedTranscription(twoCopies), block);
 
-        // A short poem repeating one line three times stays intact (single
-        // lines only read as runaway at four or more copies).
+        // Deliberately accepted loss: a poem whose lines tile exactly is
+        // indistinguishable from a decoding loop, so it collapses too. Telling
+        // the two apart by copy count or line length only made real runaways
+        // depend on how many copies the model happened to emit.
         const QString triple = QStringLiteral("Water\nWater\nWater");
-        QCOMPARE(LlmOcr::collapseRepeatedTranscription(triple), triple);
+        QCOMPARE(LlmOcr::collapseRepeatedTranscription(triple), QStringLiteral("Water"));
 
         // A poem that repeats its first stanza verbatim at the end (not an
         // exact tiling of the whole response) keeps every line.
@@ -125,6 +125,23 @@ private slots:
         const QString truncated = block + QStringLiteral("\n\n") + block + QStringLiteral("\n\n") + block
             + QStringLiteral("\n\nSystem Monitor\nCPU 12%");
         QCOMPARE(LlmOcr::collapseRepeatedTranscription(truncated), block);
+
+        // glm-ocr emits a whole paragraph as ONE very long line and repeats
+        // it, so the runaway arrives as period=1 with only two or three
+        // COMPLETE copies and no truncated tail. Reported 2026-08-18 against a
+        // dense Wikipedia screenshot; reproduced against the real local
+        // glm-ocr with the app's exact request (three verbatim copies of one
+        // 794-character line).
+        const QString paragraph = QStringLiteral(
+            "JoJo's Bizarre Adventure had over 100 million copies in circulation by December 2016,[88] "
+            "and over 120 million copies in circulation by August 2023.[89] making it one of the "
+            "best-selling manga series of all time.[90] The first volume of JoJolion was the second "
+            "best-selling manga for its debut week; its second volume reached third place, and its "
+            "third reached second place.[91][92][93]");
+        const QString longLineThrice = paragraph + QStringLiteral("\n") + paragraph + QStringLiteral("\n") + paragraph;
+        QCOMPARE(LlmOcr::collapseRepeatedTranscription(longLineThrice), paragraph);
+        const QString longLineTwice = paragraph + QStringLiteral("\n") + paragraph;
+        QCOMPARE(LlmOcr::collapseRepeatedTranscription(longLineTwice), paragraph);
 
         // A single line repeated, ending in a line the token budget cut
         // mid-word (period=1 case) collapses to one line too.
