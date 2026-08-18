@@ -295,40 +295,41 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "無法為 %1 註冊 D-Bus 物件"
 
-#: src/mainwindow.cpp:391
+#: src/mainwindow.cpp:464
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "OCR"
 
-#: src/mainwindow.cpp:392
+#: src/mainwindow.cpp:465
 msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "OCR 圖片色彩已反轉"
 
-#: src/mainwindow.cpp:392
+#: src/mainwindow.cpp:465
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr "OCR 圖片色彩為原樣"
 
-#: src/mainwindow.cpp:546 src/mainwindow.cpp:566 src/mainwindow.cpp:614
-#: src/mainwindow.cpp:643
-msgctxt "Ocr|"
-msgid "OCR languages are not loaded"
-msgstr "OCR 語言未載入"
+#: src/mainwindow.cpp:624
+msgctxt "TesseractOcr|"
+msgid "OCR is not configured"
+msgstr ""
 
-#: src/mainwindow.cpp:546 src/mainwindow.cpp:566 src/mainwindow.cpp:614
-#: src/mainwindow.cpp:643
-msgctxt "Ocr|"
-msgid "You should set at least one OCR language in the application settings"
+#: src/mainwindow.cpp:624
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "You should set at least one OCR language in the application settings"
+msgctxt "TesseractOcr|"
+msgid "Set up the OCR engine in the application settings"
 msgstr "您應該在應用程式中設定至少一種 OCR 語言"
 
-#: src/mainwindow.cpp:822
+#: src/mainwindow.cpp:880
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "這個應用程式使用 %1 來提供翻譯"
 
-#: src/mainwindow.cpp:823
+#: src/mainwindow.cpp:881
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -341,39 +342,44 @@ msgstr ""
 "析您傳送的文字，您目前的實體是 '%1'，但您可以在翻譯設定中變更它。實體細節可以"
 "在上方連結中查看。"
 
-#: src/mainwindow.cpp:830
+#: src/mainwindow.cpp:888
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "不要再顯示"
 
-#: src/mainwindow.cpp:872
+#: src/mainwindow.cpp:935
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "無效的系統匣圖示"
 
-#: src/mainwindow.cpp:872
+#: src/mainwindow.cpp:935
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "指定的圖示 '%1' 無效。將使用預設圖示。"
 
-#: src/mainwindow.cpp:893
-msgctxt "Ocr|"
+#: src/mainwindow.cpp:956
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "Unable to set OCR languages"
+msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "無法設定 OCR 語言"
 
-#: src/mainwindow.cpp:893
-#, qt-format
-msgctxt "Ocr|"
+#: src/mainwindow.cpp:956
+#, fuzzy, qt-format
+#| msgctxt "Ocr|"
+#| msgid "Unable to initialize Tesseract with %1"
+msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "無法以 %1 初始化 Tesseract"
 
-#: src/mainwindow.cpp:1035
+#: src/mainwindow.cpp:1099
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr "TTS 錯誤"
 
-#: src/mainwindow.cpp:1035
+#: src/mainwindow.cpp:1099
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -389,19 +395,19 @@ msgstr ""
 "\n"
 "請檢查您的 TTS 設定或是嘗試別的嗓音/地域。"
 
-#: src/mainwindow.cpp:1852
+#: src/mainwindow.cpp:1911
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
 msgstr ""
 
-#: src/mainwindow.cpp:1868
+#: src/mainwindow.cpp:2011
 #, qt-format
 msgctxt "MainWindow|"
-msgid "Image too large (%1 MB). Max %2 MB."
+msgid "OCR failed: %1"
 msgstr ""
 
-#: src/mainwindow.cpp:1980
+#: src/mainwindow.cpp:2105 src/mainwindow.cpp:2162
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -409,102 +415,209 @@ msgid ""
 "%1"
 msgstr ""
 
+#: src/mainwindow.cpp:2153 src/mainwindow.cpp:2162
+msgctxt "MainWindow|"
+msgid "Open image"
+msgstr ""
+
+#: src/mainwindow.cpp:2155
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
+msgctxt "MainWindow|"
+msgid ""
+"Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
+msgstr "圖片 (*.png *.ico *.svg *.jpg);;所有檔案()"
+
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
 msgid "Crow Translate"
 msgstr "Crow Translate"
 
-#: src/mainwindow.ui:29
+#: src/mainwindow.ui:29 src/mainwindow.ui:32
 msgctxt "MainWindow|"
 msgid "Translate"
 msgstr "翻譯"
 
-#: src/mainwindow.ui:39
+#: src/mainwindow.ui:42 src/mainwindow.ui:45
 msgctxt "MainWindow|"
 msgid "Swap languages"
 msgstr "交換語言"
 
-#: src/mainwindow.ui:52
+#: src/mainwindow.ui:58 src/mainwindow.ui:61
 msgctxt "MainWindow|"
 msgid "Source"
 msgstr "原文"
 
-#: src/mainwindow.ui:72
+#: src/mainwindow.ui:81 src/mainwindow.ui:84
 msgctxt "MainWindow|"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/mainwindow.ui:84
+#: src/mainwindow.ui:96 src/mainwindow.ui:99
 msgctxt "MainWindow|"
 msgid "Start/pause saying the source text aloud"
 msgstr ""
 
-#: src/mainwindow.ui:132
+#: src/mainwindow.ui:147 src/mainwindow.ui:150
 msgctxt "MainWindow|"
 msgid "Stop saying the source text aloud"
 msgstr ""
 
-#: src/mainwindow.ui:142
+#: src/mainwindow.ui:160 src/mainwindow.ui:163
 msgctxt "MainWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "複製原文到剪貼簿"
 
-#: src/mainwindow.ui:152
+#: src/mainwindow.ui:173 src/mainwindow.ui:176
+#, fuzzy
+#| msgctxt "ShortcutsModel|"
+#| msgid "Recognize text in screen area"
+msgctxt "MainWindow|"
+msgid "Recognize text in an image file"
+msgstr "辨識螢幕區域內的文字"
+
+#: src/mainwindow.ui:186 src/mainwindow.ui:189
 msgctxt "MainWindow|"
 msgid "Recognize screen area with delay"
 msgstr "延遲辨識螢幕區域"
 
 #. The text should be short to fit in portrait orientation on phones.
-#: src/mainwindow.ui:168
+#: src/mainwindow.ui:205
 msgctxt "MainWindow|"
 msgid "Auto-translation"
 msgstr "自動翻譯"
 
-#: src/mainwindow.ui:177
+#: src/mainwindow.ui:214 src/mainwindow.ui:217
 msgctxt "MainWindow|"
 msgid "Clear"
 msgstr "清除"
 
-#: src/mainwindow.ui:204
+#: src/mainwindow.ui:241 src/mainwindow.ui:247
 msgctxt "MainWindow|"
 msgid "Translation"
 msgstr "譯文"
 
-#: src/mainwindow.ui:213
+#: src/mainwindow.ui:256 src/mainwindow.ui:259
 msgctxt "MainWindow|"
 msgid "Start/pause saying the translated text aloud"
 msgstr ""
 
-#: src/mainwindow.ui:261
+#: src/mainwindow.ui:307 src/mainwindow.ui:310
 msgctxt "MainWindow|"
 msgid "Stop saying the translated text aloud"
 msgstr ""
 
-#: src/mainwindow.ui:351
+#: src/mainwindow.ui:400 src/mainwindow.ui:403
 msgctxt "MainWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "複製譯文到剪貼簿"
 
-#: src/mainwindow.ui:361
+#: src/mainwindow.ui:413 src/mainwindow.ui:416
 msgctxt "MainWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "複製所有翻譯資料到剪貼簿"
 
-#: src/mainwindow.ui:371
+#: src/mainwindow.ui:426 src/mainwindow.ui:429
 msgctxt "MainWindow|"
 msgid "Translate screen area with delay"
 msgstr "延遲翻譯螢幕區域"
 
-#: src/mainwindow.ui:381
+#: src/mainwindow.ui:439 src/mainwindow.ui:442
 msgctxt "MainWindow|"
 msgid "Application settings"
 msgstr "應用程式設定"
 
-#: src/ocr/ocr.cpp:132
-#, qt-format
-msgctxt "Ocr|"
-msgid "%1 is not a valid Tesseract parameter name."
-msgstr "%1 不是一個有效的 Tesseract 參數名稱。"
+#: src/modulestatus.cpp:271
+msgctxt "ModuleStatus|"
+msgid "Waiting for capture"
+msgstr ""
+
+#: src/modulestatus.cpp:273
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Select icon"
+msgctxt "ModuleStatus|"
+msgid "Select a region"
+msgstr "選擇圖示"
+
+#: src/modulestatus.cpp:275
+msgctxt "ModuleStatus|"
+msgid "Recognizing text"
+msgstr ""
+
+#: src/modulestatus.cpp:277
+#, fuzzy
+#| msgctxt "MainWindow|"
+#| msgid "Translation"
+msgctxt "ModuleStatus|"
+msgid "Translating"
+msgstr "譯文"
+
+#: src/modulestatus.cpp:279
+#, fuzzy
+#| msgctxt "MainWindow|"
+#| msgid "Unable to detect language"
+msgctxt "ModuleStatus|"
+msgid "Detecting language"
+msgstr "無法偵測語言"
+
+#: src/modulestatus.cpp:281
+msgctxt "ModuleStatus|"
+msgid "Preparing speech"
+msgstr ""
+
+#: src/modulestatus.cpp:283
+#, fuzzy
+#| msgctxt "ShortcutsModel|"
+#| msgid "Stop text speaking"
+msgctxt "ModuleStatus|"
+msgid "Speaking"
+msgstr "停止朗讀文字"
+
+#: src/modulestatus.cpp:285
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Capture delay:"
+msgctxt "ModuleStatus|"
+msgid "Capture failed"
+msgstr "截圖延遲："
+
+#: src/modulestatus.cpp:287
+msgctxt "ModuleStatus|"
+msgid "OCR failed"
+msgstr ""
+
+#: src/modulestatus.cpp:289
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Translation backend:"
+msgctxt "ModuleStatus|"
+msgid "Translation failed"
+msgstr "翻譯後端："
+
+#: src/modulestatus.cpp:291
+msgctxt "ModuleStatus|"
+msgid "Speech error"
+msgstr ""
+
+#: src/ocr/llmocr.cpp:264
+msgctxt "LlmOcr|"
+msgid "LLM OCR request timed out"
+msgstr ""
+
+#: src/ocr/llmocr.cpp:270
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: %1"
+msgctxt "LlmOcr|"
+msgid "LLM OCR error: %1"
+msgstr "錯誤：%1"
+
+#: src/ocr/llmocr.cpp:276
+msgctxt "LlmOcr|"
+msgid "LLM OCR returned an empty response"
+msgstr ""
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 msgctxt "AbstractScreenGrabber|"
@@ -712,6 +825,14 @@ msgid ""
 "Screen under cursor disappeared before we got dpi from it. Using primary "
 "screen for dpi information."
 msgstr "游標下的螢幕在成功取得 DPI 之前消失了。將使用主螢幕的 DPI 資訊。"
+
+#: src/ocr/tesseractocr.cpp:142
+#, fuzzy, qt-format
+#| msgctxt "Ocr|"
+#| msgid "%1 is not a valid Tesseract parameter name."
+msgctxt "TesseractOcr|"
+msgid "%1 is not a valid Tesseract parameter name."
+msgstr "%1 不是一個有效的 Tesseract 參數名稱。"
 
 #: src/onlinetranslator.cpp:273
 #, qt-format
@@ -1828,12 +1949,12 @@ msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
 msgstr "錯誤：無法剖析自動偵測到的語言"
 
-#: src/popupwindow.ui:32
+#: src/popupwindow.ui:32 src/popupwindow.ui:35
 msgctxt "PopupWindow|"
 msgid "Swap languages"
 msgstr "交換語言"
 
-#: src/popupwindow.ui:66
+#: src/popupwindow.ui:69 src/popupwindow.ui:72
 #, fuzzy
 #| msgctxt "MainWindow|"
 #| msgid "Translate"
@@ -1841,42 +1962,47 @@ msgctxt "PopupWindow|"
 msgid "Translate"
 msgstr "翻譯"
 
-#: src/popupwindow.ui:80
+#: src/popupwindow.ui:86 src/popupwindow.ui:89
 msgctxt "PopupWindow|"
 msgid "Start/pause saying the source text aloud"
 msgstr ""
 
-#: src/popupwindow.ui:125
+#: src/popupwindow.ui:134 src/popupwindow.ui:137
 msgctxt "PopupWindow|"
 msgid "Stop saying the source text aloud"
 msgstr ""
 
-#: src/popupwindow.ui:132
+#: src/popupwindow.ui:144 src/popupwindow.ui:147
 msgctxt "PopupWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "複製原文到剪貼簿"
 
-#: src/popupwindow.ui:222
+#: src/popupwindow.ui:237 src/popupwindow.ui:240
 msgctxt "PopupWindow|"
 msgid "Start/pause saying the translated text aloud"
 msgstr ""
 
-#: src/popupwindow.ui:267
+#: src/popupwindow.ui:285 src/popupwindow.ui:288
 msgctxt "PopupWindow|"
 msgid "Stop saying the translated text aloud"
 msgstr ""
 
-#: src/popupwindow.ui:274
+#: src/popupwindow.ui:295 src/popupwindow.ui:298
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "複製全部翻譯到剪貼簿"
 
-#: src/popupwindow.ui:284
+#: src/popupwindow.ui:308 src/popupwindow.ui:311
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "複製譯文到剪貼簿"
 
-#: src/settings/appsettings.cpp:1466
+#: src/settings/appsettings.cpp:700
+msgctxt "AppSettings|"
+msgid "OpenAI-compatible (custom)"
+msgstr ""
+
+#: src/settings/appsettings.cpp:1538
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1916,109 +2042,73 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "無法從 %2 中移除 %1"
 
-#: src/settings/settingsdialog.cpp:80
+#: src/settings/settingsdialog.cpp:82
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "可攜模式"
 
-#: src/settings/settingsdialog.cpp:93
+#: src/settings/settingsdialog.cpp:95
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "使用 %1 來儲存設定值"
 
-#: src/settings/settingsdialog.cpp:97
+#: src/settings/settingsdialog.cpp:99
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<系統語言>"
 
-#: src/settings/settingsdialog.cpp:101 src/settings/settingsdialog.cpp:102
+#: src/settings/settingsdialog.cpp:103 src/settings/settingsdialog.cpp:104
 msgctxt "SettingsDialog|"
 msgid "<Auto>"
 msgstr "<自動>"
 
-#: src/settings/settingsdialog.cpp:149
+#: src/settings/settingsdialog.cpp:152
 msgctxt "SettingsDialog|"
 msgid "Copy"
 msgstr "複製"
 
-#: src/settings/settingsdialog.cpp:154
+#: src/settings/settingsdialog.cpp:157
 msgctxt "SettingsDialog|"
 msgid "None"
 msgstr "無"
 
-#: src/settings/settingsdialog.cpp:192
+#: src/settings/settingsdialog.cpp:195
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "圖示："
 
-#: src/settings/settingsdialog.cpp:214
+#: src/settings/settingsdialog.cpp:217
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "OCR 參數欄位不能為空。"
 
-#: src/settings/settingsdialog.cpp:215
+#: src/settings/settingsdialog.cpp:218
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "確定要捨棄無效的參數嗎？"
 
-#: src/settings/settingsdialog.cpp:347
+#: src/settings/settingsdialog.cpp:351 src/settings/settingsdialog.cpp:521
 msgctxt "SettingsDialog|"
 msgid "URL:"
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:351
+#: src/settings/settingsdialog.cpp:355 src/settings/settingsdialog.cpp:525
 msgctxt "SettingsDialog|"
 msgid "Key:"
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:355
+#: src/settings/settingsdialog.cpp:359 src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
 msgid "optional, e.g. for a cloud endpoint"
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:356
+#: src/settings/settingsdialog.cpp:360 src/settings/settingsdialog.cpp:531
 msgctxt "SettingsDialog|"
 msgid "Refresh models"
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:371
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Version:"
-msgctxt "SettingsDialog|"
-msgid "Vision"
-msgstr "版本："
-
-#: src/settings/settingsdialog.cpp:374
-msgctxt "SettingsDialog|"
-msgid "Text"
-msgstr ""
-
-#: src/settings/settingsdialog.cpp:387
-msgctxt "SettingsDialog|"
-msgid "?"
-msgstr ""
-
-#: src/settings/settingsdialog.cpp:389
-msgctxt "SettingsDialog|"
-msgid "How to use this tab"
-msgstr ""
-
-#: src/settings/settingsdialog.cpp:396
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
-msgctxt "SettingsDialog|"
-msgid "Show both"
-msgstr "顯示逾時："
-
-#: src/settings/settingsdialog.cpp:397
-msgctxt "SettingsDialog|"
-msgid "Debug: show Text and Vision blocks simultaneously"
-msgstr ""
-
-#: src/settings/settingsdialog.cpp:410
+#: src/settings/settingsdialog.cpp:378
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Translation mode:"
@@ -2026,7 +2116,7 @@ msgctxt "SettingsDialog|"
 msgid "Translation model:"
 msgstr "翻譯模式："
 
-#: src/settings/settingsdialog.cpp:418 src/settings/settingsdialog.cpp:461
+#: src/settings/settingsdialog.cpp:386 src/settings/settingsdialog.cpp:504
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Show timeout:"
@@ -2034,72 +2124,133 @@ msgctxt "SettingsDialog|"
 msgid "Timeout:"
 msgstr "顯示逾時："
 
-#: src/settings/settingsdialog.cpp:423 src/settings/settingsdialog.cpp:466
+#: src/settings/settingsdialog.cpp:390 src/settings/settingsdialog.cpp:509
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid " ms"
+msgctxt "SettingsDialog|"
+msgid " s"
+msgstr " ms"
+
+#: src/settings/settingsdialog.cpp:391
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a translation or detection response."
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:428 src/settings/settingsdialog.cpp:471
+#: src/settings/settingsdialog.cpp:396
 msgctxt "SettingsDialog|"
 msgid "Disable reasoning"
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:435 src/settings/settingsdialog.cpp:478
+#: src/settings/settingsdialog.cpp:403
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Placeholders: %1"
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:438
+#: src/settings/settingsdialog.cpp:406
 msgctxt "SettingsDialog|"
 msgid "Reset Text prompt"
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:453
+#: src/settings/settingsdialog.cpp:468
+msgctxt "SettingsDialog|"
+msgid "OCR engine:"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:472
+msgctxt "SettingsDialog|"
+msgid "Tesseract"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:473
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
-msgid "Vision model:"
+msgid "Vision model (LLM)"
 msgstr "翻譯模式："
 
-#: src/settings/settingsdialog.cpp:481
+#: src/settings/settingsdialog.cpp:483
 msgctxt "SettingsDialog|"
-msgid "Reset Vision prompt"
+msgid "Tesseract runs locally. Configure languages and parameters below."
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:520
-#, qt-format
+#: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:805
+msgctxt "SettingsDialog|"
+msgid "Provider:"
+msgstr "提供者："
+
+#: src/settings/settingsdialog.cpp:510
+msgctxt "SettingsDialog|"
+msgid "Maximum time to wait for a transcription response."
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:541
+msgctxt "SettingsDialog|"
+msgid "Model:"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:555
+msgctxt "SettingsDialog|"
+msgid "Reset OCR prompt"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:616
+msgctxt "SettingsDialog|"
+msgid "— Server reports image support —"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:620
+msgctxt "SettingsDialog|"
+msgid "— Image support not reported —"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:633
+msgctxt "SettingsDialog|"
+msgid "No models loaded yet — press \"Refresh models\", or type a model name."
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:635
 msgctxt "SettingsDialog|"
 msgid ""
-"<h3>How the LocalAI tab works</h3><p><b>Text / Vision modes:</b> Each "
-"provider has two independent blocks — <i>Text</i> for translating text and "
-"<i>Vision</i> for translating text from images (drag &amp; drop or paste an "
-"image into the source field). Switch with the [Vision] [Text] buttons.</"
-"p><p><b>Prompts are per-model:</b> <u>Each model has its own prompt.</u> "
-"When you change the model, its saved prompt is loaded. Your edits are saved "
-"automatically as you type — no need to click Save.</p><p><b>Default text "
-"prompt:</b><br><code>%1</code></p><p><b>Default vision prompt:</b><br><code>"
-"%2</code></p><p><b>Example — describe a photo (vision mode):</"
-"b><br><code>You are a visual analyst. Examine the image and provide a "
-"detailed description in {target_lang} ({target_code}). Include: scene type, "
-"subjects, colors, lighting, notable details. If there is text, translate it. "
-"Output only the description, 3–6 sentences.</code></p><p><b>Placeholders:</"
-"b><br><code>{source_lang}</code> — source language "
-"name<br><code>{source_code}</code> — source language ISO "
-"code<br><code>{target_lang}</code> — target language "
-"name<br><code>{target_code}</code> — target language ISO code<br><code>{text}"
-"</code> — the input text (text mode only)</p><p><b>Disable reasoning:</b> "
-"Skips thinking tokens on supported models. Only shown for Ollama providers.</"
-"p><p><b>Timeout:</b> Maximum time to wait for a response.</p>"
+"This endpoint does not report model capabilities, so image support cannot be "
+"verified here. Pick a model you know accepts images."
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:550
+#: src/settings/settingsdialog.cpp:638
 msgctxt "SettingsDialog|"
-msgid "LocalAI Tab Help"
+msgid ""
+"The server reported no image-capable models. A model listed here may still "
+"work, but recognition will fail if it cannot accept images."
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:806
+#: src/settings/settingsdialog.cpp:641
+#, qt-format
+msgctxt "SettingsDialog|"
+msgid "%n model(s) reported as image-capable."
+msgid_plural "%n model(s) reported as image-capable."
+msgstr[0] ""
+
+#: src/settings/settingsdialog.cpp:699
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Translation mode:"
+msgctxt "SettingsDialog|"
+msgid "Vision model"
+msgstr "翻譯模式："
+
+#: src/settings/settingsdialog.cpp:699
+msgctxt "SettingsDialog|"
+msgid "Enter the endpoint URL first."
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:709 src/settings/settingsdialog.cpp:929
+msgctxt "SettingsDialog|"
+msgid "No models found."
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:722 src/settings/settingsdialog.cpp:916
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid ""
@@ -2107,42 +2258,37 @@ msgid ""
 "%3"
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:819
-msgctxt "SettingsDialog|"
-msgid "No models found."
-msgstr ""
-
-#: src/settings/settingsdialog.cpp:901
+#: src/settings/settingsdialog.cpp:1000
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "選擇圖示"
 
-#: src/settings/settingsdialog.cpp:901
+#: src/settings/settingsdialog.cpp:1000
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "圖片 (*.png *.ico *.svg *.jpg);;所有檔案()"
 
-#: src/settings/settingsdialog.cpp:931
+#: src/settings/settingsdialog.cpp:1030
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "選擇 OCR 語言路徑"
 
-#: src/settings/settingsdialog.cpp:946
+#: src/settings/settingsdialog.cpp:1045
 msgctxt "SettingsDialog|"
 msgid "Piper voices path:"
 msgstr "Piper 嗓音路徑："
 
-#: src/settings/settingsdialog.cpp:960
+#: src/settings/settingsdialog.cpp:1059
 msgctxt "SettingsDialog|"
 msgid "Directory with voice models"
 msgstr "含有嗓音模型的目錄"
 
-#: src/settings/settingsdialog.cpp:961 src/settings/settingsdialog.cpp:980
+#: src/settings/settingsdialog.cpp:1060 src/settings/settingsdialog.cpp:1079
 msgctxt "SettingsDialog|"
 msgid "Select Piper voices path"
 msgstr "選擇 Piper 嗓音路徑"
 
-#: src/settings/settingsdialog.cpp:1137
+#: src/settings/settingsdialog.cpp:1237
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "返回"
@@ -2162,7 +2308,7 @@ msgctxt "SettingsDialog|"
 msgid "Interface"
 msgstr "介面"
 
-#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:825
+#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:841
 msgctxt "SettingsDialog|"
 msgid "Translation"
 msgstr "翻譯"
@@ -2467,34 +2613,56 @@ msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>選擇圖示</p></body></html>"
 
-#: src/settings/settingsdialog.ui:658
+#: src/settings/settingsdialog.ui:632
+msgctxt "SettingsDialog|"
+msgid "Status bar"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:638
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid ""
+#| "<html><head/><body><p>Start application minimized to the system tray</p></"
+#| "body></html>"
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/<body><p>Show what the application is currently doing at the "
+"bottom of the main and pop-up windows</p></body></html>"
+msgstr "<html><head/><body><p>啟動應用程式時最小化到系統匣</p></body></html>"
+
+#: src/settings/settingsdialog.ui:641
+msgctxt "SettingsDialog|"
+msgid "Show status bar"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:677
 msgctxt "SettingsDialog|"
 msgid "Translation provider:"
 msgstr "翻譯提供者："
 
-#: src/settings/settingsdialog.ui:681
+#: src/settings/settingsdialog.ui:700
 msgctxt "SettingsDialog|"
 msgid "Automatic language detection"
 msgstr "自動語言偵測"
 
-#: src/settings/settingsdialog.ui:687
+#: src/settings/settingsdialog.ui:706
 msgctxt "SettingsDialog|"
 msgid "Primary translation language:"
 msgstr "主要翻譯語言："
 
-#: src/settings/settingsdialog.ui:694
+#: src/settings/settingsdialog.ui:713
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which text will be translated when "
 "autodetecting</p></body></html>"
 msgstr "<html><head/><body><p>自動偵測時的目標語言</p></body></html>"
 
-#: src/settings/settingsdialog.ui:701
+#: src/settings/settingsdialog.ui:720
 msgctxt "SettingsDialog|"
 msgid "Secondary translation language:"
 msgstr "次要翻譯語言："
 
-#: src/settings/settingsdialog.ui:708
+#: src/settings/settingsdialog.ui:727
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which the text will be translated if it is "
@@ -2503,7 +2671,7 @@ msgstr ""
 "<html><head/><body><p>文字是上方所選語言的時候要再翻譯成哪個語言</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:715 src/settings/settingsdialog.ui:725
+#: src/settings/settingsdialog.ui:734 src/settings/settingsdialog.ui:744
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
@@ -2512,29 +2680,17 @@ msgstr ""
 "<html><head/><body><p>使用 OCR 和全域快捷鍵時，自動切換到<span style=\" font-"
 "style:italic;\">自動</span> 模式</p></body></html>"
 
-#: src/settings/settingsdialog.ui:718
+#: src/settings/settingsdialog.ui:737
 msgctxt "SettingsDialog|"
 msgid "Force source language detection"
 msgstr "強制偵測原文語言"
 
-#: src/settings/settingsdialog.ui:728
+#: src/settings/settingsdialog.ui:747
 msgctxt "SettingsDialog|"
 msgid "Force translation language detection"
 msgstr "強制偵測譯文語言"
 
-#: src/settings/settingsdialog.ui:735
-msgctxt "SettingsDialog|"
-msgid ""
-"Detect the source language using a LocalAI model instead of the built-in "
-"heuristic. Choose the provider and model below."
-msgstr ""
-
-#: src/settings/settingsdialog.ui:738
-msgctxt "SettingsDialog|"
-msgid "Detect language via LLM (LocalAI)"
-msgstr ""
-
-#: src/settings/settingsdialog.ui:745
+#: src/settings/settingsdialog.ui:754
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Translation provider:"
@@ -2542,7 +2698,15 @@ msgctxt "SettingsDialog|"
 msgid "Detection provider:"
 msgstr "翻譯提供者："
 
-#: src/settings/settingsdialog.ui:755
+#: src/settings/settingsdialog.ui:761 src/settings/settingsdialog.ui:778
+msgctxt "SettingsDialog|"
+msgid ""
+"Provider and model used to detect the source language when it is set to "
+"Auto. If no detection model is selected, translation falls back to the "
+"configured primary language above."
+msgstr ""
+
+#: src/settings/settingsdialog.ui:768
 #, fuzzy
 #| msgctxt "SnippingArea|"
 #| msgid "DPI Detection Error"
@@ -2550,75 +2714,70 @@ msgctxt "SettingsDialog|"
 msgid "Detection model:"
 msgstr "DPI 偵測錯誤"
 
-#: src/settings/settingsdialog.ui:783
+#: src/settings/settingsdialog.ui:799
 msgctxt "SettingsDialog|"
 msgid "Text-to-Speech"
 msgstr "文字轉語音"
 
-#: src/settings/settingsdialog.ui:789
-msgctxt "SettingsDialog|"
-msgid "Provider:"
-msgstr "提供者："
-
-#: src/settings/settingsdialog.ui:831
+#: src/settings/settingsdialog.ui:847
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
 "html>"
 msgstr "<html><head/><body><p>啟用或停用原文音譯</p></body></html>"
 
-#: src/settings/settingsdialog.ui:834
+#: src/settings/settingsdialog.ui:850
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
 msgstr "啟用原文音譯"
 
-#: src/settings/settingsdialog.ui:841
+#: src/settings/settingsdialog.ui:857
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
 "body></html>"
 msgstr "<html><head/><body><p>啟用或停用譯文音譯</p></body></html>"
 
-#: src/settings/settingsdialog.ui:844
+#: src/settings/settingsdialog.ui:860
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
 msgstr "啟用譯文音譯"
 
-#: src/settings/settingsdialog.ui:851
+#: src/settings/settingsdialog.ui:867
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
 "html>"
 msgstr "<html><head/><body><p>啟用或停用原文轉錄</p></body></html>"
 
-#: src/settings/settingsdialog.ui:854
+#: src/settings/settingsdialog.ui:870
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
 msgstr "啟用原文轉錄"
 
-#: src/settings/settingsdialog.ui:861
+#: src/settings/settingsdialog.ui:877
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
 msgstr "<html><head/><body><p>啟用或停用翻譯選項</p></body></html>"
 
-#: src/settings/settingsdialog.ui:864
+#: src/settings/settingsdialog.ui:880
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
 msgstr "啟用翻譯選項"
 
-#: src/settings/settingsdialog.ui:871
+#: src/settings/settingsdialog.ui:887
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
 msgstr "<html><head/><body><p>啟用或停用使用範例</p></body></html>"
 
-#: src/settings/settingsdialog.ui:874
+#: src/settings/settingsdialog.ui:890
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
 msgstr "啟用範例"
 
-#: src/settings/settingsdialog.ui:881
+#: src/settings/settingsdialog.ui:897
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace each sequence of whitespaces (this includes "
@@ -2628,53 +2787,53 @@ msgstr ""
 "<html><head/><body><p>在查詢中用單個空格替換連續的空白字元（包括 ASCII 字元 "
 "'\\t' '\\n' '\\v', '\\f', '\\r', 和 ' '）</p></body></html>"
 
-#: src/settings/settingsdialog.ui:884
+#: src/settings/settingsdialog.ui:900
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
 msgstr "簡化原文格式"
 
-#: src/settings/settingsdialog.ui:915
+#: src/settings/settingsdialog.ui:931
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
 msgstr "Mozhi 實體網址"
 
-#: src/settings/settingsdialog.ui:928
+#: src/settings/settingsdialog.ui:944
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
 msgstr "自動依 ping 時間挑選最快的實體"
 
-#: src/settings/settingsdialog.ui:931
+#: src/settings/settingsdialog.ui:947
 msgctxt "SettingsDialog|"
 msgid "Detect fastest"
 msgstr "偵測最快的"
 
-#: src/settings/settingsdialog.ui:952
+#: src/settings/settingsdialog.ui:968
 msgctxt "SettingsDialog|"
 msgid ""
 "Optional. Required by self-hosted LibreTranslate instances and "
 "libretranslate.com; the Mozhi front-end ignores it."
 msgstr ""
 
-#: src/settings/settingsdialog.ui:965
+#: src/settings/settingsdialog.ui:981
 msgctxt "SettingsDialog|"
 msgid ""
 "Talk the direct LibreTranslate REST API to the instance URL instead of the "
 "Mozhi-compatible API; use this for self-hosted LibreTranslate servers."
 msgstr ""
 
-#: src/settings/settingsdialog.ui:1000
+#: src/settings/settingsdialog.ui:1016
 msgctxt "SettingsDialog|"
 msgid ""
 "Local OpenAI-compatible servers. Set URL, translation model and prompt for "
 "each. Language detection is configured on the Translation page."
 msgstr ""
 
-#: src/settings/settingsdialog.ui:1023
+#: src/settings/settingsdialog.ui:1039
 msgctxt "SettingsDialog|"
 msgid "Languages"
 msgstr "語言"
 
-#: src/settings/settingsdialog.ui:1029
+#: src/settings/settingsdialog.ui:1045
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Loading additional languages will impact both speed "
@@ -2685,22 +2844,22 @@ msgstr ""
 "<html><head/><body><p>載入額外的語言會影響辨識速度和準確性，因為確認適當的語"
 "言需要做更多處理，並且這也會增加幻想出錯誤文字的機率。</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1036
+#: src/settings/settingsdialog.ui:1052
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
 msgstr "語言檔案路徑："
 
-#: src/settings/settingsdialog.ui:1043
+#: src/settings/settingsdialog.ui:1059
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr "<html><head/><body><p>選擇 OCR 語言路徑</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1053
+#: src/settings/settingsdialog.ui:1069
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
 msgstr "<html><head/><body><p>開啟 GitHub 儲存庫</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1056
+#: src/settings/settingsdialog.ui:1072
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
@@ -2711,12 +2870,12 @@ msgstr ""
 "\"><span style=\" text-decoration: underline; color:#2980b9;\">下載更多</"
 "span></a></p></body></html>"
 
-#: src/settings/settingsdialog.ui:1066
+#: src/settings/settingsdialog.ui:1082
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
 msgstr "含有已訓練模型的目錄"
 
-#: src/settings/settingsdialog.ui:1082
+#: src/settings/settingsdialog.ui:1098
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
@@ -2724,70 +2883,70 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>辨識文字後用空格替換所有單個換行符號</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1085
+#: src/settings/settingsdialog.ui:1101
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
 msgstr "轉換換行符號"
 
-#: src/settings/settingsdialog.ui:1149
+#: src/settings/settingsdialog.ui:1165
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
 msgstr "螢幕截圖"
 
-#: src/settings/settingsdialog.ui:1161
+#: src/settings/settingsdialog.ui:1177
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
 msgstr "記住區域設定："
 
-#: src/settings/settingsdialog.ui:1168
+#: src/settings/settingsdialog.ui:1184
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
 "html>"
 msgstr "<html><head/><body><p>選擇何時記住上次選擇的區域</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1172
+#: src/settings/settingsdialog.ui:1188
 msgctxt "SettingsDialog|"
 msgid "Never"
 msgstr "從不"
 
-#: src/settings/settingsdialog.ui:1177
+#: src/settings/settingsdialog.ui:1193
 msgctxt "SettingsDialog|"
 msgid "Remember last"
 msgstr "記住上一個"
 
-#: src/settings/settingsdialog.ui:1182
+#: src/settings/settingsdialog.ui:1198
 msgctxt "SettingsDialog|"
 msgid "Remember always"
 msgstr "總是記住"
 
-#: src/settings/settingsdialog.ui:1190
+#: src/settings/settingsdialog.ui:1206
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
 msgstr "截圖延遲："
 
-#: src/settings/settingsdialog.ui:1197
+#: src/settings/settingsdialog.ui:1213
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
 msgstr "螢幕截圖前延遲的時間"
 
-#: src/settings/settingsdialog.ui:1200
+#: src/settings/settingsdialog.ui:1216
 msgctxt "SettingsDialog|"
 msgid " ms"
 msgstr " ms"
 
-#: src/settings/settingsdialog.ui:1210
+#: src/settings/settingsdialog.ui:1226
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
 msgstr "<html><head/><body><p>在滑鼠游標旁顯示放大鏡</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1213
+#: src/settings/settingsdialog.ui:1229
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
 msgstr "顯示放大鏡"
 
-#: src/settings/settingsdialog.ui:1220
+#: src/settings/settingsdialog.ui:1236
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
@@ -2796,207 +2955,207 @@ msgstr ""
 "<html><head/><body><p>進行 OCR 前先反轉圖片色彩（負片）。適合深色背景亮色文字"
 "的影像。</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1223
+#: src/settings/settingsdialog.ui:1239
 msgctxt "SettingsDialog|"
 msgid "Negate OCR"
 msgstr "反轉 OCR"
 
-#: src/settings/settingsdialog.ui:1233
+#: src/settings/settingsdialog.ui:1249
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
 "released</p></body></html>"
 msgstr "<html><head/><body><p>放開滑鼠按鈕時進行截圖</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1236
+#: src/settings/settingsdialog.ui:1252
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
 msgstr "放開時確認"
 
-#: src/settings/settingsdialog.ui:1243
+#: src/settings/settingsdialog.ui:1259
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
 "html>"
 msgstr "<html><head/><body><p>霧化未選取部分</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1246
+#: src/settings/settingsdialog.ui:1262
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
 msgstr "使用明亮遮罩"
 
-#: src/settings/settingsdialog.ui:1279
+#: src/settings/settingsdialog.ui:1295
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
 msgstr "代理伺服器"
 
-#: src/settings/settingsdialog.ui:1285
+#: src/settings/settingsdialog.ui:1301
 msgctxt "SettingsDialog|"
 msgid "Type:"
 msgstr "類型："
 
-#: src/settings/settingsdialog.ui:1298
+#: src/settings/settingsdialog.ui:1314
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
 msgstr "<html><head/><body><p>代理類型</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1302
+#: src/settings/settingsdialog.ui:1318
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
 msgstr "使用系統設定"
 
-#: src/settings/settingsdialog.ui:1312
+#: src/settings/settingsdialog.ui:1328
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
 msgstr "不使用代理"
 
-#: src/settings/settingsdialog.ui:1328
+#: src/settings/settingsdialog.ui:1344
 msgctxt "SettingsDialog|"
 msgid "Host:"
 msgstr "主機："
 
-#: src/settings/settingsdialog.ui:1338
+#: src/settings/settingsdialog.ui:1354
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr "<html><head/><body><p>代理主機名稱</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1351
+#: src/settings/settingsdialog.ui:1367
 msgctxt "SettingsDialog|"
 msgid "Port:"
 msgstr "連接埠："
 
-#: src/settings/settingsdialog.ui:1367
+#: src/settings/settingsdialog.ui:1383
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
 msgstr "<html><head/><body><p>代理主機連接埠</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1386
+#: src/settings/settingsdialog.ui:1402
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
 msgstr "資訊：代理設定只對文字翻譯生效"
 
-#: src/settings/settingsdialog.ui:1396
+#: src/settings/settingsdialog.ui:1412
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
 msgstr "<html><head/><body><p>啟用或停用驗證</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1399
+#: src/settings/settingsdialog.ui:1415
 msgctxt "SettingsDialog|"
 msgid "Authentication"
 msgstr "驗證"
 
-#: src/settings/settingsdialog.ui:1409
+#: src/settings/settingsdialog.ui:1425
 msgctxt "SettingsDialog|"
 msgid "Username:"
 msgstr "使用者名稱："
 
-#: src/settings/settingsdialog.ui:1419
+#: src/settings/settingsdialog.ui:1435
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
 msgstr "<html><head/><body><p>代理驗證使用者名稱</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1429
+#: src/settings/settingsdialog.ui:1445
 msgctxt "SettingsDialog|"
 msgid "Password:"
 msgstr "密碼："
 
-#: src/settings/settingsdialog.ui:1439
+#: src/settings/settingsdialog.ui:1455
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
 msgstr "<html><head/><body><p>代理驗證密碼</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1452
+#: src/settings/settingsdialog.ui:1468
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
 msgstr "注：密碼將被加密保存"
 
-#: src/settings/settingsdialog.ui:1488
+#: src/settings/settingsdialog.ui:1504
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
 msgstr "<html><head/><body><p>註冊全域快捷鍵</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1491
+#: src/settings/settingsdialog.ui:1507
 msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "啟用全域快捷鍵"
 
-#: src/settings/settingsdialog.ui:1507
+#: src/settings/settingsdialog.ui:1523
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr "<html><head/><body><p>重設所有快捷鍵至預設值</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1510
+#: src/settings/settingsdialog.ui:1526
 msgctxt "SettingsDialog|"
 msgid "Reset all"
 msgstr "全部重設"
 
-#: src/settings/settingsdialog.ui:1520
+#: src/settings/settingsdialog.ui:1536
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
 msgstr "快捷鍵"
 
-#: src/settings/settingsdialog.ui:1526
+#: src/settings/settingsdialog.ui:1542
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
 msgstr "按鍵："
 
-#: src/settings/settingsdialog.ui:1533
+#: src/settings/settingsdialog.ui:1549
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
 "html>"
 msgstr "<html><head/><body><p>所選動作的按鍵序列</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1540
+#: src/settings/settingsdialog.ui:1556
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
 msgstr "<html><head/><body><p>接受快捷鍵</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1543
+#: src/settings/settingsdialog.ui:1559
 msgctxt "SettingsDialog|"
 msgid "Accept"
 msgstr "接受"
 
-#: src/settings/settingsdialog.ui:1553
+#: src/settings/settingsdialog.ui:1569
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
 msgstr "<html><head/><body><p>清除快捷鍵</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1556
+#: src/settings/settingsdialog.ui:1572
 msgctxt "SettingsDialog|"
 msgid "Clear"
 msgstr "清除"
 
-#: src/settings/settingsdialog.ui:1566
+#: src/settings/settingsdialog.ui:1582
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr "<html><head/><body><p>重設快捷鍵至預設值</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1569
+#: src/settings/settingsdialog.ui:1585
 msgctxt "SettingsDialog|"
 msgid "Reset"
 msgstr "重設"
 
-#: src/settings/settingsdialog.ui:1614
+#: src/settings/settingsdialog.ui:1630
 msgctxt "SettingsDialog|"
 msgid "Version:"
 msgstr "版本："
 
-#: src/settings/settingsdialog.ui:1624
+#: src/settings/settingsdialog.ui:1640
 msgctxt "SettingsDialog|"
 msgid "License:"
 msgstr "許可證："
 
-#: src/settings/settingsdialog.ui:1638
+#: src/settings/settingsdialog.ui:1654
 msgctxt "SettingsDialog|"
 msgid "Source code:"
 msgstr "原始碼："
 
-#: src/settings/settingsdialog.ui:1658
+#: src/settings/settingsdialog.ui:1674
 msgctxt "SettingsDialog|"
 msgid "Translation backend:"
 msgstr "翻譯後端："
@@ -3127,6 +3286,12 @@ msgctxt "TesseractParametersTableWidget|"
 msgid "Value"
 msgstr "值"
 
+#: src/statusstrip.cpp:23 src/statusstrip.cpp:79 src/statusstrip.cpp:127
+#: src/statusstrip.cpp:128 src/statusstrip.cpp:143 src/statusstrip.cpp:144
+msgctxt "StatusStrip|"
+msgid "Ready"
+msgstr ""
+
 #: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"
 msgid "Translation Provider Error"
@@ -3142,12 +3307,12 @@ msgstr ""
 "所選的翻譯提供者在初始化時崩潰。已重設為「複製」提供者來防止更多問題發生。您"
 "可以從 設定 → 翻譯 嘗試使用另一個提供者。"
 
-#: src/translator/mozhitranslationprovider.cpp:400
+#: src/translator/mozhitranslationprovider.cpp:408
 msgctxt "MozhiTranslationProvider|"
 msgid "translation options:"
 msgstr "翻譯選項："
 
-#: src/translator/mozhitranslationprovider.cpp:414
+#: src/translator/mozhitranslationprovider.cpp:422
 msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
 msgstr "範例："
@@ -3363,6 +3528,24 @@ msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
 msgstr "Windows TTS 嗓音安裝"
 
+#~ msgctxt "Ocr|"
+#~ msgid "OCR languages are not loaded"
+#~ msgstr "OCR 語言未載入"
+
+#, fuzzy
+#~| msgctxt "SettingsDialog|"
+#~| msgid "Version:"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Vision"
+#~ msgstr "版本："
+
+#, fuzzy
+#~| msgctxt "SettingsDialog|"
+#~| msgid "Show timeout:"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Show both"
+#~ msgstr "顯示逾時："
+
 #~ msgctxt "MainWindow|"
 #~ msgid "..."
 #~ msgstr "..."
@@ -3381,10 +3564,6 @@ msgstr "Windows TTS 嗓音安裝"
 #~ msgctxt "MainWindow|"
 #~ msgid "OCR image negate has changed to %1"
 #~ msgstr "OCR 圖片反轉色彩已變更為 %1"
-
-#~ msgctxt "MainWindow|"
-#~ msgid "Unable to detect language"
-#~ msgstr "無法偵測語言"
 
 #~ msgctxt "MainWindow|"
 #~ msgid "Unable to translate text"

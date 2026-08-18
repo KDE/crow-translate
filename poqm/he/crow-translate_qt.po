@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2025, 2026 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-04-20 20:18+0300\n"
+"PO-Revision-Date: 2026-08-17 09:30+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: src/cli.cpp:37
 msgctxt "Cli|"
@@ -292,40 +292,41 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "לא ניתן לרשום עצם D-Bus עבור %1"
 
-#: src/mainwindow.cpp:391
+#: src/mainwindow.cpp:464
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "זיהוי תווים אופטי"
 
-#: src/mainwindow.cpp:392
+#: src/mainwindow.cpp:465
 msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "תמונת זיהוי תווים אופטי מנוגדת"
 
-#: src/mainwindow.cpp:392
+#: src/mainwindow.cpp:465
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr "תמונת זיהוי תווים אופטי רגילה"
 
-#: src/mainwindow.cpp:546 src/mainwindow.cpp:566 src/mainwindow.cpp:614
-#: src/mainwindow.cpp:643
-msgctxt "Ocr|"
-msgid "OCR languages are not loaded"
-msgstr "שפות זיהוי התווים האופטי לא נטענו"
+#: src/mainwindow.cpp:624
+msgctxt "TesseractOcr|"
+msgid "OCR is not configured"
+msgstr ""
 
-#: src/mainwindow.cpp:546 src/mainwindow.cpp:566 src/mainwindow.cpp:614
-#: src/mainwindow.cpp:643
-msgctxt "Ocr|"
-msgid "You should set at least one OCR language in the application settings"
+#: src/mainwindow.cpp:624
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "You should set at least one OCR language in the application settings"
+msgctxt "TesseractOcr|"
+msgid "Set up the OCR engine in the application settings"
 msgstr "יש להגדיר לפחות שפת זיהוי תווים אופטית אחת בהגדרות היישום"
 
-#: src/mainwindow.cpp:822
+#: src/mainwindow.cpp:880
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "היישום הזה משתמש ב־%1 כדי לספק תרגומים."
 
-#: src/mainwindow.cpp:823
+#: src/mainwindow.cpp:881
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -338,39 +339,44 @@ msgstr ""
 "משתמש מאחסנים ומנתחים את הטקסט ששלחת. העותק הנוכחי שלך הוא ‚%1’, אך אפשר "
 "לשנות אותו בהגדרות התרגום. פרטי העותק מופיעים בקישור שלהלן."
 
-#: src/mainwindow.cpp:830
+#: src/mainwindow.cpp:888
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "לא להציג שוב"
 
-#: src/mainwindow.cpp:872
+#: src/mainwindow.cpp:935
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "סמל שורת המערכת שגוי"
 
-#: src/mainwindow.cpp:872
+#: src/mainwindow.cpp:935
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "הסמל ‚%1’ שנבחר הוא שגוי. יוחלף בסמל ברירת המחדל."
 
-#: src/mainwindow.cpp:893
-msgctxt "Ocr|"
+#: src/mainwindow.cpp:956
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "Unable to set OCR languages"
+msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "לא ניתן להגדיר שפות לזיהוי תווים אופטי"
 
-#: src/mainwindow.cpp:893
-#, qt-format
-msgctxt "Ocr|"
+#: src/mainwindow.cpp:956
+#, fuzzy, qt-format
+#| msgctxt "Ocr|"
+#| msgid "Unable to initialize Tesseract with %1"
+msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "לא ניתן לאתחל את Tessarect עם %1"
 
-#: src/mainwindow.cpp:1035
+#: src/mainwindow.cpp:1099
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr "שגיאת הקראה"
 
-#: src/mainwindow.cpp:1035
+#: src/mainwindow.cpp:1099
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -386,122 +392,231 @@ msgstr ""
 "\n"
 "נא לבדוק את הגדרות ההקראה שלך או לנסות קול/אזור אחר."
 
-#: src/mainwindow.cpp:1852
+#: src/mainwindow.cpp:1911
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
-msgstr ""
+msgstr "התמונה גדולה מדי (%1 מגה פיקסל) %2 מגה פיקסל לכל היותר."
 
-#: src/mainwindow.cpp:1868
+#: src/mainwindow.cpp:2011
 #, qt-format
 msgctxt "MainWindow|"
-msgid "Image too large (%1 MB). Max %2 MB."
+msgid "OCR failed: %1"
 msgstr ""
 
-#: src/mainwindow.cpp:1980
+#: src/mainwindow.cpp:2105 src/mainwindow.cpp:2162
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
 "Cannot open image:\n"
 "%1"
 msgstr ""
+"לא ניתן לפתוח תמונה:\n"
+"%1"
+
+#: src/mainwindow.cpp:2153 src/mainwindow.cpp:2162
+msgctxt "MainWindow|"
+msgid "Open image"
+msgstr ""
+
+#: src/mainwindow.cpp:2155
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
+msgctxt "MainWindow|"
+msgid ""
+"Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
+msgstr "תמונות (‎*.png‏ ‎*.ico‏ ‎*.svg‏ ‎*.jpg);;כל הקבצים()"
 
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
 msgid "Crow Translate"
 msgstr "Crow Translate"
 
-#: src/mainwindow.ui:29
+#: src/mainwindow.ui:29 src/mainwindow.ui:32
 msgctxt "MainWindow|"
 msgid "Translate"
 msgstr "תרגום"
 
-#: src/mainwindow.ui:39
+#: src/mainwindow.ui:42 src/mainwindow.ui:45
 msgctxt "MainWindow|"
 msgid "Swap languages"
 msgstr "החלפת שפות"
 
-#: src/mainwindow.ui:52
+#: src/mainwindow.ui:58 src/mainwindow.ui:61
 msgctxt "MainWindow|"
 msgid "Source"
 msgstr "מקור"
 
-#: src/mainwindow.ui:72
+#: src/mainwindow.ui:81 src/mainwindow.ui:84
 msgctxt "MainWindow|"
 msgid "Cancel"
 msgstr "ביטול"
 
-#: src/mainwindow.ui:84
+#: src/mainwindow.ui:96 src/mainwindow.ui:99
 msgctxt "MainWindow|"
 msgid "Start/pause saying the source text aloud"
 msgstr "התחלת/עצירת הקראת טקסט המקור בקול רם"
 
-#: src/mainwindow.ui:132
+#: src/mainwindow.ui:147 src/mainwindow.ui:150
 msgctxt "MainWindow|"
 msgid "Stop saying the source text aloud"
 msgstr "עצירת הקראת טקסט המקור בקול רם"
 
-#: src/mainwindow.ui:142
+#: src/mainwindow.ui:160 src/mainwindow.ui:163
 msgctxt "MainWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "העתקת טקסט המקור ללוח הגזירים"
 
-#: src/mainwindow.ui:152
+#: src/mainwindow.ui:173 src/mainwindow.ui:176
+#, fuzzy
+#| msgctxt "ShortcutsModel|"
+#| msgid "Recognize text in screen area"
+msgctxt "MainWindow|"
+msgid "Recognize text in an image file"
+msgstr "זיהוי טקסט באזור במסך"
+
+#: src/mainwindow.ui:186 src/mainwindow.ui:189
 msgctxt "MainWindow|"
 msgid "Recognize screen area with delay"
 msgstr "זיהוי אזור במסך עם השהיה"
 
 #. The text should be short to fit in portrait orientation on phones.
-#: src/mainwindow.ui:168
+#: src/mainwindow.ui:205
 msgctxt "MainWindow|"
 msgid "Auto-translation"
 msgstr "תרגום אוטומטי"
 
-#: src/mainwindow.ui:177
+#: src/mainwindow.ui:214 src/mainwindow.ui:217
 msgctxt "MainWindow|"
 msgid "Clear"
 msgstr "פינוי"
 
-#: src/mainwindow.ui:204
+#: src/mainwindow.ui:241 src/mainwindow.ui:247
 msgctxt "MainWindow|"
 msgid "Translation"
 msgstr "תרגום"
 
-#: src/mainwindow.ui:213
+#: src/mainwindow.ui:256 src/mainwindow.ui:259
 msgctxt "MainWindow|"
 msgid "Start/pause saying the translated text aloud"
 msgstr "התחלת/עצירת הקראת הטקסט המתורגם בקול רם"
 
-#: src/mainwindow.ui:261
+#: src/mainwindow.ui:307 src/mainwindow.ui:310
 msgctxt "MainWindow|"
 msgid "Stop saying the translated text aloud"
 msgstr "עצירת הקראת הטקסט המתורגם בקול רם"
 
-#: src/mainwindow.ui:351
+#: src/mainwindow.ui:400 src/mainwindow.ui:403
 msgctxt "MainWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "העתקת התרגום ללוח הגזירים"
 
-#: src/mainwindow.ui:361
+#: src/mainwindow.ui:413 src/mainwindow.ui:416
 msgctxt "MainWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "העתקת כל נתוני התרגום ללוח הגזירים"
 
-#: src/mainwindow.ui:371
+#: src/mainwindow.ui:426 src/mainwindow.ui:429
 msgctxt "MainWindow|"
 msgid "Translate screen area with delay"
 msgstr "תרגום אזור במסך עם השהיה"
 
-#: src/mainwindow.ui:381
+#: src/mainwindow.ui:439 src/mainwindow.ui:442
 msgctxt "MainWindow|"
 msgid "Application settings"
 msgstr "הגדרות יישום"
 
-#: src/ocr/ocr.cpp:132
-#, qt-format
-msgctxt "Ocr|"
-msgid "%1 is not a valid Tesseract parameter name."
-msgstr "%1 הוא לא שם תקף של משתנה Tessarect."
+#: src/modulestatus.cpp:271
+msgctxt "ModuleStatus|"
+msgid "Waiting for capture"
+msgstr ""
+
+#: src/modulestatus.cpp:273
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Select icon"
+msgctxt "ModuleStatus|"
+msgid "Select a region"
+msgstr "בחירת סמל"
+
+#: src/modulestatus.cpp:275
+msgctxt "ModuleStatus|"
+msgid "Recognizing text"
+msgstr ""
+
+#: src/modulestatus.cpp:277
+#, fuzzy
+#| msgctxt "MainWindow|"
+#| msgid "Translation"
+msgctxt "ModuleStatus|"
+msgid "Translating"
+msgstr "תרגום"
+
+#: src/modulestatus.cpp:279
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid "Detecting fastest instance"
+msgctxt "ModuleStatus|"
+msgid "Detecting language"
+msgstr "העותק המהיר ביותר מזוהה"
+
+#: src/modulestatus.cpp:281
+msgctxt "ModuleStatus|"
+msgid "Preparing speech"
+msgstr ""
+
+#: src/modulestatus.cpp:283
+#, fuzzy
+#| msgctxt "ShortcutsModel|"
+#| msgid "Stop text speaking"
+msgctxt "ModuleStatus|"
+msgid "Speaking"
+msgstr "הפסקת הקראת טקסט"
+
+#: src/modulestatus.cpp:285
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Capture delay:"
+msgctxt "ModuleStatus|"
+msgid "Capture failed"
+msgstr "השהיית צילום:"
+
+#: src/modulestatus.cpp:287
+msgctxt "ModuleStatus|"
+msgid "OCR failed"
+msgstr ""
+
+#: src/modulestatus.cpp:289
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Translation backend:"
+msgctxt "ModuleStatus|"
+msgid "Translation failed"
+msgstr "מנגנון תרגום:"
+
+#: src/modulestatus.cpp:291
+msgctxt "ModuleStatus|"
+msgid "Speech error"
+msgstr ""
+
+#: src/ocr/llmocr.cpp:264
+msgctxt "LlmOcr|"
+msgid "LLM OCR request timed out"
+msgstr ""
+
+#: src/ocr/llmocr.cpp:270
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: %1"
+msgctxt "LlmOcr|"
+msgid "LLM OCR error: %1"
+msgstr "שגיאה: %1"
+
+#: src/ocr/llmocr.cpp:276
+msgctxt "LlmOcr|"
+msgid "LLM OCR returned an empty response"
+msgstr ""
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 msgctxt "AbstractScreenGrabber|"
@@ -713,6 +828,14 @@ msgid ""
 msgstr ""
 "המסך שתחת הסמן נעלם לפני שאספנו עליו נתוני איכות (נק׳ לאינץ׳). נעשה שימוש "
 "בנתונים האלה מהמסך הראשי."
+
+#: src/ocr/tesseractocr.cpp:142
+#, fuzzy, qt-format
+#| msgctxt "Ocr|"
+#| msgid "%1 is not a valid Tesseract parameter name."
+msgctxt "TesseractOcr|"
+msgid "%1 is not a valid Tesseract parameter name."
+msgstr "%1 הוא לא שם תקף של משתנה Tessarect."
 
 #: src/onlinetranslator.cpp:273
 #, qt-format
@@ -1822,52 +1945,57 @@ msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
 msgstr "שגיאה: לא ניתן לפענח שפה לזיהוי אוטומטי"
 
-#: src/popupwindow.ui:32
+#: src/popupwindow.ui:32 src/popupwindow.ui:35
 msgctxt "PopupWindow|"
 msgid "Swap languages"
 msgstr "החלפת שפות"
 
-#: src/popupwindow.ui:66
+#: src/popupwindow.ui:69 src/popupwindow.ui:72
 msgctxt "PopupWindow|"
 msgid "Translate"
 msgstr "תרגום"
 
-#: src/popupwindow.ui:80
+#: src/popupwindow.ui:86 src/popupwindow.ui:89
 msgctxt "PopupWindow|"
 msgid "Start/pause saying the source text aloud"
 msgstr "התחלת/עצירת הקראת טקסט המקור בקול רם"
 
-#: src/popupwindow.ui:125
+#: src/popupwindow.ui:134 src/popupwindow.ui:137
 msgctxt "PopupWindow|"
 msgid "Stop saying the source text aloud"
 msgstr "עצירת הקראת טקסט המקור בקול רם"
 
-#: src/popupwindow.ui:132
+#: src/popupwindow.ui:144 src/popupwindow.ui:147
 msgctxt "PopupWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "העתקת טקסט המקור ללוח הגזירים"
 
-#: src/popupwindow.ui:222
+#: src/popupwindow.ui:237 src/popupwindow.ui:240
 msgctxt "PopupWindow|"
 msgid "Start/pause saying the translated text aloud"
 msgstr "התחלת/עצירת הקראת הטקסט המתורגם בקול רם"
 
-#: src/popupwindow.ui:267
+#: src/popupwindow.ui:285 src/popupwindow.ui:288
 msgctxt "PopupWindow|"
 msgid "Stop saying the translated text aloud"
 msgstr "עצירת הקראת הטקסט המתורגם בקול רם"
 
-#: src/popupwindow.ui:274
+#: src/popupwindow.ui:295 src/popupwindow.ui:298
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "העתקת כל נתוני התרגום ללוח הגזירים"
 
-#: src/popupwindow.ui:284
+#: src/popupwindow.ui:308 src/popupwindow.ui:311
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "העתקת התרגום ללוח הגזירים"
 
-#: src/settings/appsettings.cpp:1466
+#: src/settings/appsettings.cpp:700
+msgctxt "AppSettings|"
+msgid "OpenAI-compatible (custom)"
+msgstr ""
+
+#: src/settings/appsettings.cpp:1538
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1907,233 +2035,258 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "לא ניתן להסיר את %1 מתוך %2"
 
-#: src/settings/settingsdialog.cpp:80
+#: src/settings/settingsdialog.cpp:82
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "מצב נייד"
 
-#: src/settings/settingsdialog.cpp:93
+#: src/settings/settingsdialog.cpp:95
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "להשתמש ב־%1 כדי לאחסן את ההגדרות"
 
-#: src/settings/settingsdialog.cpp:97
+#: src/settings/settingsdialog.cpp:99
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<שפת המערכת>"
 
-#: src/settings/settingsdialog.cpp:101 src/settings/settingsdialog.cpp:102
+#: src/settings/settingsdialog.cpp:103 src/settings/settingsdialog.cpp:104
 msgctxt "SettingsDialog|"
 msgid "<Auto>"
 msgstr "<אוטו׳>"
 
-#: src/settings/settingsdialog.cpp:149
+#: src/settings/settingsdialog.cpp:152
 msgctxt "SettingsDialog|"
 msgid "Copy"
 msgstr "העתקה"
 
-#: src/settings/settingsdialog.cpp:154
+#: src/settings/settingsdialog.cpp:157
 msgctxt "SettingsDialog|"
 msgid "None"
 msgstr "ללא"
 
-#: src/settings/settingsdialog.cpp:192
+#: src/settings/settingsdialog.cpp:195
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "סמלים:"
 
-#: src/settings/settingsdialog.cpp:214
+#: src/settings/settingsdialog.cpp:217
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "משתנה זיהוי התווים האופטי לא יכול להישאר ריק."
 
-#: src/settings/settingsdialog.cpp:215
+#: src/settings/settingsdialog.cpp:218
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "להתעלם מהמשתנים השגויים?"
 
-#: src/settings/settingsdialog.cpp:347
+#: src/settings/settingsdialog.cpp:351 src/settings/settingsdialog.cpp:521
 msgctxt "SettingsDialog|"
 msgid "URL:"
-msgstr ""
+msgstr "כתובת:"
 
-#: src/settings/settingsdialog.cpp:351
+#: src/settings/settingsdialog.cpp:355 src/settings/settingsdialog.cpp:525
 msgctxt "SettingsDialog|"
 msgid "Key:"
-msgstr ""
+msgstr "מפתח:"
 
-#: src/settings/settingsdialog.cpp:355
+#: src/settings/settingsdialog.cpp:359 src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
 msgid "optional, e.g. for a cloud endpoint"
-msgstr ""
+msgstr "רשות, למשל לנקודת קצה בענן"
 
-#: src/settings/settingsdialog.cpp:356
+#: src/settings/settingsdialog.cpp:360 src/settings/settingsdialog.cpp:531
 msgctxt "SettingsDialog|"
 msgid "Refresh models"
-msgstr ""
+msgstr "ריענון מודלים"
 
-#: src/settings/settingsdialog.cpp:371
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Version:"
-msgctxt "SettingsDialog|"
-msgid "Vision"
-msgstr "גרסה:"
-
-#: src/settings/settingsdialog.cpp:374
-msgctxt "SettingsDialog|"
-msgid "Text"
-msgstr ""
-
-#: src/settings/settingsdialog.cpp:387
-msgctxt "SettingsDialog|"
-msgid "?"
-msgstr ""
-
-#: src/settings/settingsdialog.cpp:389
-msgctxt "SettingsDialog|"
-msgid "How to use this tab"
-msgstr ""
-
-#: src/settings/settingsdialog.cpp:396
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
-msgctxt "SettingsDialog|"
-msgid "Show both"
-msgstr "הצגת תום זמן:"
-
-#: src/settings/settingsdialog.cpp:397
-msgctxt "SettingsDialog|"
-msgid "Debug: show Text and Vision blocks simultaneously"
-msgstr ""
-
-#: src/settings/settingsdialog.cpp:410
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
+#: src/settings/settingsdialog.cpp:378
 msgctxt "SettingsDialog|"
 msgid "Translation model:"
-msgstr "מצב תרגום:"
+msgstr "מודל תרגום:"
 
-#: src/settings/settingsdialog.cpp:418 src/settings/settingsdialog.cpp:461
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
+#: src/settings/settingsdialog.cpp:386 src/settings/settingsdialog.cpp:504
 msgctxt "SettingsDialog|"
 msgid "Timeout:"
-msgstr "הצגת תום זמן:"
+msgstr "תום זמן מוקצב:"
 
-#: src/settings/settingsdialog.cpp:423 src/settings/settingsdialog.cpp:466
+#: src/settings/settingsdialog.cpp:390 src/settings/settingsdialog.cpp:509
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid " ms"
+msgctxt "SettingsDialog|"
+msgid " s"
+msgstr " מ״ש"
+
+#: src/settings/settingsdialog.cpp:391
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a translation or detection response."
-msgstr ""
+msgstr "זמן ההמתנה המרבי לתרגום או לתגובת זיהוי."
 
-#: src/settings/settingsdialog.cpp:428 src/settings/settingsdialog.cpp:471
+#: src/settings/settingsdialog.cpp:396
 msgctxt "SettingsDialog|"
 msgid "Disable reasoning"
-msgstr ""
+msgstr "כיבוי הנמקה"
 
-#: src/settings/settingsdialog.cpp:435 src/settings/settingsdialog.cpp:478
+#: src/settings/settingsdialog.cpp:403
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Placeholders: %1"
-msgstr ""
+msgstr "ממלאי מקום: %1"
 
-#: src/settings/settingsdialog.cpp:438
+#: src/settings/settingsdialog.cpp:406
 msgctxt "SettingsDialog|"
 msgid "Reset Text prompt"
+msgstr "איפוס בקשת טקסט"
+
+#: src/settings/settingsdialog.cpp:468
+msgctxt "SettingsDialog|"
+msgid "OCR engine:"
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:453
+#: src/settings/settingsdialog.cpp:472
+msgctxt "SettingsDialog|"
+msgid "Tesseract"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:473
 #, fuzzy
 #| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
+#| msgid "Vision model:"
 msgctxt "SettingsDialog|"
-msgid "Vision model:"
-msgstr "מצב תרגום:"
+msgid "Vision model (LLM)"
+msgstr "מודל חזותי:"
 
-#: src/settings/settingsdialog.cpp:481
+#: src/settings/settingsdialog.cpp:483
 msgctxt "SettingsDialog|"
-msgid "Reset Vision prompt"
+msgid "Tesseract runs locally. Configure languages and parameters below."
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:520
-#, qt-format
+#: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:805
+msgctxt "SettingsDialog|"
+msgid "Provider:"
+msgstr "ספק:"
+
+#: src/settings/settingsdialog.cpp:510
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Maximum time to wait for a translation or detection response."
+msgctxt "SettingsDialog|"
+msgid "Maximum time to wait for a transcription response."
+msgstr "זמן ההמתנה המרבי לתרגום או לתגובת זיהוי."
+
+#: src/settings/settingsdialog.cpp:541
+msgctxt "SettingsDialog|"
+msgid "Model:"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:555
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Reset Text prompt"
+msgctxt "SettingsDialog|"
+msgid "Reset OCR prompt"
+msgstr "איפוס בקשת טקסט"
+
+#: src/settings/settingsdialog.cpp:616
+msgctxt "SettingsDialog|"
+msgid "— Server reports image support —"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:620
+msgctxt "SettingsDialog|"
+msgid "— Image support not reported —"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:633
+msgctxt "SettingsDialog|"
+msgid "No models loaded yet — press \"Refresh models\", or type a model name."
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:635
 msgctxt "SettingsDialog|"
 msgid ""
-"<h3>How the LocalAI tab works</h3><p><b>Text / Vision modes:</b> Each "
-"provider has two independent blocks — <i>Text</i> for translating text and "
-"<i>Vision</i> for translating text from images (drag &amp; drop or paste an "
-"image into the source field). Switch with the [Vision] [Text] buttons.</"
-"p><p><b>Prompts are per-model:</b> <u>Each model has its own prompt.</u> "
-"When you change the model, its saved prompt is loaded. Your edits are saved "
-"automatically as you type — no need to click Save.</p><p><b>Default text "
-"prompt:</b><br><code>%1</code></p><p><b>Default vision prompt:</b><br><code>"
-"%2</code></p><p><b>Example — describe a photo (vision mode):</"
-"b><br><code>You are a visual analyst. Examine the image and provide a "
-"detailed description in {target_lang} ({target_code}). Include: scene type, "
-"subjects, colors, lighting, notable details. If there is text, translate it. "
-"Output only the description, 3–6 sentences.</code></p><p><b>Placeholders:</"
-"b><br><code>{source_lang}</code> — source language "
-"name<br><code>{source_code}</code> — source language ISO "
-"code<br><code>{target_lang}</code> — target language "
-"name<br><code>{target_code}</code> — target language ISO code<br><code>{text}"
-"</code> — the input text (text mode only)</p><p><b>Disable reasoning:</b> "
-"Skips thinking tokens on supported models. Only shown for Ollama providers.</"
-"p><p><b>Timeout:</b> Maximum time to wait for a response.</p>"
+"This endpoint does not report model capabilities, so image support cannot be "
+"verified here. Pick a model you know accepts images."
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:550
+#: src/settings/settingsdialog.cpp:638
 msgctxt "SettingsDialog|"
-msgid "LocalAI Tab Help"
+msgid ""
+"The server reported no image-capable models. A model listed here may still "
+"work, but recognition will fail if it cannot accept images."
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:806
+#: src/settings/settingsdialog.cpp:641
+#, qt-format
+msgctxt "SettingsDialog|"
+msgid "%n model(s) reported as image-capable."
+msgid_plural "%n model(s) reported as image-capable."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: src/settings/settingsdialog.cpp:699
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Vision model:"
+msgctxt "SettingsDialog|"
+msgid "Vision model"
+msgstr "מודל חזותי:"
+
+#: src/settings/settingsdialog.cpp:699
+msgctxt "SettingsDialog|"
+msgid "Enter the endpoint URL first."
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:709 src/settings/settingsdialog.cpp:929
+msgctxt "SettingsDialog|"
+msgid "No models found."
+msgstr "לא נמצאו מודלים."
+
+#: src/settings/settingsdialog.cpp:722 src/settings/settingsdialog.cpp:916
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid ""
 "Could not reach %1 at %2:\n"
 "%3"
 msgstr ""
+"לא ניתן לגשת אל %1 ב־%2:\n"
+"%3"
 
-#: src/settings/settingsdialog.cpp:819
-msgctxt "SettingsDialog|"
-msgid "No models found."
-msgstr ""
-
-#: src/settings/settingsdialog.cpp:901
+#: src/settings/settingsdialog.cpp:1000
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "בחירת סמל"
 
-#: src/settings/settingsdialog.cpp:901
+#: src/settings/settingsdialog.cpp:1000
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "תמונות (‎*.png‏ ‎*.ico‏ ‎*.svg‏ ‎*.jpg);;כל הקבצים()"
 
-#: src/settings/settingsdialog.cpp:931
+#: src/settings/settingsdialog.cpp:1030
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "נא לבחור נתיב שפות לזיהוי תווים אופטי"
 
-#: src/settings/settingsdialog.cpp:946
+#: src/settings/settingsdialog.cpp:1045
 msgctxt "SettingsDialog|"
 msgid "Piper voices path:"
 msgstr "נתיב לקולות Piper:"
 
-#: src/settings/settingsdialog.cpp:960
+#: src/settings/settingsdialog.cpp:1059
 msgctxt "SettingsDialog|"
 msgid "Directory with voice models"
 msgstr "תיקייה עם דגמי קול"
 
-#: src/settings/settingsdialog.cpp:961 src/settings/settingsdialog.cpp:980
+#: src/settings/settingsdialog.cpp:1060 src/settings/settingsdialog.cpp:1079
 msgctxt "SettingsDialog|"
 msgid "Select Piper voices path"
 msgstr "נא לבחור נתיב לקולות Piper"
 
-#: src/settings/settingsdialog.cpp:1137
+#: src/settings/settingsdialog.cpp:1237
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "חזרה"
@@ -2153,7 +2306,7 @@ msgctxt "SettingsDialog|"
 msgid "Interface"
 msgstr "ממשק"
 
-#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:825
+#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:841
 msgctxt "SettingsDialog|"
 msgid "Translation"
 msgstr "תרגום"
@@ -2461,22 +2614,45 @@ msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>בחירת סמל</p></body></html>"
 
-#: src/settings/settingsdialog.ui:658
+#: src/settings/settingsdialog.ui:632
+msgctxt "SettingsDialog|"
+msgid "Status bar"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:638
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid ""
+#| "<html><head/><body><p>Start application minimized to the system tray</p></"
+#| "body></html>"
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/<body><p>Show what the application is currently doing at the "
+"bottom of the main and pop-up windows</p></body></html>"
+msgstr ""
+"<html><head/><body><p>התחלת היישום ממוזער לסמל בשורת המערת</p></body></html>"
+
+#: src/settings/settingsdialog.ui:641
+msgctxt "SettingsDialog|"
+msgid "Show status bar"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:677
 msgctxt "SettingsDialog|"
 msgid "Translation provider:"
 msgstr "ספק תרגום:"
 
-#: src/settings/settingsdialog.ui:681
+#: src/settings/settingsdialog.ui:700
 msgctxt "SettingsDialog|"
 msgid "Automatic language detection"
 msgstr "זיהוי שפה אוטומטי"
 
-#: src/settings/settingsdialog.ui:687
+#: src/settings/settingsdialog.ui:706
 msgctxt "SettingsDialog|"
 msgid "Primary translation language:"
 msgstr "שפת התרגום העיקרית:"
 
-#: src/settings/settingsdialog.ui:694
+#: src/settings/settingsdialog.ui:713
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which text will be translated when "
@@ -2485,12 +2661,12 @@ msgstr ""
 "<html><head/><body><p>שפות שאליהן יתורגם הטקסט לאחר זיהוי אוטומטי</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:701
+#: src/settings/settingsdialog.ui:720
 msgctxt "SettingsDialog|"
 msgid "Secondary translation language:"
 msgstr "שפת תרגום משנית:"
 
-#: src/settings/settingsdialog.ui:708
+#: src/settings/settingsdialog.ui:727
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which the text will be translated if it is "
@@ -2499,7 +2675,7 @@ msgstr ""
 "<html><head/><body><p>שפה שאליה הטקסט יתורגם אם הוא בשפה שנבחרה לעיל</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:715 src/settings/settingsdialog.ui:725
+#: src/settings/settingsdialog.ui:734 src/settings/settingsdialog.ui:744
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
@@ -2509,55 +2685,40 @@ msgstr ""
 "\">אוטו׳</span> בעת שימוש בזיהוי תווים אופטי ומקשי קיצור מקיפים</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:718
+#: src/settings/settingsdialog.ui:737
 msgctxt "SettingsDialog|"
 msgid "Force source language detection"
 msgstr "אכיפת זיהוי שפת המקור"
 
-#: src/settings/settingsdialog.ui:728
+#: src/settings/settingsdialog.ui:747
 msgctxt "SettingsDialog|"
 msgid "Force translation language detection"
 msgstr "אכיפת זיהוי שפת התרגום"
 
-#: src/settings/settingsdialog.ui:735
-msgctxt "SettingsDialog|"
-msgid ""
-"Detect the source language using a LocalAI model instead of the built-in "
-"heuristic. Choose the provider and model below."
-msgstr ""
-
-#: src/settings/settingsdialog.ui:738
-msgctxt "SettingsDialog|"
-msgid "Detect language via LLM (LocalAI)"
-msgstr ""
-
-#: src/settings/settingsdialog.ui:745
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation provider:"
+#: src/settings/settingsdialog.ui:754
 msgctxt "SettingsDialog|"
 msgid "Detection provider:"
-msgstr "ספק תרגום:"
+msgstr "ספק זיהוי:"
 
-#: src/settings/settingsdialog.ui:755
-#, fuzzy
-#| msgctxt "SnippingArea|"
-#| msgid "DPI Detection Error"
+#: src/settings/settingsdialog.ui:761 src/settings/settingsdialog.ui:778
+msgctxt "SettingsDialog|"
+msgid ""
+"Provider and model used to detect the source language when it is set to "
+"Auto. If no detection model is selected, translation falls back to the "
+"configured primary language above."
+msgstr ""
+
+#: src/settings/settingsdialog.ui:768
 msgctxt "SettingsDialog|"
 msgid "Detection model:"
-msgstr "שגיאת זיהוי נק׳ לאינטש"
+msgstr "מודל זיהוי:"
 
-#: src/settings/settingsdialog.ui:783
+#: src/settings/settingsdialog.ui:799
 msgctxt "SettingsDialog|"
 msgid "Text-to-Speech"
 msgstr "הקראה"
 
-#: src/settings/settingsdialog.ui:789
-msgctxt "SettingsDialog|"
-msgid "Provider:"
-msgstr "ספק:"
-
-#: src/settings/settingsdialog.ui:831
+#: src/settings/settingsdialog.ui:847
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
@@ -2565,12 +2726,12 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>הפעלת או כיבוי תעתיק אותיות המקור</p></body></html>"
 
-#: src/settings/settingsdialog.ui:834
+#: src/settings/settingsdialog.ui:850
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
 msgstr "הפעלת תעתיק אותיות המקור"
 
-#: src/settings/settingsdialog.ui:841
+#: src/settings/settingsdialog.ui:857
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
@@ -2578,12 +2739,12 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>הפעלת או כיבוי תעתיק אותיות התרגום</p></body></html>"
 
-#: src/settings/settingsdialog.ui:844
+#: src/settings/settingsdialog.ui:860
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
 msgstr "הפעלת תעתיק אותיות התרגום"
 
-#: src/settings/settingsdialog.ui:851
+#: src/settings/settingsdialog.ui:867
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
@@ -2591,34 +2752,34 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>הפעלת או כיבוי תעתיק הגאים של המקור</p></body></html>"
 
-#: src/settings/settingsdialog.ui:854
+#: src/settings/settingsdialog.ui:870
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
 msgstr "הפעלת תעתיק הגאים של המקור"
 
-#: src/settings/settingsdialog.ui:861
+#: src/settings/settingsdialog.ui:877
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
 msgstr "<html><head/><body><p>הפעלה או כיבוי אפשרויות תרגום</p></body></html>"
 
-#: src/settings/settingsdialog.ui:864
+#: src/settings/settingsdialog.ui:880
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
 msgstr "הפעלת אפשרויות תרגום"
 
-#: src/settings/settingsdialog.ui:871
+#: src/settings/settingsdialog.ui:887
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
 msgstr "<html><head/><body><p>הפעלת או כיבוי דוגמאות שימוש</p></body></html>"
 
-#: src/settings/settingsdialog.ui:874
+#: src/settings/settingsdialog.ui:890
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
 msgstr "הפעלת דוגמאות"
 
-#: src/settings/settingsdialog.ui:881
+#: src/settings/settingsdialog.ui:897
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace each sequence of whitespaces (this includes "
@@ -2628,53 +2789,57 @@ msgstr ""
 "<html><head/><body><p>להחליף כל רצף של תווי רווח (כולל תווי ה־ASCII '\\t',‏ "
 "'\\n',‏ '\\v',‏ '\\f',‏ '\\r',‏ ו־' ') ברווח יחיד בשאילתות</p></body></html>"
 
-#: src/settings/settingsdialog.ui:884
+#: src/settings/settingsdialog.ui:900
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
 msgstr "פישוט מקור"
 
-#: src/settings/settingsdialog.ui:915
+#: src/settings/settingsdialog.ui:931
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
 msgstr "כתובת עותק Mozhi"
 
-#: src/settings/settingsdialog.ui:928
+#: src/settings/settingsdialog.ui:944
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
 msgstr "לבחור את העותק המהיר ביותר לפי מהירות פינג"
 
-#: src/settings/settingsdialog.ui:931
+#: src/settings/settingsdialog.ui:947
 msgctxt "SettingsDialog|"
 msgid "Detect fastest"
 msgstr "זיהוי המהיר ביותר"
 
-#: src/settings/settingsdialog.ui:952
+#: src/settings/settingsdialog.ui:968
 msgctxt "SettingsDialog|"
 msgid ""
 "Optional. Required by self-hosted LibreTranslate instances and "
 "libretranslate.com; the Mozhi front-end ignores it."
 msgstr ""
+"רשות. נדרש על ידי מופעים של LibreTranslate באירוח עצמי ו־libretranslate.com "
+"הממשק של Mozhi מתעלם מהערך הזה."
 
-#: src/settings/settingsdialog.ui:965
+#: src/settings/settingsdialog.ui:981
 msgctxt "SettingsDialog|"
 msgid ""
 "Talk the direct LibreTranslate REST API to the instance URL instead of the "
 "Mozhi-compatible API; use this for self-hosted LibreTranslate servers."
 msgstr ""
 
-#: src/settings/settingsdialog.ui:1000
+#: src/settings/settingsdialog.ui:1016
 msgctxt "SettingsDialog|"
 msgid ""
 "Local OpenAI-compatible servers. Set URL, translation model and prompt for "
 "each. Language detection is configured on the Translation page."
 msgstr ""
+"שרתים מקומיים תומכי OpenAI. יש להגדיר כתובת, מודל תרגום ובקשה לכל אחד מהם. "
+"זיהוי שפה מוגדר דרך עמוד התרגום."
 
-#: src/settings/settingsdialog.ui:1023
+#: src/settings/settingsdialog.ui:1039
 msgctxt "SettingsDialog|"
 msgid "Languages"
 msgstr "שפות"
 
-#: src/settings/settingsdialog.ui:1029
+#: src/settings/settingsdialog.ui:1045
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Loading additional languages will impact both speed "
@@ -2686,23 +2851,23 @@ msgstr ""
 "שתתבצע יותר עבודה כדי להחליט מה היא השפה המתאימה ויש יותר סיכוי להזות מילים "
 "שגויות.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1036
+#: src/settings/settingsdialog.ui:1052
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
 msgstr "נתיב שפות:"
 
-#: src/settings/settingsdialog.ui:1043
+#: src/settings/settingsdialog.ui:1059
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr ""
 "<html><head/><body><p>בחירת נתיב לשפות זיהוי תווים אופטי</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1053
+#: src/settings/settingsdialog.ui:1069
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
 msgstr "<html><head/><body><p>פתיחת מאגר GitHub</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1056
+#: src/settings/settingsdialog.ui:1072
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
@@ -2713,12 +2878,12 @@ msgstr ""
 "\"><span style=\" text-decoration: underline; color:#2980b9;\">הורדת נוספות</"
 "span></a></p></body></html>"
 
-#: src/settings/settingsdialog.ui:1066
+#: src/settings/settingsdialog.ui:1082
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
 msgstr "תיקייה עם מודלים מאומנים"
 
-#: src/settings/settingsdialog.ui:1082
+#: src/settings/settingsdialog.ui:1098
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
@@ -2727,22 +2892,22 @@ msgstr ""
 "<html><head/><body><p>החלפת כל ירידות השורה הבודדות ברווח לאחר זיהוי הטקסט</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:1085
+#: src/settings/settingsdialog.ui:1101
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
 msgstr "המרת מעברי שורות"
 
-#: src/settings/settingsdialog.ui:1149
+#: src/settings/settingsdialog.ui:1165
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
 msgstr "צילום מסך"
 
-#: src/settings/settingsdialog.ui:1161
+#: src/settings/settingsdialog.ui:1177
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
 msgstr "לזכור אזור:"
 
-#: src/settings/settingsdialog.ui:1168
+#: src/settings/settingsdialog.ui:1184
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
@@ -2750,48 +2915,48 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>מתי לזכור את האזור האחרון שנבחר</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1172
+#: src/settings/settingsdialog.ui:1188
 msgctxt "SettingsDialog|"
 msgid "Never"
 msgstr "אף פעם"
 
-#: src/settings/settingsdialog.ui:1177
+#: src/settings/settingsdialog.ui:1193
 msgctxt "SettingsDialog|"
 msgid "Remember last"
 msgstr "לזכור את האחרון"
 
-#: src/settings/settingsdialog.ui:1182
+#: src/settings/settingsdialog.ui:1198
 msgctxt "SettingsDialog|"
 msgid "Remember always"
 msgstr "לזכור תמיד"
 
-#: src/settings/settingsdialog.ui:1190
+#: src/settings/settingsdialog.ui:1206
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
 msgstr "השהיית צילום:"
 
-#: src/settings/settingsdialog.ui:1197
+#: src/settings/settingsdialog.ui:1213
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
 msgstr "השהיה לפני צילום המסך"
 
-#: src/settings/settingsdialog.ui:1200
+#: src/settings/settingsdialog.ui:1216
 msgctxt "SettingsDialog|"
 msgid " ms"
 msgstr " מ״ש"
 
-#: src/settings/settingsdialog.ui:1210
+#: src/settings/settingsdialog.ui:1226
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
 msgstr "<html><head/><body><p>הצגת זכוכית מגדלת ליד הסמן</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1213
+#: src/settings/settingsdialog.ui:1229
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
 msgstr "הצגת זכוכית מגדלת"
 
-#: src/settings/settingsdialog.ui:1220
+#: src/settings/settingsdialog.ui:1236
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
@@ -2800,12 +2965,12 @@ msgstr ""
 "<html><head/><body><p>ניגוד (היפוך צבעים) התמונה לפני זיהוי תווים אופטי. "
 "שימושי לטקסט בהיר על רקע כהה.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1223
+#: src/settings/settingsdialog.ui:1239
 msgctxt "SettingsDialog|"
 msgid "Negate OCR"
 msgstr "ניגוד לזיהוי תווים אופטי"
 
-#: src/settings/settingsdialog.ui:1233
+#: src/settings/settingsdialog.ui:1249
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
@@ -2814,196 +2979,196 @@ msgstr ""
 "<html><head/><body><p>לסיים לצלם את המקטע עם שחרור לחיצת העכבר</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1236
+#: src/settings/settingsdialog.ui:1252
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
 msgstr "אישור בעת שחרור"
 
-#: src/settings/settingsdialog.ui:1243
+#: src/settings/settingsdialog.ui:1259
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
 "html>"
 msgstr "<html><head/><body><p>החלת ערפל על החלק שלא נבחר</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1246
+#: src/settings/settingsdialog.ui:1262
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
 msgstr "החלת מסכה בהירה"
 
-#: src/settings/settingsdialog.ui:1279
+#: src/settings/settingsdialog.ui:1295
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
 msgstr "שרת מתווך"
 
-#: src/settings/settingsdialog.ui:1285
+#: src/settings/settingsdialog.ui:1301
 msgctxt "SettingsDialog|"
 msgid "Type:"
 msgstr "סוג:"
 
-#: src/settings/settingsdialog.ui:1298
+#: src/settings/settingsdialog.ui:1314
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
 msgstr "<html><head/><body><p>סוג מתווך</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1302
+#: src/settings/settingsdialog.ui:1318
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
 msgstr "להשתמש בהגדרות המערכת"
 
-#: src/settings/settingsdialog.ui:1312
+#: src/settings/settingsdialog.ui:1328
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
 msgstr "לא להשתמש במתווך"
 
-#: src/settings/settingsdialog.ui:1328
+#: src/settings/settingsdialog.ui:1344
 msgctxt "SettingsDialog|"
 msgid "Host:"
 msgstr "מארח:"
 
-#: src/settings/settingsdialog.ui:1338
+#: src/settings/settingsdialog.ui:1354
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr "<html><head/><body><p>שם המארח של המתווך</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1351
+#: src/settings/settingsdialog.ui:1367
 msgctxt "SettingsDialog|"
 msgid "Port:"
 msgstr "פתחה:"
 
-#: src/settings/settingsdialog.ui:1367
+#: src/settings/settingsdialog.ui:1383
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
 msgstr "<html><head/><body><p>פתחה במתווך</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1386
+#: src/settings/settingsdialog.ui:1402
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
 msgstr "פרטים: המתווך עובד רק לטובת תרגום טקסט"
 
-#: src/settings/settingsdialog.ui:1396
+#: src/settings/settingsdialog.ui:1412
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
 msgstr "<html><head/><body><p>הפעלת או השבתת אימות</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1399
+#: src/settings/settingsdialog.ui:1415
 msgctxt "SettingsDialog|"
 msgid "Authentication"
 msgstr "אימות"
 
-#: src/settings/settingsdialog.ui:1409
+#: src/settings/settingsdialog.ui:1425
 msgctxt "SettingsDialog|"
 msgid "Username:"
 msgstr "שם משתמש:"
 
-#: src/settings/settingsdialog.ui:1419
+#: src/settings/settingsdialog.ui:1435
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
 msgstr "<html><head/><body><p>שם המשתמש לאימות מול המתווך</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1429
+#: src/settings/settingsdialog.ui:1445
 msgctxt "SettingsDialog|"
 msgid "Password:"
 msgstr "סיסמה:"
 
-#: src/settings/settingsdialog.ui:1439
+#: src/settings/settingsdialog.ui:1455
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
 msgstr "<html><head/><body><p>סיסמה לאימות מול המתווך</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1452
+#: src/settings/settingsdialog.ui:1468
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
 msgstr "פרטים: הסיסמה נשמרת ללא הצפנה"
 
-#: src/settings/settingsdialog.ui:1488
+#: src/settings/settingsdialog.ui:1504
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
 msgstr "<html><head/><body><p>רישום מקשי קיצור מקיפים במערכת</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1491
+#: src/settings/settingsdialog.ui:1507
 msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "הפעלת מקשי קיצור מקיפים"
 
-#: src/settings/settingsdialog.ui:1507
+#: src/settings/settingsdialog.ui:1523
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
 "<html><head/><body><p>איפוס כל מקשי הקיצור לברירות המחדל</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1510
+#: src/settings/settingsdialog.ui:1526
 msgctxt "SettingsDialog|"
 msgid "Reset all"
 msgstr "איפוס הכול"
 
-#: src/settings/settingsdialog.ui:1520
+#: src/settings/settingsdialog.ui:1536
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
 msgstr "מקשי קיצור"
 
-#: src/settings/settingsdialog.ui:1526
+#: src/settings/settingsdialog.ui:1542
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
 msgstr "רצף מקשים:"
 
-#: src/settings/settingsdialog.ui:1533
+#: src/settings/settingsdialog.ui:1549
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
 "html>"
 msgstr "<html><head/><body><p>צירוף המקשים לפעולה הנבחרת</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1540
+#: src/settings/settingsdialog.ui:1556
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
 msgstr "<html><head/><body><p>אישור מקשי קיצור</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1543
+#: src/settings/settingsdialog.ui:1559
 msgctxt "SettingsDialog|"
 msgid "Accept"
 msgstr "קבלה"
 
-#: src/settings/settingsdialog.ui:1553
+#: src/settings/settingsdialog.ui:1569
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
 msgstr "<html><head/><body><p>איפוס מקשי קיצור</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1556
+#: src/settings/settingsdialog.ui:1572
 msgctxt "SettingsDialog|"
 msgid "Clear"
 msgstr "פינוי"
 
-#: src/settings/settingsdialog.ui:1566
+#: src/settings/settingsdialog.ui:1582
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr "<html><head/><body><p>איפוס מקשי הקיצור לברירת המחדל</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1569
+#: src/settings/settingsdialog.ui:1585
 msgctxt "SettingsDialog|"
 msgid "Reset"
 msgstr "איפוס"
 
-#: src/settings/settingsdialog.ui:1614
+#: src/settings/settingsdialog.ui:1630
 msgctxt "SettingsDialog|"
 msgid "Version:"
 msgstr "גרסה:"
 
-#: src/settings/settingsdialog.ui:1624
+#: src/settings/settingsdialog.ui:1640
 msgctxt "SettingsDialog|"
 msgid "License:"
 msgstr "רישיון:"
 
-#: src/settings/settingsdialog.ui:1638
+#: src/settings/settingsdialog.ui:1654
 msgctxt "SettingsDialog|"
 msgid "Source code:"
 msgstr "קוד מקור:"
 
-#: src/settings/settingsdialog.ui:1658
+#: src/settings/settingsdialog.ui:1674
 msgctxt "SettingsDialog|"
 msgid "Translation backend:"
 msgstr "מנגנון תרגום:"
@@ -3134,6 +3299,12 @@ msgctxt "TesseractParametersTableWidget|"
 msgid "Value"
 msgstr "ערך"
 
+#: src/statusstrip.cpp:23 src/statusstrip.cpp:79 src/statusstrip.cpp:127
+#: src/statusstrip.cpp:128 src/statusstrip.cpp:143 src/statusstrip.cpp:144
+msgctxt "StatusStrip|"
+msgid "Ready"
+msgstr ""
+
 #: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"
 msgid "Translation Provider Error"
@@ -3149,12 +3320,12 @@ msgstr ""
 "ספק מנגנון התרגום הנבחר קרס במהלך הנעתו ואופס למצב ‚העתקה’ כדי למנוע תקלות "
 "נוספות. אפשר לנסות לבחור ספק אחר דרך הגדרות ← תרגום."
 
-#: src/translator/mozhitranslationprovider.cpp:400
+#: src/translator/mozhitranslationprovider.cpp:408
 msgctxt "MozhiTranslationProvider|"
 msgid "translation options:"
 msgstr "אפשרויות תרגום:"
 
-#: src/translator/mozhitranslationprovider.cpp:414
+#: src/translator/mozhitranslationprovider.cpp:422
 msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
 msgstr "דוגמאות:"
@@ -3177,7 +3348,7 @@ msgstr "יציאה"
 #: src/trayicon.cpp:30 src/trayicon.cpp:67
 msgctxt "TrayIcon|"
 msgid "Report Bug…"
-msgstr ""
+msgstr "דיווח על תקלה…"
 
 #: src/trayicon.cpp:73
 msgctxt "TrayIcon|"
@@ -3371,6 +3542,105 @@ msgstr ""
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
 msgstr "התקנת קולות ב־Windows TTS"
+
+#~ msgctxt "Ocr|"
+#~ msgid "OCR languages are not loaded"
+#~ msgstr "שפות זיהוי התווים האופטי לא נטענו"
+
+#~ msgctxt "MainWindow|"
+#~ msgid "Image too large (%1 MB). Max %2 MB."
+#~ msgstr "התמונה גדולה מדי (%1 מ״ב). %2 מ״ב לכל היותר."
+
+#~| msgctxt "SettingsDialog|"
+#~| msgid "Version:"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Vision"
+#~ msgstr "חזותי"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Text"
+#~ msgstr "טקסט"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "?"
+#~ msgstr "?"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "How to use this tab"
+#~ msgstr "איך להשתמש בלשונית הזאת"
+
+#~| msgctxt "SettingsDialog|"
+#~| msgid "Show timeout:"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Show both"
+#~ msgstr "הצגה של שניהם"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Debug: show Text and Vision blocks simultaneously"
+#~ msgstr "ניפוי שגיאות: הצגת המקטעים החזותי והטקסט במקביל"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Reset Vision prompt"
+#~ msgstr "איפוס בקשה חזותית"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<h3>How the LocalAI tab works</h3><p><b>Text / Vision modes:</b> Each "
+#~ "provider has two independent blocks — <i>Text</i> for translating text "
+#~ "and <i>Vision</i> for translating text from images (drag &amp; drop or "
+#~ "paste an image into the source field). Switch with the [Vision] [Text] "
+#~ "buttons.</p><p><b>Prompts are per-model:</b> <u>Each model has its own "
+#~ "prompt.</u> When you change the model, its saved prompt is loaded. Your "
+#~ "edits are saved automatically as you type — no need to click Save.</"
+#~ "p><p><b>Default text prompt:</b><br><code>%1</code></p><p><b>Default "
+#~ "vision prompt:</b><br><code>%2</code></p><p><b>Example — describe a photo "
+#~ "(vision mode):</b><br><code>You are a visual analyst. Examine the image "
+#~ "and provide a detailed description in {target_lang} ({target_code}). "
+#~ "Include: scene type, subjects, colors, lighting, notable details. If "
+#~ "there is text, translate it. Output only the description, 3–6 sentences.</"
+#~ "code></p><p><b>Placeholders:</b><br><code>{source_lang}</code> — source "
+#~ "language name<br><code>{source_code}</code> — source language ISO "
+#~ "code<br><code>{target_lang}</code> — target language "
+#~ "name<br><code>{target_code}</code> — target language ISO "
+#~ "code<br><code>{text}</code> — the input text (text mode only)</"
+#~ "p><p><b>Disable reasoning:</b> Skips thinking tokens on supported models. "
+#~ "Only shown for Ollama providers.</p><p><b>Timeout:</b> Maximum time to "
+#~ "wait for a response.</p>"
+#~ msgstr ""
+#~ "<h3>איך עובדת לשונית הבינה המלאכותית המקומית</h3><p><b>מצב טקסט/חזותי:</"
+#~ "b> לכל ספק יש שני מקטעים נפרדים — <i>טקסט</i> לתרגום טקסט ו־<i>חזותי</i> "
+#~ "לתרגום טקסט מתמונות (אפשר לגרור או להדביק תמונה לשדה המקור). אפשר להחליף "
+#~ "ביניהם עם הכפתורים [חזותי] [טקסט].</p><p><b>בקשות הן לפי מודל:</b> <u>לכל "
+#~ "מודל יש בקשה משלו.</u> כשמשנים את המודל, הבקשה השמורה שלו נטענת. העריכות "
+#~ "שלך נשמרות אוטומטית תוך כדי ההקלדה — לא צריך ללחוץ על שמירה.</"
+#~ "p><p><b>בקשת טקסט כברירת מחדל:</b><br><code>%1</code></p><p><b>בקשה "
+#~ "חזותית כברירת מחדל:</b><br><code>%2</code></p><p><b>דוגמה — לתאר תמונה "
+#~ "(מצב חזותי):</b><br><code>אתה מנתח חזותי. נתח את התמונה וספק תיאור מפורט "
+#~ "ב{target_lang} ({target_code}). כולל: סוג הסצנה, פריטים מצולמים, צבעים, "
+#~ "תאורה, פרטים חשובים. אם יש טקסט, לתרגם אותו. להחזיר רק את התיאור, 3–6 "
+#~ "משפטים.</code></p><p><b>ממלאי מקום:</b><br><code>{source_lang}</code> — "
+#~ "שם שפת המקור<br><code>{source_code}</code> — קוד ה־ISO של שפת "
+#~ "המקור<br><code>{target_lang}</code> — שם שפת היעד<br><code>{target_code}</"
+#~ "code> — קוד ה־ISO של שפת היעד<br><code>{text}</code> — הטקסט שהתקבל כקלט "
+#~ "(מצב טקסט בלבד)</p><p><b>כיבוי הנמקה:</b> דילוג על אסימוני חשיבה במודלים "
+#~ "נתמכים. מופיע בספקים של Ollama בלבד.</p><p><b>תום זמן מוקצב:</b> הזמן "
+#~ "המרבי להמתין לתגובה.</p>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "LocalAI Tab Help"
+#~ msgstr "עזרה ללשונית בינה מלאכותית מקומית"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "Detect the source language using a LocalAI model instead of the built-in "
+#~ "heuristic. Choose the provider and model below."
+#~ msgstr ""
+#~ "לזהות את שפת המקור באמצעות מודל הבינה המלאכותית המקומי במקום במנגנון "
+#~ "המובנה. אפשר לבחור את הספק והמודל להלן."
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Detect language via LLM (LocalAI)"
+#~ msgstr "זיהוי השפה דרך LLM (בינה מלאכותית מקומחץ)"
 
 #~ msgctxt "MainWindow|"
 #~ msgid "..."

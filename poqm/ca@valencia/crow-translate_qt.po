@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: crow-translate\n"
-"PO-Revision-Date: 2026-08-15 12:18+0200\n"
+"PO-Revision-Date: 2026-08-17 12:50+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -314,40 +314,41 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "No s'ha pogut registrar l'objecte de D-Bus per a %1"
 
-#: src/mainwindow.cpp:391
+#: src/mainwindow.cpp:464
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "OCR"
 
-#: src/mainwindow.cpp:392
+#: src/mainwindow.cpp:465
 msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "La imatge OCR és en negatiu"
 
-#: src/mainwindow.cpp:392
+#: src/mainwindow.cpp:465
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr "La imatge OCR és normal"
 
-#: src/mainwindow.cpp:546 src/mainwindow.cpp:566 src/mainwindow.cpp:614
-#: src/mainwindow.cpp:643
-msgctxt "Ocr|"
-msgid "OCR languages are not loaded"
-msgstr "No s'han carregat dels idiomes d'OCR"
+#: src/mainwindow.cpp:624
+msgctxt "TesseractOcr|"
+msgid "OCR is not configured"
+msgstr ""
 
-#: src/mainwindow.cpp:546 src/mainwindow.cpp:566 src/mainwindow.cpp:614
-#: src/mainwindow.cpp:643
-msgctxt "Ocr|"
-msgid "You should set at least one OCR language in the application settings"
+#: src/mainwindow.cpp:624
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "You should set at least one OCR language in the application settings"
+msgctxt "TesseractOcr|"
+msgid "Set up the OCR engine in the application settings"
 msgstr "Cal definir almenys un idioma d'OCR a la configuració de l'aplicació"
 
-#: src/mainwindow.cpp:822
+#: src/mainwindow.cpp:880
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "Esta aplicació utilitza %1 per a proporcionar traduccions."
 
-#: src/mainwindow.cpp:823
+#: src/mainwindow.cpp:881
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -362,17 +363,17 @@ msgstr ""
 "canviar-la a la configuració de traducció. Vegeu els detalls de les "
 "instàncies a l'enllaç anterior."
 
-#: src/mainwindow.cpp:830
+#: src/mainwindow.cpp:888
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "No ho tornes a mostrar"
 
-#: src/mainwindow.cpp:872
+#: src/mainwindow.cpp:935
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Icona de la safata no vàlida"
 
-#: src/mainwindow.cpp:872
+#: src/mainwindow.cpp:935
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
@@ -380,23 +381,28 @@ msgstr ""
 "La icona especificada «%1» no és vàlida. S'utilitzarà la icona "
 "predeterminada."
 
-#: src/mainwindow.cpp:893
-msgctxt "Ocr|"
+#: src/mainwindow.cpp:956
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "Unable to set OCR languages"
+msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "No s'han pogut definir els idiomes d'OCR"
 
-#: src/mainwindow.cpp:893
-#, qt-format
-msgctxt "Ocr|"
+#: src/mainwindow.cpp:956
+#, fuzzy, qt-format
+#| msgctxt "Ocr|"
+#| msgid "Unable to initialize Tesseract with %1"
+msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "No s'ha pogut restablir Tesseract amb %1"
 
-#: src/mainwindow.cpp:1035
+#: src/mainwindow.cpp:1099
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr "S'ha produït un error del TTS"
 
-#: src/mainwindow.cpp:1035
+#: src/mainwindow.cpp:1099
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -413,19 +419,19 @@ msgstr ""
 "Comproveu la configuració del TTS o proveu-ho amb una veu/configuració "
 "regional diferent."
 
-#: src/mainwindow.cpp:1852
+#: src/mainwindow.cpp:1911
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
 msgstr "Imatge massa gran (%1 MP). Màx. %2 MP."
 
-#: src/mainwindow.cpp:1868
+#: src/mainwindow.cpp:2011
 #, qt-format
 msgctxt "MainWindow|"
-msgid "Image too large (%1 MB). Max %2 MB."
-msgstr "Imatge massa gran (%1 MB) Màx. %2 MB."
+msgid "OCR failed: %1"
+msgstr ""
 
-#: src/mainwindow.cpp:1980
+#: src/mainwindow.cpp:2105 src/mainwindow.cpp:2162
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -435,102 +441,209 @@ msgstr ""
 "No s'ha pogut obrir la imatge:\n"
 "%1"
 
+#: src/mainwindow.cpp:2153 src/mainwindow.cpp:2162
+msgctxt "MainWindow|"
+msgid "Open image"
+msgstr ""
+
+#: src/mainwindow.cpp:2155
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
+msgctxt "MainWindow|"
+msgid ""
+"Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
+msgstr "Imatges (*.png *.ico *.svg *.jpg);;Tots els fitxers()"
+
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
 msgid "Crow Translate"
 msgstr "Crow Translate"
 
-#: src/mainwindow.ui:29
+#: src/mainwindow.ui:29 src/mainwindow.ui:32
 msgctxt "MainWindow|"
 msgid "Translate"
 msgstr "Traduïx"
 
-#: src/mainwindow.ui:39
+#: src/mainwindow.ui:42 src/mainwindow.ui:45
 msgctxt "MainWindow|"
 msgid "Swap languages"
 msgstr "Intercanvia els idiomes"
 
-#: src/mainwindow.ui:52
+#: src/mainwindow.ui:58 src/mainwindow.ui:61
 msgctxt "MainWindow|"
 msgid "Source"
 msgstr "Origen"
 
-#: src/mainwindow.ui:72
+#: src/mainwindow.ui:81 src/mainwindow.ui:84
 msgctxt "MainWindow|"
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/mainwindow.ui:84
+#: src/mainwindow.ui:96 src/mainwindow.ui:99
 msgctxt "MainWindow|"
 msgid "Start/pause saying the source text aloud"
 msgstr "Inicia/pausa la pronunciació del text d'origen en veu alta"
 
-#: src/mainwindow.ui:132
+#: src/mainwindow.ui:147 src/mainwindow.ui:150
 msgctxt "MainWindow|"
 msgid "Stop saying the source text aloud"
 msgstr "Para la pronunciació del text d'origen en veu alta"
 
-#: src/mainwindow.ui:142
+#: src/mainwindow.ui:160 src/mainwindow.ui:163
 msgctxt "MainWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "Copia el text d'origen al porta-retalls"
 
-#: src/mainwindow.ui:152
+#: src/mainwindow.ui:173 src/mainwindow.ui:176
+#, fuzzy
+#| msgctxt "ShortcutsModel|"
+#| msgid "Recognize text in screen area"
+msgctxt "MainWindow|"
+msgid "Recognize text in an image file"
+msgstr "Reconeix text en una àrea de la pantalla"
+
+#: src/mainwindow.ui:186 src/mainwindow.ui:189
 msgctxt "MainWindow|"
 msgid "Recognize screen area with delay"
 msgstr "Reconeix l'àrea de la pantalla amb un retard"
 
 #. The text should be short to fit in portrait orientation on phones.
-#: src/mainwindow.ui:168
+#: src/mainwindow.ui:205
 msgctxt "MainWindow|"
 msgid "Auto-translation"
 msgstr "Traducció automàtica"
 
-#: src/mainwindow.ui:177
+#: src/mainwindow.ui:214 src/mainwindow.ui:217
 msgctxt "MainWindow|"
 msgid "Clear"
 msgstr "Neteja"
 
-#: src/mainwindow.ui:204
+#: src/mainwindow.ui:241 src/mainwindow.ui:247
 msgctxt "MainWindow|"
 msgid "Translation"
 msgstr "Traducció"
 
-#: src/mainwindow.ui:213
+#: src/mainwindow.ui:256 src/mainwindow.ui:259
 msgctxt "MainWindow|"
 msgid "Start/pause saying the translated text aloud"
 msgstr "Inicia/pausa la pronunciació del text traduït en veu alta"
 
-#: src/mainwindow.ui:261
+#: src/mainwindow.ui:307 src/mainwindow.ui:310
 msgctxt "MainWindow|"
 msgid "Stop saying the translated text aloud"
 msgstr "Para la pronunciació del text traduït en veu alta"
 
-#: src/mainwindow.ui:351
+#: src/mainwindow.ui:400 src/mainwindow.ui:403
 msgctxt "MainWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Copia la traducció al porta-retalls"
 
-#: src/mainwindow.ui:361
+#: src/mainwindow.ui:413 src/mainwindow.ui:416
 msgctxt "MainWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "Copia totes les dades de traducció al porta-retalls"
 
-#: src/mainwindow.ui:371
+#: src/mainwindow.ui:426 src/mainwindow.ui:429
 msgctxt "MainWindow|"
 msgid "Translate screen area with delay"
 msgstr "Traduïx l'àrea de la pantalla amb un retard"
 
-#: src/mainwindow.ui:381
+#: src/mainwindow.ui:439 src/mainwindow.ui:442
 msgctxt "MainWindow|"
 msgid "Application settings"
 msgstr "Configureu l'aplicació"
 
-#: src/ocr/ocr.cpp:132
-#, qt-format
-msgctxt "Ocr|"
-msgid "%1 is not a valid Tesseract parameter name."
-msgstr "%1 no és un nom vàlid de paràmetre Tesseract."
+#: src/modulestatus.cpp:271
+msgctxt "ModuleStatus|"
+msgid "Waiting for capture"
+msgstr ""
+
+#: src/modulestatus.cpp:273
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Select icon"
+msgctxt "ModuleStatus|"
+msgid "Select a region"
+msgstr "Trieu una icona"
+
+#: src/modulestatus.cpp:275
+msgctxt "ModuleStatus|"
+msgid "Recognizing text"
+msgstr ""
+
+#: src/modulestatus.cpp:277
+#, fuzzy
+#| msgctxt "MainWindow|"
+#| msgid "Translation"
+msgctxt "ModuleStatus|"
+msgid "Translating"
+msgstr "Traducció"
+
+#: src/modulestatus.cpp:279
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid "Detecting fastest instance"
+msgctxt "ModuleStatus|"
+msgid "Detecting language"
+msgstr "S'està detectant la instància més ràpida"
+
+#: src/modulestatus.cpp:281
+msgctxt "ModuleStatus|"
+msgid "Preparing speech"
+msgstr ""
+
+#: src/modulestatus.cpp:283
+#, fuzzy
+#| msgctxt "ShortcutsModel|"
+#| msgid "Stop text speaking"
+msgctxt "ModuleStatus|"
+msgid "Speaking"
+msgstr "Para la pronunciació del text"
+
+#: src/modulestatus.cpp:285
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Capture delay:"
+msgctxt "ModuleStatus|"
+msgid "Capture failed"
+msgstr "Retard de la captura:"
+
+#: src/modulestatus.cpp:287
+msgctxt "ModuleStatus|"
+msgid "OCR failed"
+msgstr ""
+
+#: src/modulestatus.cpp:289
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Translation backend:"
+msgctxt "ModuleStatus|"
+msgid "Translation failed"
+msgstr "Dorsal de traducció:"
+
+#: src/modulestatus.cpp:291
+msgctxt "ModuleStatus|"
+msgid "Speech error"
+msgstr ""
+
+#: src/ocr/llmocr.cpp:264
+msgctxt "LlmOcr|"
+msgid "LLM OCR request timed out"
+msgstr ""
+
+#: src/ocr/llmocr.cpp:270
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: %1"
+msgctxt "LlmOcr|"
+msgid "LLM OCR error: %1"
+msgstr "S'ha produït un error: %1"
+
+#: src/ocr/llmocr.cpp:276
+msgctxt "LlmOcr|"
+msgid "LLM OCR returned an empty response"
+msgstr ""
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 msgctxt "AbstractScreenGrabber|"
@@ -743,6 +856,14 @@ msgid ""
 msgstr ""
 "La pantalla baix el cursor ha desaparegut abans que obtinguérem d'ella els "
 "PPP. S'utilitza la pantalla principal per a la informació dels ppp."
+
+#: src/ocr/tesseractocr.cpp:142
+#, fuzzy, qt-format
+#| msgctxt "Ocr|"
+#| msgid "%1 is not a valid Tesseract parameter name."
+msgctxt "TesseractOcr|"
+msgid "%1 is not a valid Tesseract parameter name."
+msgstr "%1 no és un nom vàlid de paràmetre Tesseract."
 
 #: src/onlinetranslator.cpp:273
 #, qt-format
@@ -1855,52 +1976,57 @@ msgstr ""
 "S'ha produït un error: No s'ha pogut analitzar l'idioma detectat "
 "automàticament"
 
-#: src/popupwindow.ui:32
+#: src/popupwindow.ui:32 src/popupwindow.ui:35
 msgctxt "PopupWindow|"
 msgid "Swap languages"
 msgstr "Intercanvia els idiomes"
 
-#: src/popupwindow.ui:66
+#: src/popupwindow.ui:69 src/popupwindow.ui:72
 msgctxt "PopupWindow|"
 msgid "Translate"
 msgstr "Translació"
 
-#: src/popupwindow.ui:80
+#: src/popupwindow.ui:86 src/popupwindow.ui:89
 msgctxt "PopupWindow|"
 msgid "Start/pause saying the source text aloud"
 msgstr "Inicia/pausa la pronunciació del text d'origen en veu alta"
 
-#: src/popupwindow.ui:125
+#: src/popupwindow.ui:134 src/popupwindow.ui:137
 msgctxt "PopupWindow|"
 msgid "Stop saying the source text aloud"
 msgstr "Para la pronunciació del text d'origen en veu alta"
 
-#: src/popupwindow.ui:132
+#: src/popupwindow.ui:144 src/popupwindow.ui:147
 msgctxt "PopupWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "Copia el text d'origen al porta-retalls"
 
-#: src/popupwindow.ui:222
+#: src/popupwindow.ui:237 src/popupwindow.ui:240
 msgctxt "PopupWindow|"
 msgid "Start/pause saying the translated text aloud"
 msgstr "Inicia/pausa la pronunciació del text traduït en veu alta"
 
-#: src/popupwindow.ui:267
+#: src/popupwindow.ui:285 src/popupwindow.ui:288
 msgctxt "PopupWindow|"
 msgid "Stop saying the translated text aloud"
 msgstr "Para la pronunciació del text traduït en veu alta"
 
-#: src/popupwindow.ui:274
+#: src/popupwindow.ui:295 src/popupwindow.ui:298
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "Copia totes les dades de traducció al porta-retalls"
 
-#: src/popupwindow.ui:284
+#: src/popupwindow.ui:308 src/popupwindow.ui:311
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Copia la traducció al porta-retalls"
 
-#: src/settings/appsettings.cpp:1466
+#: src/settings/appsettings.cpp:700
+msgctxt "AppSettings|"
+msgid "OpenAI-compatible (custom)"
+msgstr ""
+
+#: src/settings/appsettings.cpp:1538
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1940,197 +2066,216 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "No s'ha pogut eliminar %1 de %2"
 
-#: src/settings/settingsdialog.cpp:80
+#: src/settings/settingsdialog.cpp:82
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Mode portàtil"
 
-#: src/settings/settingsdialog.cpp:93
+#: src/settings/settingsdialog.cpp:95
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Utilitza %1 per a emmagatzemar la configuració"
 
-#: src/settings/settingsdialog.cpp:97
+#: src/settings/settingsdialog.cpp:99
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Idioma del sistema>"
 
-#: src/settings/settingsdialog.cpp:101 src/settings/settingsdialog.cpp:102
+#: src/settings/settingsdialog.cpp:103 src/settings/settingsdialog.cpp:104
 msgctxt "SettingsDialog|"
 msgid "<Auto>"
 msgstr "<Auto>"
 
-#: src/settings/settingsdialog.cpp:149
+#: src/settings/settingsdialog.cpp:152
 msgctxt "SettingsDialog|"
 msgid "Copy"
 msgstr "Copia"
 
-#: src/settings/settingsdialog.cpp:154
+#: src/settings/settingsdialog.cpp:157
 msgctxt "SettingsDialog|"
 msgid "None"
 msgstr "Cap"
 
-#: src/settings/settingsdialog.cpp:192
+#: src/settings/settingsdialog.cpp:195
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Icones:"
 
-#: src/settings/settingsdialog.cpp:214
+#: src/settings/settingsdialog.cpp:217
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "Els camps dels paràmetres d'OCR no poden estar buits."
 
-#: src/settings/settingsdialog.cpp:215
+#: src/settings/settingsdialog.cpp:218
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Voleu descartar els paràmetres no vàlids?"
 
-#: src/settings/settingsdialog.cpp:347
+#: src/settings/settingsdialog.cpp:351 src/settings/settingsdialog.cpp:521
 msgctxt "SettingsDialog|"
 msgid "URL:"
 msgstr "URL:"
 
-#: src/settings/settingsdialog.cpp:351
+#: src/settings/settingsdialog.cpp:355 src/settings/settingsdialog.cpp:525
 msgctxt "SettingsDialog|"
 msgid "Key:"
 msgstr "Clau:"
 
-#: src/settings/settingsdialog.cpp:355
+#: src/settings/settingsdialog.cpp:359 src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
 msgid "optional, e.g. for a cloud endpoint"
 msgstr "opcional, p. ex., per a punt final de núvol"
 
-#: src/settings/settingsdialog.cpp:356
+#: src/settings/settingsdialog.cpp:360 src/settings/settingsdialog.cpp:531
 msgctxt "SettingsDialog|"
 msgid "Refresh models"
 msgstr "Actualitza els models"
 
-#: src/settings/settingsdialog.cpp:371
-msgctxt "SettingsDialog|"
-msgid "Vision"
-msgstr "Visió"
-
-#: src/settings/settingsdialog.cpp:374
-msgctxt "SettingsDialog|"
-msgid "Text"
-msgstr "Text"
-
-#: src/settings/settingsdialog.cpp:387
-msgctxt "SettingsDialog|"
-msgid "?"
-msgstr "?"
-
-#: src/settings/settingsdialog.cpp:389
-msgctxt "SettingsDialog|"
-msgid "How to use this tab"
-msgstr "Com utilitzar esta pestanya"
-
-#: src/settings/settingsdialog.cpp:396
-msgctxt "SettingsDialog|"
-msgid "Show both"
-msgstr "Mostra'ls tots dos"
-
-#: src/settings/settingsdialog.cpp:397
-msgctxt "SettingsDialog|"
-msgid "Debug: show Text and Vision blocks simultaneously"
-msgstr "Depuració: mostra els blocs Text i Visió simultàniament"
-
-#: src/settings/settingsdialog.cpp:410
+#: src/settings/settingsdialog.cpp:378
 msgctxt "SettingsDialog|"
 msgid "Translation model:"
 msgstr "Model de traducció:"
 
-#: src/settings/settingsdialog.cpp:418 src/settings/settingsdialog.cpp:461
+#: src/settings/settingsdialog.cpp:386 src/settings/settingsdialog.cpp:504
 msgctxt "SettingsDialog|"
 msgid "Timeout:"
 msgstr "Temps d'espera:"
 
-#: src/settings/settingsdialog.cpp:423 src/settings/settingsdialog.cpp:466
+#: src/settings/settingsdialog.cpp:390 src/settings/settingsdialog.cpp:509
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid " ms"
+msgctxt "SettingsDialog|"
+msgid " s"
+msgstr " ms"
+
+#: src/settings/settingsdialog.cpp:391
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a translation or detection response."
 msgstr "Temps màxim a esperar per a una traducció o detecció de resposta."
 
-#: src/settings/settingsdialog.cpp:428 src/settings/settingsdialog.cpp:471
+#: src/settings/settingsdialog.cpp:396
 msgctxt "SettingsDialog|"
 msgid "Disable reasoning"
 msgstr "Desactiva el raonament"
 
-#: src/settings/settingsdialog.cpp:435 src/settings/settingsdialog.cpp:478
+#: src/settings/settingsdialog.cpp:403
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Placeholders: %1"
 msgstr "Variables de substitució: %1"
 
-#: src/settings/settingsdialog.cpp:438
+#: src/settings/settingsdialog.cpp:406
 msgctxt "SettingsDialog|"
 msgid "Reset Text prompt"
 msgstr "Reinicia l'indicador de text"
 
-#: src/settings/settingsdialog.cpp:453
+#: src/settings/settingsdialog.cpp:468
 msgctxt "SettingsDialog|"
-msgid "Vision model:"
+msgid "OCR engine:"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:472
+msgctxt "SettingsDialog|"
+msgid "Tesseract"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:473
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Vision model:"
+msgctxt "SettingsDialog|"
+msgid "Vision model (LLM)"
 msgstr "Model de visió:"
 
-#: src/settings/settingsdialog.cpp:481
+#: src/settings/settingsdialog.cpp:483
 msgctxt "SettingsDialog|"
-msgid "Reset Vision prompt"
-msgstr "Reinicia l'indicador de visió"
+msgid "Tesseract runs locally. Configure languages and parameters below."
+msgstr ""
 
-#: src/settings/settingsdialog.cpp:520
-#, qt-format
+#: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:805
+msgctxt "SettingsDialog|"
+msgid "Provider:"
+msgstr "Proveïdor:"
+
+#: src/settings/settingsdialog.cpp:510
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Maximum time to wait for a translation or detection response."
+msgctxt "SettingsDialog|"
+msgid "Maximum time to wait for a transcription response."
+msgstr "Temps màxim a esperar per a una traducció o detecció de resposta."
+
+#: src/settings/settingsdialog.cpp:541
+msgctxt "SettingsDialog|"
+msgid "Model:"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:555
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Reset Text prompt"
+msgctxt "SettingsDialog|"
+msgid "Reset OCR prompt"
+msgstr "Reinicia l'indicador de text"
+
+#: src/settings/settingsdialog.cpp:616
+msgctxt "SettingsDialog|"
+msgid "— Server reports image support —"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:620
+msgctxt "SettingsDialog|"
+msgid "— Image support not reported —"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:633
+msgctxt "SettingsDialog|"
+msgid "No models loaded yet — press \"Refresh models\", or type a model name."
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:635
 msgctxt "SettingsDialog|"
 msgid ""
-"<h3>How the LocalAI tab works</h3><p><b>Text / Vision modes:</b> Each "
-"provider has two independent blocks — <i>Text</i> for translating text and "
-"<i>Vision</i> for translating text from images (drag &amp; drop or paste an "
-"image into the source field). Switch with the [Vision] [Text] buttons.</"
-"p><p><b>Prompts are per-model:</b> <u>Each model has its own prompt.</u> "
-"When you change the model, its saved prompt is loaded. Your edits are saved "
-"automatically as you type — no need to click Save.</p><p><b>Default text "
-"prompt:</b><br><code>%1</code></p><p><b>Default vision prompt:</b><br><code>"
-"%2</code></p><p><b>Example — describe a photo (vision mode):</"
-"b><br><code>You are a visual analyst. Examine the image and provide a "
-"detailed description in {target_lang} ({target_code}). Include: scene type, "
-"subjects, colors, lighting, notable details. If there is text, translate it. "
-"Output only the description, 3–6 sentences.</code></p><p><b>Placeholders:</"
-"b><br><code>{source_lang}</code> — source language "
-"name<br><code>{source_code}</code> — source language ISO "
-"code<br><code>{target_lang}</code> — target language "
-"name<br><code>{target_code}</code> — target language ISO code<br><code>{text}"
-"</code> — the input text (text mode only)</p><p><b>Disable reasoning:</b> "
-"Skips thinking tokens on supported models. Only shown for Ollama providers.</"
-"p><p><b>Timeout:</b> Maximum time to wait for a response.</p>"
+"This endpoint does not report model capabilities, so image support cannot be "
+"verified here. Pick a model you know accepts images."
 msgstr ""
-"<h3>Com funciona la pestanya LocalAI</h3><p><b>Modes de Text / Visió:</b> "
-"Cada proveïdor té dos blocs independents: <i>Text</i> per a traduir text i "
-"<i>Visió</i> per a traduir text a partir d'imatges (arrossegueu i deixeu "
-"anar o apegueu una imatge en el camp d'origen). Canvieu amb els botons "
-"[Visió] [Text].</p><p><b>Els indicadors són per cada model:</b> <u>Cada "
-"model té el seu propi indicador.</u> Quan canvieu el model, es carrega el "
-"seu indicador guardat. Les vostres edicions es desearan automàticament "
-"mentre teclegeu, no cal clicar damunt Guarda.</p><p><b>Indicador "
-"predeterminat de text:</b><br><code>%1</code></p><p><b>Indicador "
-"predeterminat de visió:</b><br><code>%2</code></p><p><b>Exemple — descriu "
-"una foto (mode visió):</b><br><code>Eres analista visual. Examina la imatge "
-"i proporciona una descripció detallada a {target_lang} ({target_code}). "
-"Inclou: tipus d'escena, temes, colors, il·luminació, detalls notables. Si hi "
-"ha text, traduïx-lo. Eixida només de la descripció, 3-6 frases.</code></"
-"p><p><b>Variables de substitució:</b><br><code>{source_lang}</code> — nom de "
-"l'idioma d'origen<br><code>{source_code}</code> — codi ISO de l'idioma "
-"d'origen<br><code>{target_lang}</code> — nom de l'idioma de "
-"destí<br><code>{target_code}</code> — codi ISO de l'idioma de "
-"destí<br><code>{text}</code> — el text d'entrada (només mode text)</"
-"p><p><b>Desactiva el raonament:</b> Omet els segments textuals de pensament "
-"en els models compatibles. Només es mostra per als proveïdors d'Ollama.</"
-"p><p><b>Temps d'espera:</b> Temps màxim d'espera d'una resposta.</p>"
 
-#: src/settings/settingsdialog.cpp:550
+#: src/settings/settingsdialog.cpp:638
 msgctxt "SettingsDialog|"
-msgid "LocalAI Tab Help"
-msgstr "Ajuda de la pestanya LocalAI"
+msgid ""
+"The server reported no image-capable models. A model listed here may still "
+"work, but recognition will fail if it cannot accept images."
+msgstr ""
 
-#: src/settings/settingsdialog.cpp:806
+#: src/settings/settingsdialog.cpp:641
+#, qt-format
+msgctxt "SettingsDialog|"
+msgid "%n model(s) reported as image-capable."
+msgid_plural "%n model(s) reported as image-capable."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/settings/settingsdialog.cpp:699
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Vision model:"
+msgctxt "SettingsDialog|"
+msgid "Vision model"
+msgstr "Model de visió:"
+
+#: src/settings/settingsdialog.cpp:699
+msgctxt "SettingsDialog|"
+msgid "Enter the endpoint URL first."
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:709 src/settings/settingsdialog.cpp:929
+msgctxt "SettingsDialog|"
+msgid "No models found."
+msgstr "No s'ha trobat cap model."
+
+#: src/settings/settingsdialog.cpp:722 src/settings/settingsdialog.cpp:916
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid ""
@@ -2140,42 +2285,37 @@ msgstr ""
 "No s'ha pogut assolir %1 a %2:\n"
 "%3"
 
-#: src/settings/settingsdialog.cpp:819
-msgctxt "SettingsDialog|"
-msgid "No models found."
-msgstr "No s'ha trobat cap model."
-
-#: src/settings/settingsdialog.cpp:901
+#: src/settings/settingsdialog.cpp:1000
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Trieu una icona"
 
-#: src/settings/settingsdialog.cpp:901
+#: src/settings/settingsdialog.cpp:1000
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Imatges (*.png *.ico *.svg *.jpg);;Tots els fitxers()"
 
-#: src/settings/settingsdialog.cpp:931
+#: src/settings/settingsdialog.cpp:1030
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Trieu el camí dels idiomes d'OCR"
 
-#: src/settings/settingsdialog.cpp:946
+#: src/settings/settingsdialog.cpp:1045
 msgctxt "SettingsDialog|"
 msgid "Piper voices path:"
 msgstr "Camí cap a les veus de Piper:"
 
-#: src/settings/settingsdialog.cpp:960
+#: src/settings/settingsdialog.cpp:1059
 msgctxt "SettingsDialog|"
 msgid "Directory with voice models"
 msgstr "Directori amb els models de veus"
 
-#: src/settings/settingsdialog.cpp:961 src/settings/settingsdialog.cpp:980
+#: src/settings/settingsdialog.cpp:1060 src/settings/settingsdialog.cpp:1079
 msgctxt "SettingsDialog|"
 msgid "Select Piper voices path"
 msgstr "Trieu el camí cap a les veus de Piper"
 
-#: src/settings/settingsdialog.cpp:1137
+#: src/settings/settingsdialog.cpp:1237
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Arrere"
@@ -2195,7 +2335,7 @@ msgctxt "SettingsDialog|"
 msgid "Interface"
 msgstr "Interfície"
 
-#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:825
+#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:841
 msgctxt "SettingsDialog|"
 msgid "Translation"
 msgstr "Traducció"
@@ -2520,22 +2660,46 @@ msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>Trieu una icona</p></body></html>"
 
-#: src/settings/settingsdialog.ui:658
+#: src/settings/settingsdialog.ui:632
+msgctxt "SettingsDialog|"
+msgid "Status bar"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:638
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid ""
+#| "<html><head/><body><p>Start application minimized to the system tray</p></"
+#| "body></html>"
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/<body><p>Show what the application is currently doing at the "
+"bottom of the main and pop-up windows</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Inicia l'aplicació minimitzada a la safata del "
+"sistema</p></body></html>"
+
+#: src/settings/settingsdialog.ui:641
+msgctxt "SettingsDialog|"
+msgid "Show status bar"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:677
 msgctxt "SettingsDialog|"
 msgid "Translation provider:"
 msgstr "Proveïdor de traduccions:"
 
-#: src/settings/settingsdialog.ui:681
+#: src/settings/settingsdialog.ui:700
 msgctxt "SettingsDialog|"
 msgid "Automatic language detection"
 msgstr "Detecció automàtica de l'idioma"
 
-#: src/settings/settingsdialog.ui:687
+#: src/settings/settingsdialog.ui:706
 msgctxt "SettingsDialog|"
 msgid "Primary translation language:"
 msgstr "Idioma primari de traducció:"
 
-#: src/settings/settingsdialog.ui:694
+#: src/settings/settingsdialog.ui:713
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which text will be translated when "
@@ -2544,12 +2708,12 @@ msgstr ""
 "<html><head/><body><p>Idioma al qual es traduirà el text quan es detecte "
 "automàticament</p></body></html>"
 
-#: src/settings/settingsdialog.ui:701
+#: src/settings/settingsdialog.ui:720
 msgctxt "SettingsDialog|"
 msgid "Secondary translation language:"
 msgstr "Idioma secundari de traducció:"
 
-#: src/settings/settingsdialog.ui:708
+#: src/settings/settingsdialog.ui:727
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which the text will be translated if it is "
@@ -2558,7 +2722,7 @@ msgstr ""
 "<html><head/><body><p>Idioma al qual es traduirà el text si està en l'idioma "
 "seleccionat abans</p></body></html>"
 
-#: src/settings/settingsdialog.ui:715 src/settings/settingsdialog.ui:725
+#: src/settings/settingsdialog.ui:734 src/settings/settingsdialog.ui:744
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
@@ -2568,51 +2732,40 @@ msgstr ""
 "italic;\">Automàtic</span> quan s'utilitzen dreceres d'OCR i globals</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:718
+#: src/settings/settingsdialog.ui:737
 msgctxt "SettingsDialog|"
 msgid "Force source language detection"
 msgstr "Força la detecció de l'idioma d'origen"
 
-#: src/settings/settingsdialog.ui:728
+#: src/settings/settingsdialog.ui:747
 msgctxt "SettingsDialog|"
 msgid "Force translation language detection"
 msgstr "Força la detecció de l'idioma de traducció"
 
-#: src/settings/settingsdialog.ui:735
-msgctxt "SettingsDialog|"
-msgid ""
-"Detect the source language using a LocalAI model instead of the built-in "
-"heuristic. Choose the provider and model below."
-msgstr ""
-"Detecta l'idioma d'origen utilitzant un model LocalAI en lloc de l'heurístic "
-"integrat. Trieu el proveïdor i el model a continuació."
-
-#: src/settings/settingsdialog.ui:738
-msgctxt "SettingsDialog|"
-msgid "Detect language via LLM (LocalAI)"
-msgstr "Detecta l'idioma via LLM (LocalAI)"
-
-#: src/settings/settingsdialog.ui:745
+#: src/settings/settingsdialog.ui:754
 msgctxt "SettingsDialog|"
 msgid "Detection provider:"
 msgstr "Proveïdor de detecció:"
 
-#: src/settings/settingsdialog.ui:755
+#: src/settings/settingsdialog.ui:761 src/settings/settingsdialog.ui:778
+msgctxt "SettingsDialog|"
+msgid ""
+"Provider and model used to detect the source language when it is set to "
+"Auto. If no detection model is selected, translation falls back to the "
+"configured primary language above."
+msgstr ""
+
+#: src/settings/settingsdialog.ui:768
 msgctxt "SettingsDialog|"
 msgid "Detection model:"
 msgstr "Model de detecció:"
 
-#: src/settings/settingsdialog.ui:783
+#: src/settings/settingsdialog.ui:799
 msgctxt "SettingsDialog|"
 msgid "Text-to-Speech"
 msgstr "Text a veu"
 
-#: src/settings/settingsdialog.ui:789
-msgctxt "SettingsDialog|"
-msgid "Provider:"
-msgstr "Proveïdor:"
-
-#: src/settings/settingsdialog.ui:831
+#: src/settings/settingsdialog.ui:847
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
@@ -2621,12 +2774,12 @@ msgstr ""
 "<html><head/><body><p>Activa o desactiva la transliteració de l'origen</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:834
+#: src/settings/settingsdialog.ui:850
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
 msgstr "Activa la transliteració de l'origen"
 
-#: src/settings/settingsdialog.ui:841
+#: src/settings/settingsdialog.ui:857
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
@@ -2635,12 +2788,12 @@ msgstr ""
 "<html><head/><body><p>Activa o desactiva la transliteració de la traducció</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:844
+#: src/settings/settingsdialog.ui:860
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
 msgstr "Activa la transliteració de la traducció"
 
-#: src/settings/settingsdialog.ui:851
+#: src/settings/settingsdialog.ui:867
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
@@ -2649,12 +2802,12 @@ msgstr ""
 "<html><head/><body><p>Activa o desactiva la transcripció de l'origen</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:854
+#: src/settings/settingsdialog.ui:870
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
 msgstr "Activa la transcripció de l'origen"
 
-#: src/settings/settingsdialog.ui:861
+#: src/settings/settingsdialog.ui:877
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
@@ -2662,24 +2815,24 @@ msgstr ""
 "<html><head/><body><p>Activa o desactiva les opcions de traducció</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:864
+#: src/settings/settingsdialog.ui:880
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
 msgstr "Activa les opcions de traducció"
 
-#: src/settings/settingsdialog.ui:871
+#: src/settings/settingsdialog.ui:887
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Activa o desactiva els exemples d'ús</p></body></html>"
 
-#: src/settings/settingsdialog.ui:874
+#: src/settings/settingsdialog.ui:890
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
 msgstr "Activa els exemples"
 
-#: src/settings/settingsdialog.ui:881
+#: src/settings/settingsdialog.ui:897
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace each sequence of whitespaces (this includes "
@@ -2690,41 +2843,46 @@ msgstr ""
 "els caràcters ASCII «\\t», «\\n», «\\v», «\\f», «\\r» i « ») per un espai "
 "únic a les consultes</p></body></html>"
 
-#: src/settings/settingsdialog.ui:884
+#: src/settings/settingsdialog.ui:900
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
 msgstr "Simplifica l'origen"
 
-#: src/settings/settingsdialog.ui:915
+#: src/settings/settingsdialog.ui:931
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
 msgstr "URL de la instància de Mozhi"
 
-#: src/settings/settingsdialog.ui:928
+#: src/settings/settingsdialog.ui:944
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
 msgstr "Tria automàticament la instància més ràpida segons ping"
 
-#: src/settings/settingsdialog.ui:931
+#: src/settings/settingsdialog.ui:947
 msgctxt "SettingsDialog|"
 msgid "Detect fastest"
 msgstr "Detecta la més ràpida"
 
-#: src/settings/settingsdialog.ui:952
+#: src/settings/settingsdialog.ui:968
 msgctxt "SettingsDialog|"
 msgid ""
 "Optional. Required by self-hosted LibreTranslate instances and "
 "libretranslate.com; the Mozhi front-end ignores it."
 msgstr ""
+"Opcional. Necessari per a les instàncies de LibreTranslate autoallotjades i "
+"libretranslate.com; el frontal de Mozhi ho ignora."
 
-#: src/settings/settingsdialog.ui:965
+#: src/settings/settingsdialog.ui:981
 msgctxt "SettingsDialog|"
 msgid ""
 "Talk the direct LibreTranslate REST API to the instance URL instead of the "
 "Mozhi-compatible API; use this for self-hosted LibreTranslate servers."
 msgstr ""
+"Comunica l'API de Rest directa de LibreTranslate a l'URL de la instància en "
+"lloc de l'API compatible amb Mozhi; utilitzeu-la per als servidors "
+"autoallotjats de LibreTranslate."
 
-#: src/settings/settingsdialog.ui:1000
+#: src/settings/settingsdialog.ui:1016
 msgctxt "SettingsDialog|"
 msgid ""
 "Local OpenAI-compatible servers. Set URL, translation model and prompt for "
@@ -2734,12 +2892,12 @@ msgstr ""
 "traducció i l'indicador per a cadascun. La detecció de la llengua està "
 "configurada a la pàgina de traducció."
 
-#: src/settings/settingsdialog.ui:1023
+#: src/settings/settingsdialog.ui:1039
 msgctxt "SettingsDialog|"
 msgid "Languages"
 msgstr "Idiomes"
 
-#: src/settings/settingsdialog.ui:1029
+#: src/settings/settingsdialog.ui:1045
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Loading additional languages will impact both speed "
@@ -2752,23 +2910,23 @@ msgstr ""
 "l'idioma aplicable, i hi ha més possibilitats d'al·lucinar paraules "
 "incorrectes.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1036
+#: src/settings/settingsdialog.ui:1052
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
 msgstr "Camí dels idiomes:"
 
-#: src/settings/settingsdialog.ui:1043
+#: src/settings/settingsdialog.ui:1059
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Tria el camí dels idiomes d'OCR</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1053
+#: src/settings/settingsdialog.ui:1069
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
 msgstr "<html><head/><body><p>Obri el repositori GitHub</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1056
+#: src/settings/settingsdialog.ui:1072
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
@@ -2779,12 +2937,12 @@ msgstr ""
 "\"><span style=\" text-decoration: underline; color:#2980b9;\">Descarrega'n "
 "més</span></a></p></body></html>"
 
-#: src/settings/settingsdialog.ui:1066
+#: src/settings/settingsdialog.ui:1082
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
 msgstr "Directori amb models entrenats"
 
-#: src/settings/settingsdialog.ui:1082
+#: src/settings/settingsdialog.ui:1098
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
@@ -2793,22 +2951,22 @@ msgstr ""
 "<html><head/><body><p>Substituïx tots els salts de línia simples per un "
 "espai després del reconeixement de text</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1085
+#: src/settings/settingsdialog.ui:1101
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
 msgstr "Convertix els salts de línia"
 
-#: src/settings/settingsdialog.ui:1149
+#: src/settings/settingsdialog.ui:1165
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
 msgstr "Captura de pantalla"
 
-#: src/settings/settingsdialog.ui:1161
+#: src/settings/settingsdialog.ui:1177
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
 msgstr "Recorda la regió:"
 
-#: src/settings/settingsdialog.ui:1168
+#: src/settings/settingsdialog.ui:1184
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
@@ -2817,49 +2975,49 @@ msgstr ""
 "<html><head/><body><p>Quan recordar l'última regió seleccionada</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1172
+#: src/settings/settingsdialog.ui:1188
 msgctxt "SettingsDialog|"
 msgid "Never"
 msgstr "Mai"
 
-#: src/settings/settingsdialog.ui:1177
+#: src/settings/settingsdialog.ui:1193
 msgctxt "SettingsDialog|"
 msgid "Remember last"
 msgstr "Recorda l'última"
 
-#: src/settings/settingsdialog.ui:1182
+#: src/settings/settingsdialog.ui:1198
 msgctxt "SettingsDialog|"
 msgid "Remember always"
 msgstr "Recorda sempre"
 
-#: src/settings/settingsdialog.ui:1190
+#: src/settings/settingsdialog.ui:1206
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
 msgstr "Retard de la captura:"
 
-#: src/settings/settingsdialog.ui:1197
+#: src/settings/settingsdialog.ui:1213
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
 msgstr "Retard abans de la captura de pantalla"
 
-#: src/settings/settingsdialog.ui:1200
+#: src/settings/settingsdialog.ui:1216
 msgctxt "SettingsDialog|"
 msgid " ms"
 msgstr " ms"
 
-#: src/settings/settingsdialog.ui:1210
+#: src/settings/settingsdialog.ui:1226
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Mostra una lupa al costat del cursor</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1213
+#: src/settings/settingsdialog.ui:1229
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
 msgstr "Mostra la lupa"
 
-#: src/settings/settingsdialog.ui:1220
+#: src/settings/settingsdialog.ui:1236
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
@@ -2868,12 +3026,12 @@ msgstr ""
 "<html><head/><body><p>Fa el negatiu (inversió) de la imatge abans d'OCR. Use-"
 "ho per a text clar sobre fons fosc.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1223
+#: src/settings/settingsdialog.ui:1239
 msgctxt "SettingsDialog|"
 msgid "Negate OCR"
 msgstr "Negatiu d'OCR"
 
-#: src/settings/settingsdialog.ui:1233
+#: src/settings/settingsdialog.ui:1249
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
@@ -2882,12 +3040,12 @@ msgstr ""
 "<html><head/><body><p>Acaba la captura del fragment quan es deixa anar el "
 "botó del ratolí</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1236
+#: src/settings/settingsdialog.ui:1252
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
 msgstr "Confirma en deixar anar"
 
-#: src/settings/settingsdialog.ui:1243
+#: src/settings/settingsdialog.ui:1259
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
@@ -2896,83 +3054,83 @@ msgstr ""
 "<html><head/><body><p>Aplica una lleugera boira a la part no seleccionada</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:1246
+#: src/settings/settingsdialog.ui:1262
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
 msgstr "Aplica una màscara de llum"
 
-#: src/settings/settingsdialog.ui:1279
+#: src/settings/settingsdialog.ui:1295
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
 msgstr "Servidor intermediari"
 
-#: src/settings/settingsdialog.ui:1285
+#: src/settings/settingsdialog.ui:1301
 msgctxt "SettingsDialog|"
 msgid "Type:"
 msgstr "Tipus:"
 
-#: src/settings/settingsdialog.ui:1298
+#: src/settings/settingsdialog.ui:1314
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
 msgstr "<html><head/><body><p>Tipus de servidor intermediari</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1302
+#: src/settings/settingsdialog.ui:1318
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
 msgstr "Utilitza la configuració de servidor intermediari del sistema"
 
-#: src/settings/settingsdialog.ui:1312
+#: src/settings/settingsdialog.ui:1328
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
 msgstr "No utilitza cap servidor intermediari"
 
-#: src/settings/settingsdialog.ui:1328
+#: src/settings/settingsdialog.ui:1344
 msgctxt "SettingsDialog|"
 msgid "Host:"
 msgstr "Amfitrió:"
 
-#: src/settings/settingsdialog.ui:1338
+#: src/settings/settingsdialog.ui:1354
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Nom d'amfitrió del servidor intermediari</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1351
+#: src/settings/settingsdialog.ui:1367
 msgctxt "SettingsDialog|"
 msgid "Port:"
 msgstr "Port:"
 
-#: src/settings/settingsdialog.ui:1367
+#: src/settings/settingsdialog.ui:1383
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
 msgstr "<html><head/><body><p>Port del servidor intermediari</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1386
+#: src/settings/settingsdialog.ui:1402
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
 msgstr ""
 "Informació: el servidor intermediari només funciona per a la traducció de "
 "text"
 
-#: src/settings/settingsdialog.ui:1396
+#: src/settings/settingsdialog.ui:1412
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Activa o desactiva l'autenticació</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1399
+#: src/settings/settingsdialog.ui:1415
 msgctxt "SettingsDialog|"
 msgid "Authentication"
 msgstr "Autenticació"
 
-#: src/settings/settingsdialog.ui:1409
+#: src/settings/settingsdialog.ui:1425
 msgctxt "SettingsDialog|"
 msgid "Username:"
 msgstr "Nom d'usuari:"
 
-#: src/settings/settingsdialog.ui:1419
+#: src/settings/settingsdialog.ui:1435
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
@@ -2980,12 +3138,12 @@ msgstr ""
 "<html><head/><body><p>Nom d'usuari del servidor intermediari per a "
 "l'autenticació</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1429
+#: src/settings/settingsdialog.ui:1445
 msgctxt "SettingsDialog|"
 msgid "Password:"
 msgstr "Contrasenya:"
 
-#: src/settings/settingsdialog.ui:1439
+#: src/settings/settingsdialog.ui:1455
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
@@ -2993,46 +3151,46 @@ msgstr ""
 "<html><head/><body><p>Contrasenya del servidor intermediari per a "
 "l'autenticació</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1452
+#: src/settings/settingsdialog.ui:1468
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
 msgstr "Informació: la contrasenya s'ha guardat sense encriptar"
 
-#: src/settings/settingsdialog.ui:1488
+#: src/settings/settingsdialog.ui:1504
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Registra dreceres globals al sistema</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1491
+#: src/settings/settingsdialog.ui:1507
 msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "Activa les dreceres globals"
 
-#: src/settings/settingsdialog.ui:1507
+#: src/settings/settingsdialog.ui:1523
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Restablix totes les dreceres cap als valors "
 "predeterminats</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1510
+#: src/settings/settingsdialog.ui:1526
 msgctxt "SettingsDialog|"
 msgid "Reset all"
 msgstr "Restablix-ho tot"
 
-#: src/settings/settingsdialog.ui:1520
+#: src/settings/settingsdialog.ui:1536
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
 msgstr "Drecera"
 
-#: src/settings/settingsdialog.ui:1526
+#: src/settings/settingsdialog.ui:1542
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
 msgstr "Seqüència de tecles:"
 
-#: src/settings/settingsdialog.ui:1533
+#: src/settings/settingsdialog.ui:1549
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
@@ -3041,54 +3199,54 @@ msgstr ""
 "<html><head/><body><p>La seqüència de claus per a l'acció seleccionada</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1540
+#: src/settings/settingsdialog.ui:1556
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Accepta la drecera</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1543
+#: src/settings/settingsdialog.ui:1559
 msgctxt "SettingsDialog|"
 msgid "Accept"
 msgstr "Accepta"
 
-#: src/settings/settingsdialog.ui:1553
+#: src/settings/settingsdialog.ui:1569
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Neteja la drecera</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1556
+#: src/settings/settingsdialog.ui:1572
 msgctxt "SettingsDialog|"
 msgid "Clear"
 msgstr "Neteja"
 
-#: src/settings/settingsdialog.ui:1566
+#: src/settings/settingsdialog.ui:1582
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Restablix la drecera cap al valor predeterminat</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1569
+#: src/settings/settingsdialog.ui:1585
 msgctxt "SettingsDialog|"
 msgid "Reset"
 msgstr "Restablix"
 
-#: src/settings/settingsdialog.ui:1614
+#: src/settings/settingsdialog.ui:1630
 msgctxt "SettingsDialog|"
 msgid "Version:"
 msgstr "Versió:"
 
-#: src/settings/settingsdialog.ui:1624
+#: src/settings/settingsdialog.ui:1640
 msgctxt "SettingsDialog|"
 msgid "License:"
 msgstr "Llicència:"
 
-#: src/settings/settingsdialog.ui:1638
+#: src/settings/settingsdialog.ui:1654
 msgctxt "SettingsDialog|"
 msgid "Source code:"
 msgstr "Codi font:"
 
-#: src/settings/settingsdialog.ui:1658
+#: src/settings/settingsdialog.ui:1674
 msgctxt "SettingsDialog|"
 msgid "Translation backend:"
 msgstr "Dorsal de traducció:"
@@ -3219,6 +3377,12 @@ msgctxt "TesseractParametersTableWidget|"
 msgid "Value"
 msgstr "Valor"
 
+#: src/statusstrip.cpp:23 src/statusstrip.cpp:79 src/statusstrip.cpp:127
+#: src/statusstrip.cpp:128 src/statusstrip.cpp:143 src/statusstrip.cpp:144
+msgctxt "StatusStrip|"
+msgid "Ready"
+msgstr ""
+
 #: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"
 msgid "Translation Provider Error"
@@ -3236,12 +3400,12 @@ msgstr ""
 "s'ha reinicialitzat a «Copia» per a evitar més problemes. Podeu intentar de "
 "seleccionar un proveïdor diferent a Configuració → Traducció."
 
-#: src/translator/mozhitranslationprovider.cpp:400
+#: src/translator/mozhitranslationprovider.cpp:408
 msgctxt "MozhiTranslationProvider|"
 msgid "translation options:"
 msgstr "opcions de traducció:"
 
-#: src/translator/mozhitranslationprovider.cpp:414
+#: src/translator/mozhitranslationprovider.cpp:422
 msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
 msgstr "exemples:"
@@ -3264,7 +3428,7 @@ msgstr "Ix"
 #: src/trayicon.cpp:30 src/trayicon.cpp:67
 msgctxt "TrayIcon|"
 msgid "Report Bug…"
-msgstr ""
+msgstr "Informeu d'un error…"
 
 #: src/trayicon.cpp:73
 msgctxt "TrayIcon|"
@@ -3471,3 +3635,104 @@ msgstr ""
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
 msgstr "Instal·lació de veus TTS de Windows"
+
+#~ msgctxt "Ocr|"
+#~ msgid "OCR languages are not loaded"
+#~ msgstr "No s'han carregat dels idiomes d'OCR"
+
+#~ msgctxt "MainWindow|"
+#~ msgid "Image too large (%1 MB). Max %2 MB."
+#~ msgstr "Imatge massa gran (%1 MB) Màx. %2 MB."
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Vision"
+#~ msgstr "Visió"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Text"
+#~ msgstr "Text"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "?"
+#~ msgstr "?"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "How to use this tab"
+#~ msgstr "Com utilitzar esta pestanya"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Show both"
+#~ msgstr "Mostra'ls tots dos"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Debug: show Text and Vision blocks simultaneously"
+#~ msgstr "Depuració: mostra els blocs Text i Visió simultàniament"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Reset Vision prompt"
+#~ msgstr "Reinicia l'indicador de visió"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "<h3>How the LocalAI tab works</h3><p><b>Text / Vision modes:</b> Each "
+#~ "provider has two independent blocks — <i>Text</i> for translating text "
+#~ "and <i>Vision</i> for translating text from images (drag &amp; drop or "
+#~ "paste an image into the source field). Switch with the [Vision] [Text] "
+#~ "buttons.</p><p><b>Prompts are per-model:</b> <u>Each model has its own "
+#~ "prompt.</u> When you change the model, its saved prompt is loaded. Your "
+#~ "edits are saved automatically as you type — no need to click Save.</"
+#~ "p><p><b>Default text prompt:</b><br><code>%1</code></p><p><b>Default "
+#~ "vision prompt:</b><br><code>%2</code></p><p><b>Example — describe a photo "
+#~ "(vision mode):</b><br><code>You are a visual analyst. Examine the image "
+#~ "and provide a detailed description in {target_lang} ({target_code}). "
+#~ "Include: scene type, subjects, colors, lighting, notable details. If "
+#~ "there is text, translate it. Output only the description, 3–6 sentences.</"
+#~ "code></p><p><b>Placeholders:</b><br><code>{source_lang}</code> — source "
+#~ "language name<br><code>{source_code}</code> — source language ISO "
+#~ "code<br><code>{target_lang}</code> — target language "
+#~ "name<br><code>{target_code}</code> — target language ISO "
+#~ "code<br><code>{text}</code> — the input text (text mode only)</"
+#~ "p><p><b>Disable reasoning:</b> Skips thinking tokens on supported models. "
+#~ "Only shown for Ollama providers.</p><p><b>Timeout:</b> Maximum time to "
+#~ "wait for a response.</p>"
+#~ msgstr ""
+#~ "<h3>Com funciona la pestanya LocalAI</h3><p><b>Modes de Text / Visió:</b> "
+#~ "Cada proveïdor té dos blocs independents: <i>Text</i> per a traduir text "
+#~ "i <i>Visió</i> per a traduir text a partir d'imatges (arrossegueu i "
+#~ "deixeu anar o apegueu una imatge en el camp d'origen). Canvieu amb els "
+#~ "botons [Visió] [Text].</p><p><b>Els indicadors són per cada model:</b> "
+#~ "<u>Cada model té el seu propi indicador.</u> Quan canvieu el model, es "
+#~ "carrega el seu indicador guardat. Les vostres edicions es desearan "
+#~ "automàticament mentre teclegeu, no cal clicar damunt Guarda.</"
+#~ "p><p><b>Indicador predeterminat de text:</b><br><code>%1</code></"
+#~ "p><p><b>Indicador predeterminat de visió:</b><br><code>%2</code></"
+#~ "p><p><b>Exemple — descriu una foto (mode visió):</b><br><code>Eres "
+#~ "analista visual. Examina la imatge i proporciona una descripció detallada "
+#~ "a {target_lang} ({target_code}). Inclou: tipus d'escena, temes, colors, "
+#~ "il·luminació, detalls notables. Si hi ha text, traduïx-lo. Eixida només "
+#~ "de la descripció, 3-6 frases.</code></p><p><b>Variables de substitució:</"
+#~ "b><br><code>{source_lang}</code> — nom de l'idioma "
+#~ "d'origen<br><code>{source_code}</code> — codi ISO de l'idioma "
+#~ "d'origen<br><code>{target_lang}</code> — nom de l'idioma de "
+#~ "destí<br><code>{target_code}</code> — codi ISO de l'idioma de "
+#~ "destí<br><code>{text}</code> — el text d'entrada (només mode text)</"
+#~ "p><p><b>Desactiva el raonament:</b> Omet els segments textuals de "
+#~ "pensament en els models compatibles. Només es mostra per als proveïdors "
+#~ "d'Ollama.</p><p><b>Temps d'espera:</b> Temps màxim d'espera d'una "
+#~ "resposta.</p>"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "LocalAI Tab Help"
+#~ msgstr "Ajuda de la pestanya LocalAI"
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid ""
+#~ "Detect the source language using a LocalAI model instead of the built-in "
+#~ "heuristic. Choose the provider and model below."
+#~ msgstr ""
+#~ "Detecta l'idioma d'origen utilitzant un model LocalAI en lloc de "
+#~ "l'heurístic integrat. Trieu el proveïdor i el model a continuació."
+
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Detect language via LLM (LocalAI)"
+#~ msgstr "Detecta l'idioma via LLM (LocalAI)"

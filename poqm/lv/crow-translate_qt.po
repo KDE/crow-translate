@@ -308,40 +308,41 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "Nevar reģistrēt „%1“ nepieciešamo „D-Bus“ objektu"
 
-#: src/mainwindow.cpp:391
+#: src/mainwindow.cpp:464
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "OCR"
 
-#: src/mainwindow.cpp:392
+#: src/mainwindow.cpp:465
 msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "OCR attēls noliegts"
 
-#: src/mainwindow.cpp:392
+#: src/mainwindow.cpp:465
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr "OCR attēls ir normāls"
 
-#: src/mainwindow.cpp:546 src/mainwindow.cpp:566 src/mainwindow.cpp:614
-#: src/mainwindow.cpp:643
-msgctxt "Ocr|"
-msgid "OCR languages are not loaded"
-msgstr "OCR valodas nav ielādētas"
+#: src/mainwindow.cpp:624
+msgctxt "TesseractOcr|"
+msgid "OCR is not configured"
+msgstr ""
 
-#: src/mainwindow.cpp:546 src/mainwindow.cpp:566 src/mainwindow.cpp:614
-#: src/mainwindow.cpp:643
-msgctxt "Ocr|"
-msgid "You should set at least one OCR language in the application settings"
+#: src/mainwindow.cpp:624
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "You should set at least one OCR language in the application settings"
+msgctxt "TesseractOcr|"
+msgid "Set up the OCR engine in the application settings"
 msgstr "Programmas iestatījumos ir jānorāda vismaz viena OCR valoda"
 
-#: src/mainwindow.cpp:822
+#: src/mainwindow.cpp:880
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "Šī programma tulkošanai izmanto „%1“"
 
-#: src/mainwindow.cpp:823
+#: src/mainwindow.cpp:881
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -355,39 +356,44 @@ msgstr ""
 "nosūtīto tekstu. Jūsu instance šobrīd ir „%1“, bet to varat nomainīt "
 "tulkošanas iestatījumos. Skatiet informāciju par instanci saitē augstāk."
 
-#: src/mainwindow.cpp:830
+#: src/mainwindow.cpp:888
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "Vairs nerādīt"
 
-#: src/mainwindow.cpp:872
+#: src/mainwindow.cpp:935
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Nederīga sistēmas ikonu joslas ikona"
 
-#: src/mainwindow.cpp:872
+#: src/mainwindow.cpp:935
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "Norādītā ikona „%1“ nav derīga. Tiks lietota noklusējuma ikona."
 
-#: src/mainwindow.cpp:893
-msgctxt "Ocr|"
+#: src/mainwindow.cpp:956
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "Unable to set OCR languages"
+msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "Nevar iestatīt OCR valodas"
 
-#: src/mainwindow.cpp:893
-#, qt-format
-msgctxt "Ocr|"
+#: src/mainwindow.cpp:956
+#, fuzzy, qt-format
+#| msgctxt "Ocr|"
+#| msgid "Unable to initialize Tesseract with %1"
+msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "Nevar inicializēt „Tesseract“ ar „%1“"
 
-#: src/mainwindow.cpp:1035
+#: src/mainwindow.cpp:1099
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr "TTS kļūda"
 
-#: src/mainwindow.cpp:1035
+#: src/mainwindow.cpp:1099
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -403,19 +409,19 @@ msgstr ""
 "\n"
 "Pārbaudiet TTS iestatījumus vai mēģiniet citu balsi/valodas paveidu."
 
-#: src/mainwindow.cpp:1852
+#: src/mainwindow.cpp:1911
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
 msgstr ""
 
-#: src/mainwindow.cpp:1868
+#: src/mainwindow.cpp:2011
 #, qt-format
 msgctxt "MainWindow|"
-msgid "Image too large (%1 MB). Max %2 MB."
+msgid "OCR failed: %1"
 msgstr ""
 
-#: src/mainwindow.cpp:1980
+#: src/mainwindow.cpp:2105 src/mainwindow.cpp:2162
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -423,102 +429,209 @@ msgid ""
 "%1"
 msgstr ""
 
+#: src/mainwindow.cpp:2153 src/mainwindow.cpp:2162
+msgctxt "MainWindow|"
+msgid "Open image"
+msgstr ""
+
+#: src/mainwindow.cpp:2155
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
+msgctxt "MainWindow|"
+msgid ""
+"Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
+msgstr "Attēli (*.png *.ico *.svg *.jpg);;Visas datnes()"
+
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
 msgid "Crow Translate"
 msgstr "Crow Translate"
 
-#: src/mainwindow.ui:29
+#: src/mainwindow.ui:29 src/mainwindow.ui:32
 msgctxt "MainWindow|"
 msgid "Translate"
 msgstr "Tulkot"
 
-#: src/mainwindow.ui:39
+#: src/mainwindow.ui:42 src/mainwindow.ui:45
 msgctxt "MainWindow|"
 msgid "Swap languages"
 msgstr "Mainīt vietām valodas"
 
-#: src/mainwindow.ui:52
+#: src/mainwindow.ui:58 src/mainwindow.ui:61
 msgctxt "MainWindow|"
 msgid "Source"
 msgstr "Avots"
 
-#: src/mainwindow.ui:72
+#: src/mainwindow.ui:81 src/mainwindow.ui:84
 msgctxt "MainWindow|"
 msgid "Cancel"
 msgstr "Atcelt"
 
-#: src/mainwindow.ui:84
+#: src/mainwindow.ui:96 src/mainwindow.ui:99
 msgctxt "MainWindow|"
 msgid "Start/pause saying the source text aloud"
 msgstr ""
 
-#: src/mainwindow.ui:132
+#: src/mainwindow.ui:147 src/mainwindow.ui:150
 msgctxt "MainWindow|"
 msgid "Stop saying the source text aloud"
 msgstr ""
 
-#: src/mainwindow.ui:142
+#: src/mainwindow.ui:160 src/mainwindow.ui:163
 msgctxt "MainWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "Kopēt avota tekstu starpliktuvē"
 
-#: src/mainwindow.ui:152
+#: src/mainwindow.ui:173 src/mainwindow.ui:176
+#, fuzzy
+#| msgctxt "ShortcutsModel|"
+#| msgid "Recognize text in screen area"
+msgctxt "MainWindow|"
+msgid "Recognize text in an image file"
+msgstr "Atpazīt tekstu ekrāna apgabalā"
+
+#: src/mainwindow.ui:186 src/mainwindow.ui:189
 msgctxt "MainWindow|"
 msgid "Recognize screen area with delay"
 msgstr "Atpazīt ekrāna apgabalu ar aizkavi"
 
 #. The text should be short to fit in portrait orientation on phones.
-#: src/mainwindow.ui:168
+#: src/mainwindow.ui:205
 msgctxt "MainWindow|"
 msgid "Auto-translation"
 msgstr "Automātiskā tulkošana"
 
-#: src/mainwindow.ui:177
+#: src/mainwindow.ui:214 src/mainwindow.ui:217
 msgctxt "MainWindow|"
 msgid "Clear"
 msgstr "Notīrīt"
 
-#: src/mainwindow.ui:204
+#: src/mainwindow.ui:241 src/mainwindow.ui:247
 msgctxt "MainWindow|"
 msgid "Translation"
 msgstr "Tulkošana"
 
-#: src/mainwindow.ui:213
+#: src/mainwindow.ui:256 src/mainwindow.ui:259
 msgctxt "MainWindow|"
 msgid "Start/pause saying the translated text aloud"
 msgstr ""
 
-#: src/mainwindow.ui:261
+#: src/mainwindow.ui:307 src/mainwindow.ui:310
 msgctxt "MainWindow|"
 msgid "Stop saying the translated text aloud"
 msgstr ""
 
-#: src/mainwindow.ui:351
+#: src/mainwindow.ui:400 src/mainwindow.ui:403
 msgctxt "MainWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Kopēt tulkojumu starpliktuvē"
 
-#: src/mainwindow.ui:361
+#: src/mainwindow.ui:413 src/mainwindow.ui:416
 msgctxt "MainWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "Kopēt visus tulkošanas datus starpliktuvē"
 
-#: src/mainwindow.ui:371
+#: src/mainwindow.ui:426 src/mainwindow.ui:429
 msgctxt "MainWindow|"
 msgid "Translate screen area with delay"
 msgstr "Tulkot ekrāna apgabalu ar aizkavi"
 
-#: src/mainwindow.ui:381
+#: src/mainwindow.ui:439 src/mainwindow.ui:442
 msgctxt "MainWindow|"
 msgid "Application settings"
 msgstr "Programmas iestatījumi"
 
-#: src/ocr/ocr.cpp:132
-#, qt-format
-msgctxt "Ocr|"
-msgid "%1 is not a valid Tesseract parameter name."
-msgstr "„%1“ nav derīgs „Tesseract“ parametra nosaukums."
+#: src/modulestatus.cpp:271
+msgctxt "ModuleStatus|"
+msgid "Waiting for capture"
+msgstr ""
+
+#: src/modulestatus.cpp:273
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Select icon"
+msgctxt "ModuleStatus|"
+msgid "Select a region"
+msgstr "Izvēlēties ikonu"
+
+#: src/modulestatus.cpp:275
+msgctxt "ModuleStatus|"
+msgid "Recognizing text"
+msgstr ""
+
+#: src/modulestatus.cpp:277
+#, fuzzy
+#| msgctxt "MainWindow|"
+#| msgid "Translation"
+msgctxt "ModuleStatus|"
+msgid "Translating"
+msgstr "Tulkošana"
+
+#: src/modulestatus.cpp:279
+#, fuzzy
+#| msgctxt "MainWindow|"
+#| msgid "Unable to detect language"
+msgctxt "ModuleStatus|"
+msgid "Detecting language"
+msgstr "Nevar noteikt valodu"
+
+#: src/modulestatus.cpp:281
+msgctxt "ModuleStatus|"
+msgid "Preparing speech"
+msgstr ""
+
+#: src/modulestatus.cpp:283
+#, fuzzy
+#| msgctxt "ShortcutsModel|"
+#| msgid "Stop text speaking"
+msgctxt "ModuleStatus|"
+msgid "Speaking"
+msgstr "Pārtraukt teksta izrunāšanu"
+
+#: src/modulestatus.cpp:285
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Capture delay:"
+msgctxt "ModuleStatus|"
+msgid "Capture failed"
+msgstr "Uzņemšanas aizkave:"
+
+#: src/modulestatus.cpp:287
+msgctxt "ModuleStatus|"
+msgid "OCR failed"
+msgstr ""
+
+#: src/modulestatus.cpp:289
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Translation backend:"
+msgctxt "ModuleStatus|"
+msgid "Translation failed"
+msgstr "Tulkošanas aizmugursistēma:"
+
+#: src/modulestatus.cpp:291
+msgctxt "ModuleStatus|"
+msgid "Speech error"
+msgstr ""
+
+#: src/ocr/llmocr.cpp:264
+msgctxt "LlmOcr|"
+msgid "LLM OCR request timed out"
+msgstr ""
+
+#: src/ocr/llmocr.cpp:270
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: %1"
+msgctxt "LlmOcr|"
+msgid "LLM OCR error: %1"
+msgstr "Kļūda: %1"
+
+#: src/ocr/llmocr.cpp:276
+msgctxt "LlmOcr|"
+msgid "LLM OCR returned an empty response"
+msgstr ""
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 msgctxt "AbstractScreenGrabber|"
@@ -730,6 +843,14 @@ msgid ""
 msgstr ""
 "Ekrāns zem kursora pazuda pirms izdevās no tā izgūt DPI informāciju. DPI "
 "informācijai izmantos primāro ekrānu."
+
+#: src/ocr/tesseractocr.cpp:142
+#, fuzzy, qt-format
+#| msgctxt "Ocr|"
+#| msgid "%1 is not a valid Tesseract parameter name."
+msgctxt "TesseractOcr|"
+msgid "%1 is not a valid Tesseract parameter name."
+msgstr "„%1“ nav derīgs „Tesseract“ parametra nosaukums."
 
 #: src/onlinetranslator.cpp:273
 #, qt-format
@@ -1839,12 +1960,12 @@ msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
 msgstr "Kļūda: neizdodas parsēt automātiski noteiktu valodu"
 
-#: src/popupwindow.ui:32
+#: src/popupwindow.ui:32 src/popupwindow.ui:35
 msgctxt "PopupWindow|"
 msgid "Swap languages"
 msgstr "Mainīt vietām valodas"
 
-#: src/popupwindow.ui:66
+#: src/popupwindow.ui:69 src/popupwindow.ui:72
 #, fuzzy
 #| msgctxt "MainWindow|"
 #| msgid "Translate"
@@ -1852,42 +1973,47 @@ msgctxt "PopupWindow|"
 msgid "Translate"
 msgstr "Tulkot"
 
-#: src/popupwindow.ui:80
+#: src/popupwindow.ui:86 src/popupwindow.ui:89
 msgctxt "PopupWindow|"
 msgid "Start/pause saying the source text aloud"
 msgstr ""
 
-#: src/popupwindow.ui:125
+#: src/popupwindow.ui:134 src/popupwindow.ui:137
 msgctxt "PopupWindow|"
 msgid "Stop saying the source text aloud"
 msgstr ""
 
-#: src/popupwindow.ui:132
+#: src/popupwindow.ui:144 src/popupwindow.ui:147
 msgctxt "PopupWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "Kopēt avota tekstu starpliktuvē"
 
-#: src/popupwindow.ui:222
+#: src/popupwindow.ui:237 src/popupwindow.ui:240
 msgctxt "PopupWindow|"
 msgid "Start/pause saying the translated text aloud"
 msgstr ""
 
-#: src/popupwindow.ui:267
+#: src/popupwindow.ui:285 src/popupwindow.ui:288
 msgctxt "PopupWindow|"
 msgid "Stop saying the translated text aloud"
 msgstr ""
 
-#: src/popupwindow.ui:274
+#: src/popupwindow.ui:295 src/popupwindow.ui:298
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "Kopēt visus tulkošanas datus starpliktuvē"
 
-#: src/popupwindow.ui:284
+#: src/popupwindow.ui:308 src/popupwindow.ui:311
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Kopēt tulkojumu starpliktuvē"
 
-#: src/settings/appsettings.cpp:1466
+#: src/settings/appsettings.cpp:700
+msgctxt "AppSettings|"
+msgid "OpenAI-compatible (custom)"
+msgstr ""
+
+#: src/settings/appsettings.cpp:1538
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -1927,109 +2053,73 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "Neizdodas noņemt „%1“ no „%2“"
 
-#: src/settings/settingsdialog.cpp:80
+#: src/settings/settingsdialog.cpp:82
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Pārnēsājams režīms"
 
-#: src/settings/settingsdialog.cpp:93
+#: src/settings/settingsdialog.cpp:95
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Izmantot „%1“ iestatījumu saglabāšanai"
 
-#: src/settings/settingsdialog.cpp:97
+#: src/settings/settingsdialog.cpp:99
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Sistēmas valoda>"
 
-#: src/settings/settingsdialog.cpp:101 src/settings/settingsdialog.cpp:102
+#: src/settings/settingsdialog.cpp:103 src/settings/settingsdialog.cpp:104
 msgctxt "SettingsDialog|"
 msgid "<Auto>"
 msgstr "<Auto>"
 
-#: src/settings/settingsdialog.cpp:149
+#: src/settings/settingsdialog.cpp:152
 msgctxt "SettingsDialog|"
 msgid "Copy"
 msgstr "Kopēt"
 
-#: src/settings/settingsdialog.cpp:154
+#: src/settings/settingsdialog.cpp:157
 msgctxt "SettingsDialog|"
 msgid "None"
 msgstr "Nav"
 
-#: src/settings/settingsdialog.cpp:192
+#: src/settings/settingsdialog.cpp:195
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Ikonas:"
 
-#: src/settings/settingsdialog.cpp:214
+#: src/settings/settingsdialog.cpp:217
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "OCR parametru lauki nedrīkst būt tukši."
 
-#: src/settings/settingsdialog.cpp:215
+#: src/settings/settingsdialog.cpp:218
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Vai vēlaties atmest nederīgos parametrus?"
 
-#: src/settings/settingsdialog.cpp:347
+#: src/settings/settingsdialog.cpp:351 src/settings/settingsdialog.cpp:521
 msgctxt "SettingsDialog|"
 msgid "URL:"
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:351
+#: src/settings/settingsdialog.cpp:355 src/settings/settingsdialog.cpp:525
 msgctxt "SettingsDialog|"
 msgid "Key:"
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:355
+#: src/settings/settingsdialog.cpp:359 src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
 msgid "optional, e.g. for a cloud endpoint"
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:356
+#: src/settings/settingsdialog.cpp:360 src/settings/settingsdialog.cpp:531
 msgctxt "SettingsDialog|"
 msgid "Refresh models"
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:371
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Version:"
-msgctxt "SettingsDialog|"
-msgid "Vision"
-msgstr "Versija:"
-
-#: src/settings/settingsdialog.cpp:374
-msgctxt "SettingsDialog|"
-msgid "Text"
-msgstr ""
-
-#: src/settings/settingsdialog.cpp:387
-msgctxt "SettingsDialog|"
-msgid "?"
-msgstr ""
-
-#: src/settings/settingsdialog.cpp:389
-msgctxt "SettingsDialog|"
-msgid "How to use this tab"
-msgstr ""
-
-#: src/settings/settingsdialog.cpp:396
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
-msgctxt "SettingsDialog|"
-msgid "Show both"
-msgstr "Rādīt noildzi:"
-
-#: src/settings/settingsdialog.cpp:397
-msgctxt "SettingsDialog|"
-msgid "Debug: show Text and Vision blocks simultaneously"
-msgstr ""
-
-#: src/settings/settingsdialog.cpp:410
+#: src/settings/settingsdialog.cpp:378
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Translation mode:"
@@ -2037,7 +2127,7 @@ msgctxt "SettingsDialog|"
 msgid "Translation model:"
 msgstr "Tulkošanas režīms:"
 
-#: src/settings/settingsdialog.cpp:418 src/settings/settingsdialog.cpp:461
+#: src/settings/settingsdialog.cpp:386 src/settings/settingsdialog.cpp:504
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Show timeout:"
@@ -2045,72 +2135,135 @@ msgctxt "SettingsDialog|"
 msgid "Timeout:"
 msgstr "Rādīt noildzi:"
 
-#: src/settings/settingsdialog.cpp:423 src/settings/settingsdialog.cpp:466
+#: src/settings/settingsdialog.cpp:390 src/settings/settingsdialog.cpp:509
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid " ms"
+msgctxt "SettingsDialog|"
+msgid " s"
+msgstr " ms"
+
+#: src/settings/settingsdialog.cpp:391
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a translation or detection response."
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:428 src/settings/settingsdialog.cpp:471
+#: src/settings/settingsdialog.cpp:396
 msgctxt "SettingsDialog|"
 msgid "Disable reasoning"
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:435 src/settings/settingsdialog.cpp:478
+#: src/settings/settingsdialog.cpp:403
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Placeholders: %1"
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:438
+#: src/settings/settingsdialog.cpp:406
 msgctxt "SettingsDialog|"
 msgid "Reset Text prompt"
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:453
+#: src/settings/settingsdialog.cpp:468
+msgctxt "SettingsDialog|"
+msgid "OCR engine:"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:472
+msgctxt "SettingsDialog|"
+msgid "Tesseract"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:473
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
-msgid "Vision model:"
+msgid "Vision model (LLM)"
 msgstr "Tulkošanas režīms:"
 
-#: src/settings/settingsdialog.cpp:481
+#: src/settings/settingsdialog.cpp:483
 msgctxt "SettingsDialog|"
-msgid "Reset Vision prompt"
+msgid "Tesseract runs locally. Configure languages and parameters below."
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:520
-#, qt-format
+#: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:805
+msgctxt "SettingsDialog|"
+msgid "Provider:"
+msgstr "Pakalpojuma sniedzējs:"
+
+#: src/settings/settingsdialog.cpp:510
+msgctxt "SettingsDialog|"
+msgid "Maximum time to wait for a transcription response."
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:541
+msgctxt "SettingsDialog|"
+msgid "Model:"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:555
+msgctxt "SettingsDialog|"
+msgid "Reset OCR prompt"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:616
+msgctxt "SettingsDialog|"
+msgid "— Server reports image support —"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:620
+msgctxt "SettingsDialog|"
+msgid "— Image support not reported —"
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:633
+msgctxt "SettingsDialog|"
+msgid "No models loaded yet — press \"Refresh models\", or type a model name."
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:635
 msgctxt "SettingsDialog|"
 msgid ""
-"<h3>How the LocalAI tab works</h3><p><b>Text / Vision modes:</b> Each "
-"provider has two independent blocks — <i>Text</i> for translating text and "
-"<i>Vision</i> for translating text from images (drag &amp; drop or paste an "
-"image into the source field). Switch with the [Vision] [Text] buttons.</"
-"p><p><b>Prompts are per-model:</b> <u>Each model has its own prompt.</u> "
-"When you change the model, its saved prompt is loaded. Your edits are saved "
-"automatically as you type — no need to click Save.</p><p><b>Default text "
-"prompt:</b><br><code>%1</code></p><p><b>Default vision prompt:</b><br><code>"
-"%2</code></p><p><b>Example — describe a photo (vision mode):</"
-"b><br><code>You are a visual analyst. Examine the image and provide a "
-"detailed description in {target_lang} ({target_code}). Include: scene type, "
-"subjects, colors, lighting, notable details. If there is text, translate it. "
-"Output only the description, 3–6 sentences.</code></p><p><b>Placeholders:</"
-"b><br><code>{source_lang}</code> — source language "
-"name<br><code>{source_code}</code> — source language ISO "
-"code<br><code>{target_lang}</code> — target language "
-"name<br><code>{target_code}</code> — target language ISO code<br><code>{text}"
-"</code> — the input text (text mode only)</p><p><b>Disable reasoning:</b> "
-"Skips thinking tokens on supported models. Only shown for Ollama providers.</"
-"p><p><b>Timeout:</b> Maximum time to wait for a response.</p>"
+"This endpoint does not report model capabilities, so image support cannot be "
+"verified here. Pick a model you know accepts images."
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:550
+#: src/settings/settingsdialog.cpp:638
 msgctxt "SettingsDialog|"
-msgid "LocalAI Tab Help"
+msgid ""
+"The server reported no image-capable models. A model listed here may still "
+"work, but recognition will fail if it cannot accept images."
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:806
+#: src/settings/settingsdialog.cpp:641
+#, qt-format
+msgctxt "SettingsDialog|"
+msgid "%n model(s) reported as image-capable."
+msgid_plural "%n model(s) reported as image-capable."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/settings/settingsdialog.cpp:699
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Translation mode:"
+msgctxt "SettingsDialog|"
+msgid "Vision model"
+msgstr "Tulkošanas režīms:"
+
+#: src/settings/settingsdialog.cpp:699
+msgctxt "SettingsDialog|"
+msgid "Enter the endpoint URL first."
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:709 src/settings/settingsdialog.cpp:929
+msgctxt "SettingsDialog|"
+msgid "No models found."
+msgstr ""
+
+#: src/settings/settingsdialog.cpp:722 src/settings/settingsdialog.cpp:916
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid ""
@@ -2118,42 +2271,37 @@ msgid ""
 "%3"
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:819
-msgctxt "SettingsDialog|"
-msgid "No models found."
-msgstr ""
-
-#: src/settings/settingsdialog.cpp:901
+#: src/settings/settingsdialog.cpp:1000
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Izvēlēties ikonu"
 
-#: src/settings/settingsdialog.cpp:901
+#: src/settings/settingsdialog.cpp:1000
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Attēli (*.png *.ico *.svg *.jpg);;Visas datnes()"
 
-#: src/settings/settingsdialog.cpp:931
+#: src/settings/settingsdialog.cpp:1030
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Atlasīt OCR valodu ceļu"
 
-#: src/settings/settingsdialog.cpp:946
+#: src/settings/settingsdialog.cpp:1045
 msgctxt "SettingsDialog|"
 msgid "Piper voices path:"
 msgstr "Ceļš uz „Piper“ balsīm:"
 
-#: src/settings/settingsdialog.cpp:960
+#: src/settings/settingsdialog.cpp:1059
 msgctxt "SettingsDialog|"
 msgid "Directory with voice models"
 msgstr "Mape ar balsu modeļiem"
 
-#: src/settings/settingsdialog.cpp:961 src/settings/settingsdialog.cpp:980
+#: src/settings/settingsdialog.cpp:1060 src/settings/settingsdialog.cpp:1079
 msgctxt "SettingsDialog|"
 msgid "Select Piper voices path"
 msgstr "Atlasīt „Piper“ valodu ceļu"
 
-#: src/settings/settingsdialog.cpp:1137
+#: src/settings/settingsdialog.cpp:1237
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Atpakaļ"
@@ -2173,7 +2321,7 @@ msgctxt "SettingsDialog|"
 msgid "Interface"
 msgstr "Saskarne"
 
-#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:825
+#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:841
 msgctxt "SettingsDialog|"
 msgid "Translation"
 msgstr "Tulkošana"
@@ -2492,22 +2640,46 @@ msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>Atlasīt ikonu</p></body></html>"
 
-#: src/settings/settingsdialog.ui:658
+#: src/settings/settingsdialog.ui:632
+msgctxt "SettingsDialog|"
+msgid "Status bar"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:638
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid ""
+#| "<html><head/><body><p>Start application minimized to the system tray</p></"
+#| "body></html>"
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/<body><p>Show what the application is currently doing at the "
+"bottom of the main and pop-up windows</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Sākt programmu minimizētu sistēmas ikonu joslā</p></"
+"body></html>"
+
+#: src/settings/settingsdialog.ui:641
+msgctxt "SettingsDialog|"
+msgid "Show status bar"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:677
 msgctxt "SettingsDialog|"
 msgid "Translation provider:"
 msgstr "Tulkošanas pakalpojuma sniedzējs:"
 
-#: src/settings/settingsdialog.ui:681
+#: src/settings/settingsdialog.ui:700
 msgctxt "SettingsDialog|"
 msgid "Automatic language detection"
 msgstr "Automātiska valodas noteikšana"
 
-#: src/settings/settingsdialog.ui:687
+#: src/settings/settingsdialog.ui:706
 msgctxt "SettingsDialog|"
 msgid "Primary translation language:"
 msgstr "Galvenā tulkošanas valoda:"
 
-#: src/settings/settingsdialog.ui:694
+#: src/settings/settingsdialog.ui:713
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which text will be translated when "
@@ -2516,12 +2688,12 @@ msgstr ""
 "<html><head/><body><p>Valoda, kurā teksts tiks tulkots automātiskās "
 "noteikšanas laikā</p></body></html>"
 
-#: src/settings/settingsdialog.ui:701
+#: src/settings/settingsdialog.ui:720
 msgctxt "SettingsDialog|"
 msgid "Secondary translation language:"
 msgstr "Sekundārā tulkošanas valoda:"
 
-#: src/settings/settingsdialog.ui:708
+#: src/settings/settingsdialog.ui:727
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which the text will be translated if it is "
@@ -2530,7 +2702,7 @@ msgstr ""
 "<html><head/><body><p>Valoda, kurā teksts tiks tulkots, ja tas ir iepriekš "
 "atlasītajā valodā</p></body></html>"
 
-#: src/settings/settingsdialog.ui:715 src/settings/settingsdialog.ui:725
+#: src/settings/settingsdialog.ui:734 src/settings/settingsdialog.ui:744
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
@@ -2540,29 +2712,17 @@ msgstr ""
 "italic;\">Automātiski</span>, kad izmantojat OCR un globālās saīsnes</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:718
+#: src/settings/settingsdialog.ui:737
 msgctxt "SettingsDialog|"
 msgid "Force source language detection"
 msgstr "Piespiedu avota valodas noteikšana"
 
-#: src/settings/settingsdialog.ui:728
+#: src/settings/settingsdialog.ui:747
 msgctxt "SettingsDialog|"
 msgid "Force translation language detection"
 msgstr "Piespiedu tulkošanas valodas noteikšana"
 
-#: src/settings/settingsdialog.ui:735
-msgctxt "SettingsDialog|"
-msgid ""
-"Detect the source language using a LocalAI model instead of the built-in "
-"heuristic. Choose the provider and model below."
-msgstr ""
-
-#: src/settings/settingsdialog.ui:738
-msgctxt "SettingsDialog|"
-msgid "Detect language via LLM (LocalAI)"
-msgstr ""
-
-#: src/settings/settingsdialog.ui:745
+#: src/settings/settingsdialog.ui:754
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Translation provider:"
@@ -2570,7 +2730,15 @@ msgctxt "SettingsDialog|"
 msgid "Detection provider:"
 msgstr "Tulkošanas pakalpojuma sniedzējs:"
 
-#: src/settings/settingsdialog.ui:755
+#: src/settings/settingsdialog.ui:761 src/settings/settingsdialog.ui:778
+msgctxt "SettingsDialog|"
+msgid ""
+"Provider and model used to detect the source language when it is set to "
+"Auto. If no detection model is selected, translation falls back to the "
+"configured primary language above."
+msgstr ""
+
+#: src/settings/settingsdialog.ui:768
 #, fuzzy
 #| msgctxt "SnippingArea|"
 #| msgid "DPI Detection Error"
@@ -2578,17 +2746,12 @@ msgctxt "SettingsDialog|"
 msgid "Detection model:"
 msgstr "DPI noteikšanas kļūda"
 
-#: src/settings/settingsdialog.ui:783
+#: src/settings/settingsdialog.ui:799
 msgctxt "SettingsDialog|"
 msgid "Text-to-Speech"
 msgstr "Teksta izrunāšana"
 
-#: src/settings/settingsdialog.ui:789
-msgctxt "SettingsDialog|"
-msgid "Provider:"
-msgstr "Pakalpojuma sniedzējs:"
-
-#: src/settings/settingsdialog.ui:831
+#: src/settings/settingsdialog.ui:847
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
@@ -2597,12 +2760,12 @@ msgstr ""
 "<html><head/><body><p>Ieslēgt vai izslēgt avota transliterāciju</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:834
+#: src/settings/settingsdialog.ui:850
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
 msgstr "Ieslēgt avota transliterāciju"
 
-#: src/settings/settingsdialog.ui:841
+#: src/settings/settingsdialog.ui:857
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
@@ -2611,12 +2774,12 @@ msgstr ""
 "<html><head/><body><p>Ieslēgt vai izslēgt tulkojumu transliterāciju</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:844
+#: src/settings/settingsdialog.ui:860
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
 msgstr "Ieslēgt tulkojumu transliterāciju"
 
-#: src/settings/settingsdialog.ui:851
+#: src/settings/settingsdialog.ui:867
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
@@ -2625,12 +2788,12 @@ msgstr ""
 "<html><head/><body><p>Ieslēgt vai izslēgt avota transkripciju</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:854
+#: src/settings/settingsdialog.ui:870
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
 msgstr "Ieslēgt avota transkripciju"
 
-#: src/settings/settingsdialog.ui:861
+#: src/settings/settingsdialog.ui:877
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
@@ -2638,12 +2801,12 @@ msgstr ""
 "<html><head/><body><p>Ieslēgt vai izslēgt tulkošanas opcijas</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:864
+#: src/settings/settingsdialog.ui:880
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
 msgstr "Ieslēgt tulkošanas opcijas"
 
-#: src/settings/settingsdialog.ui:871
+#: src/settings/settingsdialog.ui:887
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
@@ -2651,12 +2814,12 @@ msgstr ""
 "<html><head/><body><p>Ieslēgt vai izslēgt lietojuma piemēru parādīšanu</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:874
+#: src/settings/settingsdialog.ui:890
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
 msgstr "Rādīt piemērus"
 
-#: src/settings/settingsdialog.ui:881
+#: src/settings/settingsdialog.ui:897
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace each sequence of whitespaces (this includes "
@@ -2667,53 +2830,53 @@ msgstr ""
 "ASCII rakstzīmes '\\t', '\\n', '\\v', '\\f', '\\r' un ' ') ar vienu "
 "atstarpi</p></body></html>"
 
-#: src/settings/settingsdialog.ui:884
+#: src/settings/settingsdialog.ui:900
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
 msgstr "Vienkāršot avotu"
 
-#: src/settings/settingsdialog.ui:915
+#: src/settings/settingsdialog.ui:931
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
 msgstr "„Mozhi“ instances URL"
 
-#: src/settings/settingsdialog.ui:928
+#: src/settings/settingsdialog.ui:944
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
 msgstr "Automātiski izvēlieties ātrāko instanci, ņemot vērā „ping“ datus"
 
-#: src/settings/settingsdialog.ui:931
+#: src/settings/settingsdialog.ui:947
 msgctxt "SettingsDialog|"
 msgid "Detect fastest"
 msgstr "Ātrākā noteikšana"
 
-#: src/settings/settingsdialog.ui:952
+#: src/settings/settingsdialog.ui:968
 msgctxt "SettingsDialog|"
 msgid ""
 "Optional. Required by self-hosted LibreTranslate instances and "
 "libretranslate.com; the Mozhi front-end ignores it."
 msgstr ""
 
-#: src/settings/settingsdialog.ui:965
+#: src/settings/settingsdialog.ui:981
 msgctxt "SettingsDialog|"
 msgid ""
 "Talk the direct LibreTranslate REST API to the instance URL instead of the "
 "Mozhi-compatible API; use this for self-hosted LibreTranslate servers."
 msgstr ""
 
-#: src/settings/settingsdialog.ui:1000
+#: src/settings/settingsdialog.ui:1016
 msgctxt "SettingsDialog|"
 msgid ""
 "Local OpenAI-compatible servers. Set URL, translation model and prompt for "
 "each. Language detection is configured on the Translation page."
 msgstr ""
 
-#: src/settings/settingsdialog.ui:1023
+#: src/settings/settingsdialog.ui:1039
 msgctxt "SettingsDialog|"
 msgid "Languages"
 msgstr "Valodas"
 
-#: src/settings/settingsdialog.ui:1029
+#: src/settings/settingsdialog.ui:1045
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Loading additional languages will impact both speed "
@@ -2725,22 +2888,22 @@ msgstr ""
 "precizitāti, jo atbilstošās valodas noteikšana prasa vairāk darba, kā arī ir "
 "lielāka iespēja halucinēt nepareizus vārdus.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1036
+#: src/settings/settingsdialog.ui:1052
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
 msgstr "Valodu ceļš:"
 
-#: src/settings/settingsdialog.ui:1043
+#: src/settings/settingsdialog.ui:1059
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr "<html><head/><body><p>Atlasīt OCR valodu ceļu</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1053
+#: src/settings/settingsdialog.ui:1069
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
 msgstr "<html><head/><body><p>Atvērt „GitHub“ repozitoriju</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1056
+#: src/settings/settingsdialog.ui:1072
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
@@ -2751,12 +2914,12 @@ msgstr ""
 "\"><span style=\" text-decoration: underline; color:#2980b9;\">Lejupielādēt "
 "vairāk</span></a></p></body></html>"
 
-#: src/settings/settingsdialog.ui:1066
+#: src/settings/settingsdialog.ui:1082
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
 msgstr "Katalogs ar apmācītiem modeļiem"
 
-#: src/settings/settingsdialog.ui:1082
+#: src/settings/settingsdialog.ui:1098
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
@@ -2765,22 +2928,22 @@ msgstr ""
 "<html><head/><body><p>Pēc teksta atpazīšanas aizstāt visus vienas rindiņas "
 "pārtraukumus ar atstarpi</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1085
+#: src/settings/settingsdialog.ui:1101
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
 msgstr "Pārvērst rindiņu pārtraukumus"
 
-#: src/settings/settingsdialog.ui:1149
+#: src/settings/settingsdialog.ui:1165
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
 msgstr "Ekrāna uzņemšana"
 
-#: src/settings/settingsdialog.ui:1161
+#: src/settings/settingsdialog.ui:1177
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
 msgstr "Atcerēties reģionu:"
 
-#: src/settings/settingsdialog.ui:1168
+#: src/settings/settingsdialog.ui:1184
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
@@ -2789,49 +2952,49 @@ msgstr ""
 "<html><head/><body><p>Kad atcerēties pēdējo atlasīto reģionu</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1172
+#: src/settings/settingsdialog.ui:1188
 msgctxt "SettingsDialog|"
 msgid "Never"
 msgstr "Nekad"
 
-#: src/settings/settingsdialog.ui:1177
+#: src/settings/settingsdialog.ui:1193
 msgctxt "SettingsDialog|"
 msgid "Remember last"
 msgstr "Atcerēties pēdējo"
 
-#: src/settings/settingsdialog.ui:1182
+#: src/settings/settingsdialog.ui:1198
 msgctxt "SettingsDialog|"
 msgid "Remember always"
 msgstr "Atcerēties vienmēr"
 
-#: src/settings/settingsdialog.ui:1190
+#: src/settings/settingsdialog.ui:1206
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
 msgstr "Uzņemšanas aizkave:"
 
-#: src/settings/settingsdialog.ui:1197
+#: src/settings/settingsdialog.ui:1213
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
 msgstr "Aizkave pirms ekrāna uzņemšanas"
 
-#: src/settings/settingsdialog.ui:1200
+#: src/settings/settingsdialog.ui:1216
 msgctxt "SettingsDialog|"
 msgid " ms"
 msgstr " ms"
 
-#: src/settings/settingsdialog.ui:1210
+#: src/settings/settingsdialog.ui:1226
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Rādīt palielinātāju blakus kursoram</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1213
+#: src/settings/settingsdialog.ui:1229
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
 msgstr "Rādīt palielinātāju"
 
-#: src/settings/settingsdialog.ui:1220
+#: src/settings/settingsdialog.ui:1236
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
@@ -2840,12 +3003,12 @@ msgstr ""
 "<html><head/><body><p>Pirms OCR invertēt attēlu. Izmantojiet gaiša teksta uz "
 "tumša fona gadījumos.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1223
+#: src/settings/settingsdialog.ui:1239
 msgctxt "SettingsDialog|"
 msgid "Negate OCR"
 msgstr "Invertēt OCR"
 
-#: src/settings/settingsdialog.ui:1233
+#: src/settings/settingsdialog.ui:1249
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
@@ -2854,12 +3017,12 @@ msgstr ""
 "<html><head/><body><p>Pabeigt fragmenta uzņemšanu, kad ir atlaista peles "
 "poga</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1236
+#: src/settings/settingsdialog.ui:1252
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
 msgstr "Apstiprināt atlaižot"
 
-#: src/settings/settingsdialog.ui:1243
+#: src/settings/settingsdialog.ui:1259
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
@@ -2868,81 +3031,81 @@ msgstr ""
 "<html><head/><body><p>Neatlasītajai daļai uzklājiet vieglu miglu</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1246
+#: src/settings/settingsdialog.ui:1262
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
 msgstr "Uzklāt vieglu masku"
 
-#: src/settings/settingsdialog.ui:1279
+#: src/settings/settingsdialog.ui:1295
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
 msgstr "Starpniekserveris"
 
-#: src/settings/settingsdialog.ui:1285
+#: src/settings/settingsdialog.ui:1301
 msgctxt "SettingsDialog|"
 msgid "Type:"
 msgstr "Veids:"
 
-#: src/settings/settingsdialog.ui:1298
+#: src/settings/settingsdialog.ui:1314
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
 msgstr "<html><head/><body><p>Starpniekservera veids</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1302
+#: src/settings/settingsdialog.ui:1318
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
 msgstr "Lietot sistēmas iestatījumus"
 
-#: src/settings/settingsdialog.ui:1312
+#: src/settings/settingsdialog.ui:1328
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
 msgstr "Nelietot starpniekserveri"
 
-#: src/settings/settingsdialog.ui:1328
+#: src/settings/settingsdialog.ui:1344
 msgctxt "SettingsDialog|"
 msgid "Host:"
 msgstr "Resursdators:"
 
-#: src/settings/settingsdialog.ui:1338
+#: src/settings/settingsdialog.ui:1354
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Starpniekservera resursdatora nosaukums</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1351
+#: src/settings/settingsdialog.ui:1367
 msgctxt "SettingsDialog|"
 msgid "Port:"
 msgstr "Ports:"
 
-#: src/settings/settingsdialog.ui:1367
+#: src/settings/settingsdialog.ui:1383
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
 msgstr "<html><head/><body><p>Starpniekservera ports</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1386
+#: src/settings/settingsdialog.ui:1402
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
 msgstr "Informācija: starpniekserveris darbojas tikai teksta tulkošanai"
 
-#: src/settings/settingsdialog.ui:1396
+#: src/settings/settingsdialog.ui:1412
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Ieslēgt vai izslēgt autentifikāciju</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1399
+#: src/settings/settingsdialog.ui:1415
 msgctxt "SettingsDialog|"
 msgid "Authentication"
 msgstr "Autentifikācija"
 
-#: src/settings/settingsdialog.ui:1409
+#: src/settings/settingsdialog.ui:1425
 msgctxt "SettingsDialog|"
 msgid "Username:"
 msgstr "Lietotājvārds:"
 
-#: src/settings/settingsdialog.ui:1419
+#: src/settings/settingsdialog.ui:1435
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
@@ -2950,12 +3113,12 @@ msgstr ""
 "<html><head/><body><p>Starpniekservera lietotājvārds autentifikācijai</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1429
+#: src/settings/settingsdialog.ui:1445
 msgctxt "SettingsDialog|"
 msgid "Password:"
 msgstr "Parole:"
 
-#: src/settings/settingsdialog.ui:1439
+#: src/settings/settingsdialog.ui:1455
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
@@ -2963,46 +3126,46 @@ msgstr ""
 "<html><head/><body><p>Starpniekservera parole autentifikācijai</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1452
+#: src/settings/settingsdialog.ui:1468
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
 msgstr "Informācija: parole tiek saglabāta nešifrēta"
 
-#: src/settings/settingsdialog.ui:1488
+#: src/settings/settingsdialog.ui:1504
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Reģistrēt globālās saīsnes sistēmā</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1491
+#: src/settings/settingsdialog.ui:1507
 msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "Ieslēgt globālo saīšņu izmantošanu"
 
-#: src/settings/settingsdialog.ui:1507
+#: src/settings/settingsdialog.ui:1523
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Atiestatīt visas saīsnes uz noklusējuma iestatījumiem</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:1510
+#: src/settings/settingsdialog.ui:1526
 msgctxt "SettingsDialog|"
 msgid "Reset all"
 msgstr "Atiestatīt visu"
 
-#: src/settings/settingsdialog.ui:1520
+#: src/settings/settingsdialog.ui:1536
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
 msgstr "Saīsne"
 
-#: src/settings/settingsdialog.ui:1526
+#: src/settings/settingsdialog.ui:1542
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
 msgstr "Taustiņu secība:"
 
-#: src/settings/settingsdialog.ui:1533
+#: src/settings/settingsdialog.ui:1549
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
@@ -3010,54 +3173,54 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Atlasītās darbības taustiņu secība</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1540
+#: src/settings/settingsdialog.ui:1556
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Pieņemt saīsni</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1543
+#: src/settings/settingsdialog.ui:1559
 msgctxt "SettingsDialog|"
 msgid "Accept"
 msgstr "Pieņemt"
 
-#: src/settings/settingsdialog.ui:1553
+#: src/settings/settingsdialog.ui:1569
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
 msgstr "<html><head/><body><p>Notīrīt saīsni</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1556
+#: src/settings/settingsdialog.ui:1572
 msgctxt "SettingsDialog|"
 msgid "Clear"
 msgstr "Notīrīt"
 
-#: src/settings/settingsdialog.ui:1566
+#: src/settings/settingsdialog.ui:1582
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Atiestatīt saīsni uz noklusējuma vērtību</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1569
+#: src/settings/settingsdialog.ui:1585
 msgctxt "SettingsDialog|"
 msgid "Reset"
 msgstr "Atiestatīt"
 
-#: src/settings/settingsdialog.ui:1614
+#: src/settings/settingsdialog.ui:1630
 msgctxt "SettingsDialog|"
 msgid "Version:"
 msgstr "Versija:"
 
-#: src/settings/settingsdialog.ui:1624
+#: src/settings/settingsdialog.ui:1640
 msgctxt "SettingsDialog|"
 msgid "License:"
 msgstr "Licence:"
 
-#: src/settings/settingsdialog.ui:1638
+#: src/settings/settingsdialog.ui:1654
 msgctxt "SettingsDialog|"
 msgid "Source code:"
 msgstr "Avota kods:"
 
-#: src/settings/settingsdialog.ui:1658
+#: src/settings/settingsdialog.ui:1674
 msgctxt "SettingsDialog|"
 msgid "Translation backend:"
 msgstr "Tulkošanas aizmugursistēma:"
@@ -3188,6 +3351,12 @@ msgctxt "TesseractParametersTableWidget|"
 msgid "Value"
 msgstr "Vērtība"
 
+#: src/statusstrip.cpp:23 src/statusstrip.cpp:79 src/statusstrip.cpp:127
+#: src/statusstrip.cpp:128 src/statusstrip.cpp:143 src/statusstrip.cpp:144
+msgctxt "StatusStrip|"
+msgid "Ready"
+msgstr ""
+
 #: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"
 msgid "Translation Provider Error"
@@ -3205,12 +3374,12 @@ msgstr ""
 "Mēģiniet izvēlēties citu pakalpojumu sniedzēju, ejot „Iestatījumi“ → "
 "„Tulkošana“."
 
-#: src/translator/mozhitranslationprovider.cpp:400
+#: src/translator/mozhitranslationprovider.cpp:408
 msgctxt "MozhiTranslationProvider|"
 msgid "translation options:"
 msgstr "tulkošanas opcijas:"
 
-#: src/translator/mozhitranslationprovider.cpp:414
+#: src/translator/mozhitranslationprovider.cpp:422
 msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
 msgstr "piemēri:"
@@ -3436,6 +3605,24 @@ msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
 msgstr "„Windows“ TTS balss instalācija"
 
+#~ msgctxt "Ocr|"
+#~ msgid "OCR languages are not loaded"
+#~ msgstr "OCR valodas nav ielādētas"
+
+#, fuzzy
+#~| msgctxt "SettingsDialog|"
+#~| msgid "Version:"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Vision"
+#~ msgstr "Versija:"
+
+#, fuzzy
+#~| msgctxt "SettingsDialog|"
+#~| msgid "Show timeout:"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Show both"
+#~ msgstr "Rādīt noildzi:"
+
 #~ msgctxt "MainWindow|"
 #~ msgid "..."
 #~ msgstr "..."
@@ -3450,10 +3637,6 @@ msgstr "„Windows“ TTS balss instalācija"
 #~ msgctxt "MainWindow|"
 #~ msgid "MainWindow"
 #~ msgstr "Galvenais logs"
-
-#~ msgctxt "MainWindow|"
-#~ msgid "Unable to detect language"
-#~ msgstr "Nevar noteikt valodu"
 
 #~ msgctxt "MainWindow|"
 #~ msgid "Unable to translate text"
