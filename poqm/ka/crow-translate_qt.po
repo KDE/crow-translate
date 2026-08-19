@@ -186,6 +186,11 @@ msgctxt "Cli|"
 msgid "Translation error occurred"
 msgstr "აღმოჩენილია თარგმანის შეცდომა"
 
+#: src/cli.cpp:451
+msgctxt "Cli|"
+msgid "Unknown error"
+msgstr ""
+
 #: src/cli.cpp:452
 msgctxt "Cli|"
 msgid "Error: TTS failed"
@@ -197,13 +202,13 @@ msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "შეცდომა: პარამეტრებს --%1 და --%2 ერთად ვერ გამოიყენებთ"
 
-#: src/cli.cpp:621 src/cli.cpp:642
+#: src/cli.cpp:622 src/cli.cpp:643
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "შეცდომა: ფაილი არ არსებობს: %1"
 
-#: src/cli.cpp:626 src/cli.cpp:647
+#: src/cli.cpp:627 src/cli.cpp:648
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -263,7 +268,7 @@ msgctxt "LanguageButtonsWidget|"
 msgid "Auto"
 msgstr "ავტო"
 
-#: src/languagebuttonswidget.ui:32
+#: src/languagebuttonswidget.ui:32 src/languagebuttonswidget.ui:35
 msgctxt "LanguageButtonsWidget|"
 msgid "Edit languages"
 msgstr "ენების ჩასწორება"
@@ -279,12 +284,52 @@ msgctxt "LanguagesDialog|"
 msgid "Edit languages"
 msgstr "ენების ჩასწორება"
 
-#: src/languagesdialog.ui:91
+#: src/languagesdialog.ui:24
+#, fuzzy
+#| msgctxt "LanguagesDialog|"
+#| msgid "Current languages:"
+msgctxt "LanguagesDialog|"
+msgid "Add to current languages"
+msgstr "მიმდინარე ენები:"
+
+#: src/languagesdialog.ui:38
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Force source language detection"
+msgctxt "LanguagesDialog|"
+msgid "Move language down"
+msgstr "ნაძალადევი წყარო ენის დადგენა"
+
+#: src/languagesdialog.ui:55
+#, fuzzy
+#| msgctxt "LanguagesDialog|"
+#| msgid "Current languages:"
+msgctxt "LanguagesDialog|"
+msgid "Remove from current languages"
+msgstr "მიმდინარე ენები:"
+
+#: src/languagesdialog.ui:69
+#, fuzzy
+#| msgctxt "MainWindow|"
+#| msgid "Swap languages"
+msgctxt "LanguagesDialog|"
+msgid "Search languages"
+msgstr "ენების მიმოცვლა"
+
+#: src/languagesdialog.ui:79
+#, fuzzy
+#| msgctxt "LanguagesDialog|"
+#| msgid "Available languages:"
+msgctxt "LanguagesDialog|"
+msgid "Move language up"
+msgstr "ხელმისაწვდომი ენები:"
+
+#: src/languagesdialog.ui:109
 msgctxt "LanguagesDialog|"
 msgid "Available languages:"
 msgstr "ხელმისაწვდომი ენები:"
 
-#: src/languagesdialog.ui:104
+#: src/languagesdialog.ui:125
 msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "მიმდინარე ენები:"
@@ -301,38 +346,38 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "%1-სთვის D-Bus-ის ობიექტის რეგისტრაცია შეუძლებელია"
 
-#: src/mainwindow.cpp:464
+#: src/mainwindow.cpp:470
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "OCR"
 
-#: src/mainwindow.cpp:465
+#: src/mainwindow.cpp:471
 msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "OCR სურათი ნეგატივია"
 
-#: src/mainwindow.cpp:465
+#: src/mainwindow.cpp:471
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr "OCR გამოსახულება ნორმალურია"
 
-#: src/mainwindow.cpp:624
+#: src/mainwindow.cpp:630
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
 msgstr "OCR მორგებული არაა"
 
-#: src/mainwindow.cpp:624
+#: src/mainwindow.cpp:630
 msgctxt "TesseractOcr|"
 msgid "Set up the OCR engine in the application settings"
 msgstr "მოირგეთ OCR-ის ძრავა აპლიკაციის პარამეტრებში"
 
-#: src/mainwindow.cpp:880
+#: src/mainwindow.cpp:891
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "ეს აპლიკაცია თარგმანების მოსაწოდებლად %1-ს იყენებს."
 
-#: src/mainwindow.cpp:881
+#: src/mainwindow.cpp:892
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -347,40 +392,40 @@ msgstr ""
 "გაშვებული ასლი ამჟამად არის '%1', მაგრამ მისი შეცვლა თარგმანის პარამეტრებში "
 "შეგიძლიათ. გაშვებული ასლის დეტალები ზემო ბმულში შეგიძლიათ, იხილოთ."
 
-#: src/mainwindow.cpp:888
+#: src/mainwindow.cpp:899
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "მეორედ არ მაჩვენო"
 
-#: src/mainwindow.cpp:935
+#: src/mainwindow.cpp:946
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "არასწორი სისტემური საათის ხატულა"
 
-#: src/mainwindow.cpp:935
+#: src/mainwindow.cpp:946
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr ""
 "მითითებული ხატულა '%1' არასწორია. გამოყენებული იქნება ნაგულისხმევი ხატულა."
 
-#: src/mainwindow.cpp:956
+#: src/mainwindow.cpp:967
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "OCR-ის ენების დაყენება შეუძლებელია"
 
-#: src/mainwindow.cpp:956
+#: src/mainwindow.cpp:967
 #, qt-format
 msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "%1-ით Tesseract-ის ინიციალიზაცია შეუძლებელია"
 
-#: src/mainwindow.cpp:1099
+#: src/mainwindow.cpp:1110
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr "TTS-ის შეცდომა"
 
-#: src/mainwindow.cpp:1099
+#: src/mainwindow.cpp:1110
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -396,19 +441,27 @@ msgstr ""
 "\n"
 "შეამოწმეთ TTS-ის პარამეტრები, ან სცადეთ სხვა ხმა/ენა."
 
-#: src/mainwindow.cpp:1911
+#: src/mainwindow.cpp:1142 src/mainwindow.cpp:1148
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: %1"
+msgctxt "MainWindow|"
+msgid "Error: %1"
+msgstr "შეცდომა: %1"
+
+#: src/mainwindow.cpp:1971
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
 msgstr "გამოსახულება მეტისმეტად დიდია (%1 მპ). მაქს %2 მპ."
 
-#: src/mainwindow.cpp:2011
+#: src/mainwindow.cpp:2071
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
 msgstr "OCR ჩავარდა: %1"
 
-#: src/mainwindow.cpp:2105 src/mainwindow.cpp:2162
+#: src/mainwindow.cpp:2165 src/mainwindow.cpp:2222
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -418,12 +471,12 @@ msgstr ""
 "გამოსახულების გახსნა შეუძლებელია:\n"
 "%1"
 
-#: src/mainwindow.cpp:2153 src/mainwindow.cpp:2162
+#: src/mainwindow.cpp:2213 src/mainwindow.cpp:2222
 msgctxt "MainWindow|"
 msgid "Open image"
 msgstr "გამოსახულების გახსნა"
 
-#: src/mainwindow.cpp:2155
+#: src/mainwindow.cpp:2215
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
@@ -582,21 +635,45 @@ msgctxt "ModuleStatus|"
 msgid "Speech error"
 msgstr "წარმოთქმის შეცდომა"
 
-#: src/ocr/llmocr.cpp:262
+#: src/ocr/llmocr.cpp:259
 msgctxt "LlmOcr|"
-msgid "LLM OCR request timed out"
-msgstr "LLM OCR-ის მოთხოვნის ვადა ამოიწურა"
+msgid ""
+"The model ran out of tokens before transcribing anything, having spent them "
+"reasoning instead. Turn on \"Disable reasoning\" for this provider, or pick "
+"a model with a larger context."
+msgstr ""
 
-#: src/ocr/llmocr.cpp:268
+#: src/ocr/llmocr.cpp:264
+#, qt-format
+msgctxt "LlmOcr|"
+msgid ""
+"The model ran out of tokens before transcribing anything: the image used %1 "
+"of its %2 token limit. Try a smaller region, or a model with a larger "
+"context."
+msgstr ""
+
+#: src/ocr/llmocr.cpp:269
+msgctxt "LlmOcr|"
+msgid ""
+"The model ran out of tokens before transcribing anything. Try a smaller "
+"region, or a model with a larger context."
+msgstr ""
+
+#: src/ocr/llmocr.cpp:273 src/ocr/llmocr.cpp:509
 #, qt-format
 msgctxt "LlmOcr|"
 msgid "LLM OCR error: %1"
 msgstr "LLM OCR-ის შეცდომა: %1"
 
-#: src/ocr/llmocr.cpp:274
+#: src/ocr/llmocr.cpp:275
 msgctxt "LlmOcr|"
-msgid "LLM OCR returned an empty response"
-msgstr "LLM OCR-მა ცარიელი პასუხი დააბრუნა"
+msgid "The model returned no text for this image."
+msgstr ""
+
+#: src/ocr/llmocr.cpp:488
+msgctxt "LlmOcr|"
+msgid "LLM OCR request timed out"
+msgstr "LLM OCR-ის მოთხოვნის ვადა ამოიწურა"
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 msgctxt "AbstractScreenGrabber|"
@@ -810,7 +887,7 @@ msgstr ""
 "ეკრანი კურსორის ქვეშ გაქრა მანამდე, სანამ მისი DPI-ის დადგენა მოხდა. DPI-ის "
 "ინფორმაციის დასადგენად გამოყენებული იქნება ძირითადი ეკრანი."
 
-#: src/ocr/tesseractocr.cpp:142
+#: src/ocr/tesseractocr.cpp:143
 #, qt-format
 msgctxt "TesseractOcr|"
 msgid "%1 is not a valid Tesseract parameter name."
@@ -1949,22 +2026,22 @@ msgctxt "PopupWindow|"
 msgid "Copy source text to the clipboard"
 msgstr "წყაროს ტექსტის კოპირება ბუფერში"
 
-#: src/popupwindow.ui:237 src/popupwindow.ui:240
+#: src/popupwindow.ui:174 src/popupwindow.ui:177
 msgctxt "PopupWindow|"
 msgid "Start/pause saying the translated text aloud"
 msgstr "თარგმნილი ტექსტის ხმამაღლა წარმოთქმის დაწყება/შეჩერება"
 
-#: src/popupwindow.ui:285 src/popupwindow.ui:288
+#: src/popupwindow.ui:222 src/popupwindow.ui:225
 msgctxt "PopupWindow|"
 msgid "Stop saying the translated text aloud"
 msgstr "თარგმნილი ტექსტის ხმამაღლა წარმოთქმის გაჩერება"
 
-#: src/popupwindow.ui:295 src/popupwindow.ui:298
+#: src/popupwindow.ui:232 src/popupwindow.ui:235
 msgctxt "PopupWindow|"
 msgid "Copy all translation data to the clipboard"
 msgstr "ყველა თარგმანის მონაცემის კოპირება ბუფერში"
 
-#: src/popupwindow.ui:308 src/popupwindow.ui:311
+#: src/popupwindow.ui:245 src/popupwindow.ui:248
 msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "თარგმანის კოპირება ბუფერში"
@@ -2136,7 +2213,7 @@ msgctxt "SettingsDialog|"
 msgid "Tesseract runs locally. Configure languages and parameters below."
 msgstr "Tesseract ლოკალურადაა გაშვებული. მოირგეთ პარამეტრები და ენები ქვემოთ."
 
-#: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:805
+#: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:808
 msgctxt "SettingsDialog|"
 msgid "Provider:"
 msgstr "მომწოდებელი:"
@@ -2226,7 +2303,7 @@ msgstr ""
 "%1-ის %2-ზე წვდომა შეუძლებელია:\n"
 "%3"
 
-#: src/settings/settingsdialog.cpp:1000
+#: src/settings/settingsdialog.cpp:1000 src/settings/settingsdialog.ui:614
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "აირჩიეთ ხატულა"
@@ -2236,7 +2313,7 @@ msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "გამოსახულებები (*.png *.ico *.svg *.jpg);;ყველა ფაილი()"
 
-#: src/settings/settingsdialog.cpp:1030
+#: src/settings/settingsdialog.cpp:1030 src/settings/settingsdialog.ui:1062
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "აირჩიეთ OCR ენების ბილიკი"
@@ -2276,7 +2353,7 @@ msgctxt "SettingsDialog|"
 msgid "Interface"
 msgstr "ინტერფეისი"
 
-#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:841
+#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:844
 msgctxt "SettingsDialog|"
 msgid "Translation"
 msgstr "თარგმანი"
@@ -2589,17 +2666,17 @@ msgctxt "SettingsDialog|"
 msgid "Path to the icon or icon name from theme"
 msgstr "ხატულას ბილიკი ან ხატულას სახელი თემიდან"
 
-#: src/settings/settingsdialog.ui:617
+#: src/settings/settingsdialog.ui:620
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select icon</p></body></html>"
 msgstr "<html><head/><body><p>აირჩიეთ ხატულა</p></body></html>"
 
-#: src/settings/settingsdialog.ui:632
+#: src/settings/settingsdialog.ui:635
 msgctxt "SettingsDialog|"
 msgid "Status bar"
 msgstr "სტატუსის ველი"
 
-#: src/settings/settingsdialog.ui:638
+#: src/settings/settingsdialog.ui:641
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/<body><p>Show what the application is currently doing at the "
@@ -2608,27 +2685,27 @@ msgstr ""
 "<html><head/><body><p>ჩვენება, რას აკეთებს აპლიკაცია ამჟამად მთავარი და "
 "მხტუნარა ფანჯრების ბოლოში</p></body></html>"
 
-#: src/settings/settingsdialog.ui:641
+#: src/settings/settingsdialog.ui:644
 msgctxt "SettingsDialog|"
 msgid "Show status bar"
 msgstr "მდგომარეობის ზოლის ჩვენება"
 
-#: src/settings/settingsdialog.ui:677
+#: src/settings/settingsdialog.ui:680
 msgctxt "SettingsDialog|"
 msgid "Translation provider:"
 msgstr "თარგმანის მომწოდებელი:"
 
-#: src/settings/settingsdialog.ui:700
+#: src/settings/settingsdialog.ui:703
 msgctxt "SettingsDialog|"
 msgid "Automatic language detection"
 msgstr "ენის ავტომატური დადგენა"
 
-#: src/settings/settingsdialog.ui:706
+#: src/settings/settingsdialog.ui:709
 msgctxt "SettingsDialog|"
 msgid "Primary translation language:"
 msgstr "ძირითადი თარგმანის ენა:"
 
-#: src/settings/settingsdialog.ui:713
+#: src/settings/settingsdialog.ui:716
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which text will be translated when "
@@ -2637,12 +2714,12 @@ msgstr ""
 "<html><head/><body><p>ენა, რომელშიც ტექსტი ითარგმნება ავტოდადგენისას</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:720
+#: src/settings/settingsdialog.ui:723
 msgctxt "SettingsDialog|"
 msgid "Secondary translation language:"
 msgstr "მეორადი თარგმანის ენა:"
 
-#: src/settings/settingsdialog.ui:727
+#: src/settings/settingsdialog.ui:730
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which the text will be translated if it is "
@@ -2651,7 +2728,7 @@ msgstr ""
 "<html><head/><body><p>ენა, რომელშიც ტექსტი ითარგმნება, თუ ის ზემოთ არჩეულ "
 "ენებშია</p></body></html>"
 
-#: src/settings/settingsdialog.ui:734 src/settings/settingsdialog.ui:744
+#: src/settings/settingsdialog.ui:737 src/settings/settingsdialog.ui:747
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
@@ -2661,22 +2738,22 @@ msgstr ""
 "\">ავტომატურზე</span> OCR-ის და გლობალური მალსახმობების გამოყენებისას</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:737
+#: src/settings/settingsdialog.ui:740
 msgctxt "SettingsDialog|"
 msgid "Force source language detection"
 msgstr "ნაძალადევი წყარო ენის დადგენა"
 
-#: src/settings/settingsdialog.ui:747
+#: src/settings/settingsdialog.ui:750
 msgctxt "SettingsDialog|"
 msgid "Force translation language detection"
 msgstr "ნაძალადევი თარგმანის ენის დადგენა"
 
-#: src/settings/settingsdialog.ui:754
+#: src/settings/settingsdialog.ui:757
 msgctxt "SettingsDialog|"
 msgid "Detection provider:"
 msgstr "დადგენის მომწოდებელი:"
 
-#: src/settings/settingsdialog.ui:761 src/settings/settingsdialog.ui:778
+#: src/settings/settingsdialog.ui:764 src/settings/settingsdialog.ui:781
 msgctxt "SettingsDialog|"
 msgid ""
 "Provider and model used to detect the source language when it is set to "
@@ -2687,17 +2764,17 @@ msgstr ""
 "დაყენებული. თუ ამოცნობის მოდელი არჩეული არაა, თარგმანი ზემოთ არჩეულ ძირითად "
 "ენაზე გადაერთვება."
 
-#: src/settings/settingsdialog.ui:768
+#: src/settings/settingsdialog.ui:771
 msgctxt "SettingsDialog|"
 msgid "Detection model:"
 msgstr "აღმოჩენის მოდელი:"
 
-#: src/settings/settingsdialog.ui:799
+#: src/settings/settingsdialog.ui:802
 msgctxt "SettingsDialog|"
 msgid "Text-to-Speech"
 msgstr "ტექსტის-ხმამაღლა-წაკითხვა"
 
-#: src/settings/settingsdialog.ui:847
+#: src/settings/settingsdialog.ui:850
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
@@ -2706,12 +2783,12 @@ msgstr ""
 "<html><head/><body><p>წყაროს ტრანსლიტერაციის ჩართვა, ან გამორთვა</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:850
+#: src/settings/settingsdialog.ui:853
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
 msgstr "წყაროს ტრანსლიტერაციის ჩართვა"
 
-#: src/settings/settingsdialog.ui:857
+#: src/settings/settingsdialog.ui:860
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
@@ -2720,12 +2797,12 @@ msgstr ""
 "<html><head/><body><p>თარგმანის ტრანსლიტერაციის ჩართვა, ან გამორთვა</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:860
+#: src/settings/settingsdialog.ui:863
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
 msgstr "თარგმანის ტრანსლიტერაციის ჩართვა"
 
-#: src/settings/settingsdialog.ui:867
+#: src/settings/settingsdialog.ui:870
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
@@ -2734,12 +2811,12 @@ msgstr ""
 "<html><head/><body><p>წყაროს ტრანსკრიფციის ჩართვა, ან გამორთვა</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:870
+#: src/settings/settingsdialog.ui:873
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
 msgstr "წყაროს ტრანსკრიფციის ჩართვა"
 
-#: src/settings/settingsdialog.ui:877
+#: src/settings/settingsdialog.ui:880
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
@@ -2747,12 +2824,12 @@ msgstr ""
 "<html><head/><body><p>თარგმანის პარამეტრების ჩართვა, ან გამორთვა</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:880
+#: src/settings/settingsdialog.ui:883
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
 msgstr "თარგმანის პარამეტრების ჩართვა"
 
-#: src/settings/settingsdialog.ui:887
+#: src/settings/settingsdialog.ui:890
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
@@ -2760,12 +2837,12 @@ msgstr ""
 "<html><head/><body><p>გამოყენების მაგალითების ჩართვა, ან გამორთვა</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:890
+#: src/settings/settingsdialog.ui:893
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
 msgstr "მაგალითების ჩართვა"
 
-#: src/settings/settingsdialog.ui:897
+#: src/settings/settingsdialog.ui:900
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace each sequence of whitespaces (this includes "
@@ -2776,27 +2853,27 @@ msgstr ""
 "სიმბოლოებს '\\t', '\\n', '\\v', '\\f', '\\r', და ' ') ჩანაცვლება ერთი "
 "ჰარეთი</p></body></html>"
 
-#: src/settings/settingsdialog.ui:900
+#: src/settings/settingsdialog.ui:903
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
 msgstr "წყაროს გამარტივება"
 
-#: src/settings/settingsdialog.ui:931
+#: src/settings/settingsdialog.ui:934
 msgctxt "SettingsDialog|"
 msgid "Mozhi instance URL"
 msgstr "Mozhi-ის ასლის URL"
 
-#: src/settings/settingsdialog.ui:944
+#: src/settings/settingsdialog.ui:947
 msgctxt "SettingsDialog|"
 msgid "Automatically pick the fastest instance based on the ping"
 msgstr "უსწრაფესი ასლის ჩვენება პინგზე დაყრდნობით"
 
-#: src/settings/settingsdialog.ui:947
+#: src/settings/settingsdialog.ui:950
 msgctxt "SettingsDialog|"
 msgid "Detect fastest"
 msgstr "ყველაზე სწრაფის გავლენა"
 
-#: src/settings/settingsdialog.ui:968
+#: src/settings/settingsdialog.ui:971
 msgctxt "SettingsDialog|"
 msgid ""
 "Optional. Required by self-hosted LibreTranslate instances and "
@@ -2805,7 +2882,7 @@ msgstr ""
 "არასავალდებულოა. ითხოვს თვითდაჰოსტილი LibreTranslate და libtretranslate.com "
 "წინაბოლო Mozhi მას აიგნორებს."
 
-#: src/settings/settingsdialog.ui:981
+#: src/settings/settingsdialog.ui:984
 msgctxt "SettingsDialog|"
 msgid ""
 "Talk the direct LibreTranslate REST API to the instance URL instead of the "
@@ -2815,7 +2892,7 @@ msgstr ""
 "ისთან თავსებადი API-ის მაგიერ. გამოიყენეთ თვითდაჰოსტილი LibreTranslate "
 "სერვერებისთვის."
 
-#: src/settings/settingsdialog.ui:1016
+#: src/settings/settingsdialog.ui:1019
 msgctxt "SettingsDialog|"
 msgid ""
 "Local OpenAI-compatible servers. Set URL, translation model and prompt for "
@@ -2825,12 +2902,12 @@ msgstr ""
 "მოთხოვნის ტიპი ყველა მათგანისთვის. ენის მოდელების მორგება 'თარგმანის' "
 "გვერდზე ხდება."
 
-#: src/settings/settingsdialog.ui:1039
+#: src/settings/settingsdialog.ui:1042
 msgctxt "SettingsDialog|"
 msgid "Languages"
 msgstr "ენები"
 
-#: src/settings/settingsdialog.ui:1045
+#: src/settings/settingsdialog.ui:1048
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Loading additional languages will impact both speed "
@@ -2843,22 +2920,22 @@ msgstr ""
 "შესაბამისი ენის დადგენა მოხდეს და ამიტომ უფრო მეტი შანსია, მოდელმა არასწორი "
 "სიტყვების ჰალუცინაცია დაიწყოს</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1052
+#: src/settings/settingsdialog.ui:1055
 msgctxt "SettingsDialog|"
 msgid "Languages path:"
 msgstr "ენების ბილიკი:"
 
-#: src/settings/settingsdialog.ui:1059
+#: src/settings/settingsdialog.ui:1065
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Select OCR languages path</p></body></html>"
 msgstr "<html><head/><body><p>აირჩიეთ OCR-ის ენების ბილიკი</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1069
+#: src/settings/settingsdialog.ui:1075
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Open GitHub repository</p></body></html>"
 msgstr "<html><head/><body><p>GitHub-ის რეპოზიტორიის გასნა</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1072
+#: src/settings/settingsdialog.ui:1078
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p><a href=\"https://github.com/tesseract-ocr/tessdata"
@@ -2869,12 +2946,12 @@ msgstr ""
 "\"><span style=\" text-decoration: underline; color:#2980b9;\">გადმოწერეთ "
 "მეტი</span></a></p></body></html>"
 
-#: src/settings/settingsdialog.ui:1082
+#: src/settings/settingsdialog.ui:1088
 msgctxt "SettingsDialog|"
 msgid "Directory with trained models"
 msgstr "საქაღალდე ნავარჯიშევი მოდელებით"
 
-#: src/settings/settingsdialog.ui:1098
+#: src/settings/settingsdialog.ui:1104
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace all single line breaks with a space after text "
@@ -2883,22 +2960,32 @@ msgstr ""
 "<html><head/><body><p>ყველა ერთი ხაზის გადატანის ჰარეთი ჩანაცვლება ტექსტის "
 "ამოცნობის შემდეგ</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1101
+#: src/settings/settingsdialog.ui:1107
 msgctxt "SettingsDialog|"
 msgid "Convert line breaks"
 msgstr "ხაზის გადატანების გადაყვანა"
 
-#: src/settings/settingsdialog.ui:1165
+#: src/settings/settingsdialog.ui:1131
+msgctxt "SettingsDialog|"
+msgid "Add parameter"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1141
+msgctxt "SettingsDialog|"
+msgid "Remove parameter"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:1177
 msgctxt "SettingsDialog|"
 msgid "Screen capture"
 msgstr "ეკრანის გადაღება"
 
-#: src/settings/settingsdialog.ui:1177
+#: src/settings/settingsdialog.ui:1189
 msgctxt "SettingsDialog|"
 msgid "Remember region:"
 msgstr "რეგიონის დამახსოვრება:"
 
-#: src/settings/settingsdialog.ui:1184
+#: src/settings/settingsdialog.ui:1196
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>When to remember the last selected region</p></body></"
@@ -2907,49 +2994,49 @@ msgstr ""
 "<html><head/><body><p>როდის იქნება დამახსოვრებული ბოლოს არჩეული რეგიონი</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1188
+#: src/settings/settingsdialog.ui:1200
 msgctxt "SettingsDialog|"
 msgid "Never"
 msgstr "არასოდეს"
 
-#: src/settings/settingsdialog.ui:1193
+#: src/settings/settingsdialog.ui:1205
 msgctxt "SettingsDialog|"
 msgid "Remember last"
 msgstr "ბოლოს დამახსოვრება"
 
-#: src/settings/settingsdialog.ui:1198
+#: src/settings/settingsdialog.ui:1210
 msgctxt "SettingsDialog|"
 msgid "Remember always"
 msgstr "ყოველთვის დამახსოვრება"
 
-#: src/settings/settingsdialog.ui:1206
+#: src/settings/settingsdialog.ui:1218
 msgctxt "SettingsDialog|"
 msgid "Capture delay:"
 msgstr "გადაღების დაყოვნება:"
 
-#: src/settings/settingsdialog.ui:1213
+#: src/settings/settingsdialog.ui:1225
 msgctxt "SettingsDialog|"
 msgid "Delay before screen capture"
 msgstr "დაყოვნება ეკრანის გადაღებამდე"
 
-#: src/settings/settingsdialog.ui:1216
+#: src/settings/settingsdialog.ui:1228
 msgctxt "SettingsDialog|"
 msgid " ms"
 msgstr " მწმ"
 
-#: src/settings/settingsdialog.ui:1226
+#: src/settings/settingsdialog.ui:1238
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Show a magnifier next to the cursor</p></body></html>"
 msgstr ""
 "<html><head/><body><p>გამადიდებლის ჩვენება კურსორის შემდეგ</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1229
+#: src/settings/settingsdialog.ui:1241
 msgctxt "SettingsDialog|"
 msgid "Show magnifier"
 msgstr "გამადიდებლის ჩვენება"
 
-#: src/settings/settingsdialog.ui:1236
+#: src/settings/settingsdialog.ui:1248
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Negate (invert) the image before OCR. Use for bright "
@@ -2958,12 +3045,12 @@ msgstr ""
 "<html><head/><body><p>გამოსახულების ნეგატივი (ინვერსია) OCR-ის გაშვებამდე. "
 "გამოიყენეთ ნათელი ტექსტისთვის მუქ ფონზე.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1239
+#: src/settings/settingsdialog.ui:1251
 msgctxt "SettingsDialog|"
 msgid "Negate OCR"
 msgstr "OCR-ის ნეგატივი"
 
-#: src/settings/settingsdialog.ui:1249
+#: src/settings/settingsdialog.ui:1261
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Finish capturing the fragment when the mouse button is "
@@ -2972,12 +3059,12 @@ msgstr ""
 "<html><head/><body><p>ფრაგმენტის ჩაწერის დასრულება, როცა თაგუნას ღილაკს "
 "აუშვებთ</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1252
+#: src/settings/settingsdialog.ui:1264
 msgctxt "SettingsDialog|"
 msgid "Confirm on release"
 msgstr "დადასტურება აღებისას"
 
-#: src/settings/settingsdialog.ui:1259
+#: src/settings/settingsdialog.ui:1271
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Apply a slight fog to the unselected part</p></body></"
@@ -2986,79 +3073,79 @@ msgstr ""
 "<html><head/><body><p>ოდნავი ნისლის გადატარება მოუნიშნავ ნაწილზე</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1262
+#: src/settings/settingsdialog.ui:1274
 msgctxt "SettingsDialog|"
 msgid "Apply light mask"
 msgstr "სინათლის ნიღბის გადატარება"
 
-#: src/settings/settingsdialog.ui:1295
+#: src/settings/settingsdialog.ui:1307
 msgctxt "SettingsDialog|"
 msgid "Proxy server"
 msgstr "პროქსი სერვერი"
 
-#: src/settings/settingsdialog.ui:1301
+#: src/settings/settingsdialog.ui:1313
 msgctxt "SettingsDialog|"
 msgid "Type:"
 msgstr "ტიპი:"
 
-#: src/settings/settingsdialog.ui:1314
+#: src/settings/settingsdialog.ui:1326
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy type</p></body></html>"
 msgstr "<html><head/><body><p>პროქსის ტიპი</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1318
+#: src/settings/settingsdialog.ui:1330
 msgctxt "SettingsDialog|"
 msgid "Use system settings"
 msgstr "სისტემური პარამეტრების გამოყენება"
 
-#: src/settings/settingsdialog.ui:1328
+#: src/settings/settingsdialog.ui:1340
 msgctxt "SettingsDialog|"
 msgid "Don't use a proxy"
 msgstr "არ გამოიყენო პროქსი"
 
-#: src/settings/settingsdialog.ui:1344
+#: src/settings/settingsdialog.ui:1356
 msgctxt "SettingsDialog|"
 msgid "Host:"
 msgstr "ჰოსტი:"
 
-#: src/settings/settingsdialog.ui:1354
+#: src/settings/settingsdialog.ui:1366
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy host name</p></body></html>"
 msgstr "<html><head/><body><p>პროქსის ჰოსტის სახელი</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1367
+#: src/settings/settingsdialog.ui:1379
 msgctxt "SettingsDialog|"
 msgid "Port:"
 msgstr "პორტი:"
 
-#: src/settings/settingsdialog.ui:1383
+#: src/settings/settingsdialog.ui:1395
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Proxy port</p></body></html>"
 msgstr "<html><head/><body><p>პროქსის პორტი</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1402
+#: src/settings/settingsdialog.ui:1414
 msgctxt "SettingsDialog|"
 msgid "Info: the proxy works only for text translation"
 msgstr "ინფორმაცია: პროქსი, მხოლოდ, ტექსტის თარგმანისთვის მუშაობს"
 
-#: src/settings/settingsdialog.ui:1412
+#: src/settings/settingsdialog.ui:1424
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>ავთენტიკაციის ჩართვა, ან გამორთვა</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1415
+#: src/settings/settingsdialog.ui:1427
 msgctxt "SettingsDialog|"
 msgid "Authentication"
 msgstr "ავთენტიკაცია"
 
-#: src/settings/settingsdialog.ui:1425
+#: src/settings/settingsdialog.ui:1437
 msgctxt "SettingsDialog|"
 msgid "Username:"
 msgstr "მომხმარებელი:"
 
-#: src/settings/settingsdialog.ui:1435
+#: src/settings/settingsdialog.ui:1447
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy username for authentication</p></body></html>"
@@ -3066,24 +3153,24 @@ msgstr ""
 "<html><head/><body><p>პროქსის მომხმარებლის სახელი ავთენტიკაციისთვის</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1445
+#: src/settings/settingsdialog.ui:1457
 msgctxt "SettingsDialog|"
 msgid "Password:"
 msgstr "პაროლი:"
 
-#: src/settings/settingsdialog.ui:1455
+#: src/settings/settingsdialog.ui:1467
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Proxy password for authentication</p></body></html>"
 msgstr ""
 "<html><head/><body><p>პროქსის პაროლი ავთენტიკაციისთვის</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1468
+#: src/settings/settingsdialog.ui:1480
 msgctxt "SettingsDialog|"
 msgid "Info: the password is saved unencrypted"
 msgstr "ინფორმაცია: პაროლი დაუშიფრავადაა შენახული"
 
-#: src/settings/settingsdialog.ui:1504
+#: src/settings/settingsdialog.ui:1516
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Register global shortcuts in system</p></body></html>"
@@ -3091,34 +3178,34 @@ msgstr ""
 "<html><head/><body><p>გლობალური მალსახმობების რეგისტრაცია სისტემაში</p></"
 "body></html>"
 
-#: src/settings/settingsdialog.ui:1507
+#: src/settings/settingsdialog.ui:1519
 msgctxt "SettingsDialog|"
 msgid "Enable global shortcuts"
 msgstr "გლობალური მალსახმობების ჩართვა"
 
-#: src/settings/settingsdialog.ui:1523
+#: src/settings/settingsdialog.ui:1535
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
 "<html><head/><body><p>ყველა მალსახმობის ჩამოყრა ნაგულისხმევზე</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1526
+#: src/settings/settingsdialog.ui:1538
 msgctxt "SettingsDialog|"
 msgid "Reset all"
 msgstr "ყველას ჩამოყრა"
 
-#: src/settings/settingsdialog.ui:1536
+#: src/settings/settingsdialog.ui:1548
 msgctxt "SettingsDialog|"
 msgid "Shortcut"
 msgstr "მალმხმობი"
 
-#: src/settings/settingsdialog.ui:1542
+#: src/settings/settingsdialog.ui:1554
 msgctxt "SettingsDialog|"
 msgid "Key sequence:"
 msgstr "ღილაკების მიმდევრობა:"
 
-#: src/settings/settingsdialog.ui:1549
+#: src/settings/settingsdialog.ui:1561
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>The key sequence for the selected action</p></body></"
@@ -3127,53 +3214,53 @@ msgstr ""
 "<html><head/><body><p>ღილაკების მიმდევრობა არჩეული ქმედებისთვის</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:1556
+#: src/settings/settingsdialog.ui:1568
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Accept shortcut</p></body></html>"
 msgstr "<html><head/><body><p>მალსახმობის მიღება</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1559
+#: src/settings/settingsdialog.ui:1571
 msgctxt "SettingsDialog|"
 msgid "Accept"
 msgstr "დასტური"
 
-#: src/settings/settingsdialog.ui:1569
+#: src/settings/settingsdialog.ui:1581
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Clear shortcut</p></body></html>"
 msgstr "<html><head/><body><p>მალსახმობის გასუფთავება</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1572
+#: src/settings/settingsdialog.ui:1584
 msgctxt "SettingsDialog|"
 msgid "Clear"
 msgstr "გასუფთავება"
 
-#: src/settings/settingsdialog.ui:1582
+#: src/settings/settingsdialog.ui:1594
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr ""
 "<html><head/><body><p>მალსახმობის ჩამოყრა ნაგულისხმევზე</p></body></html>"
 
-#: src/settings/settingsdialog.ui:1585
+#: src/settings/settingsdialog.ui:1597
 msgctxt "SettingsDialog|"
 msgid "Reset"
 msgstr "ჩამოყრა"
 
-#: src/settings/settingsdialog.ui:1630
+#: src/settings/settingsdialog.ui:1642
 msgctxt "SettingsDialog|"
 msgid "Version:"
 msgstr "ვერსია:"
 
-#: src/settings/settingsdialog.ui:1640
+#: src/settings/settingsdialog.ui:1652
 msgctxt "SettingsDialog|"
 msgid "License:"
 msgstr "ლიცენზია:"
 
-#: src/settings/settingsdialog.ui:1654
+#: src/settings/settingsdialog.ui:1666
 msgctxt "SettingsDialog|"
 msgid "Source code:"
 msgstr "წყარო კოდი:"
 
-#: src/settings/settingsdialog.ui:1674
+#: src/settings/settingsdialog.ui:1686
 msgctxt "SettingsDialog|"
 msgid "Translation backend:"
 msgstr "თარგმანის უკანაბოლო:"
@@ -3310,6 +3397,32 @@ msgctxt "StatusStrip|"
 msgid "Ready"
 msgstr "მზადაა"
 
+#: src/translator/atranslationprovider.cpp:57
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Force source language detection"
+msgctxt "ATranslationProvider|"
+msgid "Unsupported source language."
+msgstr "ნაძალადევი წყარო ენის დადგენა"
+
+#: src/translator/atranslationprovider.cpp:59
+msgctxt "ATranslationProvider|"
+msgid "Unsupported destination language."
+msgstr ""
+
+#: src/translator/atranslationprovider.cpp:61
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Enable translation options"
+msgctxt "ATranslationProvider|"
+msgid "User aborted translation in progress"
+msgstr "თარგმანის პარამეტრების ჩართვა"
+
+#: src/translator/atranslationprovider.cpp:65
+msgctxt "ATranslationProvider|"
+msgid "Unknown error"
+msgstr ""
+
 #: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"
 msgid "Translation Provider Error"
@@ -3325,6 +3438,152 @@ msgstr ""
 "არჩეული თარგმანის მომწოდებელი ავარიულად დასრულდა ინიციალიზაციისას და მოხდა "
 "მისი ჩამოყრა 'კოპირებაზე' მომავალი პრობლემების თავიდან ასაცილებლად. "
 "შეგიძლიათ, აირჩიოთ სხვა მომწოდებელი მენიუში მორგება -> თარგმანი."
+
+#: src/translator/localaitranslationprovider.cpp:145
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid "Error: Lingva engine is not supported"
+msgctxt "LocalAiTranslationProvider|"
+msgid "Destination language is not supported"
+msgstr "შეცდომა: ძრავა Lingva მხარდაჭერილი არაა"
+
+#: src/translator/localaitranslationprovider.cpp:297
+#, qt-format
+msgctxt "LocalAiTranslationProvider|"
+msgid ""
+"The model ran out of tokens before writing a translation: the text to "
+"translate used %1 of its %2 token limit, and it spent what was left "
+"reasoning instead of answering. Turn on \"Disable reasoning\" for this "
+"provider, translate less text at once, or pick a model with a larger context."
+msgstr ""
+
+#: src/translator/localaitranslationprovider.cpp:305
+msgctxt "LocalAiTranslationProvider|"
+msgid ""
+"The model spent its whole token budget reasoning and never wrote a "
+"translation. Turn on \"Disable reasoning\" for this provider, translate less "
+"text at once, or pick a model with a larger context."
+msgstr ""
+
+#: src/translator/localaitranslationprovider.cpp:313
+#, qt-format
+msgctxt "LocalAiTranslationProvider|"
+msgid ""
+"The model ran out of tokens before writing a translation: the text to "
+"translate used %1 of its %2 token limit. Translate less text at once, or "
+"pick a model with a larger context."
+msgstr ""
+
+#: src/translator/localaitranslationprovider.cpp:320
+msgctxt "LocalAiTranslationProvider|"
+msgid ""
+"The model ran out of tokens before writing a translation. Translate less "
+"text at once, or pick a model with a larger context."
+msgstr ""
+
+#: src/translator/localaitranslationprovider.cpp:326
+#: src/translator/localaitranslationprovider.cpp:365
+#: src/translator/localaitranslationprovider.cpp:366
+#, fuzzy, qt-format
+#| msgctxt "LlmOcr|"
+#| msgid "LLM OCR error: %1"
+msgctxt "LocalAiTranslationProvider|"
+msgid "LocalAI error: %1"
+msgstr "LLM OCR-ის შეცდომა: %1"
+
+#: src/translator/localaitranslationprovider.cpp:329
+#, fuzzy
+#| msgctxt "LlmOcr|"
+#| msgid "LLM OCR returned an empty response"
+msgctxt "LocalAiTranslationProvider|"
+msgid "The model returned an empty response."
+msgstr "LLM OCR-მა ცარიელი პასუხი დააბრუნა"
+
+#: src/translator/localaitranslationprovider.cpp:350
+#, fuzzy
+#| msgctxt "LlmOcr|"
+#| msgid "LLM OCR request timed out"
+msgctxt "LocalAiTranslationProvider|"
+msgid "LocalAI request timed out"
+msgstr "LLM OCR-ის მოთხოვნის ვადა ამოიწურა"
+
+#: src/translator/localaitranslationprovider.cpp:408
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Language detection is not supported for %1"
+msgctxt "LocalAiTranslationProvider|"
+msgid "Language detection timed out"
+msgstr "%1-ზე ენის დადგენა მხარდაჭერილი არაა"
+
+#: src/translator/localaitranslationprovider.cpp:469
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Operation aborted by user"
+msgctxt "LocalAiTranslationProvider|"
+msgid "Translation aborted by user"
+msgstr "ოპერაცია გაუქმებულია მომხმარებლის მიერ"
+
+#: src/translator/mozhitranslationprovider.cpp:78
+#, fuzzy
+#| msgctxt "OnlineTranslator|"
+#| msgid "Operation aborted by user"
+msgctxt "MozhiTranslationProvider|"
+msgid "Translation aborted by user"
+msgstr "ოპერაცია გაუქმებულია მომხმარებლის მიერ"
+
+#: src/translator/mozhitranslationprovider.cpp:139
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: Lingva engine is not supported"
+msgctxt "MozhiTranslationProvider|"
+msgid "Destination language '%1' is not supported"
+msgstr "შეცდომა: ძრავა Lingva მხარდაჭერილი არაა"
+
+#: src/translator/mozhitranslationprovider.cpp:147
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: Lingva engine is not supported"
+msgctxt "MozhiTranslationProvider|"
+msgid "Source language '%1' is not supported"
+msgstr "შეცდომა: ძრავა Lingva მხარდაჭერილი არაა"
+
+#: src/translator/mozhitranslationprovider.cpp:204
+#, fuzzy, qt-format
+#| msgctxt "OnlineTranslator|"
+#| msgid "Instance error: %1"
+msgctxt "MozhiTranslationProvider|"
+msgid "Network error: %1"
+msgstr "ასლის შეცდომა: %1"
+
+#: src/translator/mozhitranslationprovider.cpp:208
+#, fuzzy, qt-format
+#| msgctxt "OnlineTranslator|"
+#| msgid "Instance error: %1"
+msgctxt "MozhiTranslationProvider|"
+msgid "Instance error: %1"
+msgstr "ასლის შეცდომა: %1"
+
+#: src/translator/mozhitranslationprovider.cpp:212
+#, fuzzy, qt-format
+#| msgctxt "OnlineTranslator|"
+#| msgid "Instance error: %1"
+msgctxt "MozhiTranslationProvider|"
+msgid "Parsing error: %1"
+msgstr "ასლის შეცდომა: %1"
+
+#: src/translator/mozhitranslationprovider.cpp:216
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Unsupported TTS engine: %1"
+msgstr ""
+
+#: src/translator/mozhitranslationprovider.cpp:220
+#, fuzzy, qt-format
+#| msgctxt "OnlineTranslator|"
+#| msgid "Instance error: %1"
+msgctxt "MozhiTranslationProvider|"
+msgid "Unknown error: %1"
+msgstr "ასლის შეცდომა: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:408
 msgctxt "MozhiTranslationProvider|"
@@ -3438,17 +3697,17 @@ msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime initialization error: %1"
 msgstr "ONNX-ის ინიციალიზაციის შეცდომა %1"
 
-#: src/tts/piperttsprovider.cpp:279
+#: src/tts/piperttsprovider.cpp:282
 msgctxt "PiperTTSProvider|"
 msgid "Privacy Notice - Neural TTS"
 msgstr "კონფიდენციალობის გაფრთხილება - ნერვული TTS"
 
-#: src/tts/piperttsprovider.cpp:281
+#: src/tts/piperttsprovider.cpp:284
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime Telemetry Information"
 msgstr "ONNX-ის ტელემეტრიის ინფორმაცია"
 
-#: src/tts/piperttsprovider.cpp:283
+#: src/tts/piperttsprovider.cpp:286
 msgctxt "PiperTTSProvider|"
 msgid ""
 "Crow Translate uses ONNX Runtime for neural text-to-speech. The Windows "
@@ -3486,22 +3745,22 @@ msgstr ""
 "Unix სისტემებზე ტელემეტრია ნაგულისხმევადაა გამორთული.\n"
 "ეს გაფრთხილება, მხოლოდ, ერთხელ იქნება ნაჩვენები."
 
-#: src/tts/piperttsprovider.cpp:1000
+#: src/tts/piperttsprovider.cpp:1033
 msgctxt "PiperTTSProvider|"
 msgid "No audio data generated"
 msgstr "აუდიომონაცემები არ დაგენერირებულა"
 
-#: src/tts/piperttsprovider.cpp:1015
+#: src/tts/piperttsprovider.cpp:1048
 msgctxt "PiperTTSProvider|"
 msgid "Failed to create temporary audio file"
 msgstr "დროებითი აუდიოფაილის შექმნა ცავარდა"
 
-#: src/tts/piperttsprovider.cpp:1024
+#: src/tts/piperttsprovider.cpp:1057
 msgctxt "PiperTTSProvider|"
 msgid "Failed to write audio data"
 msgstr "აუდიომონაცემების ჩაწერა ჩავარდა"
 
-#: src/tts/piperttsprovider.cpp:1362
+#: src/tts/piperttsprovider.cpp:1395
 msgctxt "PiperTTSProvider|"
 msgid ""
 "<h3>Piper Voice Models Not Found</h3><p>No Piper TTS voice models were found "
@@ -3522,7 +3781,7 @@ msgstr ""
 "ზოგიერთ მოდელს, შეიძლება, არაუფასო ლიცენზია ჰქონდეს და მათი გამოყენება "
 "აკრძალული იყოს კომერციული მიზნებით.</p>"
 
-#: src/tts/piperttsprovider.cpp:1374
+#: src/tts/piperttsprovider.cpp:1407
 msgctxt "PiperTTSProvider|"
 msgid "Piper Voice Models Required"
 msgstr "აუცილებელია Piper ხმის მოდელები"
