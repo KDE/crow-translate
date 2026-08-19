@@ -134,6 +134,46 @@ private slots:
         QCOMPARE(lastState, ATranslationProvider::State::Processed);
     }
 
+    // A backend must record which languages it translated between, because
+    // that record is the only fact anything downstream has: LanguageResolution
+    // answers from it, and speech, the voice combo boxes and the auto button's
+    // label all answer from LanguageResolution. A backend that leaves these on
+    // autoLanguage() sends every one of them back to guessing, which is how an
+    // English voice came to read a Russian translation.
+    void testReportsTheLanguagesItTranslatedBetween_data()
+    {
+        addBackendRows();
+    }
+    void testReportsTheLanguagesItTranslatedBetween()
+    {
+        QFETCH(QString, backend);
+        auto fixture = makeFixture(backend);
+        auto provider = fixture->createForSuccess();
+        if (!provider) {
+            QSKIP("Backend needs live network that isn't reachable right now");
+        }
+
+        provider->translate(QStringLiteral("Hello"), fixture->targetLanguage(), fixture->sourceLanguage());
+
+        const bool reachedTerminal = QTest::qWaitFor([&provider]() {
+            return provider->getState() == ATranslationProvider::State::Processed
+                || provider->getState() == ATranslationProvider::State::Finished;
+        },
+                                                     10000);
+        if (!reachedTerminal || provider->getState() == ATranslationProvider::State::Finished) {
+            QSKIP("Translation did not succeed (network required)");
+        }
+
+        QVERIFY2(provider->translationLanguage != Language::autoLanguage(),
+                 "backend did not record the destination it translated into");
+        QCOMPARE(provider->translationLanguage, fixture->targetLanguage());
+
+        // The source may legitimately have been auto-detected, but by the time
+        // the translation is done the backend has to know what it decided.
+        QVERIFY2(provider->sourceLanguage != Language::autoLanguage(),
+                 "backend did not record the source it translated from");
+    }
+
     // Mirrors mainwindow.cpp:1056/1210 exactly: on a successful
     // translation, MainWindow never calls reset() directly from Processed
     // (that would route through abort()'s per-backend network-cancelling

@@ -34,6 +34,7 @@ class LanguageButtonsWidget;
 class PopupWindow;
 class SourceTextEdit;
 class ProviderOptionsManager;
+class LanguageResolution;
 class ModuleStatus;
 class StatusStrip;
 class QLabel;
@@ -121,6 +122,10 @@ private:
     QTimer *m_screenCaptureTimer = nullptr;
     SnippingArea *m_snippingArea = nullptr;
     ModuleStatus *m_moduleStatus = nullptr;
+    // The single owner of "which languages is this translation between".
+    // Every consumer of that answer reads it from here and is notified when
+    // it moves; none of them derives it.
+    LanguageResolution *m_languages = nullptr;
     StatusStrip *m_statusStrip = nullptr;
     // What the voice combos were last populated for, so a completed
     // translation only rebuilds them when the spoken language actually moved.
@@ -143,6 +148,12 @@ private:
     void updateTranslateButtonState();
     void updateProviderUI();
     Language preferredTranslationLanguage(const Language &sourceLang) const;
+    // Pushes the buttons' checked languages and the settings' preference
+    // into m_languages. "Auto" stays auto here - resolving it is the
+    // model's job, not the caller's.
+    void publishLanguageSelection();
+    // The provider reported a detected source, or finished a translation.
+    void onLanguageDetected(const Language &detectedLanguage, bool isTranslationContext);
     void handleTranslationRequest(const QString &text, const Language &destLang, const Language &srcLang);
     AppSettings::WindowMode m_windowMode;
     TrayIcon *m_trayIcon;

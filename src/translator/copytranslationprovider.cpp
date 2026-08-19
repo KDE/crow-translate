@@ -40,11 +40,17 @@ Language CopyTranslationProvider::detectLanguage(const QString &text)
     return Language(QLocale::system());
 }
 
-void CopyTranslationProvider::translate(const QString &inputText, const Language &translationLanguage, const Language &sourceLanguage)
+void CopyTranslationProvider::translate(const QString &inputText, const Language &translationLang, const Language &sourceLang)
 {
+    // Record what this ran between, like every other backend: it is the only
+    // fact LanguageResolution - and so speech, the voice combos and the auto
+    // button - has to work from.
+    this->sourceLanguage = sourceLang;
+    this->translationLanguage = translationLang;
+
     state = State::Processing;
     emit stateChanged(state);
-    if (translationLanguage == sourceLanguage) {
+    if (translationLang == sourceLang) {
         result = inputText;
         state = State::Processed;
         error = TranslationError::NoError;

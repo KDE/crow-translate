@@ -236,6 +236,8 @@ add_library(${PROJECT_NAME}-lib STATIC
     src/translator/localaitranslationprovider.cpp
     src/translator/translationlogic.h
     src/translator/translationlogic.cpp
+    src/translator/languageresolution.h
+    src/translator/languageresolution.cpp
     src/llm/openaiendpoint.h
     src/llm/openaiendpoint.cpp
     src/llm/visionmodelprobe.h
