@@ -251,6 +251,9 @@ bool PiperTTSProvider::initializePiper()
 
 void PiperTTSProvider::cleanupPiper()
 {
+    // Never tear the session down underneath a running synthesis worker.
+    waitForSynthesis();
+
     if (m_initialized) {
         espeak_Terminate();
         m_initialized = false;
@@ -304,6 +307,10 @@ void PiperTTSProvider::handleOnnxTelemetryOnWindows()
 
 bool PiperTTSProvider::loadModel(const QString &modelPath, const QString &configPath)
 {
+    // Recreating the session destroys the one the synthesis worker may be
+    // running against right now. Wait for it before taking the session down.
+    waitForSynthesis();
+
     try {
         // Load config JSON
         QFile configFile(configPath);
@@ -644,10 +651,15 @@ void PiperTTSProvider::say(const QString &text)
         return;
     }
 
+    // A new request supersedes any in-flight synthesis. Join the previous
+    // worker first so the ONNX session is never driven from two threads at
+    // once and m_audioData is never raced.
+    waitForSynthesis();
+
     setState(QTextToSpeech::Speaking);
 
     // Run synthesis in a separate thread to avoid blocking
-    QThread::create([this, text]() {
+    m_synthesisThread = QThread::create([this, text]() {
         qDebug() << "PiperTTSProvider::say - starting synthesis for text:" << text;
 
         // Convert text to phoneme IDs
@@ -671,7 +683,19 @@ void PiperTTSProvider::say(const QString &text)
 
         // Signal completion
         QMetaObject::invokeMethod(this, "onSynthesisFinished", Qt::QueuedConnection);
-    })->start();
+    });
+    m_synthesisThread->start();
+}
+
+void PiperTTSProvider::waitForSynthesis()
+{
+    if (m_synthesisThread == nullptr) {
+        return;
+    }
+
+    m_synthesisThread->wait();
+    delete m_synthesisThread;
+    m_synthesisThread = nullptr;
 }
 
 void PiperTTSProvider::stop()
@@ -866,10 +890,19 @@ void PiperTTSProvider::setVoice(const Voice &voice)
     qDebug() << "PiperTTSProvider::setVoice - voice name:" << voice.name();
     qDebug() << "PiperTTSProvider::setVoice - model path:" << voice.modelPath();
 
+    const QString modelPath = voice.modelPath();
+    // Selecting the same voice again must not reload it: play/pause calls
+    // setVoice() on every click, and reloading the model tears the ONNX
+    // session down while a synthesis worker (launched on play) may still be
+    // mid-inference - a use-after-free. Only refresh the metadata then.
+    if (!modelPath.isEmpty() && modelPath == m_voice.modelPath()) {
+        m_voice = voice;
+        return;
+    }
+
     m_voice = voice;
 
     // Load the model for the selected voice
-    const QString modelPath = voice.modelPath();
     if (!modelPath.isEmpty()) {
         const QString configPath = modelPath + ".json";
         if (QFile::exists(modelPath) && QFile::exists(configPath)) {

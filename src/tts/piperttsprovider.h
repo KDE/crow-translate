@@ -166,8 +166,17 @@ private:
     mutable QMutex m_stateMutex;
     bool m_initialized;
 
+    // The worker that runs the ONNX inference for the current say(). It is
+    // tracked (rather than fire-and-forget) so the session is never destroyed
+    // underneath a running Run() call, and so two syntheses cannot overlap.
+    QThread *m_synthesisThread = nullptr;
+
     // Voice to model path mapping
     QHash<QString, QString> m_voiceModelPaths;
+
+    // Joins and disposes of any in-flight synthesis worker. Must be called on
+    // the main thread before touching m_ortSession or starting a new worker.
+    void waitForSynthesis();
 };
 
 #endif // PIPERTTSPROVIDER_H
