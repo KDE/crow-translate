@@ -20,6 +20,9 @@
   <layout class="QGridLayout" name="gridLayout">
    <item row="2" column="1" alignment="Qt::AlignBottom">
     <widget class="QToolButton" name="moveRightButton">
+     <property name="accessibleName">
+      <string>Add to current languages</string>
+     </property>
      <property name="icon">
       <iconset theme="arrow-right">
        <normaloff>.</normaloff>.</iconset>
@@ -31,6 +34,9 @@
    </item>
    <item row="5" column="1" alignment="Qt::AlignTop">
     <widget class="QToolButton" name="moveDownButton">
+     <property name="accessibleName">
+      <string>Move language down</string>
+     </property>
      <property name="enabled">
       <bool>false</bool>
      </property>
@@ -45,6 +51,9 @@
    </item>
    <item row="3" column="1">
     <widget class="QToolButton" name="moveLeftButton">
+     <property name="accessibleName">
+      <string>Remove from current languages</string>
+     </property>
      <property name="enabled">
       <bool>false</bool>
      </property>
@@ -56,6 +65,9 @@
    </item>
    <item row="1" column="0">
     <widget class="QLineEdit" name="searchEdit">
+     <property name="accessibleName">
+      <string>Search languages</string>
+     </property>
      <property name="clearButtonEnabled">
       <bool>true</bool>
      </property>
@@ -63,6 +75,9 @@
    </item>
    <item row="4" column="1">
     <widget class="QToolButton" name="moveUpButton">
+     <property name="accessibleName">
+      <string>Move language up</string>
+     </property>
      <property name="enabled">
       <bool>false</bool>
      </property>
@@ -81,6 +96,9 @@
    </item>
    <item row="0" column="0">
     <widget class="QLabel" name="availableLanguagesLabel">
+     <property name="buddy">
+      <cstring>availableLanguagesListWidget</cstring>
+     </property>
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
        <horstretch>0</horstretch>
@@ -94,6 +112,9 @@
    </item>
    <item row="0" column="2">
     <widget class="QLabel" name="currentLanguagesLabel">
+     <property name="buddy">
+      <cstring>currentLanguagesListWidget</cstring>
+     </property>
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
        <horstretch>0</horstretch>
