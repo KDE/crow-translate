@@ -213,6 +213,46 @@ private slots:
         QVERIFY(provider->result.isEmpty());
     }
 
+    // Whatever went wrong, MainWindow renders it verbatim via
+    // getErrorString() (translatorStateChanged()'s Finished case), so every
+    // backend owes that funnel a non-empty, translated, human-readable
+    // string. An empty one shows the user a bare "Error: " with no cause,
+    // and an untranslated one leaks English into a localized UI - both have
+    // happened, hence the check.
+    void testFailureProducesTranslatedNonEmptyErrorString_data()
+    {
+        addBackendRows();
+    }
+    void testFailureProducesTranslatedNonEmptyErrorString()
+    {
+        QFETCH(QString, backend);
+        auto fixture = makeFixture(backend);
+        Language source;
+        Language target;
+        auto provider = fixture->createForFailure(source, target);
+        QVERIFY(provider != nullptr);
+
+        provider->translate(QStringLiteral("Hello"), target, source);
+        QVERIFY(QTest::qWaitFor([&provider]() {
+            return provider->getState() == ATranslationProvider::State::Finished;
+        },
+                                10000));
+        QVERIFY(provider->error != ATranslationProvider::TranslationError::NoError);
+
+        const QString message = provider->getErrorString();
+        QVERIFY2(!message.isEmpty(), qPrintable(QStringLiteral("%1 reported an error with no message").arg(backend)));
+        QVERIFY2(!message.trimmed().isEmpty(), qPrintable(QStringLiteral("%1 reported a blank message").arg(backend)));
+
+        // Not a placeholder or a bare enum name dumped into the UI: the user
+        // has to be able to read it. (Whether each string went through tr()
+        // cannot be asked at runtime - Qt hands back the source text when no
+        // catalogue is loaded - so that half is enforced by lupdate
+        // extraction, not from here.)
+        QVERIFY2(message.length() > 3, qPrintable(QStringLiteral("%1: '%2' is too terse to be a message").arg(backend, message)));
+        QVERIFY2(!message.contains(QLatin1String("TranslationError")),
+                 qPrintable(QStringLiteral("%1: '%2' leaks an enum name").arg(backend, message)));
+    }
+
     void testAbortWhileProcessingReachesFinishedWithError_data()
     {
         addBackendRows();
