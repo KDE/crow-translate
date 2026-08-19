@@ -1121,14 +1121,13 @@ void MainWindow::translatorStateChanged(ATranslationProvider::State newState)
 
             emit translationAccepted();
         } else {
-            Q_UNREACHABLE();
-            ui->translationEdit->setHtml("Error: " + m_translator->getErrorString());
+            ui->translationEdit->setPlainText(tr("Error: %1").arg(m_translator->getErrorString()));
         }
 
         break;
     case ATranslationProvider::State::Finished:
         if (m_translator->error != ATranslationProvider::TranslationError::NoError) {
-            ui->translationEdit->setHtml("Error: " + m_translator->getErrorString());
+            ui->translationEdit->setPlainText(tr("Error: %1").arg(m_translator->getErrorString()));
         }
         emit resetTranslator();
         break;
