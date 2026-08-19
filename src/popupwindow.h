@@ -8,9 +8,11 @@
 #ifndef POPUPWINDOW_H
 #define POPUPWINDOW_H
 
+#include <QList>
 #include <QPointer>
 #include <QWidget>
 
+class QComboBox;
 class QShortcut;
 class QTimer;
 class MainWindow;
@@ -35,6 +37,10 @@ signals:
 
 private:
     void loadSettings();
+    // Re-copies the mirrored controls' contents, selection and visibility from
+    // the main window. Called on construction and again whenever the original
+    // changes, because the pop-up outlives the state it was built from.
+    void syncFromMainWindow();
     void showEvent(QShowEvent *event) override;
     bool event(QEvent *event) override;
 
@@ -45,6 +51,9 @@ private:
     QTimer *m_closeWindowTimer = nullptr;
     QPointer<MainWindow> m_parent;
     QMetaObject::Connection m_textChangedConnection;
+    QTimer *m_syncTimer = nullptr;
+    QList<QPair<QComboBox *, QComboBox *>> m_mirroredCombos;
+    QList<QPair<QWidget *, QWidget *>> m_mirroredVisibility;
 };
 
 #endif // POPUPWINDOW_H

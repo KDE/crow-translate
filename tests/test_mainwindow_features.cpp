@@ -17,6 +17,7 @@
 #include "mainwindow.h"
 #include "mockhttpserver.h"
 #include "modulestatus.h"
+#include "popupwindow.h"
 #include "singleapplication.h"
 #include "sourcetextedit.h"
 #include "testisolation.h"
@@ -31,6 +32,7 @@
 #include <QApplication>
 #include <QCheckBox>
 #include <QClipboard>
+#include <QComboBox>
 #include <QKeyEvent>
 #include <QLocale>
 #include <QTest>
@@ -134,6 +136,11 @@ private slots:
     void testPiperComboOffersTheResolvedLanguagesVoices();
     void testAutoDestinationStaysAutoAtStartup();
     void testRetranslateDoesNotClobberNextAutoDestination();
+    void testPopupShowsTheTtsControlsTheProviderAskedFor();
+    void testPopupHidesTtsControlsWhenThereIsNoTtsProvider();
+    void testPopupEngineComboFollowsTheActiveBackend();
+    void testPopupCombosKeepTrackingTheMainWindowAfterItIsOpen();
+    void testPopupVoicesMatchTheMainWindowAfterARealTranslation();
     void testAutoButtonNamesTheDestinationItResolvedTo();
 
 private:
@@ -158,6 +165,8 @@ void MainWindowFeaturesTest::cleanupTestCase()
     settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Copy);
     settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
     settings.setOcrEngine(AppSettings::OcrEngine::Tesseract);
+    settings.setShowTrayIcon(false);
+    settings.setStartMinimized(false);
     QApplication::clipboard()->clear();
 }
 
@@ -756,6 +765,283 @@ void MainWindowFeaturesTest::testRetranslateDoesNotClobberNextAutoDestination()
     },
                             10000));
     QCOMPARE(window.spokenTranslationLanguage(), russian);
+}
+
+// The pop-up showed both voice combo boxes and no playback buttons at all -
+// voices to pick and nothing to play them with. It mirrored the buttons with
+// isVisible() on the main window's, and a pop-up exists precisely when that
+// window is hidden, where every child answers false; the combo boxes were
+// never mirrored at all, so they kept the .ui default and stayed on screen.
+// What each half must show is what the active TTS provider asked for.
+void MainWindowFeaturesTest::testPopupShowsTheTtsControlsTheProviderAskedFor()
+{
+#ifndef WITH_TTS
+    QSKIP("Built without TTS support - no provider asks for these controls");
+#else
+    AppSettings settings;
+    settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Copy);
+    settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::Qt);
+    // The configuration a pop-up is for: loadAppSettings() only show()s the
+    // main window when it is not starting minimised to the tray, so here it
+    // never appears - and every isVisible() on its children answers false.
+    settings.setShowTrayIcon(true);
+    settings.setStartMinimized(true);
+
+    MainWindow window;
+    QVERIFY(!window.isVisible());
+
+    PopupWindow popup(&window);
+    auto shown = [&popup](const char *name) {
+        const QWidget *widget = popup.findChild<QWidget *>(QLatin1String(name));
+        return widget != nullptr && !widget->isHidden();
+    };
+
+    // Both halves get their own playback controls ...
+    QVERIFY(shown("sourcePlayPauseButton"));
+    QVERIFY(shown("sourceStopButton"));
+    QVERIFY(shown("translationPlayPauseButton"));
+    QVERIFY(shown("translationStopButton"));
+    // ... and the Qt backend asks for a voice per half but no speaker, so the
+    // mirroring has to be per element rather than all-or-nothing.
+    QVERIFY(shown("sourceVoiceComboBox"));
+    QVERIFY(shown("translationVoiceComboBox"));
+    QVERIFY(!shown("sourceSpeakerComboBox"));
+    QVERIFY(!shown("translationSpeakerComboBox"));
+    // The engine combo was never mirrored either, and Copy has no engine to
+    // choose - so the pop-up showed a control the main window hides.
+    QVERIFY(!shown("engineComboBox"));
+#endif
+}
+
+// With no TTS provider there is nothing to play and no voice to pick.
+void MainWindowFeaturesTest::testPopupHidesTtsControlsWhenThereIsNoTtsProvider()
+{
+    AppSettings settings;
+    settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
+    settings.setShowTrayIcon(true);
+    settings.setStartMinimized(true);
+
+    MainWindow window;
+    PopupWindow popup(&window);
+
+    for (const char *name : {"sourcePlayPauseButton",
+                             "sourceStopButton",
+                             "translationPlayPauseButton",
+                             "translationStopButton",
+                             "sourceVoiceComboBox",
+                             "translationVoiceComboBox",
+                             "sourceSpeakerComboBox",
+                             "translationSpeakerComboBox"}) {
+        const QWidget *widget = popup.findChild<QWidget *>(QLatin1String(name));
+        QVERIFY2(widget != nullptr, name);
+        QVERIFY2(widget->isHidden(), name);
+    }
+}
+
+// Reported while spot-testing: the pop-up offered Google, Yandex and DeepL
+// while the translation was going to Ollama. Its engine combo is not a fixed
+// list - updateProviderUI() rebuilds it per backend, and LocalAI fills it with
+// the configured local providers - but the pop-up only ever copied the
+// selected INDEX, so it showed the hard-coded Mozhi list its .ui was born
+// with, and choosing from it wrote that index into a combo where it meant a
+// different provider.
+void MainWindowFeaturesTest::testPopupEngineComboFollowsTheActiveBackend()
+{
+    MockHttpServer server;
+    pinLocalAiSettings(server);
+    AppSettings settings;
+    settings.setShowTrayIcon(true);
+    settings.setStartMinimized(true);
+
+    MainWindow window;
+    QComboBox *mainEngines = window.getEngineComboBox();
+    QVERIFY(mainEngines != nullptr);
+    QVERIFY(mainEngines->count() > 0);
+
+    PopupWindow popup(&window);
+    QComboBox *popupEngines = popup.findChild<QComboBox *>(QStringLiteral("engineComboBox"));
+    QVERIFY(popupEngines != nullptr);
+
+    // Same list, same order, same data - and the same selection.
+    QCOMPARE(popupEngines->count(), mainEngines->count());
+    for (int i = 0; i < mainEngines->count(); ++i) {
+        QCOMPARE(popupEngines->itemText(i), mainEngines->itemText(i));
+        QCOMPARE(popupEngines->itemData(i), mainEngines->itemData(i));
+    }
+    QCOMPARE(popupEngines->currentIndex(), mainEngines->currentIndex());
+
+    // Explicitly: none of Mozhi's engines, which is what it used to show.
+    for (int i = 0; i < popupEngines->count(); ++i) {
+        QVERIFY2(popupEngines->itemText(i) != QStringLiteral("Google"), "stale Mozhi engine list in the pop-up");
+        QVERIFY2(popupEngines->itemText(i) != QStringLiteral("DeepL"), "stale Mozhi engine list in the pop-up");
+    }
+
+    // And picking one in the pop-up selects that same provider in the main
+    // window, rather than whatever sat at that index.
+    if (popupEngines->count() > 1) {
+        popupEngines->setCurrentIndex(1);
+        QCOMPARE(mainEngines->currentData(), popupEngines->currentData());
+    }
+}
+
+// Reported while spot-testing: the pop-up's translation voice combo offered
+// Russian voices while pressing play correctly spoke English.
+//
+// translatorStateChanged() shows the pop-up and only THEN calls
+// refreshVoicesForSpokenLanguages() - it has to, because the destination
+// "auto" resolves to is not known until the translation comes back, and
+// rebuilding the combos first would hold the window back behind it. So a
+// pop-up built by a one-time copy is born showing the voices of the language
+// translated into LAST time, while playback, which goes through the main
+// window, uses the right one. The pop-up has to keep mirroring, not snapshot.
+void MainWindowFeaturesTest::testPopupCombosKeepTrackingTheMainWindowAfterItIsOpen()
+{
+    MockHttpServer server;
+    pinLocalAiSettings(server);
+    AppSettings settings;
+    settings.setShowTrayIcon(true);
+    settings.setStartMinimized(true);
+
+    MainWindow window;
+    PopupWindow popup(&window);
+
+    // The voice combo the report is about: refilled after the pop-up exists.
+    QComboBox *mainVoices = window.translationVoiceComboBox();
+    QComboBox *popupVoices = popup.findChild<QComboBox *>(QStringLiteral("translationVoiceComboBox"));
+    QVERIFY(mainVoices != nullptr);
+    QVERIFY(popupVoices != nullptr);
+
+    mainVoices->clear();
+    mainVoices->addItem(QStringLiteral("English voice"), QStringLiteral("en"));
+    mainVoices->addItem(QStringLiteral("Another English voice"), QStringLiteral("en-2"));
+    mainVoices->setCurrentIndex(1);
+
+    QTRY_COMPARE(popupVoices->count(), 2);
+    QCOMPARE(popupVoices->itemText(0), QStringLiteral("English voice"));
+    QCOMPARE(popupVoices->itemData(1), mainVoices->itemData(1));
+    QCOMPARE(popupVoices->currentIndex(), 1);
+
+    // Still forwarding the other way: choosing in the pop-up selects in the
+    // main window, and re-copying must not have broken that.
+    popupVoices->setCurrentIndex(0);
+    QCOMPARE(mainVoices->currentIndex(), 0);
+
+    // The same has to hold for the engine list, which a provider switch
+    // rebuilds underneath an open pop-up.
+    QComboBox *mainEngines = window.getEngineComboBox();
+    QComboBox *popupEngines = popup.findChild<QComboBox *>(QStringLiteral("engineComboBox"));
+    QVERIFY(mainEngines != nullptr);
+    QVERIFY(popupEngines != nullptr);
+
+    mainEngines->clear();
+    mainEngines->addItem(QStringLiteral("some-other-provider"), QStringLiteral("id"));
+    QTRY_COMPARE(popupEngines->count(), 1);
+    QCOMPARE(popupEngines->itemText(0), QStringLiteral("some-other-provider"));
+}
+
+// The reported sequence end to end, through the pop-up the application makes
+// for itself. Same shape as testForcedAutoSpeaksTheResolvedDestinationLanguage:
+// with auto on both sides the destination is not known until the translation
+// comes back, so the voice combos are repopulated AFTER
+// showTranslationWindow() has already built the pop-up. A pop-up that copied
+// them once therefore shows the language of the previous translation - the
+// user saw Russian voices offered for an English translation - while playback,
+// which runs through the main window, uses the right one.
+void MainWindowFeaturesTest::testPopupVoicesMatchTheMainWindowAfterARealTranslation()
+{
+    MockHttpServer server;
+    // Detection answers first ("pl"), then the translation itself.
+    for (int i = 0; i < 4; ++i) {
+        server.queueJson(200, chatCompletionJson(QStringLiteral("pl")));
+        server.queueJson(200, chatCompletionJson(QStringLiteral("Good morning")));
+    }
+    pinLocalAiSettings(server);
+
+    const Language english(QLocale::English);
+    const Language russian(QLocale::Russian);
+    const Language polish(QLocale::Polish);
+
+    AppSettings settings;
+    settings.setAutoTranslateEnabled(false);
+    settings.setPrimaryLanguage(english);
+    settings.setSecondaryLanguage(russian);
+    settings.setLanguages(AppSettings::Source, {english});
+    settings.setLanguages(AppSettings::Translation, {english});
+    // Detection is what makes the answer MOVE. Before the translation the
+    // source can only be guessed as the system locale (English), so the
+    // destination guess is the secondary, Russian. Detecting Polish makes the
+    // real destination the primary, English - so the combo the pop-up copied
+    // on the way up is for the wrong language, which is exactly what was
+    // reported: Russian voices offered for an English translation.
+    settings.setDetectProvider(QStringLiteral("openai_custom"));
+    settings.setDetectModel(QStringLiteral("mock-detect"));
+    settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::Qt);
+    settings.setWindowMode(AppSettings::PopupWindow);
+    settings.setShowTrayIcon(true);
+    settings.setStartMinimized(true);
+
+    MainWindow window;
+    window.hide();
+    QTest::qWait(100);
+    window.sourceLanguageButtons()->checkAutoButton();
+    window.translationLanguageButtons()->checkAutoButton();
+
+    QComboBox *mainVoices = window.translationVoiceComboBox();
+    QVERIFY(mainVoices != nullptr);
+    if (mainVoices->count() == 0) {
+        QSKIP("No Qt TTS voices on this machine - an empty combo would match for the wrong reason");
+    }
+
+    // The precondition this test needs, asserted rather than assumed: with
+    // nothing detected yet the destination can only be guessed, and the guess
+    // is the SECONDARY. If this were already English the translation would not
+    // move the combos and the test below would pass without proving anything.
+    QCOMPARE(window.voiceComboTranslationLanguage(), russian);
+    const QStringList voicesBeforeTranslating = [mainVoices]() {
+        QStringList items;
+        for (int i = 0; i < mainVoices->count(); ++i) {
+            items.append(mainVoices->itemText(i));
+        }
+        return items;
+    }();
+
+    typeText(window.sourceEdit(), QStringLiteral("Hello"));
+    waitForTranslateButton(window);
+    QTest::mouseClick(window.translateButton(), Qt::LeftButton);
+
+    PopupWindow *popup = nullptr;
+    QVERIFY(QTest::qWaitFor([&window, &popup]() {
+        popup = window.findChild<PopupWindow *>();
+        return popup != nullptr;
+    },
+                            5000));
+    // Wait on the resolution rather than the reply text: how many requests a
+    // detect-then-translate round makes is the provider's business.
+    QVERIFY2(QTest::qWaitFor([&window, english]() {
+                 return window.voiceComboTranslationLanguage() == english;
+             },
+                             10000),
+             qPrintable(QStringLiteral("destination never resolved to English (combo is %1, spoken is %2, text %3)").arg(window.voiceComboTranslationLanguage().toCode()).arg(window.spokenTranslationLanguage().toCode()).arg(window.translationEdit()->toPlainText())));
+
+    // The main window resolved it correctly - that half already worked.
+    QCOMPARE(window.spokenSourceLanguage(), polish);
+    QCOMPARE(window.spokenTranslationLanguage(), english);
+
+    // The pop-up has to be showing those same voices, not the ones the combo
+    // held when it was built.
+    auto *popupVoices = popup->findChild<QComboBox *>(QStringLiteral("translationVoiceComboBox"));
+    QVERIFY(popupVoices != nullptr);
+    auto contents = [](const QComboBox *combo) {
+        QStringList items;
+        for (int i = 0; i < combo->count(); ++i) {
+            items.append(combo->itemText(i));
+        }
+        return items;
+    };
+    // And the list really did move, so matching means something.
+    QVERIFY(contents(mainVoices) != voicesBeforeTranslating);
+    QTRY_COMPARE(contents(popupVoices), contents(mainVoices));
+    QCOMPARE(popupVoices->currentIndex(), mainVoices->currentIndex());
 }
 
 // The auto button read "Auto (en)" for every translation, however the

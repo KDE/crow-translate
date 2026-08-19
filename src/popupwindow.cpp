@@ -12,11 +12,16 @@
 #include "mainwindow.h"
 #include "translationedit.h"
 
+#include <QAbstractItemModel>
 #include <QCloseEvent>
+#include <QComboBox>
 #include <QDebug>
 #include <QScreen>
 #include <QShortcut>
 #include <QTimer>
+#include <QToolButton>
+
+#include <utility>
 
 PopupWindow::PopupWindow(MainWindow *parent)
     : QWidget(parent, Qt::Tool | Qt::FramelessWindowHint)
@@ -27,10 +32,50 @@ PopupWindow::PopupWindow(MainWindow *parent)
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
 
-    // Engine
-    if (parent->getEngineComboBox() != nullptr) {
-        ui->engineComboBox->setCurrentIndex(parent->getEngineComboBox()->currentIndex());
-        connect(ui->engineComboBox, qOverload<int>(&QComboBox::currentIndexChanged), parent->getEngineComboBox(), &QComboBox::setCurrentIndex);
+    // Everything the pop-up shows of the main window's controls is a MIRROR,
+    // not a snapshot, and the difference has produced three separate bugs.
+    // The state it copies keeps moving after it is built: translatorStateChanged()
+    // creates this window and only THEN calls refreshVoicesForSpokenLanguages(),
+    // because the destination "auto" resolves to is not known until the
+    // translation comes back - so a copy taken in this constructor shows the
+    // voices of the language translated into LAST time. Retranslating from the
+    // pop-up's own language buttons moves it again, and switching provider
+    // rebuilds the engine list underneath it. Re-copy whenever the original
+    // changes; the timer coalesces a rebuild's burst of model signals into one
+    // pass, after the main window has finished repopulating.
+    m_mirroredCombos = {
+        {ui->engineComboBox, parent->getEngineComboBox()},
+        {ui->sourceVoiceComboBox, parent->sourceVoiceComboBox()},
+        {ui->translationVoiceComboBox, parent->translationVoiceComboBox()},
+        {ui->sourceSpeakerComboBox, parent->sourceSpeakerComboBox()},
+        {ui->translationSpeakerComboBox, parent->translationSpeakerComboBox()},
+    };
+    m_mirroredVisibility = {
+        {ui->sourcePlayPauseButton, parent->sourcePlayPauseButton()},
+        {ui->sourceStopButton, parent->sourceStopButton()},
+        {ui->translationPlayPauseButton, parent->translationPlayPauseButton()},
+        {ui->translationStopButton, parent->translationStopButton()},
+    };
+
+    m_syncTimer = new QTimer(this);
+    m_syncTimer->setSingleShot(true);
+    m_syncTimer->setInterval(0);
+    connect(m_syncTimer, &QTimer::timeout, this, &PopupWindow::syncFromMainWindow);
+
+    syncFromMainWindow();
+
+    for (const auto &[popupCombo, mainWindowCombo] : std::as_const(m_mirroredCombos)) {
+        if (mainWindowCombo == nullptr) {
+            continue;
+        }
+        connect(popupCombo, qOverload<int>(&QComboBox::currentIndexChanged), mainWindowCombo, &QComboBox::setCurrentIndex);
+        connect(mainWindowCombo, qOverload<int>(&QComboBox::currentIndexChanged), m_syncTimer, qOverload<>(&QTimer::start));
+        // A rebuild clears and refills, which the combo's own signals do not
+        // report - only its model's do.
+        const QAbstractItemModel *model = mainWindowCombo->model();
+        connect(model, &QAbstractItemModel::modelReset, m_syncTimer, qOverload<>(&QTimer::start));
+        connect(model, &QAbstractItemModel::rowsInserted, m_syncTimer, qOverload<>(&QTimer::start));
+        connect(model, &QAbstractItemModel::rowsRemoved, m_syncTimer, qOverload<>(&QTimer::start));
     }
 
     // Translation edit
@@ -47,59 +92,10 @@ PopupWindow::PopupWindow(MainWindow *parent)
         });
     }
 
-    // TTS buttons - copy icons and connect to MainWindow TTS methods
-    if (parent->sourcePlayPauseButton() != nullptr) {
-        ui->sourcePlayPauseButton->setIcon(parent->sourcePlayPauseButton()->icon());
-        ui->sourcePlayPauseButton->setVisible(parent->sourcePlayPauseButton()->isVisible());
-    }
-    if (parent->sourceStopButton() != nullptr) {
-        ui->sourceStopButton->setIcon(parent->sourceStopButton()->icon());
-        ui->sourceStopButton->setVisible(parent->sourceStopButton()->isVisible());
-    }
-    if (parent->translationPlayPauseButton() != nullptr) {
-        ui->translationPlayPauseButton->setIcon(parent->translationPlayPauseButton()->icon());
-        ui->translationPlayPauseButton->setVisible(parent->translationPlayPauseButton()->isVisible());
-    }
-    if (parent->translationStopButton() != nullptr) {
-        ui->translationStopButton->setIcon(parent->translationStopButton()->icon());
-        ui->translationStopButton->setVisible(parent->translationStopButton()->isVisible());
-    }
     connect(ui->sourcePlayPauseButton, &QToolButton::clicked, parent, &MainWindow::sourcePlayPauseClicked);
     connect(ui->sourceStopButton, &QToolButton::clicked, parent, &MainWindow::sourceStopClicked);
     connect(ui->translationPlayPauseButton, &QToolButton::clicked, parent, &MainWindow::translationPlayPauseClicked);
     connect(ui->translationStopButton, &QToolButton::clicked, parent, &MainWindow::translationStopClicked);
-
-    // Sync voice combo boxes - copy items and current selection
-    if (parent->sourceVoiceComboBox() != nullptr) {
-        for (int i = 0; i < parent->sourceVoiceComboBox()->count(); ++i) {
-            ui->sourceVoiceComboBox->addItem(parent->sourceVoiceComboBox()->itemText(i), parent->sourceVoiceComboBox()->itemData(i));
-        }
-        ui->sourceVoiceComboBox->setCurrentIndex(parent->sourceVoiceComboBox()->currentIndex());
-        connect(ui->sourceVoiceComboBox, qOverload<int>(&QComboBox::currentIndexChanged), parent->sourceVoiceComboBox(), &QComboBox::setCurrentIndex);
-    }
-    if (parent->translationVoiceComboBox() != nullptr) {
-        for (int i = 0; i < parent->translationVoiceComboBox()->count(); ++i) {
-            ui->translationVoiceComboBox->addItem(parent->translationVoiceComboBox()->itemText(i), parent->translationVoiceComboBox()->itemData(i));
-        }
-        ui->translationVoiceComboBox->setCurrentIndex(parent->translationVoiceComboBox()->currentIndex());
-        connect(ui->translationVoiceComboBox, qOverload<int>(&QComboBox::currentIndexChanged), parent->translationVoiceComboBox(), &QComboBox::setCurrentIndex);
-    }
-
-    // Sync speaker combo boxes - copy items and current selection
-    if (parent->sourceSpeakerComboBox() != nullptr) {
-        for (int i = 0; i < parent->sourceSpeakerComboBox()->count(); ++i) {
-            ui->sourceSpeakerComboBox->addItem(parent->sourceSpeakerComboBox()->itemText(i), parent->sourceSpeakerComboBox()->itemData(i));
-        }
-        ui->sourceSpeakerComboBox->setCurrentIndex(parent->sourceSpeakerComboBox()->currentIndex());
-        connect(ui->sourceSpeakerComboBox, qOverload<int>(&QComboBox::currentIndexChanged), parent->sourceSpeakerComboBox(), &QComboBox::setCurrentIndex);
-    }
-    if (parent->translationSpeakerComboBox() != nullptr) {
-        for (int i = 0; i < parent->translationSpeakerComboBox()->count(); ++i) {
-            ui->translationSpeakerComboBox->addItem(parent->translationSpeakerComboBox()->itemText(i), parent->translationSpeakerComboBox()->itemData(i));
-        }
-        ui->translationSpeakerComboBox->setCurrentIndex(parent->translationSpeakerComboBox()->currentIndex());
-        connect(ui->translationSpeakerComboBox, qOverload<int>(&QComboBox::currentIndexChanged), parent->translationSpeakerComboBox(), &QComboBox::setCurrentIndex);
-    }
 
     // Language buttons
     if (parent->sourceLanguageButtons() != nullptr) {
@@ -145,6 +141,43 @@ PopupWindow::~PopupWindow()
         disconnect(m_textChangedConnection);
     }
     delete ui;
+}
+
+// Copy what the main window's controls currently hold. The playback buttons
+// carry no state of their own beyond their icon, so their visibility - the
+// provider's decision, taken in updateProviderUI() - is all there is to
+// mirror. isVisibleTo() rather than isVisible() because a pop-up exists
+// precisely when the main window is hidden, where every child answers false.
+void PopupWindow::syncFromMainWindow()
+{
+    if (m_parent.isNull()) {
+        return;
+    }
+
+    for (const auto &[popupCombo, mainWindowCombo] : std::as_const(m_mirroredCombos)) {
+        if (mainWindowCombo == nullptr) {
+            continue;
+        }
+        // Blocked: this runs again on every later change, and by then the
+        // pop-up's own currentIndexChanged is wired back into this combo.
+        const QSignalBlocker blocker(popupCombo);
+        popupCombo->clear();
+        for (int i = 0; i < mainWindowCombo->count(); ++i) {
+            popupCombo->addItem(mainWindowCombo->itemIcon(i), mainWindowCombo->itemText(i), mainWindowCombo->itemData(i));
+        }
+        popupCombo->setCurrentIndex(mainWindowCombo->currentIndex());
+        popupCombo->setVisible(mainWindowCombo->isVisibleTo(m_parent));
+    }
+
+    for (const auto &[popupWidget, mainWindowWidget] : std::as_const(m_mirroredVisibility)) {
+        if (mainWindowWidget == nullptr) {
+            continue;
+        }
+        popupWidget->setVisible(mainWindowWidget->isVisibleTo(m_parent));
+        if (auto *popupButton = qobject_cast<QToolButton *>(popupWidget)) {
+            popupButton->setIcon(qobject_cast<const QToolButton *>(mainWindowWidget)->icon());
+        }
+    }
 }
 
 void PopupWindow::loadSettings()
