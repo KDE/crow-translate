@@ -5,13 +5,15 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef LANGUAGESLISTWIDGET_H
-#define LANGUAGESLISTWIDGET_H
+#ifndef OCRLANGUAGESLISTWIDGET_H
+#define OCRLANGUAGESLISTWIDGET_H
 
 #include <QListWidget>
 
 class OcrLanguagesListWidget : public QListWidget
 {
+    Q_OBJECT
+
 public:
     explicit OcrLanguagesListWidget(QWidget *parent = nullptr);
 
@@ -20,4 +22,4 @@ public:
     QByteArray checkedLanguagesString() const;
 };
 
-#endif // LANGUAGESLISTWIDGET_H
+#endif // OCRLANGUAGESLISTWIDGET_H

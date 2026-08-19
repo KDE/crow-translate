@@ -38,7 +38,7 @@ void ScreenWatcher::listenForOrientationChange(QScreen *screen)
         }
         auto *widget = qobject_cast<QWidget *>(parent());
         // clang-format off
-        if (widget->screen() == screen) {
+        if (widget != nullptr && widget->screen() == screen) {
             emit screenOrientationChanged(orientation);
         }
         // clang-format on

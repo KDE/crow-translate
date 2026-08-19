@@ -87,7 +87,7 @@ void AppSettings::applyLocale(const QLocale &locale)
 // We use our own implementation instead of automatic loading to let users set locale inside the application.
 bool AppSettings::loadLocale(const QString &localeDirName)
 {
-    const QString subPath = QStringLiteral("locale/%1/LC_MESSAGES/%2_qt.qm").arg(localeDirName).arg(PROJECT_NAME);
+    const QString subPath = QStringLiteral("locale/%1/LC_MESSAGES/%2_qt.qm").arg(localeDirName, QStringLiteral(PROJECT_NAME));
 
     const QString fullPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, subPath);
     if (fullPath.isEmpty()) {

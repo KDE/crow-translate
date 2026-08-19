@@ -195,7 +195,7 @@ QList<Voice> QtTTSProvider::findVoices(const Language &language) const
     }
 
     QList<Voice> voices;
-    for (const QVoice &qvoice : qvoices) {
+    for (const QVoice &qvoice : std::as_const(qvoices)) {
         qDebug() << "  - Found voice:" << qvoice.name() << "for locale:" << qvoice.locale().name() << "(" << qvoice.locale().bcp47Name() << ")";
         voices.append(qvoiceToVoice(qvoice));
     }

@@ -320,7 +320,7 @@ Language Language::fromString(const QString &name)
     }
 
     // Try QLocale languages by iterating through available locales
-    auto allLocales = QLocale::matchingLocales(QLocale::AnyLanguage, QLocale::AnyScript, QLocale::AnyTerritory);
+    const auto allLocales = QLocale::matchingLocales(QLocale::AnyLanguage, QLocale::AnyScript, QLocale::AnyTerritory);
     for (const auto &locale : allLocales) {
         if (QLocale::languageToString(locale.language()) == name) {
             return Language(locale);
@@ -383,7 +383,7 @@ QList<Language> Language::allLanguages()
 QList<Language> Language::qlocaleLanguages()
 {
     QList<Language> result;
-    auto allLocales = QLocale::matchingLocales(QLocale::AnyLanguage, QLocale::AnyScript, QLocale::AnyTerritory);
+    const auto allLocales = QLocale::matchingLocales(QLocale::AnyLanguage, QLocale::AnyScript, QLocale::AnyTerritory);
 
     for (const auto &locale : allLocales) {
         if (locale != QLocale::c()) {
@@ -397,7 +397,7 @@ QList<Language> Language::qlocaleLanguages()
 QList<Language> Language::customLanguages()
 {
     QList<Language> result;
-    for (const auto &data : s_customLanguages) {
+    for (const auto &data : std::as_const(s_customLanguages)) {
         result.append(Language(data.id, data.code, data.name, data.iso639_1, data.iso639_2));
     }
 

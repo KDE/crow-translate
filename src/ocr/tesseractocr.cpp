@@ -99,8 +99,9 @@ void TesseractOcr::recognize(const QImage &image, int dpi)
 
         const QScopedPointer<char, QScopedPointerArrayDeleter<char>> resultText(m_tesseract.GetUTF8Text());
         QString recognizedText = resultText.data();
+        static const QRegularExpression singleLineBreak(QStringLiteral("(?<!\n)\n(?!\n)"));
         if (m_convertLineBreaks)
-            recognizedText.replace(QRegularExpression(QStringLiteral("(?<!\n)\n(?!\n)")), QStringLiteral(" "));
+            recognizedText.replace(singleLineBreak, QStringLiteral(" "));
         emit recognized(recognizedText);
     });
 }
