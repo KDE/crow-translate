@@ -75,7 +75,7 @@ void MozhiTranslationProvider::abort()
     // Force state transition to aborted
     state = State::Finished;
     error = TranslationError::Aborted;
-    errorString = "Translation aborted by user";
+    errorString = tr("Translation aborted by user");
     result.clear();
 
     qDebug() << "MozhiTranslationProvider::abort - emitting stateChanged:" << static_cast<int>(state);
@@ -136,7 +136,7 @@ void MozhiTranslationProvider::translate(const QString &inputText, const Languag
     if (dstLang == OnlineTranslator::NoLanguage) {
         state = State::Finished;
         error = TranslationError::UnsupportedDstLanguage;
-        errorString = QString("Destination language '%1' is not supported").arg(translationLang.name());
+        errorString = QCoreApplication::translate("MozhiTranslationProvider", "Destination language '%1' is not supported").arg(translationLang.name());
         emit stateChanged(state);
         return;
     }
@@ -144,7 +144,7 @@ void MozhiTranslationProvider::translate(const QString &inputText, const Languag
     if (srcLang == OnlineTranslator::NoLanguage && sourceLang != QLocale::c()) {
         state = State::Finished;
         error = TranslationError::UnsupportedSrcLanguage;
-        errorString = QString("Source language '%1' is not supported").arg(sourceLang.name());
+        errorString = QCoreApplication::translate("MozhiTranslationProvider", "Source language '%1' is not supported").arg(sourceLang.name());
         emit stateChanged(state);
         return;
     }
@@ -201,23 +201,23 @@ void MozhiTranslationProvider::onTranslationFinished()
         switch (m_translator->error()) {
         case OnlineTranslator::NetworkError:
             error = TranslationError::Custom;
-            errorString = "Network error: " + m_translator->errorString();
+            errorString = tr("Network error: %1").arg(m_translator->errorString());
             break;
         case OnlineTranslator::InstanceError:
             error = TranslationError::Custom;
-            errorString = "Instance error: " + m_translator->errorString();
+            errorString = tr("Instance error: %1").arg(m_translator->errorString());
             break;
         case OnlineTranslator::ParsingError:
             error = TranslationError::Custom;
-            errorString = "Parsing error: " + m_translator->errorString();
+            errorString = tr("Parsing error: %1").arg(m_translator->errorString());
             break;
         case OnlineTranslator::UnsupportedTtsEngine:
             error = TranslationError::Custom;
-            errorString = "Unsupported TTS engine: " + m_translator->errorString();
+            errorString = tr("Unsupported TTS engine: %1").arg(m_translator->errorString());
             break;
         default:
             error = TranslationError::Custom;
-            errorString = "Unknown error: " + m_translator->errorString();
+            errorString = tr("Unknown error: %1").arg(m_translator->errorString());
             break;
         }
         state = State::Finished;

@@ -54,15 +54,15 @@ QString ATranslationProvider::getErrorString()
     case TranslationError::NoError:
         return QString();
     case TranslationError::UnsupportedSrcLanguage:
-        return QString("Unsupported source language.");
+        return tr("Unsupported source language.");
     case TranslationError::UnsupportedDstLanguage:
-        return QString("Unsupported destination language.");
+        return tr("Unsupported destination language.");
     case TranslationError::Aborted:
-        return QString("User aborted translation in progress");
+        return tr("User aborted translation in progress");
     case TranslationError::Custom:
         return errorString;
     }
-    return QString("Unknown error");
+    return tr("Unknown error");
 }
 ATranslationProvider::State ATranslationProvider::getState()
 {

@@ -270,7 +270,7 @@ void OnlineTranslator::translate(const QString &text, Engine engine, Language tr
     abort();
 
     if (sourceLang == Auto && !isSupportsAutodetection(engine)) {
-        resetData(InstanceError, tr("Language detection is not supported for %1").arg(QMetaEnum::fromType<OnlineTranslator::Engine>().valueToKey(engine)));
+        resetData(InstanceError, QCoreApplication::translate("OnlineTranslator", "Language detection is not supported for %1").arg(QMetaEnum::fromType<OnlineTranslator::Engine>().valueToKey(engine)));
         emit finished();
         return;
     }

@@ -9,6 +9,7 @@
 #include "llm/openaiendpoint.h"
 #include "settings/appsettings.h"
 
+#include <QCoreApplication>
 #include <QFile>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -141,7 +142,7 @@ void LocalAiTranslationProvider::translate(const QString &inputText, const Langu
     if (dstCode.isEmpty() || translationLang == Language::autoLanguage()) {
         state = State::Finished;
         error = TranslationError::UnsupportedDstLanguage;
-        errorString = QStringLiteral("Destination language is not supported");
+        errorString = QCoreApplication::translate("LocalAiTranslationProvider", "Destination language is not supported");
         emit stateChanged(state);
         return;
     }
@@ -298,7 +299,7 @@ void LocalAiTranslationProvider::onReplyFinished()
     if (reply->error() == QNetworkReply::OperationCanceledError) {
         if (!m_userAborted) {
             error = TranslationError::Custom;
-            errorString = QStringLiteral("LocalAI request timed out");
+            errorString = tr("LocalAI request timed out");
             state = State::Finished;
             emit stateChanged(state);
         }
@@ -307,7 +308,7 @@ void LocalAiTranslationProvider::onReplyFinished()
 
     if (reply->error() != QNetworkReply::NoError) {
         error = TranslationError::Custom;
-        errorString = QStringLiteral("LocalAI error: ") + reply->errorString();
+        errorString = tr("LocalAI error: %1").arg(reply->errorString());
         state = State::Finished;
         emit stateChanged(state);
         return;
@@ -316,7 +317,7 @@ void LocalAiTranslationProvider::onReplyFinished()
     const QString translated = OpenAiEndpoint::extractContent(reply->readAll(), m_isAnthropic);
     if (translated.isEmpty()) {
         error = TranslationError::Custom;
-        errorString = QStringLiteral("LocalAI returned an empty response");
+        errorString = tr("LocalAI returned an empty response");
         state = State::Finished;
         emit stateChanged(state);
         return;
@@ -350,7 +351,7 @@ void LocalAiTranslationProvider::onDetectFinished()
             if (m_detectThenTranslate) {
                 m_detectThenTranslate = false;
                 error = TranslationError::Custom;
-                errorString = QStringLiteral("Language detection timed out");
+                errorString = tr("Language detection timed out");
                 state = State::Finished;
             } else {
                 error = TranslationError::NoError;
@@ -411,7 +412,7 @@ void LocalAiTranslationProvider::abort()
     m_detectThenTranslate = false;
     state = State::Finished;
     error = TranslationError::Aborted;
-    errorString = QStringLiteral("Translation aborted by user");
+    errorString = tr("Translation aborted by user");
     result.clear();
     m_userAborted = false;
     emit stateChanged(state);

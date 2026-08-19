@@ -448,7 +448,7 @@ void Cli::onTTSStateChanged(QTextToSpeech::State state)
         m_currentTranslationIndex++;
         processNextTranslation();
     } else if (state == QTextToSpeech::Error) {
-        const QString errorString = (m_tts != nullptr) ? m_tts->errorString() : "Unknown error";
+        const QString errorString = (m_tts != nullptr) ? m_tts->errorString() : tr("Unknown error");
         qCritical() << tr("Error: TTS failed") << errorString;
         m_waitingForTTS = false;
         m_ttsState = TTSState::None;
@@ -584,7 +584,7 @@ void Cli::printLangCodes()
               << QLocale::Bulgarian << QLocale::Greek << QLocale::Turkish << QLocale::Hebrew << QLocale::Thai << QLocale::Vietnamese << QLocale::Ukrainian
               << QLocale::Croatian << QLocale::Slovak << QLocale::Slovenian << QLocale::Estonian << QLocale::Latvian << QLocale::Lithuanian;
 
-    for (const auto &lang : languages) {
+    for (const auto &lang : std::as_const(languages)) {
         const Language language = Language(QLocale(lang));
         m_stdout << QLocale::languageToString(lang) << " - " << language.toCode() << '\n';
     }
@@ -615,7 +615,8 @@ QByteArray Cli::readFilesFromStdin()
 {
     const QString stdinText = QTextStream(stdin).readAll();
     QByteArray filesData;
-    for (const QString &filePath : stdinText.split(QRegularExpression(QStringLiteral("\\s+")), Qt::SkipEmptyParts)) {
+    static const QRegularExpression whitespace(QStringLiteral("\\s+"));
+    for (const QString &filePath : stdinText.split(whitespace, Qt::SkipEmptyParts)) {
         QFile file(filePath);
         if (!file.exists()) {
             qCritical() << tr("Error: File does not exist: %1").arg(file.fileName());
