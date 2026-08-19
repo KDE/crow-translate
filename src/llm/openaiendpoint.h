@@ -40,8 +40,44 @@ QString serverRoot(const QString &baseUrl);
 // A blank key leaves the request untouched (local servers need no auth).
 void setAuthHeaders(QNetworkRequest &request, bool isAnthropic, const QString &apiKey);
 
-// Assistant text out of a completions/messages response body.
-QString extractContent(const QByteArray &data, bool isAnthropic);
+// Everything a caller needs to explain a completions/messages response,
+// including the ones that carry no text. An empty `content` on its own is not
+// diagnosable - a thinking model that spends its whole budget reasoning, a
+// prompt that left no room to answer, and a server-side error all look
+// identical - so the fields that tell them apart come back too.
+struct Completion {
+    QString content;
+    // "stop", "length", ... - "length" with empty content means the model ran
+    // out of budget before it said anything.
+    QString finishReason;
+    // Reasoning models put their working here and it does not count as
+    // output; a non-empty value with empty content is a budget that went on
+    // thinking.
+    QString reasoning;
+    // From the response's own "usage" block; -1 when the server omits it.
+    int promptTokens = -1;
+    int completionTokens = -1;
+    int totalTokens = -1;
+    // The provider's own message from an "error" object, which is far more
+    // useful than the transport-level string Qt would give us.
+    QString errorMessage;
+
+    bool hasText() const
+    {
+        return !content.isEmpty();
+    }
+    bool ranOutOfBudget() const
+    {
+        return finishReason == QLatin1String("length");
+    }
+    bool spentBudgetReasoning() const
+    {
+        return !reasoning.isEmpty();
+    }
+};
+
+// Parse a completions/messages response body.
+Completion parseCompletion(const QByteArray &data, bool isAnthropic);
 
 } // namespace OpenAiEndpoint
 

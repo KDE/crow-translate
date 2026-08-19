@@ -282,6 +282,54 @@ void LocalAiTranslationProvider::sendDetection(const QString &text)
     connect(m_detectReply, &QNetworkReply::finished, this, &LocalAiTranslationProvider::onDetectFinished);
 }
 
+namespace
+{
+// An empty response is the single most confusing failure this provider can
+// hand a user: nothing went wrong at the HTTP level, there is just no text.
+// Say which of the three causes it actually was, and name the setting that
+// fixes the common one.
+QString emptyResponseReason(const OpenAiEndpoint::Completion &completion)
+{
+    const bool haveCounts = completion.promptTokens >= 0 && completion.totalTokens > 0;
+
+    if (completion.ranOutOfBudget() && completion.spentBudgetReasoning()) {
+        if (haveCounts) {
+            return QCoreApplication::translate("LocalAiTranslationProvider",
+                                               "The model ran out of tokens before writing a translation: the text to translate used "
+                                               "%1 of its %2 token limit, and it spent what was left reasoning instead of answering. "
+                                               "Turn on \"Disable reasoning\" for this provider, translate less text at once, or pick a "
+                                               "model with a larger context.")
+                .arg(completion.promptTokens)
+                .arg(completion.totalTokens);
+        }
+        return QCoreApplication::translate("LocalAiTranslationProvider",
+                                           "The model spent its whole token budget reasoning and never wrote a translation. Turn on "
+                                           "\"Disable reasoning\" for this provider, translate less text at once, or pick a model with a "
+                                           "larger context.");
+    }
+
+    if (completion.ranOutOfBudget()) {
+        if (haveCounts) {
+            return QCoreApplication::translate("LocalAiTranslationProvider",
+                                               "The model ran out of tokens before writing a translation: the text to translate used "
+                                               "%1 of its %2 token limit. Translate less text at once, or pick a model with a larger "
+                                               "context.")
+                .arg(completion.promptTokens)
+                .arg(completion.totalTokens);
+        }
+        return QCoreApplication::translate("LocalAiTranslationProvider",
+                                           "The model ran out of tokens before writing a translation. Translate less text at once, or "
+                                           "pick a model with a larger context.");
+    }
+
+    if (!completion.errorMessage.isEmpty()) {
+        return QCoreApplication::translate("LocalAiTranslationProvider", "LocalAI error: %1").arg(completion.errorMessage);
+    }
+
+    return QCoreApplication::translate("LocalAiTranslationProvider", "The model returned an empty response.");
+}
+} // namespace
+
 void LocalAiTranslationProvider::onReplyFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
@@ -306,24 +354,30 @@ void LocalAiTranslationProvider::onReplyFinished()
         return;
     }
 
+    const QByteArray payload = reply->readAll();
+    const OpenAiEndpoint::Completion completion = OpenAiEndpoint::parseCompletion(payload, m_isAnthropic);
+
     if (reply->error() != QNetworkReply::NoError) {
         error = TranslationError::Custom;
-        errorString = tr("LocalAI error: %1").arg(reply->errorString());
+        // The server's own message names the actual problem; Qt's transport
+        // string only ever says the request failed.
+        errorString = completion.errorMessage.isEmpty()
+            ? tr("LocalAI error: %1").arg(reply->errorString())
+            : tr("LocalAI error: %1").arg(completion.errorMessage);
         state = State::Finished;
         emit stateChanged(state);
         return;
     }
 
-    const QString translated = OpenAiEndpoint::extractContent(reply->readAll(), m_isAnthropic);
-    if (translated.isEmpty()) {
+    if (!completion.hasText()) {
         error = TranslationError::Custom;
-        errorString = tr("LocalAI returned an empty response");
+        errorString = emptyResponseReason(completion);
         state = State::Finished;
         emit stateChanged(state);
         return;
     }
 
-    result = formatResult(translated);
+    result = formatResult(completion.content);
     error = TranslationError::NoError;
     state = State::Processed;
     if (m_sourceWasAuto) {
@@ -364,7 +418,7 @@ void LocalAiTranslationProvider::onDetectFinished()
 
     QString code;
     if (reply->error() == QNetworkReply::NoError) {
-        const QString resp = OpenAiEndpoint::extractContent(reply->readAll(), m_detectIsAnthropic).toLower();
+        const QString resp = OpenAiEndpoint::parseCompletion(reply->readAll(), m_detectIsAnthropic).content.toLower();
         static const QRegularExpression re(QStringLiteral("\\b[a-z]{2,3}([-][A-Za-z0-9]+)*\\b"));
         QRegularExpressionMatchIterator it = re.globalMatch(resp);
         if (it.hasNext()) {

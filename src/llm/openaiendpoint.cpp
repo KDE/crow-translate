@@ -122,25 +122,70 @@ void setAuthHeaders(QNetworkRequest &request, bool isAnthropic, const QString &a
     }
 }
 
-QString extractContent(const QByteArray &data, bool isAnthropic)
+Completion parseCompletion(const QByteArray &data, bool isAnthropic)
 {
+    Completion completion;
     const QJsonObject obj = QJsonDocument::fromJson(data).object();
+
+    // Both shapes report failures as an "error" object, and its message says
+    // far more than any transport-level error string.
+    const QJsonValue errorValue = obj.value(QStringLiteral("error"));
+    if (errorValue.isObject()) {
+        completion.errorMessage = errorValue.toObject().value(QStringLiteral("message")).toString();
+    } else if (errorValue.isString()) {
+        // Ollama's native shape puts a bare string here.
+        completion.errorMessage = errorValue.toString();
+    }
+
+    const QJsonObject usage = obj.value(QStringLiteral("usage")).toObject();
+    if (!usage.isEmpty()) {
+        // Anthropic names them differently from everyone else.
+        completion.promptTokens = usage.value(isAnthropic ? QStringLiteral("input_tokens") : QStringLiteral("prompt_tokens")).toInt(-1);
+        completion.completionTokens = usage.value(isAnthropic ? QStringLiteral("output_tokens") : QStringLiteral("completion_tokens")).toInt(-1);
+        completion.totalTokens = usage.value(QStringLiteral("total_tokens")).toInt(-1);
+        if (completion.totalTokens < 0 && completion.promptTokens >= 0 && completion.completionTokens >= 0) {
+            completion.totalTokens = completion.promptTokens + completion.completionTokens;
+        }
+    }
+
     if (isAnthropic) {
+        completion.finishReason = obj.value(QStringLiteral("stop_reason")).toString();
+        if (completion.finishReason == QLatin1String("max_tokens")) {
+            completion.finishReason = QStringLiteral("length");
+        }
         const QJsonArray blocks = obj.value(QStringLiteral("content")).toArray();
         for (const QJsonValue &block : blocks) {
             const QJsonObject blockObj = block.toObject();
-            if (blockObj.value(QStringLiteral("type")).toString() == QLatin1String("text")) {
-                return blockObj.value(QStringLiteral("text")).toString();
+            const QString type = blockObj.value(QStringLiteral("type")).toString();
+            if (type == QLatin1String("text") && completion.content.isEmpty()) {
+                completion.content = blockObj.value(QStringLiteral("text")).toString();
+            } else if (type == QLatin1String("thinking")) {
+                completion.reasoning += blockObj.value(QStringLiteral("thinking")).toString();
             }
         }
-        return QString();
+        return completion;
     }
+
     const QJsonArray choices = obj.value(QStringLiteral("choices")).toArray();
     if (!choices.isEmpty()) {
-        return choices.first().toObject().value(QStringLiteral("message")).toObject().value(QStringLiteral("content")).toString();
+        const QJsonObject choice = choices.first().toObject();
+        completion.finishReason = choice.value(QStringLiteral("finish_reason")).toString();
+        const QJsonObject message = choice.value(QStringLiteral("message")).toObject();
+        completion.content = message.value(QStringLiteral("content")).toString();
+        // Ollama exposes a reasoning model's working as "reasoning"; some
+        // OpenAI-compatible servers use "reasoning_content".
+        completion.reasoning = message.value(QStringLiteral("reasoning")).toString();
+        if (completion.reasoning.isEmpty()) {
+            completion.reasoning = message.value(QStringLiteral("reasoning_content")).toString();
+        }
+        return completion;
     }
+
     // Fallback for Ollama native shape, just in case.
-    return obj.value(QStringLiteral("message")).toObject().value(QStringLiteral("content")).toString();
+    const QJsonObject message = obj.value(QStringLiteral("message")).toObject();
+    completion.content = message.value(QStringLiteral("content")).toString();
+    completion.reasoning = message.value(QStringLiteral("thinking")).toString();
+    return completion;
 }
 
 } // namespace OpenAiEndpoint

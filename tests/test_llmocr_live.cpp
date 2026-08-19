@@ -21,7 +21,9 @@
 #include "llm/visionmodelprobe.h"
 #include "ocr/llmocr.h"
 
+#include <QDebug>
 #include <QFont>
+#include <QFontDatabase>
 #include <QImage>
 #include <QPainter>
 #include <QSignalSpy>
@@ -125,6 +127,121 @@ private slots:
         // against.
         const QString needle = QStringLiteral("Invoice #4471");
         QCOMPARE(recognized.count(needle), 1);
+    }
+
+    // The third recurrence of the duplication bug (reported 2026-08-18) was
+    // not the fence, and not a copy count: the model transcribed the SAME
+    // apostrophe as ' in some copies and U+2019 in others, so byte-equality
+    // dedup saw no repetition and the user got the paragraph 43 times. Real
+    // prose full of typographic punctuation is what provokes that drift, so
+    // that is what this feeds the model.
+    void testLiveOllamaDoesNotRepeatTextWithTypographicPunctuation()
+    {
+        const QString phrase = QStringLiteral(
+            "His music can be found in the award winning indie games Actual Sunlight, "
+            "Josan Gonzalez’ The Future Is Now series, and he was an audio consultant "
+            "for the BBC’s first VR experience.");
+        const QImage image = renderTextImage(phrase);
+
+        LlmOcr ocr;
+        ocr.setEndpoint(ollamaUrl(), false, QString());
+        ocr.setModel(ollamaModel());
+        ocr.setTimeout(120);
+
+        QSignalSpy recognizedSpy(&ocr, &LlmOcr::recognized);
+        QSignalSpy failedSpy(&ocr, &LlmOcr::failed);
+        ocr.recognize(image, 96);
+
+        QVERIFY2(recognizedSpy.wait(120000) || !failedSpy.isEmpty(), "LlmOcr neither recognized nor failed within the timeout");
+        if (!failedSpy.isEmpty()) {
+            QFAIL(qPrintable(QStringLiteral("LlmOcr reported failure: %1").arg(failedSpy.constFirst().at(0).toString())));
+        }
+
+        const QString recognized = recognizedSpy.constFirst().at(0).toString();
+        QVERIFY2(!recognized.isEmpty(), "recognized text was empty");
+
+        // "Actual Sunlight" appears once in the image; more than once in the
+        // result means a copy survived, whatever its punctuation looked like.
+        QVERIFY2(recognized.count(QStringLiteral("Actual Sunlight")) == 1,
+                 qPrintable(QStringLiteral("transcription repeated %1 times: %2")
+                                .arg(recognized.count(QStringLiteral("Actual Sunlight")))
+                                .arg(recognized.left(400))));
+    }
+
+    // The fourth recurrence, reported 2026-08-19: a screenshot of a
+    // two-character Chinese sign. Against the real model that answered with
+    // 2007 copies of the word and 4026 completion tokens, and the collapse
+    // handed back fourteen of them - a unit that short never reached the
+    // minimum the detector would accept. East Asian text is where a
+    // transcription is routinely this short, so this is the live case for it.
+    void testLiveOllamaDoesNotRepeatAShortCjkTranscription()
+    {
+        if (QFontDatabase::families(QFontDatabase::SimplifiedChinese).isEmpty()) {
+            QSKIP("No font on this system can draw the test image - install a CJK font to enable this test");
+        }
+
+        // U+4E2D U+6587, "Chinese" - the two characters in the report.
+        const QString phrase = QStringLiteral("\u4e2d\u6587");
+        const QImage image = renderTextImage(phrase);
+
+        LlmOcr ocr;
+        ocr.setEndpoint(ollamaUrl(), false, QString());
+        ocr.setModel(ollamaModel());
+        ocr.setTimeout(120);
+
+        QSignalSpy recognizedSpy(&ocr, &LlmOcr::recognized);
+        QSignalSpy failedSpy(&ocr, &LlmOcr::failed);
+        ocr.recognize(image, 96);
+
+        QVERIFY2(recognizedSpy.wait(120000) || !failedSpy.isEmpty(), "LlmOcr neither recognized nor failed within the timeout");
+        if (!failedSpy.isEmpty()) {
+            QFAIL(qPrintable(QStringLiteral("LlmOcr reported failure: %1").arg(failedSpy.constFirst().at(0).toString())));
+        }
+
+        const QString recognized = recognizedSpy.constFirst().at(0).toString();
+        QVERIFY2(!recognized.isEmpty(), "recognized text was empty");
+        QVERIFY2(recognized.count(phrase) == 1,
+                 qPrintable(QStringLiteral("transcription repeated %1 times: %2")
+                                .arg(recognized.count(phrase))
+                                .arg(recognized.left(400))));
+    }
+
+    // Point CROW_TEST_OCR_IMAGE at a real screenshot to run the same check
+    // against it - how a user-reported image gets turned into evidence.
+    void testLiveOllamaOnASuppliedImage()
+    {
+        const QByteArray path = qgetenv("CROW_TEST_OCR_IMAGE");
+        if (path.isEmpty()) {
+            QSKIP("Set CROW_TEST_OCR_IMAGE to a screenshot path to run this");
+        }
+        QImage image;
+        if (!image.load(QString::fromLocal8Bit(path))) {
+            QFAIL(qPrintable(QStringLiteral("could not load %1").arg(QString::fromLocal8Bit(path))));
+        }
+
+        LlmOcr ocr;
+        ocr.setEndpoint(ollamaUrl(), false, QString());
+        ocr.setModel(ollamaModel());
+        ocr.setTimeout(180);
+
+        QSignalSpy recognizedSpy(&ocr, &LlmOcr::recognized);
+        QSignalSpy failedSpy(&ocr, &LlmOcr::failed);
+        ocr.recognize(image, 96);
+
+        QVERIFY2(recognizedSpy.wait(180000) || !failedSpy.isEmpty(), "LlmOcr neither recognized nor failed within the timeout");
+        if (!failedSpy.isEmpty()) {
+            QFAIL(qPrintable(QStringLiteral("LlmOcr reported failure: %1").arg(failedSpy.constFirst().at(0).toString())));
+        }
+
+        const QString recognized = recognizedSpy.constFirst().at(0).toString();
+        qInfo().noquote() << "recognized" << recognized.size() << "chars:";
+        qInfo().noquote() << recognized;
+
+        // Whatever the image says, its opening must not turn up twice.
+        const QString opening = recognized.left(40);
+        QVERIFY2(!opening.isEmpty() && recognized.count(opening) == 1,
+                 qPrintable(QStringLiteral("opening appears %1 times - the transcription repeated")
+                                .arg(recognized.count(opening))));
     }
 };
 

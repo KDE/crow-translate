@@ -36,6 +36,13 @@ public:
         QHash<QString, QString> headers;
         int delayMs = 0; // write the response after this delay, once the connection is up
         bool hang = false; // accept the connection, record the request, write nothing until released
+        // Server-sent-events mode: write each chunk as its own flush, spaced
+        // by chunkDelayMs, with no Content-Length. Needed to exercise a
+        // client that reacts to the stream as it arrives - LlmOcr aborts the
+        // request the moment the transcription starts repeating, and only a
+        // real trickle can reproduce that.
+        QList<QByteArray> streamChunks;
+        int chunkDelayMs = 10;
     };
 
     explicit MockHttpServer(QObject *parent = nullptr);
@@ -52,6 +59,11 @@ public:
     void releaseHeldRequest(int index, const Response &response);
 
     int requestCount() const;
+    // True when a client closed the connection before the server finished
+    // writing its stream - i.e. it aborted mid-response. This is how a test
+    // asserts that an early abort actually happened rather than the client
+    // simply reading everything and discarding it.
+    bool clientDisconnectedEarly() const;
     QByteArray requestBody(int index) const;
     QString requestPath(int index) const;
 
@@ -91,6 +103,7 @@ private:
     QList<PendingConnection> m_inProgress;
     QList<HeldConnection> m_held;
     QList<RecordedRequest> m_requests;
+    bool m_clientDisconnectedEarly = false;
 };
 
 #endif // MOCKHTTPSERVER_H

@@ -19,6 +19,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QSignalSpy>
+#include <QStringList>
 #include <QTest>
 
 using Response = MockHttpServer::Response;
@@ -38,6 +39,24 @@ QByteArray chatCompletionJson(const QString &content)
     QJsonObject body;
     body.insert(QStringLiteral("choices"), choices);
     return QJsonDocument(body).toJson(QJsonDocument::Compact);
+}
+
+// The image in the report is a two-character sign reading "Chinese",
+// U+4E2D U+6587. Spelled as escapes, here and below, so what this test means
+// cannot depend on how a compiler decodes the file it is written in.
+QString cjkWord()
+{
+    return QStringLiteral("\u4e2d\u6587");
+}
+
+QString repeatedCopies(const QString &unit, int copies, const QString &separator)
+{
+    QStringList parts;
+    parts.reserve(copies);
+    for (int copy = 0; copy < copies; ++copy) {
+        parts.append(unit);
+    }
+    return parts.join(separator);
 }
 
 } // namespace
@@ -85,11 +104,229 @@ private slots:
         QVERIFY(prompt.contains(QStringLiteral("Transcribe"), Qt::CaseInsensitive));
     }
 
+    // A model that starts repeating must be cut off mid-generation, not
+    // indulged to the end of its token budget and cleaned up afterwards. On
+    // the reported screenshot the runaway cost 3876 tokens and 22 seconds.
+    void testStreamingAbortsOnceTheTranscriptionRepeats()
+    {
+        const QString line = QStringLiteral(
+            "His music can be found in the award winning indie games Actual Sunlight, "
+            "This Is The Police I & II, and Hacknet: Labyrinths, HBO's Vice Principals");
+
+        MockHttpServer server;
+        Response response;
+        response.status = 200;
+        // The transcription, then the model looping it. Splitting each copy
+        // over several deltas is what a real stream looks like.
+        QList<QByteArray> chunks;
+        auto appendCopy = [&chunks](const QString &text) {
+            for (int at = 0; at < text.size(); at += 40) {
+                QJsonObject delta;
+                delta.insert(QStringLiteral("content"), text.mid(at, 40));
+                QJsonObject choice;
+                choice.insert(QStringLiteral("delta"), delta);
+                QJsonObject body;
+                body.insert(QStringLiteral("choices"), QJsonArray{choice});
+                chunks.append(QByteArrayLiteral("data: ") + QJsonDocument(body).toJson(QJsonDocument::Compact) + QByteArrayLiteral("\n\n"));
+            }
+        };
+        appendCopy(line);
+        for (int copy = 0; copy < 20; ++copy) {
+            appendCopy(QStringLiteral("\n") + line);
+        }
+        chunks.append(QByteArrayLiteral("data: [DONE]\n\n"));
+        response.streamChunks = chunks;
+        response.chunkDelayMs = 2;
+        server.queueResponse(response);
+
+        LlmOcr ocr;
+        ocr.setEndpoint(server.baseUrl(), false, QString());
+        ocr.setModel(QStringLiteral("vision-model"));
+        QSignalSpy recognizedSpy(&ocr, &AOcrProvider::recognized);
+        QSignalSpy failedSpy(&ocr, &AOcrProvider::failed);
+
+        QImage image(32, 32, QImage::Format_RGB32);
+        image.fill(Qt::white);
+        ocr.recognize(image, 96);
+
+        QVERIFY(recognizedSpy.wait(10000));
+        QCOMPARE(failedSpy.count(), 0);
+        // Exactly one copy, and the request was cut off rather than drained.
+        QCOMPARE(recognizedSpy.constFirst().at(0).toString(), line);
+        QTRY_VERIFY(server.clientDisconnectedEarly());
+    }
+
+    // The same abort, for the unit length East Asian text actually produces.
+    // Before the evidence rule this cut the stream only after 82 folded
+    // characters and handed back fourteen copies of the word.
+    void testStreamingAbortsOnARepeatedShortUnit()
+    {
+        const QString word = cjkWord();
+
+        MockHttpServer server;
+        Response response;
+        response.status = 200;
+        QList<QByteArray> chunks;
+        for (int copy = 0; copy < 200; ++copy) {
+            QJsonObject delta;
+            delta.insert(QStringLiteral("content"), copy == 0 ? word : QStringLiteral("\n") + word);
+            QJsonObject choice;
+            choice.insert(QStringLiteral("delta"), delta);
+            QJsonObject body;
+            body.insert(QStringLiteral("choices"), QJsonArray{choice});
+            chunks.append(QByteArrayLiteral("data: ") + QJsonDocument(body).toJson(QJsonDocument::Compact) + QByteArrayLiteral("\n\n"));
+        }
+        chunks.append(QByteArrayLiteral("data: [DONE]\n\n"));
+        response.streamChunks = chunks;
+        response.chunkDelayMs = 2;
+        server.queueResponse(response);
+
+        LlmOcr ocr;
+        ocr.setEndpoint(server.baseUrl(), false, QString());
+        ocr.setModel(QStringLiteral("vision-model"));
+        QSignalSpy recognizedSpy(&ocr, &AOcrProvider::recognized);
+        QSignalSpy failedSpy(&ocr, &AOcrProvider::failed);
+
+        QImage image(32, 32, QImage::Format_RGB32);
+        image.fill(Qt::white);
+        ocr.recognize(image, 96);
+
+        QVERIFY(recognizedSpy.wait(10000));
+        QCOMPARE(failedSpy.count(), 0);
+        QCOMPARE(recognizedSpy.constFirst().at(0).toString(), word);
+        QTRY_VERIFY(server.clientDisconnectedEarly());
+    }
+
+    // Prose that says its opening again is not a loop, and the stream must not
+    // be cut on it. The detector used to fire on the first recurrence of the
+    // opening with no further check at all, so this arrived truncated to the
+    // first paragraph - the response-side collapse was the only one of the two
+    // that ever verified the text was really tiled by that unit. They are now
+    // the same code.
+    void testStreamingDoesNotAbortOnProseThatEchoesItsOpening()
+    {
+        const QString straight = QStringLiteral(
+            "His music can be found in the award winning indie games Actual Sunlight, "
+            "This Is The Police I & II, and Hacknet: Labyrinths, HBO's Vice Principals");
+        const QString echoed = straight + QStringLiteral("\nHe also scored several short films.\n") + straight;
+
+        MockHttpServer server;
+        Response response;
+        response.status = 200;
+        QList<QByteArray> chunks;
+        for (int at = 0; at < echoed.size(); at += 16) {
+            QJsonObject delta;
+            delta.insert(QStringLiteral("content"), echoed.mid(at, 16));
+            QJsonObject choice;
+            choice.insert(QStringLiteral("delta"), delta);
+            QJsonObject body;
+            body.insert(QStringLiteral("choices"), QJsonArray{choice});
+            chunks.append(QByteArrayLiteral("data: ") + QJsonDocument(body).toJson(QJsonDocument::Compact) + QByteArrayLiteral("\n\n"));
+        }
+        chunks.append(QByteArrayLiteral("data: [DONE]\n\n"));
+        response.streamChunks = chunks;
+        response.chunkDelayMs = 2;
+        server.queueResponse(response);
+
+        LlmOcr ocr;
+        ocr.setEndpoint(server.baseUrl(), false, QString());
+        ocr.setModel(QStringLiteral("vision-model"));
+        QSignalSpy recognizedSpy(&ocr, &AOcrProvider::recognized);
+
+        QImage image(32, 32, QImage::Format_RGB32);
+        image.fill(Qt::white);
+        ocr.recognize(image, 96);
+
+        QVERIFY(recognizedSpy.wait(10000));
+        QCOMPARE(recognizedSpy.constFirst().at(0).toString(), echoed);
+    }
+
+    // A stream that never repeats must arrive whole.
+    void testStreamingDeliversASingleTranscription()
+    {
+        const QString line = QStringLiteral("System Monitor\nCPU 12% Memory 1.2GiB\nNotifications are enabled");
+
+        MockHttpServer server;
+        Response response;
+        response.status = 200;
+        QList<QByteArray> chunks;
+        for (int at = 0; at < line.size(); at += 16) {
+            QJsonObject delta;
+            delta.insert(QStringLiteral("content"), line.mid(at, 16));
+            QJsonObject choice;
+            choice.insert(QStringLiteral("delta"), delta);
+            QJsonObject body;
+            body.insert(QStringLiteral("choices"), QJsonArray{choice});
+            chunks.append(QByteArrayLiteral("data: ") + QJsonDocument(body).toJson(QJsonDocument::Compact) + QByteArrayLiteral("\n\n"));
+        }
+        chunks.append(QByteArrayLiteral("data: [DONE]\n\n"));
+        response.streamChunks = chunks;
+        response.chunkDelayMs = 2;
+        server.queueResponse(response);
+
+        LlmOcr ocr;
+        ocr.setEndpoint(server.baseUrl(), false, QString());
+        ocr.setModel(QStringLiteral("vision-model"));
+        QSignalSpy recognizedSpy(&ocr, &AOcrProvider::recognized);
+
+        QImage image(32, 32, QImage::Format_RGB32);
+        image.fill(Qt::white);
+        ocr.recognize(image, 96);
+
+        QVERIFY(recognizedSpy.wait(10000));
+        QCOMPARE(recognizedSpy.constFirst().at(0).toString(), line);
+    }
+
+    // "returned an empty response" told the user nothing: it is the same
+    // message whether the model reasoned away its budget, ran out of context,
+    // or the server complained. Each case must now name itself, and the
+    // reasoning one must name the setting that fixes it.
+    void testEmptyResponseSaysWhy()
+    {
+        auto reasonFor = [](const QByteArray &body) {
+            MockHttpServer server;
+            Response response;
+            response.status = 200;
+            response.body = body;
+            server.queueResponse(response);
+
+            LlmOcr ocr;
+            ocr.setEndpoint(server.baseUrl(), false, QString());
+            ocr.setModel(QStringLiteral("vision-model"));
+            QSignalSpy failedSpy(&ocr, &AOcrProvider::failed);
+            QImage image(32, 32, QImage::Format_RGB32);
+            image.fill(Qt::white);
+            ocr.recognize(image, 96);
+            if (!failedSpy.wait(5000))
+                return QString();
+            return failedSpy.constFirst().at(0).toString();
+        };
+
+        // Budget spent reasoning: must point at "Disable reasoning".
+        const QString reasoned = reasonFor(QByteArrayLiteral(
+            R"({"choices":[{"finish_reason":"length","message":{"content":"","reasoning":"thinking out loud"}}],)"
+            R"("usage":{"prompt_tokens":3380,"completion_tokens":716,"total_tokens":4096}})"));
+        QVERIFY(reasoned.contains(QStringLiteral("Disable reasoning")));
+
+        // Out of context without reasoning: must report the token split.
+        const QString exhausted = reasonFor(QByteArrayLiteral(
+            R"({"choices":[{"finish_reason":"length","message":{"content":""}}],)"
+            R"("usage":{"prompt_tokens":3900,"completion_tokens":196,"total_tokens":4096}})"));
+        QVERIFY(exhausted.contains(QStringLiteral("3900")));
+        QVERIFY(exhausted.contains(QStringLiteral("4096")));
+        QVERIFY(!exhausted.contains(QStringLiteral("Disable reasoning")));
+
+        // The provider's own message beats any transport-level string.
+        const QString serverSaid = reasonFor(QByteArrayLiteral(
+            R"({"error":{"message":"model 'nope' not found"}})"));
+        QVERIFY(serverSaid.contains(QStringLiteral("model 'nope' not found")));
+    }
+
     void testCollapseRepeatedTranscription()
     {
         // The repeat-prone-local-model signature: the completed transcription
-        // re-emitted verbatim, blank-line separated. Collapses to one copy.
-        const QString block = QStringLiteral("System Monitor\nCPU 12% Memory 1.2GiB\nNotifications");
+        // re-emitted, blank-line separated. Collapses to one copy.
+        const QString block = QStringLiteral("System Monitor\nCPU 12% Memory 1.2GiB\nNotifications are enabled");
         const QString repeated = block + QStringLiteral("\n\n") + block + QStringLiteral("\n\n") + block;
         QCOMPARE(LlmOcr::collapseRepeatedTranscription(repeated), block);
 
@@ -100,57 +337,115 @@ private slots:
         QCOMPARE(LlmOcr::collapseRepeatedTranscription(QString()), QString());
         QCOMPARE(LlmOcr::collapseRepeatedTranscription(QStringLiteral(" ")), QString());
 
-        // A single line looped collapses.
-        QCOMPARE(LlmOcr::collapseRepeatedTranscription(QStringLiteral("no\nno\nno\nno")), QStringLiteral("no"));
+        // Text too short to tell a loop from a repeated phrase stays put.
+        QCOMPARE(LlmOcr::collapseRepeatedTranscription(QStringLiteral("no\nno\nno\nno")),
+                 QStringLiteral("no\nno\nno\nno"));
 
-        // Any exact tiling collapses, down to two copies.
+        // Two whole copies is the bar.
         const QString twoCopies = block + QStringLiteral("\n\n") + block;
         QCOMPARE(LlmOcr::collapseRepeatedTranscription(twoCopies), block);
 
-        // Deliberately accepted loss: a poem whose lines tile exactly is
-        // indistinguishable from a decoding loop, so it collapses too. Telling
-        // the two apart by copy count or line length only made real runaways
-        // depend on how many copies the model happened to emit.
-        const QString triple = QStringLiteral("Water\nWater\nWater");
-        QCOMPARE(LlmOcr::collapseRepeatedTranscription(triple), QStringLiteral("Water"));
+        // THE BUG THIS FUNCTION EXISTS FOR (reported 2026-08-18, third
+        // recurrence): the copies are NOT identical. glm-ocr transcribes the
+        // same apostrophe as ' in some copies and U+2019 in others, so byte
+        // equality found no repetition at all and the user got the paragraph
+        // 43 times. Folding the punctuation is what makes them comparable.
+        const QString straight = QStringLiteral(
+            "His music can be found in the award winning indie games Actual Sunlight, "
+            "This Is The Police I & II, and Hacknet: Labyrinths, HBO's Vice Principals");
+        const QString curly = QString(straight).replace(QLatin1Char('\''), QChar(0x2019));
+        const QString drifting = curly + QStringLiteral("\n") + straight + QStringLiteral("\n")
+            + straight + QStringLiteral("\n") + straight;
+        // One copy survives, and it is the ORIGINAL first copy - typography intact.
+        QCOMPARE(LlmOcr::collapseRepeatedTranscription(drifting), curly);
 
-        // A poem that repeats its first stanza verbatim at the end (not an
-        // exact tiling of the whole response) keeps every line.
-        const QString enveloped = QStringLiteral("Once upon a time\nIn a land far away\nOnce upon a time");
-        QCOMPARE(LlmOcr::collapseRepeatedTranscription(enveloped), enveloped);
+        // The copies need not be newline separated: a model that repeats
+        // inside one long line was previously invisible to this function,
+        // which split on newlines and gave up at fewer than two lines.
+        const QString runOn = straight + QStringLiteral(" ") + straight + QStringLiteral(" ") + straight;
+        QCOMPARE(LlmOcr::collapseRepeatedTranscription(runOn), straight);
 
-        // The real runaway signature ends mid-line when the token budget cuts
-        // generation: full verbatim copies plus a partial block whose last
-        // line is a prefix of the block's next line.
-        const QString truncated = block + QStringLiteral("\n\n") + block + QStringLiteral("\n\n") + block
-            + QStringLiteral("\n\nSystem Monitor\nCPU 12%");
+        // The token budget usually runs out mid-copy, leaving a partial tail
+        // that is a prefix of the unit.
+        const QString truncated = block + QStringLiteral("\n\n") + block + QStringLiteral("\n\nSystem Monitor\nCPU 12%");
         QCOMPARE(LlmOcr::collapseRepeatedTranscription(truncated), block);
 
-        // glm-ocr emits a whole paragraph as ONE very long line and repeats
-        // it, so the runaway arrives as period=1 with only two or three
-        // COMPLETE copies and no truncated tail. Reported 2026-08-18 against a
-        // dense Wikipedia screenshot; reproduced against the real local
-        // glm-ocr with the app's exact request (three verbatim copies of one
-        // 794-character line).
-        const QString paragraph = QStringLiteral(
-            "JoJo's Bizarre Adventure had over 100 million copies in circulation by December 2016,[88] "
-            "and over 120 million copies in circulation by August 2023.[89] making it one of the "
-            "best-selling manga series of all time.[90] The first volume of JoJolion was the second "
-            "best-selling manga for its debut week; its second volume reached third place, and its "
-            "third reached second place.[91][92][93]");
-        const QString longLineThrice = paragraph + QStringLiteral("\n") + paragraph + QStringLiteral("\n") + paragraph;
-        QCOMPARE(LlmOcr::collapseRepeatedTranscription(longLineThrice), paragraph);
-        const QString longLineTwice = paragraph + QStringLiteral("\n") + paragraph;
-        QCOMPARE(LlmOcr::collapseRepeatedTranscription(longLineTwice), paragraph);
+        // Prose that echoes an earlier passage at the end is ONE copy plus a
+        // partial - real content, not a loop, and deleting it would be data
+        // loss. Stays whole.
+        const QString echoed = straight + QStringLiteral("\nHe also scored several short films.\n") + straight;
+        QCOMPARE(LlmOcr::collapseRepeatedTranscription(echoed), echoed);
 
-        // A single line repeated, ending in a line the token budget cut
-        // mid-word (period=1 case) collapses to one line too.
-        const QString singleLineLoop = QStringLiteral("Try integrating using the Ollama web service to create a locally-run personal code assistant.\n")
-            + QStringLiteral("Try integrating using the Ollama web service to create a locally-run personal code assistant.\n")
-            + QStringLiteral("Try integrating using the Ollama web service to create a locally-run personal code assistant.\n")
-            + QStringLiteral("Try integrating using the Ollama web service to create a locally-run");
-        QCOMPARE(LlmOcr::collapseRepeatedTranscription(singleLineLoop),
-                 QStringLiteral("Try integrating using the Ollama web service to create a locally-run personal code assistant."));
+        // Long prose with no repetition at all is untouched.
+        const QString prose = straight + QStringLiteral(" He also scored a documentary about deep sea exploration.");
+        QCOMPARE(LlmOcr::collapseRepeatedTranscription(prose), prose);
+    }
+
+    // THE FOURTH RECURRENCE (reported 2026-08-19, with a screenshot of a
+    // two-character Chinese sign). Reproduced against the real glm-ocr with
+    // the request the app sends: 4026 completion tokens, 2007 copies of the
+    // word - and the collapse handed back FOURTEEN of them.
+    //
+    // kMinUnitLength was being applied as a floor on the unit: the scan
+    // skipped every recurrence of the opening closer than 40 folded
+    // characters, so for a three-character unit the first offset it would
+    // accept was 42 - fourteen copies - and it then faithfully collapsed 2007
+    // copies down to that. Nothing about the script matters, any unit under
+    // 40 characters behaved this way; CJK just makes it the normal case,
+    // because 40 CJK characters is a whole paragraph. What settles it is how
+    // MUCH repetition there is, not how long one copy is.
+    void testCollapseRepeatedShortUnitTranscription()
+    {
+        const QString word = cjkWord();
+        const QString newline = QStringLiteral("\n");
+
+        // The reported response, in its exact shape: the first copy set off
+        // by a blank line, then copies to the end of the token budget.
+        const QString reported = word + QStringLiteral("\n\n") + repeatedCopies(word, 2006, newline);
+        QCOMPARE(LlmOcr::collapseRepeatedTranscription(reported), word);
+
+        // Enough copies to be conclusive, and one short of it.
+        QCOMPARE(LlmOcr::collapseRepeatedTranscription(repeatedCopies(word, 21, newline)), word);
+        const QString twenty = repeatedCopies(word, 20, newline);
+        QCOMPARE(LlmOcr::collapseRepeatedTranscription(twenty), twenty);
+
+        // CJK copies often have no separator between them at all ...
+        QCOMPARE(LlmOcr::collapseRepeatedTranscription(repeatedCopies(word, 40, QString())), word);
+        // ... or an ideographic space, U+3000, which folds like any other.
+        QCOMPARE(LlmOcr::collapseRepeatedTranscription(repeatedCopies(word, 30, QStringLiteral("\u3000"))), word);
+
+        // A handful of copies is content, not a loop - a sign really can say
+        // the same word five times - and so are eight identical prices or a
+        // row of dot leaders. None of them may be thrown away.
+        const QString five = repeatedCopies(word, 5, newline);
+        QCOMPARE(LlmOcr::collapseRepeatedTranscription(five), five);
+        const QString prices = repeatedCopies(QStringLiteral("$5"), 8, newline);
+        QCOMPARE(LlmOcr::collapseRepeatedTranscription(prices), prices);
+        const QString leaders = QString(30, QLatin1Char('.'));
+        QCOMPARE(LlmOcr::collapseRepeatedTranscription(leaders), leaders);
+
+        // The CJK form of the drift that defeated byte-equality dedup: the
+        // model alternates between fullwidth punctuation and its halfwidth
+        // twin from copy to copy, here an ideographic full stop U+3002 against
+        // an ASCII one. ("Please submit the report before three o'clock.")
+        const QString sentence = QStringLiteral("\u8bf7\u5728\u4e0b\u5348\u4e09\u70b9\u524d\u63d0\u4ea4\u62a5\u544a\u3002");
+        const QString halfwidth = QString(sentence).replace(QChar(0x3002), QLatin1Char('.'));
+        QStringList drifting;
+        for (int copy = 0; copy < 10; ++copy) {
+            drifting.append(copy % 2 == 0 ? sentence : halfwidth);
+        }
+        // One copy survives, and it is the ORIGINAL first copy - the
+        // fullwidth punctuation the image actually had.
+        QCOMPARE(LlmOcr::collapseRepeatedTranscription(drifting.join(newline)), sentence);
+
+        // A real CJK paragraph is longer than the old unit floor ever was, so
+        // two copies still settle it. ("It is fine weather today. The meeting
+        // is in the second meeting room from three in the afternoon. The
+        // materials have been distributed in advance.")
+        const QString paragraph = QStringLiteral("\u672c\u65e5\u306f\u6674\u5929\u306a\u308a\u3002")
+            + QStringLiteral("\u4f1a\u8b70\u306f\u5348\u5f8c\u4e09\u6642\u304b\u3089\u7b2c\u4e8c\u4f1a\u8b70\u5ba4\u3067\u884c\u3044\u307e\u3059\u3002")
+            + QStringLiteral("\u8cc7\u6599\u306f\u4e8b\u524d\u306b\u914d\u5e03\u6e08\u307f\u3067\u3059\u3002");
+        QCOMPARE(LlmOcr::collapseRepeatedTranscription(paragraph + newline + paragraph), paragraph);
     }
 
     // A reasoning-capable vision model left with thinking on can spell out
