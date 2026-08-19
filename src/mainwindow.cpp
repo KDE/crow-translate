@@ -195,7 +195,7 @@ MainWindow::MainWindow(QWidget *parent)
             const ProviderUIRequirements reqs = m_tts->getUIRequirements();
             if (reqs.supportedCapabilities.contains("voiceSelection")) {
                 const Voice voice = ui->sourceVoiceComboBox->currentData().value<Voice>();
-                const Language sourceLanguage = m_sourceLang != Language::autoLanguage() ? m_sourceLang : Language(QLocale::system());
+                const Language sourceLanguage = spokenSourceLanguage();
                 m_tts->setLanguage(sourceLanguage);
                 m_tts->setVoice(voice);
                 updateSpeakerComboBoxes();
@@ -208,7 +208,7 @@ MainWindow::MainWindow(QWidget *parent)
             const ProviderUIRequirements reqs = m_tts->getUIRequirements();
             if (reqs.supportedCapabilities.contains("voiceSelection")) {
                 const Voice voice = ui->translationVoiceComboBox->currentData().value<Voice>();
-                const Language translationLanguage = m_destLang != Language::autoLanguage() ? m_destLang : Language(QLocale::system());
+                const Language translationLanguage = spokenTranslationLanguage();
                 m_tts->setLanguage(translationLanguage);
                 m_tts->setVoice(voice);
                 updateSpeakerComboBoxes();
@@ -275,6 +275,17 @@ MainWindow::MainWindow(QWidget *parent)
             qDebug() << "Language detected:" << detectedLanguage.name() << "isTranslationContext:" << isTranslationContext
                      << "preferred destination:" << preferredDest.name();
 
+            // Label the auto button with the destination this detection
+            // resolves to. This used to sit on the retranslation path below,
+            // so it only ran when the first translation had gone somewhere
+            // else and had to be redone - on the common path, where the
+            // destination was right the first time, the button kept the
+            // language it was born with and read "Auto (en)" for a
+            // translation into Russian. The label only: m_destLang stays
+            // "auto" so the next translation still resolves its destination
+            // fresh, and nothing here changes where anything is sent.
+            ui->translationLanguagesWidget->setAutoLanguage(preferredDest);
+
             // Check if the current translation target matches our preferred destination
             // If not, retranslate with the correct destination language
             if (m_translator && m_translator->getState() == ATranslationProvider::State::Processed) {
@@ -282,13 +293,8 @@ MainWindow::MainWindow(QWidget *parent)
                 if (currentDestLang != preferredDest && !ui->sourceEdit->toPlainText().isEmpty()) {
                     qDebug() << "Retranslating from" << detectedLanguage.name() << "to preferred destination:" << preferredDest.name();
 
-                    // Update the destination language state and UI
-                    m_destLang = preferredDest;
-                    ui->translationLanguagesWidget->setAutoLanguage(preferredDest);
-
-                    // Update voice comboboxes for the new destination language
-                    updateVoiceComboBoxes();
-
+                    // The voice combos are refreshed once the retranslation
+                    // completes (translatorStateChanged -> Processed).
                     m_translator->translate(ui->sourceEdit->toSourceText(), preferredDest, detectedLanguage);
                 }
             }
@@ -550,7 +556,7 @@ Q_SCRIPTABLE void MainWindow::speakSelection()
     *selectionConnection =
         connect(&Selection::instance(), &Selection::requestedSelectionAvailable, this, [this, selectionConnection](const QString &selectedText) {
             if (!selectedText.isEmpty() && m_tts) {
-                const Language sourceLanguage = m_sourceLang != Language::autoLanguage() ? m_sourceLang : Language(QLocale::system());
+                const Language sourceLanguage = spokenSourceLanguage();
                 m_tts->setLanguage(sourceLanguage);
                 m_tts->say(selectedText);
             }
@@ -571,7 +577,7 @@ Q_SCRIPTABLE void MainWindow::speakTranslatedSelection()
 
     const QString translationText = ui->translationEdit->toPlainText();
     if (!translationText.isEmpty() && (m_tts != nullptr)) {
-        const Language translationLanguage = m_destLang != Language::autoLanguage() ? m_destLang : Language(QLocale::system());
+        const Language translationLanguage = spokenTranslationLanguage();
         m_tts->setLanguage(translationLanguage);
         m_tts->say(translationText);
     }
@@ -859,7 +865,12 @@ void MainWindow::loadMainWindowSettings()
     m_sourceLang = ui->sourceLanguagesWidget->checkedLanguage();
     m_destLang = ui->translationLanguagesWidget->checkedLanguage();
 
-    if (m_destLang == QLocale::c()) {
+    // "Auto" is represented by the C locale (Language::autoLanguage() ==
+    // QLocale::c()), so only fall back to the system locale when no language
+    // is actually selected - not when the user has the auto (primary/secondary)
+    // button checked. Resetting auto to the system locale here is what left
+    // the destination stuck on the primary language.
+    if (m_destLang == QLocale::c() && !ui->translationLanguagesWidget->isAutoButtonChecked()) {
         m_destLang = QLocale::system();
         ui->translationLanguagesWidget->checkLanguage(m_destLang);
     }
@@ -1119,6 +1130,13 @@ void MainWindow::translatorStateChanged(ATranslationProvider::State newState)
                 showTranslationWindow();
             }
 
+            // The destination "auto" resolves to is only known once the
+            // translation is done. The voice combos were populated for
+            // whatever language was current before, and a QVoice carries its
+            // own locale - so applying a stale English voice on play would
+            // override the correct language and speak Russian in English.
+            refreshVoicesForSpokenLanguages();
+
             emit translationAccepted();
         } else {
             ui->translationEdit->setPlainText(tr("Error: %1").arg(m_translator->getErrorString()));
@@ -1205,7 +1223,7 @@ void MainWindow::validateLanguageSupport()
         ui->sourceLanguagesWidget->checkAutoButton();
     }
 
-    if (!destSupported) {
+    if (!destSupported && m_destLang != Language::autoLanguage()) {
         if (!supportedDestLangs.isEmpty()) {
             m_destLang = supportedDestLangs.first();
             ui->translationLanguagesWidget->checkLanguage(m_destLang);
@@ -1261,6 +1279,17 @@ void MainWindow::swapTranslator(ATranslationProvider::ProviderBackend newBackend
             qDebug() << "Language detected:" << detectedLanguage.name() << "isTranslationContext:" << isTranslationContext
                      << "preferred destination:" << preferredDest.name();
 
+            // Label the auto button with the destination this detection
+            // resolves to. This used to sit on the retranslation path below,
+            // so it only ran when the first translation had gone somewhere
+            // else and had to be redone - on the common path, where the
+            // destination was right the first time, the button kept the
+            // language it was born with and read "Auto (en)" for a
+            // translation into Russian. The label only: m_destLang stays
+            // "auto" so the next translation still resolves its destination
+            // fresh, and nothing here changes where anything is sent.
+            ui->translationLanguagesWidget->setAutoLanguage(preferredDest);
+
             // Check if the current translation target matches our preferred destination
             // If not, retranslate with the correct destination language
             if (m_translator && m_translator->getState() == ATranslationProvider::State::Processed) {
@@ -1268,13 +1297,8 @@ void MainWindow::swapTranslator(ATranslationProvider::ProviderBackend newBackend
                 if (currentDestLang != preferredDest && !ui->sourceEdit->toPlainText().isEmpty()) {
                     qDebug() << "Retranslating from" << detectedLanguage.name() << "to preferred destination:" << preferredDest.name();
 
-                    // Update the destination language state and UI
-                    m_destLang = preferredDest;
-                    ui->translationLanguagesWidget->setAutoLanguage(preferredDest);
-
-                    // Update voice comboboxes for the new destination language
-                    updateVoiceComboBoxes();
-
+                    // The voice combos are refreshed once the retranslation
+                    // completes (translatorStateChanged -> Processed).
                     m_translator->translate(ui->sourceEdit->toSourceText(), preferredDest, detectedLanguage);
                 }
             }
@@ -1372,8 +1396,8 @@ void MainWindow::updateTTSButtonStates()
         return;
     }
 
-    const Language sourceLanguage = m_sourceLang != Language::autoLanguage() ? m_sourceLang : Language(QLocale::system());
-    const Language translationLanguage = m_destLang != Language::autoLanguage() ? m_destLang : Language(QLocale::system());
+    const Language sourceLanguage = spokenSourceLanguage();
+    const Language translationLanguage = spokenTranslationLanguage();
 
     const bool sourceAvailable = isTTSAvailableForLanguage(sourceLanguage);
     const bool translationAvailable = isTTSAvailableForLanguage(translationLanguage);
@@ -1491,8 +1515,24 @@ void MainWindow::updateProviderUI()
 #endif
 }
 
+void MainWindow::refreshVoicesForSpokenLanguages()
+{
+    if (m_tts == nullptr) {
+        return;
+    }
+    if (spokenSourceLanguage() == m_voiceComboSourceLang && spokenTranslationLanguage() == m_voiceComboTranslationLang) {
+        return;
+    }
+    updateVoiceComboBoxes();
+}
+
 void MainWindow::updateVoiceComboBoxes()
 {
+    // Recorded before any early return: the combos reflect these languages
+    // now, whether that meant filling them or clearing them.
+    m_voiceComboSourceLang = spokenSourceLanguage();
+    m_voiceComboTranslationLang = spokenTranslationLanguage();
+
     if (m_tts == nullptr) {
         ui->sourceVoiceComboBox->clear();
         ui->translationVoiceComboBox->clear();
@@ -1519,15 +1559,9 @@ void MainWindow::updateVoiceComboBoxes()
         currentTranslationVoice = ui->translationVoiceComboBox->currentData().value<Voice>();
     }
 
-    Language sourceLanguage = ui->sourceLanguagesWidget->checkedLanguage();
-    if (sourceLanguage == Language::autoLanguage()) {
-        const QString sourceText = ui->sourceEdit->toPlainText();
-        if (!sourceText.isEmpty() && (m_translator != nullptr) && m_translator->supportsAutodetection()) {
-            sourceLanguage = m_translator->detectLanguage(sourceText);
-        } else {
-            sourceLanguage = Language(QLocale::system());
-        }
-    }
+    // Offer voices for the language speech will actually use, which for a
+    // checked "auto" is whatever detection found rather than the locale.
+    const Language sourceLanguage = spokenSourceLanguage();
     const QList<Voice> sourceVoices = m_tts->findVoices(sourceLanguage);
 
     ui->sourceVoiceComboBox->clear();
@@ -1545,10 +1579,7 @@ void MainWindow::updateVoiceComboBoxes()
         ui->sourceVoiceComboBox->setCurrentIndex(0);
     }
 
-    Language translationLanguage = ui->translationLanguagesWidget->checkedLanguage();
-    if (translationLanguage == Language::autoLanguage()) {
-        translationLanguage = Language(QLocale::system());
-    }
+    const Language translationLanguage = spokenTranslationLanguage();
     const QList<Voice> translationVoices = m_tts->findVoices(translationLanguage);
 
     ui->translationVoiceComboBox->clear();
@@ -1679,7 +1710,7 @@ void MainWindow::sourcePlayPauseClicked()
         return;
     }
 
-    const Language sourceLanguage = m_sourceLang != Language::autoLanguage() ? m_sourceLang : Language(QLocale::system());
+    const Language sourceLanguage = spokenSourceLanguage();
     m_tts->setLanguage(sourceLanguage);
     const ProviderUIRequirements reqs = m_tts->getUIRequirements();
     if (reqs.supportedCapabilities.contains("voiceSelection") && ui->sourceVoiceComboBox->currentData().isValid()) {
@@ -1726,7 +1757,7 @@ void MainWindow::translationPlayPauseClicked()
         return;
     }
 
-    const Language translationLanguage = m_destLang != Language::autoLanguage() ? m_destLang : Language(QLocale::system());
+    const Language translationLanguage = spokenTranslationLanguage();
     m_tts->setLanguage(translationLanguage);
     const ProviderUIRequirements reqs = m_tts->getUIRequirements();
     if (reqs.supportedCapabilities.contains("voiceSelection") && ui->translationVoiceComboBox->currentData().isValid()) {
@@ -1869,6 +1900,36 @@ void MainWindow::on_delayedRecognizeScreenAreaButton_clicked()
 void MainWindow::on_delayedTranslateScreenAreaButton_clicked()
 {
     delayedTranslateScreenArea();
+}
+
+Language MainWindow::spokenSourceLanguage() const
+{
+    if (m_sourceLang != Language::autoLanguage()) {
+        return m_sourceLang;
+    }
+    // "Auto" is checked: what detection actually found beats guessing.
+    if (m_translator != nullptr && m_translator->sourceLanguage != Language::autoLanguage()) {
+        return m_translator->sourceLanguage;
+    }
+    return Language(QLocale::system());
+}
+
+Language MainWindow::spokenTranslationLanguage() const
+{
+    if (m_destLang != Language::autoLanguage()) {
+        return m_destLang;
+    }
+    // With "auto" checked, the destination is resolved per translation and
+    // the provider is the only place that records which one was used -
+    // m_destLang is only assigned when a retranslation happens to be needed,
+    // so it stays "auto" on the common path. Speaking the system locale here
+    // is how Russian output ended up read aloud by an English voice.
+    if (m_translator != nullptr && m_translator->translationLanguage != Language::autoLanguage()) {
+        return m_translator->translationLanguage;
+    }
+    // Nothing translated yet: answer with the language the next translation
+    // would target, which is the same rule handleTranslationRequest applies.
+    return preferredTranslationLanguage(spokenSourceLanguage());
 }
 
 Language MainWindow::preferredTranslationLanguage(const Language &sourceLang) const

@@ -26,6 +26,7 @@
 #include "translator/atranslationprovider.h"
 #include "translator/localaitranslationprovider.h"
 #include "tts/attsprovider.h"
+#include "tts/voice.h"
 
 #include <QApplication>
 #include <QCheckBox>
@@ -128,6 +129,12 @@ private slots:
     void testShowStatusBarSettingsRoundTrip();
     void testRecognizedTextActivatesUiWithoutKeystroke();
     void testRecognizedTextAutoTranslatesWhenEnabled();
+    void testForcedAutoSpeaksTheResolvedDestinationLanguage();
+    void testVoiceComboOffersTheResolvedLanguagesVoices();
+    void testPiperComboOffersTheResolvedLanguagesVoices();
+    void testAutoDestinationStaysAutoAtStartup();
+    void testRetranslateDoesNotClobberNextAutoDestination();
+    void testAutoButtonNamesTheDestinationItResolvedTo();
 
 private:
     static void waitForTranslateButton(MainWindow &window);
@@ -463,6 +470,339 @@ int main(int argc, char *argv[])
     MainWindowFeaturesTest tc;
     QTEST_SET_MAIN_SOURCE_PATH
     return QTest::qExec(&tc, argc, argv);
+}
+
+// The reported regression, in the shape the primary->secondary rule creates:
+// source is auto, destination is auto, and the detected source EQUALS the
+// primary language - so auto resolves to the SECONDARY. Translation goes to
+// Russian correctly, but speech was read in the system locale (English),
+// because with auto checked m_destLang stays auto - the retranslate handler
+// only assigns it when a retranslation happens to be needed, which it is not
+// when the first request already picked the right destination.
+void MainWindowFeaturesTest::testForcedAutoSpeaksTheResolvedDestinationLanguage()
+{
+    MockHttpServer server;
+    // Several, since settings leak between tests in this fixture and a
+    // left-over auto-translate would otherwise eat the only queued reply.
+    for (int i = 0; i < 4; ++i) {
+        server.queueJson(200, chatCompletionJson(QStringLiteral("privet")));
+    }
+    pinLocalAiSettings(server);
+
+    const Language english(QLocale::English);
+    const Language russian(QLocale::Russian);
+
+    AppSettings settings;
+    settings.setAutoTranslateEnabled(false);
+    // Source == primary, so the destination must fall through to secondary.
+    settings.setPrimaryLanguage(english);
+    settings.setSecondaryLanguage(russian);
+    settings.setLanguages(AppSettings::Source, {english});
+    settings.setLanguages(AppSettings::Translation, {english});
+
+    MainWindow window;
+    // What force-autodetect does before a scripted translation.
+    window.sourceLanguageButtons()->checkAutoButton();
+    window.translationLanguageButtons()->checkAutoButton();
+
+    typeText(window.sourceEdit(), QStringLiteral("Hello"));
+    waitForTranslateButton(window);
+    QTest::mouseClick(window.translateButton(), Qt::LeftButton);
+
+    QVERIFY(QTest::qWaitFor([&window]() {
+        return window.translationEdit()->toPlainText() == QStringLiteral("privet");
+    },
+                            5000));
+
+    // Sanity: the system locale is NOT the answer, so a fallback to it is
+    // detectable rather than accidentally correct.
+    QCOMPARE(Language(QLocale::system()).toQLocale().language(), QLocale::English);
+
+    // Speech must follow the language actually translated into.
+    QCOMPARE(window.spokenTranslationLanguage(), russian);
+
+    // And the voice combo must have been repopulated for it. A QVoice carries
+    // its own locale, so play applies the combo's voice AFTER setLanguage -
+    // leaving an English voice there speaks the Russian text in English no
+    // matter how correct the language is.
+    QCOMPARE(window.voiceComboTranslationLanguage(), russian);
+}
+
+// The user-visible half of the same bug: after a translation the voice combo
+// must list voices for the language that was translated INTO. A QVoice
+// carries its own locale, so play applies the combo's voice AFTER
+// setLanguage() - leaving the previous language's voices there speaks the new
+// text in the old language however correct the language is.
+//
+// The staleness only shows on a SECOND translation that resolves elsewhere:
+// the one thing refreshing these combos was
+// sourceLanguagesWidget::autoLanguageChanged, and with the source unchanged
+// that never fires. There is no such connection for the translation widget.
+//
+// Uses en->de then en->es because a machine is likelier to have those voices
+// than Russian; skips when it has neither.
+void MainWindowFeaturesTest::testVoiceComboOffersTheResolvedLanguagesVoices()
+{
+    MockHttpServer server;
+    // Distinct per round: identical replies would let the second wait be
+    // satisfied by the first round's text and never observe anything.
+    for (int i = 0; i < 12; ++i) {
+        server.queueJson(200, chatCompletionJson(QStringLiteral("translated")));
+    }
+    pinLocalAiSettings(server);
+
+    const Language english(QLocale::English);
+    const Language german(QLocale::German);
+    const Language spanish(QLocale::Spanish);
+
+    AppSettings settings;
+    settings.setAutoTranslateEnabled(false);
+    settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::Qt);
+    settings.setPrimaryLanguage(english);
+    settings.setSecondaryLanguage(german);
+    settings.setLanguages(AppSettings::Source, {english});
+    settings.setLanguages(AppSettings::Translation, {english});
+
+    MainWindow window;
+    QComboBox *combo = window.translationVoiceComboBox();
+    QVERIFY(combo != nullptr);
+
+    window.sourceLanguageButtons()->checkAutoButton();
+    window.translationLanguageButtons()->checkAutoButton();
+
+    auto comboLanguages = [combo]() {
+        QSet<QLocale::Language> langs;
+        for (int i = 0; i < combo->count(); ++i) {
+            langs.insert(combo->itemData(i).value<Voice>().language().toQLocale().language());
+        }
+        return langs;
+    };
+    // Wait on the resolved destination rather than the reply text: how many
+    // requests a round makes (detection, then translation) is the provider's
+    // business, so counting canned replies is not a reliable signal.
+    auto translateUntil = [&](const QString &text, const Language &expected) {
+        window.sourceEdit()->clear();
+        typeText(window.sourceEdit(), text);
+        waitForTranslateButton(window);
+        QTest::mouseClick(window.translateButton(), Qt::LeftButton);
+        return QTest::qWaitFor([&window, &expected]() {
+            return window.spokenTranslationLanguage() == expected && !window.translationEdit()->toPlainText().isEmpty();
+        },
+                               8000);
+    };
+
+    QVERIFY(translateUntil(QStringLiteral("Hello"), german));
+    QCOMPARE(window.spokenTranslationLanguage(), german);
+    if (combo->count() == 0) {
+        QSKIP("No German voices installed - cannot verify the combo's contents here");
+    }
+    QTRY_COMPARE(comboLanguages(), QSet<QLocale::Language>{QLocale::German});
+
+    // Retarget: the next translation resolves to Spanish. The source stays
+    // English, so nothing incidental refreshes the combos.
+    settings.setSecondaryLanguage(spanish);
+
+    QVERIFY(translateUntil(QStringLiteral("Hello again"), spanish));
+    QCOMPARE(window.spokenTranslationLanguage(), spanish);
+    if (combo->count() == 0) {
+        QSKIP("No Spanish voices installed - cannot verify the combo's contents here");
+    }
+    QTRY_COMPARE(comboLanguages(), QSet<QLocale::Language>{QLocale::Spanish});
+}
+
+// Piper resolves voices by parsing model filenames, unlike Qt's
+// QTextToSpeech engine - the Qt-provider version above cannot exercise that
+// path. With the destination resolved to Russian (primary en == detected
+// source), the translation voice combo must list only Russian voices. Skips
+// when no Piper models are installed, same as the Qt variant.
+void MainWindowFeaturesTest::testPiperComboOffersTheResolvedLanguagesVoices()
+{
+#ifdef WITH_PIPER_TTS
+    MockHttpServer server;
+    for (int i = 0; i < 4; ++i) {
+        server.queueJson(200, chatCompletionJson(QStringLiteral("privet")));
+    }
+    pinLocalAiSettings(server);
+
+    const Language english(QLocale::English);
+    const Language russian(QLocale::Russian);
+
+    AppSettings settings;
+    settings.setAutoTranslateEnabled(false);
+    settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::Piper);
+    settings.setPrimaryLanguage(english);
+    settings.setSecondaryLanguage(russian);
+    settings.setLanguages(AppSettings::Source, {english});
+    settings.setLanguages(AppSettings::Translation, {english});
+
+    MainWindow window;
+    window.sourceLanguageButtons()->checkAutoButton();
+    window.translationLanguageButtons()->checkAutoButton();
+
+    QComboBox *combo = window.translationVoiceComboBox();
+    QVERIFY(combo != nullptr);
+    if (combo->count() == 0) {
+        QSKIP("No Piper voices installed - cannot verify the combo's contents here");
+    }
+
+    typeText(window.sourceEdit(), QStringLiteral("Hello"));
+    waitForTranslateButton(window);
+    QTest::mouseClick(window.translateButton(), Qt::LeftButton);
+
+    QVERIFY(QTest::qWaitFor([&window]() {
+        return window.translationEdit()->toPlainText() == QStringLiteral("privet");
+    },
+                            5000));
+
+    QCOMPARE(window.spokenTranslationLanguage(), russian);
+    if (combo->count() == 0) {
+        QSKIP("No Piper voices installed - cannot verify the combo's contents here");
+    }
+    for (int i = 0; i < combo->count(); ++i) {
+        const Voice voice = combo->itemData(i).value<Voice>();
+        QCOMPARE(voice.language().toQLocale().language(), QLocale::Russian);
+    }
+#else
+    QSKIP("Piper not built");
+#endif
+}
+
+// The reported regression: with the destination auto button saved as the
+// checked button (CheckedTranslation=-2) and force-autodetect on, two startup
+// paths used to clobber it. loadMainWindowSettings() treated QLocale::c()
+// (which is what "auto" is) as "no language selected" and reset the
+// destination to the system locale; validateLanguageSupport() then fell back
+// to the provider's first supported locale. Both left m_destLang a real
+// language, so speech followed it instead of resolving auto -> the secondary.
+void MainWindowFeaturesTest::testAutoDestinationStaysAutoAtStartup()
+{
+    const Language english(QLocale::English);
+    const Language russian(QLocale::Russian);
+
+    AppSettings settings;
+    settings.setAutoTranslateEnabled(false);
+    settings.setForceSourceAutodetect(true);
+    settings.setForceTranslationAutodetect(true);
+    settings.setPrimaryLanguage(english);
+    settings.setSecondaryLanguage(russian);
+    settings.setLanguages(AppSettings::Source, {english});
+    settings.setLanguages(AppSettings::Translation, {english, russian});
+    settings.setCheckedButton(AppSettings::Source, LanguageButtonsWidget::autoButtonId());
+    settings.setCheckedButton(AppSettings::Translation, LanguageButtonsWidget::autoButtonId());
+
+    MainWindow window;
+
+    // Starting with the auto destination checked must survive startup: neither
+    // the settings load nor the support validation may replace it with a
+    // concrete locale.
+    QVERIFY(window.translationLanguageButtons()->isAutoButtonChecked());
+    QCOMPARE(window.spokenTranslationLanguage(), russian);
+}
+
+// The multi-hop regression: with the destination auto, a detection-driven
+// retranslate must not permanently turn m_destLang into a concrete language.
+// Otherwise the NEXT auto translation resolves its destination stale and
+// speaks (and populates the voice combo) for the previous translation's
+// language - English voices reading Russian output.
+void MainWindowFeaturesTest::testRetranslateDoesNotClobberNextAutoDestination()
+{
+    MockHttpServer server;
+    // Attempt 1: Polish source. handleTranslationRequest resolves the
+    // destination from the system locale (en -> secondary ru), then detection
+    // discovers Polish and the retranslate corrects it to the primary (en).
+    server.queueJson(200, chatCompletionJson(QStringLiteral("pl"))); // detection -> Polish
+    server.queueJson(200, chatCompletionJson(QStringLiteral("RU-A"))); // first translate (ru)
+    server.queueJson(200, chatCompletionJson(QStringLiteral("EN-A"))); // retranslate (en)
+    // Attempt 2: English source. Resolves straight to the secondary (ru).
+    server.queueJson(200, chatCompletionJson(QStringLiteral("en"))); // detection -> English
+    server.queueJson(200, chatCompletionJson(QStringLiteral("RU-B"))); // translate (ru)
+    pinLocalAiSettings(server);
+
+    const Language english(QLocale::English);
+    const Language russian(QLocale::Russian);
+    const Language polish(QLocale::Polish);
+
+    AppSettings settings;
+    settings.setAutoTranslateEnabled(false);
+    settings.setPrimaryLanguage(english);
+    settings.setSecondaryLanguage(russian);
+    settings.setDetectProvider(QStringLiteral("openai_custom"));
+    settings.setDetectModel(QStringLiteral("mock-model"));
+    settings.setLanguages(AppSettings::Source, {english, polish});
+    settings.setLanguages(AppSettings::Translation, {english, russian});
+
+    MainWindow window;
+    window.sourceLanguageButtons()->checkAutoButton();
+    window.translationLanguageButtons()->checkAutoButton();
+
+    // Attempt 1: Polish -> retranslates to the primary (English).
+    typeText(window.sourceEdit(), QStringLiteral("Dzień dobry"));
+    waitForTranslateButton(window);
+    QTest::mouseClick(window.translateButton(), Qt::LeftButton);
+    QVERIFY(QTest::qWaitFor([&window]() {
+        return window.translationEdit()->toPlainText() == QStringLiteral("EN-A");
+    },
+                            10000));
+    QCOMPARE(window.spokenTranslationLanguage(), english);
+
+    // Attempt 2: English -> resolves fresh to the secondary (Russian). The
+    // previous retranslate must not have left a concrete destination behind.
+    window.sourceEdit()->clear();
+    typeText(window.sourceEdit(), QStringLiteral("Hello"));
+    waitForTranslateButton(window);
+    QTest::mouseClick(window.translateButton(), Qt::LeftButton);
+    QVERIFY(QTest::qWaitFor([&window]() {
+        return window.translationEdit()->toPlainText() == QStringLiteral("RU-B");
+    },
+                            10000));
+    QCOMPARE(window.spokenTranslationLanguage(), russian);
+}
+
+// The auto button read "Auto (en)" for every translation, however the
+// destination actually resolved. Its label was only ever updated on the
+// retranslation path - the branch taken when the first translation had gone
+// to the wrong place and had to be redone - so on the common path, where the
+// destination was right first time, the button kept the language it started
+// with. This is the setup where no retranslation happens: source is the
+// primary, so the destination falls through to the secondary immediately and
+// the first translation already goes there.
+void MainWindowFeaturesTest::testAutoButtonNamesTheDestinationItResolvedTo()
+{
+    MockHttpServer server;
+    for (int i = 0; i < 4; ++i) {
+        server.queueJson(200, chatCompletionJson(QStringLiteral("privet")));
+    }
+    pinLocalAiSettings(server);
+
+    const Language english(QLocale::English);
+    const Language russian(QLocale::Russian);
+
+    AppSettings settings;
+    settings.setAutoTranslateEnabled(false);
+    settings.setPrimaryLanguage(english);
+    settings.setSecondaryLanguage(russian);
+    settings.setLanguages(AppSettings::Source, {english});
+    settings.setLanguages(AppSettings::Translation, {english});
+
+    MainWindow window;
+    window.sourceLanguageButtons()->checkAutoButton();
+    window.translationLanguageButtons()->checkAutoButton();
+
+    typeText(window.sourceEdit(), QStringLiteral("Hello"));
+    waitForTranslateButton(window);
+    QTest::mouseClick(window.translateButton(), Qt::LeftButton);
+
+    QVERIFY(QTest::qWaitFor([&window]() {
+        return window.translationEdit()->toPlainText() == QStringLiteral("privet");
+    },
+                            5000));
+
+    // The destination resolved to the secondary, and speech already followed
+    // it. The button has to say so too.
+    QCOMPARE(window.spokenTranslationLanguage(), russian);
+    QTRY_COMPARE(window.translationLanguageButtons()->language(LanguageButtonsWidget::autoButtonId()), russian);
+    // Still auto - naming the resolved destination must not pin it.
+    QVERIFY(window.translationLanguageButtons()->isAutoButtonChecked());
 }
 
 #include "test_mainwindow_features.moc"

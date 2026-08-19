@@ -97,31 +97,35 @@ private:
     Q_SCRIPTABLE void clearText();
     void loadMainWindowSettings();
     void saveMainWindowSettings();
-    QHotkey *m_translateSelectionHotkey;
-    QHotkey *m_speakSelectionHotkey;
-    QHotkey *m_speakTranslatedSelectionHotkey;
-    QHotkey *m_stopSpeakingHotkey;
-    QHotkey *m_playPauseSpeakingHotkey;
-    QHotkey *m_showMainWindowHotkey;
-    QHotkey *m_copyTranslatedSelectionHotkey;
-    QHotkey *m_recognizeScreenAreaHotkey;
-    QHotkey *m_translateScreenAreaHotkey;
-    QHotkey *m_delayedRecognizeScreenAreaHotkey;
-    QHotkey *m_delayedTranslateScreenAreaHotkey;
-    QHotkey *m_toggleOcrNegateHotkey;
-    QShortcut *m_closeWindowsShortcut;
-    Ui::MainWindow *ui;
-    ATTSProvider *m_tts;
+    QHotkey *m_translateSelectionHotkey = nullptr;
+    QHotkey *m_speakSelectionHotkey = nullptr;
+    QHotkey *m_speakTranslatedSelectionHotkey = nullptr;
+    QHotkey *m_stopSpeakingHotkey = nullptr;
+    QHotkey *m_playPauseSpeakingHotkey = nullptr;
+    QHotkey *m_showMainWindowHotkey = nullptr;
+    QHotkey *m_copyTranslatedSelectionHotkey = nullptr;
+    QHotkey *m_recognizeScreenAreaHotkey = nullptr;
+    QHotkey *m_translateScreenAreaHotkey = nullptr;
+    QHotkey *m_delayedRecognizeScreenAreaHotkey = nullptr;
+    QHotkey *m_delayedTranslateScreenAreaHotkey = nullptr;
+    QHotkey *m_toggleOcrNegateHotkey = nullptr;
+    QShortcut *m_closeWindowsShortcut = nullptr;
+    Ui::MainWindow *ui = nullptr;
+    ATTSProvider *m_tts = nullptr;
     ATTSProvider::ProviderBackend m_chosenTTSBackend;
-    ATranslationProvider *m_translator;
+    ATranslationProvider *m_translator = nullptr;
     ATranslationProvider::ProviderBackend m_chosenTranslationBackend;
-    ProviderOptionsManager *m_optionsManager;
-    TesseractOcr *m_tesseractOcr;
-    LlmOcr *m_llmOcr;
-    QTimer *m_screenCaptureTimer;
-    SnippingArea *m_snippingArea;
-    ModuleStatus *m_moduleStatus;
+    ProviderOptionsManager *m_optionsManager = nullptr;
+    TesseractOcr *m_tesseractOcr = nullptr;
+    LlmOcr *m_llmOcr = nullptr;
+    QTimer *m_screenCaptureTimer = nullptr;
+    SnippingArea *m_snippingArea = nullptr;
+    ModuleStatus *m_moduleStatus = nullptr;
     StatusStrip *m_statusStrip = nullptr;
+    // What the voice combos were last populated for, so a completed
+    // translation only rebuilds them when the spoken language actually moved.
+    Language m_voiceComboSourceLang = Language::autoLanguage();
+    Language m_voiceComboTranslationLang = Language::autoLanguage();
     // Reports the capture start to the status model; grab() itself has no
     // "started" signal and adding one would touch every grabber subclass.
     void startScreenCapture();
@@ -201,6 +205,7 @@ private slots:
     void onDestinationLanguageChanged(int id);
     void handleAutoTranslation();
     void updateVoiceComboBoxes();
+    void refreshVoicesForSpokenLanguages();
     void updateSpeakerComboBoxes();
     void on_swapButton_clicked();
     void on_abortButton_clicked();
@@ -225,6 +230,22 @@ signals:
     // The slot versions (ttsStateChanged/translatorStateChanged) handle UI updates but aren't signals.
     void ttsStateChangedSignal(QTextToSpeech::State newState);
     void translatorStateChangedSignal(ATranslationProvider::State newState);
+#endif
+
+public:
+    // The languages speech should actually use. Not the same thing as the
+    // buttons' checked languages: with "auto" checked the destination is
+    // resolved per translation, and speaking the resolved text in the
+    // system locale instead is exactly the bug these exist to prevent.
+    Language spokenSourceLanguage() const;
+    Language spokenTranslationLanguage() const;
+#ifdef BUILD_TESTING
+    // Which language the voice combos were last populated for - a stale value
+    // here is how an English voice ended up overriding a Russian translation.
+    Language voiceComboTranslationLanguage() const
+    {
+        return m_voiceComboTranslationLang;
+    }
 #endif
 };
 
