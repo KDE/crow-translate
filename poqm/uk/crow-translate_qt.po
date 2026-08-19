@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-17 08:53+0300\n"
+"PO-Revision-Date: 2026-08-18 17:26+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -325,15 +325,12 @@ msgstr "Зображення для розпізнавання є нормаль
 #: src/mainwindow.cpp:624
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
-msgstr ""
+msgstr "Розпізнавання тексту не налаштовано"
 
 #: src/mainwindow.cpp:624
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "You should set at least one OCR language in the application settings"
 msgctxt "TesseractOcr|"
 msgid "Set up the OCR engine in the application settings"
-msgstr "Ви повинні вказати хоч одну мову OCR у налаштуваннях програми"
+msgstr "Налаштуйте рушій для розпізнавання тексту у параметрах програми"
 
 #: src/mainwindow.cpp:880
 #, qt-format
@@ -372,17 +369,12 @@ msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr " Вказана піктограма '%1' недійсна. Буде використано типову піктограму."
 
 #: src/mainwindow.cpp:956
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to set OCR languages"
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "Не вдалося вказати мови OCR"
 
 #: src/mainwindow.cpp:956
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "Не вдалося ініціалізувати Tesseract з %1"
@@ -419,7 +411,7 @@ msgstr "Зображення є надто великим (%1 Мпк). Макс�
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
-msgstr ""
+msgstr "Не вдалося розпізнати текст: %1"
 
 #: src/mainwindow.cpp:2105 src/mainwindow.cpp:2162
 #, qt-format
@@ -434,16 +426,15 @@ msgstr ""
 #: src/mainwindow.cpp:2153 src/mainwindow.cpp:2162
 msgctxt "MainWindow|"
 msgid "Open image"
-msgstr ""
+msgstr "Відкрити зображення"
 
 #: src/mainwindow.cpp:2155
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
-msgstr "Зображення (*.png *.ico *.svg *.jpg);;Усі файли()"
+msgstr ""
+"зображення (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;усі файли "
+"(*)"
 
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
@@ -486,12 +477,9 @@ msgid "Copy source text to the clipboard"
 msgstr "Скопіювати вихідний текст до буфера обміну"
 
 #: src/mainwindow.ui:173 src/mainwindow.ui:176
-#, fuzzy
-#| msgctxt "ShortcutsModel|"
-#| msgid "Recognize text in screen area"
 msgctxt "MainWindow|"
 msgid "Recognize text in an image file"
-msgstr "Розпізнати текст у ділянці екрану"
+msgstr "Розпізнати текст у файлі зображення"
 
 #: src/mainwindow.ui:186 src/mainwindow.ui:189
 msgctxt "MainWindow|"
@@ -547,93 +535,74 @@ msgstr "Налаштування програми"
 #: src/modulestatus.cpp:271
 msgctxt "ModuleStatus|"
 msgid "Waiting for capture"
-msgstr ""
+msgstr "Очікування на створення знімка"
 
 #: src/modulestatus.cpp:273
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Select icon"
 msgctxt "ModuleStatus|"
 msgid "Select a region"
-msgstr "Обрати піктограму"
+msgstr "Виберіть регіон"
 
 #: src/modulestatus.cpp:275
 msgctxt "ModuleStatus|"
 msgid "Recognizing text"
-msgstr ""
+msgstr "Розпізнавання тексту"
 
 #: src/modulestatus.cpp:277
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translation"
 msgctxt "ModuleStatus|"
 msgid "Translating"
 msgstr "Переклад"
 
 #: src/modulestatus.cpp:279
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Unable to detect language"
 msgctxt "ModuleStatus|"
 msgid "Detecting language"
-msgstr "Не вдається визначити мову"
+msgstr "Визначення мови"
 
 #: src/modulestatus.cpp:281
 msgctxt "ModuleStatus|"
 msgid "Preparing speech"
-msgstr ""
+msgstr "Приготування до виголошення"
 
 #: src/modulestatus.cpp:283
-#, fuzzy
-#| msgctxt "ShortcutsModel|"
-#| msgid "Stop text speaking"
 msgctxt "ModuleStatus|"
 msgid "Speaking"
-msgstr "Зупинити озвучення тексту"
+msgstr "Озвучення тексту"
 
 #: src/modulestatus.cpp:285
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Capture delay:"
 msgctxt "ModuleStatus|"
 msgid "Capture failed"
-msgstr "Затримка захоплення:"
+msgstr "Не вдалося створити зображення"
 
 #: src/modulestatus.cpp:287
 msgctxt "ModuleStatus|"
 msgid "OCR failed"
-msgstr ""
+msgstr "Не вдалося розпізнати текст"
 
 #: src/modulestatus.cpp:289
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation backend:"
 msgctxt "ModuleStatus|"
 msgid "Translation failed"
-msgstr "Модуль перекладу:"
+msgstr "Помилка перекладу"
 
 #: src/modulestatus.cpp:291
 msgctxt "ModuleStatus|"
 msgid "Speech error"
-msgstr ""
+msgstr "Помилка під час виголошення"
 
-#: src/ocr/llmocr.cpp:264
+#: src/ocr/llmocr.cpp:262
 msgctxt "LlmOcr|"
 msgid "LLM OCR request timed out"
 msgstr ""
+"Перевищено час очікування на виконання запиту щодо розпізнавання тексту LLM"
 
-#: src/ocr/llmocr.cpp:270
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#: src/ocr/llmocr.cpp:268
+#, qt-format
 msgctxt "LlmOcr|"
 msgid "LLM OCR error: %1"
-msgstr "Помилка: %1"
+msgstr "Помилка LLM розпізнавання тексту: %1"
 
-#: src/ocr/llmocr.cpp:276
+#: src/ocr/llmocr.cpp:274
 msgctxt "LlmOcr|"
 msgid "LLM OCR returned an empty response"
-msgstr ""
+msgstr "Засіб розпізнавання тексту LLM повернув порожню відповідь"
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 msgctxt "AbstractScreenGrabber|"
@@ -849,9 +818,7 @@ msgstr ""
 "екрана."
 
 #: src/ocr/tesseractocr.cpp:142
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "%1 is not a valid Tesseract parameter name."
+#, qt-format
 msgctxt "TesseractOcr|"
 msgid "%1 is not a valid Tesseract parameter name."
 msgstr "%1 не є допустимим ім'ям параметру Tesseract."
@@ -2012,7 +1979,7 @@ msgstr "Скопіювати переклад до буфера обміну"
 #: src/settings/appsettings.cpp:700
 msgctxt "AppSettings|"
 msgid "OpenAI-compatible (custom)"
-msgstr ""
+msgstr "Сумісний з OpenAI (нетиповий)"
 
 #: src/settings/appsettings.cpp:1538
 #, qt-format
@@ -2131,12 +2098,9 @@ msgid "Timeout:"
 msgstr "Час очікування:"
 
 #: src/settings/settingsdialog.cpp:390 src/settings/settingsdialog.cpp:509
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid " ms"
 msgctxt "SettingsDialog|"
 msgid " s"
-msgstr " мс"
+msgstr " с"
 
 #: src/settings/settingsdialog.cpp:391
 msgctxt "SettingsDialog|"
@@ -2162,25 +2126,23 @@ msgstr "Скинути текстовий запит"
 #: src/settings/settingsdialog.cpp:468
 msgctxt "SettingsDialog|"
 msgid "OCR engine:"
-msgstr ""
+msgstr "Рушій розпізнавання:"
 
 #: src/settings/settingsdialog.cpp:472
 msgctxt "SettingsDialog|"
 msgid "Tesseract"
-msgstr ""
+msgstr "Tesseract"
 
 #: src/settings/settingsdialog.cpp:473
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Vision model:"
 msgctxt "SettingsDialog|"
 msgid "Vision model (LLM)"
-msgstr "Модель бачення:"
+msgstr "Модель бачення (LLM)"
 
 #: src/settings/settingsdialog.cpp:483
 msgctxt "SettingsDialog|"
 msgid "Tesseract runs locally. Configure languages and parameters below."
 msgstr ""
+"Tesseract запускається локально. Нижче можна налаштувати мови і параметри."
 
 #: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:805
 msgctxt "SettingsDialog|"
@@ -2188,40 +2150,36 @@ msgid "Provider:"
 msgstr "Надавач:"
 
 #: src/settings/settingsdialog.cpp:510
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Maximum time to wait for a translation or detection response."
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a transcription response."
-msgstr "Максимальний час очікування на відповідь з перекладом або виявленням."
+msgstr "Максимальний час очікування на відповідь щодо транскрибування."
 
 #: src/settings/settingsdialog.cpp:541
 msgctxt "SettingsDialog|"
 msgid "Model:"
-msgstr ""
+msgstr "Модель:"
 
 #: src/settings/settingsdialog.cpp:555
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Reset Text prompt"
 msgctxt "SettingsDialog|"
 msgid "Reset OCR prompt"
-msgstr "Скинути текстовий запит"
+msgstr "Скинути запит щодо розпізнавання тексту"
 
 #: src/settings/settingsdialog.cpp:616
 msgctxt "SettingsDialog|"
 msgid "— Server reports image support —"
-msgstr ""
+msgstr "— Сервер повідомляє про підтримку зображень —"
 
 #: src/settings/settingsdialog.cpp:620
 msgctxt "SettingsDialog|"
 msgid "— Image support not reported —"
-msgstr ""
+msgstr "— Про підтримку зображень не повідомлено —"
 
 #: src/settings/settingsdialog.cpp:633
 msgctxt "SettingsDialog|"
 msgid "No models loaded yet — press \"Refresh models\", or type a model name."
 msgstr ""
+"Жодних моделей ще не завантажено — натисніть «Освіжити моделі» або введіть "
+"назву моделі."
 
 #: src/settings/settingsdialog.cpp:635
 msgctxt "SettingsDialog|"
@@ -2229,6 +2187,9 @@ msgid ""
 "This endpoint does not report model capabilities, so image support cannot be "
 "verified here. Pick a model you know accepts images."
 msgstr ""
+"Ця кінцева точка не повідомляє про можливості моделі, тому підтримку "
+"зображень тут неможливо перевірити. Виберіть модель, яка, як ви знаєте, "
+"приймає зображення."
 
 #: src/settings/settingsdialog.cpp:638
 msgctxt "SettingsDialog|"
@@ -2236,29 +2197,29 @@ msgid ""
 "The server reported no image-capable models. A model listed here may still "
 "work, but recognition will fail if it cannot accept images."
 msgstr ""
+"Сервер не повідомив про моделі, сумісні з зображеннями. Модель, перелічена "
+"тут, все ж може працювати, але розпізнавання не дасть результату, якщо вона "
+"не може приймати зображення."
 
 #: src/settings/settingsdialog.cpp:641
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "%n model(s) reported as image-capable."
 msgid_plural "%n model(s) reported as image-capable."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Повідомлено про можливість обробки зображень у %n моделі"
+msgstr[1] "Повідомлено про можливість обробки зображень у %n моделях"
+msgstr[2] "Повідомлено про можливість обробки зображень у %n моделях"
+msgstr[3] "Повідомлено про можливість обробки зображень у %n моделі"
 
 #: src/settings/settingsdialog.cpp:699
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Vision model:"
 msgctxt "SettingsDialog|"
 msgid "Vision model"
-msgstr "Модель бачення:"
+msgstr "Модель бачення"
 
 #: src/settings/settingsdialog.cpp:699
 msgctxt "SettingsDialog|"
 msgid "Enter the endpoint URL first."
-msgstr ""
+msgstr "Спочатку введіть адресу кінцевої точки."
 
 #: src/settings/settingsdialog.cpp:709 src/settings/settingsdialog.cpp:929
 msgctxt "SettingsDialog|"
@@ -2646,26 +2607,21 @@ msgstr "<html><head/><body><p>Обрати піктограму</p></body></html
 #: src/settings/settingsdialog.ui:632
 msgctxt "SettingsDialog|"
 msgid "Status bar"
-msgstr ""
+msgstr "Смужка стану"
 
 #: src/settings/settingsdialog.ui:638
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "<html><head/><body><p>Start application minimized to the system tray</p></"
-#| "body></html>"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/<body><p>Show what the application is currently doing at the "
 "bottom of the main and pop-up windows</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Запускати програму згорнутою до системного лотка</p></"
-"body></html>"
+"<html><head/<body><p>Показувати поточні дії програми внизу головного вікна і "
+"контекстних вікон</p></body></html>"
 
 #: src/settings/settingsdialog.ui:641
 msgctxt "SettingsDialog|"
 msgid "Show status bar"
-msgstr ""
+msgstr "Показати смужку стану"
 
 #: src/settings/settingsdialog.ui:677
 msgctxt "SettingsDialog|"
@@ -2737,6 +2693,9 @@ msgid ""
 "Auto. If no detection model is selected, translation falls back to the "
 "configured primary language above."
 msgstr ""
+"Постачальник і модель, що використовуються для визначення початкової мови, "
+"якщо встановлено значення «Автоматично». Якщо модель визначення не вибрано, "
+"переклад повертається до налаштованої вище основної мови."
 
 #: src/settings/settingsdialog.ui:768
 msgctxt "SettingsDialog|"
@@ -3360,7 +3319,7 @@ msgstr "Значення"
 #: src/statusstrip.cpp:128 src/statusstrip.cpp:143 src/statusstrip.cpp:144
 msgctxt "StatusStrip|"
 msgid "Ready"
-msgstr ""
+msgstr "Готово"
 
 #: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"

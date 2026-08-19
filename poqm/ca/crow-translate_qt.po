@@ -4,19 +4,19 @@
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # SPDX-FileCopyrightText: 2024-2026 Josep M. Ferrer <txemaq@gmail.com>
-# SPDX-FileCopyrightText: 2024, 2025 Antoni Bella Pérez <antonibella5@yahoo.com>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: crow-translate\n"
-"PO-Revision-Date: 2026-08-17 12:50+0200\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"PO-Revision-Date: 2026-08-18 20:01+0200\n"
+"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 25.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/cli.cpp:37
@@ -332,15 +332,12 @@ msgstr "La imatge OCR és normal"
 #: src/mainwindow.cpp:624
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
-msgstr ""
+msgstr "L'OCR no està configurat"
 
 #: src/mainwindow.cpp:624
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "You should set at least one OCR language in the application settings"
 msgctxt "TesseractOcr|"
 msgid "Set up the OCR engine in the application settings"
-msgstr "Cal definir almenys un idioma d'OCR a la configuració de l'aplicació"
+msgstr "Configureu el motor d'OCR a la configuració de l'aplicació"
 
 #: src/mainwindow.cpp:880
 #, qt-format
@@ -382,17 +379,12 @@ msgstr ""
 "predeterminada."
 
 #: src/mainwindow.cpp:956
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to set OCR languages"
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "No s'han pogut definir els idiomes de l'OCR"
 
 #: src/mainwindow.cpp:956
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "No s'ha pogut inicialitzar el Tesseract amb %1"
@@ -429,7 +421,7 @@ msgstr "Imatge massa gran (%1 MP). Màx. %2 MP."
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
-msgstr ""
+msgstr "Ha fallat l'OCR: %1"
 
 #: src/mainwindow.cpp:2105 src/mainwindow.cpp:2162
 #, qt-format
@@ -444,16 +436,15 @@ msgstr ""
 #: src/mainwindow.cpp:2153 src/mainwindow.cpp:2162
 msgctxt "MainWindow|"
 msgid "Open image"
-msgstr ""
+msgstr "Obre una imatge"
 
 #: src/mainwindow.cpp:2155
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
-msgstr "Imatges (*.png *.ico *.svg *.jpg);;Tots els fitxers()"
+msgstr ""
+"Imatges (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;Tots els "
+"fitxers (*)"
 
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
@@ -496,12 +487,9 @@ msgid "Copy source text to the clipboard"
 msgstr "Copia el text d'origen al porta-retalls"
 
 #: src/mainwindow.ui:173 src/mainwindow.ui:176
-#, fuzzy
-#| msgctxt "ShortcutsModel|"
-#| msgid "Recognize text in screen area"
 msgctxt "MainWindow|"
 msgid "Recognize text in an image file"
-msgstr "Reconeix text en una àrea de la pantalla"
+msgstr "Reconeix text en una fitxer d'imatge"
 
 #: src/mainwindow.ui:186 src/mainwindow.ui:189
 msgctxt "MainWindow|"
@@ -557,93 +545,73 @@ msgstr "Configuració de l'aplicació"
 #: src/modulestatus.cpp:271
 msgctxt "ModuleStatus|"
 msgid "Waiting for capture"
-msgstr ""
+msgstr "En espera de captura"
 
 #: src/modulestatus.cpp:273
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Select icon"
 msgctxt "ModuleStatus|"
 msgid "Select a region"
-msgstr "Seleccioneu una icona"
+msgstr "Seleccioneu una regió"
 
 #: src/modulestatus.cpp:275
 msgctxt "ModuleStatus|"
 msgid "Recognizing text"
-msgstr ""
+msgstr "S'està reconeixent el text"
 
 #: src/modulestatus.cpp:277
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translation"
 msgctxt "ModuleStatus|"
 msgid "Translating"
-msgstr "Traducció"
+msgstr "S'està traduint"
 
 #: src/modulestatus.cpp:279
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Unable to detect language"
 msgctxt "ModuleStatus|"
 msgid "Detecting language"
-msgstr "No s'ha pogut detectar l'idioma"
+msgstr "S'està detectant l'idioma"
 
 #: src/modulestatus.cpp:281
 msgctxt "ModuleStatus|"
 msgid "Preparing speech"
-msgstr ""
+msgstr "S'està preparant la veu"
 
 #: src/modulestatus.cpp:283
-#, fuzzy
-#| msgctxt "ShortcutsModel|"
-#| msgid "Stop text speaking"
 msgctxt "ModuleStatus|"
 msgid "Speaking"
-msgstr "Atura la pronunciació del text"
+msgstr "S'està pronunciant"
 
 #: src/modulestatus.cpp:285
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Capture delay:"
 msgctxt "ModuleStatus|"
 msgid "Capture failed"
-msgstr "Retard de la captura:"
+msgstr "Ha fallat la captura"
 
 #: src/modulestatus.cpp:287
 msgctxt "ModuleStatus|"
 msgid "OCR failed"
-msgstr ""
+msgstr "Ha fallat l'OCR"
 
 #: src/modulestatus.cpp:289
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation backend:"
 msgctxt "ModuleStatus|"
 msgid "Translation failed"
-msgstr "Dorsal de traducció:"
+msgstr "Ha fallat la traducció"
 
 #: src/modulestatus.cpp:291
 msgctxt "ModuleStatus|"
 msgid "Speech error"
-msgstr ""
+msgstr "Error de veu"
 
-#: src/ocr/llmocr.cpp:264
+#: src/ocr/llmocr.cpp:262
 msgctxt "LlmOcr|"
 msgid "LLM OCR request timed out"
-msgstr ""
+msgstr "S'ha esgotat el temps de la sol·licitud OCR del LLM"
 
-#: src/ocr/llmocr.cpp:270
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#: src/ocr/llmocr.cpp:268
+#, qt-format
 msgctxt "LlmOcr|"
 msgid "LLM OCR error: %1"
-msgstr "Error: %1"
+msgstr "Error d'OCR del LLM: %1"
 
-#: src/ocr/llmocr.cpp:276
+#: src/ocr/llmocr.cpp:274
 msgctxt "LlmOcr|"
 msgid "LLM OCR returned an empty response"
-msgstr ""
+msgstr "L'OCR del LLM ha tornat una resposta buida"
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 msgctxt "AbstractScreenGrabber|"
@@ -858,9 +826,7 @@ msgstr ""
 "PPP. S'utilitza la pantalla principal per a la informació dels ppp."
 
 #: src/ocr/tesseractocr.cpp:142
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "%1 is not a valid Tesseract parameter name."
+#, qt-format
 msgctxt "TesseractOcr|"
 msgid "%1 is not a valid Tesseract parameter name."
 msgstr "%1 no és un nom vàlid de paràmetre Tesseract."
@@ -2022,7 +1988,7 @@ msgstr "Copia la traducció al porta-retalls"
 #: src/settings/appsettings.cpp:700
 msgctxt "AppSettings|"
 msgid "OpenAI-compatible (custom)"
-msgstr ""
+msgstr "Compatible amb OpenAI (personalitzada)"
 
 #: src/settings/appsettings.cpp:1538
 #, qt-format
@@ -2141,12 +2107,9 @@ msgid "Timeout:"
 msgstr "Temps d'espera:"
 
 #: src/settings/settingsdialog.cpp:390 src/settings/settingsdialog.cpp:509
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid " ms"
 msgctxt "SettingsDialog|"
 msgid " s"
-msgstr " ms"
+msgstr " s"
 
 #: src/settings/settingsdialog.cpp:391
 msgctxt "SettingsDialog|"
@@ -2172,25 +2135,24 @@ msgstr "Reinicia l'indicador de text"
 #: src/settings/settingsdialog.cpp:468
 msgctxt "SettingsDialog|"
 msgid "OCR engine:"
-msgstr ""
+msgstr "Motor OCR:"
 
 #: src/settings/settingsdialog.cpp:472
 msgctxt "SettingsDialog|"
 msgid "Tesseract"
-msgstr ""
+msgstr "Tesseract"
 
 #: src/settings/settingsdialog.cpp:473
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Vision model:"
 msgctxt "SettingsDialog|"
 msgid "Vision model (LLM)"
-msgstr "Model de visió:"
+msgstr "Model de visió (LLM)"
 
 #: src/settings/settingsdialog.cpp:483
 msgctxt "SettingsDialog|"
 msgid "Tesseract runs locally. Configure languages and parameters below."
 msgstr ""
+"El Tesseract s'executa localment. Configureu els idiomes i els paràmetres a "
+"sota."
 
 #: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:805
 msgctxt "SettingsDialog|"
@@ -2198,40 +2160,36 @@ msgid "Provider:"
 msgstr "Proveïdor:"
 
 #: src/settings/settingsdialog.cpp:510
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Maximum time to wait for a translation or detection response."
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a transcription response."
-msgstr "Temps màxim a esperar per a una traducció o detecció de resposta."
+msgstr "Temps màxim a esperar una resposta de transcripció."
 
 #: src/settings/settingsdialog.cpp:541
 msgctxt "SettingsDialog|"
 msgid "Model:"
-msgstr ""
+msgstr "Model:"
 
 #: src/settings/settingsdialog.cpp:555
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Reset Text prompt"
 msgctxt "SettingsDialog|"
 msgid "Reset OCR prompt"
-msgstr "Reinicia l'indicador de text"
+msgstr "Reinicia l'indicador d'OCR"
 
 #: src/settings/settingsdialog.cpp:616
 msgctxt "SettingsDialog|"
 msgid "— Server reports image support —"
-msgstr ""
+msgstr "— El servidor informa que admet imatges —"
 
 #: src/settings/settingsdialog.cpp:620
 msgctxt "SettingsDialog|"
 msgid "— Image support not reported —"
-msgstr ""
+msgstr "— No s'informa que admeti imatges —"
 
 #: src/settings/settingsdialog.cpp:633
 msgctxt "SettingsDialog|"
 msgid "No models loaded yet — press \"Refresh models\", or type a model name."
 msgstr ""
+"Encara no s'ha carregat cap model; premeu «Actualitza els models» o teclegeu "
+"un nom de model."
 
 #: src/settings/settingsdialog.cpp:635
 msgctxt "SettingsDialog|"
@@ -2239,6 +2197,9 @@ msgid ""
 "This endpoint does not report model capabilities, so image support cannot be "
 "verified here. Pick a model you know accepts images."
 msgstr ""
+"Aquest punt final no informa de les capacitats del model, de manera que aquí "
+"no es pot verificar el suport d'imatges. Trieu un model que sapigueu que "
+"accepta imatges."
 
 #: src/settings/settingsdialog.cpp:638
 msgctxt "SettingsDialog|"
@@ -2246,27 +2207,27 @@ msgid ""
 "The server reported no image-capable models. A model listed here may still "
 "work, but recognition will fail if it cannot accept images."
 msgstr ""
+"El servidor no ha informat de models amb capacitat d'imatges. Un model que "
+"es llisti aquí encara pot funcionar, però el reconeixement fallarà si no pot "
+"acceptar imatges."
 
 #: src/settings/settingsdialog.cpp:641
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "%n model(s) reported as image-capable."
 msgid_plural "%n model(s) reported as image-capable."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "S'ha informat %n model amb capacitats d'imatges."
+msgstr[1] "S'han informat %n models amb capacitats d'imatges."
 
 #: src/settings/settingsdialog.cpp:699
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Vision model:"
 msgctxt "SettingsDialog|"
 msgid "Vision model"
-msgstr "Model de visió:"
+msgstr "Model de visió"
 
 #: src/settings/settingsdialog.cpp:699
 msgctxt "SettingsDialog|"
 msgid "Enter the endpoint URL first."
-msgstr ""
+msgstr "Primer introduïu el nom del punt final."
 
 #: src/settings/settingsdialog.cpp:709 src/settings/settingsdialog.cpp:929
 msgctxt "SettingsDialog|"
@@ -2661,26 +2622,21 @@ msgstr "<html><head/><body><p>Seleccioneu una icona</p></body></html>"
 #: src/settings/settingsdialog.ui:632
 msgctxt "SettingsDialog|"
 msgid "Status bar"
-msgstr ""
+msgstr "Barra d'estat"
 
 #: src/settings/settingsdialog.ui:638
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "<html><head/><body><p>Start application minimized to the system tray</p></"
-#| "body></html>"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/<body><p>Show what the application is currently doing at the "
 "bottom of the main and pop-up windows</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Inicia l'aplicació minimitzada a la safata del "
-"sistema</p></body></html>"
+"<html><head/<body><p>Mostra el que està fent actualment l'aplicació a la "
+"part inferior de les finestres principals i emergents</p></body></html>"
 
 #: src/settings/settingsdialog.ui:641
 msgctxt "SettingsDialog|"
 msgid "Show status bar"
-msgstr ""
+msgstr "Mostra la barra d'estat"
 
 #: src/settings/settingsdialog.ui:677
 msgctxt "SettingsDialog|"
@@ -2752,6 +2708,9 @@ msgid ""
 "Auto. If no detection model is selected, translation falls back to the "
 "configured primary language above."
 msgstr ""
+"El proveïdor i el model utilitzat per detectar l'idioma d'origen quan "
+"s'estableix a automàtic. Si no s'ha seleccionat cap model de detecció, la "
+"traducció es tornarà a l'idioma principal configurat anteriorment."
 
 #: src/settings/settingsdialog.ui:768
 msgctxt "SettingsDialog|"
@@ -3378,7 +3337,7 @@ msgstr "Valor"
 #: src/statusstrip.cpp:128 src/statusstrip.cpp:143 src/statusstrip.cpp:144
 msgctxt "StatusStrip|"
 msgid "Ready"
-msgstr ""
+msgstr "Preparat"
 
 #: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"

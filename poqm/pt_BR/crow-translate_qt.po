@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-08-17 06:57-0300\n"
+"PO-Revision-Date: 2026-08-18 06:47-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -326,16 +326,12 @@ msgstr "Imagem OCR é normal"
 #: src/mainwindow.cpp:624
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
-msgstr ""
+msgstr "OCR não está configurado"
 
 #: src/mainwindow.cpp:624
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "You should set at least one OCR language in the application settings"
 msgctxt "TesseractOcr|"
 msgid "Set up the OCR engine in the application settings"
-msgstr ""
-"Você deve definir pelo menos um idioma OCR nas configurações do aplicativo"
+msgstr "Configure o mecanismo de OCR nas configurações do aplicativo"
 
 #: src/mainwindow.cpp:880
 #, qt-format
@@ -374,17 +370,12 @@ msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "O ícone especificado '%1' é inválido. O ícone padrão será usado."
 
 #: src/mainwindow.cpp:956
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to set OCR languages"
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "Não foi possível definir idiomas OCR"
 
 #: src/mainwindow.cpp:956
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "Não foi possível inicializar Tesseract com %1"
@@ -420,7 +411,7 @@ msgstr "Imagem muito grande (%1 MP). Máximo de %2 MP."
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
-msgstr ""
+msgstr "OCR falhou: %1"
 
 #: src/mainwindow.cpp:2105 src/mainwindow.cpp:2162
 #, qt-format
@@ -435,16 +426,15 @@ msgstr ""
 #: src/mainwindow.cpp:2153 src/mainwindow.cpp:2162
 msgctxt "MainWindow|"
 msgid "Open image"
-msgstr ""
+msgstr "Abrir imagem"
 
 #: src/mainwindow.cpp:2155
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
-msgstr "Imagens (*.png *.ico *.svg *.jpg);;Todos os arquivos()"
+msgstr ""
+"Imagens (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;Todos os "
+"arquivos (*)"
 
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
@@ -487,12 +477,9 @@ msgid "Copy source text to the clipboard"
 msgstr "Copiar texto original para a área de transferência"
 
 #: src/mainwindow.ui:173 src/mainwindow.ui:176
-#, fuzzy
-#| msgctxt "ShortcutsModel|"
-#| msgid "Recognize text in screen area"
 msgctxt "MainWindow|"
 msgid "Recognize text in an image file"
-msgstr "Reconhecer texto na área da tela"
+msgstr "Reconhecer texto em um arquivo de imagem"
 
 #: src/mainwindow.ui:186 src/mainwindow.ui:189
 msgctxt "MainWindow|"
@@ -548,93 +535,73 @@ msgstr "Configurações da aplicação"
 #: src/modulestatus.cpp:271
 msgctxt "ModuleStatus|"
 msgid "Waiting for capture"
-msgstr ""
+msgstr "Aguardando pela captura"
 
 #: src/modulestatus.cpp:273
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Select icon"
 msgctxt "ModuleStatus|"
 msgid "Select a region"
-msgstr "Selecione o ícone"
+msgstr "Selecione uma região"
 
 #: src/modulestatus.cpp:275
 msgctxt "ModuleStatus|"
 msgid "Recognizing text"
-msgstr ""
+msgstr "Reconhecendo o texto"
 
 #: src/modulestatus.cpp:277
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translation"
 msgctxt "ModuleStatus|"
 msgid "Translating"
-msgstr "Tradução"
+msgstr "Traduzindo"
 
 #: src/modulestatus.cpp:279
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Unable to detect language"
 msgctxt "ModuleStatus|"
 msgid "Detecting language"
-msgstr "Não foi possível detectar o idioma"
+msgstr "Detectando o idioma"
 
 #: src/modulestatus.cpp:281
 msgctxt "ModuleStatus|"
 msgid "Preparing speech"
-msgstr ""
+msgstr "Preparando a fala"
 
 #: src/modulestatus.cpp:283
-#, fuzzy
-#| msgctxt "ShortcutsModel|"
-#| msgid "Stop text speaking"
 msgctxt "ModuleStatus|"
 msgid "Speaking"
-msgstr "Parar a pronúncia do texto"
+msgstr "Falando"
 
 #: src/modulestatus.cpp:285
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Capture delay:"
 msgctxt "ModuleStatus|"
 msgid "Capture failed"
-msgstr "Atraso de captura:"
+msgstr "Falha na captura"
 
 #: src/modulestatus.cpp:287
 msgctxt "ModuleStatus|"
 msgid "OCR failed"
-msgstr ""
+msgstr "Falha no OCR"
 
 #: src/modulestatus.cpp:289
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation backend:"
 msgctxt "ModuleStatus|"
 msgid "Translation failed"
-msgstr "Backend de tradução:"
+msgstr "Falha na tradução"
 
 #: src/modulestatus.cpp:291
 msgctxt "ModuleStatus|"
 msgid "Speech error"
-msgstr ""
+msgstr "Erro na fala"
 
-#: src/ocr/llmocr.cpp:264
+#: src/ocr/llmocr.cpp:262
 msgctxt "LlmOcr|"
 msgid "LLM OCR request timed out"
-msgstr ""
+msgstr "A solicitação de OCR do LLM excedeu o tempo limite"
 
-#: src/ocr/llmocr.cpp:270
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#: src/ocr/llmocr.cpp:268
+#, qt-format
 msgctxt "LlmOcr|"
 msgid "LLM OCR error: %1"
-msgstr "Erro: %1"
+msgstr "Erro do OCR do LLM: %1"
 
-#: src/ocr/llmocr.cpp:276
+#: src/ocr/llmocr.cpp:274
 msgctxt "LlmOcr|"
 msgid "LLM OCR returned an empty response"
-msgstr ""
+msgstr "O OCR do LLM retornou uma resposta vazia"
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 msgctxt "AbstractScreenGrabber|"
@@ -849,9 +816,7 @@ msgstr ""
 "primária para informações de dpi."
 
 #: src/ocr/tesseractocr.cpp:142
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "%1 is not a valid Tesseract parameter name."
+#, qt-format
 msgctxt "TesseractOcr|"
 msgid "%1 is not a valid Tesseract parameter name."
 msgstr "%1 não é um nome de parâmetro Tesseract válido."
@@ -2012,7 +1977,7 @@ msgstr "Copiar tradução para a área de transferência"
 #: src/settings/appsettings.cpp:700
 msgctxt "AppSettings|"
 msgid "OpenAI-compatible (custom)"
-msgstr ""
+msgstr "Compatível com OpenAI (personalizado)"
 
 #: src/settings/appsettings.cpp:1538
 #, qt-format
@@ -2132,12 +2097,9 @@ msgid "Timeout:"
 msgstr "Tempo limite:"
 
 #: src/settings/settingsdialog.cpp:390 src/settings/settingsdialog.cpp:509
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid " ms"
 msgctxt "SettingsDialog|"
 msgid " s"
-msgstr " ms"
+msgstr " s"
 
 #: src/settings/settingsdialog.cpp:391
 msgctxt "SettingsDialog|"
@@ -2163,25 +2125,23 @@ msgstr "Comando para redefinir o texto"
 #: src/settings/settingsdialog.cpp:468
 msgctxt "SettingsDialog|"
 msgid "OCR engine:"
-msgstr ""
+msgstr "Motor de OCR:"
 
 #: src/settings/settingsdialog.cpp:472
 msgctxt "SettingsDialog|"
 msgid "Tesseract"
-msgstr ""
+msgstr "Tesseract"
 
 #: src/settings/settingsdialog.cpp:473
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Vision model:"
 msgctxt "SettingsDialog|"
 msgid "Vision model (LLM)"
-msgstr "Modelo de visão:"
+msgstr "Modelo de visão (LLM)"
 
 #: src/settings/settingsdialog.cpp:483
 msgctxt "SettingsDialog|"
 msgid "Tesseract runs locally. Configure languages and parameters below."
 msgstr ""
+"O Tesseract é executado localmente. Configure os idiomas e parâmetros abaixo."
 
 #: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:805
 msgctxt "SettingsDialog|"
@@ -2189,40 +2149,36 @@ msgid "Provider:"
 msgstr "Provedor:"
 
 #: src/settings/settingsdialog.cpp:510
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Maximum time to wait for a translation or detection response."
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a transcription response."
-msgstr "Tempo máximo de espera por uma resposta de tradução ou detecção."
+msgstr "Tempo máximo de espera por uma resposta de transcrição."
 
 #: src/settings/settingsdialog.cpp:541
 msgctxt "SettingsDialog|"
 msgid "Model:"
-msgstr ""
+msgstr "Modelo:"
 
 #: src/settings/settingsdialog.cpp:555
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Reset Text prompt"
 msgctxt "SettingsDialog|"
 msgid "Reset OCR prompt"
-msgstr "Comando para redefinir o texto"
+msgstr "Redefinir prompt do OCR"
 
 #: src/settings/settingsdialog.cpp:616
 msgctxt "SettingsDialog|"
 msgid "— Server reports image support —"
-msgstr ""
+msgstr "— O servidor reporta suporte a imagens —"
 
 #: src/settings/settingsdialog.cpp:620
 msgctxt "SettingsDialog|"
 msgid "— Image support not reported —"
-msgstr ""
+msgstr "— Suporte a imagens não reportado —"
 
 #: src/settings/settingsdialog.cpp:633
 msgctxt "SettingsDialog|"
 msgid "No models loaded yet — press \"Refresh models\", or type a model name."
 msgstr ""
+"Nenhum modelo carregado ainda — pressione \"Atualizar modelos\" ou digite o "
+"nome de um modelo."
 
 #: src/settings/settingsdialog.cpp:635
 msgctxt "SettingsDialog|"
@@ -2230,6 +2186,9 @@ msgid ""
 "This endpoint does not report model capabilities, so image support cannot be "
 "verified here. Pick a model you know accepts images."
 msgstr ""
+"Este endpoint não informa as capacidades do modelo, portanto, o suporte a "
+"imagens não pode ser verificado aqui. Escolha um modelo que você saiba que "
+"aceita imagens."
 
 #: src/settings/settingsdialog.cpp:638
 msgctxt "SettingsDialog|"
@@ -2237,27 +2196,27 @@ msgid ""
 "The server reported no image-capable models. A model listed here may still "
 "work, but recognition will fail if it cannot accept images."
 msgstr ""
+"O servidor não reportou modelos capazes de processar imagens. Um modelo "
+"listado aqui ainda pode funcionar, mas o reconhecimento falhará se ele não "
+"aceitar imagens."
 
 #: src/settings/settingsdialog.cpp:641
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "%n model(s) reported as image-capable."
 msgid_plural "%n model(s) reported as image-capable."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%n modelo(s) relatado(s) como compatível(is) com imagens."
+msgstr[1] "%n modelo(s) relatado(s) como compatível(is) com imagens."
 
 #: src/settings/settingsdialog.cpp:699
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Vision model:"
 msgctxt "SettingsDialog|"
 msgid "Vision model"
-msgstr "Modelo de visão:"
+msgstr "Modelo de visão"
 
 #: src/settings/settingsdialog.cpp:699
 msgctxt "SettingsDialog|"
 msgid "Enter the endpoint URL first."
-msgstr ""
+msgstr "Insira primeiro a URL do endpoint."
 
 #: src/settings/settingsdialog.cpp:709 src/settings/settingsdialog.cpp:929
 msgctxt "SettingsDialog|"
@@ -2646,26 +2605,21 @@ msgstr "<html><head/><body><p>Selecionar ícone</p></body></html>"
 #: src/settings/settingsdialog.ui:632
 msgctxt "SettingsDialog|"
 msgid "Status bar"
-msgstr ""
+msgstr "Barra de status"
 
 #: src/settings/settingsdialog.ui:638
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "<html><head/><body><p>Start application minimized to the system tray</p></"
-#| "body></html>"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/<body><p>Show what the application is currently doing at the "
 "bottom of the main and pop-up windows</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Iniciar o aplicativo minimizado na bandeja do sistema</"
-"p></body></html>"
+"<html><head/<body><p>Exibir o que o aplicativo está fazendo no momento na "
+"parte inferior das janelas principal e pop-up</p></body></html>"
 
 #: src/settings/settingsdialog.ui:641
 msgctxt "SettingsDialog|"
 msgid "Show status bar"
-msgstr ""
+msgstr "Mostrar barra de status"
 
 #: src/settings/settingsdialog.ui:677
 msgctxt "SettingsDialog|"
@@ -2737,6 +2691,9 @@ msgid ""
 "Auto. If no detection model is selected, translation falls back to the "
 "configured primary language above."
 msgstr ""
+"Provedor e modelo usados ​​para detectar o idioma de origem quando a opção "
+"\"Automático\" está selecionada. Se nenhum modelo de detecção for escolhido, "
+"a tradução utilizará o idioma principal configurado acima."
 
 #: src/settings/settingsdialog.ui:768
 msgctxt "SettingsDialog|"
@@ -3359,7 +3316,7 @@ msgstr "Valor"
 #: src/statusstrip.cpp:128 src/statusstrip.cpp:143 src/statusstrip.cpp:144
 msgctxt "StatusStrip|"
 msgid "Ready"
-msgstr ""
+msgstr "Pronto"
 
 #: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-17 21:47+0400\n"
+"PO-Revision-Date: 2026-08-18 18:06+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -317,15 +317,12 @@ msgstr "صورة التعرف الضوئي على الحروف طبيعية"
 #: src/mainwindow.cpp:624
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
-msgstr ""
+msgstr "التعرّف الضوئي على الحروف غير مضبوط"
 
 #: src/mainwindow.cpp:624
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "You should set at least one OCR language in the application settings"
 msgctxt "TesseractOcr|"
 msgid "Set up the OCR engine in the application settings"
-msgstr "يجب عليك تعيين لغة OCR واحدة على الأقل في إعدادات التطبيق"
+msgstr "اضبط محرّك التعرّف الضوئي في إعدادات التطبيق"
 
 #: src/mainwindow.cpp:880
 #, qt-format
@@ -363,20 +360,15 @@ msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "الرمز المحدد '%1' غير صالح. ستستخدم الأيقونة المبدئية."
 
 #: src/mainwindow.cpp:956
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to set OCR languages"
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
-msgstr "غير قادر على تعيين لغات OCR"
+msgstr "تعذّر ضبط لغات التعرّف الضوئي"
 
 #: src/mainwindow.cpp:956
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
-msgstr "غير قادر على تهيئة Tesseract مع %1"
+msgstr "تعذّر تهيئة Tesseract مع %1"
 
 #: src/mainwindow.cpp:1099
 msgctxt "MainWindow|"
@@ -403,13 +395,13 @@ msgstr ""
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
-msgstr ""
+msgstr "الصورة كبيرة جدًا (%1 ميغابكسل). الحد الأقصى %2 ميغابكسل."
 
 #: src/mainwindow.cpp:2011
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
-msgstr ""
+msgstr "فشل التعرّف الضوئي: %1"
 
 #: src/mainwindow.cpp:2105 src/mainwindow.cpp:2162
 #, qt-format
@@ -418,20 +410,20 @@ msgid ""
 "Cannot open image:\n"
 "%1"
 msgstr ""
+"تعذّر فتح الصورة:\n"
+"%1"
 
 #: src/mainwindow.cpp:2153 src/mainwindow.cpp:2162
 msgctxt "MainWindow|"
 msgid "Open image"
-msgstr ""
+msgstr "افتح صورة"
 
 #: src/mainwindow.cpp:2155
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
-msgstr "الصور (*.png *.ico *.svg *.jpg);جميع الملفات()"
+msgstr ""
+"الصور (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;كل الملفات (*)"
 
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
@@ -474,12 +466,9 @@ msgid "Copy source text to the clipboard"
 msgstr "نسخ النص المصدر إلى الحافظة"
 
 #: src/mainwindow.ui:173 src/mainwindow.ui:176
-#, fuzzy
-#| msgctxt "ShortcutsModel|"
-#| msgid "Recognize text in screen area"
 msgctxt "MainWindow|"
 msgid "Recognize text in an image file"
-msgstr "تعرف النص في منطقة الشاشة"
+msgstr "تعرّف على النص في ملف صورة"
 
 #: src/mainwindow.ui:186 src/mainwindow.ui:189
 msgctxt "MainWindow|"
@@ -535,93 +524,73 @@ msgstr "إعدادات التطبيق"
 #: src/modulestatus.cpp:271
 msgctxt "ModuleStatus|"
 msgid "Waiting for capture"
-msgstr ""
+msgstr "بانتظار الالتقاط"
 
 #: src/modulestatus.cpp:273
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Select icon"
 msgctxt "ModuleStatus|"
 msgid "Select a region"
-msgstr "اختر أيقونة"
+msgstr "حدّد منطقة"
 
 #: src/modulestatus.cpp:275
 msgctxt "ModuleStatus|"
 msgid "Recognizing text"
-msgstr ""
+msgstr "جارٍ التعرّف على النص"
 
 #: src/modulestatus.cpp:277
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translation"
 msgctxt "ModuleStatus|"
 msgid "Translating"
-msgstr "ترجمة"
+msgstr "ترجم"
 
 #: src/modulestatus.cpp:279
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Unable to detect language"
 msgctxt "ModuleStatus|"
 msgid "Detecting language"
-msgstr "غير قادر على اكتشاف اللغة"
+msgstr "جارٍ كشف اللغة"
 
 #: src/modulestatus.cpp:281
 msgctxt "ModuleStatus|"
 msgid "Preparing speech"
-msgstr ""
+msgstr "جارٍ تجهيز الكلام"
 
 #: src/modulestatus.cpp:283
-#, fuzzy
-#| msgctxt "ShortcutsModel|"
-#| msgid "Stop text speaking"
 msgctxt "ModuleStatus|"
 msgid "Speaking"
-msgstr "إيقاف التحدث بالنص"
+msgstr "جارٍ النطق"
 
 #: src/modulestatus.cpp:285
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Capture delay:"
 msgctxt "ModuleStatus|"
 msgid "Capture failed"
-msgstr "تأخير التقاط:"
+msgstr "فشل الالتقاط"
 
 #: src/modulestatus.cpp:287
 msgctxt "ModuleStatus|"
 msgid "OCR failed"
-msgstr ""
+msgstr "فشل التعرّف الضوئي"
 
 #: src/modulestatus.cpp:289
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation backend:"
 msgctxt "ModuleStatus|"
 msgid "Translation failed"
-msgstr "خلفية الترجمة:"
+msgstr "فشلت الترجمة"
 
 #: src/modulestatus.cpp:291
 msgctxt "ModuleStatus|"
 msgid "Speech error"
-msgstr ""
+msgstr "خطأ في النطق"
 
-#: src/ocr/llmocr.cpp:264
+#: src/ocr/llmocr.cpp:262
 msgctxt "LlmOcr|"
 msgid "LLM OCR request timed out"
-msgstr ""
+msgstr "انتهت مهلة طلب التعرّف الضوئي عبر نموذج اللغة الكبير"
 
-#: src/ocr/llmocr.cpp:270
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#: src/ocr/llmocr.cpp:268
+#, qt-format
 msgctxt "LlmOcr|"
 msgid "LLM OCR error: %1"
-msgstr "خطأ: %1"
+msgstr "خطأ في التعرّف الضوئي عبر نموذج اللغة الكبير: %1"
 
-#: src/ocr/llmocr.cpp:276
+#: src/ocr/llmocr.cpp:274
 msgctxt "LlmOcr|"
 msgid "LLM OCR returned an empty response"
-msgstr ""
+msgstr "أعاد التعرّف الضوئي عبر نموذج اللغة الكبير استجابة فارغة"
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 msgctxt "AbstractScreenGrabber|"
@@ -834,12 +803,10 @@ msgstr ""
 "الأساسية للحصول على معلومات dpi."
 
 #: src/ocr/tesseractocr.cpp:142
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "%1 is not a valid Tesseract parameter name."
+#, qt-format
 msgctxt "TesseractOcr|"
 msgid "%1 is not a valid Tesseract parameter name."
-msgstr "%1 ليس اسم معلمة Tesseract صالح."
+msgstr "%1 ليس اسم معامل Tesseract صالحًا."
 
 #: src/onlinetranslator.cpp:273
 #, qt-format
@@ -1997,7 +1964,7 @@ msgstr "نسخ الترجمة إلى الحافظة"
 #: src/settings/appsettings.cpp:700
 msgctxt "AppSettings|"
 msgid "OpenAI-compatible (custom)"
-msgstr ""
+msgstr "متوافق مع OpenAI (مخصص)"
 
 #: src/settings/appsettings.cpp:1538
 #, qt-format
@@ -2098,12 +2065,12 @@ msgstr "المفتاح:"
 #: src/settings/settingsdialog.cpp:359 src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
 msgid "optional, e.g. for a cloud endpoint"
-msgstr ""
+msgstr "اختياري، مثلًا لنقطة نهاية سحابية"
 
 #: src/settings/settingsdialog.cpp:360 src/settings/settingsdialog.cpp:531
 msgctxt "SettingsDialog|"
 msgid "Refresh models"
-msgstr ""
+msgstr "حدّث النماذج"
 
 #: src/settings/settingsdialog.cpp:378
 msgctxt "SettingsDialog|"
@@ -2116,22 +2083,19 @@ msgid "Timeout:"
 msgstr "المهلة:"
 
 #: src/settings/settingsdialog.cpp:390 src/settings/settingsdialog.cpp:509
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid " ms"
 msgctxt "SettingsDialog|"
 msgid " s"
-msgstr " م ث"
+msgstr " ث"
 
 #: src/settings/settingsdialog.cpp:391
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a translation or detection response."
-msgstr ""
+msgstr "أقصى مدة لانتظار استجابة الترجمة أو الكشف."
 
 #: src/settings/settingsdialog.cpp:396
 msgctxt "SettingsDialog|"
 msgid "Disable reasoning"
-msgstr ""
+msgstr "عطّل الاستدلال"
 
 #: src/settings/settingsdialog.cpp:403
 #, qt-format
@@ -2142,30 +2106,27 @@ msgstr "العناصر النائبة: %1"
 #: src/settings/settingsdialog.cpp:406
 msgctxt "SettingsDialog|"
 msgid "Reset Text prompt"
-msgstr ""
+msgstr "أعد ضبط موجه النص"
 
 #: src/settings/settingsdialog.cpp:468
 msgctxt "SettingsDialog|"
 msgid "OCR engine:"
-msgstr ""
+msgstr "محرّك التعرّف الضوئي:"
 
 #: src/settings/settingsdialog.cpp:472
 msgctxt "SettingsDialog|"
 msgid "Tesseract"
-msgstr ""
+msgstr "تسرأكت"
 
 #: src/settings/settingsdialog.cpp:473
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Vision model:"
 msgctxt "SettingsDialog|"
 msgid "Vision model (LLM)"
-msgstr "نموذج الرؤية :"
+msgstr "نموذج الرؤية (LLM)"
 
 #: src/settings/settingsdialog.cpp:483
 msgctxt "SettingsDialog|"
 msgid "Tesseract runs locally. Configure languages and parameters below."
-msgstr ""
+msgstr "يعمل Tesseract محليًا. اضبط اللغات والمعاملات أدناه."
 
 #: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:805
 msgctxt "SettingsDialog|"
@@ -2175,32 +2136,32 @@ msgstr "المزود:"
 #: src/settings/settingsdialog.cpp:510
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a transcription response."
-msgstr ""
+msgstr "أقصى مدة لانتظار استجابة النسخ."
 
 #: src/settings/settingsdialog.cpp:541
 msgctxt "SettingsDialog|"
 msgid "Model:"
-msgstr ""
+msgstr "النموذج:"
 
 #: src/settings/settingsdialog.cpp:555
 msgctxt "SettingsDialog|"
 msgid "Reset OCR prompt"
-msgstr ""
+msgstr "إعادة ضبط موجه التعرف الضوئي"
 
 #: src/settings/settingsdialog.cpp:616
 msgctxt "SettingsDialog|"
 msgid "— Server reports image support —"
-msgstr ""
+msgstr "— يبلغ الخادم بدعم الصور —"
 
 #: src/settings/settingsdialog.cpp:620
 msgctxt "SettingsDialog|"
 msgid "— Image support not reported —"
-msgstr ""
+msgstr "— عدم الإبلاغ عن دعم الصور —"
 
 #: src/settings/settingsdialog.cpp:633
 msgctxt "SettingsDialog|"
 msgid "No models loaded yet — press \"Refresh models\", or type a model name."
-msgstr ""
+msgstr "لا توجد نماذج محمّلة بعد — اضغط \"تحديث النماذج\"، أو اكتب اسم نموذج."
 
 #: src/settings/settingsdialog.cpp:635
 msgctxt "SettingsDialog|"
@@ -2208,6 +2169,8 @@ msgid ""
 "This endpoint does not report model capabilities, so image support cannot be "
 "verified here. Pick a model you know accepts images."
 msgstr ""
+"لا يبلغ هذا الطرف بقدرات النموذج، لذا لا يمكن التحقق من دعم الصور هنا. اختر "
+"نموذجًا تعرف أنه يقبل الصور."
 
 #: src/settings/settingsdialog.cpp:638
 msgctxt "SettingsDialog|"
@@ -2215,36 +2178,35 @@ msgid ""
 "The server reported no image-capable models. A model listed here may still "
 "work, but recognition will fail if it cannot accept images."
 msgstr ""
+"لم يبلغ الخادم عن أي نماذج قادرة على معالجة الصور. قد يعمل نموذج مدرج هنا، "
+"لكن سيفشل التعرف إذا لم يستطع قبول الصور."
 
 #: src/settings/settingsdialog.cpp:641
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "%n model(s) reported as image-capable."
 msgid_plural "%n model(s) reported as image-capable."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "يوجد %n نموذجًا يتميز بقدرة التعامل مع الصور."
+msgstr[1] "يوجد نموذج واحد قادر على التعامل مع الصور."
+msgstr[2] "يوجد نموذجان قادران على التعامل مع الصور."
+msgstr[3] "يوجد %n نماذج قادرة على التعامل مع الصور."
+msgstr[4] "يوجد %n نموذجًا يتميز بقدرة التعامل مع الصور."
+msgstr[5] "يوجد %n نموذج يتميز بقدرة التعامل مع الصور."
 
 #: src/settings/settingsdialog.cpp:699
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Vision model:"
 msgctxt "SettingsDialog|"
 msgid "Vision model"
-msgstr "نموذج الرؤية :"
+msgstr "نموذج الرؤية"
 
 #: src/settings/settingsdialog.cpp:699
 msgctxt "SettingsDialog|"
 msgid "Enter the endpoint URL first."
-msgstr ""
+msgstr "أدخل عنوان URL للطرف أولًا."
 
 #: src/settings/settingsdialog.cpp:709 src/settings/settingsdialog.cpp:929
 msgctxt "SettingsDialog|"
 msgid "No models found."
-msgstr ""
+msgstr "لم يُعثر على نماذج."
 
 #: src/settings/settingsdialog.cpp:722 src/settings/settingsdialog.cpp:916
 #, qt-format
@@ -2253,6 +2215,8 @@ msgid ""
 "Could not reach %1 at %2:\n"
 "%3"
 msgstr ""
+"تعذّر الوصول إلى %1 على %2:\n"
+"%3"
 
 #: src/settings/settingsdialog.cpp:1000
 msgctxt "SettingsDialog|"
@@ -2623,25 +2587,21 @@ msgstr ""
 #: src/settings/settingsdialog.ui:632
 msgctxt "SettingsDialog|"
 msgid "Status bar"
-msgstr ""
+msgstr "شريط الحالة"
 
 #: src/settings/settingsdialog.ui:638
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "<html><head/><body><p>Start application minimized to the system tray</p></"
-#| "body></html>"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/<body><p>Show what the application is currently doing at the "
 "bottom of the main and pop-up windows</p></body></html>"
 msgstr ""
-"<html><head/><body><p>ابدأ التطبيق مصغر إلى ساحة النظام</p></body></html>"
+"<html><head/<body><p>اعرض ما يفعله التطبيق حاليًا في أسفل النافذة الرئيسة "
+"والنوافذ المنبثقة</p></body></html>"
 
 #: src/settings/settingsdialog.ui:641
 msgctxt "SettingsDialog|"
 msgid "Show status bar"
-msgstr ""
+msgstr "أظهر شريط الحالة"
 
 #: src/settings/settingsdialog.ui:677
 msgctxt "SettingsDialog|"
@@ -2712,6 +2672,8 @@ msgid ""
 "Auto. If no detection model is selected, translation falls back to the "
 "configured primary language above."
 msgstr ""
+"المزوّد والنموذج المستخدمان لكشف لغة المصدر عندما تكون مضبوطة على تلقائي. إذا "
+"لم يُحدد نموذج كشف، يتراجع الترجمة إلى اللغة الأساسية المضبوطة أعلاه."
 
 #: src/settings/settingsdialog.ui:768
 msgctxt "SettingsDialog|"
@@ -2818,6 +2780,8 @@ msgid ""
 "Optional. Required by self-hosted LibreTranslate instances and "
 "libretranslate.com; the Mozhi front-end ignores it."
 msgstr ""
+"اختياري. مطلوب من مثيلات LibreTranslate المستضيفة ذاتيًا وlibretranslate.com؛ "
+"تتجاهله واجهة Mozhi الأمامية."
 
 #: src/settings/settingsdialog.ui:981
 msgctxt "SettingsDialog|"
@@ -2825,6 +2789,8 @@ msgid ""
 "Talk the direct LibreTranslate REST API to the instance URL instead of the "
 "Mozhi-compatible API; use this for self-hosted LibreTranslate servers."
 msgstr ""
+"خاطب واجهة LibreTranslate REST API مباشرة إلى عنوان URL للمثيل بدلًا من واجهة "
+"API المتوافقة مع Mozhi؛ استخدم هذا لخوادم LibreTranslate المستضيفة ذاتيًا."
 
 #: src/settings/settingsdialog.ui:1016
 msgctxt "SettingsDialog|"
@@ -2832,6 +2798,8 @@ msgid ""
 "Local OpenAI-compatible servers. Set URL, translation model and prompt for "
 "each. Language detection is configured on the Translation page."
 msgstr ""
+"خوادم محلية متوافقة مع OpenAI. اضبط عنوان URL ونموذج الترجمة والموجه لكل "
+"منها. يُضبط كشف اللغة في صفحة الترجمة."
 
 #: src/settings/settingsdialog.ui:1039
 msgctxt "SettingsDialog|"
@@ -3303,7 +3271,7 @@ msgstr "القيمة"
 #: src/statusstrip.cpp:128 src/statusstrip.cpp:143 src/statusstrip.cpp:144
 msgctxt "StatusStrip|"
 msgid "Ready"
-msgstr ""
+msgstr "جاهز"
 
 #: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"
