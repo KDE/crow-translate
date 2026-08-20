@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-08-18 06:47-0300\n"
+"PO-Revision-Date: 2026-08-19 16:06-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -196,7 +196,7 @@ msgstr "Ocorreu um erro de tradução"
 #: src/cli.cpp:451
 msgctxt "Cli|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Erro desconhecido"
 
 #: src/cli.cpp:452
 msgctxt "Cli|"
@@ -292,44 +292,29 @@ msgid "Edit languages"
 msgstr "Editar idiomas"
 
 #: src/languagesdialog.ui:24
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Add to current languages"
-msgstr "Idiomas atuais:"
+msgstr "Adicionar aos idiomas atuais"
 
 #: src/languagesdialog.ui:38
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "LanguagesDialog|"
 msgid "Move language down"
-msgstr "Forçar detecção de idioma de origem"
+msgstr "Mover idioma para baixo"
 
 #: src/languagesdialog.ui:55
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Remove from current languages"
-msgstr "Idiomas atuais:"
+msgstr "Remover dos idiomas atuais"
 
 #: src/languagesdialog.ui:69
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Swap languages"
 msgctxt "LanguagesDialog|"
 msgid "Search languages"
-msgstr "Alternar idiomas"
+msgstr "Pesquisar idiomas"
 
 #: src/languagesdialog.ui:79
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Available languages:"
 msgctxt "LanguagesDialog|"
 msgid "Move language up"
-msgstr "Idiomas disponíveis:"
+msgstr "Mover idioma para cima"
 
 #: src/languagesdialog.ui:109
 msgctxt "LanguagesDialog|"
@@ -353,38 +338,38 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "Não foi possível registrar objeto D-Bus para %1"
 
-#: src/mainwindow.cpp:470
+#: src/mainwindow.cpp:444
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "OCR"
 
-#: src/mainwindow.cpp:471
+#: src/mainwindow.cpp:445
 msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "Imagem OCR é negativo"
 
-#: src/mainwindow.cpp:471
+#: src/mainwindow.cpp:445
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr "Imagem OCR é normal"
 
-#: src/mainwindow.cpp:630
+#: src/mainwindow.cpp:604
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
 msgstr "OCR não está configurado"
 
-#: src/mainwindow.cpp:630
+#: src/mainwindow.cpp:604
 msgctxt "TesseractOcr|"
 msgid "Set up the OCR engine in the application settings"
 msgstr "Configure o mecanismo de OCR nas configurações do aplicativo"
 
-#: src/mainwindow.cpp:891
+#: src/mainwindow.cpp:866
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "Este aplicativo usa %1 para fornecer traduções."
 
-#: src/mainwindow.cpp:892
+#: src/mainwindow.cpp:867
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -398,39 +383,39 @@ msgstr ""
 "envia. Sua instância atualmente é '%1', mas você pode alterá-la nas "
 "configurações de tradução. Veja os detalhes da instância no link acima."
 
-#: src/mainwindow.cpp:899
+#: src/mainwindow.cpp:874
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "Não mostrar novamente"
 
-#: src/mainwindow.cpp:946
+#: src/mainwindow.cpp:921
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Ícone da área de notificação inválido"
 
-#: src/mainwindow.cpp:946
+#: src/mainwindow.cpp:921
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "O ícone especificado '%1' é inválido. O ícone padrão será usado."
 
-#: src/mainwindow.cpp:967
+#: src/mainwindow.cpp:942
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "Não foi possível definir idiomas OCR"
 
-#: src/mainwindow.cpp:967
+#: src/mainwindow.cpp:942
 #, qt-format
 msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "Não foi possível inicializar Tesseract com %1"
 
-#: src/mainwindow.cpp:1110
+#: src/mainwindow.cpp:1085
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr "Erro TTS"
 
-#: src/mainwindow.cpp:1110
+#: src/mainwindow.cpp:1085
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -446,27 +431,25 @@ msgstr ""
 "\n"
 "Verifique suas configurações de TTS ou tente uma voz/localidade diferente."
 
-#: src/mainwindow.cpp:1142 src/mainwindow.cpp:1148
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#: src/mainwindow.cpp:1123 src/mainwindow.cpp:1129
+#, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Erro: %1"
 
-#: src/mainwindow.cpp:1971
+#: src/mainwindow.cpp:1944
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
 msgstr "Imagem muito grande (%1 MP). Máximo de %2 MP."
 
-#: src/mainwindow.cpp:2071
+#: src/mainwindow.cpp:2044
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
 msgstr "OCR falhou: %1"
 
-#: src/mainwindow.cpp:2165 src/mainwindow.cpp:2222
+#: src/mainwindow.cpp:2138 src/mainwindow.cpp:2195
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -476,12 +459,12 @@ msgstr ""
 "Não foi possível abrir a imagem:\n"
 "%1"
 
-#: src/mainwindow.cpp:2213 src/mainwindow.cpp:2222
+#: src/mainwindow.cpp:2186 src/mainwindow.cpp:2195
 msgctxt "MainWindow|"
 msgid "Open image"
 msgstr "Abrir imagem"
 
-#: src/mainwindow.cpp:2215
+#: src/mainwindow.cpp:2188
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
@@ -647,6 +630,9 @@ msgid ""
 "reasoning instead. Turn on \"Disable reasoning\" for this provider, or pick "
 "a model with a larger context."
 msgstr ""
+"O modelo esgotou os tokens antes de transcrever qualquer coisa, tendo-os "
+"utilizado para o raciocínio. Ative a opção \"Desativar raciocínio\" para "
+"este provedor ou escolha um modelo com uma janela de contexto maior."
 
 #: src/ocr/llmocr.cpp:264
 #, qt-format
@@ -656,6 +642,9 @@ msgid ""
 "of its %2 token limit. Try a smaller region, or a model with a larger "
 "context."
 msgstr ""
+"O modelo esgotou os tokens antes de transcrever qualquer coisa: a imagem "
+"utilizou %1 de seu limite de %2 tokens. Tente uma região menor ou um modelo "
+"com um contexto maior."
 
 #: src/ocr/llmocr.cpp:269
 msgctxt "LlmOcr|"
@@ -663,6 +652,8 @@ msgid ""
 "The model ran out of tokens before transcribing anything. Try a smaller "
 "region, or a model with a larger context."
 msgstr ""
+"O modelo esgotou os tokens antes de transcrever qualquer coisa. Tente uma "
+"região menor ou um modelo com um contexto maior."
 
 #: src/ocr/llmocr.cpp:273 src/ocr/llmocr.cpp:509
 #, qt-format
@@ -673,7 +664,7 @@ msgstr "Erro do OCR do LLM: %1"
 #: src/ocr/llmocr.cpp:275
 msgctxt "LlmOcr|"
 msgid "The model returned no text for this image."
-msgstr ""
+msgstr "O modelo não retornou texto para esta imagem."
 
 #: src/ocr/llmocr.cpp:488
 msgctxt "LlmOcr|"
@@ -2977,12 +2968,12 @@ msgstr "Converter quebras de linha"
 #: src/settings/settingsdialog.ui:1131
 msgctxt "SettingsDialog|"
 msgid "Add parameter"
-msgstr ""
+msgstr "Adicionar parâmetro"
 
 #: src/settings/settingsdialog.ui:1141
 msgctxt "SettingsDialog|"
 msgid "Remove parameter"
-msgstr ""
+msgstr "Remover parâmetro"
 
 #: src/settings/settingsdialog.ui:1177
 msgctxt "SettingsDialog|"
@@ -3406,30 +3397,24 @@ msgid "Ready"
 msgstr "Pronto"
 
 #: src/translator/atranslationprovider.cpp:57
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "ATranslationProvider|"
 msgid "Unsupported source language."
-msgstr "Forçar detecção de idioma de origem"
+msgstr "Idioma de origem não suportado."
 
 #: src/translator/atranslationprovider.cpp:59
 msgctxt "ATranslationProvider|"
 msgid "Unsupported destination language."
-msgstr ""
+msgstr "Idioma de destino não suportado."
 
 #: src/translator/atranslationprovider.cpp:61
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Enable translation options"
 msgctxt "ATranslationProvider|"
 msgid "User aborted translation in progress"
-msgstr "Habilitar opções de tradução"
+msgstr "O usuário interrompeu a tradução em andamento"
 
 #: src/translator/atranslationprovider.cpp:65
 msgctxt "ATranslationProvider|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Erro desconhecido"
 
 #: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"
@@ -3448,12 +3433,9 @@ msgstr ""
 "selecionar um provedor diferente em Configurações → Tradução."
 
 #: src/translator/localaitranslationprovider.cpp:145
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected translation language %1 is not supported for %2"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Destination language is not supported"
-msgstr "O idioma de tradução selecionado %1 não é suportado para %2"
+msgstr "O idioma de destino não é suportado"
 
 #: src/translator/localaitranslationprovider.cpp:297
 #, qt-format
@@ -3464,6 +3446,11 @@ msgid ""
 "reasoning instead of answering. Turn on \"Disable reasoning\" for this "
 "provider, translate less text at once, or pick a model with a larger context."
 msgstr ""
+"O modelo esgotou os tokens antes de concluir a tradução: o texto a ser "
+"traduzido utilizou %1 do seu limite de %2 tokens, e o restante foi consumido "
+"pelo processo de raciocínio em vez de gerar a resposta. Ative a opção "
+"\"Desativar raciocínio\" para este provedor, traduza menos texto de uma só "
+"vez ou escolha um modelo com uma janela de contexto maior."
 
 #: src/translator/localaitranslationprovider.cpp:305
 msgctxt "LocalAiTranslationProvider|"
@@ -3472,6 +3459,10 @@ msgid ""
 "translation. Turn on \"Disable reasoning\" for this provider, translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
+"O modelo consumiu todo o seu limite de tokens raciocinando e não chegou a "
+"escrever uma tradução. Ative a opção \"Desativar raciocínio\" para este "
+"provedor, traduza menos texto de uma só vez ou escolha um modelo com uma "
+"janela de contexto maior."
 
 #: src/translator/localaitranslationprovider.cpp:313
 #, qt-format
@@ -3481,6 +3472,9 @@ msgid ""
 "translate used %1 of its %2 token limit. Translate less text at once, or "
 "pick a model with a larger context."
 msgstr ""
+"O modelo esgotou os tokens antes de concluir a tradução: o texto a ser "
+"traduzido utilizou %1 do seu limite de %2 tokens. Traduza menos texto de uma "
+"só vez ou escolha um modelo com um contexto maior."
 
 #: src/translator/localaitranslationprovider.cpp:320
 msgctxt "LocalAiTranslationProvider|"
@@ -3488,110 +3482,83 @@ msgid ""
 "The model ran out of tokens before writing a translation. Translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
+"O modelo esgotou os tokens antes de concluir a tradução. Traduza menos texto "
+"de uma só vez ou escolha um modelo com uma janela de contexto maior."
 
 #: src/translator/localaitranslationprovider.cpp:326
 #: src/translator/localaitranslationprovider.cpp:365
 #: src/translator/localaitranslationprovider.cpp:366
-#, fuzzy, qt-format
-#| msgctxt "LlmOcr|"
-#| msgid "LLM OCR error: %1"
+#, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI error: %1"
-msgstr "Erro do OCR do LLM: %1"
+msgstr "Erro do LocalAI: %1"
 
 #: src/translator/localaitranslationprovider.cpp:329
-#, fuzzy
-#| msgctxt "LlmOcr|"
-#| msgid "LLM OCR returned an empty response"
 msgctxt "LocalAiTranslationProvider|"
 msgid "The model returned an empty response."
-msgstr "O OCR do LLM retornou uma resposta vazia"
+msgstr "O modelo retornou uma resposta vazia."
 
 #: src/translator/localaitranslationprovider.cpp:350
-#, fuzzy
-#| msgctxt "LlmOcr|"
-#| msgid "LLM OCR request timed out"
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI request timed out"
-msgstr "A solicitação de OCR do LLM excedeu o tempo limite"
+msgstr "A solicitação ao LocalAI excedeu o tempo limite"
 
 #: src/translator/localaitranslationprovider.cpp:408
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Language detection is not supported for %1"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Language detection timed out"
-msgstr "A detecção de idioma não é suportada para %1"
+msgstr "A detecção de idioma excedeu o tempo limite"
 
 #: src/translator/localaitranslationprovider.cpp:469
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Operação interrompida pelo usuário"
+msgstr "Tradução interrompida pelo usuário"
 
 #: src/translator/mozhitranslationprovider.cpp:78
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "MozhiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Operação interrompida pelo usuário"
+msgstr "Tradução interrompida pelo usuário"
 
 #: src/translator/mozhitranslationprovider.cpp:139
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected translation language %1 is not supported for %2"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Destination language '%1' is not supported"
-msgstr "O idioma de tradução selecionado %1 não é suportado para %2"
+msgstr "O idioma de destino '%1' não é suportado"
 
 #: src/translator/mozhitranslationprovider.cpp:147
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected source language %1 is not supported for %2"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Source language '%1' is not supported"
-msgstr "O idioma de origem selecionado %1 não é suportado para %2"
+msgstr "O idioma de origem '%1' não é suportado"
 
 #: src/translator/mozhitranslationprovider.cpp:204
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Network error: %1"
-msgstr "Erro de instância: %1"
+msgstr "Erro de rede: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:208
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Instance error: %1"
 msgstr "Erro de instância: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:212
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Parsing error: %1"
-msgstr "Erro de instância: %1"
+msgstr "Erro de processamento: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:216
 #, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unsupported TTS engine: %1"
-msgstr ""
+msgstr "Mecanismo de TTS não suportado: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:220
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unknown error: %1"
-msgstr "Erro de instância: %1"
+msgstr "Erro desconhecido: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:408
 msgctxt "MozhiTranslationProvider|"
