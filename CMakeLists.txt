@@ -74,6 +74,14 @@ option(WITH_KICONTHEMES "Use KIconThemes for proper icon theme fallback" ON)
 
 option(WITH_PIPER_TTS "Enable Piper neural TTS provider (requires onnxruntime and espeak-ng)" ON)
 option(WITH_TTS "Enable text-to-speech support (Mozhi and Qt providers, plus Piper if WITH_PIPER_TTS)" ON)
+option(ESPEAKNG_USE_SYSTEM "Link against a system espeak-ng found via pkg-config instead of building the bundled submodule (requires espeak-ng built from git)" OFF)
+
+if(ESPEAKNG_USE_SYSTEM AND NOT WITH_PIPER_TTS)
+    message(FATAL_ERROR "ESPEAKNG_USE_SYSTEM requires WITH_PIPER_TTS")
+endif()
+if(ESPEAKNG_USE_SYSTEM AND WIN32)
+    message(FATAL_ERROR "ESPEAKNG_USE_SYSTEM is only supported on non-Windows platforms")
+endif()
 
 
 if(CMAKE_EXPORT_COMPILE_COMMANDS AND DEFINED ENV{NIX_CFLAGS_COMPILE})
@@ -84,6 +92,7 @@ find_package(ECM 6.4.0 REQUIRED CONFIG)
 list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 include(KDEClangFormat)
+include(CheckSymbolExists)
 file(GLOB_RECURSE CLANG_FORMAT_SOURCES src/*.cpp src/*.h tests/*.cpp tests/*.h)
 list(FILTER CLANG_FORMAT_SOURCES EXCLUDE REGEX ".*/src/3rdparty/.*" )
 list(FILTER CLANG_FORMAT_SOURCES EXCLUDE REGEX ".*${PROJECT_NAME}_autogen.*" )
@@ -335,7 +344,48 @@ else()
     endif()
 endif()
 
-if(WITH_PIPER_TTS)
+if(WITH_PIPER_TTS AND ESPEAKNG_USE_SYSTEM)
+    find_package(PkgConfig REQUIRED)
+    pkg_check_modules(ESPEAKNG IMPORTED_TARGET espeak-ng)
+    if(NOT ESPEAKNG_FOUND)
+        message(FATAL_ERROR "ESPEAKNG_USE_SYSTEM is enabled but no system espeak-ng was found via pkg-config")
+    endif()
+
+    # crow uses espeak_TextToPhonemesWithTerminator, which is only available in
+    # espeak-ng built from git (https://github.com/espeak-ng/espeak-ng/pull/2127)
+    # and not in the 1.52.0 release, so probe for it instead of trusting the version.
+    set(CMAKE_REQUIRED_LIBRARIES ${ESPEAKNG_LINK_LIBRARIES})
+    set(CMAKE_REQUIRED_INCLUDES ${ESPEAKNG_INCLUDE_DIRS})
+    check_symbol_exists(espeak_TextToPhonemesWithTerminator "espeak-ng/speak_lib.h" ESPEAKNG_HAS_PHONEMES_WITH_TERMINATOR)
+    unset(CMAKE_REQUIRED_LIBRARIES)
+    unset(CMAKE_REQUIRED_INCLUDES)
+    if(NOT ESPEAKNG_HAS_PHONEMES_WITH_TERMINATOR)
+        message(FATAL_ERROR "The system espeak-ng at '${ESPEAKNG_LINK_LIBRARIES}' lacks espeak_TextToPhonemesWithTerminator. Crow needs an espeak-ng built from git (https://github.com/espeak-ng/espeak-ng/pull/2127); build it from source or use the bundled submodule by leaving ESPEAKNG_USE_SYSTEM off")
+    endif()
+
+    find_package(ONNXRuntime 1.27.0 REQUIRED)
+    if(ONNXRuntime_USE_STATIC)
+        build_onnxruntime_static()
+        add_dependencies(${PROJECT_NAME}-lib onnxruntime_ready)
+    endif()
+    target_compile_definitions(${PROJECT_NAME}-lib PUBLIC WITH_PIPER_TTS)
+
+    if(NOT ONNXRuntime_USE_STATIC)
+        target_include_directories(${PROJECT_NAME}-lib PUBLIC ${ONNXRuntime_INCLUDE_DIRS})
+    else()
+        target_include_directories(${PROJECT_NAME}-lib PUBLIC
+            ${CMAKE_BINARY_DIR}/onnxruntime-src/src/onnxruntime/include
+            ${CMAKE_BINARY_DIR}/onnxruntime-src/src/onnxruntime/include/onnxruntime
+            ${CMAKE_BINARY_DIR}/onnxruntime-src/src/onnxruntime/include/onnxruntime/core/session
+        )
+    endif()
+    target_sources(${PROJECT_NAME}-lib PRIVATE
+        src/tts/piperttsprovider.h
+        src/tts/piperttsprovider.cpp
+    )
+
+    message(STATUS "Piper TTS support enabled using system espeak-ng ${ESPEAKNG_VERSION} at ${ESPEAKNG_LINK_LIBRARIES}")
+elseif(WITH_PIPER_TTS)
     # Build espeak-ng from submodule
     set(ESPEAKNG_BUILD_DIR ${CMAKE_BINARY_DIR}/espeak_ng)
     set(ESPEAKNG_INSTALL_DIR ${CMAKE_BINARY_DIR}/espeak_ng-install)
@@ -480,7 +530,28 @@ if(WITH_KICONTHEMES)
 endif()
 
 # Link Piper dependencies if enabled
-if(WITH_PIPER_TTS)
+if(WITH_PIPER_TTS AND ESPEAKNG_USE_SYSTEM)
+    if(NOT ONNXRuntime_USE_STATIC)
+        # Dynamic linking: use system ONNX Runtime
+        target_compile_definitions(${PROJECT_NAME}-lib PUBLIC WITH_ONNX_RUNTIME_DYNAMIC=1)
+        target_link_libraries(${PROJECT_NAME}-lib PUBLIC
+            ${ONNXRuntime_LIBRARIES}
+            PkgConfig::ESPEAKNG
+        )
+
+        # Set RPATH for dynamic ONNX Runtime
+        if(NOT WIN32)
+            set_target_properties(${PROJECT_NAME} PROPERTIES
+                INSTALL_RPATH "$ORIGIN;$ORIGIN/../lib"
+                BUILD_WITH_INSTALL_RPATH TRUE
+            )
+        endif()
+    else()
+        # Static linking: configure via our custom function
+        configure_onnxruntime_static(${PROJECT_NAME})
+        target_link_libraries(${PROJECT_NAME}-lib PUBLIC PkgConfig::ESPEAKNG)
+    endif()
+elseif(WITH_PIPER_TTS)
     if(NOT ONNXRuntime_USE_STATIC)
         # Dynamic linking: use system ONNX Runtime
         target_compile_definitions(${PROJECT_NAME}-lib PUBLIC WITH_ONNX_RUNTIME_DYNAMIC=1)

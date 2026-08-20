@@ -279,6 +279,7 @@ craft crow-translate
 - `WITH_PORTABLE_MODE` - Enable portable functionality. If you create file named `settings.ini` in the app folder and Crow will store the configuration in it. It also adds the “Portable Mode” option to the application settings, which does the same.
 - `WITH_KWAYLAND` - Find and use KWayland library for better Wayland integration.
 - `WITH_PIPER_TTS` - Enable Piper neural TTS provider (requires ONNX Runtime and espeak-ng).
+- `ESPEAKNG_USE_SYSTEM` - Link against a system espeak-ng instead of building the bundled submodule. Useful for distribution packaging. Crow requires `espeak_TextToPhonemesWithTerminator`, an API that is not part of the espeak-ng 1.52.0 release, so the system espeak-ng must be built from git (see [espeak-ng!2127](https://github.com/espeak-ng/espeak-ng/pull/2127)); the build verifies this at configure time and fails otherwise. Linux only.
 
 Build parameters are passed at configuration stage: `cmake -D WITH_PORTABLE_MODE=ON -D WITH_PIPER_TTS=ON ..`.
 
