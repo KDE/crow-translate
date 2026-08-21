@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-08-18 06:09+0200\n"
+"PO-Revision-Date: 2026-08-20 07:29+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -191,7 +191,7 @@ msgstr "Prišlo je do napake pri prevajanju"
 #: src/cli.cpp:451
 msgctxt "Cli|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Neznana napaka"
 
 #: src/cli.cpp:452
 msgctxt "Cli|"
@@ -287,44 +287,29 @@ msgid "Edit languages"
 msgstr "Uredi jezike"
 
 #: src/languagesdialog.ui:24
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Add to current languages"
-msgstr "Trenutni jeziki:"
+msgstr "Dodaj k trenutnim jezikom"
 
 #: src/languagesdialog.ui:38
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "LanguagesDialog|"
 msgid "Move language down"
-msgstr "Vsili zaznavanje izvornega jezika"
+msgstr "Premakni jezik navzdol"
 
 #: src/languagesdialog.ui:55
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Remove from current languages"
-msgstr "Trenutni jeziki:"
+msgstr "Odstrani iz trenutnih jezikov"
 
 #: src/languagesdialog.ui:69
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Swap languages"
 msgctxt "LanguagesDialog|"
 msgid "Search languages"
-msgstr "Premenjaj jezike"
+msgstr "Preišči jezike"
 
 #: src/languagesdialog.ui:79
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Available languages:"
 msgctxt "LanguagesDialog|"
 msgid "Move language up"
-msgstr "Razpoložljivi jeziki:"
+msgstr "Premakni jezik navzgor"
 
 #: src/languagesdialog.ui:109
 msgctxt "LanguagesDialog|"
@@ -443,9 +428,7 @@ msgstr ""
 "glasom/jezikom."
 
 #: src/mainwindow.cpp:1123 src/mainwindow.cpp:1129
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Napaka: %1"
@@ -642,6 +625,9 @@ msgid ""
 "reasoning instead. Turn on \"Disable reasoning\" for this provider, or pick "
 "a model with a larger context."
 msgstr ""
+"Modelu je zmanjkalo žetonov, preden je karkoli prepisal, saj jih je namesto "
+"tega porabil za sklepanje. Vklopite \"Onemogoči sklepanje\" za tega "
+"ponudnika ali izberite model z večjim kontekstom."
 
 #: src/ocr/llmocr.cpp:264
 #, qt-format
@@ -651,6 +637,9 @@ msgid ""
 "of its %2 token limit. Try a smaller region, or a model with a larger "
 "context."
 msgstr ""
+"Modelu je zmanjkalo žetonov, preden je karkoli prepisal: slika je porabila "
+"%1 od omejitve žetonov %2. Poskusite z manjšim območjem ali z modelom z "
+"večjim kontekstom."
 
 #: src/ocr/llmocr.cpp:269
 msgctxt "LlmOcr|"
@@ -658,6 +647,8 @@ msgid ""
 "The model ran out of tokens before transcribing anything. Try a smaller "
 "region, or a model with a larger context."
 msgstr ""
+"Modelu je zmanjkalo žetonov, preden je karkoli prepisal. Poskusite z manjšo "
+"regijo ali z modelom z večjim kontekstom."
 
 #: src/ocr/llmocr.cpp:273 src/ocr/llmocr.cpp:509
 #, qt-format
@@ -668,7 +659,7 @@ msgstr "Napaka LLM OCR: %1"
 #: src/ocr/llmocr.cpp:275
 msgctxt "LlmOcr|"
 msgid "The model returned no text for this image."
-msgstr ""
+msgstr "Model za to sliko ni vrnil besedila."
 
 #: src/ocr/llmocr.cpp:488
 msgctxt "LlmOcr|"
@@ -2966,12 +2957,12 @@ msgstr "Pretvori prelome vrstic"
 #: src/settings/settingsdialog.ui:1131
 msgctxt "SettingsDialog|"
 msgid "Add parameter"
-msgstr ""
+msgstr "Dodaj parameter"
 
 #: src/settings/settingsdialog.ui:1141
 msgctxt "SettingsDialog|"
 msgid "Remove parameter"
-msgstr ""
+msgstr "Odstrani parameter"
 
 #: src/settings/settingsdialog.ui:1177
 msgctxt "SettingsDialog|"
@@ -3391,30 +3382,24 @@ msgid "Ready"
 msgstr "Pripravljen"
 
 #: src/translator/atranslationprovider.cpp:57
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "ATranslationProvider|"
 msgid "Unsupported source language."
-msgstr "Vsili zaznavanje izvornega jezika"
+msgstr "Nepodprt izvorni jezik."
 
 #: src/translator/atranslationprovider.cpp:59
 msgctxt "ATranslationProvider|"
 msgid "Unsupported destination language."
-msgstr ""
+msgstr "Nepodprt ciljni jezik."
 
 #: src/translator/atranslationprovider.cpp:61
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Enable translation options"
 msgctxt "ATranslationProvider|"
 msgid "User aborted translation in progress"
-msgstr "Omogoči možnosti prevajanja"
+msgstr "Uporabnik je prekinil prevajanje v teku"
 
 #: src/translator/atranslationprovider.cpp:65
 msgctxt "ATranslationProvider|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Neznana napaka"
 
 #: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"
@@ -3433,12 +3418,9 @@ msgstr ""
 "poskusite izbrati drugega ponudnika v Nastavitvah → Prevajanje."
 
 #: src/translator/localaitranslationprovider.cpp:145
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected translation language %1 is not supported for %2"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Destination language is not supported"
-msgstr "Izbrani jezik prevoda %1 ni podprt za %2"
+msgstr "Ciljni jezik ni podprt"
 
 #: src/translator/localaitranslationprovider.cpp:297
 #, qt-format
@@ -3449,6 +3431,11 @@ msgid ""
 "reasoning instead of answering. Turn on \"Disable reasoning\" for this "
 "provider, translate less text at once, or pick a model with a larger context."
 msgstr ""
+"Modelu je pred pisanjem prevoda zmanjkalo žetonov: besedilo za prevod je "
+"porabilo %1 svoje omejitve žetonov %2 in tisto, kar je ostalo, je porabilo "
+"za sklepanje namesto za odgovor. Vklopite \"Onemogoči sklepanje\" za tega "
+"ponudnika, prevedite manj besedila hkrati ali izberite model z večjim "
+"kontekstom."
 
 #: src/translator/localaitranslationprovider.cpp:305
 msgctxt "LocalAiTranslationProvider|"
@@ -3457,6 +3444,9 @@ msgid ""
 "translation. Turn on \"Disable reasoning\" for this provider, translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
+"Model je porabil celotno proračun žetonov za sklepanje in ni nikoli napisal "
+"prevoda. Za tega ponudnika vklopite \"Onemogoči sklepanje\", prevedite manj "
+"besedila hkrati ali izberite model z večjim kontekstom."
 
 #: src/translator/localaitranslationprovider.cpp:313
 #, qt-format
@@ -3466,6 +3456,9 @@ msgid ""
 "translate used %1 of its %2 token limit. Translate less text at once, or "
 "pick a model with a larger context."
 msgstr ""
+"Modelu je zmanjkalo žetonov, preden je napisal prevod: besedilo za prevod je "
+"porabilo %1 od omejitve žetonov %2. Prevedite manj besedila naenkrat ali "
+"izberite model z večjim kontekstom."
 
 #: src/translator/localaitranslationprovider.cpp:320
 msgctxt "LocalAiTranslationProvider|"
@@ -3473,110 +3466,83 @@ msgid ""
 "The model ran out of tokens before writing a translation. Translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
+"Modelu je zmanjkalo žetonov, pred pisanjem prevoda. Prevedite manj besedila "
+"naenkrat ali izberite model z večjim kontekstom."
 
 #: src/translator/localaitranslationprovider.cpp:326
 #: src/translator/localaitranslationprovider.cpp:365
 #: src/translator/localaitranslationprovider.cpp:366
-#, fuzzy, qt-format
-#| msgctxt "LlmOcr|"
-#| msgid "LLM OCR error: %1"
+#, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI error: %1"
-msgstr "Napaka LLM OCR: %1"
+msgstr "Napaka LocalAI: %1"
 
 #: src/translator/localaitranslationprovider.cpp:329
-#, fuzzy
-#| msgctxt "LlmOcr|"
-#| msgid "LLM OCR returned an empty response"
 msgctxt "LocalAiTranslationProvider|"
 msgid "The model returned an empty response."
-msgstr "LLM OCR je vrnil prazen odgovor"
+msgstr "Model je vrnil prazen odgovor."
 
 #: src/translator/localaitranslationprovider.cpp:350
-#, fuzzy
-#| msgctxt "LlmOcr|"
-#| msgid "LLM OCR request timed out"
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI request timed out"
-msgstr "Časovna omejitev zahteve za LLM OCR je potekla"
+msgstr "Časovna omejitev zahteve LocalAI je potekla"
 
 #: src/translator/localaitranslationprovider.cpp:408
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Language detection is not supported for %1"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Language detection timed out"
-msgstr "Zaznavanje jezika ni podprto za %1"
+msgstr "Časovna omejitev zaznavanja jezika je potekla"
 
 #: src/translator/localaitranslationprovider.cpp:469
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Uporabnik je prekinil operacijo"
+msgstr "Uporabnik je prekinil prevajanje"
 
 #: src/translator/mozhitranslationprovider.cpp:78
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "MozhiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Uporabnik je prekinil operacijo"
+msgstr "Uporabnik je prekinil prevajanje"
 
 #: src/translator/mozhitranslationprovider.cpp:139
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected translation language %1 is not supported for %2"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Destination language '%1' is not supported"
-msgstr "Izbrani jezik prevoda %1 ni podprt za %2"
+msgstr "Ciljni jezik '%1' ni podprt"
 
 #: src/translator/mozhitranslationprovider.cpp:147
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected source language %1 is not supported for %2"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Source language '%1' is not supported"
-msgstr "Izbrani izvorni jezik %1 ni podprt za %2"
+msgstr "Izvorni jezik '%1' ni podprt"
 
 #: src/translator/mozhitranslationprovider.cpp:204
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Network error: %1"
-msgstr "Napaka pojavka: %1"
+msgstr "Napaka omrežja: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:208
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Instance error: %1"
 msgstr "Napaka pojavka: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:212
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Parsing error: %1"
-msgstr "Napaka pojavka: %1"
+msgstr "Napaka razčlenjevanja: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:216
 #, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unsupported TTS engine: %1"
-msgstr ""
+msgstr "Nepodprt mehanizem za pretvorbo besedila v govor: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:220
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unknown error: %1"
-msgstr "Napaka pojavka: %1"
+msgstr "Neznana napaka: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:408
 msgctxt "MozhiTranslationProvider|"

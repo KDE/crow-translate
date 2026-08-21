@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-18 17:26+0300\n"
+"PO-Revision-Date: 2026-08-20 13:51+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -195,7 +195,7 @@ msgstr "Сталася помилка під час перекладу"
 #: src/cli.cpp:451
 msgctxt "Cli|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Невідома помилка"
 
 #: src/cli.cpp:452
 msgctxt "Cli|"
@@ -291,44 +291,29 @@ msgid "Edit languages"
 msgstr "Редагувати мови"
 
 #: src/languagesdialog.ui:24
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Add to current languages"
-msgstr "Поточні мови:"
+msgstr "Додати до поточних мов"
 
 #: src/languagesdialog.ui:38
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "LanguagesDialog|"
 msgid "Move language down"
-msgstr "Примусове визначення вихідної мови"
+msgstr "Пересунути мову нижче"
 
 #: src/languagesdialog.ui:55
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Remove from current languages"
-msgstr "Поточні мови:"
+msgstr "Вилучити з поточних мов"
 
 #: src/languagesdialog.ui:69
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Swap languages"
 msgctxt "LanguagesDialog|"
 msgid "Search languages"
-msgstr "Змінити мови місцями"
+msgstr "Шукати мови"
 
 #: src/languagesdialog.ui:79
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Available languages:"
 msgctxt "LanguagesDialog|"
 msgid "Move language up"
-msgstr "Доступні мови:"
+msgstr "Пересунути мову вище"
 
 #: src/languagesdialog.ui:109
 msgctxt "LanguagesDialog|"
@@ -447,9 +432,7 @@ msgstr ""
 "спробуйте іншого диктора або локаль."
 
 #: src/mainwindow.cpp:1123 src/mainwindow.cpp:1129
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Помилка: %1"
@@ -647,6 +630,9 @@ msgid ""
 "reasoning instead. Turn on \"Disable reasoning\" for this provider, or pick "
 "a model with a larger context."
 msgstr ""
+"Модель вичерпала жетони, перш ніж почала щось транскрибувати, витративши їх "
+"на міркування. Позначте пункт «Вимкнути міркування» для цього надавача даних "
+"або виберіть модель із ширшим контекстом."
 
 #: src/ocr/llmocr.cpp:264
 #, qt-format
@@ -656,6 +642,9 @@ msgid ""
 "of its %2 token limit. Try a smaller region, or a model with a larger "
 "context."
 msgstr ""
+"Модель вичерпала жетони, перш ніж почала щось транскрибувати: на зображення "
+"використано %1 з обмеження у %2 жетонів. Спробуйте меншу область або "
+"виберіть модель із ширшим контекстом."
 
 #: src/ocr/llmocr.cpp:269
 msgctxt "LlmOcr|"
@@ -663,6 +652,8 @@ msgid ""
 "The model ran out of tokens before transcribing anything. Try a smaller "
 "region, or a model with a larger context."
 msgstr ""
+"У моделі закінчилися жетони, перш ніж було почато будь-яке транскрибування. "
+"Спробуйте менший регіон або модель із ширшим контекстом."
 
 #: src/ocr/llmocr.cpp:273 src/ocr/llmocr.cpp:509
 #, qt-format
@@ -673,7 +664,7 @@ msgstr "Помилка LLM розпізнавання тексту: %1"
 #: src/ocr/llmocr.cpp:275
 msgctxt "LlmOcr|"
 msgid "The model returned no text for this image."
-msgstr ""
+msgstr "Модель не повернула тексту для цього зображення."
 
 #: src/ocr/llmocr.cpp:488
 msgctxt "LlmOcr|"
@@ -2977,12 +2968,12 @@ msgstr "Перетворювати перенесення рядків"
 #: src/settings/settingsdialog.ui:1131
 msgctxt "SettingsDialog|"
 msgid "Add parameter"
-msgstr ""
+msgstr "Додати параметр"
 
 #: src/settings/settingsdialog.ui:1141
 msgctxt "SettingsDialog|"
 msgid "Remove parameter"
-msgstr ""
+msgstr "Вилучити параметр"
 
 #: src/settings/settingsdialog.ui:1177
 msgctxt "SettingsDialog|"
@@ -3409,30 +3400,24 @@ msgid "Ready"
 msgstr "Готово"
 
 #: src/translator/atranslationprovider.cpp:57
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "ATranslationProvider|"
 msgid "Unsupported source language."
-msgstr "Примусове визначення вихідної мови"
+msgstr "Непідтримувана початкова мова."
 
 #: src/translator/atranslationprovider.cpp:59
 msgctxt "ATranslationProvider|"
 msgid "Unsupported destination language."
-msgstr ""
+msgstr "Непідтримувана мова призначення."
 
 #: src/translator/atranslationprovider.cpp:61
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Enable translation options"
 msgctxt "ATranslationProvider|"
 msgid "User aborted translation in progress"
-msgstr "Увімкнути налаштування перекладу"
+msgstr "Поточний переклад перервано користувачем"
 
 #: src/translator/atranslationprovider.cpp:65
 msgctxt "ATranslationProvider|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Невідома помилка"
 
 #: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"
@@ -3451,12 +3436,9 @@ msgstr ""
 "вибрати іншого надавача на сторінці «Параметри → Переклад»."
 
 #: src/translator/localaitranslationprovider.cpp:145
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected translation language %1 is not supported for %2"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Destination language is not supported"
-msgstr "Підтримки вибраної мови перекладу %1 для %2 не передбачено"
+msgstr "Підтримки мови призначення не передбачено"
 
 #: src/translator/localaitranslationprovider.cpp:297
 #, qt-format
@@ -3467,6 +3449,11 @@ msgid ""
 "reasoning instead of answering. Turn on \"Disable reasoning\" for this "
 "provider, translate less text at once, or pick a model with a larger context."
 msgstr ""
+"Модель вичерпала жетони перед записом перекладу: текст для перекладу "
+"використав %1 з обмеження на жетони у %2, а решту витратила на міркування "
+"замість відповіді. Позначте пункт «Вимкнути міркування» для цього надавача "
+"даних, перекладіть менше тексту за раз або виберіть модель з ширшим "
+"контекстом."
 
 #: src/translator/localaitranslationprovider.cpp:305
 msgctxt "LocalAiTranslationProvider|"
@@ -3475,6 +3462,9 @@ msgid ""
 "translation. Turn on \"Disable reasoning\" for this provider, translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
+"Модель витратила весь свій бюджет жетонів на міркування і так і не записала "
+"переклад. Позначте пункт «Вимкнути міркування» для цього надавача даних, "
+"перекладіть менше тексту за раз або виберіть модель із ширшим контекстом."
 
 #: src/translator/localaitranslationprovider.cpp:313
 #, qt-format
@@ -3484,6 +3474,9 @@ msgid ""
 "translate used %1 of its %2 token limit. Translate less text at once, or "
 "pick a model with a larger context."
 msgstr ""
+"Модель вичерпала жетони перед записом перекладу: текст для перекладу "
+"використав %1 з обмеження на жетони у %2. Перекладіть менше тексту за раз "
+"або виберіть модель з ширшим контекстом."
 
 #: src/translator/localaitranslationprovider.cpp:320
 msgctxt "LocalAiTranslationProvider|"
@@ -3491,111 +3484,83 @@ msgid ""
 "The model ran out of tokens before writing a translation. Translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
+"Модель вичерпала жетони перед записом перекладу. Перекладіть менше тексту за "
+"раз або виберіть модель з ширшим контекстом."
 
 #: src/translator/localaitranslationprovider.cpp:326
 #: src/translator/localaitranslationprovider.cpp:365
 #: src/translator/localaitranslationprovider.cpp:366
-#, fuzzy, qt-format
-#| msgctxt "LlmOcr|"
-#| msgid "LLM OCR error: %1"
+#, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI error: %1"
-msgstr "Помилка LLM розпізнавання тексту: %1"
+msgstr "Помилка LocalAI: %1"
 
 #: src/translator/localaitranslationprovider.cpp:329
-#, fuzzy
-#| msgctxt "LlmOcr|"
-#| msgid "LLM OCR returned an empty response"
 msgctxt "LocalAiTranslationProvider|"
 msgid "The model returned an empty response."
-msgstr "Засіб розпізнавання тексту LLM повернув порожню відповідь"
+msgstr "Модель повернула порожню відповідь."
 
 #: src/translator/localaitranslationprovider.cpp:350
-#, fuzzy
-#| msgctxt "LlmOcr|"
-#| msgid "LLM OCR request timed out"
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI request timed out"
-msgstr ""
-"Перевищено час очікування на виконання запиту щодо розпізнавання тексту LLM"
+msgstr "Перевищено час очікування на відповідь LocalAI"
 
 #: src/translator/localaitranslationprovider.cpp:408
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Language detection is not supported for %1"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Language detection timed out"
-msgstr "Підтримки виявлення мови для %1 не передбачено"
+msgstr "Перевищено час очікування на визначення мови"
 
 #: src/translator/localaitranslationprovider.cpp:469
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Дію перервано користувачем"
+msgstr "Переклад перервано користувачем"
 
 #: src/translator/mozhitranslationprovider.cpp:78
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "MozhiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Дію перервано користувачем"
+msgstr "Переклад перервано користувачем"
 
 #: src/translator/mozhitranslationprovider.cpp:139
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected translation language %1 is not supported for %2"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Destination language '%1' is not supported"
-msgstr "Підтримки вибраної мови перекладу %1 для %2 не передбачено"
+msgstr "Підтримки мови призначення «%1» не передбачено"
 
 #: src/translator/mozhitranslationprovider.cpp:147
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected source language %1 is not supported for %2"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Source language '%1' is not supported"
-msgstr "Обрана мова оригіналу %1 не підтримується %2"
+msgstr "Підтримки початкової мови «%1» не передбачено"
 
 #: src/translator/mozhitranslationprovider.cpp:204
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Network error: %1"
-msgstr "Помилка екземпляра: %1"
+msgstr "Помилка мережі: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:208
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Instance error: %1"
 msgstr "Помилка екземпляра: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:212
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Parsing error: %1"
-msgstr "Помилка екземпляра: %1"
+msgstr "Помилка обробки: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:216
 #, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unsupported TTS engine: %1"
-msgstr ""
+msgstr "Непідтримуваний рушій озвучення тексту: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:220
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unknown error: %1"
-msgstr "Помилка екземпляра: %1"
+msgstr "Невідома помилка: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:408
 msgctxt "MozhiTranslationProvider|"

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-19 12:09+0200\n"
+"PO-Revision-Date: 2026-08-20 12:50+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -193,7 +193,7 @@ msgstr "Došlo k chybě při překladu"
 #: src/cli.cpp:451
 msgctxt "Cli|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Neznámá chyba"
 
 #: src/cli.cpp:452
 msgctxt "Cli|"
@@ -289,44 +289,29 @@ msgid "Edit languages"
 msgstr "Upravit jazyky"
 
 #: src/languagesdialog.ui:24
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Add to current languages"
-msgstr "Aktuální jazyky:"
+msgstr "Přidat k aktuálním jazykům"
 
 #: src/languagesdialog.ui:38
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "LanguagesDialog|"
 msgid "Move language down"
-msgstr "Vynutit rozpoznání zdrojového jazyka"
+msgstr "Posunout jazyk dolů"
 
 #: src/languagesdialog.ui:55
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Remove from current languages"
-msgstr "Aktuální jazyky:"
+msgstr "Odstranit ze seznamu aktuálních jazyků"
 
 #: src/languagesdialog.ui:69
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Swap languages"
 msgctxt "LanguagesDialog|"
 msgid "Search languages"
-msgstr "Prohodit jazyky"
+msgstr "Vyhledat jazyky"
 
 #: src/languagesdialog.ui:79
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Available languages:"
 msgctxt "LanguagesDialog|"
 msgid "Move language up"
-msgstr "Dostupné jazyky:"
+msgstr "Posunout jazyk nahoru"
 
 #: src/languagesdialog.ui:109
 msgctxt "LanguagesDialog|"
@@ -445,9 +430,7 @@ msgstr ""
 "lokalizaci."
 
 #: src/mainwindow.cpp:1123 src/mainwindow.cpp:1129
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Chyba: %1"
@@ -645,6 +628,9 @@ msgid ""
 "reasoning instead. Turn on \"Disable reasoning\" for this provider, or pick "
 "a model with a larger context."
 msgstr ""
+"Modelu došly tokeny ještě předtím, než stačil něco přepsat, protože je "
+"spotřeboval na uvažování. U tohoto poskytovatele zapněte možnost \"Zakázat "
+"uvažování\" nebo vyberte model s větším kontextem."
 
 #: src/ocr/llmocr.cpp:264
 #, qt-format
@@ -654,6 +640,9 @@ msgid ""
 "of its %2 token limit. Try a smaller region, or a model with a larger "
 "context."
 msgstr ""
+"Modelu došly tokeny ještě předtím, než stačil cokoli přepsat: obrázek "
+"vyčerpal %1 z limitu %2 tokenů. Zkuste menší oblast nebo model s větším "
+"kontextem."
 
 #: src/ocr/llmocr.cpp:269
 msgctxt "LlmOcr|"
@@ -661,6 +650,8 @@ msgid ""
 "The model ran out of tokens before transcribing anything. Try a smaller "
 "region, or a model with a larger context."
 msgstr ""
+"Modelu došly tokeny ještě předtím, než stačil něco přepsat. Zkuste menší "
+"oblast nebo model s větším kontextem."
 
 #: src/ocr/llmocr.cpp:273 src/ocr/llmocr.cpp:509
 #, qt-format
@@ -671,7 +662,7 @@ msgstr "Chyba OCR v LLM: %1"
 #: src/ocr/llmocr.cpp:275
 msgctxt "LlmOcr|"
 msgid "The model returned no text for this image."
-msgstr ""
+msgstr "Model pro tento obrázek nevrátil žádný text."
 
 #: src/ocr/llmocr.cpp:488
 msgctxt "LlmOcr|"
@@ -2978,12 +2969,12 @@ msgstr "Převést konce řádků"
 #: src/settings/settingsdialog.ui:1131
 msgctxt "SettingsDialog|"
 msgid "Add parameter"
-msgstr ""
+msgstr "Přidat parametr"
 
 #: src/settings/settingsdialog.ui:1141
 msgctxt "SettingsDialog|"
 msgid "Remove parameter"
-msgstr ""
+msgstr "Odstranit parametr"
 
 #: src/settings/settingsdialog.ui:1177
 msgctxt "SettingsDialog|"
@@ -3403,30 +3394,24 @@ msgid "Ready"
 msgstr "Připraveno"
 
 #: src/translator/atranslationprovider.cpp:57
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "ATranslationProvider|"
 msgid "Unsupported source language."
-msgstr "Vynutit rozpoznání zdrojového jazyka"
+msgstr "Nepodporovaný zdrojový jazyk."
 
 #: src/translator/atranslationprovider.cpp:59
 msgctxt "ATranslationProvider|"
 msgid "Unsupported destination language."
-msgstr ""
+msgstr "Nepodporovaný cílový jazyk."
 
 #: src/translator/atranslationprovider.cpp:61
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Enable translation options"
 msgctxt "ATranslationProvider|"
 msgid "User aborted translation in progress"
-msgstr "Zapnout možnosti překladu"
+msgstr "Uživatel přerušil probíhající překlad"
 
 #: src/translator/atranslationprovider.cpp:65
 msgctxt "ATranslationProvider|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Neznámá chyba"
 
 #: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"
@@ -3445,12 +3430,9 @@ msgstr ""
 "vybrat jiného poskytovatele v nabídce Nastavení → Překlad."
 
 #: src/translator/localaitranslationprovider.cpp:145
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Error: Lingva engine is not supported"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Destination language is not supported"
-msgstr "Chyba: Jádro Lingva není podporováno"
+msgstr "Cílový jazyk není podporován"
 
 #: src/translator/localaitranslationprovider.cpp:297
 #, qt-format
@@ -3461,6 +3443,11 @@ msgid ""
 "reasoning instead of answering. Turn on \"Disable reasoning\" for this "
 "provider, translate less text at once, or pick a model with a larger context."
 msgstr ""
+"Modelu došly tokeny ještě před vytvořením překladu: překládaný text vyčerpal "
+"%1 z jeho limitu %2 tokenů a model spotřeboval zbývající tokeny na uvažování "
+"namísto vytvoření odpovědi. U tohoto poskytovatele zapněte možnost \"Zakázat "
+"uvažování\", překládejte menší množství textu najednou nebo vyberte model s "
+"větším kontextem."
 
 #: src/translator/localaitranslationprovider.cpp:305
 msgctxt "LocalAiTranslationProvider|"
@@ -3469,6 +3456,10 @@ msgid ""
 "translation. Turn on \"Disable reasoning\" for this provider, translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
+"Model vyčerpal celý svůj rozpočet tokenů na uvažování a nikdy nevytvořil "
+"překlad. U tohoto poskytovatele zapněte možnost \"Zakázat uvažování\", "
+"překládejte menší množství textu najednou nebo vyberte model s větším "
+"kontextem."
 
 #: src/translator/localaitranslationprovider.cpp:313
 #, qt-format
@@ -3478,6 +3469,9 @@ msgid ""
 "translate used %1 of its %2 token limit. Translate less text at once, or "
 "pick a model with a larger context."
 msgstr ""
+"Modelu došly tokeny ještě před vytvořením překladu: překládaný text vyčerpal "
+"%1 z jeho limitu %2 tokenů. Překládejte méně textu najednou nebo vyberte "
+"model s větším kontextem."
 
 #: src/translator/localaitranslationprovider.cpp:320
 msgctxt "LocalAiTranslationProvider|"
@@ -3485,110 +3479,84 @@ msgid ""
 "The model ran out of tokens before writing a translation. Translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
+"Modelu došly tokeny ještě předtím, než stačil vygenerovat překlad. "
+"Překládejte menší množství textu najednou, nebo vyberte model s větším "
+"kontextem."
 
 #: src/translator/localaitranslationprovider.cpp:326
 #: src/translator/localaitranslationprovider.cpp:365
 #: src/translator/localaitranslationprovider.cpp:366
-#, fuzzy, qt-format
-#| msgctxt "LlmOcr|"
-#| msgid "LLM OCR error: %1"
+#, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI error: %1"
-msgstr "Chyba OCR v LLM: %1"
+msgstr "Chyba LocalAI: %1"
 
 #: src/translator/localaitranslationprovider.cpp:329
-#, fuzzy
-#| msgctxt "LlmOcr|"
-#| msgid "LLM OCR returned an empty response"
 msgctxt "LocalAiTranslationProvider|"
 msgid "The model returned an empty response."
-msgstr "LLM OCR vrátil prázdnou odpověď"
+msgstr "Model vrátil prázdnou odpověď."
 
 #: src/translator/localaitranslationprovider.cpp:350
-#, fuzzy
-#| msgctxt "LlmOcr|"
-#| msgid "LLM OCR request timed out"
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI request timed out"
-msgstr "Vypršel časový limit požadavku OCR v LLM"
+msgstr "Vypršel časový limit požadavku LocalAI"
 
 #: src/translator/localaitranslationprovider.cpp:408
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Language detection is not supported for %1"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Language detection timed out"
-msgstr "Rozpoznávání jazyka není pro %1 podporováno"
+msgstr "Vypršel časový limit pro detekci jazyka"
 
 #: src/translator/localaitranslationprovider.cpp:469
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Operace byla přerušena uživatelem"
+msgstr "Překlad byl uživatelem přerušen"
 
 #: src/translator/mozhitranslationprovider.cpp:78
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "MozhiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Operace byla přerušena uživatelem"
+msgstr "Překlad byl uživatelem přerušen"
 
 #: src/translator/mozhitranslationprovider.cpp:139
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Lingva engine is not supported"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Destination language '%1' is not supported"
-msgstr "Chyba: Jádro Lingva není podporováno"
+msgstr "Cílový jazyk '%1' není podporován"
 
 #: src/translator/mozhitranslationprovider.cpp:147
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Lingva engine is not supported"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Source language '%1' is not supported"
-msgstr "Chyba: Jádro Lingva není podporováno"
+msgstr "Zdrojový jazyk '%1' není podporován"
 
 #: src/translator/mozhitranslationprovider.cpp:204
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Network error: %1"
-msgstr "Chyba instance: %1"
+msgstr "Chyba sítě: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:208
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Instance error: %1"
 msgstr "Chyba instance: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:212
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Parsing error: %1"
-msgstr "Chyba instance: %1"
+msgstr "Chyba zpracování: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:216
 #, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unsupported TTS engine: %1"
-msgstr ""
+msgstr "Nepodporovaný modul TTS: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:220
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unknown error: %1"
-msgstr "Chyba instance: %1"
+msgstr "Neznámá chyba: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:408
 msgctxt "MozhiTranslationProvider|"

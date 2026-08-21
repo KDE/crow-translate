@@ -189,7 +189,7 @@ msgstr "აღმოჩენილია თარგმანის შეც�
 #: src/cli.cpp:451
 msgctxt "Cli|"
 msgid "Unknown error"
-msgstr ""
+msgstr "უცნობი შეცდომა"
 
 #: src/cli.cpp:452
 msgctxt "Cli|"
@@ -285,44 +285,29 @@ msgid "Edit languages"
 msgstr "ენების ჩასწორება"
 
 #: src/languagesdialog.ui:24
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Add to current languages"
-msgstr "მიმდინარე ენები:"
+msgstr "დამატება მიმდინარე ენებში"
 
 #: src/languagesdialog.ui:38
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "LanguagesDialog|"
 msgid "Move language down"
-msgstr "ნაძალადევი წყარო ენის დადგენა"
+msgstr "ენის ჩამოწევა"
 
 #: src/languagesdialog.ui:55
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Remove from current languages"
-msgstr "მიმდინარე ენები:"
+msgstr "წაშლა მიმდინარე ენებიდან"
 
 #: src/languagesdialog.ui:69
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Swap languages"
 msgctxt "LanguagesDialog|"
 msgid "Search languages"
-msgstr "ენების მიმოცვლა"
+msgstr "ენების ძებნა"
 
 #: src/languagesdialog.ui:79
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Available languages:"
 msgctxt "LanguagesDialog|"
 msgid "Move language up"
-msgstr "ხელმისაწვდომი ენები:"
+msgstr "ენის აწევა"
 
 #: src/languagesdialog.ui:109
 msgctxt "LanguagesDialog|"
@@ -442,9 +427,7 @@ msgstr ""
 "შეამოწმეთ TTS-ის პარამეტრები, ან სცადეთ სხვა ხმა/ენა."
 
 #: src/mainwindow.cpp:1123 src/mainwindow.cpp:1129
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "შეცდომა: %1"
@@ -642,6 +625,9 @@ msgid ""
 "reasoning instead. Turn on \"Disable reasoning\" for this provider, or pick "
 "a model with a larger context."
 msgstr ""
+"მოდელს ყველა ტოკენი დაეხარჯა რამის ტრანსკრიბირებამდე. მან ყველაფერი "
+"მსჯელობაზე დახარჯა. ჩართეთ 'მსჯელობის გამორთვა' ამ მომწოდებლისთვის, ან აიღეთ "
+"მოდელი უფრო დიდი კონტექსტით."
 
 #: src/ocr/llmocr.cpp:264
 #, qt-format
@@ -651,6 +637,9 @@ msgid ""
 "of its %2 token limit. Try a smaller region, or a model with a larger "
 "context."
 msgstr ""
+"მოდელს ყველა ტოკენი დაეხარჯა რამის ტრანსკრიბირებამდე: გამოსახულებამ დახარჯა "
+"%1 მისი %2 ტოკენის ლიმიტიდან. სცადეთ უფრო მცირე რეგიონი, ან მოდელი უფრო დიდი "
+"კონტექსტიტ."
 
 #: src/ocr/llmocr.cpp:269
 msgctxt "LlmOcr|"
@@ -658,6 +647,8 @@ msgid ""
 "The model ran out of tokens before transcribing anything. Try a smaller "
 "region, or a model with a larger context."
 msgstr ""
+"მოდელს ყველა ტოკენი დაეხარჯა რამის ტრანსკრიბირებამდე. სცადეთ უფრო პატარა "
+"რეგიონი, ან მოდელი უფრო დიდი კონტექსტით."
 
 #: src/ocr/llmocr.cpp:273 src/ocr/llmocr.cpp:509
 #, qt-format
@@ -668,7 +659,7 @@ msgstr "LLM OCR-ის შეცდომა: %1"
 #: src/ocr/llmocr.cpp:275
 msgctxt "LlmOcr|"
 msgid "The model returned no text for this image."
-msgstr ""
+msgstr "მოდელმა ამ გამოსახულებისთვის ტექსტი არ დააბრუნა."
 
 #: src/ocr/llmocr.cpp:488
 msgctxt "LlmOcr|"
@@ -2968,12 +2959,12 @@ msgstr "ხაზის გადატანების გადაყვა�
 #: src/settings/settingsdialog.ui:1131
 msgctxt "SettingsDialog|"
 msgid "Add parameter"
-msgstr ""
+msgstr "პარამეტრის დამატება"
 
 #: src/settings/settingsdialog.ui:1141
 msgctxt "SettingsDialog|"
 msgid "Remove parameter"
-msgstr ""
+msgstr "პარამეტრის წაშლა"
 
 #: src/settings/settingsdialog.ui:1177
 msgctxt "SettingsDialog|"
@@ -3398,30 +3389,24 @@ msgid "Ready"
 msgstr "მზადაა"
 
 #: src/translator/atranslationprovider.cpp:57
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "ATranslationProvider|"
 msgid "Unsupported source language."
-msgstr "ნაძალადევი წყარო ენის დადგენა"
+msgstr "მხარდაუჭერელი წყარო ენა."
 
 #: src/translator/atranslationprovider.cpp:59
 msgctxt "ATranslationProvider|"
 msgid "Unsupported destination language."
-msgstr ""
+msgstr "უცნობი სამიზნე ენა."
 
 #: src/translator/atranslationprovider.cpp:61
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Enable translation options"
 msgctxt "ATranslationProvider|"
 msgid "User aborted translation in progress"
-msgstr "თარგმანის პარამეტრების ჩართვა"
+msgstr "მომხმარებელმა შეწყვიტა თარგმანის მიმდინარეობა"
 
 #: src/translator/atranslationprovider.cpp:65
 msgctxt "ATranslationProvider|"
 msgid "Unknown error"
-msgstr ""
+msgstr "უცნობი შეცდომა"
 
 #: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"
@@ -3440,12 +3425,9 @@ msgstr ""
 "შეგიძლიათ, აირჩიოთ სხვა მომწოდებელი მენიუში მორგება -> თარგმანი."
 
 #: src/translator/localaitranslationprovider.cpp:145
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Error: Lingva engine is not supported"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Destination language is not supported"
-msgstr "შეცდომა: ძრავა Lingva მხარდაჭერილი არაა"
+msgstr "სამიზნე ენა მხარდაჭერილი არაა"
 
 #: src/translator/localaitranslationprovider.cpp:297
 #, qt-format
@@ -3456,6 +3438,10 @@ msgid ""
 "reasoning instead of answering. Turn on \"Disable reasoning\" for this "
 "provider, translate less text at once, or pick a model with a larger context."
 msgstr ""
+"მოდელს ყველა ტოკენი დაეხარჯა თარგმანის ჩაწერამდე: სათარგმნმა ტექსტმა "
+"გამოიყენება %1 მისი %2 ტოკენიდან და რაც დარჩა, პასუხის გაცემის მაგიერ "
+"მსჯელობაში დაიხარჯა. ჩართეთ 'მსჯელობის გამორთვა' ამ მომწოდებლისთვის, "
+"ერთდროულად ნაკლები ტექსტი თარგმნეთ, ან აირჩიეთ მოდელი უფრო დიდი კონტექსტით."
 
 #: src/translator/localaitranslationprovider.cpp:305
 msgctxt "LocalAiTranslationProvider|"
@@ -3464,6 +3450,9 @@ msgid ""
 "translation. Turn on \"Disable reasoning\" for this provider, translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
+"მოდელმა თავისი ტოკენების ბიუჯეტი სრულად დახარჯა მსჯელობაზე და თარგმანი არ "
+"ჩაუწერია. ჩართეთ 'მსჯელობის გამორთვა' ამ მომწოდებლისთვის, თარგმნეთ "
+"ერთდროულად ნაკლები ტექსტი, ან აირჩიეთ მოდელი უფრო დიდი კონტექსტით."
 
 #: src/translator/localaitranslationprovider.cpp:313
 #, qt-format
@@ -3473,6 +3462,9 @@ msgid ""
 "translate used %1 of its %2 token limit. Translate less text at once, or "
 "pick a model with a larger context."
 msgstr ""
+"მოდელს ტოკენები თარგმანის ჩაწერამდე გაუთავდა: სათარგმნმა ტექსტმა დახარჯა %1 "
+"ტოკენი მისი %2-იანი ლიმიტიდან. თარგმნეთ ნაკლები ტექსტი ერთდროულად, ან "
+"აირჩიეთ მოდელი უფრო დიდი კონტექსტით."
 
 #: src/translator/localaitranslationprovider.cpp:320
 msgctxt "LocalAiTranslationProvider|"
@@ -3480,110 +3472,83 @@ msgid ""
 "The model ran out of tokens before writing a translation. Translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
+"მოდელს ტოკენები თარგმნის ჩაწერამდე გაუთავდა. თარგმნეთ ერთდროულად ნაკლები "
+"ტექსტი, ან აირჩიეთ მოდელი უფრო დიდი კონტექსტით."
 
 #: src/translator/localaitranslationprovider.cpp:326
 #: src/translator/localaitranslationprovider.cpp:365
 #: src/translator/localaitranslationprovider.cpp:366
-#, fuzzy, qt-format
-#| msgctxt "LlmOcr|"
-#| msgid "LLM OCR error: %1"
+#, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI error: %1"
-msgstr "LLM OCR-ის შეცდომა: %1"
+msgstr "LocalAI-ის შეცდომა: %1"
 
 #: src/translator/localaitranslationprovider.cpp:329
-#, fuzzy
-#| msgctxt "LlmOcr|"
-#| msgid "LLM OCR returned an empty response"
 msgctxt "LocalAiTranslationProvider|"
 msgid "The model returned an empty response."
-msgstr "LLM OCR-მა ცარიელი პასუხი დააბრუნა"
+msgstr "მოდელმა ცარიელი პასუხი დააბრუნა."
 
 #: src/translator/localaitranslationprovider.cpp:350
-#, fuzzy
-#| msgctxt "LlmOcr|"
-#| msgid "LLM OCR request timed out"
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI request timed out"
-msgstr "LLM OCR-ის მოთხოვნის ვადა ამოიწურა"
+msgstr "LocalAI-ის მოთხოვნის ვადა ამოიწურა"
 
 #: src/translator/localaitranslationprovider.cpp:408
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Language detection is not supported for %1"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Language detection timed out"
-msgstr "%1-ზე ენის დადგენა მხარდაჭერილი არაა"
+msgstr "ენის დადგენის მოლოდინის ვადა ამოიწურა"
 
 #: src/translator/localaitranslationprovider.cpp:469
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "ოპერაცია გაუქმებულია მომხმარებლის მიერ"
+msgstr "თარგმანი შეწყდა მომხმარებლის მიერ"
 
 #: src/translator/mozhitranslationprovider.cpp:78
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "MozhiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "ოპერაცია გაუქმებულია მომხმარებლის მიერ"
+msgstr "თარგმანი შეწყდა მომხმარებლის მიერ"
 
 #: src/translator/mozhitranslationprovider.cpp:139
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Lingva engine is not supported"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Destination language '%1' is not supported"
-msgstr "შეცდომა: ძრავა Lingva მხარდაჭერილი არაა"
+msgstr "სამიზნე ენა '%1' მხარდაჭერილი არაა"
 
 #: src/translator/mozhitranslationprovider.cpp:147
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Lingva engine is not supported"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Source language '%1' is not supported"
-msgstr "შეცდომა: ძრავა Lingva მხარდაჭერილი არაა"
+msgstr "წყარო ენა '%1' მხარდაჭერილი არაა"
 
 #: src/translator/mozhitranslationprovider.cpp:204
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Network error: %1"
-msgstr "ასლის შეცდომა: %1"
+msgstr "ქსელის შეცდომა: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:208
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Instance error: %1"
 msgstr "ასლის შეცდომა: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:212
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Parsing error: %1"
-msgstr "ასლის შეცდომა: %1"
+msgstr "დამუშავების შეცდომა: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:216
 #, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unsupported TTS engine: %1"
-msgstr ""
+msgstr "მხარდაუჭერელი TTS-ის ძრავა: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:220
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unknown error: %1"
-msgstr "ასლის შეცდომა: %1"
+msgstr "უცნობი შეცდომა: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:408
 msgctxt "MozhiTranslationProvider|"
