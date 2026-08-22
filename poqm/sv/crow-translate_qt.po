@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-18 18:33+0200\n"
+"PO-Revision-Date: 2026-08-21 19:20+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -187,7 +187,7 @@ msgstr "Översättningsfel inträffade"
 #: src/cli.cpp:451
 msgctxt "Cli|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Okänt fel"
 
 #: src/cli.cpp:452
 msgctxt "Cli|"
@@ -283,44 +283,29 @@ msgid "Edit languages"
 msgstr "Redigera språk"
 
 #: src/languagesdialog.ui:24
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Add to current languages"
-msgstr "Aktuella språk:"
+msgstr "Lägg till i aktuella språk"
 
 #: src/languagesdialog.ui:38
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "LanguagesDialog|"
 msgid "Move language down"
-msgstr "Tvinga detektering av källspråk"
+msgstr "Flytta språk neråt"
 
 #: src/languagesdialog.ui:55
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Remove from current languages"
-msgstr "Aktuella språk:"
+msgstr "Ta bort från aktuella språk"
 
 #: src/languagesdialog.ui:69
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Swap languages"
 msgctxt "LanguagesDialog|"
 msgid "Search languages"
-msgstr "Byt språk"
+msgstr "Sök efter språk"
 
 #: src/languagesdialog.ui:79
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Available languages:"
 msgctxt "LanguagesDialog|"
 msgid "Move language up"
-msgstr "Tillgängliga språk:"
+msgstr "Flytta språk uppåt"
 
 #: src/languagesdialog.ui:109
 msgctxt "LanguagesDialog|"
@@ -441,9 +426,7 @@ msgstr ""
 "annat land."
 
 #: src/mainwindow.cpp:1123 src/mainwindow.cpp:1129
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Fel: %1"
@@ -640,6 +623,9 @@ msgid ""
 "reasoning instead. Turn on \"Disable reasoning\" for this provider, or pick "
 "a model with a larger context."
 msgstr ""
+"Modellen fick slut på tokens innan någonting transkriberades, efter att ha "
+"använt dem till resonemang istället. Aktivera \"Inaktivera resonemang\" för "
+"leverantören eller välj en modell med ett större sammanhang."
 
 #: src/ocr/llmocr.cpp:264
 #, qt-format
@@ -649,6 +635,9 @@ msgid ""
 "of its %2 token limit. Try a smaller region, or a model with a larger "
 "context."
 msgstr ""
+"Modellen fick slut på tokens innan någonting transkriberades: bilden använde "
+"%1 av dess gräns på %2 tokens. Försök med en mindre region eller en modell "
+"med ett större sammanhang."
 
 #: src/ocr/llmocr.cpp:269
 msgctxt "LlmOcr|"
@@ -656,6 +645,8 @@ msgid ""
 "The model ran out of tokens before transcribing anything. Try a smaller "
 "region, or a model with a larger context."
 msgstr ""
+"Modellen fick slut på tokens innan någonting transkriberades. Försök med en "
+"mindre region eller en modell med ett större sammanhang."
 
 #: src/ocr/llmocr.cpp:273 src/ocr/llmocr.cpp:509
 #, qt-format
@@ -666,7 +657,7 @@ msgstr "Fel vid LLM optisk teckentydning: %1"
 #: src/ocr/llmocr.cpp:275
 msgctxt "LlmOcr|"
 msgid "The model returned no text for this image."
-msgstr ""
+msgstr "Modellen returnerade inte någon text för bilden."
 
 #: src/ocr/llmocr.cpp:488
 msgctxt "LlmOcr|"
@@ -2738,7 +2729,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:740
 msgctxt "SettingsDialog|"
 msgid "Force source language detection"
-msgstr "Tvinga detektering av källspråk"
+msgstr "Tvinga detektering av ursprungsspråk"
 
 #: src/settings/settingsdialog.ui:750
 msgctxt "SettingsDialog|"
@@ -2757,8 +2748,8 @@ msgid ""
 "Auto. If no detection model is selected, translation falls back to the "
 "configured primary language above."
 msgstr ""
-"Leverantör och modell som används för att identifiera källspråket när det är "
-"inställt på Automatiskt. Om ingen identifieringsmodell väljs återgår "
+"Leverantör och modell som används för att identifiera ursprungsspråket när "
+"det är inställt på Automatiskt. Om ingen identifieringsmodell väljs återgår "
 "översättningen till det inställda primära språket ovan."
 
 #: src/settings/settingsdialog.ui:771
@@ -2966,12 +2957,12 @@ msgstr "Konvertera radbrytningar"
 #: src/settings/settingsdialog.ui:1131
 msgctxt "SettingsDialog|"
 msgid "Add parameter"
-msgstr ""
+msgstr "Lägg till parameter"
 
 #: src/settings/settingsdialog.ui:1141
 msgctxt "SettingsDialog|"
 msgid "Remove parameter"
-msgstr ""
+msgstr "Ta bort parameter"
 
 #: src/settings/settingsdialog.ui:1177
 msgctxt "SettingsDialog|"
@@ -3399,30 +3390,24 @@ msgid "Ready"
 msgstr "Redo"
 
 #: src/translator/atranslationprovider.cpp:57
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "ATranslationProvider|"
 msgid "Unsupported source language."
-msgstr "Tvinga detektering av källspråk"
+msgstr "Ursprungsspråket stöds inte."
 
 #: src/translator/atranslationprovider.cpp:59
 msgctxt "ATranslationProvider|"
 msgid "Unsupported destination language."
-msgstr ""
+msgstr "Resultatspråket stöds inte."
 
 #: src/translator/atranslationprovider.cpp:61
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Enable translation options"
 msgctxt "ATranslationProvider|"
 msgid "User aborted translation in progress"
-msgstr "Aktivera översättningsalternativ"
+msgstr "Användaren avbröt pågående översättning"
 
 #: src/translator/atranslationprovider.cpp:65
 msgctxt "ATranslationProvider|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Okänt fel"
 
 #: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"
@@ -3441,12 +3426,9 @@ msgstr ""
 "att välja en annan leverantör i Inställningar → Översättning."
 
 #: src/translator/localaitranslationprovider.cpp:145
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Error: Lingva engine is not supported"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Destination language is not supported"
-msgstr "Fel: Lingva-gränssnittet stöds inte"
+msgstr "Resultatspråket stöds inte"
 
 #: src/translator/localaitranslationprovider.cpp:297
 #, qt-format
@@ -3457,6 +3439,11 @@ msgid ""
 "reasoning instead of answering. Turn on \"Disable reasoning\" for this "
 "provider, translate less text at once, or pick a model with a larger context."
 msgstr ""
+"Modellen fick slut på tokens innan en översättning skrevs: texten som skulle "
+"översättas använde %1 av dess gräns på %2 tokens, och den använde det som "
+"var kvar på att resonera istället för att svara. Aktivera \"Inaktivera "
+"resonemang\" för leverantören, översätt mindre text åt gången eller välj en "
+"modell med ett större sammanhang."
 
 #: src/translator/localaitranslationprovider.cpp:305
 msgctxt "LocalAiTranslationProvider|"
@@ -3465,6 +3452,10 @@ msgid ""
 "translation. Turn on \"Disable reasoning\" for this provider, translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
+"Modellen använde hela sin budget av tokens på att resonera och skrev aldrig "
+"en översättning. Aktivera \"Inaktivera resonemang\" för leverantören, "
+"översätt mindre text åt gången eller välj en modell med ett större "
+"sammanhang."
 
 #: src/translator/localaitranslationprovider.cpp:313
 #, qt-format
@@ -3474,6 +3465,9 @@ msgid ""
 "translate used %1 of its %2 token limit. Translate less text at once, or "
 "pick a model with a larger context."
 msgstr ""
+"Modellen fick slut på tokens innan en översättning skrevs: texten som skulle "
+"översättas använde %1 av dess gräns på %2 tokens. Översätt mindre text åt "
+"gången eller välj en modell med ett större sammanhang."
 
 #: src/translator/localaitranslationprovider.cpp:320
 msgctxt "LocalAiTranslationProvider|"
@@ -3481,110 +3475,83 @@ msgid ""
 "The model ran out of tokens before writing a translation. Translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
+"Modellen fick slut på tokens innan en översättning skrevs. Översätt mindre "
+"text åt gången eller välj en modell med ett större sammanhang."
 
 #: src/translator/localaitranslationprovider.cpp:326
 #: src/translator/localaitranslationprovider.cpp:365
 #: src/translator/localaitranslationprovider.cpp:366
-#, fuzzy, qt-format
-#| msgctxt "LlmOcr|"
-#| msgid "LLM OCR error: %1"
+#, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI error: %1"
-msgstr "Fel vid LLM optisk teckentydning: %1"
+msgstr "Lokalt AI fel: %1"
 
 #: src/translator/localaitranslationprovider.cpp:329
-#, fuzzy
-#| msgctxt "LlmOcr|"
-#| msgid "LLM OCR returned an empty response"
 msgctxt "LocalAiTranslationProvider|"
 msgid "The model returned an empty response."
-msgstr "LLM optisk teckentydning returnerade ett tomt svar"
+msgstr "Modellen returnerade ett tomt svar"
 
 #: src/translator/localaitranslationprovider.cpp:350
-#, fuzzy
-#| msgctxt "LlmOcr|"
-#| msgid "LLM OCR request timed out"
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI request timed out"
-msgstr "Tidsgräns för LLM optisk teckentydning gick ut"
+msgstr "Tidsgräns för lokal AI gick ut"
 
 #: src/translator/localaitranslationprovider.cpp:408
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Language detection is not supported for %1"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Language detection timed out"
-msgstr "Språkdetektering stöds inte för %1"
+msgstr "Tidsgräns för språkdetektering gick ut"
 
 #: src/translator/localaitranslationprovider.cpp:469
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Åtgärden avbröts av användaren"
+msgstr "Översättningen avbröts av användaren"
 
 #: src/translator/mozhitranslationprovider.cpp:78
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "MozhiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Åtgärden avbröts av användaren"
+msgstr "Översättningen avbröts av användaren"
 
 #: src/translator/mozhitranslationprovider.cpp:139
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Lingva engine is not supported"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Destination language '%1' is not supported"
-msgstr "Fel: Lingva-gränssnittet stöds inte"
+msgstr "Resultatspråket '%1' stöds inte"
 
 #: src/translator/mozhitranslationprovider.cpp:147
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Lingva engine is not supported"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Source language '%1' is not supported"
-msgstr "Fel: Lingva-gränssnittet stöds inte"
+msgstr "Ursprungsspråket '%1' stöds inte"
 
 #: src/translator/mozhitranslationprovider.cpp:204
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Network error: %1"
-msgstr "Instansfel: %1"
+msgstr "Nätverksfel: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:208
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Instance error: %1"
 msgstr "Instansfel: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:212
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Parsing error: %1"
-msgstr "Instansfel: %1"
+msgstr "Tolkningsfel: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:216
 #, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unsupported TTS engine: %1"
-msgstr ""
+msgstr "TTS-gränssnitt stöds inte: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:220
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unknown error: %1"
-msgstr "Instansfel: %1"
+msgstr "Okänt fel: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:408
 msgctxt "MozhiTranslationProvider|"
