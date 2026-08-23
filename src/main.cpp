@@ -14,6 +14,8 @@
 #include "singleapplication.h"
 #include "settings/appsettings.h"
 
+#include <QTimer>
+
 #ifdef WITH_KICONTHEMES
 #include <KIconTheme>
 #endif
@@ -140,7 +142,14 @@ int launchCli(int argc, char *argv[])
     settings.setupLocalization();
 
     Cli cli;
-    cli.process(app);
+    // Deferred rather than called directly: process() can run all the way to
+    // completion before exec() starts - --codes prints and returns, and a
+    // provider that answers synchronously (Copy) finishes inside the call.
+    // QCoreApplication::quit() issued with no event loop running is simply
+    // discarded, so the process then sat forever with its work already done.
+    QTimer::singleShot(0, &cli, [&cli, &app] {
+        cli.process(app);
+    });
 
     return QCoreApplication::exec();
 }

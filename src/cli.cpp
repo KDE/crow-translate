@@ -12,11 +12,13 @@
 #include "provideroptionsmanager.h"
 #include "settings/appsettings.h"
 #include "translator/atranslationprovider.h"
+#include "translator/translationlogic.h"
 #include "tts/attsprovider.h"
 
 #include <QCommandLineParser>
 #include <QCoreApplication>
 #include <QFile>
+#include <QHash>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QMetaObject>
@@ -24,6 +26,65 @@
 #include <QTimer>
 
 #include <cstdlib>
+
+namespace
+{
+// User-facing messages must not go through qCritical()/qInfo(). Qt built with
+// journald support - which several distributions enable - routes categorised
+// logging to the journal rather than stderr, so on those builds every reason
+// the CLI gave for refusing to do something went to the system log and never
+// appeared in the terminal that asked for it. The user saw a bare usage
+// message, or nothing at all. QCommandLineParser writes its own errors
+// straight to stderr for the same reason.
+//
+// Diagnostics go to stderr, never stdout: stdout carries the translation, and
+// a caller redirecting it must not have anything else mixed in.
+QTextStream &errorStream()
+{
+    static QTextStream stream(stderr);
+    return stream;
+}
+
+void printError(const QString &message)
+{
+    errorStream() << message << Qt::endl;
+}
+
+// Every backend builds its result as HTML, because MainWindow renders it with
+// setHtml(). A terminal is not a QTextEdit, so the CLI was printing that
+// markup literally - "hallo Welt<br><font color=\"grey\"><i>/.../</i></font>"
+// - in plain, --brief and --json output alike, and reading the tags out loud
+// when asked to speak the translation.
+//
+// Undo the rendering. The vocabulary is small and entirely ours: <br> for
+// line breaks, <b>/<i>/<font> for emphasis, &nbsp; for the indent on example
+// lines. Tags go before entities are decoded, so source text that genuinely
+// contained "<b>" - which the backend escaped to "&lt;b&gt;" - survives
+// instead of being mistaken for markup and dropped.
+//
+// This is a stopgap. The real fix is for backends to hand over the fields
+// (translation, transliterations, examples) and let each frontend render
+// them, rather than shipping one frontend's rendering to all of them.
+QString htmlResultToPlainText(const QString &html)
+{
+    static const QRegularExpression lineBreak(QStringLiteral("<br\\s*/?>"), QRegularExpression::CaseInsensitiveOption);
+    static const QRegularExpression anyTag(QStringLiteral("<[^>]*>"));
+
+    QString text = html;
+    text.replace(lineBreak, QStringLiteral("\n"));
+    text.remove(anyTag);
+
+    text.replace(QStringLiteral("&nbsp;"), QStringLiteral(" "));
+    text.replace(QStringLiteral("&lt;"), QStringLiteral("<"));
+    text.replace(QStringLiteral("&gt;"), QStringLiteral(">"));
+    text.replace(QStringLiteral("&quot;"), QStringLiteral("\""));
+    text.replace(QStringLiteral("&#39;"), QStringLiteral("'"));
+    // Last of the entities: decoding "&amp;" any earlier would turn an
+    // escaped "&amp;lt;" - a literal "&lt;" in the text - back into a "<".
+    text.replace(QStringLiteral("&amp;"), QStringLiteral("&"));
+    return text;
+}
+} // namespace
 
 Cli::Cli(QObject *parent)
     : QObject(parent)
@@ -43,19 +104,30 @@ void Cli::process(const QCoreApplication &app)
                                          tr("Specify the translation language(s), split by '+' (by default, the system language is used)."),
                                          QStringLiteral("code"),
                                          QStringLiteral("auto"));
-    const QCommandLineOption engine({"e", "engine"},
-                                    tr("Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' or 'lingva'), Google is used by default."),
-                                    QStringLiteral("engine"),
-                                    QStringLiteral("google"));
+    const QCommandLineOption engine(
+        {"e", "engine"},
+        tr("Specify the translator engine ('google', 'yandex', 'bing', 'deepl', 'libretranslate', 'mymemory' or 'reverso'), Google is used by default."),
+        QStringLiteral("engine"),
+        QStringLiteral("google"));
     const QCommandLineOption url({"u", "url"},
                                  tr("Specify Mozhi instance URL. Instance URL from the app settings will be used by default."),
                                  QStringLiteral("URL"),
                                  settings.instance());
     const QCommandLineOption translationProvider({"tp", "translation-provider"},
-                                                 tr("Specify translation provider ('copy' or 'mozhi'). Provider from app settings will be used by default."),
+                                                 tr("Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from app settings will be used by default."),
                                                  QStringLiteral("provider"));
+    // Built without WITH_TTS there is nothing but 'none' to choose, and
+    // without WITH_PIPER_TTS 'piper' is rejected by the parsing below - so
+    // the text has to be guarded the same way the parsing is, or the binary
+    // advertises providers it then refuses.
     const QCommandLineOption ttsProvider({"tts", "tts-provider"},
-                                         tr("Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from app settings will be used by default."),
+#if defined(WITH_PIPER_TTS)
+                                         tr("Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app settings will be used by default."),
+#elif defined(WITH_TTS)
+                                         tr("Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings will be used by default."),
+#else
+                                         tr("Specify TTS provider ('none'). This build has text-to-speech disabled."),
+#endif
                                          QStringLiteral("provider"));
     const QCommandLineOption speakTranslation({"r", "speak-translation"}, tr("Speak the translation."));
     const QCommandLineOption speakSource({"o", "speak-source"}, tr("Speak the source."));
@@ -92,15 +164,45 @@ void Cli::process(const QCoreApplication &app)
     checkIncompatibleOptions(parser, json, brief);
 
     if (parser.isSet(audioOnly) && !parser.isSet(speakSource) && !parser.isSet(speakTranslation)) {
-        qCritical() << tr("Error: For --%1 you must specify --%2 and/or --%3 options")
-                           .arg(audioOnly.names().at(1), speakSource.names().at(1), speakTranslation.names().at(1))
-                    << '\n';
-        parser.showHelp(1);
+        exitWithUsage(parser,
+                      tr("Error: For --%1 you must specify --%2 and/or --%3 options")
+                          .arg(audioOnly.names().at(1), speakSource.names().at(1), speakTranslation.names().at(1)));
     }
 
-    // Only show language codes
+    // Resolve the engine name once, before anything uses it: the translation
+    // provider and the TTS provider both take it, and they must agree.
+    OnlineTranslator::Engine selectedEngine = OnlineTranslator::Google;
+    if (parser.isSet(engine)) {
+        const std::optional<OnlineTranslator::Engine> resolved = engineFromName(parser.value(engine));
+        if (!resolved.has_value())
+            exitWithUsage(parser, tr("Error: Unknown engine '%1'").arg(parser.value(engine)));
+        selectedEngine = *resolved;
+    }
+
+    // Initialize translation provider - determine backend from CLI or settings
+    ATranslationProvider::ProviderBackend translationBackend = settings.translationProviderBackend();
+    if (parser.isSet(translationProvider)) {
+        const QString providerName = parser.value(translationProvider).toLower();
+        if (providerName == "copy") {
+            translationBackend = ATranslationProvider::ProviderBackend::Copy;
+        } else if (providerName == "mozhi") {
+            translationBackend = ATranslationProvider::ProviderBackend::Mozhi;
+        } else if (providerName == "localai" || providerName == "ollama") {
+            translationBackend = ATranslationProvider::ProviderBackend::LocalAI;
+        } else {
+            exitWithUsage(parser, tr("Error: Unknown translation provider '%1'").arg(providerName));
+        }
+    }
+
+    m_translator = ATranslationProvider::createTranslationProvider(this, translationBackend);
+    connect(m_translator, &ATranslationProvider::stateChanged, this, &Cli::onTranslationStateChanged);
+
+    // Only show language codes. Deliberately placed after the provider exists
+    // and before anything needs an instance: the list comes from the provider,
+    // but producing it makes no request.
     if (parser.isSet(codes)) {
         printLangCodes();
+        cleanup();
         QCoreApplication::quit();
         return;
     }
@@ -112,21 +214,30 @@ void Cli::process(const QCoreApplication &app)
     } else {
         m_sourceLang = Language(sourceLangCode);
         if (m_sourceLang == Language::autoLanguage()) {
-            qCritical() << tr("Error: Unknown source language code '%1'").arg(sourceLangCode) << '\n';
-            parser.showHelp(1);
+            exitWithUsage(parser, tr("Error: Unknown source language code '%1'").arg(sourceLangCode));
         }
     }
 
     // Translation languages
     const QString translationValue = parser.value(translation);
     if (translationValue == "auto") {
-        m_translationLanguages.append(Language(QLocale::system()));
+        // The rule the window already uses, via the same function
+        // (MainWindow::preferredTranslationLanguage calls it too), so "auto"
+        // does not mean two different things depending on which frontend
+        // asked. The CLI used to take the system locale unconditionally and
+        // ignore the configured primary/secondary pair, so `crow -s en text`
+        // on an English system asked for English to English and got the
+        // source back - while the window, given the same settings and the
+        // same text, translated it into the primary language.
+        m_translationLanguages.append(TranslationLogic::preferredDestination(m_sourceLang,
+                                                                             settings.primaryLanguage(),
+                                                                             settings.secondaryLanguage(),
+                                                                             Language(QLocale::system())));
     } else {
         for (const QString &langCode : translationValue.split('+')) {
             const Language language = Language(langCode);
             if (language == Language::autoLanguage()) {
-                qCritical() << tr("Error: Unknown translation language code '%1'").arg(langCode) << '\n';
-                parser.showHelp(1);
+                exitWithUsage(parser, tr("Error: Unknown translation language code '%1'").arg(langCode));
             }
             m_translationLanguages.append(language);
         }
@@ -149,32 +260,12 @@ void Cli::process(const QCoreApplication &app)
         m_sourceText.chop(1);
 
     if (m_sourceText.isEmpty()) {
-        qCritical() << tr("Error: There is no text for translation") << '\n';
-        parser.showHelp(1);
+        exitWithUsage(parser, tr("Error: There is no text for translation"));
     }
-
-    // Initialize translation provider - determine backend from CLI or settings
-    ATranslationProvider::ProviderBackend translationBackend = settings.translationProviderBackend();
-    if (parser.isSet(translationProvider)) {
-        const QString providerName = parser.value(translationProvider).toLower();
-        if (providerName == "copy") {
-            translationBackend = ATranslationProvider::ProviderBackend::Copy;
-        } else if (providerName == "mozhi") {
-            translationBackend = ATranslationProvider::ProviderBackend::Mozhi;
-        } else if (providerName == "localai" || providerName == "ollama") {
-            translationBackend = ATranslationProvider::ProviderBackend::LocalAI;
-        } else {
-            qCritical() << tr("Error: Unknown translation provider '%1'").arg(providerName) << '\n';
-            parser.showHelp(1);
-        }
-    }
-
-    m_translator = ATranslationProvider::createTranslationProvider(this, translationBackend);
-    connect(m_translator, &ATranslationProvider::stateChanged, this, &Cli::onTranslationStateChanged);
 
     // Set up Mozhi instance for auto-detection (only if no URL specified)
     if (!parser.isSet(url) && settings.instance().isEmpty()) {
-        qInfo() << tr("Detecting fastest instance");
+        printError(tr("Detecting fastest instance"));
 
         InstancePinger pinger;
         QEventLoop loop;
@@ -202,34 +293,8 @@ void Cli::process(const QCoreApplication &app)
 
         // Override engine if specified
         if (parser.isSet(engine)) {
-            const QString engineName = parser.value(engine);
-            int engineValue = -1;
-            if (engineName == "google") {
-                engineValue = static_cast<int>(OnlineTranslator::Google);
-            } else if (engineName == "yandex") {
-                engineValue = static_cast<int>(OnlineTranslator::Yandex);
-            } else if (engineName == "bing" || engineName == "duckduckgo") {
-                engineValue = static_cast<int>(OnlineTranslator::Duckduckgo);
-            } else if (engineName == "libretranslate") {
-                engineValue = static_cast<int>(OnlineTranslator::LibreTranslate);
-            } else if (engineName == "lingva") {
-                qCritical() << tr("Error: Lingva engine is not supported") << '\n';
-                parser.showHelp(1);
-            } else if (engineName == "mymemory") {
-                engineValue = static_cast<int>(OnlineTranslator::Mymemory);
-            } else if (engineName == "reverso") {
-                engineValue = static_cast<int>(OnlineTranslator::Reverso);
-            } else if (engineName == "deepl") {
-                engineValue = static_cast<int>(OnlineTranslator::Deepl);
-            } else {
-                qCritical() << tr("Error: Unknown engine") << '\n';
-                parser.showHelp(1);
-            }
-
-            if (engineValue != -1) {
-                options->setOption("engine", engineValue);
-                hasOverrides = true;
-            }
+            options->setOption("engine", static_cast<int>(selectedEngine));
+            hasOverrides = true;
         }
 
         // Apply CLI overrides if any
@@ -262,8 +327,7 @@ void Cli::process(const QCoreApplication &app)
             }
 #endif
             else {
-                qCritical() << tr("Error: Unknown TTS provider '%1'").arg(providerName) << '\n';
-                parser.showHelp(1);
+                exitWithUsage(parser, tr("Error: Unknown TTS provider '%1'").arg(providerName));
             }
         }
 
@@ -287,30 +351,13 @@ void Cli::process(const QCoreApplication &app)
                 hasTTSOverrides = true;
             }
 
-            // Override engine if specified
+            // Override engine if specified. This used to be a second copy
+            // of the mapping above, and a divergent one: an unknown name was
+            // silently ignored here while the translation path rejected it,
+            // so speech quietly fell back to the default engine.
             if (parser.isSet(engine)) {
-                const QString engineName = parser.value(engine);
-                int engineValue = -1;
-                if (engineName == "google") {
-                    engineValue = static_cast<int>(OnlineTranslator::Google);
-                } else if (engineName == "yandex") {
-                    engineValue = static_cast<int>(OnlineTranslator::Yandex);
-                } else if (engineName == "bing" || engineName == "duckduckgo") {
-                    engineValue = static_cast<int>(OnlineTranslator::Duckduckgo);
-                } else if (engineName == "libretranslate") {
-                    engineValue = static_cast<int>(OnlineTranslator::LibreTranslate);
-                } else if (engineName == "mymemory") {
-                    engineValue = static_cast<int>(OnlineTranslator::Mymemory);
-                } else if (engineName == "reverso") {
-                    engineValue = static_cast<int>(OnlineTranslator::Reverso);
-                } else if (engineName == "deepl") {
-                    engineValue = static_cast<int>(OnlineTranslator::Deepl);
-                }
-
-                if (engineValue != -1) {
-                    ttsOptions->setOption("engine", engineValue);
-                    hasTTSOverrides = true;
-                }
+                ttsOptions->setOption("engine", static_cast<int>(selectedEngine));
+                hasTTSOverrides = true;
             }
 
             // Apply CLI overrides if any
@@ -341,17 +388,20 @@ void Cli::onTranslationStateChanged(ATranslationProvider::State state)
         if (m_translator->error != ATranslationProvider::TranslationError::NoError) {
             const QString errorString = m_translator->getErrorString();
             if (!errorString.isEmpty()) {
-                qCritical() << tr("Error: %1").arg(errorString);
+                printError(tr("Error: %1").arg(errorString));
             } else {
-                qCritical() << tr("Translation error occurred");
+                printError(tr("Translation error occurred"));
             }
+            flushJsonOutput();
             cleanup();
             QCoreApplication::exit(1);
             return;
         }
 
         // Translation successful
-        m_currentTranslationResult = m_translator->result;
+        // Converted once, here: printTranslation() has three output modes
+        // and speakText() must not read markup aloud either.
+        m_currentTranslationResult = htmlResultToPlainText(m_translator->result);
 
         // Update source language with detected language if auto-detection was used
         if (m_sourceLang == Language::autoLanguage() && m_translator->sourceLanguage != Language::autoLanguage()) {
@@ -370,15 +420,17 @@ void Cli::onTranslationStateChanged(ATranslationProvider::State state)
             if (m_speakSource) {
                 m_ttsState = TTSState::SpeakingSource;
                 m_waitingForTTS = true;
-                speakText(m_sourceText, m_sourceLang);
-                return;
-            }
-            if (m_speakTranslation) {
+                if (speakText(m_sourceText, m_sourceLang))
+                    return;
+            } else if (m_speakTranslation) {
                 m_ttsState = TTSState::SpeakingTranslation;
                 m_waitingForTTS = true;
-                speakText(m_currentTranslationResult, m_currentTargetLang);
-                return;
+                if (speakText(m_currentTranslationResult, m_currentTargetLang))
+                    return;
             }
+            // Speech never started, so nothing will report that it finished.
+            // Fall through and advance the run instead of waiting.
+            m_waitingForTTS = false;
         }
 
         // No TTS needed, move to next translation
@@ -390,12 +442,17 @@ void Cli::onTranslationStateChanged(ATranslationProvider::State state)
         if (m_translator->error != ATranslationProvider::TranslationError::NoError) {
             const QString errorString = m_translator->getErrorString();
             if (!errorString.isEmpty()) {
-                qCritical() << tr("Error: %1").arg(errorString);
+                printError(tr("Error: %1").arg(errorString));
             } else {
-                qCritical() << tr("Translation error occurred");
+                printError(tr("Translation error occurred"));
             }
+            // std::exit() here skipped every QTextStream destructor, so
+            // anything still buffered - including the JSON document - was
+            // lost on the way out. Unwind through the event loop instead.
+            flushJsonOutput();
             cleanup();
-            std::exit(1);
+            QCoreApplication::exit(1);
+            return;
         }
 
         // Reset for next translation
@@ -435,8 +492,13 @@ void Cli::onTTSStateChanged(QTextToSpeech::State state)
             }
 
             qDebug() << "About to call speakText for translation";
-            speakText(m_currentTranslationResult, m_currentTargetLang);
-            qDebug() << "Called speakText for translation";
+            if (speakText(m_currentTranslationResult, m_currentTargetLang))
+                return;
+
+            m_waitingForTTS = false;
+            m_ttsState = TTSState::None;
+            m_currentTranslationIndex++;
+            processNextTranslation();
             return;
         }
 
@@ -449,7 +511,7 @@ void Cli::onTTSStateChanged(QTextToSpeech::State state)
         processNextTranslation();
     } else if (state == QTextToSpeech::Error) {
         const QString errorString = (m_tts != nullptr) ? m_tts->errorString() : tr("Unknown error");
-        qCritical() << tr("Error: TTS failed") << errorString;
+        printError(tr("Error: TTS failed: %1").arg(errorString));
         m_waitingForTTS = false;
         m_ttsState = TTSState::None;
 
@@ -470,8 +532,9 @@ void Cli::translateText(const QString &text, const Language &sourceLang, const L
 void Cli::processNextTranslation()
 {
     if (m_currentTranslationIndex >= m_translationLanguages.size()) {
+        flushJsonOutput();
         cleanup();
-        QCoreApplication::quit();
+        QCoreApplication::exit(m_exitCode);
         return;
     }
 
@@ -481,18 +544,15 @@ void Cli::processNextTranslation()
 
 void Cli::printTranslation()
 {
-    // JSON mode
+    // JSON mode: collect, do not print. One target language produced one
+    // top-level object, so asking for several emitted several of them back to
+    // back - which is not a JSON document and no ordinary parser will read it.
     if (m_json) {
-        // For JSON, we'd need to create a JSON structure
-        // This is simplified for now
-        QJsonDocument doc;
-        QJsonObject obj;
-        obj["source"] = m_sourceText;
-        obj["translation"] = m_currentTranslationResult;
-        obj["source_language"] = m_sourceLang.name();
-        obj["target_language"] = m_currentTargetLang.name();
-        doc.setObject(obj);
-        m_stdout << doc.toJson();
+        QJsonObject entry;
+        entry[QStringLiteral("language")] = m_currentTargetLang.toCode();
+        entry[QStringLiteral("language_name")] = m_currentTargetLang.name();
+        entry[QStringLiteral("text")] = m_currentTranslationResult;
+        m_jsonTranslations.append(entry);
         return;
     }
 
@@ -522,20 +582,65 @@ void Cli::printTranslation()
     m_stdout.flush();
 }
 
-void Cli::speakText(const QString &text, const Language &language)
+void Cli::flushJsonOutput()
+{
+    if (!m_json || m_jsonEmitted)
+        return;
+
+    m_jsonEmitted = true;
+
+    QJsonObject root;
+    root[QStringLiteral("source")] = m_sourceText;
+    // Codes, not display names: "English" is for people, and this output is
+    // not for people. The name is kept alongside for the ones that have no
+    // familiar code.
+    root[QStringLiteral("source_language")] = m_sourceLang.toCode();
+    root[QStringLiteral("source_language_name")] = m_sourceLang.name();
+    root[QStringLiteral("translations")] = m_jsonTranslations;
+
+    m_stdout << QJsonDocument(root).toJson();
+    m_stdout.flush();
+}
+
+bool Cli::speakText(const QString &text, const Language &language)
 {
     qDebug() << "=== ENTERED speakText ===";
     qDebug() << "Text:" << text;
     qDebug() << "Language:" << language.name();
 
     if (m_tts == nullptr) {
-        qWarning() << "TTS provider not initialized";
-        return;
+        reportSpeechUnavailable(tr("no provider was created"));
+        return false;
     }
 
     if (text.isEmpty()) {
         qWarning() << "Cannot speak empty text";
-        return;
+        return false;
+    }
+
+    // A provider that cannot speak never emits a state change, and the wait
+    // at the end of this function would then never end - the process sat
+    // there forever with the translation already printed. Neither way of
+    // getting here needs any misconfiguration:
+    //
+    //   --tts none (or a settings default of None) builds a NoopTTSProvider
+    //   whose state() reports Ready and whose say() does nothing whatsoever,
+    //   so nothing is ever emitted;
+    //
+    //   a Qt engine with no reachable speech plugin is already in Error when
+    //   it is handed over, so there is no *transition* into Error for
+    //   onTTSStateChanged()'s error branch to fire on either.
+    //
+    // Both have to be caught here, before anything starts waiting.
+    if (m_tts->state() == QTextToSpeech::Error) {
+        const QString reason = m_tts->errorString();
+        reportSpeechUnavailable(reason.isEmpty() ? tr("the engine failed to start") : reason);
+        return false;
+    }
+
+    if (m_tts->availableLanguages().isEmpty()) {
+        reportSpeechUnavailable(tr("the selected provider has no voices available"));
+        return false;
     }
 
     qDebug() << "TTS: Speaking text:" << text << "with language:" << language.name();
@@ -572,21 +677,55 @@ void Cli::speakText(const QString &text, const Language &language)
         });
     }
     qDebug() << "TTS: speakText() method completed";
+    return true;
+}
+
+void Cli::reportSpeechUnavailable(const QString &reason)
+{
+    // The user asked for speech and is not getting it, so the run has not
+    // done what it was told to; say so in the exit code as well.
+    m_exitCode = 1;
+    if (m_speechUnavailableReported)
+        return;
+
+    m_speechUnavailableReported = true;
+    printError(tr("Error: text-to-speech is unavailable: %1").arg(reason));
 }
 
 void Cli::printLangCodes()
 {
-    // Print common language codes
-    QList<QLocale::Language> languages;
-    languages << QLocale::English << QLocale::Spanish << QLocale::French << QLocale::German << QLocale::Italian << QLocale::Portuguese << QLocale::Russian
-              << QLocale::Chinese << QLocale::Japanese << QLocale::Korean << QLocale::Arabic << QLocale::Hindi << QLocale::Dutch << QLocale::Swedish
-              << QLocale::NorwegianBokmal << QLocale::Danish << QLocale::Finnish << QLocale::Polish << QLocale::Czech << QLocale::Hungarian << QLocale::Romanian
-              << QLocale::Bulgarian << QLocale::Greek << QLocale::Turkish << QLocale::Hebrew << QLocale::Thai << QLocale::Vietnamese << QLocale::Ukrainian
-              << QLocale::Croatian << QLocale::Slovak << QLocale::Slovenian << QLocale::Estonian << QLocale::Latvian << QLocale::Lithuanian;
+    // Was a hardcoded list of 34 QLocale entries that had nothing to do with
+    // the selected provider. It left out every language Mozhi registers which
+    // QLocale has no equivalent for - Sranan Tongo, Hill Mari, the creoles,
+    // some forty of them - so precisely the codes a user cannot guess were the
+    // ones --codes would not tell them, while the option called itself
+    // "Display all language codes".
+    //
+    // Ask the provider, which already has to answer this for the GUI's
+    // language lists. Source and destination are listed separately only when
+    // they actually differ; every backend in tree returns one set for both.
+    const QVector<Language> sourceLanguages = m_translator->supportedSourceLanguages();
+    const QVector<Language> destinationLanguages = m_translator->supportedDestinationLanguages();
 
-    for (const auto &lang : std::as_const(languages)) {
-        const Language language = Language(QLocale(lang));
-        m_stdout << QLocale::languageToString(lang) << " - " << language.toCode() << '\n';
+    if (sourceLanguages == destinationLanguages) {
+        printLanguageList(sourceLanguages);
+    } else {
+        m_stdout << tr("Source languages:") << '\n';
+        printLanguageList(sourceLanguages);
+        m_stdout << '\n'
+                 << tr("Translation languages:") << '\n';
+        printLanguageList(destinationLanguages);
+    }
+    m_stdout.flush();
+}
+
+void Cli::printLanguageList(const QVector<Language> &languages)
+{
+    for (const Language &language : languages) {
+        const QString code = language.toCode();
+        if (code.isEmpty())
+            continue;
+        m_stdout << code << " - " << language.name() << '\n';
     }
 }
 
@@ -603,11 +742,36 @@ void Cli::cleanup()
     }
 }
 
+std::optional<OnlineTranslator::Engine> Cli::engineFromName(const QString &name)
+{
+    static const QHash<QString, OnlineTranslator::Engine> engines = {
+        {QStringLiteral("google"), OnlineTranslator::Google},
+        {QStringLiteral("yandex"), OnlineTranslator::Yandex},
+        {QStringLiteral("deepl"), OnlineTranslator::Deepl},
+        {QStringLiteral("bing"), OnlineTranslator::Duckduckgo},
+        {QStringLiteral("duckduckgo"), OnlineTranslator::Duckduckgo},
+        {QStringLiteral("libretranslate"), OnlineTranslator::LibreTranslate},
+        {QStringLiteral("mymemory"), OnlineTranslator::Mymemory},
+        {QStringLiteral("reverso"), OnlineTranslator::Reverso},
+    };
+
+    const auto found = engines.constFind(name.toLower());
+    if (found == engines.constEnd())
+        return std::nullopt;
+    return *found;
+}
+
+void Cli::exitWithUsage(const QCommandLineParser &parser, const QString &message)
+{
+    printError(message);
+    errorStream() << parser.helpText() << Qt::flush;
+    ::exit(1);
+}
+
 void Cli::checkIncompatibleOptions(QCommandLineParser &parser, const QCommandLineOption &option1, const QCommandLineOption &option2)
 {
     if (parser.isSet(option1) && parser.isSet(option2)) {
-        qCritical() << tr("Error: You can't use --%1 with --%2").arg(option1.names().at(1), option2.names().at(1)) << '\n';
-        parser.showHelp(1);
+        exitWithUsage(parser, tr("Error: You can't use --%1 with --%2").arg(option1.names().at(1), option2.names().at(1)));
     }
 }
 
@@ -619,12 +783,12 @@ QByteArray Cli::readFilesFromStdin()
     for (const QString &filePath : stdinText.split(whitespace, Qt::SkipEmptyParts)) {
         QFile file(filePath);
         if (!file.exists()) {
-            qCritical() << tr("Error: File does not exist: %1").arg(file.fileName());
+            printError(tr("Error: File does not exist: %1").arg(file.fileName()));
             continue;
         }
 
         if (!file.open(QFile::ReadOnly)) {
-            qCritical() << tr("Error: Unable to open file: %1").arg(file.fileName());
+            printError(tr("Error: Unable to open file: %1").arg(file.fileName()));
             continue;
         }
 
@@ -640,12 +804,12 @@ QByteArray Cli::readFilesFromArguments(const QStringList &arguments)
     for (const QString &filePath : arguments) {
         QFile file(filePath);
         if (!file.exists()) {
-            qCritical() << tr("Error: File does not exist: %1").arg(file.fileName());
+            printError(tr("Error: File does not exist: %1").arg(file.fileName()));
             continue;
         }
 
         if (!file.open(QFile::ReadOnly)) {
-            qCritical() << tr("Error: Unable to open file: %1").arg(file.fileName());
+            printError(tr("Error: Unable to open file: %1").arg(file.fileName()));
             continue;
         }
 

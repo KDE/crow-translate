@@ -51,7 +51,12 @@ void CopyTranslationProvider::translate(const QString &inputText, const Language
     state = State::Processing;
     emit stateChanged(state);
     if (translationLang == sourceLang) {
-        result = inputText;
+        // result is HTML: MainWindow renders it with setHtml(). Copying the
+        // input in raw broke that contract - source text containing "<b>"
+        // came back rendered as bold instead of shown - and left the CLI
+        // unable to tell a provider's markup from a user's angle brackets.
+        // Escape exactly as Mozhi and LocalAI do.
+        result = inputText.toHtmlEscaped().replace(QStringLiteral("\n"), QStringLiteral("<br>"));
         state = State::Processed;
         error = TranslationError::NoError;
     } else {

@@ -79,6 +79,20 @@ if(UNIX)
     add_test(NAME SingleApplicationRecoveryTest COMMAND test_singleapplication_recovery)
 endif()
 
+# End-to-end CLI tests. Drives the real built binary via QProcess, because
+# what they pin (event-loop lifecycle, stream routing, exit codes) only
+# exists in a real process - see the header comment in test_cli.cpp.
+add_executable(test_cli
+    test_cli.cpp
+)
+target_compile_definitions(test_cli PRIVATE CROW_BINARY_PATH="$<TARGET_FILE:${PROJECT_NAME}>")
+add_dependencies(test_cli ${PROJECT_NAME})
+target_link_libraries(test_cli PRIVATE
+    test-support
+    Qt6::Test
+)
+add_test(NAME CliTest COMMAND test_cli)
+
 add_executable(test_translation
     test_translation.cpp
 )
@@ -277,7 +291,7 @@ endif()
 # configuration (see build.zsh's build-test/build-test-nopiper) still builds
 # and runs them.
 if(NOT BUILD_TESTING)
-    foreach(_test_target IN ITEMS test_helper_window test_dbus_static_init test_popupwindow_lifetime test_snippingarea_flags test_ttsprovider_isolation test_translation test_localai_provider test_settingsdialog_localai test_llmocr test_llmocr_live test_visionmodelprobe test_translationlogic test_languageresolution test_modulestatus test_statusstrip test_snippingarea_terminal test_mainwindow_status test_mainwindow_features test_appsettings_prompts test_translation_provider_contract)
+    foreach(_test_target IN ITEMS test_helper_window test_dbus_static_init test_cli test_popupwindow_lifetime test_snippingarea_flags test_ttsprovider_isolation test_translation test_localai_provider test_settingsdialog_localai test_llmocr test_llmocr_live test_visionmodelprobe test_translationlogic test_languageresolution test_modulestatus test_statusstrip test_snippingarea_terminal test_mainwindow_status test_mainwindow_features test_appsettings_prompts test_translation_provider_contract)
         set_target_properties(${_test_target} PROPERTIES EXCLUDE_FROM_ALL TRUE)
     endforeach()
     if(TARGET test_singleapplication_recovery)
