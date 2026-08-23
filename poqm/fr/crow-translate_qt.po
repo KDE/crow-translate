@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-16 13:45+0200\n"
+"PO-Revision-Date: 2026-08-21 13:23+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -198,7 +198,7 @@ msgstr "Une erreur de traduction s'est produite"
 #: src/cli.cpp:451
 msgctxt "Cli|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Erreur inconnue"
 
 #: src/cli.cpp:452
 msgctxt "Cli|"
@@ -296,44 +296,29 @@ msgid "Edit languages"
 msgstr "Éditer les langues"
 
 #: src/languagesdialog.ui:24
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Add to current languages"
-msgstr "Langue actuelle :"
+msgstr "Ajouter aux langue courantes"
 
 #: src/languagesdialog.ui:38
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "LanguagesDialog|"
 msgid "Move language down"
-msgstr "Forcer la détection de la langue source"
+msgstr "Déplacer la langue vers le haut"
 
 #: src/languagesdialog.ui:55
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Remove from current languages"
-msgstr "Langue actuelle :"
+msgstr "Supprimer des langues courantes"
 
 #: src/languagesdialog.ui:69
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Swap languages"
 msgctxt "LanguagesDialog|"
 msgid "Search languages"
-msgstr "Échanger des langues"
+msgstr "Rechercher des langues"
 
 #: src/languagesdialog.ui:79
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Available languages:"
 msgctxt "LanguagesDialog|"
 msgid "Move language up"
-msgstr "Langues disponibles :"
+msgstr "Déplace la langue vers le haut"
 
 #: src/languagesdialog.ui:109
 msgctxt "LanguagesDialog|"
@@ -375,7 +360,7 @@ msgstr "L'image pour reconnaissance optique de caractères (OCR) est normale"
 #: src/mainwindow.cpp:604
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
-msgstr ""
+msgstr "L'OCR n'est pas configuré."
 
 #: src/mainwindow.cpp:604
 #, fuzzy
@@ -426,12 +411,9 @@ msgstr ""
 "L'icône spécifiée « %1 » est non valable. L'icône par défaut sera utilisée."
 
 #: src/mainwindow.cpp:942
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to set OCR languages"
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
-msgstr "Impossible de définir les langues OCR"
+msgstr "Impossible de définir les langues de l'OCR"
 
 #: src/mainwindow.cpp:942
 #, fuzzy, qt-format
@@ -464,12 +446,10 @@ msgstr ""
 "voix / paramètres régionaux."
 
 #: src/mainwindow.cpp:1123 src/mainwindow.cpp:1129
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
-msgstr "Erreur : %1"
+msgstr "Erreur : %1"
 
 #: src/mainwindow.cpp:1944
 #, qt-format
@@ -481,7 +461,7 @@ msgstr "Image trop volumineuse (%1 Mpix). %2 Mpix maximum."
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
-msgstr ""
+msgstr "Échec de l'OCR : %1"
 
 #: src/mainwindow.cpp:2138 src/mainwindow.cpp:2195
 #, qt-format
@@ -496,7 +476,7 @@ msgstr ""
 #: src/mainwindow.cpp:2186 src/mainwindow.cpp:2195
 msgctxt "MainWindow|"
 msgid "Open image"
-msgstr ""
+msgstr "Ouvrir l'image"
 
 #: src/mainwindow.cpp:2188
 #, fuzzy
@@ -548,12 +528,9 @@ msgid "Copy source text to the clipboard"
 msgstr "Copier le texte source dans le presse-papiers"
 
 #: src/mainwindow.ui:173 src/mainwindow.ui:176
-#, fuzzy
-#| msgctxt "ShortcutsModel|"
-#| msgid "Recognize text in screen area"
 msgctxt "MainWindow|"
 msgid "Recognize text in an image file"
-msgstr "Reconnaître le texte dans la zone d'écran"
+msgstr "Reconnaître du texte dans un fichier d'image"
 
 #: src/mainwindow.ui:186 src/mainwindow.ui:189
 msgctxt "MainWindow|"
@@ -609,75 +586,57 @@ msgstr "Paramètres de l'application"
 #: src/modulestatus.cpp:271
 msgctxt "ModuleStatus|"
 msgid "Waiting for capture"
-msgstr ""
+msgstr "En attente de capture"
 
 #: src/modulestatus.cpp:273
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Select icon"
 msgctxt "ModuleStatus|"
 msgid "Select a region"
-msgstr "Choisir l'icône"
+msgstr "Sélectionnez une région"
 
 #: src/modulestatus.cpp:275
 msgctxt "ModuleStatus|"
 msgid "Recognizing text"
-msgstr ""
+msgstr "Reconnaissance de texte"
 
 #: src/modulestatus.cpp:277
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translation"
 msgctxt "ModuleStatus|"
 msgid "Translating"
-msgstr "Traduction"
+msgstr "Traduction en cours"
 
 #: src/modulestatus.cpp:279
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Unable to detect language"
 msgctxt "ModuleStatus|"
 msgid "Detecting language"
-msgstr "Impossible de détecter la langue"
+msgstr "Détection de la langue en cours"
 
 #: src/modulestatus.cpp:281
 msgctxt "ModuleStatus|"
 msgid "Preparing speech"
-msgstr ""
+msgstr "Préparation de la synthèse vocale"
 
 #: src/modulestatus.cpp:283
-#, fuzzy
-#| msgctxt "ShortcutsModel|"
-#| msgid "Stop text speaking"
 msgctxt "ModuleStatus|"
 msgid "Speaking"
-msgstr "Arrêter la lecture du texte"
+msgstr "Énonciation vocale"
 
 #: src/modulestatus.cpp:285
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Capture delay:"
 msgctxt "ModuleStatus|"
 msgid "Capture failed"
-msgstr "Délai de capture :"
+msgstr "Échec de la capture"
 
 #: src/modulestatus.cpp:287
 msgctxt "ModuleStatus|"
 msgid "OCR failed"
-msgstr ""
+msgstr "Échec de la reconnaissance optique de caractères"
 
 #: src/modulestatus.cpp:289
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation backend:"
 msgctxt "ModuleStatus|"
 msgid "Translation failed"
-msgstr "Moteur de traduction :"
+msgstr "Échec de la traduction"
 
 #: src/modulestatus.cpp:291
 msgctxt "ModuleStatus|"
 msgid "Speech error"
-msgstr ""
+msgstr "Erreur de synthèse vocale"
 
 #: src/ocr/llmocr.cpp:259
 msgctxt "LlmOcr|"
@@ -704,12 +663,10 @@ msgid ""
 msgstr ""
 
 #: src/ocr/llmocr.cpp:273 src/ocr/llmocr.cpp:509
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "LlmOcr|"
 msgid "LLM OCR error: %1"
-msgstr "Erreur : %1"
+msgstr "Erreur du LLM de l'OCR : %1"
 
 #: src/ocr/llmocr.cpp:275
 msgctxt "LlmOcr|"
@@ -719,7 +676,7 @@ msgstr ""
 #: src/ocr/llmocr.cpp:488
 msgctxt "LlmOcr|"
 msgid "LLM OCR request timed out"
-msgstr ""
+msgstr "Le temps alloué à la demande de LLM OCR a expiré."
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 msgctxt "AbstractScreenGrabber|"
@@ -2097,7 +2054,7 @@ msgstr "Copier la traduction dans le presse-papiers"
 #: src/settings/appsettings.cpp:700
 msgctxt "AppSettings|"
 msgid "OpenAI-compatible (custom)"
-msgstr ""
+msgstr "Compatible OpenAI (Personnalisé)"
 
 #: src/settings/appsettings.cpp:1538
 #, qt-format
@@ -2216,12 +2173,9 @@ msgid "Timeout:"
 msgstr "Délai d'attente :"
 
 #: src/settings/settingsdialog.cpp:390 src/settings/settingsdialog.cpp:509
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid " ms"
 msgctxt "SettingsDialog|"
 msgid " s"
-msgstr " ms"
+msgstr " s"
 
 #: src/settings/settingsdialog.cpp:391
 msgctxt "SettingsDialog|"
@@ -2248,20 +2202,17 @@ msgstr "Réinitialiser le prompt de texte"
 #: src/settings/settingsdialog.cpp:468
 msgctxt "SettingsDialog|"
 msgid "OCR engine:"
-msgstr ""
+msgstr "Moteur OCR :"
 
 #: src/settings/settingsdialog.cpp:472
 msgctxt "SettingsDialog|"
 msgid "Tesseract"
-msgstr ""
+msgstr "Tesseract"
 
 #: src/settings/settingsdialog.cpp:473
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Vision model:"
 msgctxt "SettingsDialog|"
 msgid "Vision model (LLM)"
-msgstr "Mode de vision :"
+msgstr "Mode de Vision (LLM)"
 
 #: src/settings/settingsdialog.cpp:483
 msgctxt "SettingsDialog|"
@@ -2285,25 +2236,22 @@ msgstr ""
 #: src/settings/settingsdialog.cpp:541
 msgctxt "SettingsDialog|"
 msgid "Model:"
-msgstr ""
+msgstr "Modèle :"
 
 #: src/settings/settingsdialog.cpp:555
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Reset Text prompt"
 msgctxt "SettingsDialog|"
 msgid "Reset OCR prompt"
-msgstr "Réinitialiser le prompt de texte"
+msgstr "Réinitialiser le prompt de l'OCR"
 
 #: src/settings/settingsdialog.cpp:616
 msgctxt "SettingsDialog|"
 msgid "— Server reports image support —"
-msgstr ""
+msgstr "— Le serveur signale la prise en charge des images —"
 
 #: src/settings/settingsdialog.cpp:620
 msgctxt "SettingsDialog|"
 msgid "— Image support not reported —"
-msgstr ""
+msgstr "— Prise en charge des images non signalée —"
 
 #: src/settings/settingsdialog.cpp:633
 msgctxt "SettingsDialog|"
@@ -2333,17 +2281,14 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/settings/settingsdialog.cpp:699
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Vision model:"
 msgctxt "SettingsDialog|"
 msgid "Vision model"
-msgstr "Mode de vision :"
+msgstr "Mode de vision"
 
 #: src/settings/settingsdialog.cpp:699
 msgctxt "SettingsDialog|"
 msgid "Enter the endpoint URL first."
-msgstr ""
+msgstr "Saisissez d'abord l'URL du point de terminaison."
 
 #: src/settings/settingsdialog.cpp:709 src/settings/settingsdialog.cpp:929
 msgctxt "SettingsDialog|"
@@ -2741,7 +2686,7 @@ msgstr "<html><head/><body><p>Sélectionnez l'icône</p></body></html>"
 #: src/settings/settingsdialog.ui:635
 msgctxt "SettingsDialog|"
 msgid "Status bar"
-msgstr ""
+msgstr "Barre d'état"
 
 #: src/settings/settingsdialog.ui:641
 #, fuzzy
@@ -2760,7 +2705,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:644
 msgctxt "SettingsDialog|"
 msgid "Show status bar"
-msgstr ""
+msgstr "Afficher la barre d'état"
 
 #: src/settings/settingsdialog.ui:680
 msgctxt "SettingsDialog|"
@@ -3035,12 +2980,12 @@ msgstr "Convertir les retours à la ligne"
 #: src/settings/settingsdialog.ui:1131
 msgctxt "SettingsDialog|"
 msgid "Add parameter"
-msgstr ""
+msgstr "Ajouter un paramètre"
 
 #: src/settings/settingsdialog.ui:1141
 msgctxt "SettingsDialog|"
 msgid "Remove parameter"
-msgstr ""
+msgstr "Supprimer le paramètre"
 
 #: src/settings/settingsdialog.ui:1177
 msgctxt "SettingsDialog|"
@@ -3470,33 +3415,27 @@ msgstr "Valeur"
 #: src/statusstrip.cpp:128 src/statusstrip.cpp:143 src/statusstrip.cpp:144
 msgctxt "StatusStrip|"
 msgid "Ready"
-msgstr ""
+msgstr "Prêt"
 
 #: src/translator/atranslationprovider.cpp:57
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "ATranslationProvider|"
 msgid "Unsupported source language."
-msgstr "Forcer la détection de la langue source"
+msgstr "Langue source non prise en charge"
 
 #: src/translator/atranslationprovider.cpp:59
 msgctxt "ATranslationProvider|"
 msgid "Unsupported destination language."
-msgstr ""
+msgstr "Langue de destination non prise en charge."
 
 #: src/translator/atranslationprovider.cpp:61
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Enable translation options"
 msgctxt "ATranslationProvider|"
 msgid "User aborted translation in progress"
-msgstr "Activer les options de traduction"
+msgstr "L'utilisateur a annulé la traduction en cours."
 
 #: src/translator/atranslationprovider.cpp:65
 msgctxt "ATranslationProvider|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Erreur inconnue"
 
 #: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"
@@ -3516,12 +3455,9 @@ msgstr ""
 "Configuration / Traduction."
 
 #: src/translator/localaitranslationprovider.cpp:145
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected translation language %1 is not supported for %2"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Destination language is not supported"
-msgstr "Langue de traduction sélectionnée %1 n'est pas pris en charge pour %2"
+msgstr "La langue de destination n'est pas prise en charge."
 
 #: src/translator/localaitranslationprovider.cpp:297
 #, qt-format
@@ -3560,12 +3496,10 @@ msgstr ""
 #: src/translator/localaitranslationprovider.cpp:326
 #: src/translator/localaitranslationprovider.cpp:365
 #: src/translator/localaitranslationprovider.cpp:366
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI error: %1"
-msgstr "Erreur : %1"
+msgstr "Erreur de LocalAI : %1"
 
 #: src/translator/localaitranslationprovider.cpp:329
 msgctxt "LocalAiTranslationProvider|"
@@ -3575,31 +3509,22 @@ msgstr ""
 #: src/translator/localaitranslationprovider.cpp:350
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI request timed out"
-msgstr ""
+msgstr "Le temps alloué à la demande de LocalAI a expiré."
 
 #: src/translator/localaitranslationprovider.cpp:408
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Language detection is not supported for %1"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Language detection timed out"
-msgstr "La détection de langue n'est pas prise en charge pour %1"
+msgstr "Le temps alloué à la détection de la langue a expiré."
 
 #: src/translator/localaitranslationprovider.cpp:469
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Opération abandonnée par l'utilisateur"
+msgstr "Traduction abandonnée par l'utilisateur"
 
 #: src/translator/mozhitranslationprovider.cpp:78
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "MozhiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Opération abandonnée par l'utilisateur"
+msgstr "Traduction abandonnée par l'utilisateur"
 
 #: src/translator/mozhitranslationprovider.cpp:139
 #, fuzzy, qt-format
@@ -3618,42 +3543,34 @@ msgid "Source language '%1' is not supported"
 msgstr "Langue source sélectionnée %1 n'est pas pris en charge pour %2"
 
 #: src/translator/mozhitranslationprovider.cpp:204
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Network error: %1"
-msgstr "Erreur d'instance : %1"
+msgstr "Erreur de réseau : %1"
 
 #: src/translator/mozhitranslationprovider.cpp:208
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Instance error: %1"
 msgstr "Erreur d'instance : %1"
 
 #: src/translator/mozhitranslationprovider.cpp:212
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Parsing error: %1"
-msgstr "Erreur d'instance : %1"
+msgstr "Erreur d'analyse : %1"
 
 #: src/translator/mozhitranslationprovider.cpp:216
 #, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unsupported TTS engine: %1"
-msgstr ""
+msgstr "Moteur « TTS » non pris en charge : %1"
 
 #: src/translator/mozhitranslationprovider.cpp:220
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unknown error: %1"
-msgstr "Erreur d'instance : %1"
+msgstr "Erreur inconnue : %1"
 
 #: src/translator/mozhitranslationprovider.cpp:408
 msgctxt "MozhiTranslationProvider|"
@@ -3683,7 +3600,7 @@ msgstr "Quitter"
 #: src/trayicon.cpp:30 src/trayicon.cpp:67
 msgctxt "TrayIcon|"
 msgid "Report Bug…"
-msgstr ""
+msgstr "Signaler un bogue…"
 
 #: src/trayicon.cpp:73
 msgctxt "TrayIcon|"
