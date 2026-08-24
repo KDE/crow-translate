@@ -1,11 +1,12 @@
 # SPDX-FileCopyrightText: 2024 flabes
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2024-2025 Alois.spitzbart <spitz234@hotmail.com>
+# SPDX-FileCopyrightText: 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: crow-translate_qt\n"
-"PO-Revision-Date: 2025-05-01 12:08+0200\n"
-"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
+"PO-Revision-Date: 2026-08-21 20:35+0200\n"
+"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -15,14 +16,14 @@ msgstr ""
 "X-Language: de\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 26.04.3\n"
 
-#: src/cli.cpp:37
+#: src/cli.cpp:98
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Alle Sprachcodes anzeigen."
 
-#: src/cli.cpp:39
+#: src/cli.cpp:100
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -31,7 +32,7 @@ msgstr ""
 "Geben Sie die Ausgangssprache an (standardmäßig wird versucht, die Sprache "
 "automatisch zu bestimmen)."
 
-#: src/cli.cpp:43
+#: src/cli.cpp:104
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -45,75 +46,92 @@ msgstr ""
 "Geben Sie die Übersetzungssprache(n) an, aufgeteilt durch '+' (standardmäßig "
 "wird die Systemsprache verwendet)."
 
-#: src/cli.cpp:47
+#: src/cli.cpp:109
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid ""
+#| "Specify the translator engine ('google', 'yandex', 'bing', "
+#| "'libretranslate' or 'lingva'), Google is used by default."
 msgctxt "Cli|"
 msgid ""
-"Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
-"or 'lingva'), Google is used by default."
+"Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
+"'libretranslate', 'mymemory' or 'reverso'), Google is used by default."
 msgstr ""
 "Bestimmen Sie die Übersetzer-Engine ('google', 'yandex', 'bing', "
 "'libretranslate' oder 'lingva'), Google wird standardmäßig verwendet."
 
-#: src/cli.cpp:51
+#: src/cli.cpp:113
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
 
-#: src/cli.cpp:55
+#: src/cli.cpp:117
 msgctxt "Cli|"
 msgid ""
-"Specify translation provider ('copy' or 'mozhi'). Provider from app settings "
-"will be used by default."
+"Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
+"app settings will be used by default."
 msgstr ""
 
-#: src/cli.cpp:58
+#: src/cli.cpp:125
 msgctxt "Cli|"
 msgid ""
-"Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from app "
+"Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
 "settings will be used by default."
 msgstr ""
 
-#: src/cli.cpp:60
+#: src/cli.cpp:127
+msgctxt "Cli|"
+msgid ""
+"Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
+"will be used by default."
+msgstr ""
+
+#: src/cli.cpp:129
+msgctxt "Cli|"
+msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
+msgstr ""
+
+#: src/cli.cpp:132
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Übersetzten Text aussprechen."
 
-#: src/cli.cpp:61
+#: src/cli.cpp:133
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Quelltext aussprechen."
 
-#: src/cli.cpp:62
+#: src/cli.cpp:134
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
 msgstr ""
 "Quelltext aus Dateien lesen. Argumente werden als Dateipfade interpretiert."
 
-#: src/cli.cpp:63
+#: src/cli.cpp:135
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Stdin-Daten zum Quelltext hinzufügen."
 
-#: src/cli.cpp:65
+#: src/cli.cpp:137
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "Keinen Text drucken, wenn --%1 oder --%2 verwendet werden."
 
-#: src/cli.cpp:66
+#: src/cli.cpp:138
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Nur Übersetzungen ausdrucken."
 
-#: src/cli.cpp:67
+#: src/cli.cpp:139
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Ausgabe als JSON Format."
 
-#: src/cli.cpp:70
+#: src/cli.cpp:142
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -127,7 +145,7 @@ msgstr ""
 "Google, Yandex, Bing, LibreTranslate und Lingva Texte zu übersetzen sowie "
 "vorlesen zu lassen"
 
-#: src/cli.cpp:71
+#: src/cli.cpp:143
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
@@ -136,34 +154,21 @@ msgstr ""
 "Zu übersetzender Text. Standardmäßig wird die Übersetzung in die "
 "Systemsprache durchgeführt."
 
-#: src/cli.cpp:95
+#: src/cli.cpp:168
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Fehler: Für --%1 müssen Sie die Optionen --%2 und/oder --%3 angeben"
 
-#: src/cli.cpp:115
+#: src/cli.cpp:178
 #, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#| msgctxt "Cli|"
+#| msgid "Error: Unknown engine"
 msgctxt "Cli|"
-msgid "Error: Unknown source language code '%1'"
-msgstr "Unbekannter Sprachcode: %1"
+msgid "Error: Unknown engine '%1'"
+msgstr "Fehler: Unbekannte Engine"
 
-#: src/cli.cpp:128
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
-msgctxt "Cli|"
-msgid "Error: Unknown translation language code '%1'"
-msgstr "Unbekannter Sprachcode: %1"
-
-#: src/cli.cpp:152
-msgctxt "Cli|"
-msgid "Error: There is no text for translation"
-msgstr "Fehler: Es gibt keinen Text für die Übersetzung"
-
-#: src/cli.cpp:167
+#: src/cli.cpp:193
 #, fuzzy, qt-format
 #| msgctxt "AppSettings|"
 #| msgid "Unknown language code: %1"
@@ -171,7 +176,26 @@ msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
 msgstr "Unbekannter Sprachcode: %1"
 
-#: src/cli.cpp:177
+#: src/cli.cpp:217
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: Unknown source language code '%1'"
+msgstr "Fehler: Unbekannter Quellsprachen-Code „%1“"
+
+#: src/cli.cpp:240
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Unknown language code: %1"
+msgctxt "Cli|"
+msgid "Error: Unknown translation language code '%1'"
+msgstr "Unbekannter Sprachcode: %1"
+
+#: src/cli.cpp:263
+msgctxt "Cli|"
+msgid "Error: There is no text for translation"
+msgstr "Fehler: Es gibt keinen Text für die Übersetzung"
+
+#: src/cli.cpp:268
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Speech test:"
@@ -179,64 +203,86 @@ msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr "Sprachtest:"
 
-#: src/cli.cpp:216
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Language detection is not supported for %1"
-msgctxt "Cli|"
-msgid "Error: Lingva engine is not supported"
-msgstr "Spracherkennung wird für %1 nicht unterstützt"
-
-#: src/cli.cpp:225
-msgctxt "Cli|"
-msgid "Error: Unknown engine"
-msgstr "Fehler: Unbekannte Engine"
-
-#: src/cli.cpp:265
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#: src/cli.cpp:330
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
-msgstr "Unbekannter Sprachcode: %1"
+msgstr "Fehler: Unbekannter TTS-Anbieter „%1“"
 
-#: src/cli.cpp:344 src/cli.cpp:393
+#: src/cli.cpp:391 src/cli.cpp:445
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Fehler: %1"
 
-#: src/cli.cpp:346 src/cli.cpp:395
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
+#: src/cli.cpp:393 src/cli.cpp:447
 msgctxt "Cli|"
 msgid "Translation error occurred"
-msgstr "Übersetzungsmodus:"
+msgstr "Übersetzungsfehler aufgetreten"
 
-#: src/cli.cpp:451
+#: src/cli.cpp:513
 msgctxt "Cli|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Unbekannter Fehler"
 
-#: src/cli.cpp:452
+#: src/cli.cpp:514
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: TTS failed"
 msgctxt "Cli|"
-msgid "Error: TTS failed"
+msgid "Error: TTS failed: %1"
+msgstr "Fehler: TTS fehlgeschlagen"
+
+#: src/cli.cpp:612
+msgctxt "Cli|"
+msgid "no provider was created"
 msgstr ""
 
-#: src/cli.cpp:609
+#: src/cli.cpp:637
+msgctxt "Cli|"
+msgid "the engine failed to start"
+msgstr ""
+
+#: src/cli.cpp:642
+msgctxt "Cli|"
+msgid "the selected provider has no voices available"
+msgstr ""
+
+#: src/cli.cpp:692
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: text-to-speech is unavailable: %1"
+msgstr ""
+
+#: src/cli.cpp:713
+#, fuzzy
+#| msgctxt "LanguagesDialog|"
+#| msgid "Current languages:"
+msgctxt "Cli|"
+msgid "Source languages:"
+msgstr "Aktuelle Sprachen:"
+
+#: src/cli.cpp:716
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Primary translation language:"
+msgctxt "Cli|"
+msgid "Translation languages:"
+msgstr "Primäre Übersetzung:"
+
+#: src/cli.cpp:774
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Fehler: Sie können --%1 nicht zusammen mit --%2 verwenden"
 
-#: src/cli.cpp:622 src/cli.cpp:643
+#: src/cli.cpp:786 src/cli.cpp:807
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Fehler: Datei existiert nicht %1"
 
-#: src/cli.cpp:627 src/cli.cpp:648
+#: src/cli.cpp:791 src/cli.cpp:812
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -311,44 +357,29 @@ msgid "Edit languages"
 msgstr "Sprachen bearbeiten"
 
 #: src/languagesdialog.ui:24
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Add to current languages"
-msgstr "Aktuelle Sprachen:"
+msgstr "Zu aktuellen Sprachen hinzufügen"
 
 #: src/languagesdialog.ui:38
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "LanguagesDialog|"
 msgid "Move language down"
-msgstr "Quellsprachenerkennung erzwingen"
+msgstr "Sprache nach unten verschieben"
 
 #: src/languagesdialog.ui:55
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Remove from current languages"
-msgstr "Aktuelle Sprachen:"
+msgstr "Von aktuellen Sprachen entfernen"
 
 #: src/languagesdialog.ui:69
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Swap languages"
 msgctxt "LanguagesDialog|"
 msgid "Search languages"
-msgstr "Sprachen tauschen"
+msgstr "Sprachen suchen"
 
 #: src/languagesdialog.ui:79
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Available languages:"
 msgctxt "LanguagesDialog|"
 msgid "Move language up"
-msgstr "Verfügbare Sprachen:"
+msgstr "Sprache nach oben verschieben"
 
 #: src/languagesdialog.ui:109
 msgctxt "LanguagesDialog|"
@@ -360,13 +391,13 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Aktuelle Sprachen:"
 
-#: src/main.cpp:119
+#: src/main.cpp:121
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr "D-Bus-Dienst %1 ist bereits auf eine andere Anwendung registriert"
 
-#: src/main.cpp:155
+#: src/main.cpp:164
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
@@ -375,7 +406,7 @@ msgstr "D-Bus-Objekt für %1 konnte nicht registriert werden"
 #: src/mainwindow.cpp:444
 msgctxt "QApplication|"
 msgid "OCR"
-msgstr ""
+msgstr "OCR"
 
 #: src/mainwindow.cpp:445
 msgctxt "QApplication|"
@@ -385,12 +416,12 @@ msgstr ""
 #: src/mainwindow.cpp:445
 msgctxt "QApplication|"
 msgid "OCR image is normal"
-msgstr ""
+msgstr "OCR-Bild ist normal"
 
 #: src/mainwindow.cpp:604
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
-msgstr ""
+msgstr "OCR ist nicht eingerichtet"
 
 #: src/mainwindow.cpp:604
 #, fuzzy
@@ -455,7 +486,7 @@ msgstr "Tesseract konnte nicht mit %1 initialisiert werden"
 #: src/mainwindow.cpp:1085
 msgctxt "MainWindow|"
 msgid "TTS Error"
-msgstr ""
+msgstr "TTS-Fehler"
 
 #: src/mainwindow.cpp:1085
 #, qt-format
@@ -469,9 +500,7 @@ msgid ""
 msgstr ""
 
 #: src/mainwindow.cpp:1123 src/mainwindow.cpp:1129
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Fehler: %1"
@@ -486,7 +515,7 @@ msgstr ""
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
-msgstr ""
+msgstr "OCR fehlgeschlagen: %1"
 
 #: src/mainwindow.cpp:2138 src/mainwindow.cpp:2195
 #, qt-format
@@ -495,28 +524,25 @@ msgid ""
 "Cannot open image:\n"
 "%1"
 msgstr ""
+"Bild kann nicht geöffnet werden:\n"
+"%1"
 
 #: src/mainwindow.cpp:2186 src/mainwindow.cpp:2195
 msgctxt "MainWindow|"
 msgid "Open image"
-msgstr ""
+msgstr "Bild öffnen"
 
 #: src/mainwindow.cpp:2188
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
-msgstr "Bilder (*.png *.ico *.svg *.jpg);;Alle Dateien()"
+msgstr ""
+"Bilder (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;Alle Dateien (*)"
 
 #: src/mainwindow.ui:14
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translate"
 msgctxt "MainWindow|"
 msgid "Crow Translate"
-msgstr "Übersetzen"
+msgstr "Crow Translate"
 
 #: src/mainwindow.ui:29 src/mainwindow.ui:32
 msgctxt "MainWindow|"
@@ -618,38 +644,29 @@ msgid "Waiting for capture"
 msgstr ""
 
 #: src/modulestatus.cpp:273
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Select icon"
 msgctxt "ModuleStatus|"
 msgid "Select a region"
-msgstr "Symbol auswählen"
+msgstr "Wählen Sie eine Region aus"
 
 #: src/modulestatus.cpp:275
 msgctxt "ModuleStatus|"
 msgid "Recognizing text"
-msgstr ""
+msgstr "Text wird erkannt"
 
 #: src/modulestatus.cpp:277
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translation"
 msgctxt "ModuleStatus|"
 msgid "Translating"
-msgstr "Übersetzung"
+msgstr "Übersetzung läuft"
 
 #: src/modulestatus.cpp:279
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Unable to detect language"
 msgctxt "ModuleStatus|"
 msgid "Detecting language"
-msgstr "Sprache nicht erkannt"
+msgstr "Sprache wird erkannt"
 
 #: src/modulestatus.cpp:281
 msgctxt "ModuleStatus|"
 msgid "Preparing speech"
-msgstr ""
+msgstr "Sprache wird vorbereitet"
 
 #: src/modulestatus.cpp:283
 #, fuzzy
@@ -670,20 +687,17 @@ msgstr "Aufnahmeverzögerung:"
 #: src/modulestatus.cpp:287
 msgctxt "ModuleStatus|"
 msgid "OCR failed"
-msgstr ""
+msgstr "OCR fehlgeschlagen"
 
 #: src/modulestatus.cpp:289
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "ModuleStatus|"
 msgid "Translation failed"
-msgstr "Übersetzungsmodus:"
+msgstr "Übersetzung fehlgeschlagen"
 
 #: src/modulestatus.cpp:291
 msgctxt "ModuleStatus|"
 msgid "Speech error"
-msgstr ""
+msgstr "Sprachfehler"
 
 #: src/ocr/llmocr.cpp:259
 msgctxt "LlmOcr|"
@@ -952,7 +966,7 @@ msgstr "Spracherkennung wird für %1 nicht unterstützt"
 #: src/onlinetranslator.cpp:318
 msgctxt "OnlineTranslator|"
 msgid "Operation aborted by user"
-msgstr ""
+msgstr "Vorgang vom Benutzer abgebrochen"
 
 #: src/onlinetranslator.cpp:361
 #, qt-format
@@ -993,12 +1007,12 @@ msgstr "Armenisch"
 #: src/onlinetranslator.cpp:534
 msgctxt "OnlineTranslator|"
 msgid "Assamese"
-msgstr ""
+msgstr "Assamesisch"
 
 #: src/onlinetranslator.cpp:536
 msgctxt "OnlineTranslator|"
 msgid "Aymara"
-msgstr ""
+msgstr "Aimara"
 
 #: src/onlinetranslator.cpp:538
 msgctxt "OnlineTranslator|"
@@ -1063,7 +1077,7 @@ msgstr "Bosnisch"
 #: src/onlinetranslator.cpp:562
 msgctxt "OnlineTranslator|"
 msgid "Breton"
-msgstr ""
+msgstr "Bretonisch"
 
 #: src/onlinetranslator.cpp:564
 msgctxt "OnlineTranslator|"
@@ -1071,12 +1085,9 @@ msgid "Bulgarian"
 msgstr "Bulgarisch"
 
 #: src/onlinetranslator.cpp:566
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Chinese (Traditional)"
 msgctxt "OnlineTranslator|"
 msgid "Cantonese (Traditional)"
-msgstr "Chinesisch (Traditionell)"
+msgstr "Kantonesisch (Traditionell)"
 
 #: src/onlinetranslator.cpp:568
 msgctxt "OnlineTranslator|"
@@ -1091,7 +1102,7 @@ msgstr "Cebuano"
 #: src/onlinetranslator.cpp:572
 msgctxt "OnlineTranslator|"
 msgid "Chamorro"
-msgstr ""
+msgstr "Chamorro"
 
 #: src/onlinetranslator.cpp:574
 msgctxt "OnlineTranslator|"
@@ -1119,7 +1130,7 @@ msgstr "Chinesisch (Traditionell)"
 #: src/onlinetranslator.cpp:582
 msgctxt "OnlineTranslator|"
 msgid "Chuvash"
-msgstr ""
+msgstr "Tschuwaschisch"
 
 #: src/onlinetranslator.cpp:584
 msgctxt "OnlineTranslator|"
@@ -1129,7 +1140,7 @@ msgstr ""
 #: src/onlinetranslator.cpp:586
 msgctxt "OnlineTranslator|"
 msgid "Coptic"
-msgstr ""
+msgstr "Koptisch"
 
 #: src/onlinetranslator.cpp:588
 msgctxt "OnlineTranslator|"
@@ -1224,7 +1235,7 @@ msgstr "Niederländisch"
 #: src/onlinetranslator.cpp:624
 msgctxt "OnlineTranslator|"
 msgid "Dzongkha"
-msgstr ""
+msgstr "Dzongkha"
 
 #: src/onlinetranslator.cpp:626
 msgctxt "OnlineTranslator|"
@@ -1234,7 +1245,7 @@ msgstr ""
 #: src/onlinetranslator.cpp:628
 msgctxt "OnlineTranslator|"
 msgid "Emoji"
-msgstr ""
+msgstr "Emoji"
 
 #: src/onlinetranslator.cpp:630
 msgctxt "OnlineTranslator|"
@@ -1267,7 +1278,7 @@ msgstr "Tagalog"
 #: src/onlinetranslator.cpp:640
 msgctxt "OnlineTranslator|"
 msgid "Faroese"
-msgstr ""
+msgstr "Färöisch"
 
 #: src/onlinetranslator.cpp:642
 msgctxt "OnlineTranslator|"
@@ -1292,7 +1303,7 @@ msgstr "Französisch"
 #: src/onlinetranslator.cpp:650
 msgctxt "OnlineTranslator|"
 msgid "French (Canada)"
-msgstr ""
+msgstr "Französisch (Kanada)"
 
 #: src/onlinetranslator.cpp:652
 msgctxt "OnlineTranslator|"
@@ -1327,12 +1338,12 @@ msgstr "Griechisch"
 #: src/onlinetranslator.cpp:664
 msgctxt "OnlineTranslator|"
 msgid "Greek (Classical)"
-msgstr ""
+msgstr "Griechisch (Klassisch)"
 
 #: src/onlinetranslator.cpp:666
 msgctxt "OnlineTranslator|"
 msgid "Guarani"
-msgstr ""
+msgstr "Guarani"
 
 #: src/onlinetranslator.cpp:668
 msgctxt "OnlineTranslator|"
@@ -1415,17 +1426,17 @@ msgstr ""
 #: src/onlinetranslator.cpp:698
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut"
-msgstr ""
+msgstr "Inuktitut"
 
 #: src/onlinetranslator.cpp:700
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Greenlandic)"
-msgstr ""
+msgstr "Inuktitut (Grönländisch)"
 
 #: src/onlinetranslator.cpp:702
 msgctxt "OnlineTranslator|"
 msgid "Inuktitut (Latin)"
-msgstr ""
+msgstr "Inuktitut (Latein)"
 
 #: src/onlinetranslator.cpp:704
 msgctxt "OnlineTranslator|"
@@ -1471,12 +1482,9 @@ msgid "Kazakh"
 msgstr "Kasachisch"
 
 #: src/onlinetranslator.cpp:720
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Serbian (Latin)"
 msgctxt "OnlineTranslator|"
 msgid "Kazakh (Latin)"
-msgstr "Serbisch (Lateinisch)"
+msgstr "Kasachisch (Latein)"
 
 #: src/onlinetranslator.cpp:722
 msgctxt "OnlineTranslator|"
@@ -1494,12 +1502,9 @@ msgid "Kirundi"
 msgstr ""
 
 #: src/onlinetranslator.cpp:728
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Klingon (PlqaD)"
 msgctxt "OnlineTranslator|"
 msgid "Klingon (Latin)"
-msgstr "Klingonisch (PIqaD)"
+msgstr "Klingonisch (Latein)"
 
 #: src/onlinetranslator.cpp:730
 msgctxt "OnlineTranslator|"
@@ -1519,20 +1524,17 @@ msgstr ""
 #: src/onlinetranslator.cpp:736
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Central)"
-msgstr ""
+msgstr "Kurdisch (Zentral)"
 
 #: src/onlinetranslator.cpp:738
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Northern)"
-msgstr ""
+msgstr "Kurdisch (Nördlich)"
 
 #: src/onlinetranslator.cpp:740
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Kurdish"
 msgctxt "OnlineTranslator|"
 msgid "Kurdish (Sorani)"
-msgstr "Kurdisch"
+msgstr "Kurdisch (Sorani)"
 
 #: src/onlinetranslator.cpp:742
 msgctxt "OnlineTranslator|"
@@ -1557,7 +1559,7 @@ msgstr "Lettisch"
 #: src/onlinetranslator.cpp:750
 msgctxt "OnlineTranslator|"
 msgid "Lingala"
-msgstr ""
+msgstr "Lingala"
 
 #: src/onlinetranslator.cpp:752
 msgctxt "OnlineTranslator|"
@@ -1567,12 +1569,12 @@ msgstr "Litauisch"
 #: src/onlinetranslator.cpp:754
 msgctxt "OnlineTranslator|"
 msgid "Lower Sorbian"
-msgstr ""
+msgstr "Niedersorbisch"
 
 #: src/onlinetranslator.cpp:756
 msgctxt "OnlineTranslator|"
 msgid "Luganda"
-msgstr ""
+msgstr "Luganda"
 
 #: src/onlinetranslator.cpp:758
 msgctxt "OnlineTranslator|"
@@ -1585,12 +1587,9 @@ msgid "Macedonian"
 msgstr "Makedonisch"
 
 #: src/onlinetranslator.cpp:762
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Swahili"
 msgctxt "OnlineTranslator|"
 msgid "Maithili"
-msgstr "Suaheli"
+msgstr "Maithili"
 
 #: src/onlinetranslator.cpp:764
 msgctxt "OnlineTranslator|"
@@ -1633,7 +1632,7 @@ msgstr "Tschermissisch"
 #: src/onlinetranslator.cpp:778
 msgctxt "OnlineTranslator|"
 msgid "Marshallese"
-msgstr ""
+msgstr "Marshallisch"
 
 #: src/onlinetranslator.cpp:780
 msgctxt "OnlineTranslator|"
@@ -1643,7 +1642,7 @@ msgstr ""
 #: src/onlinetranslator.cpp:782
 msgctxt "OnlineTranslator|"
 msgid "Mende"
-msgstr ""
+msgstr "Mende"
 
 #: src/onlinetranslator.cpp:784
 msgctxt "OnlineTranslator|"
@@ -1656,20 +1655,14 @@ msgid "Mongolian"
 msgstr "Mongolisch"
 
 #: src/onlinetranslator.cpp:788
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Serbian (Cyrillic)"
 msgctxt "OnlineTranslator|"
 msgid "Mongolian (Cyrillic)"
-msgstr "Serbisch (Kyrillisch)"
+msgstr "Mongolisch (Kyrillisch)"
 
 #: src/onlinetranslator.cpp:790
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Chinese (Traditional)"
 msgctxt "OnlineTranslator|"
 msgid "Mongolian (Traditional)"
-msgstr "Chinesisch (Traditionell)"
+msgstr "Mongolisch (Traditionell)"
 
 #: src/onlinetranslator.cpp:792
 msgctxt "OnlineTranslator|"
@@ -1679,12 +1672,12 @@ msgstr ""
 #: src/onlinetranslator.cpp:794
 msgctxt "OnlineTranslator|"
 msgid "Myanmar (Burmese)"
-msgstr ""
+msgstr "Myanmar (Burmesisch)"
 
 #: src/onlinetranslator.cpp:796
 msgctxt "OnlineTranslator|"
 msgid "Māori"
-msgstr ""
+msgstr "Māori"
 
 #: src/onlinetranslator.cpp:798
 msgctxt "OnlineTranslator|"
@@ -1714,7 +1707,7 @@ msgstr ""
 #: src/onlinetranslator.cpp:808
 msgctxt "OnlineTranslator|"
 msgid "Oromo"
-msgstr ""
+msgstr "Oromo"
 
 #: src/onlinetranslator.cpp:810
 msgctxt "OnlineTranslator|"
@@ -1750,20 +1743,14 @@ msgid "Polish"
 msgstr "Polnisch"
 
 #: src/onlinetranslator.cpp:822
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Portuguese"
 msgctxt "OnlineTranslator|"
 msgid "Portuguese (Brazilian)"
-msgstr "Portugiesisch"
+msgstr "Portugiesisch (Brasilien)"
 
 #: src/onlinetranslator.cpp:824
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Portuguese"
 msgctxt "OnlineTranslator|"
 msgid "Portuguese (Portugal)"
-msgstr "Portugiesisch"
+msgstr "Portugiesisch (Portugal)"
 
 #: src/onlinetranslator.cpp:826
 msgctxt "OnlineTranslator|"
@@ -1778,7 +1765,7 @@ msgstr "Pandschabs"
 #: src/onlinetranslator.cpp:830
 msgctxt "OnlineTranslator|"
 msgid "Quechua"
-msgstr ""
+msgstr "Quechua"
 
 #: src/onlinetranslator.cpp:832
 #, fuzzy
@@ -1796,7 +1783,7 @@ msgstr "Rumänisch"
 #: src/onlinetranslator.cpp:836
 msgctxt "OnlineTranslator|"
 msgid "Rundi"
-msgstr ""
+msgstr "Rundi"
 
 #: src/onlinetranslator.cpp:838
 msgctxt "OnlineTranslator|"
@@ -1811,12 +1798,12 @@ msgstr "Samoanisch"
 #: src/onlinetranslator.cpp:842
 msgctxt "OnlineTranslator|"
 msgid "Sango"
-msgstr ""
+msgstr "Sango"
 
 #: src/onlinetranslator.cpp:844
 msgctxt "OnlineTranslator|"
 msgid "Sanskrit"
-msgstr ""
+msgstr "Sanskrit"
 
 #: src/onlinetranslator.cpp:846
 msgctxt "OnlineTranslator|"
@@ -1849,7 +1836,7 @@ msgstr "Sesotho"
 #: src/onlinetranslator.cpp:856
 msgctxt "OnlineTranslator|"
 msgid "Setswana"
-msgstr ""
+msgstr "Setswana"
 
 #: src/onlinetranslator.cpp:858
 msgctxt "OnlineTranslator|"
@@ -1954,12 +1941,12 @@ msgstr "Thailändisch"
 #: src/onlinetranslator.cpp:898
 msgctxt "OnlineTranslator|"
 msgid "Tibetan"
-msgstr ""
+msgstr "Tibetisch"
 
 #: src/onlinetranslator.cpp:900
 msgctxt "OnlineTranslator|"
 msgid "Tigrinya"
-msgstr ""
+msgstr "Tigrinja"
 
 #: src/onlinetranslator.cpp:902
 msgctxt "OnlineTranslator|"
@@ -2002,7 +1989,7 @@ msgstr ""
 #: src/onlinetranslator.cpp:916
 msgctxt "OnlineTranslator|"
 msgid "Twi"
-msgstr ""
+msgstr "Twi"
 
 #: src/onlinetranslator.cpp:918
 msgctxt "OnlineTranslator|"
@@ -2022,7 +2009,7 @@ msgstr ""
 #: src/onlinetranslator.cpp:924
 msgctxt "OnlineTranslator|"
 msgid "Upper Sorbian"
-msgstr ""
+msgstr "Obersorbisch"
 
 #: src/onlinetranslator.cpp:926
 msgctxt "OnlineTranslator|"
@@ -2030,20 +2017,14 @@ msgid "Urdu"
 msgstr "Urdu"
 
 #: src/onlinetranslator.cpp:928
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Uighur"
 msgctxt "OnlineTranslator|"
 msgid "Uyghur"
 msgstr "Uigurisch"
 
 #: src/onlinetranslator.cpp:930
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Serbian (Cyrillic)"
 msgctxt "OnlineTranslator|"
 msgid "Uzbek (Cyrillic)"
-msgstr "Serbisch (Kyrillisch)"
+msgstr "Usbekisch (Kyrillisch)"
 
 #: src/onlinetranslator.cpp:932
 #, fuzzy
@@ -2074,7 +2055,7 @@ msgstr "Walisisch"
 #: src/onlinetranslator.cpp:940
 msgctxt "OnlineTranslator|"
 msgid "Wolof"
-msgstr ""
+msgstr "Wolof"
 
 #: src/onlinetranslator.cpp:942
 msgctxt "OnlineTranslator|"
@@ -2110,7 +2091,7 @@ msgstr "Zulu"
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "Instance error: %1"
-msgstr ""
+msgstr "Instanzfehler: %1"
 
 #: src/onlinetranslator.cpp:1338 src/onlinetranslator.cpp:1354
 msgctxt "OnlineTranslator|"
@@ -2123,9 +2104,6 @@ msgid "Swap languages"
 msgstr "Sprachen tauschen"
 
 #: src/popupwindow.ui:69 src/popupwindow.ui:72
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translate"
 msgctxt "PopupWindow|"
 msgid "Translate"
 msgstr "Übersetzen"
@@ -2262,22 +2240,22 @@ msgstr "Möchten Sie die ungültigen Parameter verwerfen?"
 #: src/settings/settingsdialog.cpp:351 src/settings/settingsdialog.cpp:521
 msgctxt "SettingsDialog|"
 msgid "URL:"
-msgstr ""
+msgstr "Adresse:"
 
 #: src/settings/settingsdialog.cpp:355 src/settings/settingsdialog.cpp:525
 msgctxt "SettingsDialog|"
 msgid "Key:"
-msgstr ""
+msgstr "Schlüssel:"
 
 #: src/settings/settingsdialog.cpp:359 src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
 msgid "optional, e.g. for a cloud endpoint"
-msgstr ""
+msgstr "optional, z. B. für einen Cloud-Endpunkt"
 
 #: src/settings/settingsdialog.cpp:360 src/settings/settingsdialog.cpp:531
 msgctxt "SettingsDialog|"
 msgid "Refresh models"
-msgstr ""
+msgstr "Modelle aktualisieren"
 
 #: src/settings/settingsdialog.cpp:378
 #, fuzzy
@@ -2288,12 +2266,9 @@ msgid "Translation model:"
 msgstr "Übersetzungsmodus:"
 
 #: src/settings/settingsdialog.cpp:386 src/settings/settingsdialog.cpp:504
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
 msgctxt "SettingsDialog|"
 msgid "Timeout:"
-msgstr "Zeitüberschreitung anzeigen:"
+msgstr "Zeitüberschreitung:"
 
 #: src/settings/settingsdialog.cpp:390 src/settings/settingsdialog.cpp:509
 #, fuzzy
@@ -2311,13 +2286,13 @@ msgstr ""
 #: src/settings/settingsdialog.cpp:396
 msgctxt "SettingsDialog|"
 msgid "Disable reasoning"
-msgstr ""
+msgstr "Reasoning deaktivieren"
 
 #: src/settings/settingsdialog.cpp:403
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Placeholders: %1"
-msgstr ""
+msgstr "Platzhalter: %1"
 
 #: src/settings/settingsdialog.cpp:406
 msgctxt "SettingsDialog|"
@@ -2327,12 +2302,12 @@ msgstr ""
 #: src/settings/settingsdialog.cpp:468
 msgctxt "SettingsDialog|"
 msgid "OCR engine:"
-msgstr ""
+msgstr "OCR-Modul:"
 
 #: src/settings/settingsdialog.cpp:472
 msgctxt "SettingsDialog|"
 msgid "Tesseract"
-msgstr ""
+msgstr "Tesseract"
 
 #: src/settings/settingsdialog.cpp:473
 #, fuzzy
@@ -2350,7 +2325,7 @@ msgstr ""
 #: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:808
 msgctxt "SettingsDialog|"
 msgid "Provider:"
-msgstr ""
+msgstr "Anbieter:"
 
 #: src/settings/settingsdialog.cpp:510
 msgctxt "SettingsDialog|"
@@ -2360,12 +2335,12 @@ msgstr ""
 #: src/settings/settingsdialog.cpp:541
 msgctxt "SettingsDialog|"
 msgid "Model:"
-msgstr ""
+msgstr "Modell:"
 
 #: src/settings/settingsdialog.cpp:555
 msgctxt "SettingsDialog|"
 msgid "Reset OCR prompt"
-msgstr ""
+msgstr "OCR-Prompt zurücksetzen"
 
 #: src/settings/settingsdialog.cpp:616
 msgctxt "SettingsDialog|"
@@ -2415,12 +2390,12 @@ msgstr "Übersetzungsmodus:"
 #: src/settings/settingsdialog.cpp:699
 msgctxt "SettingsDialog|"
 msgid "Enter the endpoint URL first."
-msgstr ""
+msgstr "Geben Sie zuerst die Adresse des Endpunkts ein."
 
 #: src/settings/settingsdialog.cpp:709 src/settings/settingsdialog.cpp:929
 msgctxt "SettingsDialog|"
 msgid "No models found."
-msgstr ""
+msgstr "Keine Modelle gefunden."
 
 #: src/settings/settingsdialog.cpp:722 src/settings/settingsdialog.cpp:916
 #, qt-format
@@ -2494,7 +2469,7 @@ msgstr "Übersetzung"
 #: src/settings/settingsdialog.ui:73
 msgctxt "SettingsDialog|"
 msgid "Text-To-Speech"
-msgstr ""
+msgstr "Sprachausgabe"
 
 #: src/settings/settingsdialog.ui:81
 msgctxt "SettingsDialog|"
@@ -2809,7 +2784,7 @@ msgstr "<html><head/><body><p>Symbol auswählen</p></body></html>"
 #: src/settings/settingsdialog.ui:635
 msgctxt "SettingsDialog|"
 msgid "Status bar"
-msgstr ""
+msgstr "Statusleiste"
 
 #: src/settings/settingsdialog.ui:641
 #, fuzzy
@@ -2828,7 +2803,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:644
 msgctxt "SettingsDialog|"
 msgid "Show status bar"
-msgstr ""
+msgstr "Statusleiste anzeigen"
 
 #: src/settings/settingsdialog.ui:680
 #, fuzzy
@@ -2918,7 +2893,7 @@ msgstr "Übersetzungsmodus:"
 #: src/settings/settingsdialog.ui:802
 msgctxt "SettingsDialog|"
 msgid "Text-to-Speech"
-msgstr ""
+msgstr "Sprachausgabe"
 
 #: src/settings/settingsdialog.ui:850
 msgctxt "SettingsDialog|"
@@ -3110,12 +3085,12 @@ msgstr "Zeilenumbrüche konvertieren"
 #: src/settings/settingsdialog.ui:1131
 msgctxt "SettingsDialog|"
 msgid "Add parameter"
-msgstr ""
+msgstr "Parameter hinzufügen"
 
 #: src/settings/settingsdialog.ui:1141
 msgctxt "SettingsDialog|"
 msgid "Remove parameter"
-msgstr ""
+msgstr "Parameter entfernen"
 
 #: src/settings/settingsdialog.ui:1177
 msgctxt "SettingsDialog|"
@@ -3547,7 +3522,7 @@ msgstr "Wert"
 #: src/statusstrip.cpp:128 src/statusstrip.cpp:143 src/statusstrip.cpp:144
 msgctxt "StatusStrip|"
 msgid "Ready"
-msgstr ""
+msgstr "Bereit"
 
 #: src/translator/atranslationprovider.cpp:57
 #, fuzzy
@@ -3573,7 +3548,7 @@ msgstr "Übersetzungsoptionen aktivieren"
 #: src/translator/atranslationprovider.cpp:65
 msgctxt "ATranslationProvider|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Unbekannter Fehler"
 
 #: src/translator/atranslationprovider.cpp:116
 #, fuzzy
@@ -3662,20 +3637,14 @@ msgid "Language detection timed out"
 msgstr "Spracherkennung wird für %1 nicht unterstützt"
 
 #: src/translator/localaitranslationprovider.cpp:469
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Übersetzungsmodus:"
+msgstr "Übersetzung durch Benutzer abgebrochen"
 
 #: src/translator/mozhitranslationprovider.cpp:78
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "MozhiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Übersetzungsmodus:"
+msgstr "Übersetzung durch Benutzer abgebrochen"
 
 #: src/translator/mozhitranslationprovider.cpp:139
 #, fuzzy, qt-format
@@ -3686,34 +3655,28 @@ msgid "Destination language '%1' is not supported"
 msgstr "Ausgewählte Übersetzungssprache %1 wird für %2 nicht unterstützt"
 
 #: src/translator/mozhitranslationprovider.cpp:147
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected source language %1 is not supported for %2"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Source language '%1' is not supported"
-msgstr "Ausgewählte Quellsprache %1 wird für %2 nicht unterstützt"
+msgstr "Quellsprache „%1“ wird nicht unterstützt"
 
 #: src/translator/mozhitranslationprovider.cpp:204
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Network error: %1"
-msgstr "Fehler: %1"
+msgstr "Netzwerkfehler: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:208
 #, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Instance error: %1"
-msgstr ""
+msgstr "Instanzfehler: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:212
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Parsing error: %1"
-msgstr "Fehler: %1"
+msgstr "Verarbeitungsfehler: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:216
 #, qt-format
@@ -3722,12 +3685,10 @@ msgid "Unsupported TTS engine: %1"
 msgstr ""
 
 #: src/translator/mozhitranslationprovider.cpp:220
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unknown error: %1"
-msgstr "Unbekannter Sprachcode: %1"
+msgstr "Unbekannter Fehler: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:408
 #, fuzzy
@@ -3738,9 +3699,6 @@ msgid "translation options:"
 msgstr "Übersetzungsoptionen:"
 
 #: src/translator/mozhitranslationprovider.cpp:422
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "examples:"
 msgctxt "MozhiTranslationProvider|"
 msgid "examples:"
 msgstr "Beispiele:"
@@ -3763,7 +3721,7 @@ msgstr "Beenden"
 #: src/trayicon.cpp:30 src/trayicon.cpp:67
 msgctxt "TrayIcon|"
 msgid "Report Bug…"
-msgstr ""
+msgstr "Problem melden …"
 
 #: src/trayicon.cpp:73
 msgctxt "TrayIcon|"
@@ -3784,12 +3742,9 @@ msgid ""
 msgstr ""
 
 #: src/tts/mozhittsprovider.cpp:48
-#, fuzzy
-#| msgctxt "SpeakButtons|"
-#| msgid "Playback text is empty"
 msgctxt "MozhiTTSProvider|"
 msgid "Text is empty"
-msgstr "Wiedergabetext ist leer"
+msgstr "Text ist leer"
 
 #: src/tts/mozhittsprovider.cpp:81
 msgctxt "MozhiTTSProvider|"
@@ -3886,7 +3841,7 @@ msgstr ""
 #: src/tts/piperttsprovider.cpp:1033
 msgctxt "PiperTTSProvider|"
 msgid "No audio data generated"
-msgstr ""
+msgstr "Keine Audiodaten erzeugt"
 
 #: src/tts/piperttsprovider.cpp:1048
 msgctxt "PiperTTSProvider|"
@@ -3894,12 +3849,9 @@ msgid "Failed to create temporary audio file"
 msgstr ""
 
 #: src/tts/piperttsprovider.cpp:1057
-#, fuzzy
-#| msgctxt "UpdaterDialog|"
-#| msgid "Unable to write file"
 msgctxt "PiperTTSProvider|"
 msgid "Failed to write audio data"
-msgstr "Datei kann nicht geschrieben werden"
+msgstr "Audiodaten können nicht geschrieben werden"
 
 #: src/tts/piperttsprovider.cpp:1395
 msgctxt "PiperTTSProvider|"
@@ -3938,6 +3890,13 @@ msgstr ""
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
 msgstr ""
+
+#, fuzzy
+#~| msgctxt "OnlineTranslator|"
+#~| msgid "Language detection is not supported for %1"
+#~ msgctxt "Cli|"
+#~ msgid "Error: Lingva engine is not supported"
+#~ msgstr "Spracherkennung wird für %1 nicht unterstützt"
 
 #~ msgctxt "Ocr|"
 #~ msgid "OCR languages are not loaded"

@@ -17,12 +17,12 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Poedit 3.9\n"
 
-#: src/cli.cpp:37
+#: src/cli.cpp:98
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "بارلىق تىل كودىنى كۆرسەت."
 
-#: src/cli.cpp:39
+#: src/cli.cpp:100
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -31,52 +31,64 @@ msgstr ""
 "مەنبە تىلىنى بەلگىلەڭ (سۈكۈتتىكى ھالەتتە كومپيۇتېر تىلنى ئۆزى بەلگىلەشكە "
 "تىرىشىدۇ)."
 
-#: src/cli.cpp:43
+#: src/cli.cpp:104
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), split by '+' (by default, the system "
 "language is used)."
 msgstr ""
 
-#: src/cli.cpp:47
+#: src/cli.cpp:109
 msgctxt "Cli|"
 msgid ""
-"Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
-"or 'lingva'), Google is used by default."
+"Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
+"'libretranslate', 'mymemory' or 'reverso'), Google is used by default."
 msgstr ""
 
-#: src/cli.cpp:51
+#: src/cli.cpp:113
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
 
-#: src/cli.cpp:55
+#: src/cli.cpp:117
 msgctxt "Cli|"
 msgid ""
-"Specify translation provider ('copy' or 'mozhi'). Provider from app settings "
-"will be used by default."
+"Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
+"app settings will be used by default."
 msgstr ""
 
-#: src/cli.cpp:58
+#: src/cli.cpp:125
 msgctxt "Cli|"
 msgid ""
-"Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from app "
+"Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
 "settings will be used by default."
 msgstr ""
 
-#: src/cli.cpp:60
+#: src/cli.cpp:127
+msgctxt "Cli|"
+msgid ""
+"Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
+"will be used by default."
+msgstr ""
+
+#: src/cli.cpp:129
+msgctxt "Cli|"
+msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
+msgstr ""
+
+#: src/cli.cpp:132
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "تەرجىمىنى ئوقۇيدۇ."
 
-#: src/cli.cpp:61
+#: src/cli.cpp:133
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "مەنبە تېكىستنى ئوقۇيدۇ."
 
-#: src/cli.cpp:62
+#: src/cli.cpp:134
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -84,34 +96,34 @@ msgstr ""
 "ھۆججەتتىن مەنبە تېكىستنى ئوقۇڭ. بۇنىڭدا پارامېتىر ھۆججەت يولى دەپ "
 "ئىزاھلىنىدۇ."
 
-#: src/cli.cpp:63
+#: src/cli.cpp:135
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "مەنبە تېكىستكە ئۆلچەملىك سانلىق مەلۇماتلىرىنى قوشۇڭ."
 
-#: src/cli.cpp:65
+#: src/cli.cpp:137
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "--%1 ياكى --%2 ئىشلىتىۋاتقاندا تېكىست چىقارما."
 
-#: src/cli.cpp:66
+#: src/cli.cpp:138
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "تەرجىمىنىلا چىقىرىدۇ."
 
-#: src/cli.cpp:67
+#: src/cli.cpp:139
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "چىقىرىلمىنى JSON پىچىمىدا باسىدۇ."
 
-#: src/cli.cpp:70
+#: src/cli.cpp:142
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
 msgstr ""
 
-#: src/cli.cpp:71
+#: src/cli.cpp:143
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
@@ -120,90 +132,128 @@ msgstr ""
 "تەرجىمە قىلىدىغان تېكىست. سۈكۈت بويىچە ، تەرجىمە سىستېما تىلىغا ئېلىپ "
 "بېرىلىدۇ."
 
-#: src/cli.cpp:95
+#: src/cli.cpp:168
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "خاتالىق:--%1 گە چوقۇم  --%2 ياكى --%3 نى كۆرسىتىشى كىرەك"
 
-#: src/cli.cpp:115
-#, qt-format
+#: src/cli.cpp:178
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: Unknown engine"
 msgctxt "Cli|"
-msgid "Error: Unknown source language code '%1'"
-msgstr ""
+msgid "Error: Unknown engine '%1'"
+msgstr "خاتالىق: نامەلۇم ماتور"
 
-#: src/cli.cpp:128
-#, qt-format
-msgctxt "Cli|"
-msgid "Error: Unknown translation language code '%1'"
-msgstr ""
-
-#: src/cli.cpp:152
-msgctxt "Cli|"
-msgid "Error: There is no text for translation"
-msgstr "خاتالىق: تەرجىمە قىلىدىغان تېكىست يوق"
-
-#: src/cli.cpp:167
+#: src/cli.cpp:193
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
 msgstr ""
 
-#: src/cli.cpp:177
+#: src/cli.cpp:217
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: Unknown source language code '%1'"
+msgstr ""
+
+#: src/cli.cpp:240
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: Unknown translation language code '%1'"
+msgstr ""
+
+#: src/cli.cpp:263
+msgctxt "Cli|"
+msgid "Error: There is no text for translation"
+msgstr "خاتالىق: تەرجىمە قىلىدىغان تېكىست يوق"
+
+#: src/cli.cpp:268
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr ""
 
-#: src/cli.cpp:216
-msgctxt "Cli|"
-msgid "Error: Lingva engine is not supported"
-msgstr ""
-
-#: src/cli.cpp:225
-msgctxt "Cli|"
-msgid "Error: Unknown engine"
-msgstr "خاتالىق: نامەلۇم ماتور"
-
-#: src/cli.cpp:265
+#: src/cli.cpp:330
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
 msgstr ""
 
-#: src/cli.cpp:344 src/cli.cpp:393
+#: src/cli.cpp:391 src/cli.cpp:445
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "خاتالىق: %1"
 
-#: src/cli.cpp:346 src/cli.cpp:395
+#: src/cli.cpp:393 src/cli.cpp:447
 msgctxt "Cli|"
 msgid "Translation error occurred"
 msgstr ""
 
-#: src/cli.cpp:451
+#: src/cli.cpp:513
 msgctxt "Cli|"
 msgid "Unknown error"
 msgstr ""
 
-#: src/cli.cpp:452
+#: src/cli.cpp:514
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: Unable to open file: %1"
 msgctxt "Cli|"
-msgid "Error: TTS failed"
+msgid "Error: TTS failed: %1"
+msgstr "خاتالىق:ھۆججەتنى ئاچالمىدى:%1"
+
+#: src/cli.cpp:612
+msgctxt "Cli|"
+msgid "no provider was created"
 msgstr ""
 
-#: src/cli.cpp:609
+#: src/cli.cpp:637
+msgctxt "Cli|"
+msgid "the engine failed to start"
+msgstr ""
+
+#: src/cli.cpp:642
+msgctxt "Cli|"
+msgid "the selected provider has no voices available"
+msgstr ""
+
+#: src/cli.cpp:692
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: text-to-speech is unavailable: %1"
+msgstr ""
+
+#: src/cli.cpp:713
+#, fuzzy
+#| msgctxt "LanguagesDialog|"
+#| msgid "Current languages:"
+msgctxt "Cli|"
+msgid "Source languages:"
+msgstr "ھازىرقى تىللار:"
+
+#: src/cli.cpp:716
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Primary translation language:"
+msgctxt "Cli|"
+msgid "Translation languages:"
+msgstr "دەسلەپكى تەرجىمە تىلى:"
+
+#: src/cli.cpp:774
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "خاتالىق:--%1 بىلەن --%2 نى ئىشلىتەلمەيسىز"
 
-#: src/cli.cpp:622 src/cli.cpp:643
+#: src/cli.cpp:786 src/cli.cpp:807
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "خاتالىق:ھۆججەت تېپىلمىدى:%1"
 
-#: src/cli.cpp:627 src/cli.cpp:648
+#: src/cli.cpp:791 src/cli.cpp:812
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -327,13 +377,13 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "ھازىرقى تىللار:"
 
-#: src/main.cpp:119
+#: src/main.cpp:121
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr "%1 نىڭ D-Bus مۇلازىمىتى باشقا پىروگىرامما تەرپىدىن ئىگەللىۋىلىنغان"
 
-#: src/main.cpp:155
+#: src/main.cpp:164
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"

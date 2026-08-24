@@ -10,12 +10,12 @@ msgstr ""
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
 
-#: src/cli.cpp:37
+#: src/cli.cpp:98
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Tampilkan semua kode bahasa."
 
-#: src/cli.cpp:39
+#: src/cli.cpp:100
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -24,7 +24,7 @@ msgstr ""
 "Tentukan bahasa sumber (secara bawaan/default, mesin akan menentukan bahasa "
 "dengan sendirinya)."
 
-#: src/cli.cpp:43
+#: src/cli.cpp:104
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -38,7 +38,7 @@ msgstr ""
 "Tentukan bahasa terjemahan, dipisahkan oleh '+' (secara bawan, bahasa sistem "
 "yang digunakan)."
 
-#: src/cli.cpp:47
+#: src/cli.cpp:109
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -46,44 +46,56 @@ msgstr ""
 #| "used by default."
 msgctxt "Cli|"
 msgid ""
-"Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
-"or 'lingva'), Google is used by default."
+"Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
+"'libretranslate', 'mymemory' or 'reverso'), Google is used by default."
 msgstr ""
 "Tentukan mesin penterjemah ('google', 'yandex' atau 'bing'), Google yang "
 "digunakan secara bawan."
 
-#: src/cli.cpp:51
+#: src/cli.cpp:113
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
 
-#: src/cli.cpp:55
+#: src/cli.cpp:117
 msgctxt "Cli|"
 msgid ""
-"Specify translation provider ('copy' or 'mozhi'). Provider from app settings "
-"will be used by default."
+"Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
+"app settings will be used by default."
 msgstr ""
 
-#: src/cli.cpp:58
+#: src/cli.cpp:125
 msgctxt "Cli|"
 msgid ""
-"Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from app "
+"Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
 "settings will be used by default."
 msgstr ""
 
-#: src/cli.cpp:60
+#: src/cli.cpp:127
+msgctxt "Cli|"
+msgid ""
+"Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
+"will be used by default."
+msgstr ""
+
+#: src/cli.cpp:129
+msgctxt "Cli|"
+msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
+msgstr ""
+
+#: src/cli.cpp:132
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Ucapkan terjemahan."
 
-#: src/cli.cpp:61
+#: src/cli.cpp:133
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Ucapkan sumber."
 
-#: src/cli.cpp:62
+#: src/cli.cpp:134
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -91,28 +103,28 @@ msgstr ""
 "Baca teks sumber dari berkas. Argumen akan diimpretasikan sebagai jalur/path "
 "berkas."
 
-#: src/cli.cpp:63
+#: src/cli.cpp:135
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Tambah data stdin pada teks sumber."
 
-#: src/cli.cpp:65
+#: src/cli.cpp:137
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "Jangan mencetak teks apapun ketika menggunakan --%1 atau --%2."
 
-#: src/cli.cpp:66
+#: src/cli.cpp:138
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Cetak hanya terjemahan."
 
-#: src/cli.cpp:67
+#: src/cli.cpp:139
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Cetak hasil output sebagai JSOn."
 
-#: src/cli.cpp:70
+#: src/cli.cpp:142
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -125,7 +137,7 @@ msgstr ""
 "Sebuah penterjemah yang mudah dan ringan yang memungkinkan Anda untuk "
 "menterjemahkan dan mengatakan teks menggunakan Google, Yandex dan Bing."
 
-#: src/cli.cpp:71
+#: src/cli.cpp:143
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
@@ -134,34 +146,21 @@ msgstr ""
 "Teks untuk diterjemahkan. Secara bawaan, terjemahan akan dilakukan pada "
 "bahasa sistem."
 
-#: src/cli.cpp:95
+#: src/cli.cpp:168
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Kesalahan: Untuk --%1 Anda harus mementukan --%2 dan/atau pilihan --%3"
 
-#: src/cli.cpp:115
+#: src/cli.cpp:178
 #, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#| msgctxt "Cli|"
+#| msgid "Error: Unknown engine"
 msgctxt "Cli|"
-msgid "Error: Unknown source language code '%1'"
-msgstr "Kode bahasa yang tidak diketahui: %1"
+msgid "Error: Unknown engine '%1'"
+msgstr "Kesalahan: Mesin tidak diketahui"
 
-#: src/cli.cpp:128
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
-msgctxt "Cli|"
-msgid "Error: Unknown translation language code '%1'"
-msgstr "Kode bahasa yang tidak diketahui: %1"
-
-#: src/cli.cpp:152
-msgctxt "Cli|"
-msgid "Error: There is no text for translation"
-msgstr "Kesalahan: Tidak ada teks untuk terjemahan"
-
-#: src/cli.cpp:167
+#: src/cli.cpp:193
 #, fuzzy, qt-format
 #| msgctxt "AppSettings|"
 #| msgid "Unknown language code: %1"
@@ -169,7 +168,28 @@ msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
 msgstr "Kode bahasa yang tidak diketahui: %1"
 
-#: src/cli.cpp:177
+#: src/cli.cpp:217
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Unknown language code: %1"
+msgctxt "Cli|"
+msgid "Error: Unknown source language code '%1'"
+msgstr "Kode bahasa yang tidak diketahui: %1"
+
+#: src/cli.cpp:240
+#, fuzzy, qt-format
+#| msgctxt "AppSettings|"
+#| msgid "Unknown language code: %1"
+msgctxt "Cli|"
+msgid "Error: Unknown translation language code '%1'"
+msgstr "Kode bahasa yang tidak diketahui: %1"
+
+#: src/cli.cpp:263
+msgctxt "Cli|"
+msgid "Error: There is no text for translation"
+msgstr "Kesalahan: Tidak ada teks untuk terjemahan"
+
+#: src/cli.cpp:268
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Speech test:"
@@ -177,20 +197,7 @@ msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr "Tes ucapan:"
 
-#: src/cli.cpp:216
-#, fuzzy
-#| msgctxt "OnlineTts|"
-#| msgid "Selected language %1 is not supported for %2"
-msgctxt "Cli|"
-msgid "Error: Lingva engine is not supported"
-msgstr "Bahasa yang dipilih %1 tidak didukung untuk %2"
-
-#: src/cli.cpp:225
-msgctxt "Cli|"
-msgid "Error: Unknown engine"
-msgstr "Kesalahan: Mesin tidak diketahui"
-
-#: src/cli.cpp:265
+#: src/cli.cpp:330
 #, fuzzy, qt-format
 #| msgctxt "AppSettings|"
 #| msgid "Unknown language code: %1"
@@ -198,13 +205,13 @@ msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
 msgstr "Kode bahasa yang tidak diketahui: %1"
 
-#: src/cli.cpp:344 src/cli.cpp:393
+#: src/cli.cpp:391 src/cli.cpp:445
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Kesalahan: %1"
 
-#: src/cli.cpp:346 src/cli.cpp:395
+#: src/cli.cpp:393 src/cli.cpp:447
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Translation mode:"
@@ -212,29 +219,69 @@ msgctxt "Cli|"
 msgid "Translation error occurred"
 msgstr "Mode terjemahan:"
 
-#: src/cli.cpp:451
+#: src/cli.cpp:513
 msgctxt "Cli|"
 msgid "Unknown error"
 msgstr ""
 
-#: src/cli.cpp:452
+#: src/cli.cpp:514
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: Unable to open file: %1"
 msgctxt "Cli|"
-msgid "Error: TTS failed"
+msgid "Error: TTS failed: %1"
+msgstr "Kesalahan: Tidak dapat membuka berkas: %1"
+
+#: src/cli.cpp:612
+msgctxt "Cli|"
+msgid "no provider was created"
 msgstr ""
 
-#: src/cli.cpp:609
+#: src/cli.cpp:637
+msgctxt "Cli|"
+msgid "the engine failed to start"
+msgstr ""
+
+#: src/cli.cpp:642
+msgctxt "Cli|"
+msgid "the selected provider has no voices available"
+msgstr ""
+
+#: src/cli.cpp:692
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: text-to-speech is unavailable: %1"
+msgstr ""
+
+#: src/cli.cpp:713
+#, fuzzy
+#| msgctxt "LanguagesDialog|"
+#| msgid "Current languages:"
+msgctxt "Cli|"
+msgid "Source languages:"
+msgstr "Bahasa saat ini:"
+
+#: src/cli.cpp:716
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Primary translation language:"
+msgctxt "Cli|"
+msgid "Translation languages:"
+msgstr "Bahasa terjemahan utama:"
+
+#: src/cli.cpp:774
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Kesalahan: Anda tidak dapa't menggunakan --%1 dengan --%2"
 
-#: src/cli.cpp:622 src/cli.cpp:643
+#: src/cli.cpp:786 src/cli.cpp:807
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Kesalahan: Berkas tidak tersedia: %1"
 
-#: src/cli.cpp:627 src/cli.cpp:648
+#: src/cli.cpp:791 src/cli.cpp:812
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -366,13 +413,13 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Bahasa saat ini:"
 
-#: src/main.cpp:119
+#: src/main.cpp:121
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr "Layanan D-Bus %1 sudah dahulu teregistrasi oleh aplikasi lain"
 
-#: src/main.cpp:155
+#: src/main.cpp:164
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
@@ -3964,6 +4011,13 @@ msgstr ""
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
 msgstr ""
+
+#, fuzzy
+#~| msgctxt "OnlineTts|"
+#~| msgid "Selected language %1 is not supported for %2"
+#~ msgctxt "Cli|"
+#~ msgid "Error: Lingva engine is not supported"
+#~ msgstr "Bahasa yang dipilih %1 tidak didukung untuk %2"
 
 #~ msgctxt "Ocr|"
 #~ msgid "OCR languages are not loaded"

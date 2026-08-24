@@ -18,12 +18,12 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 25.08.2\n"
 
-#: src/cli.cpp:37
+#: src/cli.cpp:98
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Parādīt visus valodu kodus."
 
-#: src/cli.cpp:39
+#: src/cli.cpp:100
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -32,7 +32,7 @@ msgstr ""
 "Norādiet avota valodu (pēc noklusējuma programma mēģinās pati noteikt "
 "valodu)."
 
-#: src/cli.cpp:43
+#: src/cli.cpp:104
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), split by '+' (by default, the system "
@@ -41,16 +41,21 @@ msgstr ""
 "Norādiet tulkošanas valodu(-as), kas atdalītas ar '+' (pēc noklusējuma tiek "
 "lietota sistēmas valoda)."
 
-#: src/cli.cpp:47
+#: src/cli.cpp:109
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid ""
+#| "Specify the translator engine ('google', 'yandex', 'bing', "
+#| "'libretranslate' or 'lingva'), Google is used by default."
 msgctxt "Cli|"
 msgid ""
-"Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
-"or 'lingva'), Google is used by default."
+"Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
+"'libretranslate', 'mymemory' or 'reverso'), Google is used by default."
 msgstr ""
 "Norādiet tulkotāja programmu („google“, „yandex“, „bing“, „libretranslate“ "
 "vai „lingva“), pēc noklusējuma tiek lietots „Google“."
 
-#: src/cli.cpp:51
+#: src/cli.cpp:113
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
@@ -59,64 +64,94 @@ msgstr ""
 "Norādiet „Mozhi“ instances URL. Pēc noklusējuma tiks lietots instances URL "
 "no programmas iestatījumiem."
 
-#: src/cli.cpp:55
+#: src/cli.cpp:117
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid ""
+#| "Specify translation provider ('copy' or 'mozhi'). Provider from app "
+#| "settings will be used by default."
 msgctxt "Cli|"
 msgid ""
-"Specify translation provider ('copy' or 'mozhi'). Provider from app settings "
-"will be used by default."
+"Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
+"app settings will be used by default."
 msgstr ""
 "Norādiet tulkojuma pakalpojumu sniedzēju („copy“ vai „mozhi“). Pēc "
 "noklusējuma tiks lietots iestatījumos norādītais pakalpojumu sniedzējs."
 
-#: src/cli.cpp:58
+#: src/cli.cpp:125
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid ""
+#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
+#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
-"Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from app "
+"Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
 "settings will be used by default."
 msgstr ""
 "Norādiet TTS pakalpojumu sniedzēju („none“, „mozhi“, „qt“ vai „piper“). Pēc "
 "noklusējuma tika lietots programmas iestatījumos norādītais pakalpojumu "
 "sniedzējs."
 
-#: src/cli.cpp:60
+#: src/cli.cpp:127
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid ""
+#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
+#| "app settings will be used by default."
+msgctxt "Cli|"
+msgid ""
+"Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
+"will be used by default."
+msgstr ""
+"Norādiet TTS pakalpojumu sniedzēju („none“, „mozhi“, „qt“ vai „piper“). Pēc "
+"noklusējuma tika lietots programmas iestatījumos norādītais pakalpojumu "
+"sniedzējs."
+
+#: src/cli.cpp:129
+msgctxt "Cli|"
+msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
+msgstr ""
+
+#: src/cli.cpp:132
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Izrunāt tulkojumu."
 
-#: src/cli.cpp:61
+#: src/cli.cpp:133
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Izrunāt avotu."
 
-#: src/cli.cpp:62
+#: src/cli.cpp:134
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
 msgstr ""
 "Lasīt avota tekstu no datnēm. Argumenti tiks interpretēti kā datnes ceļi."
 
-#: src/cli.cpp:63
+#: src/cli.cpp:135
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Avota tekstam pievienot „stdin“ datus."
 
-#: src/cli.cpp:65
+#: src/cli.cpp:137
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "Nedrukāt tekstu, kad tiek izmantots „--%1“ vai „--%2“."
 
-#: src/cli.cpp:66
+#: src/cli.cpp:138
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Drukāt tikai tulkojumus."
 
-#: src/cli.cpp:67
+#: src/cli.cpp:139
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Drukas izvadi formatēt kā JSON."
 
-#: src/cli.cpp:70
+#: src/cli.cpp:142
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
@@ -124,7 +159,7 @@ msgstr ""
 "Programma, kas ļauj tulkot un izrunāt tekstu, izmantojot dažādus pakalpojumu "
 "sniedzējus"
 
-#: src/cli.cpp:71
+#: src/cli.cpp:143
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
@@ -132,90 +167,128 @@ msgid ""
 msgstr ""
 "Teksts tulkošanai. Pēc noklusējuma tulkojums tiks veikts sistēmas valodā."
 
-#: src/cli.cpp:95
+#: src/cli.cpp:168
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Kļūda: „--%1“ ir jānorāda „--%2“ un/vai „--%3“ opcijas"
 
-#: src/cli.cpp:115
-#, qt-format
+#: src/cli.cpp:178
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: Unknown engine"
 msgctxt "Cli|"
-msgid "Error: Unknown source language code '%1'"
-msgstr "Kļūda: nezināms avota valodas kods „%1“"
+msgid "Error: Unknown engine '%1'"
+msgstr "Kļūda: nezināma programma"
 
-#: src/cli.cpp:128
-#, qt-format
-msgctxt "Cli|"
-msgid "Error: Unknown translation language code '%1'"
-msgstr "Kļūda nezināms tulkojuma valodas kods „%1“"
-
-#: src/cli.cpp:152
-msgctxt "Cli|"
-msgid "Error: There is no text for translation"
-msgstr "Kļūda: nav teksta tulkošanai"
-
-#: src/cli.cpp:167
+#: src/cli.cpp:193
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
 msgstr "Kļūda: nezināms tulkošanas pakalpojumu sniedzējs „%1“"
 
-#: src/cli.cpp:177
+#: src/cli.cpp:217
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: Unknown source language code '%1'"
+msgstr "Kļūda: nezināms avota valodas kods „%1“"
+
+#: src/cli.cpp:240
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: Unknown translation language code '%1'"
+msgstr "Kļūda nezināms tulkojuma valodas kods „%1“"
+
+#: src/cli.cpp:263
+msgctxt "Cli|"
+msgid "Error: There is no text for translation"
+msgstr "Kļūda: nav teksta tulkošanai"
+
+#: src/cli.cpp:268
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr "Meklē ātrāko instanci"
 
-#: src/cli.cpp:216
-msgctxt "Cli|"
-msgid "Error: Lingva engine is not supported"
-msgstr "Kļūda: „Lingva“ dzinis nav atbalstīts"
-
-#: src/cli.cpp:225
-msgctxt "Cli|"
-msgid "Error: Unknown engine"
-msgstr "Kļūda: nezināma programma"
-
-#: src/cli.cpp:265
+#: src/cli.cpp:330
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
 msgstr "Kļūda: nezināms TTS pakalpojumu sniedzējs „%1“"
 
-#: src/cli.cpp:344 src/cli.cpp:393
+#: src/cli.cpp:391 src/cli.cpp:445
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Kļūda: %1"
 
-#: src/cli.cpp:346 src/cli.cpp:395
+#: src/cli.cpp:393 src/cli.cpp:447
 msgctxt "Cli|"
 msgid "Translation error occurred"
 msgstr "Notikusi tulkošanas kļūda"
 
-#: src/cli.cpp:451
+#: src/cli.cpp:513
 msgctxt "Cli|"
 msgid "Unknown error"
 msgstr ""
 
-#: src/cli.cpp:452
+#: src/cli.cpp:514
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: TTS failed"
 msgctxt "Cli|"
-msgid "Error: TTS failed"
+msgid "Error: TTS failed: %1"
 msgstr "Kļūda: TTS nenostrādāja"
 
-#: src/cli.cpp:609
+#: src/cli.cpp:612
+msgctxt "Cli|"
+msgid "no provider was created"
+msgstr ""
+
+#: src/cli.cpp:637
+msgctxt "Cli|"
+msgid "the engine failed to start"
+msgstr ""
+
+#: src/cli.cpp:642
+msgctxt "Cli|"
+msgid "the selected provider has no voices available"
+msgstr ""
+
+#: src/cli.cpp:692
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: text-to-speech is unavailable: %1"
+msgstr ""
+
+#: src/cli.cpp:713
+#, fuzzy
+#| msgctxt "LanguagesDialog|"
+#| msgid "Current languages:"
+msgctxt "Cli|"
+msgid "Source languages:"
+msgstr "Pašreizējās valodas:"
+
+#: src/cli.cpp:716
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Primary translation language:"
+msgctxt "Cli|"
+msgid "Translation languages:"
+msgstr "Galvenā tulkošanas valoda:"
+
+#: src/cli.cpp:774
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Kļūda: nav atļauts lietot „--%1“ kopā ar „--%2“"
 
-#: src/cli.cpp:622 src/cli.cpp:643
+#: src/cli.cpp:786 src/cli.cpp:807
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Kļūda: datne nepastāv: %1"
 
-#: src/cli.cpp:627 src/cli.cpp:648
+#: src/cli.cpp:791 src/cli.cpp:812
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -341,13 +414,13 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Pašreizējās valodas:"
 
-#: src/main.cpp:119
+#: src/main.cpp:121
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr "„D-Bus“ pakalpojums „%1“ jau ir reģistrēts citā programmā"
 
-#: src/main.cpp:155
+#: src/main.cpp:164
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
@@ -3857,6 +3930,10 @@ msgstr ""
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
 msgstr "„Windows“ TTS balss instalācija"
+
+#~ msgctxt "Cli|"
+#~ msgid "Error: Lingva engine is not supported"
+#~ msgstr "Kļūda: „Lingva“ dzinis nav atbalstīts"
 
 #~ msgctxt "Ocr|"
 #~ msgid "OCR languages are not loaded"

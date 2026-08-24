@@ -16,12 +16,12 @@ msgstr ""
 "X-Generator: Lokalize 25.08.2\n"
 "X-Qt-Contexts: true\n"
 
-#: src/cli.cpp:37
+#: src/cli.cpp:98
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Wyświetl wszystkie kody języków."
 
-#: src/cli.cpp:39
+#: src/cli.cpp:100
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -30,7 +30,7 @@ msgstr ""
 "Określ język źródłowy (domyślnie silnik będzie próbował samodzielnie "
 "określić język)."
 
-#: src/cli.cpp:43
+#: src/cli.cpp:104
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -44,16 +44,21 @@ msgstr ""
 "Określ język(i) tłumaczenia, z podziałem na '+' (domyślnie używany jest "
 "język systemowy)."
 
-#: src/cli.cpp:47
+#: src/cli.cpp:109
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid ""
+#| "Specify the translator engine ('google', 'yandex', 'bing', "
+#| "'libretranslate' or 'lingva'), Google is used by default."
 msgctxt "Cli|"
 msgid ""
-"Specify the translator engine ('google', 'yandex', 'bing', 'libretranslate' "
-"or 'lingva'), Google is used by default."
+"Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
+"'libretranslate', 'mymemory' or 'reverso'), Google is used by default."
 msgstr ""
 "Określ silnik translatora ('google', 'yandex', 'bing', 'libretranslate' lub "
 "'lingva'), domyślnie używana jest usługa Google."
 
-#: src/cli.cpp:51
+#: src/cli.cpp:113
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
@@ -62,7 +67,7 @@ msgstr ""
 "Wpisz adres URL usługodawcy Mozhi. Domyślnie zostanie użyty adres URL z "
 "ustawień aplikacji."
 
-#: src/cli.cpp:55
+#: src/cli.cpp:117
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -70,13 +75,13 @@ msgstr ""
 #| "used by default."
 msgctxt "Cli|"
 msgid ""
-"Specify translation provider ('copy' or 'mozhi'). Provider from app settings "
-"will be used by default."
+"Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
+"app settings will be used by default."
 msgstr ""
 "Wpisz adres URL wystąpienia Mozhi. Domyślnie zostanie użyty adres URL z "
 "ustawień aplikacji."
 
-#: src/cli.cpp:58
+#: src/cli.cpp:125
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -84,23 +89,42 @@ msgstr ""
 #| "used by default."
 msgctxt "Cli|"
 msgid ""
-"Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from app "
+"Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
 "settings will be used by default."
 msgstr ""
 "Wpisz adres URL wystąpienia Mozhi. Domyślnie zostanie użyty adres URL z "
 "ustawień aplikacji."
 
-#: src/cli.cpp:60
+#: src/cli.cpp:127
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid ""
+#| "Specify Mozhi instance URL. Instance URL from the app settings will be "
+#| "used by default."
+msgctxt "Cli|"
+msgid ""
+"Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
+"will be used by default."
+msgstr ""
+"Wpisz adres URL wystąpienia Mozhi. Domyślnie zostanie użyty adres URL z "
+"ustawień aplikacji."
+
+#: src/cli.cpp:129
+msgctxt "Cli|"
+msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
+msgstr ""
+
+#: src/cli.cpp:132
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Wypowiedz tłumaczenie."
 
-#: src/cli.cpp:61
+#: src/cli.cpp:133
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Wypowiedz źródło."
 
-#: src/cli.cpp:62
+#: src/cli.cpp:134
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -108,28 +132,28 @@ msgstr ""
 "Czytaj tekst źródłowy z plików. Argumenty będą interpretowane jako ścieżki "
 "plików."
 
-#: src/cli.cpp:63
+#: src/cli.cpp:135
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Dodaj dane stdin do tekstu źródłowego."
 
-#: src/cli.cpp:65
+#: src/cli.cpp:137
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "Nie drukuj żadnego tekstu, gdy używasz --%1 lub --%2."
 
-#: src/cli.cpp:66
+#: src/cli.cpp:138
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Drukuj tylko tłumaczenia."
 
-#: src/cli.cpp:67
+#: src/cli.cpp:139
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Wydrukuj dane wyjściowe sformatowane jako JSON."
 
-#: src/cli.cpp:70
+#: src/cli.cpp:142
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid "Application that allows to translate and speak text using Mozhi"
@@ -140,7 +164,7 @@ msgstr ""
 "Aplikacja, która nie tylko tłumaczy ale i wypowiada na głos zaznaczony tekst "
 "przy użyciu Mozhi"
 
-#: src/cli.cpp:71
+#: src/cli.cpp:143
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
@@ -149,30 +173,21 @@ msgstr ""
 "Tekst do przetłumaczenia. Domyślnie tłumaczenie zostanie wykonane na język "
 "systemowy."
 
-#: src/cli.cpp:95
+#: src/cli.cpp:168
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Błąd: dla --%1 musisz podać --%2 i/lub --%3 opcje"
 
-#: src/cli.cpp:115
-#, qt-format
+#: src/cli.cpp:178
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: Unknown engine"
 msgctxt "Cli|"
-msgid "Error: Unknown source language code '%1'"
-msgstr "Błąd: Nieznany kod języka źródłowego '%1'"
+msgid "Error: Unknown engine '%1'"
+msgstr "Błąd: nieznany silnik"
 
-#: src/cli.cpp:128
-#, qt-format
-msgctxt "Cli|"
-msgid "Error: Unknown translation language code '%1'"
-msgstr "Błąd: Nieznany kod języka docelowego '%1'"
-
-#: src/cli.cpp:152
-msgctxt "Cli|"
-msgid "Error: There is no text for translation"
-msgstr "Błąd: nie ma tekstu do tłumaczenia"
-
-#: src/cli.cpp:167
+#: src/cli.cpp:193
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: Unknown translation language code '%1'"
@@ -180,25 +195,29 @@ msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
 msgstr "Błąd: Nieznany kod języka docelowego '%1'"
 
-#: src/cli.cpp:177
+#: src/cli.cpp:217
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: Unknown source language code '%1'"
+msgstr "Błąd: Nieznany kod języka źródłowego '%1'"
+
+#: src/cli.cpp:240
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: Unknown translation language code '%1'"
+msgstr "Błąd: Nieznany kod języka docelowego '%1'"
+
+#: src/cli.cpp:263
+msgctxt "Cli|"
+msgid "Error: There is no text for translation"
+msgstr "Błąd: nie ma tekstu do tłumaczenia"
+
+#: src/cli.cpp:268
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr "Wykrywanie najszybszego usługodawcy"
 
-#: src/cli.cpp:216
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Language detection is not supported for %1"
-msgctxt "Cli|"
-msgid "Error: Lingva engine is not supported"
-msgstr "Wykrywanie języka jest nieobsługiwane dla %1"
-
-#: src/cli.cpp:225
-msgctxt "Cli|"
-msgid "Error: Unknown engine"
-msgstr "Błąd: nieznany silnik"
-
-#: src/cli.cpp:265
+#: src/cli.cpp:330
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: Unknown source language code '%1'"
@@ -206,13 +225,13 @@ msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
 msgstr "Błąd: Nieznany kod języka źródłowego '%1'"
 
-#: src/cli.cpp:344 src/cli.cpp:393
+#: src/cli.cpp:391 src/cli.cpp:445
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Błąd: %1"
 
-#: src/cli.cpp:346 src/cli.cpp:395
+#: src/cli.cpp:393 src/cli.cpp:447
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Translation backend:"
@@ -220,29 +239,69 @@ msgctxt "Cli|"
 msgid "Translation error occurred"
 msgstr "Silnik tłumaczenia:"
 
-#: src/cli.cpp:451
+#: src/cli.cpp:513
 msgctxt "Cli|"
 msgid "Unknown error"
 msgstr ""
 
-#: src/cli.cpp:452
+#: src/cli.cpp:514
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: TTS failed"
 msgctxt "Cli|"
-msgid "Error: TTS failed"
+msgid "Error: TTS failed: %1"
 msgstr "Błąd: niepowodzenie TTS"
 
-#: src/cli.cpp:609
+#: src/cli.cpp:612
+msgctxt "Cli|"
+msgid "no provider was created"
+msgstr ""
+
+#: src/cli.cpp:637
+msgctxt "Cli|"
+msgid "the engine failed to start"
+msgstr ""
+
+#: src/cli.cpp:642
+msgctxt "Cli|"
+msgid "the selected provider has no voices available"
+msgstr ""
+
+#: src/cli.cpp:692
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: text-to-speech is unavailable: %1"
+msgstr ""
+
+#: src/cli.cpp:713
+#, fuzzy
+#| msgctxt "LanguagesDialog|"
+#| msgid "Current languages:"
+msgctxt "Cli|"
+msgid "Source languages:"
+msgstr "Obecne języki:"
+
+#: src/cli.cpp:716
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Primary translation language:"
+msgctxt "Cli|"
+msgid "Translation languages:"
+msgstr "Podstawowy język tłumaczenia:"
+
+#: src/cli.cpp:774
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Błąd: Nie można użyć --%1 z --%2"
 
-#: src/cli.cpp:622 src/cli.cpp:643
+#: src/cli.cpp:786 src/cli.cpp:807
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Błąd: Plik nie istnieje: %1"
 
-#: src/cli.cpp:627 src/cli.cpp:648
+#: src/cli.cpp:791 src/cli.cpp:812
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -368,13 +427,13 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Obecne języki:"
 
-#: src/main.cpp:119
+#: src/main.cpp:121
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
 msgstr "Usługa D-Bus %1 jest już zarejestrowana przez inną aplikację"
 
-#: src/main.cpp:155
+#: src/main.cpp:164
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
@@ -3870,6 +3929,13 @@ msgstr ""
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
 msgstr ""
+
+#, fuzzy
+#~| msgctxt "OnlineTranslator|"
+#~| msgid "Language detection is not supported for %1"
+#~ msgctxt "Cli|"
+#~ msgid "Error: Lingva engine is not supported"
+#~ msgstr "Wykrywanie języka jest nieobsługiwane dla %1"
 
 #~ msgctxt "Ocr|"
 #~ msgid "OCR languages are not loaded"
