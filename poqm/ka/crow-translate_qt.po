@@ -36,18 +36,13 @@ msgstr ""
 "სისტემის ენა)."
 
 #: src/cli.cpp:109
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify the translator engine ('google', 'yandex', 'bing', "
-#| "'libretranslate' or 'lingva'), Google is used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
 "'libretranslate', 'mymemory' or 'reverso'), Google is used by default."
 msgstr ""
 "მიუთითეთ მთარგმნელი ძრავა ('google', 'yandex', 'bing', 'libretranslate' ან "
-"'lingva'). ნაგულისხმევად გამოიყენება Google."
+"'mymemory', ან 'reverso'). ნაგულისხმევად გამოიყენება Google."
 
 #: src/cli.cpp:113
 msgctxt "Cli|"
@@ -59,25 +54,15 @@ msgstr ""
 "ბმული აპის პარამეტრებიდან."
 
 #: src/cli.cpp:117
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy' or 'mozhi'). Provider from app "
-#| "settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
 "app settings will be used by default."
 msgstr ""
-"მიუთითეთ თარგმანის მომწოდებელი ('copy' ან 'mozhi'). ნაგულისხმევად "
-"გამოყენებული იქნება მომწოდებელი აპის პარამეტრებიდან."
+"მიუთითეთ თარგმანის მომწოდებელი ('copy', 'mozhi', ან 'localai'). "
+"ნაგულისხმევად გამოყენებული იქნება მომწოდებელი აპის პარამეტრებიდან."
 
 #: src/cli.cpp:125
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
@@ -87,23 +72,20 @@ msgstr ""
 "ნაგულისხმევად გამოყენებული იქნება მომწოდებელი აპის პარამეტრებიდან."
 
 #: src/cli.cpp:127
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
 "will be used by default."
 msgstr ""
-"მიუთითეთ TTS-ის მომწოდებელი ('none', 'mozhi', 'qt', ან 'piper'). "
-"ნაგულისხმევად გამოყენებული იქნება მომწოდებელი აპის პარამეტრებიდან."
+"მიუთითეთ TTS-ის მომწოდებელი ('none', 'mozhi', ან 'qt'). ნაგულისხმევად "
+"გამოყენებული იქნება მომწოდებელი აპის პარამეტრებიდან."
 
 #: src/cli.cpp:129
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
+"მიუთითეთ TTS-ის მომწოდებელი ('არცერთი'). ამ აგებაში ტექსტის წარმოთქმა "
+"გამორთულია."
 
 #: src/cli.cpp:132
 msgctxt "Cli|"
@@ -166,12 +148,10 @@ msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "შეცდომა: პარამეტრისთვის --%1 უნდა მიუთითოთ პარამეტრები --%2 ან/და --%3"
 
 #: src/cli.cpp:178
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
-msgstr "შეცდომა: უცნობი ძრავა"
+msgstr "შეცდომა: უცნობი ძრავა '%1'"
 
 #: src/cli.cpp:193
 #, qt-format
@@ -224,49 +204,41 @@ msgid "Unknown error"
 msgstr "უცნობი შეცდომა"
 
 #: src/cli.cpp:514
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
-msgstr "შეცდომა: TTS ჩავარდა"
+msgstr "შეცდომა: TTS ჩავარდა: %1"
 
 #: src/cli.cpp:612
 msgctxt "Cli|"
 msgid "no provider was created"
-msgstr ""
+msgstr "მომწოდებელი არ შექმნილა"
 
 #: src/cli.cpp:637
 msgctxt "Cli|"
 msgid "the engine failed to start"
-msgstr ""
+msgstr "ძრავის გაშვების შეცდომა"
 
 #: src/cli.cpp:642
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
-msgstr ""
+msgstr "არჩეულ მომწოდებელს ხმები ხელმისაწვდომი არ აქვს"
 
 #: src/cli.cpp:692
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
-msgstr ""
+msgstr "შეცდომა: ტექსტის წარმოთქმა ხელმიუწვდომელია: %1"
 
 #: src/cli.cpp:713
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "Cli|"
 msgid "Source languages:"
-msgstr "მიმდინარე ენები:"
+msgstr "წყარო ენები:"
 
 #: src/cli.cpp:716
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Primary translation language:"
 msgctxt "Cli|"
 msgid "Translation languages:"
-msgstr "ძირითადი თარგმანის ენა:"
+msgstr "თარგმანის ენები:"
 
 #: src/cli.cpp:774
 #, qt-format

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-21 14:37+0200\n"
+"PO-Revision-Date: 2026-08-24 10:57+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -41,18 +41,13 @@ msgstr ""
 "systeemtaal gebruikt)."
 
 #: src/cli.cpp:109
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify the translator engine ('google', 'yandex', 'bing', "
-#| "'libretranslate' or 'lingva'), Google is used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
 "'libretranslate', 'mymemory' or 'reverso'), Google is used by default."
 msgstr ""
-"Kies de vertaalmachine ('google', 'yandex', 'bing', , 'libretranslate' of "
-"'lingva'). Standaard: Google."
+"Kies de vertaalmachine ('google', 'yandex', 'bing', 'deepl', "
+"'libretranslate', 'mymemory' of 'reverso'). Standaard: Google."
 
 #: src/cli.cpp:113
 msgctxt "Cli|"
@@ -64,51 +59,39 @@ msgstr ""
 "toepassing zal standaard gebruikt worden."
 
 #: src/cli.cpp:117
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy' or 'mozhi'). Provider from app "
-#| "settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
 "app settings will be used by default."
 msgstr ""
-"Specificeer leverancier van vertaling ('copy' of 'mozi'). Leverancier van de "
-"instellingen van de toepassing zal standaard gebruikt worden."
+"Specificeer leverancier van vertaling ('copy', 'mozhi' of 'localai'). "
+"Leverancier van de instellingen van de toepassing zal standaard gebruikt "
+"worden."
 
 #: src/cli.cpp:125
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
 "settings will be used by default."
 msgstr ""
-"Specificeer TTS-leverancier ('geen', 'mozhi', 'qt', of 'piper'). Leverancier "
+"Specificeer TTS-leverancier ('geen', 'mozhi', 'qt' of 'piper'). Leverancier "
 "van de instellingen van de toepassing zal standaard gebruikt worden."
 
 #: src/cli.cpp:127
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
 "will be used by default."
 msgstr ""
-"Specificeer TTS-leverancier ('geen', 'mozhi', 'qt', of 'piper'). Leverancier "
-"van de instellingen van de toepassing zal standaard gebruikt worden."
+"Specificeer TTS-leverancier ('geen', 'mozhi' of 'qt'). Leverancier van de "
+"instellingen van de toepassing zal standaard gebruikt worden."
 
 #: src/cli.cpp:129
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
+"Specificeer TTS leverancier ('none'). Dit exemplaar heeft tekst-naar-spraak "
+"uitgeschakeld."
 
 #: src/cli.cpp:132
 msgctxt "Cli|"
@@ -172,12 +155,10 @@ msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Fout: bij --%1 dient u --%2 en/of --%3 op te geven"
 
 #: src/cli.cpp:178
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
-msgstr "Fout: onbekende vertaalmachine"
+msgstr "Fout: onbekende vertaalmachine '%1'"
 
 #: src/cli.cpp:193
 #, qt-format
@@ -230,49 +211,41 @@ msgid "Unknown error"
 msgstr "Onbekende fout"
 
 #: src/cli.cpp:514
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
-msgstr "Fout: TTS mislukte"
+msgstr "Fout: TTS is mislukt: %1"
 
 #: src/cli.cpp:612
 msgctxt "Cli|"
 msgid "no provider was created"
-msgstr ""
+msgstr "er is geen leverancier aangemaakt"
 
 #: src/cli.cpp:637
 msgctxt "Cli|"
 msgid "the engine failed to start"
-msgstr ""
+msgstr "starten van de vertaalmachine is mislukt"
 
 #: src/cli.cpp:642
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
-msgstr ""
+msgstr "de geselecteerde leverancier heeft geen stemmen beschikbaar"
 
 #: src/cli.cpp:692
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
-msgstr ""
+msgstr "Fout: tekst-naar-spraak in niet beschikbaar: %1"
 
 #: src/cli.cpp:713
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "Cli|"
 msgid "Source languages:"
-msgstr "Gekozen talen:"
+msgstr "Brontalen:"
 
 #: src/cli.cpp:716
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Primary translation language:"
 msgctxt "Cli|"
 msgid "Translation languages:"
-msgstr "Voorkeurstaal voor vertalingen:"
+msgstr "Vertalingen naar:"
 
 #: src/cli.cpp:774
 #, qt-format

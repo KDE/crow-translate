@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-20 13:51+0300\n"
+"PO-Revision-Date: 2026-08-24 12:28+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -42,18 +42,13 @@ msgstr ""
 "мова). "
 
 #: src/cli.cpp:109
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify the translator engine ('google', 'yandex', 'bing', "
-#| "'libretranslate' or 'lingva'), Google is used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
 "'libretranslate', 'mymemory' or 'reverso'), Google is used by default."
 msgstr ""
-"Вкажіть двигун перекладача ('google', 'yandex', 'bing', 'libretranslate' або "
-"'lingva'), Google використовується за замовчуванням."
+"Вказати рушій перекладу ('google', 'yandex', 'bing', 'deepl', "
+"'libretranslate', 'mymemory' або 'reverso'), типово буде використано Google."
 
 #: src/cli.cpp:113
 msgctxt "Cli|"
@@ -65,25 +60,15 @@ msgstr ""
 "із параметрів програми."
 
 #: src/cli.cpp:117
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy' or 'mozhi'). Provider from app "
-#| "settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
 "app settings will be used by default."
 msgstr ""
-"Вкажіть надавача даних перекладу ('copy' або 'mozhi'). Типово буде "
-"використано надавача з параметрів програми."
+"Вкажіть надавача даних перекладу ('copy', 'mozhi' або 'localai'). Типово "
+"буде використано надавача з параметрів програми."
 
 #: src/cli.cpp:125
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
@@ -93,23 +78,20 @@ msgstr ""
 "Типово буде використано надавача даних, якого вказано у параметрах програми."
 
 #: src/cli.cpp:127
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
 "will be used by default."
 msgstr ""
-"Вказати надавача даних озвучення тексту ('none', 'mozhi', 'qt' або 'piper'). "
-"Типово буде використано надавача даних, якого вказано у параметрах програми."
+"Вказати надавача даних озвучення тексту ('none', 'mozhi' або 'qt'). Типово "
+"буде використано надавача даних, якого вказано у параметрах програми."
 
 #: src/cli.cpp:129
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
+"Вказати інструмент озвучення тексту ('none'). У цій збірці озвучення тексту "
+"вимкнено."
 
 #: src/cli.cpp:132
 msgctxt "Cli|"
@@ -172,12 +154,10 @@ msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Помилка: Для --%1 необхідно вказати --%2 та/або --%3 параметри "
 
 #: src/cli.cpp:178
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
-msgstr "Помилка: Невідомий рушій"
+msgstr "Помилка: Невідомий рушій «%1»"
 
 #: src/cli.cpp:193
 #, qt-format
@@ -230,49 +210,41 @@ msgid "Unknown error"
 msgstr "Невідома помилка"
 
 #: src/cli.cpp:514
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
-msgstr "Помилка: не вдалося озвучити текст"
+msgstr "Помилка: не вдалося озвучити текст: %1"
 
 #: src/cli.cpp:612
 msgctxt "Cli|"
 msgid "no provider was created"
-msgstr ""
+msgstr "не створено жодного надавача даних"
 
 #: src/cli.cpp:637
 msgctxt "Cli|"
 msgid "the engine failed to start"
-msgstr ""
+msgstr "не вдалося запустити рушій"
 
 #: src/cli.cpp:642
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
-msgstr ""
+msgstr "для вибраного надавача даних немає доступних дикторів"
 
 #: src/cli.cpp:692
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
-msgstr ""
+msgstr "Помилка: озвучення тексту недоступне: %1"
 
 #: src/cli.cpp:713
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "Cli|"
 msgid "Source languages:"
-msgstr "Поточні мови:"
+msgstr "Початкові мови:"
 
 #: src/cli.cpp:716
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Primary translation language:"
 msgctxt "Cli|"
 msgid "Translation languages:"
-msgstr "Основна мова перекладу"
+msgstr "Мови перекладу:"
 
 #: src/cli.cpp:774
 #, qt-format

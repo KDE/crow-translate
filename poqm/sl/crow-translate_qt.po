@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-08-20 07:29+0200\n"
+"PO-Revision-Date: 2026-08-24 07:17+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -38,18 +38,13 @@ msgstr ""
 "jezik)."
 
 #: src/cli.cpp:109
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify the translator engine ('google', 'yandex', 'bing', "
-#| "'libretranslate' or 'lingva'), Google is used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
 "'libretranslate', 'mymemory' or 'reverso'), Google is used by default."
 msgstr ""
-"Določite prevajalski mehanizem ('google', 'yandex', 'bing', 'libretranslate' "
-"ali 'lingva'), privzeto se uporablja Google."
+"Določite prevajalski mehanizem ('google', 'yandex', 'bing', 'deepl', "
+"'libretranslate', 'mymemory' or 'reverso'), privzeto se uporablja Google."
 
 #: src/cli.cpp:113
 msgctxt "Cli|"
@@ -61,39 +56,24 @@ msgstr ""
 "aplikacije."
 
 #: src/cli.cpp:117
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy' or 'mozhi'). Provider from app "
-#| "settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
 "app settings will be used by default."
 msgstr ""
-"Določite ponudnika prevajanja ('kopijraj' ali 'mozhi'). Privzeto bo "
+"Določite ponudnika prevajanja ('copy', 'mozhi' ali 'localai'). Privzeto bo "
 "uporabljen ponudnik iz nastavitev aplikacije."
 
 #: src/cli.cpp:125
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
 "settings will be used by default."
 msgstr ""
 "Določite ponudnika pretvorbe besedila v govor ('none', 'mozhi', 'qt' ali "
-"'piper'). Privzeto bo uporabljen ponudnik iz nastavitev aplikacije."
+"'piper'). Privzeto uporabljen bo ponudnik iz nastavitev aplikacije."
 
 #: src/cli.cpp:127
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
@@ -106,6 +86,8 @@ msgstr ""
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
+"Navedite ponudnika pretvorbe besedila v govor ('none'). Ta različica ima "
+"onemogočeno pretvorbo besedila v govor."
 
 #: src/cli.cpp:132
 msgctxt "Cli|"
@@ -168,12 +150,10 @@ msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Napaka: Za --%1 morate podati možnosti --%2 in/ali --%3"
 
 #: src/cli.cpp:178
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
-msgstr "Napaka: Neznan stroj"
+msgstr "Napaka: Neznani stroj '%1'"
 
 #: src/cli.cpp:193
 #, qt-format
@@ -226,49 +206,41 @@ msgid "Unknown error"
 msgstr "Neznana napaka"
 
 #: src/cli.cpp:514
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
-msgstr "Napaka: Pretvorba besedila v govor ni uspela"
+msgstr "Napaka: Pretvorba besedila v govor ni uspela: %1"
 
 #: src/cli.cpp:612
 msgctxt "Cli|"
 msgid "no provider was created"
-msgstr ""
+msgstr "noben ponudnik ni bil ustvarjen"
 
 #: src/cli.cpp:637
 msgctxt "Cli|"
 msgid "the engine failed to start"
-msgstr ""
+msgstr "mehanizem se ni uspel zagnati"
 
 #: src/cli.cpp:642
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
-msgstr ""
+msgstr "izbrani ponudnik nima na voljo nobenih glasov"
 
 #: src/cli.cpp:692
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
-msgstr ""
+msgstr "Napaka: pretvorba besedila v govor ni na voljo: %1"
 
 #: src/cli.cpp:713
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "Cli|"
 msgid "Source languages:"
-msgstr "Trenutni jeziki:"
+msgstr "Izvorni jeziki:"
 
 #: src/cli.cpp:716
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Primary translation language:"
 msgctxt "Cli|"
 msgid "Translation languages:"
-msgstr "Primarni jezik prevoda:"
+msgstr "Jeziki prevoda:"
 
 #: src/cli.cpp:774
 #, qt-format

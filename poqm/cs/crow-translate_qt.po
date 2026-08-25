@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-20 12:50+0200\n"
+"PO-Revision-Date: 2026-08-24 20:38+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.08.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/cli.cpp:98
@@ -38,18 +38,14 @@ msgstr ""
 "použije jazyk systému)."
 
 #: src/cli.cpp:109
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify the translator engine ('google', 'yandex', 'bing', "
-#| "'libretranslate' or 'lingva'), Google is used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
 "'libretranslate', 'mymemory' or 'reverso'), Google is used by default."
 msgstr ""
-"Zadejte překladatelské jádro ('google', 'yandex', 'bing', 'libretranslate' "
-"nebo 'lingva'); ve výchozím nastavení se používá Google."
+"Zadejte překladatelské jádro ('google', 'yandex', 'bing', 'deepl', "
+"'libretranslate', 'mymemory' nebo 'reverso'); ve výchozím nastavení se "
+"používá Google."
 
 #: src/cli.cpp:113
 msgctxt "Cli|"
@@ -61,25 +57,15 @@ msgstr ""
 "nastavení aplikace."
 
 #: src/cli.cpp:117
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy' or 'mozhi'). Provider from app "
-#| "settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
 "app settings will be used by default."
 msgstr ""
-"Zadejte poskytovatele překladu ('copy' nebo 'mozhi'). Ve výchozím nastavení "
-"se použije poskytovatel z nastavení aplikace."
+"Zadejte poskytovatele překladu ('copy', 'mozhi' nebo 'localai'). Ve výchozím "
+"nastavení se použije poskytovatel z nastavení aplikace."
 
 #: src/cli.cpp:125
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
@@ -89,23 +75,20 @@ msgstr ""
 "výchozím nastavení se použije poskytovatel z nastavení aplikace."
 
 #: src/cli.cpp:127
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
 "will be used by default."
 msgstr ""
-"Zadejte poskytovatele služby TTS ('none', 'mozhi', 'qt' nebo 'piper'). Ve "
-"výchozím nastavení se použije poskytovatel z nastavení aplikace."
+"Zadejte poskytovatele služby TTS ('none', 'mozhi' nebo 'qt'). Ve výchozím "
+"nastavení se použije poskytovatel z nastavení aplikace."
 
 #: src/cli.cpp:129
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
+"Zadejte poskytovatele služby TTS ('none'). V této verzi je funkce převodu "
+"textu na řeč deaktivována."
 
 #: src/cli.cpp:132
 msgctxt "Cli|"
@@ -170,12 +153,10 @@ msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Chyba: Pro --%1 je nutné zadat volby --%2 a/nebo --%3"
 
 #: src/cli.cpp:178
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
-msgstr "Chyba: Neznámé jádro"
+msgstr "Chyba: Neznámé jádro '%1'"
 
 #: src/cli.cpp:193
 #, qt-format
@@ -228,49 +209,41 @@ msgid "Unknown error"
 msgstr "Neznámá chyba"
 
 #: src/cli.cpp:514
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
-msgstr "Chyba: Selhání TTS"
+msgstr "Chyba: Selhání TTS: %1"
 
 #: src/cli.cpp:612
 msgctxt "Cli|"
 msgid "no provider was created"
-msgstr ""
+msgstr "nebyl vytvořen žádný poskytovatel"
 
 #: src/cli.cpp:637
 msgctxt "Cli|"
 msgid "the engine failed to start"
-msgstr ""
+msgstr "jádro se nepodařilo spustit"
 
 #: src/cli.cpp:642
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
-msgstr ""
+msgstr "vybraný poskytovatel nemá k dispozici žádné hlasy"
 
 #: src/cli.cpp:692
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
-msgstr ""
+msgstr "Chyba: funkce převodu textu na řeč není k dispozici: %1"
 
 #: src/cli.cpp:713
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "Cli|"
 msgid "Source languages:"
-msgstr "Aktuální jazyky:"
+msgstr "Zdrojové jazyky:"
 
 #: src/cli.cpp:716
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Primary translation language:"
 msgctxt "Cli|"
 msgid "Translation languages:"
-msgstr "Hlavní jazyk překladu:"
+msgstr "Překladové jazyky:"
 
 #: src/cli.cpp:774
 #, qt-format

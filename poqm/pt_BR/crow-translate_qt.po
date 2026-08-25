@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-08-19 16:06-0300\n"
+"PO-Revision-Date: 2026-08-24 07:29-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Language: pt-BR\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #: src/cli.cpp:98
 msgctxt "Cli|"
@@ -43,18 +43,13 @@ msgstr ""
 "idioma do sistema é usado)."
 
 #: src/cli.cpp:109
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify the translator engine ('google', 'yandex', 'bing', "
-#| "'libretranslate' or 'lingva'), Google is used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
 "'libretranslate', 'mymemory' or 'reverso'), Google is used by default."
 msgstr ""
-"Especificar o mecanismo de tradução ('google', 'yandex', 'bing', "
-"'libretranslate' ou 'lingva'), Google é usado por padrão."
+"Especifica o mecanismo de tradução ('google', 'yandex', 'bing', 'deepl', "
+"'libretranslate', 'mymemory' ou 'reverso'); o Google é usado por padrão."
 
 #: src/cli.cpp:113
 msgctxt "Cli|"
@@ -62,55 +57,42 @@ msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
-"Especificar a URL da instância do Mozhi. A URL da instância das "
-"configurações do aplicativo será usada por padrão."
+"Especifica a URL da instância do Mozhi. A URL da instância das configurações "
+"do aplicativo será usada por padrão."
 
 #: src/cli.cpp:117
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy' or 'mozhi'). Provider from app "
-#| "settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
 "app settings will be used by default."
 msgstr ""
-"Especificar o provedor de tradução ('copy' ou 'mozhi'). O provedor nas "
-"configurações do aplicativo será usado por padrão."
+"Especifica o provedor de tradução ('copy', 'mozhi' ou 'locala'). O provedor "
+"nas configurações do aplicativo será usado por padrão."
 
 #: src/cli.cpp:125
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
 "settings will be used by default."
 msgstr ""
-"Especificar o provedor TTS ('none', 'mozhi', 'qt' ou 'piper'). O provedor "
+"Especifica o provedor TTS ('nenhum', 'mozhi', 'qt' ou 'piper'). O provedor "
 "das configurações do aplicativo será usado por padrão."
 
 #: src/cli.cpp:127
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
 "will be used by default."
 msgstr ""
-"Especificar o provedor TTS ('none', 'mozhi', 'qt' ou 'piper'). O provedor "
-"das configurações do aplicativo será usado por padrão."
+"Especifica o provedor TTS ('nenhum', 'mozhi' ou 'qt'). O provedor das "
+"configurações do aplicativo será usado por padrão."
 
 #: src/cli.cpp:129
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
+"Especifica o provedor de TTS ('nenhum'). Esta compilação está com a "
+"conversão de texto em fala desativada."
 
 #: src/cli.cpp:132
 msgctxt "Cli|"
@@ -173,12 +155,10 @@ msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Erro: Para --%1, você deve especificar as opções --%2 e/ou --%3"
 
 #: src/cli.cpp:178
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
-msgstr "Erro: Mecanismo desconhecido"
+msgstr "Erro: Mecanismo '%1' desconhecido"
 
 #: src/cli.cpp:193
 #, qt-format
@@ -231,49 +211,41 @@ msgid "Unknown error"
 msgstr "Erro desconhecido"
 
 #: src/cli.cpp:514
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
-msgstr "Erro: TTS falhou"
+msgstr "Erro: TTS falhou: %1"
 
 #: src/cli.cpp:612
 msgctxt "Cli|"
 msgid "no provider was created"
-msgstr ""
+msgstr "nenhum provedor foi criado"
 
 #: src/cli.cpp:637
 msgctxt "Cli|"
 msgid "the engine failed to start"
-msgstr ""
+msgstr "a inicialização do mecanismo falhou"
 
 #: src/cli.cpp:642
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
-msgstr ""
+msgstr "o provedor selecionado não possui vozes disponíveis"
 
 #: src/cli.cpp:692
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
-msgstr ""
+msgstr "Erro: a conversão de texto em fala não está disponível: %1"
 
 #: src/cli.cpp:713
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "Cli|"
 msgid "Source languages:"
-msgstr "Idiomas atuais:"
+msgstr "Idiomas de origem:"
 
 #: src/cli.cpp:716
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Primary translation language:"
 msgctxt "Cli|"
 msgid "Translation languages:"
-msgstr "Idioma de tradução principal:"
+msgstr "Idiomas de tradução:"
 
 #: src/cli.cpp:774
 #, qt-format

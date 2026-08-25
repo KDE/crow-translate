@@ -35,18 +35,11 @@ msgid ""
 msgstr "指定翻译语言，可用 '+' 分隔多个不同语言（默认使用系统语言）。"
 
 #: src/cli.cpp:109
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify the translator engine ('google', 'yandex', 'bing', "
-#| "'libretranslate' or 'lingva'), Google is used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
 "'libretranslate', 'mymemory' or 'reverso'), Google is used by default."
 msgstr ""
-"指定翻译引擎（'google'、'yandex'、'bing'、'libretranslation' 或 'lingva'），"
-"默认使用 Google。"
 
 #: src/cli.cpp:113
 msgctxt "Cli|"
@@ -138,12 +131,10 @@ msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "错误： 您必须为 --%1 指定 --%2 和/或--%3 选项"
 
 #: src/cli.cpp:178
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
-msgstr "错误：未知引擎"
+msgstr ""
 
 #: src/cli.cpp:193
 #, qt-format
@@ -196,12 +187,10 @@ msgid "Unknown error"
 msgstr ""
 
 #: src/cli.cpp:514
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unable to open file: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
-msgstr "错误：无法打开文件： %1"
+msgstr ""
 
 #: src/cli.cpp:612
 msgctxt "Cli|"
@@ -225,20 +214,14 @@ msgid "Error: text-to-speech is unavailable: %1"
 msgstr ""
 
 #: src/cli.cpp:713
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "Cli|"
 msgid "Source languages:"
-msgstr "当前语言："
+msgstr ""
 
 #: src/cli.cpp:716
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Primary translation language:"
 msgctxt "Cli|"
 msgid "Translation languages:"
-msgstr "首选翻译语言："
+msgstr ""
 
 #: src/cli.cpp:774
 #, qt-format

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-23 19:02+0300\n"
+"PO-Revision-Date: 2026-08-24 19:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -33,18 +33,14 @@ msgid ""
 msgstr "Çeviri dillerini “+” ile ayırıp belirt (Öntanımlı: Sistem dili)."
 
 #: src/cli.cpp:109
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify the translator engine ('google', 'yandex', 'bing', "
-#| "'libretranslate' or 'lingva'), Google is used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
 "'libretranslate', 'mymemory' or 'reverso'), Google is used by default."
 msgstr ""
-"Çeviri işletkesini belirt (“google”, “yandex”, “bing”, “libretranslate”\n"
-"veya “lingva”). Öntanımlı olarak Google kullanılır."
+"Çeviri işletkesini belirt (“google”, “yandex”, “bing”, “deepl”, "
+"“libretranslate”, “mymemory” veya “reverso”). Öntanımlı olarak Google "
+"kullanılır."
 
 #: src/cli.cpp:113
 msgctxt "Cli|"
@@ -52,55 +48,42 @@ msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
-"Mozhi örneği URL’sini belirtin. Öntanımlı olarak, uygulama ayarlarındaki "
-"örnek URL’si kullanılır."
+"Mozhi örneği URL’sini belirt. Öntanımlı olarak, uygulama ayarlarındaki örnek "
+"URL’si kullanılır."
 
 #: src/cli.cpp:117
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy' or 'mozhi'). Provider from app "
-#| "settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
 "app settings will be used by default."
 msgstr ""
-"Çeviri sağlayıcısını belirtin (“copy” veya “mozhi”). Öntanımlı olarak "
-"uygulama ayarlarındaki sağlayıcı kullanılır."
+"Çeviri sağlayıcısını belirt (“copy”, “mozhi” veya “localai”). Öntanımlı "
+"olarak uygulama ayarlarındaki sağlayıcı kullanılır."
 
 #: src/cli.cpp:125
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
 "settings will be used by default."
 msgstr ""
-"Metin Konuşma sağlayıcısını belirtin (“none”, “mozhi”, “qt” veya “piper”). "
+"Metin Konuşma sağlayıcısını belirt (“none”, “mozhi”, “qt” veya “piper”). "
 "Öntanımlı olarak uygulama ayarlarındaki sağlayıcı kullanılır."
 
 #: src/cli.cpp:127
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
 "will be used by default."
 msgstr ""
-"Metin Konuşma sağlayıcısını belirtin (“none”, “mozhi”, “qt” veya “piper”). "
-"Öntanımlı olarak uygulama ayarlarındaki sağlayıcı kullanılır."
+"Metin Konuşma sağlayıcısını belirt (“none”, “mozhi” veya “qt”). Öntanımlı "
+"olarak uygulama ayarlarındaki sağlayıcı kullanılır."
 
 #: src/cli.cpp:129
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
+"Metin Konuşma sağlayıcısını belirt (“none”). Bu yapıda metin konuşma devre "
+"dışıdır."
 
 #: src/cli.cpp:132
 msgctxt "Cli|"
@@ -161,12 +144,10 @@ msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Hata: --%1 için --%2 ve/veya --%3 seçeneklerini belirtmelisiniz."
 
 #: src/cli.cpp:178
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
-msgstr "Hata: Bilinmeyen işletke."
+msgstr "Hata: Bilinmeyen işletke “%1”"
 
 #: src/cli.cpp:193
 #, qt-format
@@ -219,49 +200,41 @@ msgid "Unknown error"
 msgstr "Bilinmeyen hata"
 
 #: src/cli.cpp:514
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
-msgstr "Hata: Metin konuşma yapılamadı"
+msgstr "Hata: Metin konuşma yapılamadı: %1"
 
 #: src/cli.cpp:612
 msgctxt "Cli|"
 msgid "no provider was created"
-msgstr ""
+msgstr "Oluşturulmuş sağlayıcı yok"
 
 #: src/cli.cpp:637
 msgctxt "Cli|"
 msgid "the engine failed to start"
-msgstr ""
+msgstr "İşletke başlatılamadı"
 
 #: src/cli.cpp:642
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
-msgstr ""
+msgstr "Seçili sağlayıcıda kullanılabilir ses yok"
 
 #: src/cli.cpp:692
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
-msgstr ""
+msgstr "Hata: Metin konuşma kullanılamıyor: %1"
 
 #: src/cli.cpp:713
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "Cli|"
 msgid "Source languages:"
-msgstr "Geçerli diller:"
+msgstr "Kaynak diller:"
 
 #: src/cli.cpp:716
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Primary translation language:"
 msgctxt "Cli|"
 msgid "Translation languages:"
-msgstr "Birincil çeviri dili:"
+msgstr "Çeviri dilleri:"
 
 #: src/cli.cpp:774
 #, qt-format
