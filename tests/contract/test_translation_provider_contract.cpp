@@ -4,9 +4,17 @@
  */
 
 // Generic ATranslationProvider contract, checked against every backend
-// automatically via the data-driven rows below - add a fixture in
-// providertestfixtures.h and a row in addBackendRows() for a new backend,
-// no new test bodies needed. Two of these (the finish/reset cascades)
+// automatically. The rows come from PluginManager - whatever is installed,
+// including a backend nobody here has heard of - so a plugin somebody else
+// wrote is held to the same contract without anything being added to this
+// file.
+//
+// A backend still needs a fixture in providertestfixtures.h to be driven
+// through a translation, because only a fixture knows what a successful
+// response looks like for it. One without gets the rows that need no
+// arrangement - it exists, it names itself, it lists languages, it starts
+// Ready - and skips the rest with a message saying so, rather than being
+// quietly left out. Two of these (the finish/reset cascades)
 // don't come from the abstract base class alone - they encode exactly how
 // MainWindow drives a provider (see mainwindow.cpp's
 // translatorStateChanged()/on_translateButton_clicked()), which is where
@@ -14,6 +22,7 @@
 
 #include "providertestfixtures.h"
 #include "testisolation.h"
+#include "core/pluginmanager.h"
 
 #include <QCoreApplication>
 #include <QSignalSpy>
@@ -22,15 +31,23 @@
 namespace
 {
 
-std::unique_ptr<ProviderFixture> makeFixture(const QString &name)
+// Keyed by plugin id, which is what the rows carry now.
+std::unique_ptr<ProviderFixture> makeFixture(const QString &id)
 {
-    if (name == QLatin1String("Copy"))
+    if (id == QLatin1String("copy"))
         return std::make_unique<CopyProviderFixture>();
-    if (name == QLatin1String("LocalAI"))
+    if (id == QLatin1String("localai"))
         return std::make_unique<LocalAiProviderFixture>();
-    if (name == QLatin1String("Mozhi"))
+    if (id == QLatin1String("mozhi"))
         return std::make_unique<MozhiProviderFixture>();
     return nullptr;
+}
+
+// A provider built the way the application builds one, for the rows that
+// need no arrangement.
+std::unique_ptr<ATranslationProvider> makePlainProvider(const QString &id)
+{
+    return std::unique_ptr<ATranslationProvider>(PluginManager::instance()->createTranslationProvider(nullptr, id));
 }
 
 } // namespace
@@ -47,11 +64,8 @@ private slots:
     void testInitialStateIsReady()
     {
         QFETCH(QString, backend);
-        auto fixture = makeFixture(backend);
-        auto provider = fixture->createForSuccess();
-        if (!provider) {
-            QSKIP("Backend needs live network that isn't reachable right now");
-        }
+        auto provider = makePlainProvider(backend);
+        QVERIFY(provider != nullptr);
         QCOMPARE(provider->getState(), ATranslationProvider::State::Ready);
     }
 
@@ -62,11 +76,8 @@ private slots:
     void testGetProviderTypeNonEmpty()
     {
         QFETCH(QString, backend);
-        auto fixture = makeFixture(backend);
-        auto provider = fixture->createForSuccess();
-        if (!provider) {
-            QSKIP("Backend needs live network that isn't reachable right now");
-        }
+        auto provider = makePlainProvider(backend);
+        QVERIFY(provider != nullptr);
         QVERIFY(!provider->getProviderType().isEmpty());
     }
 
@@ -77,11 +88,8 @@ private slots:
     void testSupportedLanguagesNonEmpty()
     {
         QFETCH(QString, backend);
-        auto fixture = makeFixture(backend);
-        auto provider = fixture->createForSuccess();
-        if (!provider) {
-            QSKIP("Backend needs live network that isn't reachable right now");
-        }
+        auto provider = makePlainProvider(backend);
+        QVERIFY(provider != nullptr);
         QVERIFY(!provider->supportedSourceLanguages().isEmpty());
         QVERIFY(!provider->supportedDestinationLanguages().isEmpty());
     }
@@ -100,6 +108,11 @@ private slots:
     {
         QFETCH(QString, backend);
         auto fixture = makeFixture(backend);
+        if (!fixture) {
+            QSKIP(qPrintable(QStringLiteral("No fixture for backend '%1' - it gets the contract rows that need no arrangement, "
+                                            "and skips the ones that need a known-good response")
+                                 .arg(backend)));
+        }
         auto provider = fixture->createForSuccess();
         if (!provider) {
             QSKIP("Backend needs live network that isn't reachable right now");
@@ -148,6 +161,11 @@ private slots:
     {
         QFETCH(QString, backend);
         auto fixture = makeFixture(backend);
+        if (!fixture) {
+            QSKIP(qPrintable(QStringLiteral("No fixture for backend '%1' - it gets the contract rows that need no arrangement, "
+                                            "and skips the ones that need a known-good response")
+                                 .arg(backend)));
+        }
         auto provider = fixture->createForSuccess();
         if (!provider) {
             QSKIP("Backend needs live network that isn't reachable right now");
@@ -191,6 +209,11 @@ private slots:
     {
         QFETCH(QString, backend);
         auto fixture = makeFixture(backend);
+        if (!fixture) {
+            QSKIP(qPrintable(QStringLiteral("No fixture for backend '%1' - it gets the contract rows that need no arrangement, "
+                                            "and skips the ones that need a known-good response")
+                                 .arg(backend)));
+        }
         auto provider = fixture->createForSuccess();
         if (!provider) {
             QSKIP("Backend needs live network that isn't reachable right now");
@@ -235,6 +258,11 @@ private slots:
     {
         QFETCH(QString, backend);
         auto fixture = makeFixture(backend);
+        if (!fixture) {
+            QSKIP(qPrintable(QStringLiteral("No fixture for backend '%1' - it gets the contract rows that need no arrangement, "
+                                            "and skips the ones that need a known-good response")
+                                 .arg(backend)));
+        }
         Language source;
         Language target;
         auto provider = fixture->createForFailure(source, target);
@@ -267,6 +295,11 @@ private slots:
     {
         QFETCH(QString, backend);
         auto fixture = makeFixture(backend);
+        if (!fixture) {
+            QSKIP(qPrintable(QStringLiteral("No fixture for backend '%1' - it gets the contract rows that need no arrangement, "
+                                            "and skips the ones that need a known-good response")
+                                 .arg(backend)));
+        }
         Language source;
         Language target;
         auto provider = fixture->createForFailure(source, target);
@@ -301,6 +334,11 @@ private slots:
     {
         QFETCH(QString, backend);
         auto fixture = makeFixture(backend);
+        if (!fixture) {
+            QSKIP(qPrintable(QStringLiteral("No fixture for backend '%1' - it gets the contract rows that need no arrangement, "
+                                            "and skips the ones that need a known-good response")
+                                 .arg(backend)));
+        }
         if (!fixture->supportsDeterministicMidFlightAbort()) {
             QSKIP("Backend has no deterministic way to hold a request mid-flight");
         }
@@ -316,12 +354,15 @@ private slots:
     }
 
 private:
+    // Whatever is installed, rather than a list written here. A backend that
+    // ships separately is held to the same contract as the ones that do not,
+    // and adding one to this project means adding no row.
     static void addBackendRows()
     {
         QTest::addColumn<QString>("backend");
-        QTest::newRow("Copy") << QStringLiteral("Copy");
-        QTest::newRow("LocalAI") << QStringLiteral("LocalAI");
-        QTest::newRow("Mozhi") << QStringLiteral("Mozhi");
+        const QList<PluginInfo> backends = PluginManager::instance()->available(PluginFamily::Translation);
+        for (const PluginInfo &backend : backends)
+            QTest::newRow(qPrintable(backend.id)) << backend.id;
     }
 };
 

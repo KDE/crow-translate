@@ -429,6 +429,18 @@ target_link_libraries(test_translation_provider_contract PRIVATE
 )
 add_test(NAME TranslationProviderContractTest COMMAND test_translation_provider_contract)
 
+# What a backend has to get right to be one, and what the host has to get
+# right to survive one that is missing. Headless - providers are plain
+# QObjects and nothing here translates anything.
+add_executable(test_pluginmanager
+    test_pluginmanager.cpp
+)
+target_link_libraries(test_pluginmanager PRIVATE
+    ${PROJECT_NAME}-lib
+    Qt6::Test
+)
+add_test(NAME PluginManagerTest COMMAND test_pluginmanager)
+
 # The settings page a backend gets for free. Widgets are built and inspected
 # by object name, never shown - headless OK, same as test_statusstrip.
 add_executable(test_pluginoptionswidget
@@ -497,7 +509,7 @@ endif()
 # configuration (see build.zsh's build-test/build-test-nopiper) still builds
 # and runs them.
 if(NOT BUILD_TESTING)
-    foreach(_test_target IN ITEMS test_pluginoptionswidget test_helper_window test_dbus_static_init test_forcedauto_owner test_cli test_widget_free_core test_usernotifier test_translationhtmlformatter test_frontendregistry test_popupwindow_lifetime test_snippingarea_flags test_ttsprovider_isolation test_translation test_localai_provider test_settingsdialog_localai test_llmocr test_llmocr_live test_visionmodelprobe test_translationlogic test_screenwatcher test_languageresolution test_translationsession test_modulestatus test_statusstrip test_snippingarea_terminal test_mainwindow_status test_mainwindow_features test_mainwindow_forcedauto test_appsettings_prompts test_appsettings_region test_translation_provider_contract)
+    foreach(_test_target IN ITEMS test_pluginmanager test_pluginoptionswidget test_helper_window test_dbus_static_init test_forcedauto_owner test_cli test_widget_free_core test_usernotifier test_translationhtmlformatter test_frontendregistry test_popupwindow_lifetime test_snippingarea_flags test_ttsprovider_isolation test_translation test_localai_provider test_settingsdialog_localai test_llmocr test_llmocr_live test_visionmodelprobe test_translationlogic test_screenwatcher test_languageresolution test_translationsession test_modulestatus test_statusstrip test_snippingarea_terminal test_mainwindow_status test_mainwindow_features test_mainwindow_forcedauto test_appsettings_prompts test_appsettings_region test_translation_provider_contract)
         set_target_properties(${_test_target} PROPERTIES EXCLUDE_FROM_ALL TRUE)
     endforeach()
     if(TARGET test_singleapplication_recovery)

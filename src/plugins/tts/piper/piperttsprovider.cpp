@@ -1074,7 +1074,11 @@ std::unique_ptr<ProviderOptions> PiperTTSProvider::getDefaultOptions() const
 
 QStringList PiperTTSProvider::getAvailableOptions() const
 {
-    return {"speaker", "voices_path"};
+    // reinitializeModels is one of these: it is not a stored setting, but it
+    // is an option this backend acts on, and a host that filters by this list
+    // before applying one - which is how a live change from the settings
+    // dialog arrives - would otherwise drop it on the floor.
+    return {"speaker", "voices_path", "reinitializeModels"};
 }
 
 ProviderCapabilities PiperTTSProvider::capabilities() const
