@@ -47,6 +47,18 @@ namespace
 //
 // Diagnostics go to stderr, never stdout: stdout carries the translation, and
 // a caller redirecting it must not have anything else mixed in.
+// The backends actually installed, quoted, for a --help line that cannot
+// disagree with what --tp and --tts accept.
+QString quotedPluginIds(PluginFamily family)
+{
+    const QList<PluginInfo> backends = PluginManager::instance()->available(family);
+    QStringList quoted;
+    quoted.reserve(backends.size());
+    for (const PluginInfo &backend : backends)
+        quoted.append(QLatin1Char('\'') + backend.id + QLatin1Char('\''));
+    return quoted.join(QStringLiteral(", "));
+}
+
 QTextStream &errorStream()
 {
     static QTextStream stream(stderr);
@@ -159,20 +171,15 @@ void Cli::process(const QCoreApplication &app)
                                  QStringLiteral("URL"),
                                  settings.instance());
     const QCommandLineOption translationProvider({"tp", "translation-provider"},
-                                                 tr("Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from app settings will be used by default."),
+                                                 tr("Specify translation provider (%1). Provider from app settings will be used by default.")
+                                                     .arg(quotedPluginIds(PluginFamily::Translation)),
                                                  QStringLiteral("provider"));
-    // Built without WITH_TTS there is nothing but 'none' to choose, and
-    // without WITH_PIPER_TTS 'piper' is rejected by the parsing below - so
-    // the text has to be guarded the same way the parsing is, or the binary
-    // advertises providers it then refuses.
+    // The list is what is installed, not what this build compiled: three
+    // #ifdefs used to keep the help text in step with the parsing, and the
+    // two can no longer disagree because they are the same question now.
     const QCommandLineOption ttsProvider({"tts", "tts-provider"},
-#if defined(WITH_PIPER_TTS)
-                                         tr("Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app settings will be used by default."),
-#elif defined(WITH_TTS)
-                                         tr("Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings will be used by default."),
-#else
-                                         tr("Specify TTS provider ('none'). This build has text-to-speech disabled."),
-#endif
+                                         tr("Specify TTS provider (%1). Provider from app settings will be used by default.")
+                                             .arg(quotedPluginIds(PluginFamily::Tts)),
                                          QStringLiteral("provider"));
     const QCommandLineOption speakTranslation({"r", "speak-translation"}, tr("Speak the translation."));
     const QCommandLineOption speakSource({"o", "speak-source"}, tr("Speak the source."));
@@ -392,31 +399,17 @@ void Cli::process(const QCoreApplication &app)
         qDebug() << "Initializing TTS provider";
 
         // Determine TTS backend from CLI or settings
-        ATTSProvider::ProviderBackend ttsBackend = settings.ttsProviderBackend();
+        QString ttsBackend = settings.ttsProviderId();
         if (parser.isSet(ttsProvider)) {
             const QString providerName = parser.value(ttsProvider).toLower();
-            if (providerName == "none") {
-                ttsBackend = ATTSProvider::ProviderBackend::None;
-            }
-#ifdef WITH_TTS
-            else if (providerName == "mozhi") {
-                ttsBackend = ATTSProvider::ProviderBackend::Mozhi;
-            } else if (providerName == "qt") {
-                ttsBackend = ATTSProvider::ProviderBackend::Qt;
-            }
-#endif
-#ifdef WITH_PIPER_TTS
-            else if (providerName == "piper") {
-                ttsBackend = ATTSProvider::ProviderBackend::Piper;
-            }
-#endif
-            else {
+            if (!PluginManager::instance()->contains(PluginFamily::Tts, providerName)) {
                 exitWithUsage(parser, tr("Error: Unknown TTS provider '%1'").arg(providerName));
             }
+            ttsBackend = providerName;
         }
 
         m_session->setTtsBackend(ttsBackend);
-        qDebug() << "Using TTS provider:" << static_cast<int>(ttsBackend);
+        qDebug() << "Using TTS provider:" << ttsBackend;
 
         connect(m_session, &TranslationSession::ttsStateChanged, this, &Cli::onTTSStateChanged);
 

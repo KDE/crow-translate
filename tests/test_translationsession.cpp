@@ -21,7 +21,6 @@
 #include "translator/atranslationprovider.h"
 #include "translator/languageresolution.h"
 #ifdef WITH_TTS
-#include "tts/mozhittsprovider.h"
 #endif
 #include "tts/attsprovider.h"
 
@@ -224,11 +223,10 @@ private slots:
         }
 
         TranslationSession session;
-        session.setTtsBackend(ATTSProvider::ProviderBackend::Mozhi);
+        session.setTtsBackend(QStringLiteral("mozhi"));
 
-        auto *mozhi = qobject_cast<MozhiTTSProvider *>(session.tts());
-        QVERIFY(mozhi != nullptr);
-        QCOMPARE(mozhi->instance(), instance);
+        QCOMPARE(session.tts()->getProviderType(), QStringLiteral("MozhiTTSProvider"));
+        QCOMPARE(session.tts()->property("instance").toString(), instance);
     }
 #endif
 
@@ -237,12 +235,12 @@ private slots:
         TranslationSession session;
         QSignalSpy changed(&session, &TranslationSession::ttsProviderChanged);
 
-        session.setTtsBackend(ATTSProvider::ProviderBackend::None);
+        session.setTtsBackend(QStringLiteral("none"));
         QCOMPARE(changed.count(), 1);
         ATTSProvider *first = session.tts();
         QVERIFY(first != nullptr);
 
-        session.setTtsBackend(ATTSProvider::ProviderBackend::None);
+        session.setTtsBackend(QStringLiteral("none"));
         QCOMPARE(changed.count(), 1);
         QCOMPARE(session.tts(), first);
     }

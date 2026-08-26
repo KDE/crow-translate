@@ -157,19 +157,17 @@ SettingsDialog::SettingsDialog(MainWindow *parent)
         ui->translationProviderComboBox->addItem(backend.displayName, backend.id);
     }
 
-    // Populate TTS providers dynamically
-    ui->ttsProviderComboBox->addItem(tr("None"), QVariant::fromValue(ATTSProvider::ProviderBackend::None));
-#ifdef WITH_TTS
-    ui->ttsProviderComboBox->addItem("Mozhi", QVariant::fromValue(ATTSProvider::ProviderBackend::Mozhi));
-    ui->ttsProviderComboBox->addItem("Qt", QVariant::fromValue(ATTSProvider::ProviderBackend::Qt));
-#endif
-#ifdef WITH_PIPER_TTS
-    ui->ttsProviderComboBox->addItem("Piper", QVariant::fromValue(ATTSProvider::ProviderBackend::Piper));
-#endif
+    // Populate TTS providers from what is installed. The three #ifdefs this
+    // replaces offered whatever this build compiled, which stopped being the
+    // same question once the backends became modules that can be packaged
+    // separately.
+    const QList<PluginInfo> ttsBackends = PluginManager::instance()->available(PluginFamily::Tts);
+    for (const PluginInfo &backend : ttsBackends) {
+        ui->ttsProviderComboBox->addItem(backend.displayName, backend.id);
+    }
 
-#ifdef WITH_PIPER_TTS
-    setupPiperVoicesPathUI();
-#endif
+    if (PluginManager::instance()->contains(PluginFamily::Tts, QStringLiteral("piper")))
+        setupPiperVoicesPathUI();
 #ifndef WITH_TTS
     // Built without TTS support: hide the whole TTS group box
     ui->ttsGroupBox->setVisible(false);
@@ -271,9 +269,9 @@ void SettingsDialog::accept()
     }
 
     // TTS Settings
-    const ATTSProvider::ProviderBackend currentTTSBackend = settings.ttsProviderBackend();
-    const ATTSProvider::ProviderBackend newTTSBackend = ui->ttsProviderComboBox->currentData().value<ATTSProvider::ProviderBackend>();
-    settings.setTTSProviderBackend(newTTSBackend);
+    const QString currentTTSBackend = settings.ttsProviderId();
+    const QString newTTSBackend = ui->ttsProviderComboBox->currentData().toString();
+    settings.setTtsProviderId(newTTSBackend);
 
     // Emit signal if TTS backend changed
     if (currentTTSBackend != newTTSBackend) {
@@ -305,10 +303,8 @@ void SettingsDialog::accept()
     settings.setConvertLineBreaks(ui->convertLineBreaksCheckBox->isChecked());
     settings.setOcrLanguagesPath(ui->ocrLanguagesPathEdit->text().toLocal8Bit());
     settings.setOcrLanguagesString(ui->ocrLanguagesListWidget->checkedLanguagesString());
-#ifdef WITH_PIPER_TTS
     if (m_piperVoicesPathEdit != nullptr)
         settings.setPiperVoicesPath(m_piperVoicesPathEdit->text().toLocal8Bit());
-#endif
     settings.setRegionRememberType(static_cast<AppSettings::RegionRememberType>(ui->rememberRegionComboBox->currentIndex()));
     settings.setCaptureDelay(ui->captureDelaySpinBox->value());
     settings.setShowMagnifier(ui->showMagnifierCheckBox->isChecked());
@@ -1042,7 +1038,6 @@ void SettingsDialog::onOcrLanguagesPathChanged(const QString &path)
     ui->ocrLanguagesListWidget->addLanguages(TesseractOcr::availableLanguages(path));
 }
 
-#ifdef WITH_PIPER_TTS
 void SettingsDialog::setupPiperVoicesPathUI()
 {
     // Create UI elements
@@ -1089,7 +1084,6 @@ void SettingsDialog::onPiperVoicesPathChanged(const QString &path)
 {
     emit piperVoicesPathChanged(path);
 }
-#endif
 
 void SettingsDialog::onTesseractParametersCurrentItemChanged()
 {
@@ -1176,7 +1170,7 @@ void SettingsDialog::restoreDefaults()
     }
 
     // TTS settings
-    const int defaultTTSBackendIndex = ui->ttsProviderComboBox->findData(QVariant::fromValue(AppSettings().defaultTTSProviderBackend()));
+    const int defaultTTSBackendIndex = ui->ttsProviderComboBox->findData(PluginManager::instance()->defaultId(PluginFamily::Tts));
     if (defaultTTSBackendIndex != -1) {
         ui->ttsProviderComboBox->setCurrentIndex(defaultTTSBackendIndex);
     }
@@ -1207,11 +1201,9 @@ void SettingsDialog::restoreDefaults()
     ui->tesseractParametersTableWidget->setParameters(AppSettings::defaultTesseractParameters());
     ui->negateOcrCheckBox->setChecked(AppSettings::defaultOcrNegate());
 
-// Piper-voices path
-#ifdef WITH_PIPER_TTS
+    // Piper-voices path
     if (m_piperVoicesPathEdit != nullptr)
         m_piperVoicesPathEdit->setText(AppSettings::defaultPiperVoicesPath());
-#endif
     // Mozhi network settings
     ui->proxyTypeComboBox->setCurrentIndex(AppSettings::defaultProxyType());
     ui->proxyHostEdit->setText(AppSettings::defaultProxyHost());
@@ -1295,7 +1287,7 @@ void SettingsDialog::loadSettings()
 
     // TTS settings
     // TTS provider backend
-    const int ttsBackendIndex = ui->ttsProviderComboBox->findData(QVariant::fromValue(settings.ttsProviderBackend()));
+    const int ttsBackendIndex = ui->ttsProviderComboBox->findData(settings.ttsProviderId());
     if (ttsBackendIndex != -1) {
         ui->ttsProviderComboBox->setCurrentIndex(ttsBackendIndex);
     }
@@ -1327,10 +1319,8 @@ void SettingsDialog::loadSettings()
     ui->convertLineBreaksCheckBox->setChecked(settings.isConvertLineBreaks());
     ui->ocrLanguagesPathEdit->setText(settings.ocrLanguagesPath());
     ui->ocrLanguagesListWidget->setCheckedLanguages(settings.ocrLanguagesString());
-#ifdef WITH_PIPER_TTS
     if (m_piperVoicesPathEdit != nullptr)
         m_piperVoicesPathEdit->setText(settings.piperVoicesPath());
-#endif
     ui->rememberRegionComboBox->setCurrentIndex(settings.regionRememberType());
     ui->captureDelaySpinBox->setValue(settings.captureDelay());
     ui->showMagnifierCheckBox->setChecked(settings.isShowMagnifier());

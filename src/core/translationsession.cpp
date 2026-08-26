@@ -6,7 +6,6 @@
 #include "translationsession.h"
 
 #include "modulestatus.h"
-#include "providerfactories.h"
 #include "provideroptionsmanager.h"
 #include "core/pluginmanager.h"
 #include "core/usernotifier.h"
@@ -84,9 +83,9 @@ QString TranslationSession::translationBackend() const
     return m_translationBackendId.isEmpty() ? PluginManager::fallbackId(PluginFamily::Translation) : m_translationBackendId;
 }
 
-ATTSProvider::ProviderBackend TranslationSession::ttsBackend() const
+QString TranslationSession::ttsBackend() const
 {
-    return m_ttsBackend.value_or(ATTSProvider::ProviderBackend::None);
+    return m_ttsBackendId.isEmpty() ? PluginManager::fallbackId(PluginFamily::Tts) : m_ttsBackendId;
 }
 
 void TranslationSession::setTranslationBackend(const QString &id)
@@ -119,9 +118,9 @@ void TranslationSession::setTranslationBackend(const QString &id)
     }
 }
 
-void TranslationSession::setTtsBackend(ATTSProvider::ProviderBackend backend)
+void TranslationSession::setTtsBackend(const QString &id)
 {
-    if (m_ttsBackend == backend) {
+    if (m_ttsBackendId == id) {
         return;
     }
 
@@ -129,8 +128,8 @@ void TranslationSession::setTtsBackend(ATTSProvider::ProviderBackend backend)
         m_tts->deleteLater();
     }
 
-    m_ttsBackend = backend;
-    m_tts = ProviderFactories::createTTSProvider(this, backend);
+    m_ttsBackendId = id;
+    m_tts = PluginManager::instance()->createTtsProvider(this, id);
     m_status->bindTtsProvider(m_tts);
     connectTts();
     applyTtsOptions();
@@ -183,10 +182,9 @@ void TranslationSession::loadBackendsFromSettings()
     // Validation can rewrite the stored choice - a backend that was built
     // into the last version and is not in this one, say - so it runs before
     // the value is read, not after.
-    ProviderOptionsManager::validateTTSBackendAvailability();
 
     const AppSettings settings;
-    setTtsBackend(settings.ttsProviderBackend());
+    setTtsBackend(settings.ttsProviderId());
     setTranslationBackend(settings.translationProviderId());
 }
 

@@ -247,15 +247,16 @@ public:
     // which also translates the enum ordinal every version up to 4.1.0 wrote.
     QString translationProviderId() const;
     void setTranslationProviderId(const QString &id);
-    ATTSProvider::ProviderBackend ttsProviderBackend() const;
-    void setTTSProviderBackend(ATTSProvider::ProviderBackend newBackend);
-    ATTSProvider::ProviderBackend defaultTTSProviderBackend() const;
+    QString ttsProviderId() const;
+    void setTtsProviderId(const QString &id);
 
-#ifdef WITH_PIPER_TTS
+    // Not guarded by WITH_PIPER_TTS any more: whether the Piper backend is
+    // there is a question about the installed plugins, asked at run time, and
+    // a settings key does not stop meaning something because this build did
+    // not compile a module.
     QByteArray piperVoicesPath() const;
     void setPiperVoicesPath(const QByteArray &path);
     static QByteArray defaultPiperVoicesPath();
-#endif
     // Connection settings
     // Puts the Connection page's proxy into effect for this process.
     void applyNetworkProxy() const;

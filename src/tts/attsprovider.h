@@ -27,14 +27,6 @@ class CROW_CORE_EXPORT ATTSProvider : public QObject
     Q_DISABLE_COPY(ATTSProvider)
 
 public:
-    enum class ProviderBackend : uint8_t {
-        None,
-        Mozhi,
-        Qt,
-        Piper
-    };
-    Q_ENUM(ProviderBackend)
-
     virtual QString getProviderType() const = 0;
 
     virtual void say(const QString &text) = 0;

@@ -486,27 +486,15 @@ void AppSettings::setTranslationProviderId(const QString &id)
 {
     PluginManager::setSelectedId(PluginFamily::Translation, id);
 }
-ATTSProvider::ProviderBackend AppSettings::ttsProviderBackend() const
+QString AppSettings::ttsProviderId() const
 {
-    uint8_t settingOrDefault = m_settings->value(QStringLiteral("TTS/Backend"), static_cast<std::underlying_type_t<ATTSProvider::ProviderBackend>>(defaultTTSProviderBackend()))
-                                   .toUInt();
-    return ATTSProvider::ProviderBackend(settingOrDefault);
+    return PluginManager::selectedId(PluginFamily::Tts);
 }
-void AppSettings::setTTSProviderBackend(ATTSProvider::ProviderBackend newBackend)
+void AppSettings::setTtsProviderId(const QString &id)
 {
-    m_settings->setValue(QStringLiteral("TTS/Backend"), static_cast<uint8_t>(newBackend));
-}
-ATTSProvider::ProviderBackend AppSettings::defaultTTSProviderBackend() const
-{
-#ifdef WITH_PIPER_TTS
-    // Piper always sounds better, even on Windows
-    return ATTSProvider::ProviderBackend::Piper;
-#else
-    return ATTSProvider::ProviderBackend::Qt;
-#endif
+    PluginManager::setSelectedId(PluginFamily::Tts, id);
 }
 
-#ifdef WITH_PIPER_TTS
 QByteArray AppSettings::piperVoicesPath() const
 {
     return m_settings->value(QStringLiteral("TTS/PiperVoicesPath"), defaultPiperVoicesPath()).toByteArray();
@@ -521,7 +509,6 @@ QByteArray AppSettings::defaultPiperVoicesPath()
 {
     return QByteArray();
 }
-#endif
 
 Language AppSettings::defaultPrimaryLanguage()
 {

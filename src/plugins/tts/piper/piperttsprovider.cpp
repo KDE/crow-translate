@@ -12,11 +12,12 @@
 #include "language.h"
 #include "playlistplayer.h"
 #include "provideroptions.h"
+#include "core/settingsstore.h"
 #include "core/usernotifier.h"
-#include "settings/appsettings.h"
 
 #include <QAudioDevice>
 #include <QAudioFormat>
+#include <QCoreApplication>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
@@ -25,9 +26,12 @@
 #include <QJsonObject>
 #include <QMediaDevices>
 #include <QMutexLocker>
+#include <QSettings>
 #include <QStandardPaths>
 #include <QThread>
 #include <QUrl>
+
+#include <memory>
 
 // ONNX Runtime includes. Initialised by hand, see initializePiper(): this is
 // the only file that includes the C++ API, which the define has to cover.
@@ -63,6 +67,19 @@ const float DEFAULT_LENGTH_SCALE = 1.0f;
 const float DEFAULT_NOISE_SCALE = 0.667f;
 const float DEFAULT_NOISE_W_SCALE = 0.8f;
 
+namespace
+{
+// Read here rather than taken from the host's options, because model
+// discovery runs during construction and the options do not arrive until
+// after it. The host still passes voices_path when the user changes it, which
+// is what makes a change take effect without a restart.
+QByteArray storedVoicesPath()
+{
+    const std::unique_ptr<QSettings> settings(CrowSettings::open());
+    return settings->value(QStringLiteral("TTS/PiperVoicesPath")).toByteArray();
+}
+} // namespace
+
 PiperTTSProvider::PiperTTSProvider(QObject *parent)
     : ATTSProvider(parent)
     , m_state(QTextToSpeech::Ready)
@@ -73,6 +90,7 @@ PiperTTSProvider::PiperTTSProvider(QObject *parent)
     , m_volume(1.0)
     , m_player(new PlaylistPlayer(this))
     , m_tempAudioFile(nullptr)
+    , m_voicesPath(storedVoicesPath())
     , m_espeakVoice(QStringLiteral("en-us"))
     , m_sampleRate(22050)
     , m_numSpeakers(1)
@@ -1027,6 +1045,11 @@ QList<Language> PiperTTSProvider::availableLanguages() const
 
 void PiperTTSProvider::applyOptions(const ProviderOptions &options)
 {
+    // Before reinitializeModels, which searches the path this sets.
+    if (options.hasOption("voices_path")) {
+        m_voicesPath = options.getOption("voices_path").toByteArray();
+    }
+
     if (options.hasOption("reinitializeModels") && options.getOption("reinitializeModels").toBool()) {
         reinitializeModels();
     }
@@ -1041,12 +1064,13 @@ std::unique_ptr<ProviderOptions> PiperTTSProvider::getDefaultOptions() const
 {
     auto options = std::make_unique<ProviderOptions>();
     options->setOption("speaker", m_currentSpeaker);
+    options->setOption("voices_path", m_voicesPath);
     return options;
 }
 
 QStringList PiperTTSProvider::getAvailableOptions() const
 {
-    return {"speaker"};
+    return {"speaker", "voices_path"};
 }
 
 ProviderCapabilities PiperTTSProvider::capabilities() const
@@ -1139,9 +1163,8 @@ QStringList PiperTTSProvider::getStandardPiperVoicesPaths()
 {
     QStringList paths;
 
-    const QByteArray customPath = AppSettings().piperVoicesPath();
-    if (!customPath.isEmpty()) {
-        paths << QString::fromLocal8Bit(customPath);
+    if (!m_voicesPath.isEmpty()) {
+        paths << QString::fromLocal8Bit(m_voicesPath);
     }
 
     paths << "/usr/share/piper-voices/"
@@ -1412,7 +1435,7 @@ void PiperTTSProvider::showPiperVoicesWarning()
 {
     // Show warning dialog only once per path per session to avoid spam
     static QSet<QString> warningShownForPaths;
-    const QString currentPath = QString::fromLocal8Bit(AppSettings().piperVoicesPath());
+    const QString currentPath = QString::fromLocal8Bit(m_voicesPath);
 
     if (warningShownForPaths.contains(currentPath)) {
         return;

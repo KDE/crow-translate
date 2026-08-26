@@ -61,7 +61,7 @@ public slots:
 
 signals:
     void translationBackendChanged(const QString &newBackendId);
-    void ttsBackendChanged(ATTSProvider::ProviderBackend newBackend);
+    void ttsBackendChanged(const QString &newBackendId);
     void piperVoicesPathChanged(const QString &newPath);
     void mozhiInstanceChanged(const QString &newInstance);
 
@@ -78,11 +78,11 @@ private slots:
 
     void selectOcrLanguagesPath();
     void onOcrLanguagesPathChanged(const QString &path);
-#ifdef WITH_PIPER_TTS
+    // Built only when the Piper backend is installed, which is now a
+    // question about the plugin directory rather than about this build.
     void setupPiperVoicesPathUI();
     void selectPiperVoicesPath();
     void onPiperVoicesPathChanged(const QString &path);
-#endif
     void onTesseractParametersCurrentItemChanged();
 
     void loadShortcut(ShortcutItem *item);
@@ -164,11 +164,10 @@ private:
     QCheckBox *m_portableCheckbox;
 #endif
 
-#ifdef WITH_PIPER_TTS
-    QLabel *m_piperVoicesPathLabel;
-    QLineEdit *m_piperVoicesPathEdit;
-    QToolButton *m_piperVoicesPathButton;
-#endif
+    // Null unless setupPiperVoicesPathUI() ran; every use is guarded.
+    QLabel *m_piperVoicesPathLabel = nullptr;
+    QLineEdit *m_piperVoicesPathEdit = nullptr;
+    QToolButton *m_piperVoicesPathButton = nullptr;
 };
 
 #endif // SETTINGSDIALOG_H

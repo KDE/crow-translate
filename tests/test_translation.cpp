@@ -194,7 +194,7 @@ private slots:
         // model-loading thread entirely (unrelated shutdown-time race found
         // while writing this test, tracked separately).
         settings.setTranslationProviderId(QStringLiteral("copy"));
-        settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
+        settings.setTtsProviderId(QStringLiteral("none"));
         // Also pin source==translation language (Copy only reaches Processed,
         // not the Finished/UnsupportedDstLanguage error path, when they
         // match) - otherwise this test silently inherits whatever language
@@ -235,7 +235,7 @@ private slots:
         AppSettings settings;
         settings.setWindowMode(AppSettings::PopupWindow);
         settings.setTranslationProviderId(QStringLiteral("copy"));
-        settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
+        settings.setTtsProviderId(QStringLiteral("none"));
         Language systemLanguage(QLocale::system());
         settings.setLanguages(AppSettings::Source, {systemLanguage});
         settings.setLanguages(AppSettings::Translation, {systemLanguage});
@@ -268,7 +268,7 @@ private slots:
         AppSettings settings;
         settings.setWindowMode(AppSettings::Notification);
         settings.setTranslationProviderId(QStringLiteral("copy"));
-        settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
+        settings.setTtsProviderId(QStringLiteral("none"));
         Language systemLanguage(QLocale::system());
         settings.setLanguages(AppSettings::Source, {systemLanguage});
         settings.setLanguages(AppSettings::Translation, {systemLanguage});
@@ -299,7 +299,7 @@ private slots:
     void testTTSBackendNone()
     {
         AppSettings settings;
-        settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
+        settings.setTtsProviderId(QStringLiteral("none"));
 
         MainWindow window;
         window.show();
@@ -318,7 +318,7 @@ private slots:
     void testTTSBackendMozhi()
     {
         AppSettings settings;
-        settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::Mozhi);
+        settings.setTtsProviderId(QStringLiteral("mozhi"));
 
         Language english(QLocale::English);
         settings.setLanguages(AppSettings::Source, {english});
@@ -343,7 +343,7 @@ private slots:
     void testTTSBackendQt()
     {
         AppSettings settings;
-        settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::Qt);
+        settings.setTtsProviderId(QStringLiteral("qt"));
 
         Language english(QLocale::English);
         settings.setLanguages(AppSettings::Source, {english});
@@ -383,7 +383,7 @@ private slots:
         QSKIP("Piper TTS not compiled in");
 #else
         AppSettings settings;
-        settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::Piper);
+        settings.setTtsProviderId(QStringLiteral("piper"));
 
         Language english(QLocale::English);
         settings.setLanguages(AppSettings::Source, {english});
@@ -522,7 +522,7 @@ private slots:
 
         // Test 3: None TTS backend (no voice/speaker selectors)
         // This switches TTS backend (default is likely Qt or not set), so a signal will be emitted.
-        settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
+        settings.setTtsProviderId(QStringLiteral("none"));
         MainWindow window3;
         QSignalSpy ttsSpy(&window3, &MainWindow::ttsStateChangedSignal);
         window3.show();

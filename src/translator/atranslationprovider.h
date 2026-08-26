@@ -31,13 +31,6 @@ public:
         Aborted,
         Custom
     };
-    enum class ProviderBackend : uint8_t {
-        Copy,
-        Mozhi,
-        LocalAI
-    };
-    Q_ENUM(ProviderBackend)
-
     enum class State : uint8_t {
         Ready,
         Processing,

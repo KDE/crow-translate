@@ -353,8 +353,6 @@ add_library(${PROJECT_NAME}-lib STATIC
     src/translator/languageresolution.cpp
     src/llm/visionmodelprobe.h
     src/llm/visionmodelprobe.cpp
-    src/providerfactories.h
-    src/providerfactories.cpp
     src/provideroptionsmanager.h
     src/provideroptionsmanager.cpp
 )
@@ -462,17 +460,55 @@ endif()
 
 # Handle espeak-ng submodule for Piper TTS
 if(WITH_TTS)
-    target_sources(${PROJECT_NAME}-lib PRIVATE
-        src/tts/qtttsprovider.h
-        src/tts/qtttsprovider.cpp
-        src/tts/mozhittsprovider.h
-        src/tts/mozhittsprovider.cpp
-    )
+    # Still a compile definition on the application, because the window and
+    # the settings dialog have a whole section that makes no sense in a build
+    # with no speech at all. Which *backends* exist is a runtime question now,
+    # and asked of PluginManager.
     target_compile_definitions(${PROJECT_NAME}-lib PUBLIC WITH_TTS)
+
+    crow_add_plugin(qt
+        FAMILY tts
+        SOURCES
+            src/plugins/tts/qt/qtttsprovider.h
+            src/plugins/tts/qt/qtttsprovider.cpp
+        PLUGIN_SOURCES
+            src/plugins/tts/qt/qtttsplugin.h
+            src/plugins/tts/qt/qtttsplugin.cpp
+        LINK_LIBRARIES Qt6::TextToSpeech
+    )
+
+    crow_add_plugin(mozhi
+        FAMILY tts
+        SOURCES
+            src/plugins/tts/mozhi/mozhittsprovider.h
+            src/plugins/tts/mozhi/mozhittsprovider.cpp
+        PLUGIN_SOURCES
+            src/plugins/tts/mozhi/mozhittsplugin.h
+            src/plugins/tts/mozhi/mozhittsplugin.cpp
+    )
 else()
     if(WITH_PIPER_TTS)
         message(FATAL_ERROR "WITH_PIPER_TTS requires WITH_TTS")
     endif()
+endif()
+
+if(WITH_PIPER_TTS)
+    # Declared before the two espeak-ng branches below, because both of them
+    # configure it. Everything Piper drags in - espeak-ng, ONNX Runtime, and
+    # on a static build a link script full of archives - now lands on this
+    # module instead of on the application, which is the packaging point of
+    # splitting it out: onnxruntime is paid for when Piper is installed.
+    crow_add_plugin(piper
+        FAMILY tts
+        SOURCES
+            src/plugins/tts/piper/piperttsprovider.h
+            src/plugins/tts/piper/piperttsprovider.cpp
+        PLUGIN_SOURCES
+            src/plugins/tts/piper/piperttsplugin.h
+            src/plugins/tts/piper/piperttsplugin.cpp
+    )
+    set(PIPER_OBJECTS crow-plugin-tts-piper-objects)
+    set(PIPER_MODULE crow-plugin-tts-piper)
 endif()
 
 if(WITH_PIPER_TTS AND ESPEAKNG_USE_SYSTEM)
@@ -497,23 +533,19 @@ if(WITH_PIPER_TTS AND ESPEAKNG_USE_SYSTEM)
     find_package(ONNXRuntime 1.27.0 REQUIRED)
     if(ONNXRuntime_USE_STATIC)
         build_onnxruntime_static()
-        add_dependencies(${PROJECT_NAME}-lib onnxruntime_ready)
+        add_dependencies(${PIPER_OBJECTS} onnxruntime_ready)
     endif()
     target_compile_definitions(${PROJECT_NAME}-lib PUBLIC WITH_PIPER_TTS)
 
     if(NOT ONNXRuntime_USE_STATIC)
-        target_include_directories(${PROJECT_NAME}-lib PUBLIC ${ONNXRuntime_INCLUDE_DIRS})
+        target_include_directories(${PIPER_OBJECTS} PUBLIC ${ONNXRuntime_INCLUDE_DIRS})
     else()
-        target_include_directories(${PROJECT_NAME}-lib PUBLIC
+        target_include_directories(${PIPER_OBJECTS} PUBLIC
             ${CMAKE_BINARY_DIR}/onnxruntime-src/src/onnxruntime/include
             ${CMAKE_BINARY_DIR}/onnxruntime-src/src/onnxruntime/include/onnxruntime
             ${CMAKE_BINARY_DIR}/onnxruntime-src/src/onnxruntime/include/onnxruntime/core/session
         )
     endif()
-    target_sources(${PROJECT_NAME}-lib PRIVATE
-        src/tts/piperttsprovider.h
-        src/tts/piperttsprovider.cpp
-    )
 
     message(STATUS "Piper TTS support enabled using system espeak-ng ${ESPEAKNG_VERSION} at ${ESPEAKNG_LINK_LIBRARIES}")
 elseif(WITH_PIPER_TTS)
@@ -561,8 +593,8 @@ elseif(WITH_PIPER_TTS)
     # If using static linking, build from source with telemetry disabled
     if(ONNXRuntime_USE_STATIC)
         build_onnxruntime_static()
-        # Add dependency to ensure ONNX Runtime is built before library target
-        add_dependencies(${PROJECT_NAME}-lib onnxruntime_ready)
+        # Add dependency to ensure ONNX Runtime is built before the plugin
+        add_dependencies(${PIPER_OBJECTS} onnxruntime_ready)
     endif()
 
     # Add compile definition and sources when dependencies are found
@@ -570,31 +602,28 @@ elseif(WITH_PIPER_TTS)
 
     # On Windows, tell espeak-ng we're linking statically
     if(WIN32)
-        target_compile_definitions(${PROJECT_NAME}-lib PUBLIC LIBESPEAK_NG_EXPORT=)
+        target_compile_definitions(${PIPER_OBJECTS} PUBLIC LIBESPEAK_NG_EXPORT=)
     endif()
 
     # Configure ONNX Runtime includes - different for dynamic vs static
     if(NOT ONNXRuntime_USE_STATIC)
-        target_include_directories(${PROJECT_NAME}-lib PUBLIC
+        target_include_directories(${PIPER_OBJECTS} PUBLIC
             ${ONNXRuntime_INCLUDE_DIRS}
             ${ESPEAKNG_INSTALL_DIR}/include
         )
     else()
-        # Static linking: library needs includes to compile, executables need link options
-        target_include_directories(${PROJECT_NAME}-lib PUBLIC
+        # Static linking: the objects need includes to compile, the module
+        # needs the link options.
+        target_include_directories(${PIPER_OBJECTS} PUBLIC
             ${CMAKE_BINARY_DIR}/onnxruntime-src/src/onnxruntime/include
             ${CMAKE_BINARY_DIR}/onnxruntime-src/src/onnxruntime/include/onnxruntime
             ${CMAKE_BINARY_DIR}/onnxruntime-src/src/onnxruntime/include/onnxruntime/core/session
             ${ESPEAKNG_INSTALL_DIR}/include
         )
     endif()
-    target_sources(${PROJECT_NAME}-lib PRIVATE
-        src/tts/piperttsprovider.h
-        src/tts/piperttsprovider.cpp
-    )
 
     # Add dependency on espeak-ng build
-    add_dependencies(${PROJECT_NAME}-lib espeak_ng_submodule)
+    add_dependencies(${PIPER_OBJECTS} espeak_ng_submodule)
 
     # Copy/install espeak-ng data files
     if(WIN32)
@@ -661,58 +690,48 @@ if(WITH_KICONTHEMES)
     target_compile_definitions(${PROJECT_NAME}-lib PUBLIC WITH_KICONTHEMES)
 endif()
 
-# Link Piper dependencies if enabled
+# Link Piper dependencies if enabled.
+#
+# All of this used to land on the application: espeak-ng on the archive, and
+# ONNX Runtime on the executable, because static-library link options do not
+# propagate and an archive is not a link. Now there is a real link at the end
+# of it - the module - so both go there, and a build without the Piper plugin
+# installed does not carry onnxruntime at all.
 if(WITH_PIPER_TTS AND ESPEAKNG_USE_SYSTEM)
     if(NOT ONNXRuntime_USE_STATIC)
         # Dynamic linking: use system ONNX Runtime
-        target_compile_definitions(${PROJECT_NAME}-lib PUBLIC WITH_ONNX_RUNTIME_DYNAMIC=1)
-        target_link_libraries(${PROJECT_NAME}-lib PUBLIC
+        target_compile_definitions(${PIPER_OBJECTS} PUBLIC WITH_ONNX_RUNTIME_DYNAMIC=1)
+        target_link_libraries(${PIPER_OBJECTS} PUBLIC
             ${ONNXRuntime_LIBRARIES}
             PkgConfig::ESPEAKNG
         )
-
-        # Set RPATH for dynamic ONNX Runtime
-        if(NOT WIN32)
-            set_target_properties(${PROJECT_NAME} PROPERTIES
-                INSTALL_RPATH "$ORIGIN;$ORIGIN/../${KDE_INSTALL_LIBDIR};$ORIGIN/../lib"
-                BUILD_WITH_INSTALL_RPATH TRUE
-            )
-        endif()
     else()
         # Static linking: configure via our custom function
-        configure_onnxruntime_static(${PROJECT_NAME})
-        target_link_libraries(${PROJECT_NAME}-lib PUBLIC PkgConfig::ESPEAKNG)
+        configure_onnxruntime_static(${PIPER_MODULE})
+        add_dependencies(${PIPER_MODULE} onnxruntime_ready)
+        target_link_libraries(${PIPER_OBJECTS} PUBLIC PkgConfig::ESPEAKNG)
     endif()
 elseif(WITH_PIPER_TTS)
     if(NOT ONNXRuntime_USE_STATIC)
         # Dynamic linking: use system ONNX Runtime
-        target_compile_definitions(${PROJECT_NAME}-lib PUBLIC WITH_ONNX_RUNTIME_DYNAMIC=1)
-        target_link_libraries(${PROJECT_NAME}-lib PUBLIC
+        target_compile_definitions(${PIPER_OBJECTS} PUBLIC WITH_ONNX_RUNTIME_DYNAMIC=1)
+        target_link_libraries(${PIPER_OBJECTS} PUBLIC
             ${ONNXRuntime_LIBRARIES}
             ${ESPEAKNG_STATIC_LIB}
             ${UCD_STATIC_LIB}
         )
-
-        # Set RPATH for dynamic ONNX Runtime
-        if(NOT WIN32)
-            set_target_properties(${PROJECT_NAME} PROPERTIES
-                INSTALL_RPATH "$ORIGIN;$ORIGIN/../${KDE_INSTALL_LIBDIR};$ORIGIN/../lib"
-                BUILD_WITH_INSTALL_RPATH TRUE
-            )
-        endif()
     else()
-        # Static linking: Don't configure on library (it's just an archive)
-        # ONNX Runtime will be configured on final executables instead
-        # Just link espeak-ng which the library needs
-        target_link_libraries(${PROJECT_NAME}-lib PUBLIC
+        # Static linking: the archives cannot go on an object library either,
+        # so espeak-ng is declared here as a usage requirement and ONNX
+        # Runtime's whole-archive link script goes on the module itself.
+        target_link_libraries(${PIPER_OBJECTS} PUBLIC
             ${ESPEAKNG_STATIC_LIB}
             ${UCD_STATIC_LIB}
         )
 
-        # Configure static ONNX Runtime on the executable (not on library)
         # This must come AFTER find_package(ONNXRuntime) so the function exists
-        configure_onnxruntime_static(${PROJECT_NAME})
-        add_dependencies(${PROJECT_NAME} onnxruntime_ready)
+        configure_onnxruntime_static(${PIPER_MODULE})
+        add_dependencies(${PIPER_MODULE} onnxruntime_ready)
     endif()
 endif()
 

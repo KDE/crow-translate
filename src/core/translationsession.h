@@ -15,8 +15,6 @@
 #include <QObject>
 #include <QTextToSpeech>
 
-#include <optional>
-
 class AOcrProvider;
 class LanguageResolution;
 class LlmOcr;
@@ -67,7 +65,7 @@ public:
     // with the do-nothing backend, which is also what translator() == nullptr
     // and tts() == nullptr mean.
     QString translationBackend() const;
-    ATTSProvider::ProviderBackend ttsBackend() const;
+    QString ttsBackend() const;
 
     // --- backends -----------------------------------------------------------
 
@@ -77,7 +75,7 @@ public:
     // named by plugin id; PluginManager decides whether that means a module
     // on disk or the built-in fallback.
     void setTranslationBackend(const QString &id);
-    void setTtsBackend(ATTSProvider::ProviderBackend backend);
+    void setTtsBackend(const QString &id);
 
     // Reads the backend choice out of AppSettings and applies both of the
     // above, including the TTS availability validation that can move the
@@ -244,7 +242,7 @@ private:
     // the stored choice would skip building the provider entirely. Empty here
     // is what std::optional's empty state is below.
     QString m_translationBackendId;
-    std::optional<ATTSProvider::ProviderBackend> m_ttsBackend;
+    QString m_ttsBackendId;
     QMetaObject::Connection m_ocrRecognizedConnection;
     QMetaObject::Connection m_translatorReadyConnection;
 };

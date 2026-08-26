@@ -39,9 +39,6 @@ public:
     // Connect to settings changes automatically
     void connectToSettingsDialog(class SettingsDialog *settingsDialog, ATTSProvider *ttsProvider);
 
-    // Backend validation
-    static void validateTTSBackendAvailability();
-
 private:
     // Helper methods for translation providers
     std::unique_ptr<ProviderOptions> createMozhiTranslationOptionsFromSettings();
@@ -51,9 +48,7 @@ private:
     // Helper methods for TTS providers
     std::unique_ptr<ProviderOptions> createMozhiTTSOptionsFromSettings();
     std::unique_ptr<ProviderOptions> createQtTTSOptionsFromSettings();
-#ifdef WITH_PIPER_TTS
     std::unique_ptr<ProviderOptions> createPiperTTSOptionsFromSettings();
-#endif
 };
 
 #endif // PROVIDEROPTIONSMANAGER_H

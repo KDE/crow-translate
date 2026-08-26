@@ -10,8 +10,8 @@
 #ifndef PIPERTTSPROVIDER_H
 #define PIPERTTSPROVIDER_H
 
-#include "attsprovider.h"
-#include "voice.h"
+#include "tts/attsprovider.h"
+#include "tts/voice.h"
 
 #include <QAudioOutput>
 #include <QBuffer>
@@ -147,6 +147,10 @@ private:
     // Speaker support
     QHash<QString, int> m_speakerIdMap; // speaker name -> speaker ID
     QString m_currentSpeaker;
+    // Where to look for voice models before the standard locations. Seeded
+    // from the settings file this backend has always used, and updated when
+    // the host reapplies its options after the user changes it.
+    QByteArray m_voicesPath;
     int m_currentSpeakerId;
 
     // ONNX Runtime session

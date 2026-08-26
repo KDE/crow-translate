@@ -17,6 +17,10 @@
 class MozhiTTSProvider : public ATTSProvider
 {
     Q_OBJECT
+    // Reachable by name rather than by cast: this class is compiled into a
+    // module, and a qobject_cast from outside it would be comparing two
+    // different copies of the type. See MozhiTranslationProvider.
+    Q_PROPERTY(QString instance READ instance WRITE setInstance)
     Q_DISABLE_COPY(MozhiTTSProvider)
 
 public:

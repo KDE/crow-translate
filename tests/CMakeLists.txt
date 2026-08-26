@@ -64,6 +64,12 @@ target_link_libraries(test_ttsprovider_isolation PRIVATE
     ${PROJECT_NAME}-lib
     Qt6::Test
 )
+if(TARGET crow-plugin-tts-piper-objects)
+    # Drives PiperTTSProvider directly - the re-entrancy it pins is in the
+    # class, not in how the backend is found - so it links the objects rather
+    # than loading the module.
+    target_link_libraries(test_ttsprovider_isolation PRIVATE crow-plugin-tts-piper-objects)
+endif()
 add_test(NAME TTSProviderIsolationTest COMMAND test_ttsprovider_isolation)
 
 if(UNIX)
@@ -440,11 +446,13 @@ endforeach()
 
 # When using static ONNX Runtime, also configure test executables that link
 # the app library (they pull in Piper TTS transitively through it).
+# Only one test links Piper now: the rest reach speech through the session,
+# which loads a module. That is the whole point of splitting it out - a build
+# with the Piper plugin still has one target paying for onnxruntime, not
+# twenty-two.
 if(WITH_PIPER_TTS AND ONNXRuntime_USE_STATIC)
-    foreach(_test_target IN ITEMS test_usernotifier test_translationhtmlformatter test_frontendregistry test_popupwindow_lifetime test_snippingarea_flags test_ttsprovider_isolation test_translation test_localai_provider test_settingsdialog_localai test_llmocr test_llmocr_live test_visionmodelprobe test_translationlogic test_screenwatcher test_languageresolution test_translationsession test_modulestatus test_statusstrip test_snippingarea_terminal test_mainwindow_status test_mainwindow_features test_mainwindow_forcedauto test_appsettings_prompts test_appsettings_region test_translation_provider_contract)
-        configure_onnxruntime_static(${_test_target})
-        add_dependencies(${_test_target} onnxruntime_ready)
-    endforeach()
+    configure_onnxruntime_static(test_ttsprovider_isolation)
+    add_dependencies(test_ttsprovider_isolation onnxruntime_ready)
 endif()
 
 # tests/ is also configured (for compile_commands.json/IDE support) whenever

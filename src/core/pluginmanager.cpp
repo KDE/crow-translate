@@ -57,11 +57,11 @@ constexpr FamilyTraits familyTraits[] = {
      CROW_TTS_PLUGIN_IID,
      "TTS/Provider",
      "TTS/Backend",
-     {"noop", "mozhi", "qt", "piper"},
+     {"none", "mozhi", "qt", "piper"},
      // Piper always sounds better, even on Windows - and which of these is
      // actually here is now a question about the installation rather than
      // about WITH_PIPER_TTS at the time this was compiled.
-     {"piper", "qt", "mozhi", "noop"}},
+     {"piper", "qt", "mozhi", "none"}},
     {PluginFamily::Ocr,
      "ocr",
      CROW_OCR_PLUGIN_IID,
@@ -202,7 +202,7 @@ void PluginManager::discover()
     registerBuiltIn(new CopyTranslationPlugin, copy);
 
     PluginInfo noop;
-    noop.id = QStringLiteral("noop");
+    noop.id = QStringLiteral("none");
     noop.displayName = QCoreApplication::translate("SettingsDialog", "None");
     noop.description = tr("Says nothing. Always available.");
     noop.family = PluginFamily::Tts;
@@ -348,7 +348,7 @@ QString PluginManager::fallbackId(PluginFamily family)
     case PluginFamily::Translation:
         return QStringLiteral("copy");
     case PluginFamily::Tts:
-        return QStringLiteral("noop");
+        return QStringLiteral("none");
     case PluginFamily::Ocr:
         // No built-in engine, and none was ever pretended: "no OCR available"
         // is a state TranslationSession::prepareOcr() already reports.

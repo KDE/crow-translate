@@ -81,7 +81,7 @@ void pinLocalAiSettings(const MockHttpServer &server)
     AppSettings settings;
     settings.setShowPrivacyPopup(false);
     settings.setTranslationProviderId(QStringLiteral("localai"));
-    settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
+    settings.setTtsProviderId(QStringLiteral("none"));
     settings.setActiveLocalProvider(QStringLiteral("openai_custom"));
     settings.setLocalProviderUrl(QStringLiteral("openai_custom"), server.baseUrl());
     settings.setLocalProviderModel(QStringLiteral("openai_custom"), QStringLiteral("mock-model"));
@@ -197,7 +197,7 @@ void MainWindowFeaturesTest::cleanupTestCase()
     // the suite expects, whatever the last test happened to pin.
     AppSettings settings;
     settings.setTranslationProviderId(QStringLiteral("copy"));
-    settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
+    settings.setTtsProviderId(QStringLiteral("none"));
     settings.setOcrEngine(AppSettings::OcrEngine::Tesseract);
     settings.setShowTrayIcon(false);
     settings.setStartMinimized(false);
@@ -816,7 +816,7 @@ void MainWindowFeaturesTest::testVoiceComboOffersTheResolvedLanguagesVoices()
 
     AppSettings settings;
     settings.setAutoTranslateEnabled(false);
-    settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::Qt);
+    settings.setTtsProviderId(QStringLiteral("qt"));
     settings.setPrimaryLanguage(english);
     settings.setSecondaryLanguage(german);
     settings.setLanguages(AppSettings::Source, {english});
@@ -888,7 +888,7 @@ void MainWindowFeaturesTest::testPiperComboOffersTheResolvedLanguagesVoices()
 
     AppSettings settings;
     settings.setAutoTranslateEnabled(false);
-    settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::Piper);
+    settings.setTtsProviderId(QStringLiteral("piper"));
     settings.setPrimaryLanguage(english);
     settings.setSecondaryLanguage(russian);
     settings.setLanguages(AppSettings::Source, {english});
@@ -1030,7 +1030,7 @@ void MainWindowFeaturesTest::testPopupShowsTheTtsControlsTheProviderAskedFor()
 #else
     AppSettings settings;
     settings.setTranslationProviderId(QStringLiteral("copy"));
-    settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::Qt);
+    settings.setTtsProviderId(QStringLiteral("qt"));
     // The configuration a pop-up is for: loadAppSettings() only show()s the
     // main window when it is not starting minimised to the tray, so here it
     // never appears - and every isVisible() on its children answers false.
@@ -1067,7 +1067,7 @@ void MainWindowFeaturesTest::testPopupShowsTheTtsControlsTheProviderAskedFor()
 void MainWindowFeaturesTest::testPopupHidesTtsControlsWhenThereIsNoTtsProvider()
 {
     AppSettings settings;
-    settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
+    settings.setTtsProviderId(QStringLiteral("none"));
     settings.setShowTrayIcon(true);
     settings.setStartMinimized(true);
 
@@ -1225,7 +1225,7 @@ void MainWindowFeaturesTest::testPopupVoicesMatchTheMainWindowAfterARealTranslat
     // reported: Russian voices offered for an English translation.
     settings.setDetectProvider(QStringLiteral("openai_custom"));
     settings.setDetectModel(QStringLiteral("mock-detect"));
-    settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::Qt);
+    settings.setTtsProviderId(QStringLiteral("qt"));
     settings.setWindowMode(AppSettings::PopupWindow);
     settings.setShowTrayIcon(true);
     settings.setStartMinimized(true);

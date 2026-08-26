@@ -61,11 +61,7 @@ std::unique_ptr<ProviderOptions> ProviderOptionsManager::createTTSOptionsFromSet
         // TODO: Implement QtTTSProvider options - for now use Mozhi options
         return createMozhiTTSOptionsFromSettings();
     } else if (providerType == "PiperTTSProvider") {
-#ifdef WITH_PIPER_TTS
         return createPiperTTSOptionsFromSettings();
-#else
-        return createMozhiTTSOptionsFromSettings();
-#endif
     }
 
     return nullptr;
@@ -152,7 +148,6 @@ std::unique_ptr<ProviderOptions> ProviderOptionsManager::createQtTTSOptionsFromS
     return std::make_unique<ProviderOptions>();
 }
 
-#ifdef WITH_PIPER_TTS
 std::unique_ptr<ProviderOptions> ProviderOptionsManager::createPiperTTSOptionsFromSettings()
 {
     auto options = std::make_unique<ProviderOptions>();
@@ -160,12 +155,17 @@ std::unique_ptr<ProviderOptions> ProviderOptionsManager::createPiperTTSOptionsFr
     // Set default speaker - this will be dynamically populated based on the current voice
     options->setOption("speaker", "default");
 
+    // Where to look for voice models. The backend seeds this from the same
+    // settings key when it starts, because discovery runs before any options
+    // arrive; passing it here is what makes a change in the dialog take
+    // effect without a restart.
+    options->setOption("voices_path", AppSettings().piperVoicesPath());
+
     // Flag to trigger model reinitialization when voices path changes
     options->setOption("reinitializeModels", true);
 
     return options;
 }
-#endif
 
 void ProviderOptionsManager::handleTTSProviderSettingsChange(ATTSProvider *provider, const QString &settingKey)
 {
@@ -205,18 +205,4 @@ void ProviderOptionsManager::connectToSettingsDialog(SettingsDialog *settingsDia
             ttsProvider->applyOptions(*options);
         }
     });
-}
-
-void ProviderOptionsManager::validateTTSBackendAvailability()
-{
-    AppSettings settings;
-    auto chosenTTSBackend = settings.ttsProviderBackend();
-
-    // Validate TTS backend availability - reset Piper to None if dependencies unavailable
-#ifndef WITH_PIPER_TTS
-    if (chosenTTSBackend == ATTSProvider::ProviderBackend::Piper) {
-        chosenTTSBackend = ATTSProvider::ProviderBackend::None;
-        settings.setTTSProviderBackend(chosenTTSBackend);
-    }
-#endif
 }

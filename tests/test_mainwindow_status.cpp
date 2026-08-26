@@ -79,7 +79,7 @@ void MainWindowStatusTest::pinCopySettings()
     AppSettings settings;
     settings.setShowPrivacyPopup(false);
     settings.setTranslationProviderId(QStringLiteral("copy"));
-    settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
+    settings.setTtsProviderId(QStringLiteral("none"));
     settings.setWindowMode(AppSettings::MainWindow);
 
     const Language systemLanguage(QLocale::system());

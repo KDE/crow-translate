@@ -29,7 +29,7 @@
 #include "tts/attsprovider.h"
 
 #ifdef WITH_PIPER_TTS
-#include "tts/piperttsprovider.h"
+#include "piperttsprovider.h"
 #endif
 
 #include <QApplication>
@@ -67,7 +67,7 @@ private slots:
     void testTTSDrivingDoesNotTriggerTranslationDetection()
     {
         AppSettings settings;
-        settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
+        settings.setTtsProviderId(QStringLiteral("none"));
         settings.setTranslationProviderId(QStringLiteral("copy"));
 
         MainWindow window;

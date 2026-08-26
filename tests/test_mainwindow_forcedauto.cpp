@@ -86,7 +86,7 @@ void pinLanguages()
 {
     AppSettings settings;
     settings.setShowPrivacyPopup(false);
-    settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
+    settings.setTtsProviderId(QStringLiteral("none"));
     settings.setAutoTranslateEnabled(false);
     settings.setForceSourceAutodetect(true);
     settings.setForceTranslationAutodetect(true);
@@ -231,7 +231,7 @@ void MainWindowForcedAutoTest::cleanupTestCase()
     // expects, whatever the last test happened to pin.
     AppSettings settings;
     settings.setTranslationProviderId(QStringLiteral("copy"));
-    settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
+    settings.setTtsProviderId(QStringLiteral("none"));
     settings.setCurrentEngine(OnlineTranslator::Google);
 }
 
@@ -454,7 +454,7 @@ void MainWindowForcedAutoTest::testASelectionIsReadOutInTheLanguageItIsWrittenIn
 {
     MockHttpServer server;
     pinMozhi(server, OnlineTranslator::Google);
-    AppSettings().setTTSProviderBackend(ATTSProvider::ProviderBackend::Mozhi);
+    AppSettings().setTtsProviderId(QStringLiteral("mozhi"));
 
     MainWindow window;
     server.queueJson(200, mozhiAnswer(QStringLiteral("ein Text"), english()));
@@ -492,7 +492,7 @@ void MainWindowForcedAutoTest::testASelectionIsReadOutInTheChosenSourceWithoutAs
     pinMozhi(server, OnlineTranslator::Google);
     {
         AppSettings settings;
-        settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::Mozhi);
+        settings.setTtsProviderId(QStringLiteral("mozhi"));
         settings.setForceSourceAutodetect(false);
     }
 
