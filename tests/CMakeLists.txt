@@ -452,6 +452,23 @@ foreach(_crow_test IN LISTS _crow_tests)
     set_tests_properties(${_crow_test} PROPERTIES ENVIRONMENT "CROW_PLUGIN_PATH=${CMAKE_BINARY_DIR}")
 endforeach()
 
+if(CROW_STATIC_PLUGINS)
+    # Each test executable needs its own copy of the Q_IMPORT_PLUGIN lines,
+    # for the same reason the application does: the registration is a static
+    # initialiser nobody references, and it does not survive an archive.
+    get_property(_crow_targets DIRECTORY PROPERTY BUILDSYSTEM_TARGETS)
+    foreach(_crow_target IN LISTS _crow_targets)
+        get_target_property(_crow_target_type ${_crow_target} TYPE)
+        get_target_property(_crow_target_libs ${_crow_target} LINK_LIBRARIES)
+        # Only the ones that link the backends. The few tests that drive the
+        # built binary as a subprocess, or scan sources, have nothing to
+        # import and would just fail to link.
+        if(_crow_target_type STREQUAL "EXECUTABLE" AND _crow_target_libs AND "${PROJECT_NAME}-lib" IN_LIST _crow_target_libs)
+            target_sources(${_crow_target} PRIVATE ${CROW_STATIC_PLUGIN_IMPORTS})
+        endif()
+    endforeach()
+endif()
+
 get_property(_crow_plugin_modules GLOBAL PROPERTY CROW_PLUGIN_MODULES)
 get_property(_crow_test_targets DIRECTORY PROPERTY BUILDSYSTEM_TARGETS)
 foreach(_crow_test_target IN LISTS _crow_test_targets)

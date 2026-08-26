@@ -163,6 +163,12 @@ QStringList PluginManager::searchPaths(PluginFamily family)
     // look under, and a build tree wants the plugins it just built rather than
     // whatever is installed on the machine.
     paths.append(QDir(QCoreApplication::applicationDirPath()).filePath(QLatin1String("plugins/") + suffix));
+#ifdef CROW_PLUGIN_DIR_FROM_BIN
+    // The installed layout, reached relatively. An AppImage moves its whole
+    // tree and a relocated prefix is not in anybody's library paths, so an
+    // absolute path settled at configure time finds nothing in either.
+    paths.append(QDir(QCoreApplication::applicationDirPath()).filePath(QLatin1String(CROW_PLUGIN_DIR_FROM_BIN "/") + suffix));
+#endif
 #ifdef CROW_PLUGIN_INSTALL_DIR
     // Where this build installs them. Not the same as a Qt library path when
     // crow and Qt live under different prefixes, which on a distro they often
@@ -207,6 +213,34 @@ void PluginManager::discover()
     noop.description = tr("Says nothing. Always available.");
     noop.family = PluginFamily::Tts;
     registerBuiltIn(new NoopTtsPlugin, noop);
+
+#ifdef CROW_STATIC_PLUGINS
+    // Compiled in. Qt keeps a table of them registered by Q_IMPORT_PLUGIN;
+    // everything below this is the same code the dynamic path runs, reading
+    // the same metadata out of the same JSON.
+    const QList<QStaticPlugin> statics = QPluginLoader::staticPlugins();
+    for (const QStaticPlugin &plugin : statics) {
+        const QJsonObject root = plugin.metaData();
+        const QString iid = root.value(QLatin1String("IID")).toString();
+        for (const FamilyTraits &traits : familyTraits) {
+            if (iid != QLatin1String(traits.iid))
+                continue;
+
+            const PluginInfo identity = identityFromMetaData(root.value(QLatin1String("MetaData")).toObject(), traits.family);
+            if (identity.id.isEmpty() || m_entries[indexOf(traits.family)].contains(identity.id))
+                break;
+
+            Entry entry;
+            entry.identity = identity;
+            // Owned by Qt, not by this class: it is not in m_ownedBuiltIns
+            // and must not be deleted with them.
+            entry.builtIn = plugin.instance();
+            m_entries[indexOf(traits.family)].insert(identity.id, entry);
+            break;
+        }
+    }
+    return;
+#endif
 
     for (const FamilyTraits &traits : familyTraits) {
         const QStringList paths = searchPaths(traits.family);

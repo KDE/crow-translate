@@ -228,8 +228,17 @@ target_include_directories(crow-core PUBLIC
     ${CMAKE_BINARY_DIR}
 )
 
+# Where the modules end up, twice over: as an absolute path, for an
+# installation that stays where it was put, and as a path relative to the
+# executable, for one that does not. An AppImage is the second kind - its
+# whole tree moves - and so is a prefix somebody relocated, and neither has a
+# reason to appear in Qt's library paths.
+file(RELATIVE_PATH CROW_PLUGIN_DIR_FROM_BIN
+    ${CMAKE_INSTALL_PREFIX}/${KDE_INSTALL_BINDIR}
+    ${CMAKE_INSTALL_PREFIX}/${KDE_INSTALL_PLUGINDIR})
 target_compile_definitions(crow-core PRIVATE
     CROW_PLUGIN_INSTALL_DIR="${CMAKE_INSTALL_PREFIX}/${KDE_INSTALL_PLUGINDIR}"
+    CROW_PLUGIN_DIR_FROM_BIN="${CROW_PLUGIN_DIR_FROM_BIN}"
 )
 
 target_link_libraries(crow-core PUBLIC
@@ -423,6 +432,7 @@ include(CrowPlugin)
 
 crow_add_plugin(mozhi
     FAMILY translation
+    CLASS MozhiTranslationPlugin
     SOURCES
         src/plugins/translation/mozhi/mozhitranslationprovider.h
         src/plugins/translation/mozhi/mozhitranslationprovider.cpp
@@ -433,6 +443,7 @@ crow_add_plugin(mozhi
 
 crow_add_plugin(tesseract
     FAMILY ocr
+    CLASS TesseractOcrPlugin
     SOURCES
         src/plugins/ocr/tesseract/tesseractocr.h
         src/plugins/ocr/tesseract/tesseractocr.cpp
@@ -444,6 +455,7 @@ crow_add_plugin(tesseract
 
 crow_add_plugin(llm
     FAMILY ocr
+    CLASS LlmOcrPlugin
     SOURCES
         src/plugins/ocr/llm/llmocr.h
         src/plugins/ocr/llm/llmocr.cpp
@@ -454,6 +466,7 @@ crow_add_plugin(llm
 
 crow_add_plugin(localai
     FAMILY translation
+    CLASS LocalAiTranslationPlugin
     SOURCES
         src/plugins/translation/localai/localaitranslationprovider.h
         src/plugins/translation/localai/localaitranslationprovider.cpp
@@ -487,6 +500,7 @@ if(WITH_TTS)
 
     crow_add_plugin(qt
         FAMILY tts
+        CLASS QtTtsPlugin
         SOURCES
             src/plugins/tts/qt/qtttsprovider.h
             src/plugins/tts/qt/qtttsprovider.cpp
@@ -498,6 +512,7 @@ if(WITH_TTS)
 
     crow_add_plugin(mozhi
         FAMILY tts
+        CLASS MozhiTtsPlugin
         SOURCES
             src/plugins/tts/mozhi/mozhittsprovider.h
             src/plugins/tts/mozhi/mozhittsprovider.cpp
@@ -519,6 +534,7 @@ if(WITH_PIPER_TTS)
     # splitting it out: onnxruntime is paid for when Piper is installed.
     crow_add_plugin(piper
         FAMILY tts
+        CLASS PiperTtsPlugin
         SOURCES
             src/plugins/tts/piper/piperttsprovider.h
             src/plugins/tts/piper/piperttsprovider.cpp
@@ -689,6 +705,24 @@ elseif(WITH_PIPER_TTS)
     message(STATUS "Piper TTS support enabled with built-in espeak-ng")
 else()
     message(STATUS "Piper TTS support disabled (enable with -DWITH_PIPER_TTS=ON)")
+endif()
+
+if(CROW_STATIC_PLUGINS)
+    crow_write_static_plugin_imports(CROW_STATIC_PLUGIN_IMPORTS)
+    get_property(CROW_PLUGIN_OBJECT_LIBRARIES GLOBAL PROPERTY CROW_PLUGIN_OBJECT_LIBRARIES)
+    target_link_libraries(${PROJECT_NAME}-lib PUBLIC ${CROW_PLUGIN_OBJECT_LIBRARIES})
+    target_compile_definitions(crow-core PUBLIC CROW_STATIC_PLUGINS)
+
+    # Compiled into every executable that needs the backends, and not into
+    # the archive between them. Q_IMPORT_PLUGIN registers through a static
+    # initialiser that nothing refers to, and an unreferenced object inside a
+    # static archive is precisely what a linker leaves out - which it did,
+    # silently, and the application came up with one backend where there
+    # should have been seven.
+    target_sources(${PROJECT_NAME} PRIVATE ${CROW_STATIC_PLUGIN_IMPORTS})
+    message(STATUS "Backends are compiled into the application (CROW_STATIC_PLUGINS=ON)")
+else()
+    message(STATUS "Backends are loadable modules, installed under ${KDE_INSTALL_PLUGINDIR}/crowtranslate")
 endif()
 
 target_link_libraries(${PROJECT_NAME}-lib PUBLIC
