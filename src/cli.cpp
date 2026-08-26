@@ -9,6 +9,7 @@
 
 #include "instancepinger.h"
 #include "provideroptions.h"
+#include "provideroptionsmanager.h"
 #include "core/pluginmanager.h"
 #include "core/translationsession.h"
 #include "core/usernotifier.h"
@@ -371,26 +372,22 @@ void Cli::process(const QCoreApplication &app)
     // filled in before that happened.
     m_session->applyTranslationOptions();
 
-    // Override with CLI arguments if provided
-    if (m_session->translator()->getProviderType() == "MozhiTranslationProvider") {
-        auto options = std::make_unique<ProviderOptions>();
-        bool hasOverrides = false;
-
-        // Override instance if specified
-        if (parser.isSet(url)) {
-            options->setOption("instance", parser.value(url));
-            hasOverrides = true;
+    // Override with CLI arguments if provided.
+    //
+    // Offered to whichever backend is current rather than to the one that
+    // used to be named here: --url and --engine mean something to any
+    // backend that declares those options, and nothing to one that does not.
+    // The declaration is the whole test.
+    {
+        ProviderOptions overrides;
+        if (parser.isSet(url) && m_session->translator()->getAvailableOptions().contains(QStringLiteral("instance"))) {
+            overrides.setOption("instance", parser.value(url));
         }
-
-        // Override engine if specified
-        if (parser.isSet(engine)) {
-            options->setOption("engine", static_cast<int>(selectedEngine));
-            hasOverrides = true;
+        if (parser.isSet(engine) && m_session->translator()->getAvailableOptions().contains(QStringLiteral("engine"))) {
+            overrides.setOption("engine", static_cast<int>(selectedEngine));
         }
-
-        // Apply CLI overrides if any
-        if (hasOverrides) {
-            m_session->translator()->applyOptions(*options);
+        if (!overrides.getAllOptions().isEmpty()) {
+            m_session->translator()->applyOptions(overrides);
         }
     }
 
@@ -413,30 +410,15 @@ void Cli::process(const QCoreApplication &app)
 
         connect(m_session, &TranslationSession::ttsStateChanged, this, &Cli::onTTSStateChanged);
 
-        // Override with CLI arguments if provided for Mozhi TTS
-        if (m_session->tts()->getProviderType() == "MozhiTTSProvider") {
-            auto ttsOptions = std::make_unique<ProviderOptions>();
-            bool hasTTSOverrides = false;
-
-            // Override instance if specified
-            if (parser.isSet(url)) {
-                ttsOptions->setOption("instance", parser.value(url));
-                hasTTSOverrides = true;
-            }
-
-            // Override engine if specified. This used to be a second copy
-            // of the mapping above, and a divergent one: an unknown name was
-            // silently ignored here while the translation path rejected it,
-            // so speech quietly fell back to the default engine.
-            if (parser.isSet(engine)) {
-                ttsOptions->setOption("engine", static_cast<int>(selectedEngine));
-                hasTTSOverrides = true;
-            }
-
-            // Apply CLI overrides if any
-            if (hasTTSOverrides) {
-                m_session->tts()->applyOptions(*ttsOptions);
-            }
+        // The same for speech, and by the same rule. The engine override
+        // used to be a second copy of the name mapping, and a divergent one:
+        // an unknown name was silently ignored here while the translation
+        // path rejected it, so speech quietly fell back to the default.
+        if (parser.isSet(url)) {
+            ProviderOptionsManager::applyLiveOption(m_session->tts(), QStringLiteral("instance"), parser.value(url));
+        }
+        if (parser.isSet(engine)) {
+            ProviderOptionsManager::applyLiveOption(m_session->tts(), QStringLiteral("engine"), static_cast<int>(selectedEngine));
         }
     }
 
