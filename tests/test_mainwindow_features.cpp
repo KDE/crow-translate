@@ -14,6 +14,7 @@
 
 #include "language.h"
 #include "languagebuttonswidget.h"
+#include "llmocr.h"
 #include "mainwindow.h"
 #include "mockhttpserver.h"
 #include "modulestatus.h"
@@ -24,8 +25,8 @@
 #include "testdisplay.h"
 #include "testisolation.h"
 #include "core/usernotifier.h"
-#include "ocr/llmocr.h"
 #include "ocr/screengrabbers/abstractscreengrabber.h"
+#include "ocr/snippingarea.h"
 #include "ocr/snippingarea.h"
 #include "settings/appsettings.h"
 #include "settings/settingsdialog.h"
@@ -100,7 +101,7 @@ void pinLocalAiSettings(const MockHttpServer &server)
 void pinLlmOcrSettings(const MockHttpServer &server)
 {
     AppSettings settings;
-    settings.setOcrEngine(AppSettings::OcrEngine::Llm);
+    settings.setOcrEngineId(QStringLiteral("llm"));
     settings.setOcrLlmProvider(QStringLiteral("openai_custom"));
     settings.setOcrLlmUrl(QStringLiteral("openai_custom"), server.baseUrl());
     settings.setOcrLlmModel(QStringLiteral("openai_custom"), QStringLiteral("mock-model"));
@@ -198,7 +199,7 @@ void MainWindowFeaturesTest::cleanupTestCase()
     AppSettings settings;
     settings.setTranslationProviderId(QStringLiteral("copy"));
     settings.setTtsProviderId(QStringLiteral("none"));
-    settings.setOcrEngine(AppSettings::OcrEngine::Tesseract);
+    settings.setOcrEngineId(QStringLiteral("tesseract"));
     settings.setShowTrayIcon(false);
     settings.setStartMinimized(false);
     QApplication::clipboard()->clear();

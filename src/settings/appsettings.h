@@ -362,13 +362,11 @@ public:
     static QKeySequence defaultCopyTranslationShortcut();
 
     // OCR settings
-    enum class OcrEngine {
-        Tesseract,
-        Llm
-    };
-    OcrEngine ocrEngine() const;
-    void setOcrEngine(OcrEngine engine);
-    static OcrEngine defaultOcrEngine();
+    // Which recognition engine is selected, as a plugin id. Resolved by
+    // PluginManager, which also translates the enum ordinal every version up
+    // to 4.1.0 wrote.
+    QString ocrEngineId() const;
+    void setOcrEngineId(const QString &id);
 
     // Vision-model OCR engine. Its provider ids are the same kinds as the
     // LocalAI translation backend's (localProviderIds()), but every value

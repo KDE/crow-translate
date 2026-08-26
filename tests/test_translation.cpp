@@ -14,7 +14,6 @@
 #include "sourcetextedit.h"
 #include "testdisplay.h"
 #include "testisolation.h"
-#include "ocr/tesseractocr.h"
 #include "settings/appsettings.h"
 #include "translator/atranslationprovider.h"
 #include "tts/attsprovider.h"

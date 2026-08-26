@@ -15,8 +15,6 @@
 #include "onlinetranslator.h"
 #include "core/translationsession.h"
 #include "ocr/aocrprovider.h"
-#include "ocr/llmocr.h"
-#include "ocr/tesseractocr.h"
 #include "settings/appsettings.h"
 #include "translator/atranslationprovider.h"
 #include "translator/languageresolution.h"
@@ -57,6 +55,13 @@ public:
     }
     void cancel() override
     {
+    }
+    void applyOptions(const ProviderOptions &) override
+    {
+    }
+    QStringList getAvailableOptions() const override
+    {
+        return {};
     }
 
     void reportRecognized(const QString &text)
@@ -813,15 +818,17 @@ private slots:
 
         {
             AppSettings settings;
-            settings.setOcrEngine(AppSettings::OcrEngine::Tesseract);
+            settings.setOcrEngineId(QStringLiteral("tesseract"));
         }
-        QCOMPARE(session.ocr(), static_cast<AOcrProvider *>(session.tesseractOcr()));
+        QVERIFY(session.ocr() != nullptr);
+        QCOMPARE(session.ocr()->engineName(), QStringLiteral("tesseract"));
 
         {
             AppSettings settings;
-            settings.setOcrEngine(AppSettings::OcrEngine::Llm);
+            settings.setOcrEngineId(QStringLiteral("llm"));
         }
-        QCOMPARE(session.ocr(), static_cast<AOcrProvider *>(session.llmOcr()));
+        QVERIFY(session.ocr() != nullptr);
+        QCOMPARE(session.ocr()->engineName(), QStringLiteral("llm"));
     }
 
     // The ordering inside prepareOcr() is the whole point of it existing.
@@ -833,7 +840,7 @@ private slots:
     {
         {
             AppSettings settings;
-            settings.setOcrEngine(AppSettings::OcrEngine::Llm);
+            settings.setOcrEngineId(QStringLiteral("llm"));
             settings.setOcrLlmProvider(QStringLiteral("ollama"));
             settings.setLocalProviderUrl(QStringLiteral("ollama"), QStringLiteral("http://127.0.0.1:11434"));
             settings.setOcrLlmModel(QStringLiteral("ollama"), QStringLiteral("some-vision-model"));
@@ -842,10 +849,11 @@ private slots:
         TranslationSession session;
         // Untouched, it knows nothing: the settings above have never been
         // read into it.
-        QVERIFY(!session.llmOcr()->isConfigured());
+        QVERIFY(session.ocr() != nullptr);
+        QVERIFY(!session.ocr()->isConfigured());
 
         QVERIFY(session.prepareOcr());
-        QVERIFY(session.llmOcr()->isConfigured());
+        QVERIFY(session.ocr()->isConfigured());
     }
 
     // Recognition has its own endpoint, set on its own settings page. The
@@ -858,7 +866,7 @@ private slots:
         recognition.queueJson(200, QByteArrayLiteral(R"({"choices":[{"message":{"role":"assistant","content":"READ IT"}}]})"));
         {
             AppSettings settings;
-            settings.setOcrEngine(AppSettings::OcrEngine::Llm);
+            settings.setOcrEngineId(QStringLiteral("llm"));
             settings.setOcrLlmProvider(QStringLiteral("openai_custom"));
             settings.setLocalProviderUrl(QStringLiteral("openai_custom"), translation.baseUrl());
             settings.setOcrLlmUrl(QStringLiteral("openai_custom"), recognition.baseUrl());
@@ -867,10 +875,11 @@ private slots:
 
         TranslationSession session;
         QVERIFY(session.prepareOcr());
-        QSignalSpy recognized(session.llmOcr(), &AOcrProvider::recognized);
+        QVERIFY(session.ocr() != nullptr);
+        QSignalSpy recognized(session.ocr(), &AOcrProvider::recognized);
         QImage image(64, 32, QImage::Format_ARGB32);
         image.fill(Qt::white);
-        session.llmOcr()->recognize(image, 96);
+        session.ocr()->recognize(image, 96);
 
         QVERIFY(recognized.wait(5000));
         QCOMPARE(recognized.at(0).at(0).toString(), QStringLiteral("READ IT"));
@@ -917,7 +926,7 @@ private slots:
 
         TranslationSession session;
         QSignalSpy unavailable(&session, &TranslationSession::ocrLanguagesUnavailable);
-        session.initTesseractFromSettings();
+        session.applyOcrOptions();
 
         QCOMPARE(unavailable.count(), 1);
         QCOMPARE(unavailable.at(0).at(0).toString(), QStringLiteral("definitely-not-a-language"));

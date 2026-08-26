@@ -1244,19 +1244,14 @@ bool AppSettings::defaultConvertLineBreaks()
     return true;
 }
 
-AppSettings::OcrEngine AppSettings::ocrEngine() const
+QString AppSettings::ocrEngineId() const
 {
-    return static_cast<OcrEngine>(m_settings->value(QStringLiteral("OCR/Engine"), static_cast<int>(defaultOcrEngine())).toInt());
+    return PluginManager::selectedId(PluginFamily::Ocr);
 }
 
-void AppSettings::setOcrEngine(OcrEngine engine)
+void AppSettings::setOcrEngineId(const QString &id)
 {
-    m_settings->setValue(QStringLiteral("OCR/Engine"), static_cast<int>(engine));
-}
-
-AppSettings::OcrEngine AppSettings::defaultOcrEngine()
-{
-    return OcrEngine::Tesseract;
+    PluginManager::setSelectedId(PluginFamily::Ocr, id);
 }
 
 QString AppSettings::ocrLlmProvider() const

@@ -26,7 +26,6 @@
 #endif
 
 #ifdef Q_OS_UNIX
-#include "ocr/tesseractocr.h"
 
 #include <QDBusConnection>
 #include <QDBusError>
@@ -135,7 +134,8 @@ int GuiFrontend::run(QCoreApplication &app)
         if (QDBusConnection::sessionBus().registerService(service)) {
             qDebug() << "D-Bus service registered successfully";
             registerDBusObject(m_window.get());
-            registerDBusObject(m_window->ocr());
+            if (QObject *engine = m_window->ocr())
+                registerDBusObject(engine);
         } else {
             qWarning() << QCoreApplication::translate("D-Bus", "D-Bus service %1 is already registered by another application").arg(service);
             qDebug() << "D-Bus connection error:" << QDBusConnection::sessionBus().lastError().message();

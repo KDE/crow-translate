@@ -18,8 +18,8 @@
 // directly. It SKIPS - never fails - when Ollama or the model isn't
 // reachable, so it never blocks CI or a machine without Ollama.
 
+#include "llmocr.h"
 #include "llm/visionmodelprobe.h"
-#include "ocr/llmocr.h"
 
 #include <QDebug>
 #include <QFont>

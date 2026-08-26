@@ -11,16 +11,16 @@
 #include "translator/translationlogic.h"
 #include "tts/attsprovider.h"
 
+#include <QHash>
 #include <QImage>
+#include <QList>
 #include <QObject>
 #include <QTextToSpeech>
 
 class AOcrProvider;
 class LanguageResolution;
-class LlmOcr;
 class ModuleStatus;
 class ProviderOptionsManager;
-class TesseractOcr;
 
 // Everything a frontend needs in order to translate, minus the frontend.
 //
@@ -54,12 +54,17 @@ public:
     LanguageResolution *languages() const;
     ModuleStatus *moduleStatus() const;
 
-    // Both recognition engines are long-lived; which one is *active* follows
-    // the settings and can change between one recognition and the next, so
-    // ocr() is read per use rather than kept.
+    // Every installed recognition engine is built once and kept; which one is
+    // *active* follows the settings and can change between one recognition
+    // and the next, so ocr() is read per use rather than kept. Null when no
+    // OCR plugin is installed at all, which is a state the callers already
+    // handle - there has never been a built-in engine to fall back to.
     AOcrProvider *ocr() const;
-    TesseractOcr *tesseractOcr() const;
-    LlmOcr *llmOcr() const;
+    QString ocrEngineId() const;
+    // All of them, for a subscriber that has to keep reporting after the
+    // active one changes - the status model does, which is why binding only
+    // the current choice was never right.
+    QList<AOcrProvider *> ocrEngines() const;
 
     // Only meaningful once a backend has been set; before that they answer
     // with the do-nothing backend, which is also what translator() == nullptr
@@ -134,12 +139,12 @@ public:
 
     // --- recognition --------------------------------------------------------
 
-    // Fills Tesseract in from settings. Failure is reported through
-    // ocrLanguagesUnavailable() rather than returned, because whether it is
-    // worth mentioning is a question about the settings - a default
+    // Fills every recognition engine in from settings. Failure is reported
+    // through ocrLanguagesUnavailable() rather than returned, because whether
+    // it is worth mentioning is a question about the settings - a default
     // configuration that does not work is the normal state of a machine with
     // no language data installed, and saying so on every start is noise.
-    void initTesseractFromSettings();
+    void applyOcrOptions();
 
     // Reads an image file, working around PNGs Qt refuses over a private
     // chunk. Here rather than in a frontend because a screenshot tool's
@@ -228,15 +233,17 @@ private:
     void answerLanguageQuestion(const Language &language);
     void connectTranslator();
     void connectTts();
-    void configureLlmOcr();
 
     ProviderOptionsManager *m_options = nullptr;
     LanguageResolution *m_languages = nullptr;
     ModuleStatus *m_status = nullptr;
     ATranslationProvider *m_translator = nullptr;
     ATTSProvider *m_tts = nullptr;
-    TesseractOcr *m_tesseractOcr = nullptr;
-    LlmOcr *m_llmOcr = nullptr;
+    QHash<QString, AOcrProvider *> m_ocrEngines;
+    // Whether the recognition configuration is the one nobody chose. A
+    // default configuration that fails is a machine without language data,
+    // not a mistake worth interrupting anyone over.
+    bool m_ocrConfigurationIsDefault = true;
     // Deliberately not defaulted to a real backend: the setters are no-ops
     // when the backend already matches, and a default that happened to equal
     // the stored choice would skip building the provider entirely. Empty here

@@ -22,9 +22,7 @@
 #include "core/usernotifier.h"
 #include "gui/translationhtmlformatter.h"
 #include "ocr/aocrprovider.h"
-#include "ocr/llmocr.h"
 #include "ocr/screengrabbers/abstractscreengrabber.h"
-#include "ocr/tesseractocr.h"
 #include "settings/appsettings.h"
 #include "settings/settingsdialog.h"
 #include "translator/atranslationprovider.h"
@@ -147,7 +145,8 @@ MainWindow::MainWindow(QWidget *parent)
         if (!m_session->isOcrTranslationArmed()) {
             open();
         }
-        m_session->ocr()->recognize(pixmap.toImage(), dpi);
+        if (AOcrProvider *engine = m_session->ocr())
+            engine->recognize(pixmap.toImage(), dpi);
     });
     // An abandoned snip must not leave a translation armed for whatever gets
     // recognized next.
@@ -155,8 +154,9 @@ MainWindow::MainWindow(QWidget *parent)
     // A failed grab never opens the snipping area, so it emits no SnippingArea
     // signal either - the same armed-connection leak as an abandoned snip.
     connect(m_screenGrabber, &AbstractScreenGrabber::grabbingFailed, m_session, &TranslationSession::disarmOcrTranslation);
-    connect(m_session->tesseractOcr(), &AOcrProvider::recognized, ui->sourceEdit, &SourceTextEdit::replaceText);
-    connect(m_session->llmOcr(), &AOcrProvider::recognized, ui->sourceEdit, &SourceTextEdit::replaceText);
+    const QList<AOcrProvider *> ocrEngines = m_session->ocrEngines();
+    for (AOcrProvider *engine : ocrEngines)
+        connect(engine, &AOcrProvider::recognized, ui->sourceEdit, &SourceTextEdit::replaceText);
     // Text inserted through replaceText() deliberately suppresses
     // SourceTextEdit::textEdited (the armed flows chain their own follow-up),
     // so an UNarmed recognition - a plain recognize-screen-area, or an image
@@ -174,16 +174,19 @@ MainWindow::MainWindow(QWidget *parent)
         updateAutoLocales();
         handleAutoTranslation();
     };
-    connect(m_session->tesseractOcr(), &AOcrProvider::recognized, this, handleRecognizedText);
-    connect(m_session->llmOcr(), &AOcrProvider::recognized, this, handleRecognizedText);
+    for (AOcrProvider *engine : ocrEngines)
+        connect(engine, &AOcrProvider::recognized, this, handleRecognizedText);
     m_screenCaptureTimer->setSingleShot(true);
 
     // The session binds its own two recognition engines; the grabber and the
     // snipping area belong to whatever owns a screen, which is this window.
     m_session->moduleStatus()->bindCapture(m_screenGrabber, m_snippingArea);
     connect(m_session, &TranslationSession::ocrLanguagesUnavailable, this, [this](const QString &languages) {
-        m_trayIcon->showMessage(TesseractOcr::tr("Unable to set OCR languages"),
-                                TesseractOcr::tr("Unable to initialize Tesseract with %1").arg(languages));
+        // Still translated in TesseractOcr's context - see
+        // TranslationSession::prepareOcr() - but named rather than called
+        // through the class, which is in a module now.
+        m_trayIcon->showMessage(QCoreApplication::translate("TesseractOcr", "Unable to set OCR languages"),
+                                QCoreApplication::translate("TesseractOcr", "Unable to initialize Tesseract with %1").arg(languages));
     });
 
     loadAppSettings();
@@ -352,11 +355,6 @@ MainWindow::~MainWindow()
 AOcrProvider *MainWindow::ocr() const
 {
     return m_session->ocr();
-}
-
-TesseractOcr *MainWindow::tesseractOcr() const
-{
-    return m_session->tesseractOcr();
 }
 
 QComboBox *MainWindow::getEngineComboBox() const
@@ -1040,7 +1038,7 @@ void MainWindow::loadAppSettings()
     QGuiApplication::setQuitOnLastWindowClosed(!m_trayIcon->isVisible());
     ui->sourceEdit->setSimplifySource(settings.isSimplifySource());
 
-    m_session->initTesseractFromSettings();
+    m_session->applyOcrOptions();
     if (const AppSettings::RegionRememberType type = settings.regionRememberType(); m_snippingArea->regionRememberType() != type) {
         m_snippingArea->setRegionRememberType(type);
         if (type == AppSettings::RememberAlways)
@@ -2106,7 +2104,8 @@ void MainWindow::clearSourceImage()
         disconnect(m_imageOcrCanceledConnection);
         disconnect(m_imageOcrFailedConnection);
         m_session->disarmOcrTranslation();
-        m_session->ocr()->cancel();
+        if (AOcrProvider *engine = m_session->ocr())
+            engine->cancel();
     }
 
     m_hasSourceImage = false;

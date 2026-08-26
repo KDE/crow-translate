@@ -19,8 +19,7 @@
 #include "core/pluginmanager.h"
 #include "llm/openaiendpoint.h"
 #include "llm/visionmodelprobe.h"
-#include "ocr/llmocr.h"
-#include "ocr/tesseractocr.h"
+#include "plugininterfaces/iocrplugin.h"
 #include "shortcutsmodel/shortcutitem.h"
 #include "shortcutsmodel/shortcutsmodel.h"
 #include "translator/atranslationprovider.h"
@@ -112,7 +111,11 @@ SettingsDialog::SettingsDialog(MainWindow *parent)
         }
     }
 
-    ui->ocrLanguagesListWidget->addLanguages(parent->tesseractOcr()->availableLanguages());
+    // Asked of the engine's plugin rather than of a concrete class the dialog
+    // holds: this was the last place the application reached for a backend by
+    // name.
+    if (IOcrPlugin *tesseract = PluginManager::instance()->ocrPlugin(QStringLiteral("tesseract")))
+        ui->ocrLanguagesListWidget->addLanguages(tesseract->availableLanguages(QString::fromLocal8Bit(AppSettings().ocrLanguagesPath())));
 
     // Set all available instances
     ui->mozhiUrlComboBox->addItems(InstancePinger::instances());
@@ -469,8 +472,12 @@ void SettingsDialog::buildOcrEngineUi()
     m_ocrEngineCombo = new QComboBox(engineRow);
     engineLabel->setBuddy(m_ocrEngineCombo);
     m_ocrEngineCombo->setObjectName(QStringLiteral("ocrEngineCombo"));
-    m_ocrEngineCombo->addItem(tr("Tesseract"), static_cast<int>(AppSettings::OcrEngine::Tesseract));
-    m_ocrEngineCombo->addItem(tr("Vision model (LLM)"), static_cast<int>(AppSettings::OcrEngine::Llm));
+    // Named here rather than taken from the plugin metadata, and deliberately:
+    // this page is hand-built anyway - the stacked pages behind these two
+    // entries are - and a name in a JSON file beside a module cannot be
+    // translated. The ids are the plugins'.
+    m_ocrEngineCombo->addItem(tr("Tesseract"), QStringLiteral("tesseract"));
+    m_ocrEngineCombo->addItem(tr("Vision model (LLM)"), QStringLiteral("llm"));
     engineLayout->addWidget(engineLabel);
     engineLayout->addWidget(m_ocrEngineCombo);
     engineLayout->addStretch(1);
@@ -555,7 +562,14 @@ void SettingsDialog::buildOcrEngineUi()
     m_ocrLlmResetPromptButton = new QPushButton(tr("Reset OCR prompt"), llmPage);
     llmLayout->addWidget(m_ocrLlmResetPromptButton);
     m_ocrLlmPromptEdit = new QPlainTextEdit(llmPage);
-    m_ocrLlmPromptEdit->setPlaceholderText(LlmOcr::defaultPrompt());
+    // From the engine's own schema rather than from its class, which is in a
+    // module the dialog does not link.
+    if (const std::optional<PluginInfo> llm = PluginManager::instance()->describe(PluginFamily::Ocr, QStringLiteral("llm"))) {
+        for (const ProviderOptionSpec &spec : llm->options) {
+            if (spec.key == QLatin1String("prompt"))
+                m_ocrLlmPromptEdit->setPlaceholderText(spec.defaultValue.toString());
+        }
+    }
     llmLayout->addWidget(m_ocrLlmPromptEdit, 1);
     m_ocrEngineStack->addWidget(llmPage);
 
@@ -566,7 +580,7 @@ void SettingsDialog::buildOcrEngineUi()
 
     connect(m_ocrEngineCombo, qOverload<int>(&QComboBox::currentIndexChanged), this, [this](int index) {
         m_ocrEngineStack->setCurrentIndex(index);
-        updateOcrEngineVisibility(m_ocrEngineCombo->itemData(index).toInt());
+        updateOcrEngineVisibility(m_ocrEngineCombo->itemData(index).toString());
     });
     connect(m_ocrLlmProviderCombo, &QComboBox::currentIndexChanged, this, [this]() {
         loadOcrLlmProvider(m_ocrLlmProviderCombo->currentData().toString());
@@ -728,9 +742,9 @@ void SettingsDialog::refreshOcrModels()
     m_ocrLlmProbe->probe(id, base, m_ocrLlmApiKeyEdit->text());
 }
 
-void SettingsDialog::updateOcrEngineVisibility(int engineValue)
+void SettingsDialog::updateOcrEngineVisibility(const QString &engineId)
 {
-    const bool isTesseract = (engineValue == static_cast<int>(AppSettings::OcrEngine::Tesseract));
+    const bool isTesseract = engineId == QLatin1String("tesseract");
     ui->languagesGroupBox->setVisible(isTesseract);
     ui->ocrParametersGroupBox->setVisible(isTesseract);
     // screenCaptureGroupBox is engine-agnostic and stays visible always.
@@ -739,7 +753,7 @@ void SettingsDialog::updateOcrEngineVisibility(int engineValue)
 void SettingsDialog::loadOcrEngineSettings()
 {
     const AppSettings settings;
-    const int index = m_ocrEngineCombo->findData(static_cast<int>(settings.ocrEngine()));
+    const int index = m_ocrEngineCombo->findData(settings.ocrEngineId());
     if (index >= 0) {
         m_ocrEngineCombo->setCurrentIndex(index);
     }
@@ -750,7 +764,7 @@ void SettingsDialog::loadOcrEngineSettings()
         m_ocrLlmProviderCombo->setCurrentIndex(providerIndex);
     }
     loadOcrLlmProvider(m_ocrLlmProviderCombo->currentData().toString());
-    updateOcrEngineVisibility(static_cast<int>(settings.ocrEngine()));
+    updateOcrEngineVisibility(settings.ocrEngineId());
 }
 
 void SettingsDialog::saveOcrEngineSettings()
@@ -758,7 +772,7 @@ void SettingsDialog::saveOcrEngineSettings()
     AppSettings settings;
     const QString id = m_ocrLlmProviderCombo->currentData().toString();
     const QString model = m_ocrLlmModelCombo->currentText();
-    settings.setOcrEngine(static_cast<AppSettings::OcrEngine>(m_ocrEngineCombo->currentData().toInt()));
+    settings.setOcrEngineId(m_ocrEngineCombo->currentData().toString());
     settings.setOcrLlmProvider(id);
     settings.setOcrLlmUrl(id, m_ocrLlmUrlEdit->text().trimmed());
     settings.setOcrLlmApiKey(id, m_ocrLlmApiKeyEdit->text());
@@ -1035,7 +1049,8 @@ void SettingsDialog::selectOcrLanguagesPath()
 void SettingsDialog::onOcrLanguagesPathChanged(const QString &path)
 {
     ui->ocrLanguagesListWidget->clear();
-    ui->ocrLanguagesListWidget->addLanguages(TesseractOcr::availableLanguages(path));
+    if (IOcrPlugin *tesseract = PluginManager::instance()->ocrPlugin(QStringLiteral("tesseract")))
+        ui->ocrLanguagesListWidget->addLanguages(tesseract->availableLanguages(path));
 }
 
 void SettingsDialog::setupPiperVoicesPathUI()

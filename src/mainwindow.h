@@ -8,6 +8,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "cmake.h"
 #include "language.h"
 #include "qhotkey.h"
 #include "screenwatcher.h"
@@ -16,7 +17,6 @@
 #include "ocr/aocrprovider.h"
 #include "ocr/screengrabbers/abstractscreengrabber.h"
 #include "ocr/snippingarea.h"
-#include "ocr/tesseractocr.h"
 #include "settings/appsettings.h"
 #include "translator/atranslationprovider.h"
 #include "translator/translationlogic.h"
@@ -41,8 +41,6 @@ class ModuleStatus;
 class StatusStrip;
 class QLabel;
 class AOcrProvider;
-class LlmOcr;
-class TesseractOcr;
 
 namespace Ui
 {
@@ -61,7 +59,6 @@ public:
     bool eventFilter(QObject *obj, QEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
     AOcrProvider *ocr() const;
-    TesseractOcr *tesseractOcr() const;
     QComboBox *getEngineComboBox() const;
     QComboBox *sourceVoiceComboBox() const;
     QComboBox *translationVoiceComboBox() const;

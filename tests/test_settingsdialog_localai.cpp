@@ -228,8 +228,8 @@ private slots:
         auto *screenCaptureGroupBox = dialog.findChild<QGroupBox *>(QStringLiteral("screenCaptureGroupBox"));
         QVERIFY(screenCaptureGroupBox != nullptr);
 
-        const int tesseractIndex = engineCombo->findData(static_cast<int>(AppSettings::OcrEngine::Tesseract));
-        const int llmIndex = engineCombo->findData(static_cast<int>(AppSettings::OcrEngine::Llm));
+        const int tesseractIndex = engineCombo->findData(QStringLiteral("tesseract"));
+        const int llmIndex = engineCombo->findData(QStringLiteral("llm"));
         QVERIFY(tesseractIndex >= 0);
         QVERIFY(llmIndex >= 0);
 

@@ -255,6 +255,7 @@ add_executable(test_llmocr
     test_llmocr.cpp
 )
 target_link_libraries(test_llmocr PRIVATE
+    crow-plugin-ocr-llm-objects
     crow-plugin-translation-localai-objects
     ${PROJECT_NAME}-lib
     test-support
@@ -270,6 +271,7 @@ add_executable(test_llmocr_live
     test_llmocr_live.cpp
 )
 target_link_libraries(test_llmocr_live PRIVATE
+    crow-plugin-ocr-llm-objects
     ${PROJECT_NAME}-lib
     Qt6::Test
 )
@@ -330,6 +332,7 @@ add_executable(test_mainwindow_features
 )
 target_compile_definitions(test_mainwindow_features PRIVATE BUILD_TESTING)
 target_link_libraries(test_mainwindow_features PRIVATE
+    crow-plugin-ocr-llm-objects
     ${PROJECT_NAME}-lib
     test-support
     Qt6::Test

@@ -8,10 +8,10 @@
 // an image part, transcription prompt) and that the OCR path is fully
 // decoupled from LocalAiTranslationProvider.
 
+#include "llmocr.h"
 #include "localaitranslationprovider.h"
 #include "mockhttpserver.h"
 #include "provideroptions.h"
-#include "ocr/llmocr.h"
 
 #include <QCoreApplication>
 #include <QImage>

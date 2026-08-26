@@ -344,7 +344,7 @@ namespace
 void pinRecognition(const MockHttpServer &server)
 {
     AppSettings settings;
-    settings.setOcrEngine(AppSettings::OcrEngine::Llm);
+    settings.setOcrEngineId(QStringLiteral("llm"));
     settings.setOcrLlmProvider(QStringLiteral("openai_custom"));
     settings.setOcrLlmUrl(QStringLiteral("openai_custom"), server.baseUrl());
     settings.setOcrLlmModel(QStringLiteral("openai_custom"), QStringLiteral("mock-model"));

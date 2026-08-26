@@ -7,9 +7,12 @@
 
 #include "tesseractocr.h"
 
-#include "settings/appsettings.h"
+#include "core/settingsstore.h"
 
+#include <QSettings>
 #include <QtConcurrent>
+
+#include <memory>
 
 #if TESSERACT_MAJOR_VERSION < 5
 #include <tesseract/genericvector.h>
@@ -143,9 +146,17 @@ void TesseractOcr::applyParameters(const QMap<QString, QVariant> &parameters, bo
             qWarning() << tr("%1 is not a valid Tesseract parameter name.").arg(it.key());
     }
 
-    // Save into settings (used for calling from D-Bus)
-    if (saveSettings)
-        AppSettings().setTesseractParameters(m_parameters);
+    // Save into settings (used for calling from D-Bus). Written straight to
+    // the file rather than through AppSettings, which a loadable engine
+    // cannot link; the group is this engine's own and unchanged.
+    if (saveSettings) {
+        const std::unique_ptr<QSettings> settings(CrowSettings::open());
+        settings->beginGroup(QStringLiteral("Tesseract"));
+        settings->remove({}); // Remove all keys in current group
+        for (auto it = m_parameters.cbegin(); it != m_parameters.cend(); ++it)
+            settings->setValue(it.key(), it.value());
+        settings->endGroup();
+    }
 }
 
 QStringList TesseractOcr::parseLanguageFiles(const QDir &directory)
@@ -157,4 +168,31 @@ QStringList TesseractOcr::parseLanguageFiles(const QDir &directory)
         languages.append(file.baseName());
 
     return languages;
+}
+void TesseractOcr::applyOptions(const ProviderOptions &options)
+{
+    if (options.hasOption(QStringLiteral("convert_line_breaks"))) {
+        setConvertLineBreaks(options.getOption(QStringLiteral("convert_line_breaks")).toBool());
+    }
+
+    if (!options.hasOption(QStringLiteral("languages"))) {
+        return;
+    }
+
+    const QByteArray languages = options.getOption(QStringLiteral("languages")).toByteArray();
+    const QByteArray languagesPath = options.getOption(QStringLiteral("languages_path")).toByteArray();
+    const QMap<QString, QVariant> parameters = options.getOption(QStringLiteral("parameters")).toMap();
+
+    if (!init(languages, languagesPath, parameters)) {
+        // Reported, not decided: whether a failure here is worth showing
+        // depends on whether the user chose this configuration, and that is
+        // the host's question.
+        Q_EMIT configurationFailed(QString::fromUtf8(languages));
+    }
+}
+
+QStringList TesseractOcr::getAvailableOptions() const
+{
+    return {QStringLiteral("languages"), QStringLiteral("languages_path"),
+            QStringLiteral("parameters"), QStringLiteral("convert_line_breaks")};
 }

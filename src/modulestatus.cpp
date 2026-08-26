@@ -11,6 +11,8 @@
 #include "tts/attsprovider.h"
 #include "tts/noopttsprovider.h"
 
+#include <utility>
+
 ModuleStatus::ModuleStatus(QObject *parent)
     : QObject(parent)
 {
@@ -103,17 +105,16 @@ void ModuleStatus::bindTtsProvider(ATTSProvider *tts)
     seedTtsState();
 }
 
-void ModuleStatus::bindOcr(AOcrProvider *tesseract, AOcrProvider *llm)
+void ModuleStatus::bindOcr(const QList<AOcrProvider *> &engines)
 {
-    if (m_tesseractOcr != nullptr)
-        disconnect(m_tesseractOcr, nullptr, this, nullptr);
-    if (m_llmOcr != nullptr)
-        disconnect(m_llmOcr, nullptr, this, nullptr);
-    m_tesseractOcr = tesseract;
-    m_llmOcr = llm;
+    for (AOcrProvider *engine : std::as_const(m_ocrEngines)) {
+        if (engine != nullptr)
+            disconnect(engine, nullptr, this, nullptr);
+    }
+    m_ocrEngines = engines;
 
-    bindOneOcr(tesseract);
-    bindOneOcr(llm);
+    for (AOcrProvider *engine : std::as_const(m_ocrEngines))
+        bindOneOcr(engine);
 }
 
 void ModuleStatus::bindCapture(AbstractScreenGrabber *grabber, SnippingArea *snippingArea)

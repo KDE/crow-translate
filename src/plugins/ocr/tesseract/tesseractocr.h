@@ -8,8 +8,8 @@
 #ifndef TESSERACTOCR_H
 #define TESSERACTOCR_H
 
-#include "aocrprovider.h"
 #include "cmake.h"
+#include "ocr/aocrprovider.h"
 
 #include <QFuture>
 
@@ -40,6 +40,8 @@ public:
     bool isConfigured() const override;
     void recognize(const QImage &image, int dpi) override;
     void cancel() override;
+    void applyOptions(const ProviderOptions &options) override;
+    QStringList getAvailableOptions() const override;
 
     static QStringList availableLanguages(const QString &languagesPath);
 

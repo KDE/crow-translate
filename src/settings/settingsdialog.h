@@ -142,7 +142,7 @@ private:
     void buildOcrEngineUi();
     void loadOcrEngineSettings();
     void saveOcrEngineSettings();
-    void updateOcrEngineVisibility(int engineValue);
+    void updateOcrEngineVisibility(const QString &engineId);
     void loadOcrLlmProvider(const QString &id);
     void populateOcrModelCombo(const QString &id);
     void refreshOcrModels();

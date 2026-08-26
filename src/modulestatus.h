@@ -8,6 +8,7 @@
 
 #include "translator/atranslationprovider.h"
 
+#include <QList>
 #include <QObject>
 #include <QString>
 #include <QTextToSpeech>
@@ -59,7 +60,10 @@ public:
     void bindTranslator(ATranslationProvider *translator);
     void bindTtsProvider(ATTSProvider *tts);
     // Both engines, not activeOcr(): the active one switches per settings read.
-    void bindOcr(AOcrProvider *tesseract, AOcrProvider *llm);
+    // Every installed engine, not the active one: which is active changes
+    // with a settings read, and a model bound to one of them stops reporting
+    // the moment it does.
+    void bindOcr(const QList<AOcrProvider *> &engines);
     void bindCapture(AbstractScreenGrabber *grabber, SnippingArea *snippingArea);
 
     static constexpr int moduleCount()
@@ -121,8 +125,7 @@ private:
 
     ATranslationProvider *m_translator = nullptr;
     ATTSProvider *m_tts = nullptr;
-    AOcrProvider *m_tesseractOcr = nullptr;
-    AOcrProvider *m_llmOcr = nullptr;
+    QList<AOcrProvider *> m_ocrEngines;
     AbstractScreenGrabber *m_grabber = nullptr;
     SnippingArea *m_snippingArea = nullptr;
 };

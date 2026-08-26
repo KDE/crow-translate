@@ -479,7 +479,7 @@ void Cli::recognizeImage()
     connect(m_session, &TranslationSession::ocrLanguagesUnavailable, this, [this](const QString &languages) {
         printError(tr("Error: Unable to initialize Tesseract with %1").arg(languages));
     });
-    m_session->initTesseractFromSettings();
+    m_session->applyOcrOptions();
 
     if (!m_session->prepareOcr()) {
         // prepareOcr() reports through UserNotifier, whose delivery is queued.
@@ -497,6 +497,14 @@ void Cli::recognizeImage()
     }
 
     AOcrProvider *engine = m_session->ocr();
+    if (engine == nullptr) {
+        // No recognition engine installed at all. Distinct from one that is
+        // installed and unconfigured, which prepareOcr() reports above.
+        printError(tr("Error: No OCR engine is available"));
+        cleanup();
+        QCoreApplication::exit(1);
+        return;
+    }
     connect(engine, &AOcrProvider::recognized, this, [this](const QString &text) {
         m_sourceText = text;
         if (m_sourceText.isEmpty()) {

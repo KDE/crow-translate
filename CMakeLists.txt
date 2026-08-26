@@ -304,10 +304,6 @@ add_library(${PROJECT_NAME}-lib STATIC
     src/mainwindow.ui
     src/modulestatus.h
     src/modulestatus.cpp
-    src/ocr/tesseractocr.h
-    src/ocr/tesseractocr.cpp
-    src/ocr/llmocr.h
-    src/ocr/llmocr.cpp
     src/ocr/screengrabbers/abstractscreengrabber.h
     src/ocr/screengrabbers/abstractscreengrabber.cpp
     src/ocr/screengrabbers/genericscreengrabber.h
@@ -431,6 +427,27 @@ crow_add_plugin(mozhi
     PLUGIN_SOURCES
         src/plugins/translation/mozhi/mozhiplugin.h
         src/plugins/translation/mozhi/mozhiplugin.cpp
+)
+
+crow_add_plugin(tesseract
+    FAMILY ocr
+    SOURCES
+        src/plugins/ocr/tesseract/tesseractocr.h
+        src/plugins/ocr/tesseract/tesseractocr.cpp
+    PLUGIN_SOURCES
+        src/plugins/ocr/tesseract/tesseractplugin.h
+        src/plugins/ocr/tesseract/tesseractplugin.cpp
+    LINK_LIBRARIES Tesseract::Tesseract Qt6::Concurrent
+)
+
+crow_add_plugin(llm
+    FAMILY ocr
+    SOURCES
+        src/plugins/ocr/llm/llmocr.h
+        src/plugins/ocr/llm/llmocr.cpp
+    PLUGIN_SOURCES
+        src/plugins/ocr/llm/llmocrplugin.h
+        src/plugins/ocr/llm/llmocrplugin.cpp
 )
 
 crow_add_plugin(localai
@@ -680,7 +697,6 @@ target_link_libraries(${PROJECT_NAME}-lib PUBLIC
     QHotkey::QHotkey
     Qt6::Concurrent
     Qt6::StateMachine
-    Tesseract::Tesseract
 )
 
 target_link_libraries(${PROJECT_NAME}-lib PUBLIC Qt6::TextToSpeech)

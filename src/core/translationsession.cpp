@@ -10,12 +10,11 @@
 #include "core/pluginmanager.h"
 #include "core/usernotifier.h"
 #include "ocr/aocrprovider.h"
-#include "ocr/llmocr.h"
-#include "ocr/tesseractocr.h"
 #include "settings/appsettings.h"
 #include "translator/languageresolution.h"
 #include "translator/translationlogic.h"
 
+#include <QCoreApplication>
 #include <QFile>
 #include <QLocale>
 #include <QSet>
@@ -26,13 +25,22 @@ TranslationSession::TranslationSession(QObject *parent)
     , m_options(new ProviderOptionsManager(this))
     , m_languages(new LanguageResolution(this))
     , m_status(new ModuleStatus(this))
-    , m_tesseractOcr(new TesseractOcr(this))
-    , m_llmOcr(new LlmOcr(this))
 {
-    // Both engines, not just the active one: the active one switches per
-    // settings read, and a status model that only followed the current choice
-    // would stop reporting the moment it changed.
-    m_status->bindOcr(m_tesseractOcr, m_llmOcr);
+    // Every installed engine, not just the active one: the active one
+    // switches per settings read, and a status model that only followed the
+    // current choice would stop reporting the moment it changed.
+    const QList<PluginInfo> engines = PluginManager::instance()->available(PluginFamily::Ocr);
+    for (const PluginInfo &engine : engines) {
+        AOcrProvider *provider = PluginManager::instance()->createOcrProvider(this, engine.id);
+        if (provider == nullptr)
+            continue;
+        m_ocrEngines.insert(engine.id, provider);
+        connect(provider, &AOcrProvider::configurationFailed, this, [this](const QString &detail) {
+            if (!m_ocrConfigurationIsDefault)
+                Q_EMIT ocrLanguagesUnavailable(detail);
+        });
+    }
+    m_status->bindOcr(ocrEngines());
 }
 
 ATranslationProvider *TranslationSession::translator() const
@@ -62,20 +70,17 @@ ModuleStatus *TranslationSession::moduleStatus() const
 
 AOcrProvider *TranslationSession::ocr() const
 {
-    if (AppSettings().ocrEngine() == AppSettings::OcrEngine::Llm) {
-        return m_llmOcr;
-    }
-    return m_tesseractOcr;
+    return m_ocrEngines.value(ocrEngineId(), nullptr);
 }
 
-TesseractOcr *TranslationSession::tesseractOcr() const
+QString TranslationSession::ocrEngineId() const
 {
-    return m_tesseractOcr;
+    return PluginManager::selectedId(PluginFamily::Ocr);
 }
 
-LlmOcr *TranslationSession::llmOcr() const
+QList<AOcrProvider *> TranslationSession::ocrEngines() const
 {
-    return m_llmOcr;
+    return m_ocrEngines.values();
 }
 
 QString TranslationSession::translationBackend() const
@@ -415,46 +420,73 @@ bool TranslationSession::loadImage(const QString &path, QImage &out)
     return !out.isNull();
 }
 
-void TranslationSession::initTesseractFromSettings()
+void TranslationSession::applyOcrOptions()
 {
     const AppSettings settings;
-    const QByteArray languages = settings.ocrLanguagesString();
-    const QByteArray path = settings.ocrLanguagesPath();
-    if (!m_tesseractOcr->init(languages, path, settings.tesseractParameters())) {
-        if (languages != AppSettings::defaultOcrLanguagesString() || path != AppSettings::defaultOcrLanguagesPath()) {
-            Q_EMIT ocrLanguagesUnavailable(QString::fromUtf8(languages));
-        }
-    }
-    m_tesseractOcr->setConvertLineBreaks(settings.isConvertLineBreaks());
-}
 
-void TranslationSession::configureLlmOcr()
-{
-    const AppSettings settings;
-    const QString providerId = settings.ocrLlmProvider();
-    // The endpoint from the recognition page. It used to be the translation
-    // one: the address typed on the recognition page was saved and never read.
-    m_llmOcr->setEndpoint(settings.ocrLlmUrl(providerId), AppSettings::localProviderIsAnthropic(providerId), settings.ocrLlmApiKey(providerId));
-    m_llmOcr->setModel(settings.ocrLlmModel(providerId));
-    m_llmOcr->setTimeout(settings.ocrLlmTimeout(providerId));
-    m_llmOcr->setPrompt(settings.ocrLlmPrompt(settings.ocrLlmModel(providerId)));
-    m_llmOcr->setDisableThinking(settings.localAiDisableThinking(providerId));
+    const QByteArray languages = settings.ocrLanguagesString();
+    const QByteArray languagesPath = settings.ocrLanguagesPath();
+    m_ocrConfigurationIsDefault = languages == AppSettings::defaultOcrLanguagesString()
+        && languagesPath == AppSettings::defaultOcrLanguagesPath();
+
+    if (AOcrProvider *tesseract = m_ocrEngines.value(QStringLiteral("tesseract"), nullptr)) {
+        ProviderOptions options;
+        options.setOption(QStringLiteral("languages"), languages);
+        options.setOption(QStringLiteral("languages_path"), languagesPath);
+        options.setOption(QStringLiteral("parameters"), settings.tesseractParameters());
+        options.setOption(QStringLiteral("convert_line_breaks"), settings.isConvertLineBreaks());
+        tesseract->applyOptions(options);
+    }
+
+    if (AOcrProvider *llm = m_ocrEngines.value(QStringLiteral("llm"), nullptr)) {
+        // Its whole configuration hangs off whichever endpoint is active, so
+        // there is no flat key to read and the host resolves it first. Same
+        // shape as the LocalAI translation backend, and for the same reason.
+        const QString endpointId = settings.ocrLlmProvider();
+        ProviderOptions options;
+        // The endpoint from the recognition page. It used to be the
+        // translation one: the address typed on the recognition page was
+        // saved and never read.
+        options.setOption(QStringLiteral("url"), settings.ocrLlmUrl(endpointId));
+        options.setOption(QStringLiteral("is_anthropic"), AppSettings::localProviderIsAnthropic(endpointId));
+        options.setOption(QStringLiteral("api_key"), settings.ocrLlmApiKey(endpointId));
+        options.setOption(QStringLiteral("model"), settings.ocrLlmModel(endpointId));
+        options.setOption(QStringLiteral("timeout"), settings.ocrLlmTimeout(endpointId));
+        options.setOption(QStringLiteral("prompt"), settings.ocrLlmPrompt(settings.ocrLlmModel(endpointId)));
+        options.setOption(QStringLiteral("disable_thinking"), settings.localAiDisableThinking(endpointId));
+        llm->applyOptions(options);
+    }
 }
 
 bool TranslationSession::prepareOcr()
 {
-    configureLlmOcr();
-    if (ocr()->isConfigured()) {
+    applyOcrOptions();
+    AOcrProvider *engine = ocr();
+    if (engine != nullptr && engine->isConfigured()) {
         return true;
     }
 
-    // Deliberately still TesseractOcr::tr(): the strings are unchanged and so
-    // is their translation context, so no catalogue entry has to be re-matched
-    // for having moved house.
+    if (engine == nullptr) {
+        // Not the same thing as an engine that is installed and unconfigured,
+        // and telling someone to set up a backend they do not have would send
+        // them looking for a setting that is not there.
+        UserNotifier::Notification missing;
+        missing.severity = UserNotifier::Severity::Critical;
+        missing.title = tr("No OCR engine available");
+        missing.text = tr("No text recognition plugin is installed.");
+        missing.requiresAcknowledgement = true;
+        UserNotifier::notify(missing);
+        return false;
+    }
+
+    // Deliberately still translated in TesseractOcr's context: the strings are
+    // unchanged and so is their translation context, so no catalogue entry has
+    // to be re-matched for having moved house. Named rather than called
+    // through the class, which now lives in a module this cannot link.
     UserNotifier::Notification notification;
     notification.severity = UserNotifier::Severity::Critical;
-    notification.title = TesseractOcr::tr("OCR is not configured");
-    notification.text = TesseractOcr::tr("Set up the OCR engine in the application settings");
+    notification.title = QCoreApplication::translate("TesseractOcr", "OCR is not configured");
+    notification.text = QCoreApplication::translate("TesseractOcr", "Set up the OCR engine in the application settings");
     notification.requiresAcknowledgement = true;
     UserNotifier::notify(notification);
     return false;

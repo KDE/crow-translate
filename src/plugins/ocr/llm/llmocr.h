@@ -6,7 +6,7 @@
 #ifndef LLMOCR_H
 #define LLMOCR_H
 
-#include "aocrprovider.h"
+#include "ocr/aocrprovider.h"
 
 #include <QByteArray>
 #include <QImage>
@@ -38,6 +38,8 @@ public:
     bool isConfigured() const override;
     void recognize(const QImage &image, int dpi) override;
     void cancel() override;
+    void applyOptions(const ProviderOptions &options) override;
+    QStringList getAvailableOptions() const override;
 
     void setEndpoint(const QString &url, bool isAnthropic, const QString &apiKey);
     void setModel(const QString &model);

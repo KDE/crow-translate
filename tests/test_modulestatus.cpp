@@ -55,6 +55,13 @@ public:
     void cancel() override
     {
     }
+    void applyOptions(const ProviderOptions &) override
+    {
+    }
+    QStringList getAvailableOptions() const override
+    {
+        return {};
+    }
 };
 
 // The smallest ATTSProvider implementation that can report a chosen state;
@@ -340,7 +347,7 @@ void ModuleStatusTest::testOcrStates()
 {
     ModuleStatus status;
     StubOcr engine;
-    status.bindOcr(&engine, nullptr);
+    status.bindOcr({&engine});
 
     QCOMPARE(status.activity(s_ocr), ModuleStatus::Activity::Idle);
 
@@ -488,7 +495,7 @@ void ModuleStatusTest::testBothOcrEnginesShareOneSegment()
     ModuleStatus status;
     StubOcr tesseract;
     StubOcr llm;
-    status.bindOcr(&tesseract, &llm);
+    status.bindOcr({&tesseract, &llm});
 
     tesseract.recognize(QImage(), 96);
     QCOMPARE(status.activity(s_ocr), ModuleStatus::Activity::Busy);

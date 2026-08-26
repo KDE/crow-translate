@@ -517,3 +517,33 @@ void LlmOcr::onFinished()
 
     emit recognized(collapseRepeatedTranscription(completion.content));
 }
+
+void LlmOcr::applyOptions(const ProviderOptions &options)
+{
+    // The endpoint is three values that only mean anything together, so it is
+    // set in one call whenever any of them is present.
+    if (options.hasOption(QStringLiteral("url"))) {
+        setEndpoint(options.getOption(QStringLiteral("url")).toString(),
+                    options.getOption(QStringLiteral("is_anthropic")).toBool(),
+                    options.getOption(QStringLiteral("api_key")).toString());
+    }
+    if (options.hasOption(QStringLiteral("model"))) {
+        setModel(options.getOption(QStringLiteral("model")).toString());
+    }
+    if (options.hasOption(QStringLiteral("timeout"))) {
+        setTimeout(options.getOption(QStringLiteral("timeout")).toInt());
+    }
+    if (options.hasOption(QStringLiteral("prompt"))) {
+        setPrompt(options.getOption(QStringLiteral("prompt")).toString());
+    }
+    if (options.hasOption(QStringLiteral("disable_thinking"))) {
+        setDisableThinking(options.getOption(QStringLiteral("disable_thinking")).toBool());
+    }
+}
+
+QStringList LlmOcr::getAvailableOptions() const
+{
+    return {QStringLiteral("url"), QStringLiteral("is_anthropic"), QStringLiteral("api_key"),
+            QStringLiteral("model"), QStringLiteral("timeout"), QStringLiteral("prompt"),
+            QStringLiteral("disable_thinking")};
+}
