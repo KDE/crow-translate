@@ -192,6 +192,11 @@ add_library(crow-core SHARED
     src/playlistplayer.h
     src/playlistplayer.cpp
     src/ocr/aocrprovider.h
+    src/plugininterfaces/iproviderplugin.h
+    src/plugininterfaces/iocrplugin.h
+    src/plugininterfaces/itranslationplugin.h
+    src/plugininterfaces/ittsplugin.h
+    src/plugininterfaces/provideroptionspec.h
     src/translator/atranslationprovider.h
     src/translator/atranslationprovider.cpp
     src/tts/attsprovider.h
