@@ -5,49 +5,6 @@
 
 #include "atranslationprovider.h"
 
-#include "core/usernotifier.h"
-#include "settings/appsettings.h"
-#include "translator/copytranslationprovider.h"
-#include "translator/localaitranslationprovider.h"
-#include "translator/mozhitranslationprovider.h"
-
-#include <QTimer>
-
-#include <variant>
-
-ATranslationProvider *ATranslationProvider::createTranslationProvider(QObject *parent, ATranslationProvider::ProviderBackend chosenBackend)
-{
-    // Try to create the requested provider with crash protection
-    try {
-        switch (chosenBackend) {
-        case ProviderBackend::Copy:
-            return new CopyTranslationProvider(parent);
-
-        case ProviderBackend::Mozhi:
-            return new MozhiTranslationProvider(parent);
-
-        case ProviderBackend::LocalAI:
-            return new LocalAiTranslationProvider(parent);
-        }
-    } catch (const std::exception &e) {
-        qWarning() << "ATranslationProvider::createTranslationProvider - Exception creating provider" << static_cast<int>(chosenBackend) << ":" << e.what();
-        qWarning() << "Falling back to Copy provider to prevent crash";
-
-        // Reset the problematic provider in settings to prevent future crashes
-        resetProblematicProvider(chosenBackend);
-
-        return new CopyTranslationProvider(parent);
-    } catch (...) {
-        qWarning() << "ATranslationProvider::createTranslationProvider - Unknown exception creating provider" << static_cast<int>(chosenBackend);
-        qWarning() << "Falling back to Copy provider to prevent crash";
-
-        // Reset the problematic provider in settings to prevent future crashes
-        resetProblematicProvider(chosenBackend);
-
-        return new CopyTranslationProvider(parent);
-    }
-    return nullptr;
-}
 bool ATranslationProvider::redirect(const Language &destination)
 {
     Q_UNUSED(destination)
@@ -107,21 +64,6 @@ void ATranslationProvider::reset()
         emit stateChanged(state);
         break;
     }
-}
-
-void ATranslationProvider::resetProblematicProvider(ProviderBackend backend)
-{
-    // Reset the problematic provider to Copy in settings to prevent future crashes
-    AppSettings settings;
-    qWarning() << "Resetting translation provider from" << static_cast<int>(backend) << "to Copy due to crash";
-    settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Copy);
-
-    UserNotifier::Notification notification;
-    notification.severity = UserNotifier::Severity::Warning;
-    notification.title = QObject::tr("Translation Provider Error");
-    notification.text = QObject::tr("The selected translation provider crashed during initialization and has been reset to 'Copy' to prevent further issues. "
-                                    "You can try selecting a different provider in Settings → Translation.");
-    UserNotifier::notify(notification);
 }
 
 ATranslationProvider::ATranslationProvider(QObject *parent)

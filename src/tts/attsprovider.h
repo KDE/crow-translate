@@ -6,6 +6,7 @@
 #ifndef ATTSPROVIDER_H
 #define ATTSPROVIDER_H
 
+#include "crow_core_export.h"
 #include "language.h"
 #include "provideroptions.h"
 #include "voice.h"
@@ -20,7 +21,7 @@
 
 class ProviderOptions;
 
-class ATTSProvider : public QObject
+class CROW_CORE_EXPORT ATTSProvider : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(ATTSProvider)
@@ -34,8 +35,6 @@ public:
     };
     Q_ENUM(ProviderBackend)
 
-    static ATTSProvider *createTTSProvider(QObject *parent = nullptr, ProviderBackend chosenBackend = ProviderBackend::None);
-    static void resetProblematicProvider(ProviderBackend backend);
     virtual QString getProviderType() const = 0;
 
     virtual void say(const QString &text) = 0;

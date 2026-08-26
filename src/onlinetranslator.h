@@ -8,6 +8,8 @@
 #ifndef ONLINETRANSLATOR_H
 #define ONLINETRANSLATOR_H
 
+#include "crow_core_export.h"
+
 #include <QJsonDocument>
 #include <QMap>
 #include <QMediaPlayer>
@@ -27,7 +29,7 @@ class QNetworkReply;
 /**
  * @brief Provides translation data
  */
-class OnlineTranslator : public QObject
+class CROW_CORE_EXPORT OnlineTranslator : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(OnlineTranslator)

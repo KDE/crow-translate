@@ -6,6 +6,8 @@
 #ifndef PROVIDEROPTIONS_H
 #define PROVIDEROPTIONS_H
 
+#include "crow_core_export.h"
+
 #include <QIcon>
 #include <QObject>
 #include <QString>
@@ -13,7 +15,7 @@
 #include <QVariantMap>
 #include <QVector>
 
-class ProviderOptions
+class CROW_CORE_EXPORT ProviderOptions
 {
 public:
     ProviderOptions() = default;

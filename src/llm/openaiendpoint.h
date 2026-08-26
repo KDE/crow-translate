@@ -7,6 +7,8 @@
 #ifndef OPENAIENDPOINT_H
 #define OPENAIENDPOINT_H
 
+#include "crow_core_export.h"
+
 #include <QString>
 
 class QByteArray;
@@ -25,20 +27,20 @@ namespace OpenAiEndpoint
 {
 
 // Endpoint to POST a chat completion / message to.
-QString completionsUrl(const QString &baseUrl, bool isAnthropic);
+CROW_CORE_EXPORT QString completionsUrl(const QString &baseUrl, bool isAnthropic);
 
 // Endpoint to GET the model list from.
-QString modelsUrl(const QString &baseUrl);
+CROW_CORE_EXPORT QString modelsUrl(const QString &baseUrl);
 
 // The server root a pasted URL refers to, with any trailing slashes and any
 // recognized endpoint path stripped. Callers that need a non-OpenAI path on
 // the same host - Ollama's "/api/tags", LM Studio's "/api/v0/models" - build
 // it from here so they honor the same paste-anything normalization.
-QString serverRoot(const QString &baseUrl);
+CROW_CORE_EXPORT QString serverRoot(const QString &baseUrl);
 
 // Bearer for OpenAI-compatible, x-api-key + anthropic-version for Anthropic.
 // A blank key leaves the request untouched (local servers need no auth).
-void setAuthHeaders(QNetworkRequest &request, bool isAnthropic, const QString &apiKey);
+CROW_CORE_EXPORT void setAuthHeaders(QNetworkRequest &request, bool isAnthropic, const QString &apiKey);
 
 // Everything a caller needs to explain a completions/messages response,
 // including the ones that carry no text. An empty `content` on its own is not
@@ -77,7 +79,7 @@ struct Completion {
 };
 
 // Parse a completions/messages response body.
-Completion parseCompletion(const QByteArray &data, bool isAnthropic);
+CROW_CORE_EXPORT Completion parseCompletion(const QByteArray &data, bool isAnthropic);
 
 } // namespace OpenAiEndpoint
 

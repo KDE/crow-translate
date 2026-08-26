@@ -6,6 +6,8 @@
 #ifndef LANGUAGE_H
 #define LANGUAGE_H
 
+#include "crow_core_export.h"
+
 #include <QHash>
 #include <QList>
 #include <QLocale>
@@ -24,7 +26,7 @@
  * Providers like MozhiTranslationProvider can register languages from OnlineTranslator
  * that aren't representable in QLocale, making the system extensible without hardcoding assumptions.
  */
-class Language
+class CROW_CORE_EXPORT Language
 {
 public:
     /**

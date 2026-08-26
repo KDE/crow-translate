@@ -6,6 +6,7 @@
 #include "translationsession.h"
 
 #include "modulestatus.h"
+#include "providerfactories.h"
 #include "provideroptionsmanager.h"
 #include "core/usernotifier.h"
 #include "ocr/aocrprovider.h"
@@ -105,7 +106,7 @@ void TranslationSession::setTranslationBackend(ATranslationProvider::ProviderBac
     const bool unanswered = m_languageQuestion.has_value();
 
     m_translationBackend = backend;
-    m_translator = ATranslationProvider::createTranslationProvider(this, backend);
+    m_translator = ProviderFactories::createTranslationProvider(this, backend);
     m_status->bindTranslator(m_translator);
     connectTranslator();
     applyTranslationOptions();
@@ -128,7 +129,7 @@ void TranslationSession::setTtsBackend(ATTSProvider::ProviderBackend backend)
     }
 
     m_ttsBackend = backend;
-    m_tts = ATTSProvider::createTTSProvider(this, backend);
+    m_tts = ProviderFactories::createTTSProvider(this, backend);
     m_status->bindTtsProvider(m_tts);
     connectTts();
     applyTtsOptions();

@@ -6,11 +6,13 @@
 #ifndef AOCRPROVIDER_H
 #define AOCRPROVIDER_H
 
+#include "crow_core_export.h"
+
 #include <QImage>
 #include <QObject>
 #include <QString>
 
-class AOcrProvider : public QObject
+class CROW_CORE_EXPORT AOcrProvider : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(AOcrProvider)

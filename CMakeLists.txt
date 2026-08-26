@@ -93,6 +93,7 @@ list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cma
 
 include(KDEClangFormat)
 include(CheckSymbolExists)
+include(GenerateExportHeader)
 file(GLOB_RECURSE CLANG_FORMAT_SOURCES src/*.cpp src/*.h tests/*.cpp tests/*.h)
 list(FILTER CLANG_FORMAT_SOURCES EXCLUDE REGEX ".*/src/3rdparty/.*" )
 list(FILTER CLANG_FORMAT_SOURCES EXCLUDE REGEX ".*${PROJECT_NAME}_autogen.*" )
@@ -158,6 +159,96 @@ endforeach()
 
 configure_file(src/cmake.h.in cmake.h)
 
+# The frontend-agnostic core, as a shared library.
+#
+# Everything below is code a translation, TTS or OCR backend needs in order to
+# be one: the three abstract bases, the value types they speak in, and the
+# handful of helpers they share. It was part of ${PROJECT_NAME}-lib, which is
+# a STATIC archive - and a static archive cannot be the common ground for
+# loadable plugins. Each plugin linking it would get its own copy of
+# UserNotifier's singleton and of Language's custom-language registry, and two
+# copies of a base class's type information make qobject_cast across the
+# module boundary fail.
+#
+# So it is shared, and the application links it exactly as a plugin does.
+# Nothing here may depend on ${PROJECT_NAME}-lib in return: a backend must not
+# need the window, the settings dialog or the frontends in order to build.
+#
+# Deliberately no Qt6::Widgets. tests/test_widget_free_core.cpp scans these
+# sources for widget includes; this target is the same rule enforced by the
+# linker.
+add_library(crow-core SHARED
+    src/language.h
+    src/language.cpp
+    src/provideroptions.h
+    src/provideroptions.cpp
+    src/core/translationresult.h
+    src/core/usernotifier.h
+    src/core/usernotifier.cpp
+    src/llm/openaiendpoint.h
+    src/llm/openaiendpoint.cpp
+    src/onlinetranslator.h
+    src/onlinetranslator.cpp
+    src/playlistplayer.h
+    src/playlistplayer.cpp
+    src/ocr/aocrprovider.h
+    src/translator/atranslationprovider.h
+    src/translator/atranslationprovider.cpp
+    src/tts/attsprovider.h
+    src/tts/attsprovider.cpp
+    src/tts/voice.h
+    src/tts/voice.cpp
+)
+add_library(Crow::Core ALIAS crow-core)
+
+generate_export_header(crow-core
+    BASE_NAME crow_core
+    EXPORT_FILE_NAME crow_core_export.h
+)
+
+target_include_directories(crow-core PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${CMAKE_BINARY_DIR}
+)
+
+target_link_libraries(crow-core PUBLIC
+    Qt6::Core
+    Qt6::Gui
+    Qt6::Network
+    Qt6::Multimedia
+    Qt6::StateMachine
+    Qt6::TextToSpeech
+)
+
+if(MSVC)
+    # C4251: an exported class with a member whose type is a template over one
+    # of our own structs - TranslationResult's QVector<TranslationOptions>, and
+    # OnlineTranslator's copies of the same. The warning is about a consumer
+    # built with a different STL, which cannot happen here: the plugins and the
+    # application are built together, by the same compiler, in one tree.
+    target_compile_options(crow-core PUBLIC /wd4251)
+endif()
+
+set_target_properties(crow-core PROPERTIES
+    VERSION ${PROJECT_VERSION}
+    SOVERSION ${PROJECT_VERSION_MAJOR}
+    # Nothing leaves this library unless it says CROW_CORE_EXPORT. Without
+    # this, ELF exports everything by default and a forgotten macro is
+    # invisible until someone builds on Windows, where it is a link error in
+    # a job that takes twenty minutes to fail.
+    CXX_VISIBILITY_PRESET hidden
+    VISIBILITY_INLINES_HIDDEN ON
+)
+
+if(UNIX AND NOT APPLE)
+    set_target_properties(crow-core PROPERTIES INSTALL_RPATH "$ORIGIN")
+    install(TARGETS crow-core ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+elseif(WIN32)
+    # Next to crow.exe: Windows resolves a DLL from the executable's directory
+    # and there is no rpath to point anywhere else.
+    install(TARGETS crow-core RUNTIME DESTINATION ${KDE_INSTALL_BINDIR})
+endif()
+
 # Create library with all application logic (for reuse by tests)
 add_library(${PROJECT_NAME}-lib STATIC
     data/icons/icon-theme.qrc
@@ -176,11 +267,8 @@ add_library(${PROJECT_NAME}-lib STATIC
     src/languagebuttonswidget.h
     src/languagebuttonswidget.cpp
     src/languagebuttonswidget.ui
-    src/core/translationresult.h
     src/core/translationsession.h
     src/core/translationsession.cpp
-    src/core/usernotifier.h
-    src/core/usernotifier.cpp
     src/gui/translationhtmlformatter.h
     src/gui/translationhtmlformatter.cpp
     src/frontend/icrowfrontend.h
@@ -195,7 +283,6 @@ add_library(${PROJECT_NAME}-lib STATIC
     src/mainwindow.ui
     src/modulestatus.h
     src/modulestatus.cpp
-    src/ocr/aocrprovider.h
     src/ocr/tesseractocr.h
     src/ocr/tesseractocr.cpp
     src/ocr/llmocr.h
@@ -206,8 +293,6 @@ add_library(${PROJECT_NAME}-lib STATIC
     src/ocr/screengrabbers/genericscreengrabber.cpp
     src/ocr/snippingarea.h
     src/ocr/snippingarea.cpp
-    src/onlinetranslator.h
-    src/onlinetranslator.cpp
     src/popupwindow.h
     src/popupwindow.cpp
     src/popupwindow.ui
@@ -241,14 +326,6 @@ add_library(${PROJECT_NAME}-lib STATIC
     src/translationedit.cpp
     src/trayicon.h
     src/trayicon.cpp
-    src/playlistplayer.h
-    src/playlistplayer.cpp
-    src/tts/attsprovider.h
-    src/tts/attsprovider.cpp
-    src/tts/voice.h
-    src/tts/voice.cpp
-    src/translator/atranslationprovider.h
-    src/translator/atranslationprovider.cpp
     src/tts/noopttsprovider.h
     src/tts/noopttsprovider.cpp
     src/translator/copytranslationprovider.h
@@ -261,16 +338,12 @@ add_library(${PROJECT_NAME}-lib STATIC
     src/translator/translationlogic.cpp
     src/translator/languageresolution.h
     src/translator/languageresolution.cpp
-    src/llm/openaiendpoint.h
-    src/llm/openaiendpoint.cpp
     src/llm/visionmodelprobe.h
     src/llm/visionmodelprobe.cpp
-    src/provideroptions.h
-    src/provideroptions.cpp
+    src/providerfactories.h
+    src/providerfactories.cpp
     src/provideroptionsmanager.h
     src/provideroptionsmanager.cpp
-    src/language.h
-    src/language.cpp
 )
 
 # Platform-specific sources for the library
@@ -327,6 +400,14 @@ add_executable(${PROJECT_NAME}
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${EXECUTABLE_NAME})
+
+if(UNIX AND NOT APPLE)
+    # libcrow-core.so sits beside crow in the build tree and one directory up
+    # from bin/ once installed.
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        INSTALL_RPATH "$ORIGIN;$ORIGIN/../${KDE_INSTALL_LIBDIR}"
+    )
+endif()
 
 # Link executable against library
 target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}-lib)
@@ -527,6 +608,7 @@ else()
 endif()
 
 target_link_libraries(${PROJECT_NAME}-lib PUBLIC
+    Crow::Core
     Qt6::Network
     Qt6::Multimedia
     SingleApplication::SingleApplication
@@ -556,7 +638,7 @@ if(WITH_PIPER_TTS AND ESPEAKNG_USE_SYSTEM)
         # Set RPATH for dynamic ONNX Runtime
         if(NOT WIN32)
             set_target_properties(${PROJECT_NAME} PROPERTIES
-                INSTALL_RPATH "$ORIGIN;$ORIGIN/../lib"
+                INSTALL_RPATH "$ORIGIN;$ORIGIN/../${KDE_INSTALL_LIBDIR};$ORIGIN/../lib"
                 BUILD_WITH_INSTALL_RPATH TRUE
             )
         endif()
@@ -578,7 +660,7 @@ elseif(WITH_PIPER_TTS)
         # Set RPATH for dynamic ONNX Runtime
         if(NOT WIN32)
             set_target_properties(${PROJECT_NAME} PROPERTIES
-                INSTALL_RPATH "$ORIGIN;$ORIGIN/../lib"
+                INSTALL_RPATH "$ORIGIN;$ORIGIN/../${KDE_INSTALL_LIBDIR};$ORIGIN/../lib"
                 BUILD_WITH_INSTALL_RPATH TRUE
             )
         endif()

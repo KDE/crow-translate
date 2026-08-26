@@ -6,6 +6,7 @@
 #ifndef ATRANSLATIONPROVIDER_H
 #define ATRANSLATIONPROVIDER_H
 
+#include "crow_core_export.h"
 #include "language.h"
 #include "provideroptions.h"
 #include "core/translationresult.h"
@@ -18,7 +19,7 @@
 
 class ProviderOptions;
 
-class ATranslationProvider : public QObject
+class CROW_CORE_EXPORT ATranslationProvider : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(ATranslationProvider)
@@ -44,8 +45,6 @@ public:
         Finished
     };
 
-    static ATranslationProvider *createTranslationProvider(QObject *parent = nullptr, ProviderBackend chosenBackend = ProviderBackend::Copy);
-    static void resetProblematicProvider(ProviderBackend backend);
     virtual QString getProviderType() const = 0;
     virtual State getState();
     virtual void abort();

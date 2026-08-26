@@ -6,6 +6,8 @@
 #ifndef USERNOTIFIER_H
 #define USERNOTIFIER_H
 
+#include "crow_core_export.h"
+
 #include <QObject>
 #include <QString>
 
@@ -28,7 +30,7 @@
 // Delivery is queued, so notify() never re-enters its caller and a frontend
 // that connects later in the same call stack - MainWindow does, while
 // constructing the providers that may notify - still receives it.
-class UserNotifier : public QObject
+class CROW_CORE_EXPORT UserNotifier : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(UserNotifier)

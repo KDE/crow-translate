@@ -7,11 +7,13 @@
 #ifndef MEDIAPLAYER2____H
 #define MEDIAPLAYER2____H
 
+#include "crow_core_export.h"
+
 #include <QDebug>
 #include <QMediaPlayer>
 #include <QObject>
 
-class PlaylistPlayer : public QMediaPlayer
+class CROW_CORE_EXPORT PlaylistPlayer : public QMediaPlayer
 {
     Q_OBJECT
 public:

@@ -6,6 +6,7 @@
 #ifndef VOICE_H
 #define VOICE_H
 
+#include "crow_core_export.h"
 #include "language.h"
 
 #include <QLocale>
@@ -14,7 +15,7 @@
 #include <QVariantMap>
 #include <QVoice>
 
-class Voice
+class CROW_CORE_EXPORT Voice
 {
 public:
     Voice();
