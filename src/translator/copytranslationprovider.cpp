@@ -85,10 +85,3 @@ ProviderCapabilities CopyTranslationProvider::capabilities() const
 {
     return ProviderCapability::None;
 }
-
-void CopyTranslationProvider::saveOptionToSettings(const QString &optionKey, const QVariant &value)
-{
-    Q_UNUSED(optionKey);
-    Q_UNUSED(value);
-    // Copy provider has no settings to save
-}

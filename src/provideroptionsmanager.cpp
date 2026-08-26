@@ -1,208 +1,155 @@
 /*
  * SPDX-FileCopyrightText: 2025 Mauritius Clemens <gitlab@janitor.chat>
+ * SPDX-FileCopyrightText: 2026 Mauritius Clemens <gitlab@janitor.chat>
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "provideroptionsmanager.h"
 
-#include "onlinetranslator.h"
+#include "core/pluginmanager.h"
+#include "core/settingsstore.h"
 #include "settings/appsettings.h"
 #include "settings/settingsdialog.h"
-#include "translator/atranslationprovider.h"
 #include "tts/attsprovider.h"
+
+#include <QSettings>
+
+#include <memory>
+
+namespace
+{
+
+// Storage for a backend that names no key of its own. Never used by the ones
+// shipped here - every one of those names the key it already wrote - so this
+// is what a third-party backend gets without having to invent anything.
+QString fallbackKey(const QString &pluginId, const QString &optionKey)
+{
+    return QStringLiteral("Plugins/") + pluginId + QLatin1Char('/') + optionKey;
+}
+
+// A whole settings group as a map. Tesseract's parameters are one: an
+// arbitrary set of engine variables the user edits in a table, which is a
+// group rather than a value and so cannot be a key.
+QVariantMap readGroup(QSettings &settings, const QString &group)
+{
+    QVariantMap values;
+    settings.beginGroup(group);
+    const QStringList keys = settings.childKeys();
+    for (const QString &key : keys)
+        values.insert(key, settings.value(key));
+    settings.endGroup();
+    return values;
+}
+
+} // namespace
 
 ProviderOptionsManager::ProviderOptionsManager(QObject *parent)
     : QObject(parent)
 {
 }
 
-// Translation Provider Methods
-std::unique_ptr<ProviderOptions> ProviderOptionsManager::createTranslationOptionsFromSettings(ATranslationProvider *provider)
+ProviderOptions ProviderOptionsManager::optionsFor(PluginFamily family, const QString &id) const
 {
-    if (provider == nullptr) {
-        return nullptr;
+    ProviderOptions options;
+
+    const std::optional<PluginInfo> described = PluginManager::instance()->describe(family, id);
+    if (!described.has_value())
+        return options;
+
+    const std::unique_ptr<QSettings> settings(CrowSettings::open());
+    for (const ProviderOptionSpec &spec : described->options) {
+        const QString key = spec.settingsKey.isEmpty() ? fallbackKey(id, spec.key) : spec.settingsKey;
+
+        if (spec.type == QMetaType::QVariantMap) {
+            options.setOption(spec.key, readGroup(*settings, key));
+            continue;
+        }
+
+        options.setOption(spec.key, settings->value(key, spec.defaultValue));
     }
 
-    const QString providerType = provider->getProviderType();
-    if (providerType == "MozhiTranslationProvider") {
-        return createMozhiTranslationOptionsFromSettings();
-    } else if (providerType == "CopyTranslationProvider") {
-        return createCopyTranslationOptionsFromSettings();
-    } else if (providerType == "LocalAiTranslationProvider") {
-        return createLocalAiTranslationOptionsFromSettings();
-    }
-
-    return nullptr;
-}
-
-void ProviderOptionsManager::applySettingsToTranslationProvider(ATranslationProvider *provider)
-{
-    if (provider == nullptr) {
-        return;
-    }
-
-    auto options = createTranslationOptionsFromSettings(provider);
-    if (options) {
-        provider->applyOptions(*options);
-    }
-}
-
-// TTS Provider Methods
-std::unique_ptr<ProviderOptions> ProviderOptionsManager::createTTSOptionsFromSettings(ATTSProvider *provider)
-{
-    if (provider == nullptr) {
-        return nullptr;
-    }
-
-    const QString providerType = provider->getProviderType();
-    if (providerType == "MozhiTTSProvider") {
-        return createMozhiTTSOptionsFromSettings();
-    } else if (providerType == "QtTTSProvider") {
-        // TODO: Implement QtTTSProvider options - for now use Mozhi options
-        return createMozhiTTSOptionsFromSettings();
-    } else if (providerType == "PiperTTSProvider") {
-        return createPiperTTSOptionsFromSettings();
-    }
-
-    return nullptr;
-}
-
-void ProviderOptionsManager::applySettingsToTTSProvider(ATTSProvider *provider)
-{
-    if (provider == nullptr) {
-        return;
-    }
-
-    auto options = createTTSOptionsFromSettings(provider);
-    if (options) {
-        provider->applyOptions(*options);
-    }
-}
-
-// Translation Provider Helper Methods
-std::unique_ptr<ProviderOptions> ProviderOptionsManager::createMozhiTranslationOptionsFromSettings()
-{
-    const AppSettings settings;
-    auto options = std::make_unique<ProviderOptions>();
-
-    // None is stored until Mozhi is first used (GuiFrontend::run()); until
-    // then the provider's own default instance stands.
-    if (!settings.instance().isEmpty())
-        options->setOption("instance", settings.instance());
-    options->setOption("engine", static_cast<int>(settings.currentEngine()));
-    options->setOption("apikey", settings.libreTranslateApiKey());
-    options->setOption("direct", settings.libreTranslateDirect());
+    // See the header: two backends are configured per endpoint, and the rules
+    // for reading that tree belong to the application rather than to them.
+    if (family == PluginFamily::Translation && id == QLatin1String("localai"))
+        augmentLocalAiTranslation(options);
+    else if (family == PluginFamily::Ocr && id == QLatin1String("llm"))
+        augmentLlmOcr(options);
 
     return options;
 }
 
-std::unique_ptr<ProviderOptions> ProviderOptionsManager::createCopyTranslationOptionsFromSettings()
-{
-    return std::make_unique<ProviderOptions>();
-}
-
-std::unique_ptr<ProviderOptions> ProviderOptionsManager::createLocalAiTranslationOptionsFromSettings()
+void ProviderOptionsManager::augmentLocalAiTranslation(ProviderOptions &options) const
 {
     const AppSettings settings;
-    auto options = std::make_unique<ProviderOptions>();
 
     const QString active = settings.activeLocalProvider();
     const QString model = settings.localProviderModel(active);
-    options->setOption("url", settings.localProviderUrl(active));
-    options->setOption("model", model);
-    options->setOption("prompt", settings.localAiPrompt(model));
-    options->setOption("disable_thinking", settings.localAiDisableThinking(active));
-    options->setOption("timeout", settings.localAiTimeout(active));
-    options->setOption("api_key", settings.localProviderApiKey(active));
-    options->setOption("is_anthropic", AppSettings::localProviderIsAnthropic(active));
-    // Which language to assume when nothing was detected. The backend used to
-    // read this out of AppSettings itself, which a loadable module cannot do -
-    // and should not want to: it is a fact about the application's
-    // preferences, not about the endpoint.
-    options->setOption("fallback_language", settings.primaryLanguage().toCode());
+    options.setOption(QStringLiteral("url"), settings.localProviderUrl(active));
+    options.setOption(QStringLiteral("model"), model);
+    // Not the raw stored value: localAiPrompt() also rejects the default this
+    // one replaced, which was persisted on every keystroke by a dialog that
+    // no longer does that.
+    options.setOption(QStringLiteral("prompt"), settings.localAiPrompt(model));
+    options.setOption(QStringLiteral("disable_thinking"), settings.localAiDisableThinking(active));
+    options.setOption(QStringLiteral("timeout"), settings.localAiTimeout(active));
+    options.setOption(QStringLiteral("api_key"), settings.localProviderApiKey(active));
+    options.setOption(QStringLiteral("is_anthropic"), AppSettings::localProviderIsAnthropic(active));
+    // Which language to assume when nothing was detected. A fact about the
+    // application's preferences, not about the endpoint.
+    options.setOption(QStringLiteral("fallback_language"), settings.primaryLanguage().toCode());
 
     const QString detectProvider = settings.detectProvider();
-    options->setOption("detect_url", settings.localProviderUrl(detectProvider));
-    options->setOption("detect_model", settings.detectModel());
-    options->setOption("detect_api_key", settings.localProviderApiKey(detectProvider));
-    options->setOption("detect_is_anthropic", AppSettings::localProviderIsAnthropic(detectProvider));
-
-    return options;
+    options.setOption(QStringLiteral("detect_url"), settings.localProviderUrl(detectProvider));
+    options.setOption(QStringLiteral("detect_model"), settings.detectModel());
+    options.setOption(QStringLiteral("detect_api_key"), settings.localProviderApiKey(detectProvider));
+    options.setOption(QStringLiteral("detect_is_anthropic"), AppSettings::localProviderIsAnthropic(detectProvider));
 }
 
-// TTS Provider Helper Methods
-std::unique_ptr<ProviderOptions> ProviderOptionsManager::createMozhiTTSOptionsFromSettings()
+void ProviderOptionsManager::augmentLlmOcr(ProviderOptions &options) const
 {
     const AppSettings settings;
-    auto options = std::make_unique<ProviderOptions>();
 
-    if (!settings.instance().isEmpty())
-        options->setOption("instance", settings.instance());
-    options->setOption("engine", static_cast<int>(settings.currentEngine()));
-
-    return options;
+    // Its own group, deliberately: the endpoint that transcribes your
+    // screenshots is not the one that translates your text, and changing one
+    // must never move the other.
+    const QString endpoint = settings.ocrLlmProvider();
+    const QString model = settings.ocrLlmModel(endpoint);
+    options.setOption(QStringLiteral("url"), settings.ocrLlmUrl(endpoint));
+    options.setOption(QStringLiteral("is_anthropic"), AppSettings::localProviderIsAnthropic(endpoint));
+    options.setOption(QStringLiteral("api_key"), settings.ocrLlmApiKey(endpoint));
+    options.setOption(QStringLiteral("model"), model);
+    options.setOption(QStringLiteral("timeout"), settings.ocrLlmTimeout(endpoint));
+    options.setOption(QStringLiteral("prompt"), settings.ocrLlmPrompt(model));
+    options.setOption(QStringLiteral("disable_thinking"), settings.localAiDisableThinking(endpoint));
 }
 
-std::unique_ptr<ProviderOptions> ProviderOptionsManager::createQtTTSOptionsFromSettings()
+void ProviderOptionsManager::applyLiveOption(ATTSProvider *provider, const QString &key, const QVariant &value)
 {
-    return std::make_unique<ProviderOptions>();
-}
-
-std::unique_ptr<ProviderOptions> ProviderOptionsManager::createPiperTTSOptionsFromSettings()
-{
-    auto options = std::make_unique<ProviderOptions>();
-
-    // Set default speaker - this will be dynamically populated based on the current voice
-    options->setOption("speaker", "default");
-
-    // Where to look for voice models. The backend seeds this from the same
-    // settings key when it starts, because discovery runs before any options
-    // arrive; passing it here is what makes a change in the dialog take
-    // effect without a restart.
-    options->setOption("voices_path", AppSettings().piperVoicesPath());
-
-    // Flag to trigger model reinitialization when voices path changes
-    options->setOption("reinitializeModels", true);
-
-    return options;
-}
-
-void ProviderOptionsManager::handleTTSProviderSettingsChange(ATTSProvider *provider, const QString &settingKey)
-{
-    if (!provider) {
+    if (provider == nullptr || !provider->getAvailableOptions().contains(key)) {
         return;
     }
-
-    const QString providerType = provider->getProviderType();
-
-    // Handle settings that require reapplying options
-    if (providerType == "MozhiTTSProvider" && settingKey == "Mozhi/Instance") {
-        qDebug() << "ProviderOptionsManager: Reapplying settings for" << providerType << "after" << settingKey << "change";
-        applySettingsToTTSProvider(provider);
-
-        // Emit signal to update UI elements that depend on provider state
-        emit ttsProviderUIUpdateRequired();
-    }
+    ProviderOptions options;
+    options.setOption(key, value);
+    provider->applyOptions(options);
 }
 
 void ProviderOptionsManager::connectToSettingsDialog(SettingsDialog *settingsDialog, ATTSProvider *ttsProvider)
 {
-    if (!settingsDialog || !ttsProvider) {
+    if (settingsDialog == nullptr || ttsProvider == nullptr) {
         return;
     }
 
-    // Connect to provider-specific setting changes
-    connect(settingsDialog, &SettingsDialog::piperVoicesPathChanged, this, [this, ttsProvider](const QString &) {
-        handleTTSProviderSettingsChange(ttsProvider, "TTS/PiperVoicesPath");
+    // Both of these used to check which backend they were holding - one
+    // branch for "MozhiTTSProvider" and a settings key spelled out by name,
+    // another for Piper's voices path. The option either exists on the
+    // current backend or it does not, and that is the whole question.
+    connect(settingsDialog, &SettingsDialog::piperVoicesPathChanged, this, [this, ttsProvider](const QString &path) {
+        applyLiveOption(ttsProvider, QStringLiteral("voices_path"), path.toLocal8Bit());
+        applyLiveOption(ttsProvider, QStringLiteral("reinitializeModels"), true);
+        Q_EMIT ttsProviderUIUpdateRequired();
     });
-
     connect(settingsDialog, &SettingsDialog::mozhiInstanceChanged, this, [this, ttsProvider](const QString &newInstance) {
-        qDebug() << "ProviderOptionsManager: Applying new Mozhi instance immediately:" << newInstance;
-        // Apply the new instance directly instead of reading from old settings
-        if (ttsProvider && ttsProvider->getProviderType() == "MozhiTTSProvider") {
-            auto options = std::make_unique<ProviderOptions>();
-            options->setOption("instance", newInstance);
-            ttsProvider->applyOptions(*options);
-        }
+        applyLiveOption(ttsProvider, QStringLiteral("instance"), newInstance);
+        Q_EMIT ttsProviderUIUpdateRequired();
     });
 }

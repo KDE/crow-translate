@@ -523,12 +523,10 @@ private slots:
     {
         AppSettings().setPrimaryLanguage(Language(QStringLiteral("fr")));
 
-        LocalAiTranslationProvider provider;
         ProviderOptionsManager manager;
-        const std::unique_ptr<ProviderOptions> options = manager.createTranslationOptionsFromSettings(&provider);
+        const ProviderOptions options = manager.optionsFor(PluginFamily::Translation, QStringLiteral("localai"));
 
-        QVERIFY(options != nullptr);
-        QCOMPARE(options->getOption(QStringLiteral("fallback_language")).toString(), QStringLiteral("fr"));
+        QCOMPARE(options.getOption(QStringLiteral("fallback_language")).toString(), QStringLiteral("fr"));
     }
 
     // URL normalization: users paste either a base URL (SDK style) or a full

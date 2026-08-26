@@ -365,27 +365,6 @@ ProviderCapabilities MozhiTranslationProvider::capabilities() const
     return ProviderCapability::LanguageDetection | ProviderCapability::EngineSelection;
 }
 
-void MozhiTranslationProvider::saveOptionToSettings(const QString &optionKey, const QVariant &value)
-{
-    // Written straight to the settings file rather than through AppSettings,
-    // which lives above this backend and cannot be linked from a loadable
-    // module. The keys are unchanged - this backend owns them, and a settings
-    // file written by 4.1.0 keeps meaning what it meant.
-    const std::unique_ptr<QSettings> settings(CrowSettings::open());
-    if (optionKey == "engine") {
-        // Stored as the enum, not as an int: AppSettings::currentEngine()
-        // reads it back with value<OnlineTranslator::Engine>() and an int
-        // would not survive the round trip through an INI file.
-        settings->setValue(QStringLiteral("MainWindow/CurrentEngine"), QVariant::fromValue(static_cast<OnlineTranslator::Engine>(value.toInt())));
-    } else if (optionKey == "instance") {
-        settings->setValue(QStringLiteral("Translation/Instance"), value.toString());
-    } else if (optionKey == "apikey") {
-        settings->setValue(QStringLiteral("Translation/LibreTranslateApiKey"), value.toString());
-    } else if (optionKey == "direct") {
-        settings->setValue(QStringLiteral("Translation/LibreTranslateDirect"), value.toBool());
-    }
-}
-
 TranslationResult MozhiTranslationProvider::collectTranslationData(OnlineTranslator *translator)
 {
     TranslationResult collected;

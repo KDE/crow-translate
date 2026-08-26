@@ -69,9 +69,6 @@ public:
     // What this backend can do; see ProviderCapability.
     virtual ProviderCapabilities capabilities() const = 0;
 
-    // Settings integration (type-safe)
-    virtual void saveOptionToSettings(const QString &optionKey, const QVariant &value) = 0;
-
     TranslationError error = TranslationError::NoError;
     Language sourceLanguage = Language::autoLanguage();
     Language translationLanguage = Language::autoLanguage();

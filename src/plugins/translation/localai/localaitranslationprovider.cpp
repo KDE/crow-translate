@@ -714,11 +714,3 @@ ProviderCapabilities LocalAiTranslationProvider::capabilities() const
 {
     return ProviderCapability::LanguageDetection | ProviderCapability::ProviderSelection;
 }
-
-void LocalAiTranslationProvider::saveOptionToSettings(const QString &optionKey, const QVariant &value)
-{
-    Q_UNUSED(optionKey);
-    Q_UNUSED(value);
-    // Settings for LocalAI are managed via the settings dialog and the
-    // provider selector; nothing to persist here directly.
-}

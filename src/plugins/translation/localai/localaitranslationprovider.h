@@ -54,8 +54,6 @@ public:
 
     ProviderCapabilities capabilities() const override;
 
-    void saveOptionToSettings(const QString &optionKey, const QVariant &value) override;
-
 public slots:
     void translate(const QString &inputText, const Language &translationLanguage, const Language &sourceLanguage) override;
 

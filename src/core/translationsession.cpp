@@ -195,20 +195,16 @@ void TranslationSession::loadBackendsFromSettings()
 
 void TranslationSession::applyTranslationOptions()
 {
-    if (m_translator == nullptr) {
-        return;
+    if (m_translator != nullptr) {
+        m_translator->applyOptions(m_options->optionsFor(PluginFamily::Translation, translationBackend()));
     }
-
-    m_options->applySettingsToTranslationProvider(m_translator);
 }
 
 void TranslationSession::applyTtsOptions()
 {
-    if (m_tts == nullptr) {
-        return;
+    if (m_tts != nullptr) {
+        m_tts->applyOptions(m_options->optionsFor(PluginFamily::Tts, ttsBackend()));
     }
-
-    m_options->applySettingsToTTSProvider(m_tts);
 }
 
 void TranslationSession::setSelectedLanguages(const Language &source, const Language &destination)
@@ -422,39 +418,15 @@ bool TranslationSession::loadImage(const QString &path, QImage &out)
 
 void TranslationSession::applyOcrOptions()
 {
+    // Whether a failure below is worth telling anyone about: a default
+    // configuration that does not work is a machine with no language data
+    // installed, and nobody chose that.
     const AppSettings settings;
+    m_ocrConfigurationIsDefault = settings.ocrLanguagesString() == AppSettings::defaultOcrLanguagesString()
+        && settings.ocrLanguagesPath() == AppSettings::defaultOcrLanguagesPath();
 
-    const QByteArray languages = settings.ocrLanguagesString();
-    const QByteArray languagesPath = settings.ocrLanguagesPath();
-    m_ocrConfigurationIsDefault = languages == AppSettings::defaultOcrLanguagesString()
-        && languagesPath == AppSettings::defaultOcrLanguagesPath();
-
-    if (AOcrProvider *tesseract = m_ocrEngines.value(QStringLiteral("tesseract"), nullptr)) {
-        ProviderOptions options;
-        options.setOption(QStringLiteral("languages"), languages);
-        options.setOption(QStringLiteral("languages_path"), languagesPath);
-        options.setOption(QStringLiteral("parameters"), settings.tesseractParameters());
-        options.setOption(QStringLiteral("convert_line_breaks"), settings.isConvertLineBreaks());
-        tesseract->applyOptions(options);
-    }
-
-    if (AOcrProvider *llm = m_ocrEngines.value(QStringLiteral("llm"), nullptr)) {
-        // Its whole configuration hangs off whichever endpoint is active, so
-        // there is no flat key to read and the host resolves it first. Same
-        // shape as the LocalAI translation backend, and for the same reason.
-        const QString endpointId = settings.ocrLlmProvider();
-        ProviderOptions options;
-        // The endpoint from the recognition page. It used to be the
-        // translation one: the address typed on the recognition page was
-        // saved and never read.
-        options.setOption(QStringLiteral("url"), settings.ocrLlmUrl(endpointId));
-        options.setOption(QStringLiteral("is_anthropic"), AppSettings::localProviderIsAnthropic(endpointId));
-        options.setOption(QStringLiteral("api_key"), settings.ocrLlmApiKey(endpointId));
-        options.setOption(QStringLiteral("model"), settings.ocrLlmModel(endpointId));
-        options.setOption(QStringLiteral("timeout"), settings.ocrLlmTimeout(endpointId));
-        options.setOption(QStringLiteral("prompt"), settings.ocrLlmPrompt(settings.ocrLlmModel(endpointId)));
-        options.setOption(QStringLiteral("disable_thinking"), settings.localAiDisableThinking(endpointId));
-        llm->applyOptions(options);
+    for (auto engine = m_ocrEngines.cbegin(); engine != m_ocrEngines.cend(); ++engine) {
+        engine.value()->applyOptions(m_options->optionsFor(PluginFamily::Ocr, engine.key()));
     }
 }
 

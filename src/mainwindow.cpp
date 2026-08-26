@@ -277,11 +277,11 @@ MainWindow::MainWindow(QWidget *parent)
             if (reqs.testFlag(ProviderCapability::SpeakerSelection)) {
                 const QString speaker = ui->sourceSpeakerComboBox->currentText();
                 if (!speaker.isEmpty()) {
-                    auto options = m_session->options()->createTTSOptionsFromSettings(m_session->tts());
-                    if (options) {
-                        options->setOption("speaker", speaker);
-                        m_session->tts()->applyOptions(*options);
-                    }
+                    // Just the speaker: the rest of the backend's options
+                    // are already applied, and rebuilding the whole set to
+                    // change one of them also re-triggered Piper's model
+                    // rescan on every selection.
+                    ProviderOptionsManager::applyLiveOption(m_session->tts(), QStringLiteral("speaker"), speaker);
                 }
             }
         }
@@ -293,11 +293,11 @@ MainWindow::MainWindow(QWidget *parent)
             if (reqs.testFlag(ProviderCapability::SpeakerSelection)) {
                 const QString speaker = ui->translationSpeakerComboBox->currentText();
                 if (!speaker.isEmpty()) {
-                    auto options = m_session->options()->createTTSOptionsFromSettings(m_session->tts());
-                    if (options) {
-                        options->setOption("speaker", speaker);
-                        m_session->tts()->applyOptions(*options);
-                    }
+                    // Just the speaker: the rest of the backend's options
+                    // are already applied, and rebuilding the whole set to
+                    // change one of them also re-triggered Piper's model
+                    // rescan on every selection.
+                    ProviderOptionsManager::applyLiveOption(m_session->tts(), QStringLiteral("speaker"), speaker);
                 }
             }
         }
@@ -1518,8 +1518,11 @@ void MainWindow::setupEngineComboBoxConnection()
         if (m_session->translator()) {
             const ProviderCapabilities reqs = m_session->translator()->capabilities();
             if (reqs.testFlag(ProviderCapability::EngineSelection)) {
-                // Save to settings using type-safe method
-                m_session->translator()->saveOptionToSettings("engine", index);
+                // Written here rather than handed to the backend to store:
+                // which engine the window's combo is showing is the
+                // application's setting, and the backend that reads it back
+                // does so through its own declared option.
+                AppSettings().setCurrentEngine(static_cast<OnlineTranslator::Engine>(index));
 
                 // Apply to provider using options system
                 auto options = std::make_unique<ProviderOptions>();
@@ -1634,11 +1637,7 @@ void MainWindow::applySelectedVoiceAndSpeaker(bool forSource)
     if (reqs.testFlag(ProviderCapability::SpeakerSelection) && speakerCombo->count() > 0) {
         const QString speaker = speakerCombo->currentText();
         if (!speaker.isEmpty()) {
-            auto options = m_session->options()->createTTSOptionsFromSettings(m_session->tts());
-            if (options) {
-                options->setOption("speaker", speaker);
-                m_session->tts()->applyOptions(*options);
-            }
+            ProviderOptionsManager::applyLiveOption(m_session->tts(), QStringLiteral("speaker"), speaker);
         }
     }
 }

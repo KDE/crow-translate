@@ -36,7 +36,6 @@ public:
     ProviderCapabilities capabilities() const override;
 
     // Settings integration
-    void saveOptionToSettings(const QString &optionKey, const QVariant &value) override;
 
 signals:
 

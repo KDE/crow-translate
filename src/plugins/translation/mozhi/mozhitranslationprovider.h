@@ -50,7 +50,6 @@ public:
     ProviderCapabilities capabilities() const override;
 
     // Settings integration
-    void saveOptionToSettings(const QString &optionKey, const QVariant &value) override;
 
     // Set the Mozhi instance URL
     void setInstance(const QString &instanceUrl);
