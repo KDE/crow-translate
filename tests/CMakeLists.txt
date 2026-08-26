@@ -481,11 +481,15 @@ if(CROW_STATIC_PLUGINS)
     endforeach()
 endif()
 
+# Empty in a static build, where there are no modules to wait for - and
+# add_dependencies() with nothing to depend on is an error, not a no-op.
 get_property(_crow_plugin_modules GLOBAL PROPERTY CROW_PLUGIN_MODULES)
-get_property(_crow_test_targets DIRECTORY PROPERTY BUILDSYSTEM_TARGETS)
-foreach(_crow_test_target IN LISTS _crow_test_targets)
-    add_dependencies(${_crow_test_target} ${_crow_plugin_modules})
-endforeach()
+if(_crow_plugin_modules)
+    get_property(_crow_test_targets DIRECTORY PROPERTY BUILDSYSTEM_TARGETS)
+    foreach(_crow_test_target IN LISTS _crow_test_targets)
+        add_dependencies(${_crow_test_target} ${_crow_plugin_modules})
+    endforeach()
+endif()
 
 # When using static ONNX Runtime, also configure test executables that link
 # the app library (they pull in Piper TTS transitively through it).

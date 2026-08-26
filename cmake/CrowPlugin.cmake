@@ -150,7 +150,14 @@ function(crow_write_static_plugin_imports OUTPUT_VARIABLE)
     foreach(class IN LISTS classes)
         string(APPEND contents "Q_IMPORT_PLUGIN(${class})\n")
     endforeach()
-    file(GENERATE OUTPUT ${generated} CONTENT "${contents}")
+
+    # Written at configure time, not generate time: a target_sources() naming
+    # a file that file(GENERATE) has not produced yet is a configure error on
+    # the CMake the CI runs, whatever a newer one makes of it. Through a
+    # temporary and configure_file() so the real file's timestamp only moves
+    # when its contents do, and adding a backend does not rebuild every test.
+    file(WRITE ${generated}.in "${contents}")
+    configure_file(${generated}.in ${generated} COPYONLY)
 
     set(${OUTPUT_VARIABLE} ${generated} PARENT_SCOPE)
 endfunction()
