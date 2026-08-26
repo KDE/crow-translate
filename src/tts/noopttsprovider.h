@@ -6,13 +6,14 @@
 #ifndef NOOPTTSPROVIDER_H
 #define NOOPTTSPROVIDER_H
 
+#include "crow_core_export.h"
 #include "language.h"
 #include "tts/attsprovider.h"
 
 #include <QObject>
 #include <QTextToSpeech>
 
-class NoopTTSProvider : public ATTSProvider
+class CROW_CORE_EXPORT NoopTTSProvider : public ATTSProvider
 {
     Q_OBJECT
     Q_DISABLE_COPY(NoopTTSProvider)

@@ -20,6 +20,12 @@ class MozhiTranslationProvider : public ATranslationProvider
 {
     Q_OBJECT
     Q_DISABLE_COPY(MozhiTranslationProvider)
+    // Readable through the property system rather than through a cast,
+    // because a cast does not work here any more: this class is compiled both
+    // into the module and into the tests that drive it directly, and a
+    // qobject_cast between those two copies fails. Anything a caller outside
+    // the plugin needs to see has to be reachable by name.
+    Q_PROPERTY(QString instance READ instance WRITE setInstance)
 
 public:
     explicit MozhiTranslationProvider(QObject *parent = nullptr);

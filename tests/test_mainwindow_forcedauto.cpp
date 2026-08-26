@@ -102,7 +102,7 @@ void pinMozhi(const MockHttpServer &server, OnlineTranslator::Engine engine)
 {
     pinLanguages();
     AppSettings settings;
-    settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Mozhi);
+    settings.setTranslationProviderId(QStringLiteral("mozhi"));
     settings.setInstance(server.baseUrl());
     settings.setCurrentEngine(engine);
 }
@@ -230,7 +230,7 @@ void MainWindowForcedAutoTest::cleanupTestCase()
     // Leave the shared isolated settings in the state the rest of the suite
     // expects, whatever the last test happened to pin.
     AppSettings settings;
-    settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Copy);
+    settings.setTranslationProviderId(QStringLiteral("copy"));
     settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
     settings.setCurrentEngine(OnlineTranslator::Google);
 }
@@ -307,7 +307,7 @@ void MainWindowForcedAutoTest::testAnEngineThatCannotDetectKeepsTheChosenSource(
 void MainWindowForcedAutoTest::testTheCopyBackendKeepsTheChosenSource()
 {
     pinLanguages();
-    AppSettings().setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Copy);
+    AppSettings().setTranslationProviderId(QStringLiteral("copy"));
 
     MainWindow window;
     offerSelection(QStringLiteral("a selection"));

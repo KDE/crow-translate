@@ -64,7 +64,7 @@ private slots:
 
         AppSettings settings;
         settings.setShowPrivacyPopup(false);
-        settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Copy);
+        settings.setTranslationProviderId(QStringLiteral("copy"));
 
         // Set up default languages for both source and translation - equal on
         // both sides, since CopyTranslationProvider only reaches Processed
@@ -121,7 +121,7 @@ private slots:
     void testMozhiTranslation()
     {
         AppSettings settings;
-        settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        settings.setTranslationProviderId(QStringLiteral("mozhi"));
         settings.setInstance(InstancePinger::instances().first());
 
         Language english(QLocale::English);
@@ -193,7 +193,7 @@ private slots:
         // testing TTS here either - None avoids Piper's background
         // model-loading thread entirely (unrelated shutdown-time race found
         // while writing this test, tracked separately).
-        settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Copy);
+        settings.setTranslationProviderId(QStringLiteral("copy"));
         settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
         // Also pin source==translation language (Copy only reaches Processed,
         // not the Finished/UnsupportedDstLanguage error path, when they
@@ -234,7 +234,7 @@ private slots:
     {
         AppSettings settings;
         settings.setWindowMode(AppSettings::PopupWindow);
-        settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Copy);
+        settings.setTranslationProviderId(QStringLiteral("copy"));
         settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
         Language systemLanguage(QLocale::system());
         settings.setLanguages(AppSettings::Source, {systemLanguage});
@@ -267,7 +267,7 @@ private slots:
     {
         AppSettings settings;
         settings.setWindowMode(AppSettings::Notification);
-        settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Copy);
+        settings.setTranslationProviderId(QStringLiteral("copy"));
         settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
         Language systemLanguage(QLocale::system());
         settings.setLanguages(AppSettings::Source, {systemLanguage});
@@ -504,7 +504,7 @@ private slots:
 
         // Test 2: Mozhi backend (has engine selector)
         // This switches from Copy (default) to Mozhi, so a signal will be emitted.
-        settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        settings.setTranslationProviderId(QStringLiteral("mozhi"));
         settings.setInstance(InstancePinger::instances().first());
         MainWindow window2;
         QSignalSpy translatorSpy2(&window2, &MainWindow::translatorStateChangedSignal);

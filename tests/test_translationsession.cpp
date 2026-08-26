@@ -20,7 +20,6 @@
 #include "settings/appsettings.h"
 #include "translator/atranslationprovider.h"
 #include "translator/languageresolution.h"
-#include "translator/mozhitranslationprovider.h"
 #ifdef WITH_TTS
 #include "tts/mozhittsprovider.h"
 #endif
@@ -171,21 +170,21 @@ private slots:
         TranslationSession session;
         QSignalSpy changed(&session, &TranslationSession::translatorChanged);
 
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Copy);
+        session.setTranslationBackend(QStringLiteral("copy"));
         QCOMPARE(changed.count(), 1);
         ATranslationProvider *first = session.translator();
         QVERIFY(first != nullptr);
-        QCOMPARE(session.translationBackend(), ATranslationProvider::ProviderBackend::Copy);
+        QCOMPARE(session.translationBackend(), QStringLiteral("copy"));
 
         // Asking for the backend that is already current does nothing at all.
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Copy);
+        session.setTranslationBackend(QStringLiteral("copy"));
         QCOMPARE(changed.count(), 1);
         QCOMPARE(session.translator(), first);
 
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        session.setTranslationBackend(QStringLiteral("mozhi"));
         QCOMPARE(changed.count(), 2);
         QVERIFY(session.translator() != first);
-        QCOMPARE(session.translationBackend(), ATranslationProvider::ProviderBackend::Mozhi);
+        QCOMPARE(session.translationBackend(), QStringLiteral("mozhi"));
     }
 
     // A provider is configured from settings as part of being built. Both
@@ -201,11 +200,14 @@ private slots:
         }
 
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        session.setTranslationBackend(QStringLiteral("mozhi"));
 
-        auto *mozhi = qobject_cast<MozhiTranslationProvider *>(session.translator());
-        QVERIFY(mozhi != nullptr);
-        QCOMPARE(mozhi->instance(), instance);
+        // Asked by name, not by cast. The backend is a module now, and the
+        // MozhiTranslationProvider inside it is not the same type as one
+        // linked into this test would be - which is exactly why a session
+        // test should not be linking a backend at all.
+        QCOMPARE(session.translator()->getProviderType(), QStringLiteral("MozhiTranslationProvider"));
+        QCOMPARE(session.translator()->property("instance").toString(), instance);
     }
 
 #ifdef WITH_TTS
@@ -252,10 +254,10 @@ private slots:
     void testStateSubscriptionSurvivesASwap()
     {
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        session.setTranslationBackend(QStringLiteral("mozhi"));
 
         QSignalSpy states(&session, &TranslationSession::translationStateChanged);
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Copy);
+        session.setTranslationBackend(QStringLiteral("copy"));
         states.clear();
 
         session.requestTranslation(QStringLiteral("hello"), english(), english());
@@ -272,8 +274,8 @@ private slots:
     void testSwapRebindsTheStatusModel()
     {
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Copy);
+        session.setTranslationBackend(QStringLiteral("mozhi"));
+        session.setTranslationBackend(QStringLiteral("copy"));
 
         QSignalSpy statusChanged(session.moduleStatus(), &ModuleStatus::changed);
         session.requestTranslation(QStringLiteral("hello"), english(), english());
@@ -292,7 +294,7 @@ private slots:
     {
         setPreference(english(), german());
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Copy);
+        session.setTranslationBackend(QStringLiteral("copy"));
 
         QSignalSpy started(&session, &TranslationSession::translationStarted);
         session.requestTranslation(QStringLiteral("hello"), Language::autoLanguage(), english());
@@ -308,7 +310,7 @@ private slots:
     {
         setPreference(english(), german());
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Copy);
+        session.setTranslationBackend(QStringLiteral("copy"));
         session.setSelectedLanguages(polish(), Language::autoLanguage());
 
         QSignalSpy started(&session, &TranslationSession::translationStarted);
@@ -336,7 +338,7 @@ private slots:
             settings.setForceTranslationAutodetect(AppSettings::defaultForceTranslationAutodetect());
         }
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        session.setTranslationBackend(QStringLiteral("mozhi"));
 
         using TranslationLogic::ForcedAuto;
         using TranslationLogic::ForcedFlow;
@@ -361,12 +363,12 @@ private slots:
         using TranslationLogic::ForcedFlow;
 
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        session.setTranslationBackend(QStringLiteral("mozhi"));
         QVERIFY(!session.translator()->supportsAutodetection());
         QCOMPARE(session.forcedAutoFor(ForcedFlow::TranslateSelection), (ForcedAuto{false, true}));
         QCOMPARE(session.forcedAutoFor(ForcedFlow::Recognition), (ForcedAuto{false, true}));
 
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Copy);
+        session.setTranslationBackend(QStringLiteral("copy"));
         QCOMPARE(session.forcedAutoFor(ForcedFlow::TranslateSelection), (ForcedAuto{false, true}));
 
         AppSettings().setCurrentEngine(OnlineTranslator::Google);
@@ -382,7 +384,7 @@ private slots:
         using TranslationLogic::ForcedAuto;
         using TranslationLogic::ForcedFlow;
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        session.setTranslationBackend(QStringLiteral("mozhi"));
 
         AppSettings settings;
         settings.setForceSourceAutodetect(false);
@@ -432,7 +434,7 @@ private slots:
             settings.setCurrentEngine(OnlineTranslator::Google);
         }
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        session.setTranslationBackend(QStringLiteral("mozhi"));
         session.setSelectedLanguages(Language::autoLanguage(), Language::autoLanguage());
 
         // An English text has been translated: that is what the source "is".
@@ -478,7 +480,7 @@ private slots:
             settings.setCurrentEngine(OnlineTranslator::Google);
         }
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        session.setTranslationBackend(QStringLiteral("mozhi"));
         session.setSelectedLanguages(polish(), english());
 
         QSignalSpy found(&session, &TranslationSession::sourceLanguageFound);
@@ -500,7 +502,7 @@ private slots:
             settings.setCurrentEngine(OnlineTranslator::Deepl);
         }
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        session.setTranslationBackend(QStringLiteral("mozhi"));
         session.setSelectedLanguages(Language::autoLanguage(), Language::autoLanguage());
 
         QSignalSpy found(&session, &TranslationSession::sourceLanguageFound);
@@ -530,7 +532,7 @@ private slots:
             settings.setDetectModel(QStringLiteral("mock-model"));
         }
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::LocalAI);
+        session.setTranslationBackend(QStringLiteral("localai"));
         session.setSelectedLanguages(Language::autoLanguage(), Language::autoLanguage());
 
         MockHttpServer::Response silence;
@@ -561,7 +563,7 @@ private slots:
             settings.setDetectModel(QStringLiteral("mock-model"));
         }
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::LocalAI);
+        session.setTranslationBackend(QStringLiteral("localai"));
         session.setSelectedLanguages(Language::autoLanguage(), Language::autoLanguage());
 
         server.queueJson(200, chatAnswer(QStringLiteral("de")));
@@ -584,7 +586,7 @@ private slots:
             settings.setInstance(server.baseUrl());
         }
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        session.setTranslationBackend(QStringLiteral("mozhi"));
         const Guess g = wrongGuess(session);
         QVERIFY(g.preferred != g.guess);
         server.queueJson(200, mozhiAnswer(QStringLiteral("into the guess"), g.detected));
@@ -614,7 +616,7 @@ private slots:
             settings.setInstance(server.baseUrl());
         }
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        session.setTranslationBackend(QStringLiteral("mozhi"));
         const Guess g = wrongGuess(session);
         // The language whose destination is the guess: the other one of the two.
         const Language confirming = g.detected == english() ? german() : english();
@@ -640,7 +642,7 @@ private slots:
             settings.setInstance(server.baseUrl());
         }
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        session.setTranslationBackend(QStringLiteral("mozhi"));
         server.queueJson(200, mozhiAnswer(QStringLiteral("auf Deutsch"), polish()));
 
         session.requestTranslation(QStringLiteral("some text"), german(), Language::autoLanguage());
@@ -668,7 +670,7 @@ private slots:
             settings.setDetectModel(QStringLiteral("mock-model"));
         }
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::LocalAI);
+        session.setTranslationBackend(QStringLiteral("localai"));
         const Guess g = wrongGuess(session);
         QVERIFY(g.preferred != g.guess);
         server.queueJson(200, chatAnswer(g.detected.name() + QStringLiteral(": ") + g.detected.toCode().toUpper()));
@@ -700,7 +702,7 @@ private slots:
             settings.setInstance(server.baseUrl());
         }
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        session.setTranslationBackend(QStringLiteral("mozhi"));
         const Guess g = wrongGuess(session);
         MockHttpServer::Response held;
         held.hang = true;
@@ -728,7 +730,7 @@ private slots:
     {
         setPreference(english(), german());
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Copy);
+        session.setTranslationBackend(QStringLiteral("copy"));
         session.setSelectedLanguages(english(), english());
         SessionStubOcr ocr;
 
@@ -751,7 +753,7 @@ private slots:
     void testDisarmedRecognitionDoesNotTranslate()
     {
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Copy);
+        session.setTranslationBackend(QStringLiteral("copy"));
         session.setSelectedLanguages(english(), english());
         SessionStubOcr ocr;
 
@@ -773,7 +775,7 @@ private slots:
     void testReArmingLeavesNothingBehindForDisarmToMiss()
     {
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Copy);
+        session.setTranslationBackend(QStringLiteral("copy"));
         session.setSelectedLanguages(english(), english());
         SessionStubOcr ocr;
 
@@ -794,7 +796,7 @@ private slots:
     {
         setPreference(english(), german());
         TranslationSession session;
-        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Copy);
+        session.setTranslationBackend(QStringLiteral("copy"));
         session.setSelectedLanguages(Language::autoLanguage(), Language::autoLanguage());
 
         QVERIFY(!session.languages()->translatedSource().has_value());

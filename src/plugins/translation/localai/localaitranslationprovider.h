@@ -31,6 +31,11 @@ class LocalAiTranslationProvider : public ATranslationProvider
     Q_DISABLE_COPY(LocalAiTranslationProvider)
 
 public:
+    // The prompt used when none was supplied; see the comment on the
+    // definition. Not the default anyone is shown - the plugin declares it as
+    // the "prompt" option's default so a caller can see what it would get.
+    static QString minimalPrompt();
+
     explicit LocalAiTranslationProvider(QObject *parent = nullptr);
     ~LocalAiTranslationProvider() override;
 
@@ -74,6 +79,11 @@ private:
     QString m_url;
     QString m_model;
     QString m_prompt;
+    // What to call the source language when no detection model is configured
+    // and no detection succeeded. The application's primary language, handed
+    // over as an option: which language that is belongs to the application's
+    // settings, and a backend that reads them cannot be a loadable module.
+    Language m_fallbackLanguage = Language(QLocale::system());
     bool m_disableThinking = false;
     bool m_isAnthropic = false;
     QString m_apiKey;

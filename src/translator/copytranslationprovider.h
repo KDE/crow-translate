@@ -6,6 +6,7 @@
 #ifndef COPYTRANSLATIONPROVIDER_H
 #define COPYTRANSLATIONPROVIDER_H
 
+#include "crow_core_export.h"
 #include "language.h"
 #include "translator/atranslationprovider.h"
 
@@ -13,7 +14,7 @@
 
 #include <memory>
 
-class CopyTranslationProvider : public ATranslationProvider
+class CROW_CORE_EXPORT CopyTranslationProvider : public ATranslationProvider
 {
     Q_OBJECT
     Q_DISABLE_COPY(CopyTranslationProvider)

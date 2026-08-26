@@ -11,6 +11,7 @@
 #include <QIcon>
 #include <QObject>
 #include <QString>
+#include <QStringList>
 #include <QVariant>
 #include <QVariantMap>
 #include <QVector>
@@ -149,5 +150,15 @@ enum class ProviderCapability : uint16_t {
 };
 Q_DECLARE_FLAGS(ProviderCapabilities, ProviderCapability)
 Q_DECLARE_OPERATORS_FOR_FLAGS(ProviderCapabilities)
+
+// The same flags as text, for a plugin that declares what it can do in JSON
+// metadata the host reads without loading it.
+//
+// A name that is not one of the flags above is ignored rather than refused: a
+// plugin built against a later version may claim a capability this build has
+// never heard of, and the right response is to treat it as a plugin without
+// that capability, not to reject it.
+CROW_CORE_EXPORT ProviderCapabilities capabilitiesFromNames(const QStringList &names);
+CROW_CORE_EXPORT QStringList capabilityNames(ProviderCapabilities capabilities);
 
 #endif // PROVIDEROPTIONS_H

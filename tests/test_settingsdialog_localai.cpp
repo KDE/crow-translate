@@ -59,7 +59,7 @@ private slots:
         server.queueJson(200, QByteArrayLiteral(R"({"data":[{"id":"model-a"},{"id":"model-b"}]})"));
 
         AppSettings settings;
-        settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Copy);
+        settings.setTranslationProviderId(QStringLiteral("copy"));
 
         MainWindow window;
         SettingsDialog dialog(&window);
@@ -130,7 +130,7 @@ private slots:
     void testSourceSimplificationIsReachableForEveryEngine()
     {
         AppSettings settings;
-        settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::LocalAI);
+        settings.setTranslationProviderId(QStringLiteral("localai"));
 
         MainWindow window;
         SettingsDialog dialog(&window);
@@ -165,7 +165,7 @@ private slots:
     void testEngineComboRestoredAfterLocalAiRoundTrip()
     {
         AppSettings settings;
-        settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        settings.setTranslationProviderId(QStringLiteral("mozhi"));
 
         MainWindow window;
         auto *engineCombo = window.findChild<QComboBox *>(QStringLiteral("engineComboBox"));
@@ -179,13 +179,13 @@ private slots:
             return items;
         }();
 
-        settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::LocalAI);
+        settings.setTranslationProviderId(QStringLiteral("localai"));
         window.close();
         MainWindow window2;
         auto *engineCombo2 = window2.findChild<QComboBox *>(QStringLiteral("engineComboBox"));
         QVERIFY(engineCombo2 != nullptr);
 
-        settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        settings.setTranslationProviderId(QStringLiteral("mozhi"));
         window2.close();
         MainWindow window3;
         auto *engineCombo3 = window3.findChild<QComboBox *>(QStringLiteral("engineComboBox"));
@@ -204,7 +204,7 @@ private slots:
     void testOcrEngineVisibilitySwitchesTesseractSpecificGroups()
     {
         AppSettings settings;
-        settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Copy);
+        settings.setTranslationProviderId(QStringLiteral("copy"));
 
         MainWindow window;
         SettingsDialog dialog(&window);

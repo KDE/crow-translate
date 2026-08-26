@@ -66,15 +66,17 @@ public:
     // Only meaningful once a backend has been set; before that they answer
     // with the do-nothing backend, which is also what translator() == nullptr
     // and tts() == nullptr mean.
-    ATranslationProvider::ProviderBackend translationBackend() const;
+    QString translationBackend() const;
     ATTSProvider::ProviderBackend ttsBackend() const;
 
     // --- backends -----------------------------------------------------------
 
     // Build the provider, or replace it when the choice moved. A no-op when
     // the backend is already the current one, exactly as the window's
-    // swapTranslator()/swapTTSProvider() were.
-    void setTranslationBackend(ATranslationProvider::ProviderBackend backend);
+    // swapTranslator()/swapTTSProvider() were. The translation backend is
+    // named by plugin id; PluginManager decides whether that means a module
+    // on disk or the built-in fallback.
+    void setTranslationBackend(const QString &id);
     void setTtsBackend(ATTSProvider::ProviderBackend backend);
 
     // Reads the backend choice out of AppSettings and applies both of the
@@ -239,8 +241,9 @@ private:
     LlmOcr *m_llmOcr = nullptr;
     // Deliberately not defaulted to a real backend: the setters are no-ops
     // when the backend already matches, and a default that happened to equal
-    // the stored choice would skip building the provider entirely.
-    std::optional<ATranslationProvider::ProviderBackend> m_translationBackend;
+    // the stored choice would skip building the provider entirely. Empty here
+    // is what std::optional's empty state is below.
+    QString m_translationBackendId;
     std::optional<ATTSProvider::ProviderBackend> m_ttsBackend;
     QMetaObject::Connection m_ocrRecognizedConnection;
     QMetaObject::Connection m_translatorReadyConnection;

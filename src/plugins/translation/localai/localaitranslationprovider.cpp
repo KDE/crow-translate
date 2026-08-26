@@ -6,8 +6,8 @@
 #include "localaitranslationprovider.h"
 
 #include "provideroptions.h"
+#include "llm/knownendpoints.h"
 #include "llm/openaiendpoint.h"
-#include "settings/appsettings.h"
 
 #include <QCoreApplication>
 #include <QFile>
@@ -30,10 +30,10 @@ LocalAiTranslationProvider::LocalAiTranslationProvider(QObject *parent)
     , m_network(new QNetworkAccessManager(this))
     , m_reply(nullptr)
     , m_detectReply(nullptr)
-    , m_url(AppSettings::defaultLocalProviderUrl(QStringLiteral("ollama")))
-    , m_model(AppSettings::defaultLocalProviderModel(QStringLiteral("ollama")))
-    , m_prompt(AppSettings::defaultLocalAiPrompt())
-    , m_detectUrl(AppSettings::defaultLocalProviderUrl(QStringLiteral("ollama")))
+    , m_url(KnownEndpoints::defaultUrl(QStringLiteral("ollama")))
+    , m_model(KnownEndpoints::defaultModel(QStringLiteral("ollama")))
+    , m_prompt(minimalPrompt())
+    , m_detectUrl(KnownEndpoints::defaultUrl(QStringLiteral("ollama")))
     , m_detectModel()
     , m_sourceWasAuto(false)
     , m_detectThenTranslate(false)
@@ -107,7 +107,7 @@ Language LocalAiTranslationProvider::detectLanguage(const QString &text)
 
     // No model at all: there is nobody to ask, fall back to the configured
     // primary language.
-    const Language lang = AppSettings().primaryLanguage();
+    const Language lang = m_fallbackLanguage;
     sourceLanguage = lang;
     emit languageDetected(lang, false);
     return lang;
@@ -120,12 +120,24 @@ QString LocalAiTranslationProvider::languageDisplayName(const QString &code)
     return Language(code).name();
 }
 
+// A safety net, not the product default. The host always supplies the
+// configured prompt - AppSettings::localAiPrompt() falls back to its own
+// default before it ever gets here - so this only matters for a provider
+// driven directly, by a test or by a frontend that forgot. It exists so that
+// such a provider still asks for a translation rather than posting bare text
+// at a model and hoping.
+QString LocalAiTranslationProvider::minimalPrompt()
+{
+    return QStringLiteral("Translate the following text into {target_lang} ({target_code}). "
+                          "Output only the translation.\n\n{text}");
+}
+
 QString LocalAiTranslationProvider::buildPrompt(const QString &srcCode, const QString &dstCode, const QString &text) const
 {
     const QString srcName = languageDisplayName(srcCode);
     const QString dstName = languageDisplayName(dstCode);
 
-    QString p = m_prompt.isEmpty() ? AppSettings::defaultLocalAiPrompt() : m_prompt;
+    QString p = m_prompt.isEmpty() ? minimalPrompt() : m_prompt;
     p.replace(QStringLiteral("{source_lang}"), srcName);
     p.replace(QStringLiteral("{source_code}"), srcCode);
     p.replace(QStringLiteral("{target_lang}"), dstName);
@@ -187,7 +199,7 @@ void LocalAiTranslationProvider::translate(const QString &inputText, const Langu
 
     Language srcLang = sourceLang;
     if (m_sourceWasAuto) {
-        srcLang = AppSettings().primaryLanguage();
+        srcLang = m_fallbackLanguage;
         sourceLanguage = srcLang;
     }
     const QString srcCode = srcLang.toCode();
@@ -575,9 +587,9 @@ void LocalAiTranslationProvider::onDetectFinished()
         }
     }
 
-    Language detected = code.isEmpty() ? AppSettings().primaryLanguage() : Language(code);
+    Language detected = code.isEmpty() ? m_fallbackLanguage : Language(code);
     if (detected == Language::autoLanguage()) {
-        detected = AppSettings().primaryLanguage();
+        detected = m_fallbackLanguage;
     }
     sourceLanguage = detected;
 
@@ -653,6 +665,9 @@ void LocalAiTranslationProvider::applyOptions(const ProviderOptions &options)
     if (options.hasOption("is_anthropic")) {
         m_isAnthropic = options.getOption("is_anthropic").toBool();
     }
+    if (options.hasOption("fallback_language")) {
+        m_fallbackLanguage = Language(options.getOption("fallback_language").toString());
+    }
     if (options.hasOption("detect_url")) {
         m_detectUrl = options.getOption("detect_url").toString();
     }
@@ -670,14 +685,15 @@ void LocalAiTranslationProvider::applyOptions(const ProviderOptions &options)
 std::unique_ptr<ProviderOptions> LocalAiTranslationProvider::getDefaultOptions() const
 {
     auto options = std::make_unique<ProviderOptions>();
-    options->setOption("url", AppSettings::defaultLocalProviderUrl(QStringLiteral("ollama")));
-    options->setOption("model", AppSettings::defaultLocalProviderModel(QStringLiteral("ollama")));
-    options->setOption("prompt", AppSettings::defaultLocalAiPrompt());
+    options->setOption("url", KnownEndpoints::defaultUrl(QStringLiteral("ollama")));
+    options->setOption("model", KnownEndpoints::defaultModel(QStringLiteral("ollama")));
+    options->setOption("prompt", minimalPrompt());
     options->setOption("disable_thinking", false);
-    options->setOption("timeout", AppSettings::defaultLocalAiTimeout());
+    options->setOption("timeout", KnownEndpoints::defaultTimeoutSeconds());
     options->setOption("api_key", QString());
     options->setOption("is_anthropic", false);
-    options->setOption("detect_url", AppSettings::defaultLocalProviderUrl(QStringLiteral("ollama")));
+    options->setOption("fallback_language", Language(QLocale::system()).toCode());
+    options->setOption("detect_url", KnownEndpoints::defaultUrl(QStringLiteral("ollama")));
     options->setOption("detect_model", QString());
     options->setOption("detect_api_key", QString());
     options->setOption("detect_is_anthropic", false);
@@ -689,6 +705,7 @@ QStringList LocalAiTranslationProvider::getAvailableOptions() const
     return {QStringLiteral("url"), QStringLiteral("model"), QStringLiteral("prompt"),
             QStringLiteral("disable_thinking"), QStringLiteral("timeout"),
             QStringLiteral("api_key"), QStringLiteral("is_anthropic"),
+            QStringLiteral("fallback_language"),
             QStringLiteral("detect_url"), QStringLiteral("detect_model"),
             QStringLiteral("detect_api_key"), QStringLiteral("detect_is_anthropic")};
 }

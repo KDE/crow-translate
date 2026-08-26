@@ -60,7 +60,7 @@ public slots:
     void accept() override;
 
 signals:
-    void translationBackendChanged(ATranslationProvider::ProviderBackend newBackend);
+    void translationBackendChanged(const QString &newBackendId);
     void ttsBackendChanged(ATTSProvider::ProviderBackend newBackend);
     void piperVoicesPathChanged(const QString &newPath);
     void mozhiInstanceChanged(const QString &newInstance);

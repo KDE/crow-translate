@@ -6,23 +6,18 @@
 #ifndef PROVIDERFACTORIES_H
 #define PROVIDERFACTORIES_H
 
-#include "translator/atranslationprovider.h"
 #include "tts/attsprovider.h"
 
-// Building a provider from a backend choice, and recovering when that fails.
+// What is left of the switch-over-every-backend factories.
 //
-// These were static members of the two abstract bases. The bases have moved
-// into crow-core, which providers link and the application links; a factory
-// that names every concrete provider cannot go with them without the core
-// depending on everything built on top of it.
-//
-// Free functions in the application for now. #738 replaces them with
-// PluginManager, which asks a plugin to build its own provider and so never
-// needs to know the list at all.
+// The translation half is gone: PluginManager asks a plugin to build its own
+// provider and so never needs the list. The speech half follows in the next
+// step of #738; until then it lives here, in the application, because a
+// factory that names every concrete provider cannot sit in the base class
+// those providers derive from.
 namespace ProviderFactories
 {
 
-ATranslationProvider *createTranslationProvider(QObject *parent, ATranslationProvider::ProviderBackend chosenBackend);
 ATTSProvider *createTTSProvider(QObject *parent, ATTSProvider::ProviderBackend chosenBackend);
 
 } // namespace ProviderFactories

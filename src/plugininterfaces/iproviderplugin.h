@@ -25,11 +25,13 @@ enum class PluginFamily : quint8 {
 
 // What a plugin is, told to a host that has never heard of it.
 //
-// The identity half - everything but the options - is duplicated in each
-// plugin's JSON metadata, so that a settings dialog can list a backend
-// without instantiating it. The options are not: they come from info() on a
-// live object, and having one copy of them is worth more than the cost of
-// building a plugin the user has not selected yet.
+// Assembled by PluginManager rather than returned by the plugin: the identity
+// half comes from the module's own JSON metadata, which QPluginLoader can read
+// without dlopening anything, so a settings dialog can list every installed
+// backend without building one. The options come from the live object.
+//
+// Splitting it that way is what keeps the two halves from being written twice
+// and drifting.
 struct PluginInfo {
     // Stable, lowercase, and written into the settings file. Renaming one
     // silently deselects it for everybody who had it chosen.
@@ -53,7 +55,10 @@ class IProviderPlugin
 public:
     virtual ~IProviderPlugin() = default;
 
-    virtual PluginInfo info() const = 0;
+    // What this backend can be configured with, and where each value lives.
+    // The only thing a host has to build the plugin to find out - everything
+    // else about it is in the metadata beside it on disk.
+    virtual QVector<ProviderOptionSpec> options() const = 0;
 };
 
 #endif // IPROVIDERPLUGIN_H

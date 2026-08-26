@@ -14,13 +14,14 @@
 // needs to fix, not a bug in the test.
 
 #include "language.h"
+#include "localaitranslationprovider.h"
 #include "mockhttpserver.h"
 #include "provideroptions.h"
+#include "provideroptionsmanager.h"
 #include "testisolation.h"
 #include "llm/openaiendpoint.h"
 #include "settings/appsettings.h"
 #include "translator/atranslationprovider.h"
-#include "translator/localaitranslationprovider.h"
 
 #include <QCoreApplication>
 #include <QJsonArray>
@@ -408,14 +409,13 @@ private slots:
     // translates can tell what language a text is in, and is asked.
     void testWithoutADetectionModelTheTranslationModelIsAsked()
     {
-        AppSettings().setPrimaryLanguage(Language(QStringLiteral("fr")));
-
         MockHttpServer server;
         server.queueJson(200, chatCompletionJson(QStringLiteral("German: DE")));
         auto provider = makeProvider(server.baseUrl());
         ProviderOptions opts = *provider->getDefaultOptions();
         opts.setOption(QStringLiteral("url"), server.baseUrl());
         opts.setOption(QStringLiteral("model"), QStringLiteral("the-translation-model"));
+        opts.setOption(QStringLiteral("fallback_language"), QStringLiteral("fr"));
         // Where a detection model would be, if there were one: not asked.
         opts.setOption(QStringLiteral("detect_url"), QStringLiteral("http://127.0.0.1:1"));
         provider->applyOptions(opts);
@@ -438,8 +438,6 @@ private slots:
     // not from the primary one.
     void testAnAutomaticSourceIsDetectedByTheTranslationModel()
     {
-        AppSettings().setPrimaryLanguage(Language(QStringLiteral("fr")));
-
         MockHttpServer server;
         server.queueJson(200, chatCompletionJson(QStringLiteral("German: DE")));
         server.queueJson(200, chatCompletionJson(QStringLiteral("Good day everyone")));
@@ -447,6 +445,7 @@ private slots:
         ProviderOptions opts = *provider->getDefaultOptions();
         opts.setOption(QStringLiteral("url"), server.baseUrl());
         opts.setOption(QStringLiteral("model"), QStringLiteral("the-translation-model"));
+        opts.setOption(QStringLiteral("fallback_language"), QStringLiteral("fr"));
         opts.setOption(QStringLiteral("prompt"), QStringLiteral("From {source_lang} ({source_code}) to {target_lang} ({target_code}): {text}"));
         provider->applyOptions(opts);
 
@@ -474,11 +473,14 @@ private slots:
     // An answer that names no language leaves the primary one, as before.
     void testAnAnswerWithoutALanguageFallsBackToThePrimary()
     {
-        AppSettings().setPrimaryLanguage(Language(QStringLiteral("fr")));
-
         MockHttpServer server;
         server.queueJson(200, chatCompletionJson(QStringLiteral("!!!")));
         auto provider = makeProvider(server.baseUrl());
+        {
+            ProviderOptions options;
+            options.setOption(QStringLiteral("fallback_language"), QStringLiteral("fr"));
+            provider->applyOptions(options);
+        }
 
         QSignalSpy detectSpy(provider.get(), &ATranslationProvider::languageDetected);
         provider->detectLanguage(QStringLiteral("Bonjour"));
@@ -486,17 +488,22 @@ private slots:
         QCOMPARE(qvariant_cast<Language>(detectSpy.constFirst().at(0)).toCode(), QStringLiteral("fr"));
     }
 
-    // With no model at all there is nobody to ask: the primary language,
+    // With no model at all there is nobody to ask: the configured language,
     // at once, and nothing on the network.
-    void testDetectLanguageWithoutAnyModelFallsBackToPrimaryLanguageSynchronously()
+    //
+    // Which language that is arrives as an option rather than being read out
+    // of AppSettings here: a loadable backend cannot reach the application's
+    // settings, and the primary language is a fact about the application's
+    // preferences rather than about the endpoint. That the host actually
+    // fills it in is pinned separately, below.
+    void testDetectLanguageWithoutAnyModelFallsBackToTheGivenLanguageSynchronously()
     {
-        AppSettings().setPrimaryLanguage(Language(QStringLiteral("fr")));
-
         MockHttpServer server;
         auto provider = makeProvider(server.baseUrl());
         ProviderOptions opts = *provider->getDefaultOptions();
         opts.setOption(QStringLiteral("url"), server.baseUrl());
         opts.setOption(QStringLiteral("model"), QString());
+        opts.setOption(QStringLiteral("fallback_language"), QStringLiteral("fr"));
         provider->applyOptions(opts);
 
         QSignalSpy detectSpy(provider.get(), &ATranslationProvider::languageDetected);
@@ -507,6 +514,21 @@ private slots:
         const Language emitted = qvariant_cast<Language>(detectSpy.constFirst().at(0));
         QCOMPARE(emitted.toCode(), QStringLiteral("fr"));
         QCOMPARE(server.requestCount(), 0);
+    }
+
+    // The other half: the host puts the primary language into the options it
+    // hands the backend. Without this the fallback above is configurable and
+    // never configured, which is worse than the AppSettings read it replaced.
+    void testTheHostSuppliesThePrimaryLanguageAsTheFallback()
+    {
+        AppSettings().setPrimaryLanguage(Language(QStringLiteral("fr")));
+
+        LocalAiTranslationProvider provider;
+        ProviderOptionsManager manager;
+        const std::unique_ptr<ProviderOptions> options = manager.createTranslationOptionsFromSettings(&provider);
+
+        QVERIFY(options != nullptr);
+        QCOMPARE(options->getOption(QStringLiteral("fallback_language")).toString(), QStringLiteral("fr"));
     }
 
     // URL normalization: users paste either a base URL (SDK style) or a full

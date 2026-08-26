@@ -9,6 +9,7 @@
 
 #include "instancepinger.h"
 #include "provideroptions.h"
+#include "core/pluginmanager.h"
 #include "core/translationsession.h"
 #include "core/usernotifier.h"
 #include "frontend/frontendregistry.h"
@@ -256,18 +257,16 @@ void Cli::process(const QCoreApplication &app)
     }
 
     // Initialize translation provider - determine backend from CLI or settings
-    ATranslationProvider::ProviderBackend translationBackend = settings.translationProviderBackend();
+    QString translationBackend = settings.translationProviderId();
     if (parser.isSet(translationProvider)) {
-        const QString providerName = parser.value(translationProvider).toLower();
-        if (providerName == "copy") {
-            translationBackend = ATranslationProvider::ProviderBackend::Copy;
-        } else if (providerName == "mozhi") {
-            translationBackend = ATranslationProvider::ProviderBackend::Mozhi;
-        } else if (providerName == "localai" || providerName == "ollama") {
-            translationBackend = ATranslationProvider::ProviderBackend::LocalAI;
-        } else {
+        QString providerName = parser.value(translationProvider).toLower();
+        // "ollama" was accepted for LocalAI before either had a plugin id.
+        if (providerName == QLatin1String("ollama"))
+            providerName = QStringLiteral("localai");
+        if (!PluginManager::instance()->contains(PluginFamily::Translation, providerName)) {
             exitWithUsage(parser, tr("Error: Unknown translation provider '%1'").arg(providerName));
         }
+        translationBackend = providerName;
     }
 
     m_session->setTranslationBackend(translationBackend);

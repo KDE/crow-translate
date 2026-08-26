@@ -16,6 +16,7 @@
 #include "screenwatcher.h"
 #include "trayicon.h"
 #include "autostartmanager/abstractautostartmanager.h"
+#include "core/pluginmanager.h"
 #include "llm/openaiendpoint.h"
 #include "llm/visionmodelprobe.h"
 #include "ocr/llmocr.h"
@@ -148,10 +149,13 @@ SettingsDialog::SettingsDialog(MainWindow *parent)
         populateDetectModels();
     });
 
-    // Populate translation providers dynamically
-    ui->translationProviderComboBox->addItem(tr("Copy"), QVariant::fromValue(ATranslationProvider::ProviderBackend::Copy));
-    ui->translationProviderComboBox->addItem(QStringLiteral("Mozhi / LibreTranslate"), QVariant::fromValue(ATranslationProvider::ProviderBackend::Mozhi));
-    ui->translationProviderComboBox->addItem("LocalAI", QVariant::fromValue(ATranslationProvider::ProviderBackend::LocalAI));
+    // Populate translation providers from what is actually installed, rather
+    // than from a list written here that a build without one of them still
+    // offers.
+    const QList<PluginInfo> translationBackends = PluginManager::instance()->available(PluginFamily::Translation);
+    for (const PluginInfo &backend : translationBackends) {
+        ui->translationProviderComboBox->addItem(backend.displayName, backend.id);
+    }
 
     // Populate TTS providers dynamically
     ui->ttsProviderComboBox->addItem(tr("None"), QVariant::fromValue(ATTSProvider::ProviderBackend::None));
@@ -257,9 +261,9 @@ void SettingsDialog::accept()
     settings.setCustomIconPath(ui->customTrayIconEdit->text());
     settings.setShowStatusBar(ui->showStatusBarCheckBox->isChecked());
     // Translation settings
-    const ATranslationProvider::ProviderBackend currentBackend = settings.translationProviderBackend();
-    const ATranslationProvider::ProviderBackend newBackend = ui->translationProviderComboBox->currentData().value<ATranslationProvider::ProviderBackend>();
-    settings.setTranslationProviderBackend(newBackend);
+    const QString currentBackend = settings.translationProviderId();
+    const QString newBackend = ui->translationProviderComboBox->currentData().toString();
+    settings.setTranslationProviderId(newBackend);
 
     // Emit signal if backend changed
     if (currentBackend != newBackend) {
@@ -1166,7 +1170,7 @@ void SettingsDialog::restoreDefaults()
     ui->showStatusBarCheckBox->setChecked(AppSettings::defaultShowStatusBar());
 
     // Translation settings
-    const int defaultTranslationBackendIndex = ui->translationProviderComboBox->findData(QVariant::fromValue(AppSettings().defaultTranslationProviderBackend()));
+    const int defaultTranslationBackendIndex = ui->translationProviderComboBox->findData(PluginManager::instance()->defaultId(PluginFamily::Translation));
     if (defaultTranslationBackendIndex != -1) {
         ui->translationProviderComboBox->setCurrentIndex(defaultTranslationBackendIndex);
     }
@@ -1284,7 +1288,7 @@ void SettingsDialog::loadSettings()
 
     // Translation settings
     // Translation provider backend
-    const int translationBackendIndex = ui->translationProviderComboBox->findData(QVariant::fromValue(settings.translationProviderBackend()));
+    const int translationBackendIndex = ui->translationProviderComboBox->findData(settings.translationProviderId());
     if (translationBackendIndex != -1) {
         ui->translationProviderComboBox->setCurrentIndex(translationBackendIndex);
     }

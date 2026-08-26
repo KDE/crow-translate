@@ -78,7 +78,7 @@ void MainWindowStatusTest::pinCopySettings()
 {
     AppSettings settings;
     settings.setShowPrivacyPopup(false);
-    settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Copy);
+    settings.setTranslationProviderId(QStringLiteral("copy"));
     settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
     settings.setWindowMode(AppSettings::MainWindow);
 

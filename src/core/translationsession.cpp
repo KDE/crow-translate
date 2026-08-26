@@ -8,6 +8,7 @@
 #include "modulestatus.h"
 #include "providerfactories.h"
 #include "provideroptionsmanager.h"
+#include "core/pluginmanager.h"
 #include "core/usernotifier.h"
 #include "ocr/aocrprovider.h"
 #include "ocr/llmocr.h"
@@ -78,9 +79,9 @@ LlmOcr *TranslationSession::llmOcr() const
     return m_llmOcr;
 }
 
-ATranslationProvider::ProviderBackend TranslationSession::translationBackend() const
+QString TranslationSession::translationBackend() const
 {
-    return m_translationBackend.value_or(ATranslationProvider::ProviderBackend::Copy);
+    return m_translationBackendId.isEmpty() ? PluginManager::fallbackId(PluginFamily::Translation) : m_translationBackendId;
 }
 
 ATTSProvider::ProviderBackend TranslationSession::ttsBackend() const
@@ -88,9 +89,9 @@ ATTSProvider::ProviderBackend TranslationSession::ttsBackend() const
     return m_ttsBackend.value_or(ATTSProvider::ProviderBackend::None);
 }
 
-void TranslationSession::setTranslationBackend(ATranslationProvider::ProviderBackend backend)
+void TranslationSession::setTranslationBackend(const QString &id)
 {
-    if (m_translationBackend == backend) {
+    if (m_translationBackendId == id) {
         return;
     }
 
@@ -105,8 +106,8 @@ void TranslationSession::setTranslationBackend(ATranslationProvider::ProviderBac
     // A question put to the old backend is not going to be answered by it.
     const bool unanswered = m_languageQuestion.has_value();
 
-    m_translationBackend = backend;
-    m_translator = ProviderFactories::createTranslationProvider(this, backend);
+    m_translationBackendId = id;
+    m_translator = PluginManager::instance()->createTranslationProvider(this, id);
     m_status->bindTranslator(m_translator);
     connectTranslator();
     applyTranslationOptions();
@@ -186,7 +187,7 @@ void TranslationSession::loadBackendsFromSettings()
 
     const AppSettings settings;
     setTtsBackend(settings.ttsProviderBackend());
-    setTranslationBackend(settings.translationProviderBackend());
+    setTranslationBackend(settings.translationProviderId());
 }
 
 void TranslationSession::applyTranslationOptions()

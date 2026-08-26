@@ -30,7 +30,6 @@
 #include "settings/appsettings.h"
 #include "settings/settingsdialog.h"
 #include "translator/atranslationprovider.h"
-#include "translator/localaitranslationprovider.h"
 #include "tts/attsprovider.h"
 #include "tts/voice.h"
 
@@ -81,7 +80,7 @@ void pinLocalAiSettings(const MockHttpServer &server)
 {
     AppSettings settings;
     settings.setShowPrivacyPopup(false);
-    settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::LocalAI);
+    settings.setTranslationProviderId(QStringLiteral("localai"));
     settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
     settings.setActiveLocalProvider(QStringLiteral("openai_custom"));
     settings.setLocalProviderUrl(QStringLiteral("openai_custom"), server.baseUrl());
@@ -197,7 +196,7 @@ void MainWindowFeaturesTest::cleanupTestCase()
     // Leave the shared isolated settings in the Copy/None state the rest of
     // the suite expects, whatever the last test happened to pin.
     AppSettings settings;
-    settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Copy);
+    settings.setTranslationProviderId(QStringLiteral("copy"));
     settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
     settings.setOcrEngine(AppSettings::OcrEngine::Tesseract);
     settings.setShowTrayIcon(false);
@@ -1030,7 +1029,7 @@ void MainWindowFeaturesTest::testPopupShowsTheTtsControlsTheProviderAskedFor()
     QSKIP("Built without TTS support - no provider asks for these controls");
 #else
     AppSettings settings;
-    settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Copy);
+    settings.setTranslationProviderId(QStringLiteral("copy"));
     settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::Qt);
     // The configuration a pop-up is for: loadAppSettings() only show()s the
     // main window when it is not starting minimised to the tray, so here it

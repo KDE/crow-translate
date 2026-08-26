@@ -119,7 +119,7 @@ int GuiFrontend::run(QCoreApplication &app)
     // Only for a configuration that will talk to Mozhi. Otherwise every
     // public instance was pinged at the first start (and at every start
     // while none answered), however private the backend actually chosen.
-    const bool usesMozhi = settings.translationProviderBackend() == ATranslationProvider::ProviderBackend::Mozhi
+    const bool usesMozhi = settings.translationProviderId() == QLatin1String("mozhi")
         || settings.ttsProviderBackend() == ATTSProvider::ProviderBackend::Mozhi;
     if (usesMozhi && settings.instance().isEmpty()) {
         InstancePingerDialog instancePingerDialog;

@@ -68,7 +68,7 @@ private slots:
     {
         AppSettings settings;
         settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
-        settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Copy);
+        settings.setTranslationProviderId(QStringLiteral("copy"));
 
         MainWindow window;
         window.show();

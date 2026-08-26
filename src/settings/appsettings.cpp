@@ -11,6 +11,9 @@
 #include "cmake.h"
 #include "languagebuttonswidget.h"
 #include "trayicon.h"
+#include "core/pluginmanager.h"
+#include "core/settingsstore.h"
+#include "llm/knownendpoints.h"
 #include "translator/atranslationprovider.h"
 #include "tts/attsprovider.h"
 
@@ -37,11 +40,10 @@ QTranslator AppSettings::s_qtTranslator;
 
 AppSettings::AppSettings(QObject *parent)
     : QObject(parent)
-#ifndef WITH_PORTABLE_MODE
-    , m_settings(new QSettings(this))
-#else
-    , m_settings(QFile::exists(AppSettings::portableConfigName()) ? new QSettings(AppSettings::portableConfigName(), QSettings::IniFormat, this) : new QSettings(this))
-#endif
+    // Which file this is is the core's answer, not this class's: a backend
+    // whose configuration a flat schema cannot describe reads the same file
+    // through CrowSettings without depending on the application.
+    , m_settings(CrowSettings::open(this))
 {
 }
 
@@ -241,9 +243,7 @@ void AppSettings::setPortableModeEnabled(bool enabled)
 
 QString AppSettings::portableConfigName()
 {
-    // Initialize lazily because `QCoreApplication::applicationDirPath()` should be called after app creation
-    static const QString portableConfigName = QCoreApplication::applicationDirPath() + "/" + QStringLiteral("settings.ini");
-    return portableConfigName;
+    return CrowSettings::portableConfigName();
 }
 #endif
 
@@ -478,16 +478,13 @@ void AppSettings::setPrimaryLanguage(const Language &lang)
     m_settings->setValue(QStringLiteral("Translation/PrimaryLanguage"), lang.toCode());
 }
 
-ATranslationProvider::ProviderBackend AppSettings::translationProviderBackend() const
+QString AppSettings::translationProviderId() const
 {
-    uint8_t settingOrDefault = m_settings->value(QStringLiteral("Translation/Backend"),
-                                                 static_cast<std::underlying_type_t<ATranslationProvider::ProviderBackend>>(defaultTranslationProviderBackend()))
-                                   .toUInt();
-    return ATranslationProvider::ProviderBackend(settingOrDefault);
+    return PluginManager::selectedId(PluginFamily::Translation);
 }
-void AppSettings::setTranslationProviderBackend(ATranslationProvider::ProviderBackend newBackend)
+void AppSettings::setTranslationProviderId(const QString &id)
 {
-    m_settings->setValue(QStringLiteral("Translation/Backend"), static_cast<uint8_t>(newBackend));
+    PluginManager::setSelectedId(PluginFamily::Translation, id);
 }
 ATTSProvider::ProviderBackend AppSettings::ttsProviderBackend() const
 {
@@ -498,10 +495,6 @@ ATTSProvider::ProviderBackend AppSettings::ttsProviderBackend() const
 void AppSettings::setTTSProviderBackend(ATTSProvider::ProviderBackend newBackend)
 {
     m_settings->setValue(QStringLiteral("TTS/Backend"), static_cast<uint8_t>(newBackend));
-}
-ATranslationProvider::ProviderBackend AppSettings::defaultTranslationProviderBackend() const
-{
-    return ATranslationProvider::ProviderBackend::Mozhi;
 }
 ATTSProvider::ProviderBackend AppSettings::defaultTTSProviderBackend() const
 {
@@ -685,58 +678,27 @@ static QString promptKey(const QString &model)
 
 QStringList AppSettings::localProviderIds()
 {
-    return {QStringLiteral("ollama"), QStringLiteral("fastflowlm"), QStringLiteral("lmstudio"),
-            QStringLiteral("openai_custom"), QStringLiteral("anthropic")};
+    return KnownEndpoints::ids();
 }
 
 QString AppSettings::localProviderDisplayName(const QString &id)
 {
-    if (id == QLatin1String("ollama")) {
-        return QStringLiteral("Ollama");
-    }
-    if (id == QLatin1String("fastflowlm")) {
-        return QStringLiteral("FastFlowLM");
-    }
-    if (id == QLatin1String("lmstudio")) {
-        return QStringLiteral("LM Studio");
-    }
-    if (id == QLatin1String("openai_custom")) {
-        return tr("OpenAI-compatible (custom)");
-    }
-    if (id == QLatin1String("anthropic")) {
-        return QStringLiteral("Anthropic");
-    }
-    return id;
+    return KnownEndpoints::displayName(id);
 }
 
 QString AppSettings::defaultLocalProviderUrl(const QString &id)
 {
-    if (id == QLatin1String("fastflowlm")) {
-        return QStringLiteral("http://localhost:8082");
-    }
-    if (id == QLatin1String("lmstudio")) {
-        return QStringLiteral("http://localhost:1234");
-    }
-    if (id == QLatin1String("openai_custom")) {
-        return QString(); // no sensible default - user's own/cloud endpoint
-    }
-    if (id == QLatin1String("anthropic")) {
-        return QStringLiteral("https://api.anthropic.com");
-    }
-    return QStringLiteral("http://localhost:11434"); // ollama
+    return KnownEndpoints::defaultUrl(id);
 }
 
 QString AppSettings::defaultLocalProviderModel(const QString &id)
 {
-    if (id == QLatin1String("ollama")) {
-        return QStringLiteral("translategemma_12b_128k:latest");
-    }
-    return QString();
+    return KnownEndpoints::defaultModel(id);
 }
 
 bool AppSettings::localProviderIsAnthropic(const QString &id)
 {
-    return id == QLatin1String("anthropic");
+    return KnownEndpoints::isAnthropic(id);
 }
 
 QString AppSettings::activeLocalProvider() const
@@ -821,7 +783,7 @@ void AppSettings::setLocalAiTimeout(const QString &providerId, int seconds)
 
 int AppSettings::defaultLocalAiTimeout()
 {
-    return 300;
+    return KnownEndpoints::defaultTimeoutSeconds();
 }
 
 bool AppSettings::localAiDisableThinking(const QString &providerId) const

@@ -243,11 +243,12 @@ public:
     static constexpr qint64 maxSourceImageBytes = 20LL * 1024 * 1024;
     static constexpr int sourceImageJpegQuality = 85;
 
-    ATranslationProvider::ProviderBackend translationProviderBackend() const;
-    void setTranslationProviderBackend(ATranslationProvider::ProviderBackend newBackend);
+    // Which backend is selected, as a plugin id. Resolved by PluginManager,
+    // which also translates the enum ordinal every version up to 4.1.0 wrote.
+    QString translationProviderId() const;
+    void setTranslationProviderId(const QString &id);
     ATTSProvider::ProviderBackend ttsProviderBackend() const;
     void setTTSProviderBackend(ATTSProvider::ProviderBackend newBackend);
-    ATranslationProvider::ProviderBackend defaultTranslationProviderBackend() const;
     ATTSProvider::ProviderBackend defaultTTSProviderBackend() const;
 
 #ifdef WITH_PIPER_TTS

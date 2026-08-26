@@ -182,9 +182,17 @@ add_library(crow-core SHARED
     src/language.cpp
     src/provideroptions.h
     src/provideroptions.cpp
+    src/core/builtinplugins.h
+    src/core/builtinplugins.cpp
+    src/core/pluginmanager.h
+    src/core/pluginmanager.cpp
+    src/core/settingsstore.h
+    src/core/settingsstore.cpp
     src/core/translationresult.h
     src/core/usernotifier.h
     src/core/usernotifier.cpp
+    src/llm/knownendpoints.h
+    src/llm/knownendpoints.cpp
     src/llm/openaiendpoint.h
     src/llm/openaiendpoint.cpp
     src/onlinetranslator.h
@@ -199,8 +207,12 @@ add_library(crow-core SHARED
     src/plugininterfaces/provideroptionspec.h
     src/translator/atranslationprovider.h
     src/translator/atranslationprovider.cpp
+    src/translator/copytranslationprovider.h
+    src/translator/copytranslationprovider.cpp
     src/tts/attsprovider.h
     src/tts/attsprovider.cpp
+    src/tts/noopttsprovider.h
+    src/tts/noopttsprovider.cpp
     src/tts/voice.h
     src/tts/voice.cpp
 )
@@ -214,6 +226,10 @@ generate_export_header(crow-core
 target_include_directories(crow-core PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${CMAKE_BINARY_DIR}
+)
+
+target_compile_definitions(crow-core PRIVATE
+    CROW_PLUGIN_INSTALL_DIR="${CMAKE_INSTALL_PREFIX}/${KDE_INSTALL_PLUGINDIR}"
 )
 
 target_link_libraries(crow-core PUBLIC
@@ -331,14 +347,6 @@ add_library(${PROJECT_NAME}-lib STATIC
     src/translationedit.cpp
     src/trayicon.h
     src/trayicon.cpp
-    src/tts/noopttsprovider.h
-    src/tts/noopttsprovider.cpp
-    src/translator/copytranslationprovider.h
-    src/translator/copytranslationprovider.cpp
-    src/translator/mozhitranslationprovider.h
-    src/translator/mozhitranslationprovider.cpp
-    src/translator/localaitranslationprovider.h
-    src/translator/localaitranslationprovider.cpp
     src/translator/translationlogic.h
     src/translator/translationlogic.cpp
     src/translator/languageresolution.h
@@ -413,6 +421,29 @@ if(UNIX AND NOT APPLE)
         INSTALL_RPATH "$ORIGIN;$ORIGIN/../${KDE_INSTALL_LIBDIR}"
     )
 endif()
+
+# The backends, as modules the application loads rather than code it contains.
+include(CrowPlugin)
+
+crow_add_plugin(mozhi
+    FAMILY translation
+    SOURCES
+        src/plugins/translation/mozhi/mozhitranslationprovider.h
+        src/plugins/translation/mozhi/mozhitranslationprovider.cpp
+    PLUGIN_SOURCES
+        src/plugins/translation/mozhi/mozhiplugin.h
+        src/plugins/translation/mozhi/mozhiplugin.cpp
+)
+
+crow_add_plugin(localai
+    FAMILY translation
+    SOURCES
+        src/plugins/translation/localai/localaitranslationprovider.h
+        src/plugins/translation/localai/localaitranslationprovider.cpp
+    PLUGIN_SOURCES
+        src/plugins/translation/localai/localaiplugin.h
+        src/plugins/translation/localai/localaiplugin.cpp
+)
 
 # Link executable against library
 target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}-lib)
@@ -699,7 +730,9 @@ if(UNIX)
 endif()
 
 if(WITH_PORTABLE_MODE)
-    target_compile_definitions(${PROJECT_NAME}-lib PUBLIC WITH_PORTABLE_MODE)
+    # On crow-core because CrowSettings answers "which settings file" for
+    # plugins as well as for the application.
+    target_compile_definitions(crow-core PUBLIC WITH_PORTABLE_MODE)
 endif()
 
 option(BUILD_TESTING "Build tests" OFF)

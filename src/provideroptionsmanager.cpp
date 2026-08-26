@@ -119,6 +119,11 @@ std::unique_ptr<ProviderOptions> ProviderOptionsManager::createLocalAiTranslatio
     options->setOption("timeout", settings.localAiTimeout(active));
     options->setOption("api_key", settings.localProviderApiKey(active));
     options->setOption("is_anthropic", AppSettings::localProviderIsAnthropic(active));
+    // Which language to assume when nothing was detected. The backend used to
+    // read this out of AppSettings itself, which a loadable module cannot do -
+    // and should not want to: it is a fact about the application's
+    // preferences, not about the endpoint.
+    options->setOption("fallback_language", settings.primaryLanguage().toCode());
 
     const QString detectProvider = settings.detectProvider();
     options->setOption("detect_url", settings.localProviderUrl(detectProvider));

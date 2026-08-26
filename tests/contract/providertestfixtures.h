@@ -8,12 +8,12 @@
 
 #include "instancepinger.h"
 #include "language.h"
+#include "localaitranslationprovider.h"
 #include "mockhttpserver.h"
+#include "mozhitranslationprovider.h"
 #include "provideroptions.h"
 #include "translator/atranslationprovider.h"
 #include "translator/copytranslationprovider.h"
-#include "translator/localaitranslationprovider.h"
-#include "translator/mozhitranslationprovider.h"
 
 #include <QJsonArray>
 #include <QJsonDocument>

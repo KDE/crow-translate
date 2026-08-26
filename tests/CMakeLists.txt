@@ -171,6 +171,7 @@ add_executable(test_localai_provider
     test_localai_provider.cpp
 )
 target_link_libraries(test_localai_provider PRIVATE
+    crow-plugin-translation-localai-objects
     ${PROJECT_NAME}-lib
     test-support
     Qt6::Test
@@ -248,6 +249,7 @@ add_executable(test_llmocr
     test_llmocr.cpp
 )
 target_link_libraries(test_llmocr PRIVATE
+    crow-plugin-translation-localai-objects
     ${PROJECT_NAME}-lib
     test-support
     Qt6::Test
@@ -410,11 +412,31 @@ add_executable(test_translation_provider_contract
 )
 target_include_directories(test_translation_provider_contract PRIVATE contract)
 target_link_libraries(test_translation_provider_contract PRIVATE
+    crow-plugin-translation-mozhi-objects
+    crow-plugin-translation-localai-objects
     ${PROJECT_NAME}-lib
     test-support
     Qt6::Test
 )
 add_test(NAME TranslationProviderContractTest COMMAND test_translation_provider_contract)
+
+# Test binaries live in tests/, so PluginManager's "beside the executable"
+# path finds nothing. Point every test at the build tree's plugin directory,
+# and make sure the modules are built before any of them runs.
+#
+# CROW_PLUGIN_PATH replaces the search path rather than extending it, which is
+# deliberate: it means a test can also point at an empty directory and see
+# exactly what an installation with no backends does.
+get_property(_crow_tests DIRECTORY PROPERTY TESTS)
+foreach(_crow_test IN LISTS _crow_tests)
+    set_tests_properties(${_crow_test} PROPERTIES ENVIRONMENT "CROW_PLUGIN_PATH=${CMAKE_BINARY_DIR}")
+endforeach()
+
+get_property(_crow_plugin_modules GLOBAL PROPERTY CROW_PLUGIN_MODULES)
+get_property(_crow_test_targets DIRECTORY PROPERTY BUILDSYSTEM_TARGETS)
+foreach(_crow_test_target IN LISTS _crow_test_targets)
+    add_dependencies(${_crow_test_target} ${_crow_plugin_modules})
+endforeach()
 
 # When using static ONNX Runtime, also configure test executables that link
 # the app library (they pull in Piper TTS transitively through it).

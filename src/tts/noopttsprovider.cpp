@@ -6,7 +6,6 @@
 #include "noopttsprovider.h"
 
 #include "provideroptions.h"
-#include "provideroptionsmanager.h"
 #include "tts/voice.h"
 
 NoopTTSProvider::NoopTTSProvider(QObject *parent)
