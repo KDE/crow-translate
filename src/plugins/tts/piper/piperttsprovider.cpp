@@ -1047,7 +1047,11 @@ void PiperTTSProvider::applyOptions(const ProviderOptions &options)
 {
     // Before reinitializeModels, which searches the path this sets.
     if (options.hasOption("voices_path")) {
-        m_voicesPath = options.getOption("voices_path").toByteArray();
+        // Byte array or string: the settings file has always held this as a
+        // byte array, and a control that produced text is still naming the
+        // same directory.
+        const QVariant path = options.getOption("voices_path");
+        m_voicesPath = path.metaType().id() == QMetaType::QString ? path.toString().toLocal8Bit() : path.toByteArray();
     }
 
     if (options.hasOption("reinitializeModels") && options.getOption("reinitializeModels").toBool()) {

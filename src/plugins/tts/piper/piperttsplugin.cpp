@@ -10,12 +10,14 @@
 QVector<ProviderOptionSpec> PiperTtsPlugin::options() const
 {
     return {
-        makeOptionSpec(QStringLiteral("voices_path"),
-                       QStringLiteral("TTS/PiperVoicesPath"),
-                       QMetaType::QByteArray,
-                       QByteArray(),
-                       tr("Voice models directory"),
-                       tr("Searched before the standard locations for Piper voice models.")),
+        // The one option in this project with no hand-built control worth
+        // keeping: it was sixty lines of widget construction bolted onto the
+        // TTS page because there was nowhere else to put it. Declared here,
+        // drawn by whoever is drawing settings.
+        makeDirectoryOptionSpec(QStringLiteral("voices_path"),
+                                QStringLiteral("TTS/PiperVoicesPath"),
+                                tr("Piper voices path"),
+                                tr("Searched before the standard locations for Piper voice models.")),
         // Which speaker within the current voice. Per-voice rather than
         // per-installation, so there is no settings key that would mean the
         // same thing after the voice changes.

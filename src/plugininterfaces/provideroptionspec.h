@@ -44,8 +44,21 @@ struct ProviderOptionSpec {
 
     // A value the host computes rather than the user choosing it: the
     // fallback language LocalAI detects into comes from the application's
-    // own settings, not from a control anyone should be shown.
+    // own settings, not from a control anyone should be shown. Also false
+    // for an option the settings dialog already draws better by hand - the
+    // Mozhi instance is a combo box with a "find the fastest one" button
+    // behind it, and no schema is going to produce that.
     bool userVisible = true;
+
+    // What sort of control this wants. A plain value gets one appropriate to
+    // its type; a directory gets a line edit with a browse button beside it,
+    // which is the one shape a path needs and every backend that has one
+    // would otherwise hand-build.
+    enum class Control : quint8 {
+        Value,
+        Directory
+    };
+    Control control = Control::Value;
 };
 
 // Built by assignment rather than designated initializers: MSVC rejects
@@ -65,6 +78,17 @@ inline ProviderOptionSpec makeOptionSpec(const QString &key,
     spec.defaultValue = defaultValue;
     spec.displayName = displayName;
     spec.description = description;
+    return spec;
+}
+
+// A directory the user picks, rendered with a browse button.
+inline ProviderOptionSpec makeDirectoryOptionSpec(const QString &key,
+                                                  const QString &settingsKey,
+                                                  const QString &displayName,
+                                                  const QString &description = QString())
+{
+    ProviderOptionSpec spec = makeOptionSpec(key, settingsKey, QMetaType::QByteArray, QByteArray(), displayName, description);
+    spec.control = ProviderOptionSpec::Control::Directory;
     return spec;
 }
 

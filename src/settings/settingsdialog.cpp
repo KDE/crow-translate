@@ -20,6 +20,7 @@
 #include "llm/openaiendpoint.h"
 #include "llm/visionmodelprobe.h"
 #include "plugininterfaces/iocrplugin.h"
+#include "settings/pluginoptionswidget.h"
 #include "shortcutsmodel/shortcutitem.h"
 #include "shortcutsmodel/shortcutsmodel.h"
 #include "translator/atranslationprovider.h"
@@ -169,8 +170,17 @@ SettingsDialog::SettingsDialog(MainWindow *parent)
         ui->ttsProviderComboBox->addItem(backend.displayName, backend.id);
     }
 
-    if (PluginManager::instance()->contains(PluginFamily::Tts, QStringLiteral("piper")))
-        setupPiperVoicesPathUI();
+    // Whatever the chosen speech backend declares and this dialog has no
+    // control for. Nothing is drawn for the backends whose settings already
+    // have proper pages; Piper's voices directory arrives here, where it used
+    // to be sixty lines of widget construction.
+    m_ttsPluginOptions = new PluginOptionsWidget(this);
+    if (auto *ttsFormLayout = ui->ttsGroupBox->findChild<QFormLayout *>(QStringLiteral("ttsFormLayout")))
+        ttsFormLayout->addRow(m_ttsPluginOptions);
+    connect(m_ttsPluginOptions, &PluginOptionsWidget::optionChanged, this, &SettingsDialog::ttsPluginOptionChanged);
+    connect(ui->ttsProviderComboBox, &QComboBox::currentIndexChanged, this, [this]() {
+        m_ttsPluginOptions->setBackend(PluginFamily::Tts, ui->ttsProviderComboBox->currentData().toString());
+    });
 #ifndef WITH_TTS
     // Built without TTS support: hide the whole TTS group box
     ui->ttsGroupBox->setVisible(false);
@@ -306,8 +316,7 @@ void SettingsDialog::accept()
     settings.setConvertLineBreaks(ui->convertLineBreaksCheckBox->isChecked());
     settings.setOcrLanguagesPath(ui->ocrLanguagesPathEdit->text().toLocal8Bit());
     settings.setOcrLanguagesString(ui->ocrLanguagesListWidget->checkedLanguagesString());
-    if (m_piperVoicesPathEdit != nullptr)
-        settings.setPiperVoicesPath(m_piperVoicesPathEdit->text().toLocal8Bit());
+    m_ttsPluginOptions->save();
     settings.setRegionRememberType(static_cast<AppSettings::RegionRememberType>(ui->rememberRegionComboBox->currentIndex()));
     settings.setCaptureDelay(ui->captureDelaySpinBox->value());
     settings.setShowMagnifier(ui->showMagnifierCheckBox->isChecked());
@@ -1053,53 +1062,6 @@ void SettingsDialog::onOcrLanguagesPathChanged(const QString &path)
         ui->ocrLanguagesListWidget->addLanguages(tesseract->availableLanguages(path));
 }
 
-void SettingsDialog::setupPiperVoicesPathUI()
-{
-    // Create UI elements
-    m_piperVoicesPathLabel = new QLabel(tr("Piper voices path:"), this);
-    m_piperVoicesPathEdit = new QLineEdit(this);
-    m_piperVoicesPathButton = new QToolButton(this);
-
-    // Create a horizontal layout for the edit + button
-    auto *pathLayout = new QHBoxLayout();
-    pathLayout->addWidget(m_piperVoicesPathEdit);
-    pathLayout->addWidget(m_piperVoicesPathButton);
-    pathLayout->setContentsMargins(0, 0, 0, 0);
-
-    auto *pathWidget = new QWidget(this);
-    pathWidget->setLayout(pathLayout);
-
-    // Set properties
-    m_piperVoicesPathEdit->setPlaceholderText(tr("Directory with voice models"));
-    m_piperVoicesPathButton->setToolTip(tr("Select Piper voices path"));
-    m_piperVoicesPathButton->setIcon(QIcon::fromTheme(QStringLiteral("folder")));
-
-    // Add to the existing form layout
-    auto *formLayout = ui->ttsGroupBox->findChild<QFormLayout *>("ttsFormLayout");
-    if (formLayout != nullptr) {
-        formLayout->addRow(m_piperVoicesPathLabel, pathWidget);
-    }
-
-    // Connect signals
-    connect(m_piperVoicesPathButton, &QToolButton::clicked, this, &SettingsDialog::selectPiperVoicesPath);
-    connect(m_piperVoicesPathEdit, &QLineEdit::editingFinished, this, [this]() {
-        onPiperVoicesPathChanged(m_piperVoicesPathEdit->text());
-    });
-}
-
-void SettingsDialog::selectPiperVoicesPath()
-{
-    const QString path = m_piperVoicesPathEdit->text().left(m_piperVoicesPathEdit->text().lastIndexOf(QDir::separator()));
-    const QString directory = QFileDialog::getExistingDirectory(this, tr("Select Piper voices path"), path);
-    if (!directory.isEmpty())
-        m_piperVoicesPathEdit->setText(directory);
-}
-
-void SettingsDialog::onPiperVoicesPathChanged(const QString &path)
-{
-    emit piperVoicesPathChanged(path);
-}
-
 void SettingsDialog::onTesseractParametersCurrentItemChanged()
 {
     if (ui->tesseractParametersTableWidget->currentRow() == -1)
@@ -1217,8 +1179,7 @@ void SettingsDialog::restoreDefaults()
     ui->negateOcrCheckBox->setChecked(AppSettings::defaultOcrNegate());
 
     // Piper-voices path
-    if (m_piperVoicesPathEdit != nullptr)
-        m_piperVoicesPathEdit->setText(AppSettings::defaultPiperVoicesPath());
+    m_ttsPluginOptions->restoreDefaults();
     // Mozhi network settings
     ui->proxyTypeComboBox->setCurrentIndex(AppSettings::defaultProxyType());
     ui->proxyHostEdit->setText(AppSettings::defaultProxyHost());
@@ -1334,8 +1295,7 @@ void SettingsDialog::loadSettings()
     ui->convertLineBreaksCheckBox->setChecked(settings.isConvertLineBreaks());
     ui->ocrLanguagesPathEdit->setText(settings.ocrLanguagesPath());
     ui->ocrLanguagesListWidget->setCheckedLanguages(settings.ocrLanguagesString());
-    if (m_piperVoicesPathEdit != nullptr)
-        m_piperVoicesPathEdit->setText(settings.piperVoicesPath());
+    m_ttsPluginOptions->setBackend(PluginFamily::Tts, settings.ttsProviderId());
     ui->rememberRegionComboBox->setCurrentIndex(settings.regionRememberType());
     ui->captureDelaySpinBox->setValue(settings.captureDelay());
     ui->showMagnifierCheckBox->setChecked(settings.isShowMagnifier());

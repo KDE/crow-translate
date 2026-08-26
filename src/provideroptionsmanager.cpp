@@ -143,8 +143,10 @@ void ProviderOptionsManager::connectToSettingsDialog(SettingsDialog *settingsDia
     // branch for "MozhiTTSProvider" and a settings key spelled out by name,
     // another for Piper's voices path. The option either exists on the
     // current backend or it does not, and that is the whole question.
-    connect(settingsDialog, &SettingsDialog::piperVoicesPathChanged, this, [this, ttsProvider](const QString &path) {
-        applyLiveOption(ttsProvider, QStringLiteral("voices_path"), path.toLocal8Bit());
+    connect(settingsDialog, &SettingsDialog::ttsPluginOptionChanged, this, [this, ttsProvider](const QString &key, const QVariant &value) {
+        applyLiveOption(ttsProvider, key, value);
+        // A changed path means the models may have moved. Harmless for a
+        // backend without them: it does not declare the option.
         applyLiveOption(ttsProvider, QStringLiteral("reinitializeModels"), true);
         Q_EMIT ttsProviderUIUpdateRequired();
     });

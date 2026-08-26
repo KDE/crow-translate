@@ -324,6 +324,8 @@ add_library(${PROJECT_NAME}-lib STATIC
     src/settings/appsettings.cpp
     src/settings/ocrlanguageslistwidget.h
     src/settings/ocrlanguageslistwidget.cpp
+    src/settings/pluginoptionswidget.h
+    src/settings/pluginoptionswidget.cpp
     src/settings/settingsdialog.h
     src/settings/settingsdialog.cpp
     src/settings/settingsdialog.ui

@@ -15,6 +15,7 @@
 #include <QDialog>
 #include <QMap>
 #include <QString>
+#include <QVariant>
 
 class MainWindow;
 class AbstractAutostartManager;
@@ -33,6 +34,7 @@ class QLabel;
 class QToolButton;
 class ShortcutItem;
 class VisionModelProbe;
+class PluginOptionsWidget;
 #ifdef WITH_PORTABLE_MODE
 class QCheckBox;
 #endif
@@ -62,7 +64,10 @@ public slots:
 signals:
     void translationBackendChanged(const QString &newBackendId);
     void ttsBackendChanged(const QString &newBackendId);
-    void piperVoicesPathChanged(const QString &newPath);
+    // A control on the generic backend page changed while the dialog is
+    // still open, so a live provider can follow it - which is what the
+    // Piper-specific signal this replaced was for.
+    void ttsPluginOptionChanged(const QString &key, const QVariant &value);
     void mozhiInstanceChanged(const QString &newInstance);
 
 private slots:
@@ -78,11 +83,6 @@ private slots:
 
     void selectOcrLanguagesPath();
     void onOcrLanguagesPathChanged(const QString &path);
-    // Built only when the Piper backend is installed, which is now a
-    // question about the plugin directory rather than about this build.
-    void setupPiperVoicesPathUI();
-    void selectPiperVoicesPath();
-    void onPiperVoicesPathChanged(const QString &path);
     void onTesseractParametersCurrentItemChanged();
 
     void loadShortcut(ShortcutItem *item);
@@ -164,10 +164,10 @@ private:
     QCheckBox *m_portableCheckbox;
 #endif
 
-    // Null unless setupPiperVoicesPathUI() ran; every use is guarded.
-    QLabel *m_piperVoicesPathLabel = nullptr;
-    QLineEdit *m_piperVoicesPathEdit = nullptr;
-    QToolButton *m_piperVoicesPathButton = nullptr;
+    // Whatever the selected speech backend declares and this dialog has no
+    // control of its own for. Empty for every backend shipped here except
+    // Piper, whose voices directory used to be built by hand right here.
+    PluginOptionsWidget *m_ttsPluginOptions = nullptr;
 };
 
 #endif // SETTINGSDIALOG_H
