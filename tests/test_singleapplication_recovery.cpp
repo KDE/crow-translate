@@ -6,8 +6,10 @@
 // Regression test for gotcha #9: if the app crashes/is killed, SingleApplication's
 // shared-memory/socket lock could be left in a stale state that falsely made a
 // later relaunch think a primary instance was still running (or spawn a broken
-// one). Fixed on branch fix-singleapplication-recovery via a patched fork
-// (see .gitmodules for the fork URL) plus allowSecondary=true.
+// one). Fixed upstream in SingleApplication v3.5.6 (itay-grudev/SingleApplication#217),
+// which verifies the recorded primary PID is still alive with kill(pid, 0) /
+// OpenProcess() before treating it as running, and otherwise takes over as the
+// new primary instance.
 //
 // This drives the REAL built `crow` binary via QProcess (not the library, since
 // the bug is about OS-level shared-memory/socket recovery, which only a real

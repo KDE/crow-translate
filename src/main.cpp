@@ -90,7 +90,7 @@ int launchGui(int argc, char *argv[])
     QIcon::setThemeName("hicolor");
 #endif
 
-    const SingleApplication app(argc, argv, true);
+    const SingleApplication app(argc, argv);
 
     // KIconLoader::global() requires a live QGuiApplication; set the window
     // icon only after the application object exists (loading it earlier
