@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-20 11:33+0300\n"
+"PO-Revision-Date: 2026-08-26 08:45+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -36,18 +36,13 @@ msgstr ""
 "המערכת)."
 
 #: src/cli.cpp:109
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify the translator engine ('google', 'yandex', 'bing', "
-#| "'libretranslate' or 'lingva'), Google is used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
 "'libretranslate', 'mymemory' or 'reverso'), Google is used by default."
 msgstr ""
-"בחירת מנוע התרגום (‚google’,‏ ‚yandex’,‏ ‚bing’,‏ ‚libretranslate’ או "
-"‚lingva’),‏ Google הוא מנוע ברירת המחדל."
+"בחירת מנוע התרגום (‚google’,‏ ‚yandex’,‏ ‚bing’,‏ ‚deepl’,‏ ‚libretranslate’,‏ "
+"‚mymemory’ או ‚reverso’),‏ Google הוא ברירת המחדל."
 
 #: src/cli.cpp:113
 msgctxt "Cli|"
@@ -57,46 +52,36 @@ msgid ""
 msgstr "ציון כתובת עותק Mozhi. ברירת המחדל היא הכתובת המופיעה בהגדרות היישום."
 
 #: src/cli.cpp:117
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy' or 'mozhi'). Provider from app "
-#| "settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
 "app settings will be used by default."
 msgstr ""
-"בחירת ספק התרגום (‚copy’ או ‚mozhi’). ברירת המחדל היא הספק מהגדרות היישום."
+"בחירת ספק התרגום (‚copy’,‏ ‚mozhi’ או ‚localai’). ברירת המחדל היא הספק "
+"מהגדרות היישום."
 
 #: src/cli.cpp:125
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
 "settings will be used by default."
-msgstr "בחירת ספק הקראה (‚none’,‏ ‚mozhi’,‏ ‚qt’, או ‚piper’)"
+msgstr ""
+"בחירת ספק הקראה (‚none’,‏ ‚mozhi’,‏ ‚qt’, או ‚piper’). הספק מהגדרות היישום "
+"יכהן כברירת המחדל."
 
 #: src/cli.cpp:127
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
 "will be used by default."
-msgstr "בחירת ספק הקראה (‚none’,‏ ‚mozhi’,‏ ‚qt’, או ‚piper’)"
+msgstr ""
+"בחירת ספק הקראה (‚none’,‏ ‚mozhi’,‏ או ‚qt’). הספק מהגדרות היישום יכהן כברירת "
+"המחדל."
 
 #: src/cli.cpp:129
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
-msgstr ""
+msgstr "בחירת ספק ההקראה (‚none’). במהדורה שנבנתה ההקראה הושבתה."
 
 #: src/cli.cpp:132
 msgctxt "Cli|"
@@ -155,12 +140,10 @@ msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "שגיאה: ל־‎--%1 חובה לציין את האפשרויות ‎--%2 ו/או ‎--%3"
 
 #: src/cli.cpp:178
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
-msgstr "שגיאה: מנוע לא מוכר"
+msgstr "שגיאה: המנוע ‚%1’ לא מוכר"
 
 #: src/cli.cpp:193
 #, qt-format
@@ -213,49 +196,41 @@ msgid "Unknown error"
 msgstr "שגיאה לא ידועה"
 
 #: src/cli.cpp:514
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
-msgstr "שגיאה: ההקראה נכשלה"
+msgstr "שגיאה: ההקראה נכשלה: %1"
 
 #: src/cli.cpp:612
 msgctxt "Cli|"
 msgid "no provider was created"
-msgstr ""
+msgstr "לא נוצר ספק"
 
 #: src/cli.cpp:637
 msgctxt "Cli|"
 msgid "the engine failed to start"
-msgstr ""
+msgstr "הפעלת המנוע נכשלה"
 
 #: src/cli.cpp:642
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
-msgstr ""
+msgstr "לספק הנוכחי אין קולות זמינים"
 
 #: src/cli.cpp:692
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
-msgstr ""
+msgstr "שגיאה: הקראה לא זמינה: %1"
 
 #: src/cli.cpp:713
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "Cli|"
 msgid "Source languages:"
-msgstr "שפות נוכחיות:"
+msgstr "שפת המקור:"
 
 #: src/cli.cpp:716
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Primary translation language:"
 msgctxt "Cli|"
 msgid "Translation languages:"
-msgstr "שפת התרגום העיקרית:"
+msgstr "שפות התרגום:"
 
 #: src/cli.cpp:774
 #, qt-format
