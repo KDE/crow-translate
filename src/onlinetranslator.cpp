@@ -1402,7 +1402,14 @@ void OnlineTranslator::parseTranslate()
                 examplesTarget.append(value.toString());
             }
 
-            m_examples.append({word, example, definition, examplesSource, examplesTarget});
+            // Ordered to match the struct, which it did not used to be:
+            // TranslationExample is {word, definition, example, ...} and this
+            // passed {word, example, definition, ...}, so each field held the
+            // other one's value. The old formatter then bound them back the
+            // wrong way round too, and the two errors cancelled - which meant
+            // correcting either one on its own would have silently swapped
+            // the definition and the example in the window.
+            m_examples.append({word, definition, example, examplesSource, examplesTarget});
         }
     }
 }

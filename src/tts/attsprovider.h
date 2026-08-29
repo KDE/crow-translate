@@ -7,6 +7,7 @@
 #define ATTSPROVIDER_H
 
 #include "language.h"
+#include "provideroptions.h"
 #include "voice.h"
 
 #include <QLocale>
@@ -18,7 +19,6 @@
 #include <memory>
 
 class ProviderOptions;
-struct ProviderUIRequirements;
 
 class ATTSProvider : public QObject
 {
@@ -71,8 +71,8 @@ public:
     virtual std::unique_ptr<ProviderOptions> getDefaultOptions() const = 0;
     virtual QStringList getAvailableOptions() const = 0;
 
-    // UI requirements
-    virtual ProviderUIRequirements getUIRequirements() const = 0;
+    // What this backend can do; see ProviderCapability.
+    virtual ProviderCapabilities capabilities() const = 0;
 
     // Speaker support
     virtual QStringList availableSpeakers() const = 0;

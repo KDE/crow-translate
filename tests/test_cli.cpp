@@ -23,6 +23,7 @@
 
 #include <QDir>
 #include <QFile>
+#include <QImage>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -131,6 +132,32 @@ private slots:
         QVERIFY(result.out.contains(QStringLiteral("crow-translate")));
     }
 
+    // OCR from the command line at all: before the session owned the
+    // recognition engines there was no way to reach them without a window,
+    // and --image did not exist.
+    //
+    // A blank image is deliberate. What is being pinned is that the OCR path
+    // *terminates* - it is a chain of asynchronous signals ending in a quit,
+    // which is exactly the shape of every hang this suite exists to catch -
+    // not that Tesseract reads any particular picture correctly. Which of the
+    // two failure messages comes back depends on whether this machine has
+    // language data installed, so both are accepted; the exit code and the
+    // termination are not negotiable.
+    void testImageWithNothingToReadTerminates()
+    {
+        QImage blank(200, 80, QImage::Format_RGB32);
+        blank.fill(Qt::white);
+        const QString path = m_configDir.filePath(QStringLiteral("blank.png"));
+        QVERIFY2(blank.save(path, "PNG"), "could not write the test image");
+
+        const RunResult result = runCrow({QStringLiteral("--image"), path, QStringLiteral("--tp"), QStringLiteral("copy")});
+        QVERIFY2(result.finished, "crow --image hung instead of exiting");
+        QVERIFY2(result.exitCode != 0, "an image with no text in it exited successfully");
+        QVERIFY2(result.err.contains(QStringLiteral("recognized"), Qt::CaseInsensitive)
+                     || result.err.contains(QStringLiteral("not configured"), Qt::CaseInsensitive),
+                 qPrintable(QStringLiteral("unexpected stderr: %1").arg(result.err)));
+    }
+
     // Regression: printLangCodes() returns straight out of Cli::process(),
     // which used to run before QCoreApplication::exec() had started. The
     // quit() it issued was discarded and the process sat forever, having
@@ -186,6 +213,20 @@ private slots:
         QTest::newRow("no text to translate")
             << QStringList{QStringLiteral("-s"), QStringLiteral("en"), QStringLiteral("-t"), QStringLiteral("de")}
             << QStringLiteral("no text");
+        // --image supplies the source text, so anything else that also
+        // supplies it is a contradiction rather than an addition.
+        QTest::newRow("image with text arguments")
+            << QStringList{QStringLiteral("--image"), QStringLiteral("/nonexistent.png"), QStringLiteral("hi")}
+            << QStringLiteral("cannot be combined");
+        QTest::newRow("image with file")
+            << QStringList{QStringLiteral("--image"), QStringLiteral("/nonexistent.png"), QStringLiteral("-f")}
+            << QStringLiteral("image");
+        QTest::newRow("image with stdin")
+            << QStringList{QStringLiteral("--image"), QStringLiteral("/nonexistent.png"), QStringLiteral("-i")}
+            << QStringLiteral("image");
+        QTest::newRow("unreadable image")
+            << QStringList{QStringLiteral("--image"), QStringLiteral("/nonexistent.png")}
+            << QStringLiteral("unable to read");
     }
 
     void testErrorReasonReachesStderr()

@@ -41,7 +41,7 @@ public:
     QStringList getAvailableOptions() const override;
 
     // UI requirements
-    ProviderUIRequirements getUIRequirements() const override;
+    ProviderCapabilities capabilities() const override;
 
     // Settings integration
     void saveOptionToSettings(const QString &optionKey, const QVariant &value) override;
@@ -64,7 +64,7 @@ private slots:
 
 private:
     // Format translation data similar to TranslationEdit::parseTranslationData
-    QString formatTranslationData(OnlineTranslator *translator);
+    TranslationResult collectTranslationData(OnlineTranslator *translator);
     // Helper methods to convert between Language and OnlineTranslator::Language
     static OnlineTranslator::Language toOnlineTranslatorLanguage(const Language &language, OnlineTranslator::Engine engine);
     static Language fromOnlineTranslatorLanguage(OnlineTranslator::Language lang, OnlineTranslator::Engine engine);

@@ -83,7 +83,7 @@ public:
     std::unique_ptr<ProviderOptions> getDefaultOptions() const override;
     QStringList getAvailableOptions() const override;
 
-    ProviderUIRequirements getUIRequirements() const override;
+    ProviderCapabilities capabilities() const override;
 
     // Speaker support (Piper-specific)
     QStringList availableSpeakers() const override;
@@ -105,6 +105,7 @@ private:
 
 #ifdef _WIN32
     void handleOnnxTelemetryOnWindows();
+    static void reportTelemetryNotDisabled(const QString &reason);
 #endif
 
     // Core synthesis methods (like libpiper)

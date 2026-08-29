@@ -7,6 +7,8 @@
 #define ATRANSLATIONPROVIDER_H
 
 #include "language.h"
+#include "provideroptions.h"
+#include "core/translationresult.h"
 
 #include <QList>
 #include <QLocale>
@@ -15,7 +17,6 @@
 #include <memory>
 
 class ProviderOptions;
-struct ProviderUIRequirements;
 
 class ATranslationProvider : public QObject
 {
@@ -61,8 +62,8 @@ public:
     virtual std::unique_ptr<ProviderOptions> getDefaultOptions() const = 0;
     virtual QStringList getAvailableOptions() const = 0;
 
-    // UI requirements
-    virtual ProviderUIRequirements getUIRequirements() const = 0;
+    // What this backend can do; see ProviderCapability.
+    virtual ProviderCapabilities capabilities() const = 0;
 
     // Settings integration (type-safe)
     virtual void saveOptionToSettings(const QString &optionKey, const QVariant &value) = 0;
@@ -70,7 +71,7 @@ public:
     TranslationError error = TranslationError::NoError;
     Language sourceLanguage = Language::autoLanguage();
     Language translationLanguage = Language::autoLanguage();
-    QString result;
+    TranslationResult result;
 
 public slots:
     virtual void translate(const QString &inputText, const Language &translationLang, const Language &sourceLang) = 0;

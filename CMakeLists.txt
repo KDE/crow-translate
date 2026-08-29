@@ -176,6 +176,20 @@ add_library(${PROJECT_NAME}-lib STATIC
     src/languagebuttonswidget.h
     src/languagebuttonswidget.cpp
     src/languagebuttonswidget.ui
+    src/core/translationresult.h
+    src/core/translationsession.h
+    src/core/translationsession.cpp
+    src/core/usernotifier.h
+    src/core/usernotifier.cpp
+    src/gui/translationhtmlformatter.h
+    src/gui/translationhtmlformatter.cpp
+    src/frontend/icrowfrontend.h
+    src/frontend/frontendregistry.h
+    src/frontend/frontendregistry.cpp
+    src/frontend/guifrontend.h
+    src/frontend/guifrontend.cpp
+    src/frontend/clifrontend.h
+    src/frontend/clifrontend.cpp
     src/mainwindow.h
     src/mainwindow.cpp
     src/mainwindow.ui

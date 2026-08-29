@@ -5,12 +5,12 @@
 
 #include "atranslationprovider.h"
 
+#include "core/usernotifier.h"
 #include "settings/appsettings.h"
 #include "translator/copytranslationprovider.h"
 #include "translator/localaitranslationprovider.h"
 #include "translator/mozhitranslationprovider.h"
 
-#include <QMessageBox>
 #include <QTimer>
 
 #include <variant>
@@ -96,7 +96,7 @@ void ATranslationProvider::reset()
     case ATranslationProvider::State::Finished:
         error = TranslationError::NoError;
         errorString.clear();
-        result = QString();
+        result.clear();
         state = State::Ready;
         emit stateChanged(state);
         break;
@@ -110,13 +110,12 @@ void ATranslationProvider::resetProblematicProvider(ProviderBackend backend)
     qWarning() << "Resetting translation provider from" << static_cast<int>(backend) << "to Copy due to crash";
     settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::Copy);
 
-    // Show a user-friendly message
-    QTimer::singleShot(100, []() {
-        QMessageBox::warning(nullptr,
-                             QObject::tr("Translation Provider Error"),
-                             QObject::tr("The selected translation provider crashed during initialization and has been reset to 'Copy' to prevent further issues. "
-                                         "You can try selecting a different provider in Settings → Translation."));
-    });
+    UserNotifier::Notification notification;
+    notification.severity = UserNotifier::Severity::Warning;
+    notification.title = QObject::tr("Translation Provider Error");
+    notification.text = QObject::tr("The selected translation provider crashed during initialization and has been reset to 'Copy' to prevent further issues. "
+                                    "You can try selecting a different provider in Settings → Translation.");
+    UserNotifier::notify(notification);
 }
 
 ATranslationProvider::ATranslationProvider(QObject *parent)

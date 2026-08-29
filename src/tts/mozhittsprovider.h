@@ -64,7 +64,7 @@ public:
     QStringList getAvailableOptions() const override;
 
     // UI requirements
-    ProviderUIRequirements getUIRequirements() const override;
+    ProviderCapabilities capabilities() const override;
 
     // Speaker support
     QStringList availableSpeakers() const override;

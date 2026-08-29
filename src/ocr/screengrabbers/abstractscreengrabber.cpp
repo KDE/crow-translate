@@ -8,9 +8,9 @@
 #include "abstractscreengrabber.h"
 
 #include "genericscreengrabber.h"
+#include "core/usernotifier.h"
 
 #include <QGuiApplication>
-#include <QMessageBox>
 
 #ifdef Q_OS_LINUX
 #include "waylandgnomescreengrabber.h"
@@ -41,11 +41,16 @@ AbstractScreenGrabber *AbstractScreenGrabber::createScreenGrabber(QObject *paren
 
 void AbstractScreenGrabber::showError(const QString &errorString)
 {
-    QMessageBox message;
-    message.setIcon(QMessageBox::Critical);
-    message.setText(tr("Unable to grab screen"));
-    message.setInformativeText(errorString);
-    message.exec();
+    UserNotifier::Notification notification;
+    notification.severity = UserNotifier::Severity::Critical;
+    notification.title = tr("Unable to grab screen");
+    notification.text = tr("Unable to grab screen");
+    notification.details = errorString;
+    UserNotifier::notify(notification);
 
+    // Emitted straight away now. It used to wait for the user to dismiss a
+    // modal dialog first, which held the failure back from everything that
+    // reacts to it - the status strip went on showing a capture in progress
+    // for as long as the box stayed up.
     emit grabbingFailed();
 }

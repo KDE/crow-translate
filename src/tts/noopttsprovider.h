@@ -53,7 +53,7 @@ public:
     std::unique_ptr<ProviderOptions> getDefaultOptions() const override;
     QStringList getAvailableOptions() const override;
 
-    ProviderUIRequirements getUIRequirements() const override;
+    ProviderCapabilities capabilities() const override;
 
     QStringList availableSpeakers() const override;
     QStringList availableSpeakersForVoice(const Voice &voice) const override;

@@ -32,7 +32,7 @@ public:
     QStringList getAvailableOptions() const override;
 
     // UI requirements
-    ProviderUIRequirements getUIRequirements() const override;
+    ProviderCapabilities capabilities() const override;
 
     // Settings integration
     void saveOptionToSettings(const QString &optionKey, const QVariant &value) override;

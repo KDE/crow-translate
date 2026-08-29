@@ -83,7 +83,7 @@ private slots:
             return provider->getState() == ATranslationProvider::State::Processed;
         },
                                 5000));
-        QCOMPARE(provider->result, QStringLiteral("Hola Mundo"));
+        QCOMPARE(provider->result.translation, QStringLiteral("Hola Mundo"));
         QCOMPARE(server.requestCount(), 1);
         QVERIFY(server.requestPath(0).contains(QStringLiteral("/v1/chat/completions")));
     }
@@ -118,7 +118,7 @@ private slots:
             return provider->getState() == ATranslationProvider::State::Processed;
         },
                                 5000));
-        QCOMPARE(provider->result, QStringLiteral("Hola"));
+        QCOMPARE(provider->result.translation, QStringLiteral("Hola"));
     }
 
     // Gotcha #2's invariant on the current code: sendTranslation() replaces
@@ -151,7 +151,7 @@ private slots:
             return provider->getState() == ATranslationProvider::State::Processed;
         },
                                 5000));
-        QCOMPARE(provider->result, QStringLiteral("segunda"));
+        QCOMPARE(provider->result.translation, QStringLiteral("segunda"));
 
         // Let the stale request A finally "respond" - must not touch state/result.
         Response staleResponse;
@@ -160,7 +160,7 @@ private slots:
         server.releaseHeldRequest(0, staleResponse);
         QTest::qWait(300);
         QCOMPARE(provider->getState(), ATranslationProvider::State::Processed);
-        QCOMPARE(provider->result, QStringLiteral("segunda"));
+        QCOMPARE(provider->result.translation, QStringLiteral("segunda"));
     }
 
     // Gotcha #4: buildPrompt() round-trips the language code through

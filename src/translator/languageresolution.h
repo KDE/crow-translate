@@ -57,6 +57,13 @@ public:
 
     // --- outputs ----------------------------------------------------------
 
+    // The selection exactly as it went in, with auto still reading as auto.
+    // A caller that wants "what did the user ask for", rather than "what
+    // would that resolve to", has to be able to tell those apart - the
+    // resolved answers below deliberately cannot say "auto".
+    Language selectedSource() const;
+    Language selectedDestination() const;
+
     // What a translation actually happened between, when one has. nullopt is
     // the honest answer before that, and callers have to handle it rather than
     // render a guess as though it were fact.

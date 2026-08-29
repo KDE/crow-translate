@@ -114,11 +114,38 @@ struct ProviderOptionInfo {
     }
 };
 
-// Provider UI requirements
-struct ProviderUIRequirements {
-    QStringList requiredUIElements; // List of UI elements needed (e.g., "engineComboBox")
-    QStringList supportedSignals; // List of signals the provider emits
-    QStringList supportedCapabilities; // List of capabilities (e.g., "languageDetection", "voiceSelection")
+// What a backend can do.
+//
+// This replaced a struct of QStringLists. Two of its three fields were the
+// problem: requiredUIElements named *widgets* - "engineComboBox",
+// "sourceVoiceComboBox" - so a backend had to know the layout of one
+// particular window in order to be used at all, and any frontend laid out
+// differently was stuck with a list of controls it does not have. The names
+// were also fully derivable from the capabilities beside them, so they said
+// nothing extra; the derivation belongs to whichever frontend owns the
+// widgets, and now lives there.
+//
+// The third field, supportedSignals, was assigned by two backends and read by
+// nobody, and is gone.
+//
+// Flags rather than strings so a typo is a compile error. "voiceSelection"
+// silently matched nothing.
+enum class ProviderCapability : uint16_t {
+    None = 0,
+    // Can work out the source language on its own.
+    LanguageDetection = 1u << 0,
+    // Offers a choice of engines behind one backend, the way Mozhi fronts
+    // Google, Yandex and the rest.
+    EngineSelection = 1u << 1,
+    // Offers a choice of upstream providers, which is LocalAI's list of
+    // configured endpoints rather than a fixed set of engines.
+    ProviderSelection = 1u << 2,
+    // Has more than one voice to say things in.
+    VoiceSelection = 1u << 3,
+    // Has named speakers within a voice, as Piper's multi-speaker models do.
+    SpeakerSelection = 1u << 4,
 };
+Q_DECLARE_FLAGS(ProviderCapabilities, ProviderCapability)
+Q_DECLARE_OPERATORS_FOR_FLAGS(ProviderCapabilities)
 
 #endif // PROVIDEROPTIONS_H

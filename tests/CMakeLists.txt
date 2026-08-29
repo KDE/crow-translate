@@ -79,6 +79,50 @@ if(UNIX)
     add_test(NAME SingleApplicationRecoveryTest COMMAND test_singleapplication_recovery)
 endif()
 
+# The translation view's renderer, moved out of MozhiTranslationProvider.
+# Golden-output tests; no display needed.
+add_executable(test_translationhtmlformatter
+    test_translationhtmlformatter.cpp
+)
+target_link_libraries(test_translationhtmlformatter PRIVATE
+    ${PROJECT_NAME}-lib
+    Qt6::Test
+)
+add_test(NAME TranslationHtmlFormatterTest COMMAND test_translationhtmlformatter)
+
+# Frontend selection. Runs before any QCoreApplication exists, so it is
+# plain string handling and needs no display.
+add_executable(test_frontendregistry
+    test_frontendregistry.cpp
+)
+target_link_libraries(test_frontendregistry PRIVATE
+    ${PROJECT_NAME}-lib
+    Qt6::Test
+)
+add_test(NAME FrontendRegistryTest COMMAND test_frontendregistry)
+
+# UserNotifier: the core -> frontend message channel that replaced the
+# providers' own QMessageBox calls. Headless by design - see the file header.
+add_executable(test_usernotifier
+    test_usernotifier.cpp
+)
+target_link_libraries(test_usernotifier PRIVATE
+    ${PROJECT_NAME}-lib
+    Qt6::Test
+)
+add_test(NAME UserNotifierTest COMMAND test_usernotifier)
+
+# Source-scan guard: QtWidgets must stay out of the headless layers. Needs no
+# app library, like test_dbus_static_init.
+add_executable(test_widget_free_core
+    test_widget_free_core.cpp
+)
+target_compile_definitions(test_widget_free_core PRIVATE SRC_DIR="${CMAKE_SOURCE_DIR}/src")
+target_link_libraries(test_widget_free_core PRIVATE
+    Qt6::Test
+)
+add_test(NAME WidgetFreeCoreTest COMMAND test_widget_free_core)
+
 # End-to-end CLI tests. Drives the real built binary via QProcess, because
 # what they pin (event-loop lifecycle, stream routing, exit codes) only
 # exists in a real process - see the header comment in test_cli.cpp.
@@ -89,6 +133,9 @@ target_compile_definitions(test_cli PRIVATE CROW_BINARY_PATH="$<TARGET_FILE:${PR
 add_dependencies(test_cli ${PROJECT_NAME})
 target_link_libraries(test_cli PRIVATE
     test-support
+    # Qt6::Gui only for QImage, to write the blank picture the --image case
+    # feeds to the subprocess. Nothing here shows anything.
+    Qt6::Gui
     Qt6::Test
 )
 add_test(NAME CliTest COMMAND test_cli)
@@ -134,6 +181,17 @@ target_link_libraries(test_languageresolution PRIVATE
     Qt6::Test
 )
 add_test(NAME LanguageResolutionTest COMMAND test_languageresolution)
+
+# The session that owns the providers, the language model and the status
+# model. Runs guiless on purpose: that it can is the claim.
+add_executable(test_translationsession
+    test_translationsession.cpp
+)
+target_link_libraries(test_translationsession PRIVATE
+    ${PROJECT_NAME}-lib
+    Qt6::Test
+)
+add_test(NAME TranslationSessionTest COMMAND test_translationsession)
 
 # LocalAI settings dialog tests (gotchas #6/#7) - needs a display (real
 # MainWindow + SettingsDialog).
@@ -274,7 +332,7 @@ add_test(NAME TranslationProviderContractTest COMMAND test_translation_provider_
 # When using static ONNX Runtime, also configure test executables that link
 # the app library (they pull in Piper TTS transitively through it).
 if(WITH_PIPER_TTS AND ONNXRuntime_USE_STATIC)
-    foreach(_test_target IN ITEMS test_popupwindow_lifetime test_snippingarea_flags test_ttsprovider_isolation test_translation test_localai_provider test_settingsdialog_localai test_llmocr test_llmocr_live test_visionmodelprobe test_translationlogic test_languageresolution test_modulestatus test_statusstrip test_snippingarea_terminal test_mainwindow_status test_mainwindow_features test_appsettings_prompts test_translation_provider_contract)
+    foreach(_test_target IN ITEMS test_usernotifier test_translationhtmlformatter test_frontendregistry test_popupwindow_lifetime test_snippingarea_flags test_ttsprovider_isolation test_translation test_localai_provider test_settingsdialog_localai test_llmocr test_llmocr_live test_visionmodelprobe test_translationlogic test_languageresolution test_translationsession test_modulestatus test_statusstrip test_snippingarea_terminal test_mainwindow_status test_mainwindow_features test_appsettings_prompts test_translation_provider_contract)
         configure_onnxruntime_static(${_test_target})
         add_dependencies(${_test_target} onnxruntime_ready)
     endforeach()
@@ -291,7 +349,7 @@ endif()
 # configuration (see build.zsh's build-test/build-test-nopiper) still builds
 # and runs them.
 if(NOT BUILD_TESTING)
-    foreach(_test_target IN ITEMS test_helper_window test_dbus_static_init test_cli test_popupwindow_lifetime test_snippingarea_flags test_ttsprovider_isolation test_translation test_localai_provider test_settingsdialog_localai test_llmocr test_llmocr_live test_visionmodelprobe test_translationlogic test_languageresolution test_modulestatus test_statusstrip test_snippingarea_terminal test_mainwindow_status test_mainwindow_features test_appsettings_prompts test_translation_provider_contract)
+    foreach(_test_target IN ITEMS test_helper_window test_dbus_static_init test_cli test_widget_free_core test_usernotifier test_translationhtmlformatter test_frontendregistry test_popupwindow_lifetime test_snippingarea_flags test_ttsprovider_isolation test_translation test_localai_provider test_settingsdialog_localai test_llmocr test_llmocr_live test_visionmodelprobe test_translationlogic test_languageresolution test_translationsession test_modulestatus test_statusstrip test_snippingarea_terminal test_mainwindow_status test_mainwindow_features test_appsettings_prompts test_translation_provider_contract)
         set_target_properties(${_test_target} PROPERTIES EXCLUDE_FROM_ALL TRUE)
     endforeach()
     if(TARGET test_singleapplication_recovery)

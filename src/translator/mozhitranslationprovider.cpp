@@ -182,11 +182,11 @@ void MozhiTranslationProvider::onTranslationFinished()
     }
 
     if (m_translator->error() == OnlineTranslator::NoError) {
-        result = formatTranslationData(m_translator);
+        result = collectTranslationData(m_translator);
         error = TranslationError::NoError;
         state = State::Processed;
 
-        qDebug() << "MozhiTranslationProvider::onTranslationFinished - translation completed, result length:" << result.length()
+        qDebug() << "MozhiTranslationProvider::onTranslationFinished - translation completed, result length:" << result.translation.length()
                  << "new state:" << static_cast<int>(state);
 
         if (sourceLanguage == QLocale::c()) {
@@ -351,13 +351,9 @@ QStringList MozhiTranslationProvider::getAvailableOptions() const
     return {"instance", "engine", "apikey", "direct"};
 }
 
-ProviderUIRequirements MozhiTranslationProvider::getUIRequirements() const
+ProviderCapabilities MozhiTranslationProvider::capabilities() const
 {
-    ProviderUIRequirements requirements;
-    requirements.requiredUIElements = {"engineComboBox"};
-    requirements.supportedSignals = {"engineChanged", "languageDetected"};
-    requirements.supportedCapabilities = {"languageDetection", "engineSelection"};
-    return requirements;
+    return ProviderCapability::LanguageDetection | ProviderCapability::EngineSelection;
 }
 
 void MozhiTranslationProvider::saveOptionToSettings(const QString &optionKey, const QVariant &value)
@@ -374,9 +370,9 @@ void MozhiTranslationProvider::saveOptionToSettings(const QString &optionKey, co
     }
 }
 
-QString MozhiTranslationProvider::formatTranslationData(OnlineTranslator *translator)
+TranslationResult MozhiTranslationProvider::collectTranslationData(OnlineTranslator *translator)
 {
-    QString formattedResult;
+    TranslationResult collected;
 
     QString translation = translator->translation();
 
@@ -387,61 +383,19 @@ QString MozhiTranslationProvider::formatTranslationData(OnlineTranslator *transl
         }
     }
 
-    formattedResult = translation.toHtmlEscaped().replace(QStringLiteral("\n"), QStringLiteral("<br>"));
+    // Everything below used to be spliced into one HTML string here - <br>
+    // between the lines, <font color="grey"> around the transliterations,
+    // &nbsp; to indent the dictionary entries. That made this backend the
+    // renderer for one particular QTextEdit. It hands over the parts now, and
+    // whichever frontend asked decides what they look like.
+    collected.translation = translation;
+    collected.translationTranslit = translator->translationTranslit();
+    collected.sourceTranslit = translator->sourceTranslit();
+    collected.sourceTranscription = translator->sourceTranscription();
+    collected.options = translator->translationOptions();
+    collected.examples = translator->examples();
 
-    if (!translator->translationTranslit().isEmpty()) {
-        QString translit = translator->translationTranslit();
-        formattedResult += QStringLiteral("<br><font color=\"grey\"><i>/%1/</i></font>").arg(translit.replace(QStringLiteral("\n"), QStringLiteral("/<br>/")));
-    }
-
-    if (!translator->sourceTranslit().isEmpty()) {
-        QString translit = translator->sourceTranslit();
-        formattedResult +=
-            QStringLiteral("<br><font color=\"grey\"><i><b>(%1)</b></i></font>").arg(translit.replace(QStringLiteral("\n"), QStringLiteral("/<br>/")));
-    }
-
-    if (!translator->sourceTranscription().isEmpty()) {
-        formattedResult += QStringLiteral("<br><font color=\"grey\">[%1]</font>").arg(translator->sourceTranscription());
-    }
-
-    if (!translator->translationOptions().isEmpty()) {
-        formattedResult += QStringLiteral("<br><br><b>%1</b><br>").arg(tr("translation options:"));
-
-        for (const auto &[word, translations] : translator->translationOptions()) {
-            QString wordLine = QStringLiteral("&nbsp;&nbsp;&nbsp;&nbsp;") + word;
-
-            if (!translations.isEmpty()) {
-                wordLine += QStringLiteral(": <font color=\"grey\"><i>%1</i></font>").arg(translations.join(QStringLiteral(", ")));
-            }
-
-            formattedResult += wordLine + QStringLiteral("<br>");
-        }
-    }
-
-    if (!translator->examples().isEmpty()) {
-        formattedResult += QStringLiteral("<br><b>%1</b><br>").arg(tr("examples:"));
-
-        for (const auto &[word, example, definition, examplesSource, examplesTarget] : translator->examples()) {
-            formattedResult += QStringLiteral("&nbsp;&nbsp;&nbsp;&nbsp;<i>%1</i><br>").arg(word);
-
-            if (!definition.isEmpty()) {
-                formattedResult += QStringLiteral("&nbsp;&nbsp;&nbsp;&nbsp;%1<br>").arg(definition);
-            }
-
-            if (!example.isEmpty()) {
-                formattedResult += QStringLiteral("&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"grey\"><i>%1</i></font><br>").arg(example);
-            }
-
-            for (qsizetype i = 0; i < examplesSource.size(); ++i) {
-                formattedResult += QStringLiteral("&nbsp;&nbsp;&nbsp;&nbsp;%1 <font color=\"grey\"><i>%2</i></font><br>")
-                                       .arg(examplesSource[i].toHtmlEscaped(), examplesTarget[i].toHtmlEscaped());
-            }
-
-            formattedResult += QStringLiteral("<br>");
-        }
-    }
-
-    return formattedResult;
+    return collected;
 }
 
 void MozhiTranslationProvider::registerCustomLanguages()

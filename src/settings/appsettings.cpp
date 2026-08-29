@@ -1611,13 +1611,4 @@ void AppSettings::setCurrentEngine(OnlineTranslator::Engine currentEngine)
 }
 
 #ifdef WITH_ONNX_RUNTIME_DYNAMIC
-bool AppSettings::isPiperTelemetryNotificationShown() const
-{
-    return m_settings->value(QStringLiteral("Piper/TelemetryNotificationShown"), false).toBool();
-}
-
-void AppSettings::setPiperTelemetryNotificationShown(bool shown)
-{
-    m_settings->setValue(QStringLiteral("Piper/TelemetryNotificationShown"), shown);
-}
 #endif

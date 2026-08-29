@@ -12,6 +12,7 @@
 #include "language.h"
 #include "playlistplayer.h"
 #include "provideroptions.h"
+#include "core/usernotifier.h"
 #include "settings/appsettings.h"
 
 #include <QAudioDevice>
@@ -23,7 +24,6 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QMediaDevices>
-#include <QMessageBox>
 #include <QMutexLocker>
 #include <QStandardPaths>
 #include <QThread>
@@ -151,11 +151,23 @@ bool PiperTTSProvider::initializePiper()
         m_ortEnv = std::make_unique<Ort::Env>(ORT_LOGGING_LEVEL_WARNING, "piper");
 
 #ifdef _WIN32
-        // Disable telemetry at runtime (in addition to environment variable)
+        // Belt and braces alongside the environment variable above. Both are
+        // no-ops in a build with no telemetry compiled in, which is every
+        // build except Microsoft's own.
+        //
+        // Nothing is said unless this actually fails. There is no way to ask
+        // ONNX Runtime whether it *has* telemetry - the API offers only
+        // Enable/DisableTelemetryEvents, and GetBuildInfoString() reports
+        // nothing about it - so warning on the possibility meant a modal
+        // privacy notice on every installation, including the source builds
+        // that have no telemetry to disable in the first place. A failure to
+        // turn it off is the one thing that can be observed, and the only
+        // thing worth telling anyone about.
         try {
             m_ortEnv->DisableTelemetryEvents();
         } catch (const std::exception &e) {
             qWarning() << "Failed to disable ONNX Runtime telemetry at runtime:" << e.what();
+            reportTelemetryNotDisabled(QString::fromUtf8(e.what()));
         }
 #endif
 
@@ -268,40 +280,31 @@ void PiperTTSProvider::cleanupPiper()
 #ifdef _WIN32
 void PiperTTSProvider::handleOnnxTelemetryOnWindows()
 {
-    // Set environment variable to disable telemetry before ONNX Runtime initialization
+    // Read by ONNX Runtime when it starts up, so it has to be set before the
+    // environment is created - which is why this is a separate step rather
+    // than part of the Ort::Env construction below.
     qputenv("ORT_DISABLE_TELEMETRY", "1");
+}
 
-#ifdef WITH_ONNX_RUNTIME_DYNAMIC
-    // Check if user has been notified about telemetry (only for dynamic linking)
-    AppSettings settings;
-    const bool hasBeenNotified = settings.isPiperTelemetryNotificationShown();
+void PiperTTSProvider::reportTelemetryNotDisabled(const QString &reason)
+{
+    // Once per process. A failure here is worth saying, but not once per
+    // synthesis.
+    static bool reported = false;
+    if (reported)
+        return;
+    reported = true;
 
-    if (!hasBeenNotified) {
-        // Show privacy notice about ONNX Runtime telemetry
-        QMessageBox msgBox;
-        msgBox.setWindowTitle(tr("Privacy Notice - Neural TTS"));
-        msgBox.setIcon(QMessageBox::Information);
-        msgBox.setText(tr("ONNX Runtime Telemetry Information"));
-        msgBox.setInformativeText(
-            tr("Crow Translate uses ONNX Runtime for neural text-to-speech. "
-               "The Windows binary includes Microsoft telemetry that collects usage information.\n\n"
-               "Data Collection:\n"
-               "• Device and usage data, error reports, performance information\n"
-               "• Used by Microsoft to improve product quality and features\n"
-               "• Subject to Microsoft Privacy Statement\n\n"
-               "Crow Translate Actions:\n"
-               "• Automatically disables telemetry on startup\n"
-               "• Uses both environment variables and runtime API calls\n"
-               "• Note: Some data may be transmitted during ONNX initialization\n\n"
-               "On Unix systems, telemetry is inactive by default.\n"
-               "This notice is shown once per installation."));
-        msgBox.setStandardButtons(QMessageBox::Ok);
-        msgBox.exec();
-
-        // Mark as notified so we don't show this again
-        settings.setPiperTelemetryNotificationShown(true);
-    }
-#endif
+    UserNotifier::Notification notification;
+    notification.severity = UserNotifier::Severity::Warning;
+    notification.title = tr("Could not disable neural TTS telemetry");
+    notification.text = tr("Crow Translate could not switch off ONNX Runtime's telemetry, so this copy of it may report usage data to Microsoft.");
+    notification.details = tr("Reason: %1\n\n"
+                              "Only Microsoft's own Windows builds of ONNX Runtime have telemetry compiled in. "
+                              "Builds from source - including the one Crow Translate links statically - have none, "
+                              "and it is inactive on other platforms.")
+                               .arg(reason);
+    UserNotifier::notify(notification);
 }
 #endif
 
@@ -1019,12 +1022,9 @@ QStringList PiperTTSProvider::getAvailableOptions() const
     return {"speaker"};
 }
 
-ProviderUIRequirements PiperTTSProvider::getUIRequirements() const
+ProviderCapabilities PiperTTSProvider::capabilities() const
 {
-    ProviderUIRequirements requirements;
-    requirements.supportedCapabilities = {"voiceSelection", "speakerSelection"};
-    requirements.requiredUIElements = {"sourceVoiceComboBox", "translationVoiceComboBox", "sourceSpeakerComboBox", "translationSpeakerComboBox"};
-    return requirements;
+    return ProviderCapability::VoiceSelection | ProviderCapability::SpeakerSelection;
 }
 
 void PiperTTSProvider::onSynthesisFinished()
@@ -1404,8 +1404,11 @@ void PiperTTSProvider::showPiperVoicesWarning()
         "<p><b>⚠️ License Warning:</b> Some models may have non-free licenses and cannot be used in commercial settings. "
         "Please check the license of each model before commercial use.</p>");
 
-    QMessageBox msgBox(QMessageBox::Warning, tr("Piper Voice Models Required"), warningText);
-    msgBox.setTextFormat(Qt::RichText);
-    msgBox.setStandardButtons(QMessageBox::Ok);
-    msgBox.exec();
+    UserNotifier::Notification notification;
+    notification.severity = UserNotifier::Severity::Warning;
+    notification.title = tr("Piper Voice Models Required");
+    notification.text = tr("No Piper TTS voice models were found. Set the path in Settings -> TTS -> Piper Voices Path.");
+    notification.details = warningText;
+    notification.detailsAreRichText = true;
+    UserNotifier::notify(notification);
 }

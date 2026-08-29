@@ -12,6 +12,7 @@
 #include "qhotkey.h"
 #include "screenwatcher.h"
 #include "trayicon.h"
+#include "core/usernotifier.h"
 #include "ocr/aocrprovider.h"
 #include "ocr/screengrabbers/abstractscreengrabber.h"
 #include "ocr/snippingarea.h"
@@ -33,8 +34,7 @@
 class LanguageButtonsWidget;
 class PopupWindow;
 class SourceTextEdit;
-class ProviderOptionsManager;
-class LanguageResolution;
+class TranslationSession;
 class ModuleStatus;
 class StatusStrip;
 class QLabel;
@@ -85,6 +85,7 @@ public:
     void translationPlayPauseClicked();
     void translationStopClicked();
     void showTranslationWindow();
+    void showNotification(const UserNotifier::Notification &notification);
 public slots:
     void ttsStateChanged(QTextToSpeech::State newState);
     void onTTSError(QTextToSpeech::ErrorReason reason, const QString &errorString);
@@ -112,20 +113,13 @@ private:
     QHotkey *m_toggleOcrNegateHotkey = nullptr;
     QShortcut *m_closeWindowsShortcut = nullptr;
     Ui::MainWindow *ui = nullptr;
-    ATTSProvider *m_tts = nullptr;
-    ATTSProvider::ProviderBackend m_chosenTTSBackend;
-    ATranslationProvider *m_translator = nullptr;
-    ATranslationProvider::ProviderBackend m_chosenTranslationBackend;
-    ProviderOptionsManager *m_optionsManager = nullptr;
-    TesseractOcr *m_tesseractOcr = nullptr;
-    LlmOcr *m_llmOcr = nullptr;
+    // Both providers, the options manager, the language model and the status
+    // model live here now. The window borrows them; it does not own them, and
+    // a backend swap replaces the provider objects underneath it without any
+    // of the window's own wiring being touched.
+    TranslationSession *m_session = nullptr;
     QTimer *m_screenCaptureTimer = nullptr;
     SnippingArea *m_snippingArea = nullptr;
-    ModuleStatus *m_moduleStatus = nullptr;
-    // The single owner of "which languages is this translation between".
-    // Every consumer of that answer reads it from here and is notified when
-    // it moves; none of them derives it.
-    LanguageResolution *m_languages = nullptr;
     StatusStrip *m_statusStrip = nullptr;
     // What the voice combos were last populated for, so a completed
     // translation only rebuilds them when the spoken language actually moved.
@@ -135,26 +129,25 @@ private:
     // "started" signal and adding one would touch every grabber subclass.
     void startScreenCapture();
     void loadAppSettings();
-    void swapTranslator(ATranslationProvider::ProviderBackend newBackend);
     void setupEngineComboBoxConnection();
-    void swapTTSProvider(ATTSProvider::ProviderBackend newBackend);
     void validateLanguageSupport();
-    void applyTranslationProviderSettings();
-    void applyTTSProviderSettings();
+    // The session rebuilt a provider: re-read it and rebuild what displays it.
+    void onTranslatorChanged();
+    void onTtsProviderChanged();
     void refreshLanguageWidgetsWithSupportedLanguages();
     void updateTTSButtonStates();
     bool isTTSAvailableForLanguage(const Language &language) const;
     void updateAutoLocales();
     void updateTranslateButtonState();
     void updateProviderUI();
-    Language preferredTranslationLanguage(const Language &sourceLang) const;
-    // Pushes the buttons' checked languages and the settings' preference
-    // into m_languages. "Auto" stays auto here - resolving it is the
-    // model's job, not the caller's.
+    // Pushes the buttons' checked languages into the session's language
+    // model. "Auto" stays auto here - resolving it is the model's job, not
+    // the caller's. This is the only door the window's language choice goes
+    // through, which is what lets the session answer "what did the user ask
+    // for" without owning a widget.
     void publishLanguageSelection();
     // The provider reported a detected source, or finished a translation.
     void onLanguageDetected(const Language &detectedLanguage, bool isTranslationContext);
-    void handleTranslationRequest(const QString &text, const Language &destLang, const Language &srcLang);
     AppSettings::WindowMode m_windowMode;
     TrayIcon *m_trayIcon;
     ScreenWatcher *m_orientationWatcher;
@@ -169,24 +162,14 @@ private:
     QList<QIcon> m_engineItemsIcons;
     void clearSourceImage();
     void setSourceImageInternal(const QImage &img);
-    bool loadImageFromFile(const QString &path, QImage &out);
     bool m_hasSourceImage = false;
     QPixmap m_originalPixmap;
     QLabel *m_imagePreview = nullptr;
     QImage m_pendingOcrImage;
-    AOcrProvider *activeOcr() const;
-    void configureLlmOcr();
-    // Configures the active engine from settings and reports whether it is
-    // usable; every OCR entry point goes through it.
+    // Asks the session whether OCR can run, then applies the parts that are
+    // this window's own - every OCR entry point goes through it.
     bool prepareOcr();
     void recognizeSourceImage();
-    // Chains a translation onto the next recognition. Armed by the
-    // translate-screen-area paths and by an image drop while auto-translate is
-    // on; disarmed on cancel so it never fires for an unrelated later OCR.
-    void armOcrTranslation();
-    void disarmOcrTranslation();
-    QMetaObject::Connection m_ocrTranslateConnection;
-    QMetaObject::Connection m_ocrTranslatorReadyConnection;
     QMetaObject::Connection m_imageOcrRecognizedConnection;
     QMetaObject::Connection m_imageOcrCanceledConnection;
     QMetaObject::Connection m_imageOcrFailedConnection;

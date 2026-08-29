@@ -7,11 +7,11 @@
 
 #include "language.h"
 #include "provideroptions.h"
+#include "core/usernotifier.h"
 #include "tts/attsprovider.h"
 #include "tts/voice.h"
 
 #include <QDebug>
-#include <QMessageBox>
 #include <QSet>
 #ifdef Q_OS_WIN
 #include <QAudioDevice>
@@ -283,13 +283,9 @@ QStringList QtTTSProvider::getAvailableOptions() const
     return {}; // No options available for Qt TTS provider
 }
 
-ProviderUIRequirements QtTTSProvider::getUIRequirements() const
+ProviderCapabilities QtTTSProvider::capabilities() const
 {
-    ProviderUIRequirements requirements;
-    requirements.requiredUIElements = {"sourceVoiceComboBox", "translationVoiceComboBox"};
-    requirements.supportedSignals = {};
-    requirements.supportedCapabilities = {"voiceSelection"};
-    return requirements;
+    return ProviderCapability::VoiceSelection;
 }
 
 QStringList QtTTSProvider::availableSpeakers() const
@@ -340,9 +336,12 @@ void QtTTSProvider::showWindowsVoiceInstallationDialog(const Language &language)
                                    "\"Narrator voices\" have licensing restrictions that are incompatible with this application.</p>")
                                    .arg(languageName);
 
-    QMessageBox msgBox(QMessageBox::Information, tr("Windows TTS Voice Installation"), dialogText);
-    msgBox.setTextFormat(Qt::RichText);
-    msgBox.setStandardButtons(QMessageBox::Ok);
-    msgBox.exec();
+    UserNotifier::Notification notification;
+    notification.severity = UserNotifier::Severity::Information;
+    notification.title = tr("Windows TTS Voice Installation");
+    notification.text = tr("No Windows TTS voice is installed for %1.").arg(languageName);
+    notification.details = dialogText;
+    notification.detailsAreRichText = true;
+    UserNotifier::notify(notification);
 }
 #endif

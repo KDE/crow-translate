@@ -83,6 +83,16 @@ std::optional<Language> LanguageResolution::translatedDestination() const
     return m_translatedDestination;
 }
 
+Language LanguageResolution::selectedSource() const
+{
+    return m_selectedSource;
+}
+
+Language LanguageResolution::selectedDestination() const
+{
+    return m_selectedDestination;
+}
+
 Language LanguageResolution::predictedSource() const
 {
     if (m_selectedSource != Language::autoLanguage()) {

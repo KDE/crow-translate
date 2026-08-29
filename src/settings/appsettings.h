@@ -459,8 +459,6 @@ public:
 
 #ifdef WITH_ONNX_RUNTIME_DYNAMIC
     // Telemetry notification settings (Windows only with dynamic ONNX Runtime)
-    bool isPiperTelemetryNotificationShown() const;
-    void setPiperTelemetryNotificationShown(bool shown);
 #endif
 
 private:

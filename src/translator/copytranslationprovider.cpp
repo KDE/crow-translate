@@ -51,12 +51,11 @@ void CopyTranslationProvider::translate(const QString &inputText, const Language
     state = State::Processing;
     emit stateChanged(state);
     if (translationLang == sourceLang) {
-        // result is HTML: MainWindow renders it with setHtml(). Copying the
-        // input in raw broke that contract - source text containing "<b>"
-        // came back rendered as bold instead of shown - and left the CLI
-        // unable to tell a provider's markup from a user's angle brackets.
-        // Escape exactly as Mozhi and LocalAI do.
-        result = inputText.toHtmlEscaped().replace(QStringLiteral("\n"), QStringLiteral("<br>"));
+        // Plain, and escaped by nobody here. A backend hands over text; the
+        // frontend that renders it into HTML is the one that has to escape
+        // it. The toHtmlEscaped() call this replaces only existed because
+        // result *was* HTML.
+        result.translation = inputText;
         state = State::Processed;
         error = TranslationError::NoError;
     } else {
@@ -82,9 +81,9 @@ QStringList CopyTranslationProvider::getAvailableOptions() const
     return {}; // No options available for copy provider
 }
 
-ProviderUIRequirements CopyTranslationProvider::getUIRequirements() const
+ProviderCapabilities CopyTranslationProvider::capabilities() const
 {
-    return {};
+    return ProviderCapability::None;
 }
 
 void CopyTranslationProvider::saveOptionToSettings(const QString &optionKey, const QVariant &value)

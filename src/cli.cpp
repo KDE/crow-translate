@@ -9,16 +9,19 @@
 
 #include "instancepinger.h"
 #include "provideroptions.h"
-#include "provideroptionsmanager.h"
+#include "core/translationsession.h"
+#include "core/usernotifier.h"
+#include "frontend/frontendregistry.h"
+#include "ocr/aocrprovider.h"
 #include "settings/appsettings.h"
 #include "translator/atranslationprovider.h"
-#include "translator/translationlogic.h"
 #include "tts/attsprovider.h"
 
 #include <QCommandLineParser>
 #include <QCoreApplication>
 #include <QFile>
 #include <QHash>
+#include <QImage>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QMetaObject>
@@ -50,50 +53,67 @@ void printError(const QString &message)
     errorStream() << message << Qt::endl;
 }
 
-// Every backend builds its result as HTML, because MainWindow renders it with
-// setHtml(). A terminal is not a QTextEdit, so the CLI was printing that
-// markup literally - "hallo Welt<br><font color=\"grey\"><i>/.../</i></font>"
-// - in plain, --brief and --json output alike, and reading the tags out loud
-// when asked to speak the translation.
+// Renders what a backend found for a terminal. The transliterations and the
+// dictionary entries keep the shape they had in the window - /like this/ for
+// the translation's romanisation, (like this) for the source's, [like this]
+// for the transcription - without any of the markup that carried it there.
 //
-// Undo the rendering. The vocabulary is small and entirely ours: <br> for
-// line breaks, <b>/<i>/<font> for emphasis, &nbsp; for the indent on example
-// lines. Tags go before entities are decoded, so source text that genuinely
-// contained "<b>" - which the backend escaped to "&lt;b&gt;" - survives
-// instead of being mistaken for markup and dropped.
-//
-// This is a stopgap. The real fix is for backends to hand over the fields
-// (translation, transliterations, examples) and let each frontend render
-// them, rather than shipping one frontend's rendering to all of them.
-QString htmlResultToPlainText(const QString &html)
+// This replaces a function that took the backend's HTML apart again with
+// regular expressions. Nothing renders and un-renders any more: the backend
+// hands over fields and this writes them out.
+QString resultToPlainText(const TranslationResult &result)
 {
-    static const QRegularExpression lineBreak(QStringLiteral("<br\\s*/?>"), QRegularExpression::CaseInsensitiveOption);
-    static const QRegularExpression anyTag(QStringLiteral("<[^>]*>"));
+    QString text = result.translation;
 
-    QString text = html;
-    text.replace(lineBreak, QStringLiteral("\n"));
-    text.remove(anyTag);
+    if (!result.translationTranslit.isEmpty())
+        text += QStringLiteral("\n/%1/").arg(result.translationTranslit);
 
-    text.replace(QStringLiteral("&nbsp;"), QStringLiteral(" "));
-    text.replace(QStringLiteral("&lt;"), QStringLiteral("<"));
-    text.replace(QStringLiteral("&gt;"), QStringLiteral(">"));
-    text.replace(QStringLiteral("&quot;"), QStringLiteral("\""));
-    text.replace(QStringLiteral("&#39;"), QStringLiteral("'"));
-    // Last of the entities: decoding "&amp;" any earlier would turn an
-    // escaped "&amp;lt;" - a literal "&lt;" in the text - back into a "<".
-    text.replace(QStringLiteral("&amp;"), QStringLiteral("&"));
+    if (!result.sourceTranslit.isEmpty())
+        text += QStringLiteral("\n(%1)").arg(result.sourceTranslit);
+
+    if (!result.sourceTranscription.isEmpty())
+        text += QStringLiteral("\n[%1]").arg(result.sourceTranscription);
+
+    if (!result.options.isEmpty()) {
+        text += QStringLiteral("\n\n") + QCoreApplication::translate("Cli", "translation options:");
+        for (const auto &[word, translations] : result.options) {
+            text += QStringLiteral("\n    ") + word;
+            if (!translations.isEmpty())
+                text += QStringLiteral(": ") + translations.join(QStringLiteral(", "));
+        }
+    }
+
+    if (!result.examples.isEmpty()) {
+        text += QStringLiteral("\n\n") + QCoreApplication::translate("Cli", "examples:");
+        for (const auto &[word, definition, example, examplesSource, examplesTarget] : result.examples) {
+            text += QStringLiteral("\n    ") + word;
+            if (!definition.isEmpty())
+                text += QStringLiteral("\n    ") + definition;
+            if (!example.isEmpty())
+                text += QStringLiteral("\n    ") + example;
+            for (qsizetype i = 0; i < examplesSource.size(); ++i)
+                text += QStringLiteral("\n    %1 %2").arg(examplesSource[i], examplesTarget.value(i));
+        }
+    }
+
     return text;
 }
 } // namespace
 
 Cli::Cli(QObject *parent)
     : QObject(parent)
+    , m_session(new TranslationSession(this))
 {
 }
 
 void Cli::process(const QCoreApplication &app)
 {
     AppSettings settings;
+
+    // These used to be QMessageBox::exec() calls inside the providers, so in a
+    // CLI run they constructed dialogs that no one would ever see - a missing
+    // voice model or a provider that failed to start simply produced silence.
+    connect(UserNotifier::instance(), &UserNotifier::notified, this, &Cli::printNotification);
 
     const QCommandLineOption codes({"c", "codes"}, tr("Display all language codes."));
     const QCommandLineOption source({"s", "source"},
@@ -133,10 +153,21 @@ void Cli::process(const QCoreApplication &app)
     const QCommandLineOption speakSource({"o", "speak-source"}, tr("Speak the source."));
     const QCommandLineOption file({"f", "file"}, tr("Read source text from files. Arguments will be interpreted as file paths."));
     const QCommandLineOption readStdin({"i", "stdin"}, tr("Add stdin data to source text."));
+    const QCommandLineOption image(QStringList{QStringLiteral("image")},
+                                   tr("Read source text from an image using the configured OCR engine."),
+                                   tr("path"));
     const QCommandLineOption audioOnly({"a", "audio-only"},
-                                       tr("Do not print any text when using --%1 or --%2.").arg(speakSource.names().at(1), speakTranslation.names().at(1)));
+                                       tr("Do not print any text when using --%1 or --%2.").arg(longOptionName(speakSource), longOptionName(speakTranslation)));
     const QCommandLineOption brief({"b", "brief"}, tr("Print only translations."));
     const QCommandLineOption json({"j", "json"}, tr("Print output formatted as JSON."));
+    // Declared so it is accepted and documented here, though main() has
+    // already acted on it - the frontend has to be chosen before there is a
+    // QCoreApplication for this parser to exist under. Without declaring it,
+    // the parser would reject the very option that selected this frontend.
+    const QCommandLineOption frontend(FrontendRegistry::frontendOptionName(),
+                                      tr("Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any argument is given."),
+                                      tr("frontend"),
+                                      QStringLiteral("cli"));
 
     QCommandLineParser parser;
     parser.setApplicationDescription(tr("Application that allows to translate and speak text using various providers"));
@@ -154,11 +185,15 @@ void Cli::process(const QCoreApplication &app)
     parser.addOption(speakSource);
     parser.addOption(file);
     parser.addOption(readStdin);
+    parser.addOption(image);
     parser.addOption(audioOnly);
     parser.addOption(brief);
     parser.addOption(json);
+    parser.addOption(frontend);
     parser.process(app);
 
+    checkIncompatibleOptions(parser, image, file);
+    checkIncompatibleOptions(parser, image, readStdin);
     checkIncompatibleOptions(parser, audioOnly, brief);
     checkIncompatibleOptions(parser, json, audioOnly);
     checkIncompatibleOptions(parser, json, brief);
@@ -166,7 +201,7 @@ void Cli::process(const QCoreApplication &app)
     if (parser.isSet(audioOnly) && !parser.isSet(speakSource) && !parser.isSet(speakTranslation)) {
         exitWithUsage(parser,
                       tr("Error: For --%1 you must specify --%2 and/or --%3 options")
-                          .arg(audioOnly.names().at(1), speakSource.names().at(1), speakTranslation.names().at(1)));
+                          .arg(longOptionName(audioOnly), longOptionName(speakSource), longOptionName(speakTranslation)));
     }
 
     // Resolve the engine name once, before anything uses it: the translation
@@ -194,8 +229,8 @@ void Cli::process(const QCoreApplication &app)
         }
     }
 
-    m_translator = ATranslationProvider::createTranslationProvider(this, translationBackend);
-    connect(m_translator, &ATranslationProvider::stateChanged, this, &Cli::onTranslationStateChanged);
+    m_session->setTranslationBackend(translationBackend);
+    connect(m_session, &TranslationSession::translationStateChanged, this, &Cli::onTranslationStateChanged);
 
     // Only show language codes. Deliberately placed after the provider exists
     // and before anything needs an instance: the list comes from the provider,
@@ -221,18 +256,14 @@ void Cli::process(const QCoreApplication &app)
     // Translation languages
     const QString translationValue = parser.value(translation);
     if (translationValue == "auto") {
-        // The rule the window already uses, via the same function
-        // (MainWindow::preferredTranslationLanguage calls it too), so "auto"
-        // does not mean two different things depending on which frontend
-        // asked. The CLI used to take the system locale unconditionally and
-        // ignore the configured primary/secondary pair, so `crow -s en text`
-        // on an English system asked for English to English and got the
-        // source back - while the window, given the same settings and the
-        // same text, translated it into the primary language.
-        m_translationLanguages.append(TranslationLogic::preferredDestination(m_sourceLang,
-                                                                             settings.primaryLanguage(),
-                                                                             settings.secondaryLanguage(),
-                                                                             Language(QLocale::system())));
+        // Asked of the shared core rather than worked out here, so "auto"
+        // cannot mean two different things depending on which frontend asked.
+        // The CLI used to take the system locale unconditionally and ignore
+        // the configured primary/secondary pair, so `crow -s en text` on an
+        // English system asked for English to English and got the source back
+        // - while the window, given the same settings and the same text,
+        // translated it into the primary language.
+        m_translationLanguages.append(m_session->preferredDestination(m_sourceLang));
     } else {
         for (const QString &langCode : translationValue.split('+')) {
             const Language language = Language(langCode);
@@ -259,8 +290,12 @@ void Cli::process(const QCoreApplication &app)
     if (m_sourceText.endsWith('\n'))
         m_sourceText.chop(1);
 
-    if (m_sourceText.isEmpty()) {
+    m_imagePath = parser.value(image);
+    if (m_sourceText.isEmpty() && m_imagePath.isEmpty()) {
         exitWithUsage(parser, tr("Error: There is no text for translation"));
+    }
+    if (!m_sourceText.isEmpty() && !m_imagePath.isEmpty()) {
+        exitWithUsage(parser, tr("Error: --%1 cannot be combined with text arguments").arg(longOptionName(image)));
     }
 
     // Set up Mozhi instance for auto-detection (only if no URL specified)
@@ -276,12 +311,13 @@ void Cli::process(const QCoreApplication &app)
         settings.setInstance(pinger.fastestInstance());
     }
 
-    // Apply saved settings first
-    ProviderOptionsManager optionsManager;
-    optionsManager.applySettingsToTranslationProvider(m_translator);
+    // Re-applied rather than relied on from the backend switch above: the
+    // instance may have been detected and stored since, and the provider was
+    // filled in before that happened.
+    m_session->applyTranslationOptions();
 
     // Override with CLI arguments if provided
-    if (m_translator->getProviderType() == "MozhiTranslationProvider") {
+    if (m_session->translator()->getProviderType() == "MozhiTranslationProvider") {
         auto options = std::make_unique<ProviderOptions>();
         bool hasOverrides = false;
 
@@ -299,7 +335,7 @@ void Cli::process(const QCoreApplication &app)
 
         // Apply CLI overrides if any
         if (hasOverrides) {
-            m_translator->applyOptions(*options);
+            m_session->translator()->applyOptions(*options);
         }
     }
 
@@ -331,17 +367,13 @@ void Cli::process(const QCoreApplication &app)
             }
         }
 
-        m_tts = ATTSProvider::createTTSProvider(this, ttsBackend);
+        m_session->setTtsBackend(ttsBackend);
         qDebug() << "Using TTS provider:" << static_cast<int>(ttsBackend);
 
-        connect(m_tts, &ATTSProvider::stateChanged, this, &Cli::onTTSStateChanged);
-
-        // Apply saved settings first
-        ProviderOptionsManager optionsManager;
-        optionsManager.applySettingsToTTSProvider(m_tts);
+        connect(m_session, &TranslationSession::ttsStateChanged, this, &Cli::onTTSStateChanged);
 
         // Override with CLI arguments if provided for Mozhi TTS
-        if (m_tts->getProviderType() == "MozhiTTSProvider") {
+        if (m_session->tts()->getProviderType() == "MozhiTTSProvider") {
             auto ttsOptions = std::make_unique<ProviderOptions>();
             bool hasTTSOverrides = false;
 
@@ -362,7 +394,7 @@ void Cli::process(const QCoreApplication &app)
 
             // Apply CLI overrides if any
             if (hasTTSOverrides) {
-                m_tts->applyOptions(*ttsOptions);
+                m_session->tts()->applyOptions(*ttsOptions);
             }
         }
     }
@@ -377,16 +409,83 @@ void Cli::process(const QCoreApplication &app)
     m_json = parser.isSet(json);
 
     // Start translation process
-    processNextTranslation();
+    if (m_imagePath.isEmpty()) {
+        processNextTranslation();
+        return;
+    }
+    recognizeImage();
+}
+
+// The source text comes from a picture. Everything downstream is unchanged:
+// what recognition produces is the source text, and is then translated,
+// spoken and printed exactly as typed text would be.
+void Cli::recognizeImage()
+{
+    // The window does this when it loads its settings; nothing had done it
+    // here, so Tesseract had no languages and reported itself unconfigured
+    // however well it was actually set up.
+    connect(m_session, &TranslationSession::ocrLanguagesUnavailable, this, [this](const QString &languages) {
+        printError(tr("Error: Unable to initialize Tesseract with %1").arg(languages));
+    });
+    m_session->initTesseractFromSettings();
+
+    if (!m_session->prepareOcr()) {
+        // prepareOcr() reports through UserNotifier, whose delivery is queued.
+        // Quitting from here would return to the event loop with that
+        // notification still pending and never printed, so the exit is queued
+        // behind it - same thread, so it is delivered first.
+        QMetaObject::invokeMethod(
+            this,
+            [this] {
+                cleanup();
+                QCoreApplication::exit(1);
+            },
+            Qt::QueuedConnection);
+        return;
+    }
+
+    QImage source;
+    if (!TranslationSession::loadImage(m_imagePath, source)) {
+        printError(tr("Error: Unable to read image '%1'").arg(m_imagePath));
+        cleanup();
+        QCoreApplication::exit(1);
+        return;
+    }
+
+    AOcrProvider *engine = m_session->ocr();
+    connect(engine, &AOcrProvider::recognized, this, [this](const QString &text) {
+        m_sourceText = text;
+        if (m_sourceText.isEmpty()) {
+            printError(tr("Error: No text was recognized in the image"));
+            cleanup();
+            QCoreApplication::exit(1);
+            return;
+        }
+        processNextTranslation();
+    });
+    connect(engine, &AOcrProvider::failed, this, [this](const QString &error) {
+        printError(tr("Error: Recognition failed: %1").arg(error));
+        cleanup();
+        QCoreApplication::exit(1);
+    });
+    connect(engine, &AOcrProvider::canceled, this, [this] {
+        printError(tr("Error: Recognition was cancelled"));
+        cleanup();
+        QCoreApplication::exit(1);
+    });
+
+    // 96 dpi, the same assumption the window makes for an image that arrived
+    // as a file rather than off a screen whose scale is known.
+    engine->recognize(source, 96);
 }
 
 void Cli::onTranslationStateChanged(ATranslationProvider::State state)
 {
-    qDebug() << "CLI: Translation state changed to:" << static_cast<int>(state) << "Error:" << static_cast<int>(m_translator->error);
+    qDebug() << "CLI: Translation state changed to:" << static_cast<int>(state) << "Error:" << static_cast<int>(m_session->translator()->error);
     if (state == ATranslationProvider::State::Processed) {
         // Check for translation error
-        if (m_translator->error != ATranslationProvider::TranslationError::NoError) {
-            const QString errorString = m_translator->getErrorString();
+        if (m_session->translator()->error != ATranslationProvider::TranslationError::NoError) {
+            const QString errorString = m_session->translator()->getErrorString();
             if (!errorString.isEmpty()) {
                 printError(tr("Error: %1").arg(errorString));
             } else {
@@ -399,17 +498,15 @@ void Cli::onTranslationStateChanged(ATranslationProvider::State state)
         }
 
         // Translation successful
-        // Converted once, here: printTranslation() has three output modes
-        // and speakText() must not read markup aloud either.
-        m_currentTranslationResult = htmlResultToPlainText(m_translator->result);
+        m_currentTranslationResult = m_session->translator()->result;
 
         // Update source language with detected language if auto-detection was used
-        if (m_sourceLang == Language::autoLanguage() && m_translator->sourceLanguage != Language::autoLanguage()) {
-            m_sourceLang = m_translator->sourceLanguage;
+        if (m_sourceLang == Language::autoLanguage() && m_session->translator()->sourceLanguage != Language::autoLanguage()) {
+            m_sourceLang = m_session->translator()->sourceLanguage;
             qDebug() << "Auto-detected source language:" << m_sourceLang.name();
         }
 
-        m_translator->finish();
+        m_session->acceptTranslation();
 
         if (!m_audioOnly) {
             printTranslation();
@@ -425,7 +522,7 @@ void Cli::onTranslationStateChanged(ATranslationProvider::State state)
             } else if (m_speakTranslation) {
                 m_ttsState = TTSState::SpeakingTranslation;
                 m_waitingForTTS = true;
-                if (speakText(m_currentTranslationResult, m_currentTargetLang))
+                if (speakText(m_currentTranslationResult.translation, m_currentTargetLang))
                     return;
             }
             // Speech never started, so nothing will report that it finished.
@@ -439,8 +536,8 @@ void Cli::onTranslationStateChanged(ATranslationProvider::State state)
         processNextTranslation();
     } else if (state == ATranslationProvider::State::Finished) {
         // Check for translation error
-        if (m_translator->error != ATranslationProvider::TranslationError::NoError) {
-            const QString errorString = m_translator->getErrorString();
+        if (m_session->translator()->error != ATranslationProvider::TranslationError::NoError) {
+            const QString errorString = m_session->translator()->getErrorString();
             if (!errorString.isEmpty()) {
                 printError(tr("Error: %1").arg(errorString));
             } else {
@@ -456,7 +553,7 @@ void Cli::onTranslationStateChanged(ATranslationProvider::State state)
         }
 
         // Reset for next translation
-        m_translator->reset();
+        m_session->resetTranslator();
     }
 }
 
@@ -468,7 +565,7 @@ void Cli::onTTSStateChanged(QTextToSpeech::State state)
     if (state == QTextToSpeech::Ready) {
         if (m_ttsState == TTSState::SpeakingSource && m_speakTranslation) {
             qDebug() << "Transitioning from source to translation speech";
-            qDebug() << "Translation text:" << m_currentTranslationResult;
+            qDebug() << "Translation text:" << m_currentTranslationResult.translation;
             qDebug() << "Target language:" << m_currentTargetLang.name();
             m_ttsState = TTSState::SpeakingTranslation;
 
@@ -482,7 +579,7 @@ void Cli::onTTSStateChanged(QTextToSpeech::State state)
                 return;
             }
 
-            if (m_tts == nullptr) {
+            if (m_session->tts() == nullptr) {
                 qWarning() << "TTS provider is null during transition";
                 m_waitingForTTS = false;
                 m_ttsState = TTSState::None;
@@ -492,7 +589,10 @@ void Cli::onTTSStateChanged(QTextToSpeech::State state)
             }
 
             qDebug() << "About to call speakText for translation";
-            if (speakText(m_currentTranslationResult, m_currentTargetLang))
+            // The translation only. Reading the transliteration and the
+            // dictionary entries aloud after it was never intended; it only
+            // happened because everything arrived as one blob of markup.
+            if (speakText(m_currentTranslationResult.translation, m_currentTargetLang))
                 return;
 
             m_waitingForTTS = false;
@@ -510,7 +610,7 @@ void Cli::onTTSStateChanged(QTextToSpeech::State state)
         m_currentTranslationIndex++;
         processNextTranslation();
     } else if (state == QTextToSpeech::Error) {
-        const QString errorString = (m_tts != nullptr) ? m_tts->errorString() : tr("Unknown error");
+        const QString errorString = (m_session->tts() != nullptr) ? m_session->tts()->errorString() : tr("Unknown error");
         printError(tr("Error: TTS failed: %1").arg(errorString));
         m_waitingForTTS = false;
         m_ttsState = TTSState::None;
@@ -526,7 +626,10 @@ void Cli::onTTSStateChanged(QTextToSpeech::State state)
 void Cli::translateText(const QString &text, const Language &sourceLang, const Language &targetLang)
 {
     m_currentTargetLang = targetLang;
-    m_translator->translate(text, targetLang, sourceLang);
+    // Through the session, the same door the window uses. targetLang is
+    // already concrete by this point - "auto" was resolved once, up in
+    // process() - so the resolution inside has nothing left to do here.
+    m_session->requestTranslation(text, targetLang, sourceLang);
 }
 
 void Cli::processNextTranslation()
@@ -551,14 +654,20 @@ void Cli::printTranslation()
         QJsonObject entry;
         entry[QStringLiteral("language")] = m_currentTargetLang.toCode();
         entry[QStringLiteral("language_name")] = m_currentTargetLang.name();
-        entry[QStringLiteral("text")] = m_currentTranslationResult;
+        entry[QStringLiteral("text")] = m_currentTranslationResult.translation;
+        if (!m_currentTranslationResult.translationTranslit.isEmpty())
+            entry[QStringLiteral("transliteration")] = m_currentTranslationResult.translationTranslit;
+        if (!m_currentTranslationResult.sourceTranslit.isEmpty())
+            entry[QStringLiteral("source_transliteration")] = m_currentTranslationResult.sourceTranslit;
+        if (!m_currentTranslationResult.sourceTranscription.isEmpty())
+            entry[QStringLiteral("source_transcription")] = m_currentTranslationResult.sourceTranscription;
         m_jsonTranslations.append(entry);
         return;
     }
 
     // Short mode
     if (m_brief) {
-        m_stdout << m_currentTranslationResult << Qt::endl;
+        m_stdout << m_currentTranslationResult.translation << Qt::endl;
         return;
     }
 
@@ -575,7 +684,7 @@ void Cli::printTranslation()
 
     // Translation
     if (!m_currentTranslationResult.isEmpty()) {
-        m_stdout << m_currentTranslationResult << '\n';
+        m_stdout << resultToPlainText(m_currentTranslationResult) << '\n';
         m_stdout << '\n';
     }
 
@@ -608,7 +717,7 @@ bool Cli::speakText(const QString &text, const Language &language)
     qDebug() << "Text:" << text;
     qDebug() << "Language:" << language.name();
 
-    if (m_tts == nullptr) {
+    if (m_session->tts() == nullptr) {
         reportSpeechUnavailable(tr("no provider was created"));
         return false;
     }
@@ -632,52 +741,60 @@ bool Cli::speakText(const QString &text, const Language &language)
     //   onTTSStateChanged()'s error branch to fire on either.
     //
     // Both have to be caught here, before anything starts waiting.
-    if (m_tts->state() == QTextToSpeech::Error) {
-        const QString reason = m_tts->errorString();
+    if (m_session->tts()->state() == QTextToSpeech::Error) {
+        const QString reason = m_session->tts()->errorString();
         reportSpeechUnavailable(reason.isEmpty() ? tr("the engine failed to start") : reason);
         return false;
     }
 
-    if (m_tts->availableLanguages().isEmpty()) {
+    if (m_session->tts()->availableLanguages().isEmpty()) {
         reportSpeechUnavailable(tr("the selected provider has no voices available"));
         return false;
     }
 
     qDebug() << "TTS: Speaking text:" << text << "with language:" << language.name();
-    qDebug() << "TTS: Current state before speaking:" << m_tts->state();
+    qDebug() << "TTS: Current state before speaking:" << m_session->tts()->state();
 
     // Find the best available locale for TTS
     const Language bestLanguage = findBestTTSLanguage(language);
     qDebug() << "TTS: Using best locale:" << bestLanguage.name();
 
     // Set locale and find appropriate voice
-    m_tts->setLanguage(bestLanguage);
-    QList<Voice> availableVoices = m_tts->findVoices(bestLanguage);
+    m_session->tts()->setLanguage(bestLanguage);
+    QList<Voice> availableVoices = m_session->tts()->findVoices(bestLanguage);
     if (!availableVoices.isEmpty()) {
-        m_tts->setVoice(availableVoices.first());
+        m_session->tts()->setVoice(availableVoices.first());
         qDebug() << "TTS: Selected voice:" << availableVoices.first().name() << "model path:" << availableVoices.first().modelPath();
     } else {
         qDebug() << "TTS: No voices found for locale, using current voice";
     }
 
-    if (m_tts->state() == QTextToSpeech::Ready) {
+    if (m_session->tts()->state() == QTextToSpeech::Ready) {
         qDebug() << "TTS: Calling say() directly";
-        m_tts->say(text);
+        m_session->tts()->say(text);
         qDebug() << "TTS: say() call completed";
     } else {
-        qDebug() << "TTS: Waiting for Ready state before calling say(), current state:" << m_tts->state();
+        qDebug() << "TTS: Waiting for Ready state before calling say(), current state:" << m_session->tts()->state();
         auto connection = std::make_shared<QMetaObject::Connection>();
-        *connection = connect(m_tts, &ATTSProvider::stateChanged, this, [this, text, connection](QTextToSpeech::State state) {
+        *connection = connect(m_session->tts(), &ATTSProvider::stateChanged, this, [this, text, connection](QTextToSpeech::State state) {
             if (state == QTextToSpeech::Ready) {
                 qDebug() << "TTS: Ready state reached, calling say()";
                 disconnect(*connection);
-                m_tts->say(text);
+                m_session->tts()->say(text);
                 qDebug() << "TTS: say() call completed from wait";
             }
         });
     }
     qDebug() << "TTS: speakText() method completed";
     return true;
+}
+
+void Cli::printNotification(const UserNotifier::Notification &notification)
+{
+    // stderr, like every other diagnostic: stdout carries the translation.
+    // Only the summary - the details are written for a dialog, some of them
+    // as HTML, and none of them belong in a terminal.
+    printError(notification.title.isEmpty() ? notification.text : QStringLiteral("%1: %2").arg(notification.title, notification.text));
 }
 
 void Cli::reportSpeechUnavailable(const QString &reason)
@@ -704,8 +821,8 @@ void Cli::printLangCodes()
     // Ask the provider, which already has to answer this for the GUI's
     // language lists. Source and destination are listed separately only when
     // they actually differ; every backend in tree returns one set for both.
-    const QVector<Language> sourceLanguages = m_translator->supportedSourceLanguages();
-    const QVector<Language> destinationLanguages = m_translator->supportedDestinationLanguages();
+    const QVector<Language> sourceLanguages = m_session->translator()->supportedSourceLanguages();
+    const QVector<Language> destinationLanguages = m_session->translator()->supportedDestinationLanguages();
 
     if (sourceLanguages == destinationLanguages) {
         printLanguageList(sourceLanguages);
@@ -729,17 +846,18 @@ void Cli::printLanguageList(const QVector<Language> &languages)
     }
 }
 
+// Every caller quits immediately afterwards. What this has to do is make sure
+// nothing else arrives in the meantime: the loop does not stop the instant
+// quit() is called, and a queued provider signal delivered after the exit code
+// has been decided would run a handler for a run that is already over.
+//
+// It used to deleteLater() both providers, which did not achieve that - a
+// deferred delete scheduled just before the loop stops never runs at all. What
+// it actually did was null the two pointers, so the handlers' null checks
+// short-circuited. Severing the connections says that outright.
 void Cli::cleanup()
 {
-    if (m_translator != nullptr) {
-        m_translator->deleteLater();
-        m_translator = nullptr;
-    }
-
-    if (m_tts != nullptr) {
-        m_tts->deleteLater();
-        m_tts = nullptr;
-    }
+    m_session->disconnect(this);
 }
 
 std::optional<OnlineTranslator::Engine> Cli::engineFromName(const QString &name)
@@ -768,10 +886,19 @@ void Cli::exitWithUsage(const QCommandLineParser &parser, const QString &message
     ::exit(1);
 }
 
+// names().at(1) assumed every option has a short name and a long one. An
+// option declared with only a long name - --image is the first - made that an
+// out-of-range access, so `crow --image x -f` aborted instead of printing the
+// error it was about to print. The long name is simply the last one.
+QString Cli::longOptionName(const QCommandLineOption &option)
+{
+    return option.names().constLast();
+}
+
 void Cli::checkIncompatibleOptions(QCommandLineParser &parser, const QCommandLineOption &option1, const QCommandLineOption &option2)
 {
     if (parser.isSet(option1) && parser.isSet(option2)) {
-        exitWithUsage(parser, tr("Error: You can't use --%1 with --%2").arg(option1.names().at(1), option2.names().at(1)));
+        exitWithUsage(parser, tr("Error: You can't use --%1 with --%2").arg(longOptionName(option1), longOptionName(option2)));
     }
 }
 
@@ -823,14 +950,14 @@ Language Cli::findBestTTSLanguage(const Language &requestedLanguage)
 {
     qDebug() << "findBestTTSLanguage called with:" << requestedLanguage.name();
 
-    if (m_tts == nullptr) {
+    if (m_session->tts() == nullptr) {
         qDebug() << "findBestTTSLocale: TTS provider is null";
         return Language(QLocale::system());
     }
 
     qDebug() << "findBestTTSLocale: Getting available locales...";
     // Get all available locales from TTS
-    QList<Language> availableLanguages = m_tts->availableLanguages();
+    QList<Language> availableLanguages = m_session->tts()->availableLanguages();
     qDebug() << "findBestTTSLanguage: Got" << availableLanguages.size() << "available languages";
 
     // First try: exact match

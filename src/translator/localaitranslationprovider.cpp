@@ -116,10 +116,14 @@ QString LocalAiTranslationProvider::buildPrompt(const QString &srcCode, const QS
     return p;
 }
 
-QString LocalAiTranslationProvider::formatResult(const QString &text)
+TranslationResult LocalAiTranslationProvider::formatResult(const QString &text)
 {
-    QString t = text.trimmed();
-    return t.toHtmlEscaped().replace(QStringLiteral("\n"), QStringLiteral("<br>"));
+    // The escaping and the <br> substitution that used to happen here were
+    // both rendering, done because result was HTML. A model's reply is text;
+    // it is handed over as text.
+    TranslationResult formatted;
+    formatted.translation = text.trimmed();
+    return formatted;
 }
 
 // ── Translation ───────────────────────────────────────────────
@@ -537,13 +541,9 @@ QStringList LocalAiTranslationProvider::getAvailableOptions() const
             QStringLiteral("detect_api_key"), QStringLiteral("detect_is_anthropic")};
 }
 
-ProviderUIRequirements LocalAiTranslationProvider::getUIRequirements() const
+ProviderCapabilities LocalAiTranslationProvider::capabilities() const
 {
-    ProviderUIRequirements requirements;
-    requirements.requiredUIElements = {QStringLiteral("engineComboBox")};
-    requirements.supportedSignals = {QStringLiteral("languageDetected")};
-    requirements.supportedCapabilities = {QStringLiteral("languageDetection"), QStringLiteral("providerSelection")};
-    return requirements;
+    return ProviderCapability::LanguageDetection | ProviderCapability::ProviderSelection;
 }
 
 void LocalAiTranslationProvider::saveOptionToSettings(const QString &optionKey, const QVariant &value)

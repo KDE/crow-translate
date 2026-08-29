@@ -158,9 +158,9 @@ public:
     {
         return {};
     }
-    ProviderUIRequirements getUIRequirements() const override
+    ProviderCapabilities capabilities() const override
     {
-        return {};
+        return ProviderCapability::None;
     }
     QStringList availableSpeakers() const override
     {

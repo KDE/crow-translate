@@ -132,9 +132,9 @@ QStringList NoopTTSProvider::getAvailableOptions() const
     return {};
 }
 
-ProviderUIRequirements NoopTTSProvider::getUIRequirements() const
+ProviderCapabilities NoopTTSProvider::capabilities() const
 {
-    return {};
+    return ProviderCapability::None;
 }
 
 QStringList NoopTTSProvider::availableSpeakers() const

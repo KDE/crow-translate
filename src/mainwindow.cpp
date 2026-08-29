@@ -17,6 +17,9 @@
 #include "selection.h"
 #include "singleapplication.h"
 #include "statusstrip.h"
+#include "core/translationsession.h"
+#include "core/usernotifier.h"
+#include "gui/translationhtmlformatter.h"
 #include "ocr/aocrprovider.h"
 #include "ocr/llmocr.h"
 #include "ocr/screengrabbers/abstractscreengrabber.h"
@@ -25,7 +28,6 @@
 #include "settings/settingsdialog.h"
 #include "translator/atranslationprovider.h"
 #include "translator/languageresolution.h"
-#include "translator/translationlogic.h"
 #include "tts/attsprovider.h"
 #include "tts/voice.h"
 
@@ -66,17 +68,18 @@ MainWindow::MainWindow(QWidget *parent)
     , m_toggleOcrNegateHotkey(new QHotkey(this))
     , m_closeWindowsShortcut(new QShortcut(this))
     , ui(new Ui::MainWindow)
-    , m_optionsManager(new ProviderOptionsManager(this))
-    , m_tesseractOcr(new TesseractOcr(this))
-    , m_llmOcr(new LlmOcr(this))
+    , m_session(new TranslationSession(this))
     , m_screenCaptureTimer(new QTimer(this))
     , m_snippingArea(new SnippingArea(this))
     , m_trayIcon(new TrayIcon(this))
     , m_orientationWatcher(new ScreenWatcher(this))
     , m_screenGrabber(AbstractScreenGrabber::createScreenGrabber(this))
-    , m_moduleStatus(new ModuleStatus(this))
-    , m_languages(new LanguageResolution(this))
 {
+    // Before anything that can notify is constructed. Delivery is queued, so
+    // a provider built further down this constructor can still report a
+    // failed start and have it reach the user.
+    connect(UserNotifier::instance(), &UserNotifier::notified, this, &MainWindow::showNotification);
+
     ui->setupUi(this);
 
     // The status strip lives in the status bar rather than centralLayout:
@@ -84,7 +87,7 @@ MainWindow::MainWindow(QWidget *parent)
     // orientation, which would place the strip beside the columns in
     // landscape and invert its position in InvertedPortraitOrientation.
     m_statusStrip = new StatusStrip;
-    m_statusStrip->setModel(m_moduleStatus);
+    m_statusStrip->setModel(m_session->moduleStatus());
     ui->statusbar->addWidget(m_statusStrip, 1);
     // Save original Mozhi engine combo items so they can be restored after
     // switching to LocalAI (which clears the combo).
@@ -121,16 +124,16 @@ MainWindow::MainWindow(QWidget *parent)
     // OCR logic
     connect(m_screenGrabber, &AbstractScreenGrabber::grabbed, m_snippingArea, &SnippingArea::snip);
     connect(m_snippingArea, &SnippingArea::snipped, this, [this](const QPixmap &pixmap, int dpi) {
-        activeOcr()->recognize(pixmap.toImage(), dpi);
+        m_session->ocr()->recognize(pixmap.toImage(), dpi);
     });
     // An abandoned snip must not leave a translation armed for whatever gets
     // recognized next.
-    connect(m_snippingArea, &SnippingArea::cancelled, this, &MainWindow::disarmOcrTranslation);
+    connect(m_snippingArea, &SnippingArea::cancelled, m_session, &TranslationSession::disarmOcrTranslation);
     // A failed grab never opens the snipping area, so it emits no SnippingArea
     // signal either - the same armed-connection leak as an abandoned snip.
-    connect(m_screenGrabber, &AbstractScreenGrabber::grabbingFailed, this, &MainWindow::disarmOcrTranslation);
-    connect(m_tesseractOcr, &TesseractOcr::recognized, ui->sourceEdit, &SourceTextEdit::replaceText);
-    connect(m_llmOcr, &LlmOcr::recognized, ui->sourceEdit, &SourceTextEdit::replaceText);
+    connect(m_screenGrabber, &AbstractScreenGrabber::grabbingFailed, m_session, &TranslationSession::disarmOcrTranslation);
+    connect(m_session->tesseractOcr(), &AOcrProvider::recognized, ui->sourceEdit, &SourceTextEdit::replaceText);
+    connect(m_session->llmOcr(), &AOcrProvider::recognized, ui->sourceEdit, &SourceTextEdit::replaceText);
     // Text inserted through replaceText() deliberately suppresses
     // SourceTextEdit::textEdited (the armed flows chain their own follow-up),
     // so an UNarmed recognition - a plain recognize-screen-area, or an image
@@ -141,39 +144,58 @@ MainWindow::MainWindow(QWidget *parent)
     // created before any armed/temporary one, so the gate below sees the
     // current armed state correctly.
     const auto handleRecognizedText = [this]() {
-        if (m_ocrTranslateConnection)
+        if (m_session->isOcrTranslationArmed())
             return; // the armed path chains its own translation
         updateTranslateButtonState();
         updateTTSButtonStates();
         updateAutoLocales();
         handleAutoTranslation();
     };
-    connect(m_tesseractOcr, &TesseractOcr::recognized, this, handleRecognizedText);
-    connect(m_llmOcr, &LlmOcr::recognized, this, handleRecognizedText);
+    connect(m_session->tesseractOcr(), &AOcrProvider::recognized, this, handleRecognizedText);
+    connect(m_session->llmOcr(), &AOcrProvider::recognized, this, handleRecognizedText);
     m_screenCaptureTimer->setSingleShot(true);
 
-    // Both engines and the grabber/snipping area are long-lived; bind them
-    // once. Both engines, not activeOcr(): the active one switches per
-    // settings read.
-    m_moduleStatus->bindOcr(m_tesseractOcr, m_llmOcr);
-    m_moduleStatus->bindCapture(m_screenGrabber, m_snippingArea);
+    // The session binds its own two recognition engines; the grabber and the
+    // snipping area belong to whatever owns a screen, which is this window.
+    m_session->moduleStatus()->bindCapture(m_screenGrabber, m_snippingArea);
+    connect(m_session, &TranslationSession::ocrLanguagesUnavailable, this, [this](const QString &languages) {
+        m_trayIcon->showMessage(TesseractOcr::tr("Unable to set OCR languages"),
+                                TesseractOcr::tr("Unable to initialize Tesseract with %1").arg(languages));
+    });
 
     loadAppSettings();
-    m_tts = ATTSProvider::createTTSProvider(this, m_chosenTTSBackend);
-    connect(m_tts, &ATTSProvider::errorOccurred, this, &MainWindow::onTTSError);
-    m_moduleStatus->bindTtsProvider(m_tts);
-    applyTTSProviderSettings();
-    m_translator = ATranslationProvider::createTranslationProvider(this, m_chosenTranslationBackend);
-    m_moduleStatus->bindTranslator(m_translator);
 
-    updateProviderUI();
+    // Subscribed before the providers exist: building them below reports
+    // through exactly these signals, and none of them has to be re-made when
+    // a backend swap replaces the provider objects.
+    connect(m_session, &TranslationSession::translatorChanged, this, &MainWindow::onTranslatorChanged);
+    connect(m_session, &TranslationSession::ttsProviderChanged, this, &MainWindow::onTtsProviderChanged);
+    connect(m_session, &TranslationSession::translationStateChanged, this, &MainWindow::translatorStateChanged);
+    connect(m_session, &TranslationSession::ttsStateChanged, this, &MainWindow::ttsStateChanged);
+    connect(m_session, &TranslationSession::ttsErrorOccurred, this, &MainWindow::onTTSError);
+    connect(m_session, &TranslationSession::languageDetected, this, &MainWindow::onLanguageDetected);
+    connect(m_session, &TranslationSession::engineChanged, this, &MainWindow::refreshLanguageWidgetsWithSupportedLanguages);
+    connect(m_session, &TranslationSession::translationStarted, this, [](const QString &text, const Language &destLang, const Language &srcLang) {
+        qDebug() << "TranslationSession::translationStarted - text:" << text.left(50) << "srcLang:" << srcLang.name() << "destLang:" << destLang.name();
+    });
+    // An armed recognition chains its own translation; the delayed textEdited
+    // this would otherwise fire would make a second one.
+    connect(m_session, &TranslationSession::ocrTranslationChaining, this, [this]() {
+        ui->sourceEdit->stopEditTimer();
+    });
+    connect(this, &MainWindow::translationRequested, this, [this](const QString &text, const Language &destLang, const Language &srcLang) {
+        m_session->requestTranslation(text, destLang, srcLang);
+    });
+    connect(this, &MainWindow::translationAccepted, m_session, &TranslationSession::acceptTranslation);
+    connect(this, &MainWindow::resetTranslator, m_session, &TranslationSession::resetTranslator);
+
+    m_session->loadBackendsFromSettings();
 
     connect(ui->sourcePlayPauseButton, &QToolButton::clicked, this, &MainWindow::sourcePlayPauseClicked);
     connect(ui->sourceStopButton, &QToolButton::clicked, this, &MainWindow::sourceStopClicked);
     connect(ui->translationPlayPauseButton, &QToolButton::clicked, this, &MainWindow::translationPlayPauseClicked);
     connect(ui->translationStopButton, &QToolButton::clicked, this, &MainWindow::translationStopClicked);
     connect(ui->settingsButton, &QToolButton::clicked, this, &MainWindow::openSettings);
-    connect(m_tts, &ATTSProvider::stateChanged, this, &MainWindow::ttsStateChanged);
     connect(ui->sourceEdit, &SourceTextEdit::textEdited, this, &MainWindow::updateTranslateButtonState);
     connect(ui->sourceEdit, &SourceTextEdit::textEdited, this, &MainWindow::updateTTSButtonStates);
     connect(ui->sourceEdit, &SourceTextEdit::textEdited, this, &MainWindow::updateAutoLocales);
@@ -193,41 +215,41 @@ MainWindow::MainWindow(QWidget *parent)
     ui->sourceEdit->parentWidget()->installEventFilter(this);
 
     connect(ui->sourceVoiceComboBox, qOverload<int>(&QComboBox::currentIndexChanged), this, [this]() {
-        if (m_tts && ui->sourceVoiceComboBox->currentData().isValid()) {
-            const ProviderUIRequirements reqs = m_tts->getUIRequirements();
-            if (reqs.supportedCapabilities.contains("voiceSelection")) {
+        if (m_session->tts() && ui->sourceVoiceComboBox->currentData().isValid()) {
+            const ProviderCapabilities reqs = m_session->tts()->capabilities();
+            if (reqs.testFlag(ProviderCapability::VoiceSelection)) {
                 const Voice voice = ui->sourceVoiceComboBox->currentData().value<Voice>();
                 const Language sourceLanguage = spokenSourceLanguage();
-                m_tts->setLanguage(sourceLanguage);
-                m_tts->setVoice(voice);
+                m_session->tts()->setLanguage(sourceLanguage);
+                m_session->tts()->setVoice(voice);
                 updateSpeakerComboBoxes();
             }
         }
     });
 
     connect(ui->translationVoiceComboBox, qOverload<int>(&QComboBox::currentIndexChanged), this, [this]() {
-        if (m_tts && ui->translationVoiceComboBox->currentData().isValid()) {
-            const ProviderUIRequirements reqs = m_tts->getUIRequirements();
-            if (reqs.supportedCapabilities.contains("voiceSelection")) {
+        if (m_session->tts() && ui->translationVoiceComboBox->currentData().isValid()) {
+            const ProviderCapabilities reqs = m_session->tts()->capabilities();
+            if (reqs.testFlag(ProviderCapability::VoiceSelection)) {
                 const Voice voice = ui->translationVoiceComboBox->currentData().value<Voice>();
                 const Language translationLanguage = spokenTranslationLanguage();
-                m_tts->setLanguage(translationLanguage);
-                m_tts->setVoice(voice);
+                m_session->tts()->setLanguage(translationLanguage);
+                m_session->tts()->setVoice(voice);
                 updateSpeakerComboBoxes();
             }
         }
     });
 
     connect(ui->sourceSpeakerComboBox, qOverload<int>(&QComboBox::currentIndexChanged), this, [this]() {
-        if (m_tts && ui->sourceSpeakerComboBox->count() > 0) {
-            const ProviderUIRequirements reqs = m_tts->getUIRequirements();
-            if (reqs.supportedCapabilities.contains("speakerSelection")) {
+        if (m_session->tts() && ui->sourceSpeakerComboBox->count() > 0) {
+            const ProviderCapabilities reqs = m_session->tts()->capabilities();
+            if (reqs.testFlag(ProviderCapability::SpeakerSelection)) {
                 const QString speaker = ui->sourceSpeakerComboBox->currentText();
                 if (!speaker.isEmpty()) {
-                    auto options = m_optionsManager->createTTSOptionsFromSettings(m_tts);
+                    auto options = m_session->options()->createTTSOptionsFromSettings(m_session->tts());
                     if (options) {
                         options->setOption("speaker", speaker);
-                        m_tts->applyOptions(*options);
+                        m_session->tts()->applyOptions(*options);
                     }
                 }
             }
@@ -235,15 +257,15 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     connect(ui->translationSpeakerComboBox, qOverload<int>(&QComboBox::currentIndexChanged), this, [this]() {
-        if (m_tts && ui->translationSpeakerComboBox->count() > 0) {
-            const ProviderUIRequirements reqs = m_tts->getUIRequirements();
-            if (reqs.supportedCapabilities.contains("speakerSelection")) {
+        if (m_session->tts() && ui->translationSpeakerComboBox->count() > 0) {
+            const ProviderCapabilities reqs = m_session->tts()->capabilities();
+            if (reqs.testFlag(ProviderCapability::SpeakerSelection)) {
                 const QString speaker = ui->translationSpeakerComboBox->currentText();
                 if (!speaker.isEmpty()) {
-                    auto options = m_optionsManager->createTTSOptionsFromSettings(m_tts);
+                    auto options = m_session->options()->createTTSOptionsFromSettings(m_session->tts());
                     if (options) {
                         options->setOption("speaker", speaker);
-                        m_tts->applyOptions(*options);
+                        m_session->tts()->applyOptions(*options);
                     }
                 }
             }
@@ -253,18 +275,6 @@ MainWindow::MainWindow(QWidget *parent)
     setupEngineComboBoxConnection();
 
     connect(ui->translationEdit, &QTextEdit::textChanged, this, &MainWindow::updateTTSButtonStates);
-    connect(m_translator, &ATranslationProvider::stateChanged, this, &MainWindow::translatorStateChanged);
-    connect(this, &MainWindow::translationRequested, this, &MainWindow::handleTranslationRequest);
-    connect(this, &MainWindow::translationAccepted, m_translator, &ATranslationProvider::finish);
-    connect(this, &MainWindow::resetTranslator, m_translator, &ATranslationProvider::reset);
-
-    applyTranslationProviderSettings();
-
-    // Connect to abstract provider signals
-    connect(m_translator, &ATranslationProvider::engineChanged, this, [this]() {
-        refreshLanguageWidgetsWithSupportedLanguages();
-    });
-    connect(m_translator, &ATranslationProvider::languageDetected, this, &MainWindow::onLanguageDetected);
 
     loadMainWindowSettings();
 
@@ -284,8 +294,8 @@ MainWindow::MainWindow(QWidget *parent)
     // Everything that displays or speaks a resolved language follows the model
     // rather than working it out again. This is the connection that replaces
     // the hand-written updates each of them used to need.
-    connect(m_languages, &LanguageResolution::changed, this, [this]() {
-        ui->translationLanguagesWidget->setAutoLanguage(m_languages->effectiveDestination());
+    connect(m_session->languages(), &LanguageResolution::changed, this, [this]() {
+        ui->translationLanguagesWidget->setAutoLanguage(m_session->languages()->effectiveDestination());
         updateVoiceComboBoxes();
         updateTTSButtonStates();
     });
@@ -313,31 +323,12 @@ MainWindow::~MainWindow()
 
 AOcrProvider *MainWindow::ocr() const
 {
-    return activeOcr();
+    return m_session->ocr();
 }
 
 TesseractOcr *MainWindow::tesseractOcr() const
 {
-    return m_tesseractOcr;
-}
-
-AOcrProvider *MainWindow::activeOcr() const
-{
-    if (AppSettings().ocrEngine() == AppSettings::OcrEngine::Llm) {
-        return m_llmOcr;
-    }
-    return m_tesseractOcr;
-}
-
-void MainWindow::configureLlmOcr()
-{
-    const AppSettings settings;
-    const QString providerId = settings.ocrLlmProvider();
-    m_llmOcr->setEndpoint(settings.localProviderUrl(providerId), AppSettings::localProviderIsAnthropic(providerId), settings.localProviderApiKey(providerId));
-    m_llmOcr->setModel(settings.ocrLlmModel(providerId));
-    m_llmOcr->setTimeout(settings.ocrLlmTimeout(providerId));
-    m_llmOcr->setPrompt(settings.ocrLlmPrompt(settings.ocrLlmModel(providerId)));
-    m_llmOcr->setDisableThinking(settings.localAiDisableThinking(providerId));
+    return m_session->tesseractOcr();
 }
 
 QComboBox *MainWindow::getEngineComboBox() const
@@ -412,7 +403,7 @@ SourceTextEdit *MainWindow::sourceEdit() const
 
 ModuleStatus *MainWindow::moduleStatus() const
 {
-    return m_moduleStatus;
+    return m_session->moduleStatus();
 }
 
 QToolButton *MainWindow::sourcePlayPauseButton() const
@@ -496,12 +487,12 @@ Q_SCRIPTABLE void MainWindow::translateSelection()
                 const Language sourceLanguage = isSourceAutoChecked ? Language::autoLanguage() : m_sourceLang;
                 const Language destinationLanguage = isTranslationAutoChecked ? Language::autoLanguage() : m_destLang;
 
-                if (m_translator && m_translator->getState() == ATranslationProvider::State::Ready) {
+                if (m_session->translator() && m_session->translator()->getState() == ATranslationProvider::State::Ready) {
                     emit translationRequested(selectedText, destinationLanguage, sourceLanguage);
                 } else {
                     // Wait for translator to be ready
                     auto connection = std::make_shared<QMetaObject::Connection>();
-                    *connection = connect(m_translator,
+                    *connection = connect(m_session->translator(),
                                           &ATranslationProvider::stateChanged,
                                           this,
                                           [this, selectedText, sourceLanguage, destinationLanguage, connection](ATranslationProvider::State state) {
@@ -529,10 +520,10 @@ Q_SCRIPTABLE void MainWindow::speakSelection()
     auto selectionConnection = std::make_shared<QMetaObject::Connection>();
     *selectionConnection =
         connect(&Selection::instance(), &Selection::requestedSelectionAvailable, this, [this, selectionConnection](const QString &selectedText) {
-            if (!selectedText.isEmpty() && m_tts) {
+            if (!selectedText.isEmpty() && m_session->tts()) {
                 const Language sourceLanguage = spokenSourceLanguage();
-                m_tts->setLanguage(sourceLanguage);
-                m_tts->say(selectedText);
+                m_session->tts()->setLanguage(sourceLanguage);
+                m_session->tts()->say(selectedText);
             }
             disconnect(*selectionConnection);
         });
@@ -550,30 +541,30 @@ Q_SCRIPTABLE void MainWindow::speakTranslatedSelection()
     }
 
     const QString translationText = ui->translationEdit->toPlainText();
-    if (!translationText.isEmpty() && (m_tts != nullptr)) {
+    if (!translationText.isEmpty() && (m_session->tts() != nullptr)) {
         const Language translationLanguage = spokenTranslationLanguage();
-        m_tts->setLanguage(translationLanguage);
-        m_tts->say(translationText);
+        m_session->tts()->setLanguage(translationLanguage);
+        m_session->tts()->say(translationText);
     }
 }
 
 Q_SCRIPTABLE void MainWindow::stopSpeaking()
 {
-    if (m_tts != nullptr) {
-        m_tts->stop();
+    if (m_session->tts() != nullptr) {
+        m_session->tts()->stop();
     }
 }
 
 Q_SCRIPTABLE void MainWindow::playPauseSpeaking()
 {
-    if (m_tts == nullptr) {
+    if (m_session->tts() == nullptr) {
         return;
     }
 
-    if (m_tts->state() == QTextToSpeech::Speaking) {
-        m_tts->pause();
-    } else if (m_tts->state() == QTextToSpeech::Paused) {
-        m_tts->resume();
+    if (m_session->tts()->state() == QTextToSpeech::Speaking) {
+        m_session->tts()->pause();
+    } else if (m_session->tts()->state() == QTextToSpeech::Paused) {
+        m_session->tts()->resume();
     }
 }
 
@@ -593,15 +584,12 @@ Q_SCRIPTABLE void MainWindow::copyTranslatedSelection()
     }
 }
 
-// Common preamble for every OCR entry point. Configuring the LLM engine
-// before asking whether it is configured is not optional: LlmOcr::isConfigured()
-// reports the state of the last configureLlmOcr() call, not the state of the
-// settings, so checking first rejects an engine the user has just set up.
+// Whether the engine can run at all is the session's question, and it reports
+// its own answer to the user. What is left here is the part that is genuinely
+// about this window: forcing the language buttons back to auto.
 bool MainWindow::prepareOcr()
 {
-    configureLlmOcr();
-    if (!activeOcr()->isConfigured()) {
-        QMessageBox::critical(this, TesseractOcr::tr("OCR is not configured"), TesseractOcr::tr("Set up the OCR engine in the application settings"));
+    if (!m_session->prepareOcr()) {
         return false;
     }
 
@@ -615,50 +603,6 @@ bool MainWindow::prepareOcr()
     return true;
 }
 
-// Chains one translation onto the next successful recognition. The recognized
-// text reaches the source edit through the permanent
-// AOcrProvider::recognized -> SourceTextEdit::replaceText connections; this
-// only adds the translation, so the text is never written twice.
-//
-// The connection is a member rather than a local shared_ptr because it has to
-// survive until it fires *or* until something cancels the capture - a snip
-// abandoned with Escape used to leave it armed, so the next recognition of any
-// kind (including a plain "recognize screen area") translated unexpectedly.
-void MainWindow::armOcrTranslation()
-{
-    disarmOcrTranslation();
-    m_ocrTranslateConnection = connect(activeOcr(), &AOcrProvider::recognized, this, [this](const QString &text) {
-        disarmOcrTranslation();
-        ui->sourceEdit->stopEditTimer(); // Prevent delayed textEdited signal
-
-        // Use auto-detect for OCR text if auto button is checked, otherwise use selected language
-        const bool isSourceAutoChecked = ui->sourceLanguagesWidget->isAutoButtonChecked();
-        const bool isTranslationAutoChecked = ui->translationLanguagesWidget->isAutoButtonChecked();
-        const Language sourceLanguage = isSourceAutoChecked ? Language::autoLanguage() : m_sourceLang;
-        const Language destinationLanguage = isTranslationAutoChecked ? Language::autoLanguage() : m_destLang;
-
-        if (m_translator && m_translator->getState() == ATranslationProvider::State::Ready) {
-            emit translationRequested(text, destinationLanguage, sourceLanguage);
-            return;
-        }
-        // Wait for translator to be ready
-        disconnect(m_ocrTranslatorReadyConnection);
-        m_ocrTranslatorReadyConnection =
-            connect(m_translator, &ATranslationProvider::stateChanged, this, [this, text, sourceLanguage, destinationLanguage](ATranslationProvider::State state) {
-                if (state == ATranslationProvider::State::Ready) {
-                    disconnect(m_ocrTranslatorReadyConnection);
-                    emit translationRequested(text, destinationLanguage, sourceLanguage);
-                }
-            });
-    });
-}
-
-void MainWindow::disarmOcrTranslation()
-{
-    disconnect(m_ocrTranslateConnection);
-    disconnect(m_ocrTranslatorReadyConnection);
-}
-
 Q_SCRIPTABLE void MainWindow::recognizeScreenArea()
 {
     if (!prepareOcr()) {
@@ -666,7 +610,7 @@ Q_SCRIPTABLE void MainWindow::recognizeScreenArea()
     }
 
     if (m_screenGrabber != nullptr) {
-        disarmOcrTranslation();
+        m_session->disarmOcrTranslation();
         startScreenCapture();
     }
 }
@@ -678,7 +622,7 @@ Q_SCRIPTABLE void MainWindow::translateScreenArea()
     }
 
     if (m_screenGrabber != nullptr) {
-        armOcrTranslation();
+        m_session->armOcrTranslation(m_session->ocr());
         startScreenCapture();
     }
 }
@@ -697,7 +641,7 @@ Q_SCRIPTABLE void MainWindow::delayedRecognizeScreenArea()
             &QTimer::timeout,
             this,
             [this]() {
-                disarmOcrTranslation();
+                m_session->disarmOcrTranslation();
                 startScreenCapture();
             },
             Qt::SingleShotConnection);
@@ -718,7 +662,7 @@ Q_SCRIPTABLE void MainWindow::delayedTranslateScreenArea()
             &QTimer::timeout,
             this,
             [this]() {
-                armOcrTranslation();
+                m_session->armOcrTranslation(m_session->ocr());
                 startScreenCapture();
             },
             Qt::SingleShotConnection);
@@ -736,26 +680,30 @@ void MainWindow::startScreenCapture()
     if (m_screenGrabber == nullptr)
         return;
 
-    m_moduleStatus->beginScreenCapture();
+    m_session->moduleStatus()->beginScreenCapture();
     m_screenGrabber->grab();
 }
 
 Q_SCRIPTABLE void MainWindow::openSettings()
 {
     SettingsDialog config(this);
-    connect(&config, &SettingsDialog::translationBackendChanged, this, &MainWindow::swapTranslator);
-    connect(&config, &SettingsDialog::ttsBackendChanged, this, &MainWindow::swapTTSProvider);
+    connect(&config, &SettingsDialog::translationBackendChanged, m_session, &TranslationSession::setTranslationBackend);
+    connect(&config, &SettingsDialog::ttsBackendChanged, m_session, &TranslationSession::setTtsBackend);
 
     // Let ProviderOptionsManager handle all provider-specific settings changes
-    m_optionsManager->connectToSettingsDialog(&config, m_tts);
-    connect(m_optionsManager, &ProviderOptionsManager::ttsProviderUIUpdateRequired, this, [this]() {
+    m_session->options()->connectToSettingsDialog(&config, m_session->tts());
+    connect(m_session->options(), &ProviderOptionsManager::ttsProviderUIUpdateRequired, this, [this]() {
         updateVoiceComboBoxes();
         updateSpeakerComboBoxes();
     });
     if (config.exec() == QDialog::Accepted) {
         loadAppSettings();
-
-        applyTranslationProviderSettings();
+        // The availability check that runs in here can move the stored TTS
+        // choice - a backend the settings name but this build cannot provide.
+        // Re-reading both backends applies that; it is a no-op when neither
+        // moved, so the common case still costs nothing.
+        m_session->loadBackendsFromSettings();
+        m_session->applyTranslationOptions();
     }
 }
 
@@ -763,6 +711,36 @@ Q_SCRIPTABLE void MainWindow::quit()
 {
     // NOLINTNEXTLINE(clang-analyzer-cplusplus.NewDeleteLeaks)
     QMetaObject::invokeMethod(QCoreApplication::instance(), &QCoreApplication::quit, Qt::QueuedConnection);
+}
+
+void MainWindow::showNotification(const UserNotifier::Notification &notification)
+{
+    // The core says what happened; deciding that it looks like a message box
+    // is this frontend's business and nobody else's.
+    static const QHash<UserNotifier::Severity, QMessageBox::Icon> icons = {
+        {UserNotifier::Severity::Information, QMessageBox::Information},
+        {UserNotifier::Severity::Warning, QMessageBox::Warning},
+        {UserNotifier::Severity::Critical, QMessageBox::Critical},
+    };
+
+    auto *box = new QMessageBox(icons.value(notification.severity, QMessageBox::Information),
+                                notification.title,
+                                notification.text,
+                                QMessageBox::Ok,
+                                this);
+    box->setAttribute(Qt::WA_DeleteOnClose);
+    if (!notification.details.isEmpty()) {
+        box->setTextFormat(notification.detailsAreRichText ? Qt::RichText : Qt::PlainText);
+        box->setInformativeText(notification.details);
+    }
+
+    // Only the ones that say they must be acknowledged block. The rest used
+    // to call exec() too, which meant a missing voice model could freeze the
+    // window from inside a provider's constructor.
+    if (notification.requiresAcknowledgement)
+        box->exec();
+    else
+        box->open();
 }
 
 void MainWindow::showTranslationWindow()
@@ -927,27 +905,14 @@ void MainWindow::loadAppSettings()
     }
     m_trayIcon->setVisible(settings.isShowTrayIcon());
     QGuiApplication::setQuitOnLastWindowClosed(!m_trayIcon->isVisible());
-    m_chosenTTSBackend = settings.ttsProviderBackend();
-    m_chosenTranslationBackend = settings.translationProviderBackend();
-
-    // Validate TTS backend availability
-    ProviderOptionsManager::validateTTSBackendAvailability();
-    m_chosenTTSBackend = settings.ttsProviderBackend(); // Reload in case it was changed by validation
-
     ui->sourceEdit->setSimplifySource(settings.isSimplifySource());
 
-    if (const QByteArray languages = settings.ocrLanguagesString(), path = settings.ocrLanguagesPath();
-        !m_tesseractOcr->init(languages, path, settings.tesseractParameters())) {
-        if (languages != AppSettings::defaultOcrLanguagesString() || path != AppSettings::defaultOcrLanguagesPath())
-            m_trayIcon->showMessage(TesseractOcr::tr("Unable to set OCR languages"), TesseractOcr::tr("Unable to initialize Tesseract with %1").arg(QString(languages)));
-    }
+    m_session->initTesseractFromSettings();
     if (const AppSettings::RegionRememberType type = settings.regionRememberType(); m_snippingArea->regionRememberType() != type) {
         m_snippingArea->setRegionRememberType(type);
         if (type == AppSettings::RememberAlways)
             m_snippingArea->setCropRegion(settings.cropRegion());
     }
-    m_tesseractOcr->setConvertLineBreaks(settings.isConvertLineBreaks());
-    configureLlmOcr();
     m_screenCaptureTimer->setInterval(settings.captureDelay());
     m_snippingArea->setCaptureOnRelese(settings.isConfirmOnRelease());
     m_snippingArea->setShowMagnifier(settings.isShowMagnifier());
@@ -1007,36 +972,14 @@ void MainWindow::loadAppSettings()
     m_closeWindowsShortcut->setKey(settings.closeWindowShortcut());
 }
 
-void MainWindow::applyTranslationProviderSettings()
-{
-    if (m_translator == nullptr) {
-        return;
-    }
-
-    m_optionsManager->applySettingsToTranslationProvider(m_translator);
-}
-
-void MainWindow::applyTTSProviderSettings()
-{
-    if (m_tts == nullptr) {
-        return;
-    }
-
-    m_optionsManager->applySettingsToTTSProvider(m_tts);
-
-    // Update UI elements that depend on provider state
-    updateVoiceComboBoxes();
-    updateSpeakerComboBoxes();
-}
-
 void MainWindow::refreshLanguageWidgetsWithSupportedLanguages()
 {
-    if (m_translator == nullptr) {
+    if (m_session->translator() == nullptr) {
         return;
     }
 
-    const QVector<Language> supportedSourceLangs = m_translator->supportedSourceLanguages();
-    const QVector<Language> supportedDestLangs = m_translator->supportedDestinationLanguages();
+    const QVector<Language> supportedSourceLangs = m_session->translator()->supportedSourceLanguages();
+    const QVector<Language> supportedDestLangs = m_session->translator()->supportedDestinationLanguages();
 
     ui->sourceLanguagesWidget->setSupportedLanguages(supportedSourceLangs);
     ui->translationLanguagesWidget->setSupportedLanguages(supportedDestLangs);
@@ -1091,12 +1034,6 @@ void MainWindow::translatorStateChanged(ATranslationProvider::State newState)
 #ifdef BUILD_TESTING
     emit translatorStateChangedSignal(newState);
 #endif
-    // What the provider is actually translating between. It records this when
-    // the request goes out, so following its state keeps the answer current
-    // rather than re-reading it from whoever happens to ask.
-    if (m_translator != nullptr) {
-        m_languages->setTranslated(m_translator->sourceLanguage, m_translator->translationLanguage);
-    }
     updateTranslateButtonState();
     ui->abortButton->setEnabled(newState == ATranslationProvider::State::Processing);
     switch (newState) {
@@ -1104,9 +1041,9 @@ void MainWindow::translatorStateChanged(ATranslationProvider::State newState)
     case ATranslationProvider::State::Processing:
         break;
     case ATranslationProvider::State::Processed:
-        if (m_translator->error == ATranslationProvider::TranslationError::NoError) {
-            if (!m_translator->result.isEmpty()) {
-                ui->translationEdit->setHtml(m_translator->result);
+        if (m_session->translator()->error == ATranslationProvider::TranslationError::NoError) {
+            if (!m_session->translator()->result.isEmpty()) {
+                ui->translationEdit->setHtml(TranslationHtmlFormatter::format(m_session->translator()->result));
 
                 showTranslationWindow();
             }
@@ -1120,13 +1057,13 @@ void MainWindow::translatorStateChanged(ATranslationProvider::State newState)
 
             emit translationAccepted();
         } else {
-            ui->translationEdit->setPlainText(tr("Error: %1").arg(m_translator->getErrorString()));
+            ui->translationEdit->setPlainText(tr("Error: %1").arg(m_session->translator()->getErrorString()));
         }
 
         break;
     case ATranslationProvider::State::Finished:
-        if (m_translator->error != ATranslationProvider::TranslationError::NoError) {
-            ui->translationEdit->setPlainText(tr("Error: %1").arg(m_translator->getErrorString()));
+        if (m_session->translator()->error != ATranslationProvider::TranslationError::NoError) {
+            ui->translationEdit->setPlainText(tr("Error: %1").arg(m_session->translator()->getErrorString()));
         }
         emit resetTranslator();
         break;
@@ -1176,12 +1113,12 @@ void MainWindow::onDestinationLanguageChanged(int id)
 
 void MainWindow::validateLanguageSupport()
 {
-    if (m_translator == nullptr) {
+    if (m_session->translator() == nullptr) {
         return;
     }
 
-    const QVector<Language> supportedSourceLangs = m_translator->supportedSourceLanguages();
-    const QVector<Language> supportedDestLangs = m_translator->supportedDestinationLanguages();
+    const QVector<Language> supportedSourceLangs = m_session->translator()->supportedSourceLanguages();
+    const QVector<Language> supportedDestLangs = m_session->translator()->supportedDestinationLanguages();
 
     bool sourceSupported = false;
     for (const Language &language : supportedSourceLangs) {
@@ -1213,76 +1150,26 @@ void MainWindow::validateLanguageSupport()
     }
 }
 
-void MainWindow::swapTranslator(ATranslationProvider::ProviderBackend newBackend)
+// The session rebuilt the translation provider. Everything that displays it
+// is rebuilt from scratch here, because none of it can be carried over: the
+// old provider object is gone.
+void MainWindow::onTranslatorChanged()
 {
-    if (m_chosenTranslationBackend == newBackend) {
-        return;
-    }
-
-    if (m_translator != nullptr) {
-        disconnect(m_translator, &ATranslationProvider::stateChanged, this, &MainWindow::translatorStateChanged);
-        disconnect(this, &MainWindow::translationRequested, this, &MainWindow::handleTranslationRequest);
-        disconnect(this, &MainWindow::translationAccepted, m_translator, &ATranslationProvider::finish);
-        disconnect(this, &MainWindow::resetTranslator, m_translator, &ATranslationProvider::reset);
-
-        m_translator->deleteLater();
-    }
-
-    m_chosenTranslationBackend = newBackend;
-    m_translator = ATranslationProvider::createTranslationProvider(this, m_chosenTranslationBackend);
-    m_moduleStatus->bindTranslator(m_translator);
-
     updateProviderUI();
-
-    connect(m_translator, &ATranslationProvider::stateChanged, this, &MainWindow::translatorStateChanged);
-    connect(this, &MainWindow::translationRequested, this, &MainWindow::handleTranslationRequest);
-    connect(this, &MainWindow::translationRequested, this, [](const QString &text, const Language &destLang, const Language &srcLang) {
-        qDebug() << "MainWindow::translationRequested - text:" << text.left(50) << "srcLang:" << srcLang.name() << "destLang:" << destLang.name();
-    });
-    connect(this, &MainWindow::translationAccepted, m_translator, &ATranslationProvider::finish);
-    connect(this, &MainWindow::resetTranslator, m_translator, &ATranslationProvider::reset);
-
-    applyTranslationProviderSettings();
-
-    // Connect to abstract provider signals
-    connect(m_translator, &ATranslationProvider::engineChanged, this, [this]() {
-        refreshLanguageWidgetsWithSupportedLanguages();
-    });
-    connect(m_translator, &ATranslationProvider::languageDetected, this, &MainWindow::onLanguageDetected);
-
-    setupEngineComboBoxConnection();
     refreshLanguageWidgetsWithSupportedLanguages();
 }
 
-void MainWindow::swapTTSProvider(ATTSProvider::ProviderBackend newBackend)
+void MainWindow::onTtsProviderChanged()
 {
-    if (m_chosenTTSBackend == newBackend) {
-        return;
-    }
-
-    if (m_tts != nullptr) {
-        disconnect(m_tts, &ATTSProvider::stateChanged, this, &MainWindow::ttsStateChanged);
-
-        m_tts->deleteLater();
-    }
-
-    m_chosenTTSBackend = newBackend;
-    m_tts = ATTSProvider::createTTSProvider(this, m_chosenTTSBackend);
-    m_moduleStatus->bindTtsProvider(m_tts);
-
-    connect(m_tts, &ATTSProvider::stateChanged, this, &MainWindow::ttsStateChanged);
-    connect(m_tts, &ATTSProvider::errorOccurred, this, &MainWindow::onTTSError);
-
-    applyTTSProviderSettings();
     updateProviderUI();
     updateVoiceComboBoxes();
-
+    updateSpeakerComboBoxes();
     updateTTSButtonStates();
 }
 
 void MainWindow::handleAutoTranslation()
 {
-    if (ui->autoTranslateCheckBox->isChecked() && (m_translator != nullptr) && m_translator->getState() == ATranslationProvider::State::Ready
+    if (ui->autoTranslateCheckBox->isChecked() && (m_session->translator() != nullptr) && m_session->translator()->getState() == ATranslationProvider::State::Ready
         && !ui->sourceEdit->toPlainText().isEmpty()) {
         const bool isSourceAutoChecked = ui->sourceLanguagesWidget->isAutoButtonChecked();
         const bool isTranslationAutoChecked = ui->translationLanguagesWidget->isAutoButtonChecked();
@@ -1295,7 +1182,7 @@ void MainWindow::handleAutoTranslation()
 
 void MainWindow::updateAutoLocales()
 {
-    if ((m_translator == nullptr) || !m_translator->supportsAutodetection()) {
+    if ((m_session->translator() == nullptr) || !m_session->translator()->supportsAutodetection()) {
         return;
     }
 
@@ -1311,20 +1198,20 @@ void MainWindow::updateAutoLocales()
     }
 
     // If translator is ready, detect immediately
-    if (m_translator->getState() == ATranslationProvider::State::Ready) {
-        m_translator->detectLanguage(sourceText);
+    if (m_session->translator()->getState() == ATranslationProvider::State::Ready) {
+        m_session->translator()->detectLanguage(sourceText);
         return;
     }
 
     // If translator is not ready, set up one-time connection to retry when ready
-    qDebug() << "MainWindow::updateAutoLocales - translator not ready, setting up retry connection, state:" << static_cast<int>(m_translator->getState());
+    qDebug() << "MainWindow::updateAutoLocales - translator not ready, setting up retry connection, state:" << static_cast<int>(m_session->translator()->getState());
     auto connection = std::make_shared<QMetaObject::Connection>();
-    *connection = connect(m_translator, &ATranslationProvider::stateChanged, this, [this, sourceText, connection](ATranslationProvider::State newState) {
+    *connection = connect(m_session->translator(), &ATranslationProvider::stateChanged, this, [this, sourceText, connection](ATranslationProvider::State newState) {
         if (newState == ATranslationProvider::State::Ready) {
             qDebug() << "MainWindow::updateAutoLocales - retry connection triggered, detecting language";
             // Check text hasn't changed since we set up the connection
             if (ui->sourceEdit->toPlainText() == sourceText && !ui->autoTranslateCheckBox->isChecked()) {
-                m_translator->detectLanguage(sourceText);
+                m_session->translator()->detectLanguage(sourceText);
             }
             disconnect(*connection);
         }
@@ -1333,7 +1220,7 @@ void MainWindow::updateAutoLocales()
 
 void MainWindow::updateTTSButtonStates()
 {
-    if (m_tts == nullptr) {
+    if (m_session->tts() == nullptr) {
         ui->sourcePlayPauseButton->setEnabled(false);
         ui->sourceStopButton->setEnabled(false);
         ui->translationPlayPauseButton->setEnabled(false);
@@ -1356,33 +1243,37 @@ void MainWindow::updateTTSButtonStates()
 void MainWindow::updateTranslateButtonState()
 {
     const bool hasContent = !ui->sourceEdit->toPlainText().isEmpty() || m_hasSourceImage;
-    const bool translatorReady = (m_translator != nullptr) && m_translator->getState() == ATranslationProvider::State::Ready;
-    const bool translatorProcessing = (m_translator != nullptr) && m_translator->getState() == ATranslationProvider::State::Processing;
+    const bool translatorReady = (m_session->translator() != nullptr) && m_session->translator()->getState() == ATranslationProvider::State::Ready;
+    const bool translatorProcessing = (m_session->translator() != nullptr) && m_session->translator()->getState() == ATranslationProvider::State::Processing;
     ui->translateButton->setEnabled(hasContent && translatorReady);
     ui->abortButton->setEnabled(translatorProcessing);
 }
 
+// Made once. It used to be re-made on every backend swap, which left the
+// previous lambda attached to the same combo box - the provider is read out
+// of the session when the signal fires, so one connection has always been
+// enough.
 void MainWindow::setupEngineComboBoxConnection()
 {
     connect(ui->engineComboBox, qOverload<int>(&QComboBox::currentIndexChanged), this, [this](int index) {
-        if (m_translator) {
-            const ProviderUIRequirements reqs = m_translator->getUIRequirements();
-            if (reqs.supportedCapabilities.contains("engineSelection")) {
+        if (m_session->translator()) {
+            const ProviderCapabilities reqs = m_session->translator()->capabilities();
+            if (reqs.testFlag(ProviderCapability::EngineSelection)) {
                 // Save to settings using type-safe method
-                m_translator->saveOptionToSettings("engine", index);
+                m_session->translator()->saveOptionToSettings("engine", index);
 
                 // Apply to provider using options system
                 auto options = std::make_unique<ProviderOptions>();
                 options->setOption("engine", index);
-                m_translator->applyOptions(*options);
-            } else if (reqs.supportedCapabilities.contains("providerSelection")) {
+                m_session->translator()->applyOptions(*options);
+            } else if (reqs.testFlag(ProviderCapability::ProviderSelection)) {
                 // LocalAI: the combo lists local providers (Ollama/FastFlowLM/LM Studio).
                 const QString providerId = ui->engineComboBox->itemData(index).toString();
                 if (!providerId.isEmpty()) {
                     AppSettings settings;
                     settings.setActiveLocalProvider(providerId);
                     // Re-apply so URL/model/prompt follow the chosen provider.
-                    applyTranslationProviderSettings();
+                    m_session->applyTranslationOptions();
                 }
             }
         }
@@ -1392,12 +1283,16 @@ void MainWindow::setupEngineComboBoxConnection()
 void MainWindow::updateProviderUI()
 {
     // Update translation provider UI elements
-    if (m_translator != nullptr) {
-        const ProviderUIRequirements translationReqs = m_translator->getUIRequirements();
-        ui->engineComboBox->setVisible(translationReqs.requiredUIElements.contains("engineComboBox"));
+    if (m_session->translator() != nullptr) {
+        const ProviderCapabilities translationReqs = m_session->translator()->capabilities();
+        // Which control a capability implies is this window's business - the
+        // backend used to be asked for widget names, which meant it had to
+        // know this layout.
+        ui->engineComboBox->setVisible(translationReqs.testFlag(ProviderCapability::EngineSelection)
+                                       || translationReqs.testFlag(ProviderCapability::ProviderSelection));
 
         // Set current engine selection for providers that support it
-        if (translationReqs.supportedCapabilities.contains("engineSelection")) {
+        if (translationReqs.testFlag(ProviderCapability::EngineSelection)) {
             const AppSettings settings;
             // We're in the Mozhi-style engineSelection branch, so the combo
             // must show Mozhi's engines regardless of what it held before
@@ -1412,7 +1307,7 @@ void MainWindow::updateProviderUI()
                 }
             }
             ui->engineComboBox->setCurrentIndex(static_cast<int>(settings.currentEngine()));
-        } else if (translationReqs.supportedCapabilities.contains("providerSelection")) {
+        } else if (translationReqs.testFlag(ProviderCapability::ProviderSelection)) {
             // LocalAI: populate the combo with local providers, select the active one.
             const AppSettings settings;
             QSignalBlocker blocker(ui->engineComboBox);
@@ -1430,15 +1325,17 @@ void MainWindow::updateProviderUI()
     }
 
     // Update TTS provider UI elements
-    if (m_tts != nullptr) {
-        const ProviderUIRequirements ttsReqs = m_tts->getUIRequirements();
-        ui->sourceVoiceComboBox->setVisible(ttsReqs.requiredUIElements.contains("sourceVoiceComboBox"));
-        ui->translationVoiceComboBox->setVisible(ttsReqs.requiredUIElements.contains("translationVoiceComboBox"));
-        ui->sourceSpeakerComboBox->setVisible(ttsReqs.requiredUIElements.contains("sourceSpeakerComboBox"));
-        ui->translationSpeakerComboBox->setVisible(ttsReqs.requiredUIElements.contains("translationSpeakerComboBox"));
+    if (m_session->tts() != nullptr) {
+        const ProviderCapabilities ttsReqs = m_session->tts()->capabilities();
+        const bool hasVoices = ttsReqs.testFlag(ProviderCapability::VoiceSelection);
+        const bool hasSpeakers = ttsReqs.testFlag(ProviderCapability::SpeakerSelection);
+        ui->sourceVoiceComboBox->setVisible(hasVoices);
+        ui->translationVoiceComboBox->setVisible(hasVoices);
+        ui->sourceSpeakerComboBox->setVisible(hasSpeakers);
+        ui->translationSpeakerComboBox->setVisible(hasSpeakers);
 
         // Hide playback controls entirely when the provider has no TTS UI (e.g. None)
-        const bool hasVoiceUI = !ttsReqs.requiredUIElements.isEmpty();
+        const bool hasVoiceUI = hasVoices || hasSpeakers;
         ui->sourcePlayPauseButton->setVisible(hasVoiceUI);
         ui->sourceStopButton->setVisible(hasVoiceUI);
         ui->translationPlayPauseButton->setVisible(hasVoiceUI);
@@ -1462,7 +1359,7 @@ void MainWindow::updateProviderUI()
 
 void MainWindow::refreshVoicesForSpokenLanguages()
 {
-    if (m_tts == nullptr) {
+    if (m_session->tts() == nullptr) {
         return;
     }
     if (spokenSourceLanguage() == m_voiceComboSourceLang && spokenTranslationLanguage() == m_voiceComboTranslationLang) {
@@ -1478,7 +1375,7 @@ void MainWindow::updateVoiceComboBoxes()
     m_voiceComboSourceLang = spokenSourceLanguage();
     m_voiceComboTranslationLang = spokenTranslationLanguage();
 
-    if (m_tts == nullptr) {
+    if (m_session->tts() == nullptr) {
         ui->sourceVoiceComboBox->clear();
         ui->translationVoiceComboBox->clear();
         ui->sourceSpeakerComboBox->clear();
@@ -1486,8 +1383,8 @@ void MainWindow::updateVoiceComboBoxes()
         return;
     }
 
-    const ProviderUIRequirements reqs = m_tts->getUIRequirements();
-    if (!reqs.supportedCapabilities.contains("voiceSelection")) {
+    const ProviderCapabilities reqs = m_session->tts()->capabilities();
+    if (!reqs.testFlag(ProviderCapability::VoiceSelection)) {
         ui->sourceVoiceComboBox->clear();
         ui->translationVoiceComboBox->clear();
         return;
@@ -1507,7 +1404,7 @@ void MainWindow::updateVoiceComboBoxes()
     // Offer voices for the language speech will actually use, which for a
     // checked "auto" is whatever detection found rather than the locale.
     const Language sourceLanguage = spokenSourceLanguage();
-    const QList<Voice> sourceVoices = m_tts->findVoices(sourceLanguage);
+    const QList<Voice> sourceVoices = m_session->tts()->findVoices(sourceLanguage);
 
     ui->sourceVoiceComboBox->clear();
     int sourceVoiceIndex = -1;
@@ -1525,7 +1422,7 @@ void MainWindow::updateVoiceComboBoxes()
     }
 
     const Language translationLanguage = spokenTranslationLanguage();
-    const QList<Voice> translationVoices = m_tts->findVoices(translationLanguage);
+    const QList<Voice> translationVoices = m_session->tts()->findVoices(translationLanguage);
 
     ui->translationVoiceComboBox->clear();
     int translationVoiceIndex = -1;
@@ -1550,14 +1447,14 @@ void MainWindow::updateVoiceComboBoxes()
 
 void MainWindow::updateSpeakerComboBoxes()
 {
-    if (m_tts == nullptr) {
+    if (m_session->tts() == nullptr) {
         ui->sourceSpeakerComboBox->clear();
         ui->translationSpeakerComboBox->clear();
         return;
     }
 
-    const ProviderUIRequirements reqs = m_tts->getUIRequirements();
-    if (!reqs.supportedCapabilities.contains("speakerSelection")) {
+    const ProviderCapabilities reqs = m_session->tts()->capabilities();
+    if (!reqs.testFlag(ProviderCapability::SpeakerSelection)) {
         ui->sourceSpeakerComboBox->clear();
         ui->translationSpeakerComboBox->clear();
         return;
@@ -1575,14 +1472,14 @@ void MainWindow::updateSpeakerComboBoxes()
 
     if (ui->sourceVoiceComboBox->currentData().isValid()) {
         Voice sourceVoice = ui->sourceVoiceComboBox->currentData().value<Voice>();
-        sourceSpeakers = m_tts->availableSpeakersForVoice(sourceVoice);
+        sourceSpeakers = m_session->tts()->availableSpeakersForVoice(sourceVoice);
     } else {
         sourceSpeakers = QStringList() << "default";
     }
 
     if (ui->translationVoiceComboBox->currentData().isValid()) {
         Voice translationVoice = ui->translationVoiceComboBox->currentData().value<Voice>();
-        translationSpeakers = m_tts->availableSpeakersForVoice(translationVoice);
+        translationSpeakers = m_session->tts()->availableSpeakersForVoice(translationVoice);
     } else {
         translationSpeakers = QStringList() << "default";
     }
@@ -1625,11 +1522,11 @@ void MainWindow::updateSpeakerComboBoxes()
 
 bool MainWindow::isTTSAvailableForLanguage(const Language &language) const
 {
-    if (m_tts == nullptr) {
+    if (m_session->tts() == nullptr) {
         return false;
     }
 
-    const QList<Language> availableLanguages = m_tts->availableLanguages();
+    const QList<Language> availableLanguages = m_session->tts()->availableLanguages();
 
     if (availableLanguages.contains(language)) {
         return true;
@@ -1646,7 +1543,7 @@ bool MainWindow::isTTSAvailableForLanguage(const Language &language) const
 
 void MainWindow::sourcePlayPauseClicked()
 {
-    if (m_tts == nullptr) {
+    if (m_session->tts() == nullptr) {
         return;
     }
 
@@ -1656,44 +1553,44 @@ void MainWindow::sourcePlayPauseClicked()
     }
 
     const Language sourceLanguage = spokenSourceLanguage();
-    m_tts->setLanguage(sourceLanguage);
-    const ProviderUIRequirements reqs = m_tts->getUIRequirements();
-    if (reqs.supportedCapabilities.contains("voiceSelection") && ui->sourceVoiceComboBox->currentData().isValid()) {
+    m_session->tts()->setLanguage(sourceLanguage);
+    const ProviderCapabilities reqs = m_session->tts()->capabilities();
+    if (reqs.testFlag(ProviderCapability::VoiceSelection) && ui->sourceVoiceComboBox->currentData().isValid()) {
         const Voice voice = ui->sourceVoiceComboBox->currentData().value<Voice>();
-        m_tts->setVoice(voice);
+        m_session->tts()->setVoice(voice);
     }
 
     // Apply speaker selection for source TTS
-    if (reqs.supportedCapabilities.contains("speakerSelection") && ui->sourceSpeakerComboBox->count() > 0) {
+    if (reqs.testFlag(ProviderCapability::SpeakerSelection) && ui->sourceSpeakerComboBox->count() > 0) {
         const QString speaker = ui->sourceSpeakerComboBox->currentText();
         if (!speaker.isEmpty()) {
-            auto options = m_optionsManager->createTTSOptionsFromSettings(m_tts);
+            auto options = m_session->options()->createTTSOptionsFromSettings(m_session->tts());
             if (options) {
                 options->setOption("speaker", speaker);
-                m_tts->applyOptions(*options);
+                m_session->tts()->applyOptions(*options);
             }
         }
     }
 
-    if (m_tts->state() == QTextToSpeech::Speaking) {
-        m_tts->pause();
-    } else if (m_tts->state() == QTextToSpeech::Paused) {
-        m_tts->resume();
+    if (m_session->tts()->state() == QTextToSpeech::Speaking) {
+        m_session->tts()->pause();
+    } else if (m_session->tts()->state() == QTextToSpeech::Paused) {
+        m_session->tts()->resume();
     } else {
-        m_tts->say(text);
+        m_session->tts()->say(text);
     }
 }
 
 void MainWindow::sourceStopClicked()
 {
-    if (m_tts != nullptr) {
-        m_tts->stop();
+    if (m_session->tts() != nullptr) {
+        m_session->tts()->stop();
     }
 }
 
 void MainWindow::translationPlayPauseClicked()
 {
-    if (m_tts == nullptr) {
+    if (m_session->tts() == nullptr) {
         return;
     }
 
@@ -1703,45 +1600,45 @@ void MainWindow::translationPlayPauseClicked()
     }
 
     const Language translationLanguage = spokenTranslationLanguage();
-    m_tts->setLanguage(translationLanguage);
-    const ProviderUIRequirements reqs = m_tts->getUIRequirements();
-    if (reqs.supportedCapabilities.contains("voiceSelection") && ui->translationVoiceComboBox->currentData().isValid()) {
+    m_session->tts()->setLanguage(translationLanguage);
+    const ProviderCapabilities reqs = m_session->tts()->capabilities();
+    if (reqs.testFlag(ProviderCapability::VoiceSelection) && ui->translationVoiceComboBox->currentData().isValid()) {
         const Voice voice = ui->translationVoiceComboBox->currentData().value<Voice>();
-        m_tts->setVoice(voice);
+        m_session->tts()->setVoice(voice);
     }
 
     // Apply speaker selection for translation TTS
-    if (reqs.supportedCapabilities.contains("speakerSelection") && ui->translationSpeakerComboBox->count() > 0) {
+    if (reqs.testFlag(ProviderCapability::SpeakerSelection) && ui->translationSpeakerComboBox->count() > 0) {
         const QString speaker = ui->translationSpeakerComboBox->currentText();
         if (!speaker.isEmpty()) {
-            auto options = m_optionsManager->createTTSOptionsFromSettings(m_tts);
+            auto options = m_session->options()->createTTSOptionsFromSettings(m_session->tts());
             if (options) {
                 options->setOption("speaker", speaker);
-                m_tts->applyOptions(*options);
+                m_session->tts()->applyOptions(*options);
             }
         }
     }
 
-    if (m_tts->state() == QTextToSpeech::Speaking) {
-        m_tts->pause();
-    } else if (m_tts->state() == QTextToSpeech::Paused) {
-        m_tts->resume();
+    if (m_session->tts()->state() == QTextToSpeech::Speaking) {
+        m_session->tts()->pause();
+    } else if (m_session->tts()->state() == QTextToSpeech::Paused) {
+        m_session->tts()->resume();
     } else {
-        m_tts->say(text);
+        m_session->tts()->say(text);
     }
 }
 
 void MainWindow::translationStopClicked()
 {
-    if (m_tts != nullptr) {
-        m_tts->stop();
+    if (m_session->tts() != nullptr) {
+        m_session->tts()->stop();
     }
 }
 
 void MainWindow::on_translateButton_clicked()
 {
-    assert(m_translator != nullptr);
-    assert(m_translator->getState()
+    assert(m_session->translator() != nullptr);
+    assert(m_session->translator()->getState()
            == ATranslationProvider::State::Ready); // should be initialized and ready or something is wrong with button enabling logic and not here
 
     const bool isSourceAutoChecked = ui->sourceLanguagesWidget->isAutoButtonChecked();
@@ -1752,7 +1649,7 @@ void MainWindow::on_translateButton_clicked()
     if (m_hasSourceImage) {
         // Recognition is still running on the image; translate whatever it
         // produces rather than translating an empty source edit.
-        armOcrTranslation();
+        m_session->armOcrTranslation(m_session->ocr());
         return;
     }
 
@@ -1851,8 +1748,6 @@ void MainWindow::on_delayedTranslateScreenAreaButton_clicked()
 
 void MainWindow::publishLanguageSelection()
 {
-    const AppSettings settings;
-    m_languages->setPreference(settings.primaryLanguage(), settings.secondaryLanguage(), Language(QLocale::system()));
     // Auto has to be reported AS auto. checkedLanguage() answers with the auto
     // button's label, which is a resolved language once anything has resolved
     // - feeding that back in reads as "the user picked this" and pins the
@@ -1864,15 +1759,13 @@ void MainWindow::publishLanguageSelection()
     const Language destination = ui->translationLanguagesWidget->isAutoButtonChecked()
         ? Language::autoLanguage()
         : ui->translationLanguagesWidget->checkedLanguage();
-    m_languages->setSelected(source, destination);
+    m_session->setSelectedLanguages(source, destination);
 }
 
-// One copy, connected from both places the provider is wired up. It used to be
-// an identical lambda in each, so a fix to one silently missed the other.
+// The session has already told the language model what was detected; this is
+// only what the window does about it.
 void MainWindow::onLanguageDetected(const Language &detectedLanguage, bool isTranslationContext)
 {
-    m_languages->setDetectedSource(detectedLanguage);
-
     if (ui->sourceLanguagesWidget->isAutoButtonChecked()) {
         m_sourceLang = detectedLanguage;
         ui->sourceLanguagesWidget->setAutoLanguage(detectedLanguage);
@@ -1885,55 +1778,24 @@ void MainWindow::onLanguageDetected(const Language &detectedLanguage, bool isTra
     // Retranslate only when the destination the detection implies is not where
     // the translation already went. The label is not updated here: the model
     // moved above, and whoever shows it is subscribed.
-    if (m_translator == nullptr || m_translator->getState() != ATranslationProvider::State::Processed) {
+    if (m_session->translator() == nullptr || m_session->translator()->getState() != ATranslationProvider::State::Processed) {
         return;
     }
-    const Language preferredDest = preferredTranslationLanguage(detectedLanguage);
-    if (m_translator->translationLanguage != preferredDest && !ui->sourceEdit->toPlainText().isEmpty()) {
+    const Language preferredDest = m_session->preferredDestination(detectedLanguage);
+    if (m_session->translator()->translationLanguage != preferredDest && !ui->sourceEdit->toPlainText().isEmpty()) {
         qDebug() << "Retranslating from" << detectedLanguage.name() << "to preferred destination:" << preferredDest.name();
-        m_translator->translate(ui->sourceEdit->toSourceText(), preferredDest, detectedLanguage);
+        m_session->translator()->translate(ui->sourceEdit->toSourceText(), preferredDest, detectedLanguage);
     }
 }
 
 Language MainWindow::spokenSourceLanguage() const
 {
-    return m_languages->effectiveSource();
+    return m_session->languages()->effectiveSource();
 }
 
 Language MainWindow::spokenTranslationLanguage() const
 {
-    return m_languages->effectiveDestination();
-}
-
-Language MainWindow::preferredTranslationLanguage(const Language &sourceLang) const
-{
-    const AppSettings settings;
-    return TranslationLogic::preferredDestination(sourceLang,
-                                                  settings.primaryLanguage(),
-                                                  settings.secondaryLanguage(),
-                                                  Language(QLocale::system()));
-}
-
-void MainWindow::handleTranslationRequest(const QString &text, const Language &destLang, const Language &srcLang)
-{
-    Language actualDestLang = destLang;
-
-    // If destination is auto, determine preferred translation language
-    if (destLang == Language::autoLanguage()) {
-        if (srcLang != Language::autoLanguage()) {
-            // Source is known, use preferred translation logic immediately
-            actualDestLang = preferredTranslationLanguage(srcLang);
-        } else {
-            // Source is auto too - we'll rely on language detection signal to retranslate if needed
-            // For now, use system locale as fallback
-            actualDestLang = preferredTranslationLanguage(Language(QLocale::system()));
-        }
-    }
-
-    qDebug() << "MainWindow::handleTranslationRequest - srcLang:" << srcLang.name()
-             << "destLang:" << destLang.name() << "actualDest:" << actualDestLang.name();
-
-    m_translator->translate(text, actualDestLang, srcLang);
+    return m_session->languages()->effectiveDestination();
 }
 
 void MainWindow::setSourceImageInternal(const QImage &src)
@@ -1982,8 +1844,8 @@ void MainWindow::clearSourceImage()
         disconnect(m_imageOcrRecognizedConnection);
         disconnect(m_imageOcrCanceledConnection);
         disconnect(m_imageOcrFailedConnection);
-        disarmOcrTranslation();
-        activeOcr()->cancel();
+        m_session->disarmOcrTranslation();
+        m_session->ocr()->cancel();
     }
 
     m_hasSourceImage = false;
@@ -1992,8 +1854,6 @@ void MainWindow::clearSourceImage()
     m_originalPixmap = QPixmap();
     ui->sourceLanguagesWidget->setEnabled(true);
 }
-
-static QByteArray stripNonStandardPngChunks(const QByteArray &data);
 
 // An image that arrives by drop, paste or the open button is transcribed
 // straight away, the same way a screen-area capture is: the point of dropping
@@ -2006,16 +1866,16 @@ void MainWindow::recognizeSourceImage()
         return;
     }
 
-    AOcrProvider *engine = activeOcr();
+    AOcrProvider *engine = m_session->ocr();
 
     disconnect(m_imageOcrRecognizedConnection);
     disconnect(m_imageOcrCanceledConnection);
     disconnect(m_imageOcrFailedConnection);
 
     if (ui->autoTranslateCheckBox->isChecked()) {
-        armOcrTranslation();
+        m_session->armOcrTranslation(engine);
     } else {
-        disarmOcrTranslation();
+        m_session->disarmOcrTranslation();
     }
 
     // The recognized text itself lands in the source edit through the
@@ -2031,7 +1891,7 @@ void MainWindow::recognizeSourceImage()
         disconnect(m_imageOcrRecognizedConnection);
         disconnect(m_imageOcrCanceledConnection);
         disconnect(m_imageOcrFailedConnection);
-        disarmOcrTranslation();
+        m_session->disarmOcrTranslation();
         clearSourceImage();
         updateTranslateButtonState();
     });
@@ -2039,7 +1899,7 @@ void MainWindow::recognizeSourceImage()
         disconnect(m_imageOcrRecognizedConnection);
         disconnect(m_imageOcrCanceledConnection);
         disconnect(m_imageOcrFailedConnection);
-        disarmOcrTranslation();
+        m_session->disarmOcrTranslation();
         clearSourceImage();
         ui->sourceEdit->replaceText(tr("OCR failed: %1").arg(error));
         updateTranslateButtonState();
@@ -2051,66 +1911,6 @@ void MainWindow::recognizeSourceImage()
 // Loads an image file, retrying through a PNG repair pass for the files Qt
 // refuses because of non-standard ancillary chunks (screenshots from some
 // tools carry them). Shared by drag-and-drop and the open-image button.
-bool MainWindow::loadImageFromFile(const QString &path, QImage &out)
-{
-    if (out.load(path)) {
-        return true;
-    }
-    QFile file(path);
-    if (!file.open(QIODevice::ReadOnly)) {
-        return false;
-    }
-    const QByteArray raw = file.readAll();
-    const QByteArray clean = stripNonStandardPngChunks(raw);
-    if (clean != raw) {
-        out.loadFromData(clean);
-    }
-    return !out.isNull();
-}
-
-static QByteArray stripNonStandardPngChunks(const QByteArray &data)
-{
-    constexpr int SIG_LEN = 8;
-    if (data.size() < SIG_LEN + 12 || data.left(SIG_LEN) != QByteArray("\x89PNG\r\n\x1a\n", SIG_LEN)) {
-        return data;
-    }
-
-    QByteArray out = data.left(SIG_LEN);
-
-    static const QSet<QByteArray> standardChunks = {
-        QByteArrayLiteral("IHDR"), QByteArrayLiteral("PLTE"),
-        QByteArrayLiteral("IDAT"), QByteArrayLiteral("IEND"),
-        QByteArrayLiteral("tRNS"), QByteArrayLiteral("cHRM"), QByteArrayLiteral("gAMA"),
-        QByteArrayLiteral("iCCP"), QByteArrayLiteral("sBIT"), QByteArrayLiteral("sRGB"),
-        QByteArrayLiteral("bKGD"), QByteArrayLiteral("hIST"), QByteArrayLiteral("tEXt"),
-        QByteArrayLiteral("zTXt"), QByteArrayLiteral("iTXt"), QByteArrayLiteral("pHYs"),
-        QByteArrayLiteral("sPLT"), QByteArrayLiteral("tIME"), QByteArrayLiteral("eXIf"),
-        QByteArrayLiteral("oFFs"), QByteArrayLiteral("pCAL"), QByteArrayLiteral("sCAL"),
-        QByteArrayLiteral("gIFg"), QByteArrayLiteral("gIFx")};
-
-    int pos = SIG_LEN;
-    while (pos + 12 <= data.size()) {
-        const quint32 length = qFromBigEndian<quint32>(reinterpret_cast<const uchar *>(data.constData() + pos));
-        const QByteArray type = data.mid(pos + 4, 4);
-        const int chunkTotal = 12 + static_cast<int>(length);
-
-        if (pos + chunkTotal > data.size()) {
-            return data;
-        }
-
-        if (standardChunks.contains(type)) {
-            out.append(data.mid(pos, chunkTotal));
-        }
-
-        pos += chunkTotal;
-        if (type == QByteArrayLiteral("IEND")) {
-            break;
-        }
-    }
-
-    return out;
-}
-
 bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 {
     // Resize preview overlay when parent resizes
@@ -2134,7 +1934,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
             QImage img;
             if (drop->mimeData()->hasUrls()) {
                 const QString path = drop->mimeData()->urls().constFirst().toLocalFile();
-                if (!loadImageFromFile(path, img)) {
+                if (!m_session->loadImage(path, img)) {
                     ui->sourceEdit->replaceText(tr("Cannot open image:\n%1").arg(path));
                     return true;
                 }
@@ -2191,7 +1991,7 @@ void MainWindow::on_openImageButton_clicked()
     }
 
     QImage img;
-    if (!loadImageFromFile(path, img)) {
+    if (!m_session->loadImage(path, img)) {
         QMessageBox::warning(this, tr("Open image"), tr("Cannot open image:\n%1").arg(path));
         return;
     }

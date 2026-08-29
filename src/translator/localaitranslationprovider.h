@@ -45,7 +45,7 @@ public:
     std::unique_ptr<ProviderOptions> getDefaultOptions() const override;
     QStringList getAvailableOptions() const override;
 
-    ProviderUIRequirements getUIRequirements() const override;
+    ProviderCapabilities capabilities() const override;
 
     void saveOptionToSettings(const QString &optionKey, const QVariant &value) override;
 
@@ -59,7 +59,7 @@ private slots:
 private:
     QString buildPrompt(const QString &srcCode, const QString &dstCode, const QString &text) const;
     static QString languageDisplayName(const QString &code);
-    static QString formatResult(const QString &text);
+    static TranslationResult formatResult(const QString &text);
     void sendDetection(const QString &text);
     void sendTranslation(const QString &srcCode, const QString &dstCode, const QString &text);
 

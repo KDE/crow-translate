@@ -174,6 +174,32 @@ private slots:
         QCOMPARE(spy.count(), 1);
         QCOMPARE(resolution.effectiveDestination(), german());
     }
+
+    // The selection has to survive being read back as it went in. Every
+    // resolved output above answers "auto" with a concrete language, on
+    // purpose - so a caller that needs to know the user asked for auto,
+    // rather than what auto currently resolves to, cannot use them. That is
+    // exactly the distinction a translation request depends on: sending the
+    // resolved destination pins it, and the retranslate-on-detection path
+    // never runs.
+    void testSelectionReadsBackUnresolved()
+    {
+        LanguageResolution resolution;
+        configure(resolution);
+        resolution.setSelected(Language::autoLanguage(), Language::autoLanguage());
+        resolution.setDetectedSource(polish());
+        resolution.setTranslated(polish(), english());
+
+        QCOMPARE(resolution.selectedSource(), Language::autoLanguage());
+        QCOMPARE(resolution.selectedDestination(), Language::autoLanguage());
+        // ... while the resolved answers have moved well away from it.
+        QCOMPARE(resolution.effectiveSource(), polish());
+        QCOMPARE(resolution.effectiveDestination(), english());
+
+        resolution.setSelected(german(), russian());
+        QCOMPARE(resolution.selectedSource(), german());
+        QCOMPARE(resolution.selectedDestination(), russian());
+    }
 };
 
 QTEST_GUILESS_MAIN(LanguageResolutionTest)

@@ -14,9 +14,9 @@
 #include "tts/piperttsprovider.h"
 #endif
 
+#include "core/usernotifier.h"
 #include "settings/appsettings.h"
 
-#include <QMessageBox>
 #include <QTimer>
 
 ATTSProvider *ATTSProvider::createTTSProvider(QObject *parent, ATTSProvider::ProviderBackend chosenBackend)
@@ -67,13 +67,12 @@ void ATTSProvider::resetProblematicProvider(ProviderBackend backend)
     qWarning() << "Resetting TTS provider from" << static_cast<int>(backend) << "to None due to crash";
     settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::None);
 
-    // Show a user-friendly message
-    QTimer::singleShot(100, []() {
-        QMessageBox::warning(nullptr,
-                             QObject::tr("TTS Provider Error"),
-                             QObject::tr("The selected TTS provider crashed during initialization and has been reset to 'None' to prevent further issues. "
-                                         "You can try selecting a different provider in Settings → TTS."));
-    });
+    UserNotifier::Notification notification;
+    notification.severity = UserNotifier::Severity::Warning;
+    notification.title = QObject::tr("TTS Provider Error");
+    notification.text = QObject::tr("The selected TTS provider crashed during initialization and has been reset to 'None' to prevent further issues. "
+                                    "You can try selecting a different provider in Settings → TTS.");
+    UserNotifier::notify(notification);
 }
 
 ATTSProvider::ATTSProvider(QObject *parent)

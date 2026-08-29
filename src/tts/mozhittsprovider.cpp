@@ -404,13 +404,9 @@ QStringList MozhiTTSProvider::getAvailableOptions() const
     return {"instance", "engine"};
 }
 
-ProviderUIRequirements MozhiTTSProvider::getUIRequirements() const
+ProviderCapabilities MozhiTTSProvider::capabilities() const
 {
-    ProviderUIRequirements requirements;
-    requirements.requiredUIElements = {"engineComboBox"};
-    requirements.supportedSignals = {};
-    requirements.supportedCapabilities = {"engineSelection"};
-    return requirements;
+    return ProviderCapability::EngineSelection;
 }
 
 QStringList MozhiTTSProvider::availableSpeakers() const

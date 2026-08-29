@@ -17,21 +17,12 @@
 
 class QStateMachine;
 class QState;
+// TranslationExample/TranslationOptions live with TranslationResult now:
+// they describe what a translation *is*, not how this one backend fetches it.
+#include "core/translationresult.h"
+
 class QNetworkAccessManager;
 class QNetworkReply;
-
-struct TranslationExample {
-    QString word;
-    QString definition;
-    QString example;
-    QStringList examplesSource;
-    QStringList examplesTarget;
-};
-
-struct TranslationOptions {
-    QString word;
-    QStringList translations;
-};
 
 /**
  * @brief Provides translation data
