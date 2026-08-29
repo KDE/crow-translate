@@ -18,6 +18,7 @@ Application written in **C++ / Qt6** that allows you to translate and speak text
 - [Icons](#icons)
 - [Installation](#installation)
 - [Building](#building)
+- [Writing a backend](#writing-a-backend)
 - [Localization](#localization)
 
 ## Screenshots
@@ -284,8 +285,16 @@ craft crow-translate
 - `WITH_KWAYLAND` - Find and use KWayland library for better Wayland integration.
 - `WITH_TTS` - Build the text-to-speech engines and their UI (default ON). Turning it off removes the speech providers, the play/pause/stop buttons and the voice selection.
 - `WITH_PIPER_TTS` - Enable Piper neural TTS provider (requires ONNX Runtime and espeak-ng, and `WITH_TTS`).
+- `CROW_STATIC_PLUGINS` - Compile the translation, speech and recognition backends into the application instead of installing them as loadable modules. On by default for Windows and portable builds, where the shipped tree is self-contained. Either way Crow still loads third-party backends it finds; see [PLUGINS.md](PLUGINS.md).
+- `BUILD_OUT_OF_TREE_PLUGIN_TEST` - Build the templates in `examples/plugins/` against an installed prefix and run them (default OFF; needs `BUILD_TESTING`).
 - `ESPEAKNG_USE_SYSTEM` - Link against a system espeak-ng instead of building the bundled submodule. Useful for distribution packaging. Crow requires `espeak_TextToPhonemesWithTerminator`, an API that is not part of the espeak-ng 1.52.0 release, so the system espeak-ng must be built from git (see [espeak-ng!2127](https://github.com/espeak-ng/espeak-ng/pull/2127)); the build verifies this at configure time and fails otherwise. Linux only.
 
 Build parameters are passed at configuration stage: `cmake -D WITH_PORTABLE_MODE=ON -D WITH_PIPER_TTS=ON ..`.
 
 **Note for Piper TTS**: When enabled with `-D WITH_PIPER_TTS=ON`, the Piper neural TTS provider requires downloading voice models separately. Voice models can be downloaded from [Hugging Face Piper voices](https://huggingface.co/rhasspy/piper-voices) and should be placed in the application's data directory. ONNX Runtime and espeak-ng submodule are automatically configured when this option is enabled.
+
+## Writing a backend
+
+Translation, speech and text-recognition backends are plugins. One can be written, built and installed entirely outside this repository, against an installed Crow Translate: `find_package(Crow)`, one class, and a JSON file saying what it is.
+
+See [PLUGINS.md](PLUGINS.md) for the interfaces, the metadata and what stays put between releases, and [`examples/plugins/`](examples/plugins/) for a working template per family.
