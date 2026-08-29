@@ -124,7 +124,12 @@ function(crow_add_plugin PLUGIN_ID)
     elseif(WIN32)
         # Beside the executable's plugins directory: Windows has no rpath, and
         # crow-core.dll sits next to crow.exe where the loader will find it.
-        install(TARGETS ${module} RUNTIME DESTINATION ${KDE_INSTALL_BINDIR}/plugins/crowtranslate/${ARG_FAMILY})
+        #
+        # LIBRARY rather than RUNTIME even though this is a .dll. CMake sorts a
+        # MODULE library under LIBRARY on every platform, Windows included, and
+        # the RUNTIME this said before matched nothing - it installed the module
+        # nowhere, silently, in the one configuration nobody builds.
+        install(TARGETS ${module} LIBRARY DESTINATION ${KDE_INSTALL_BINDIR}/plugins/crowtranslate/${ARG_FAMILY})
     endif()
 
     # crow itself does not link these, so nothing would build them otherwise.
