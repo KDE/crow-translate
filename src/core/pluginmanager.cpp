@@ -218,6 +218,17 @@ void PluginManager::discover()
     // Compiled in. Qt keeps a table of them registered by Q_IMPORT_PLUGIN;
     // everything below this is the same code the dynamic path runs, reading
     // the same metadata out of the same JSON.
+    //
+    // First, and then the directory scan runs anyway. Compiling the backends
+    // that ship with the application into it is a statement about *those*
+    // backends - an installer's tree is self-contained and a file in it that
+    // can go missing is not a fallback - and says nothing about a backend
+    // somebody else wrote. Stopping here instead of scanning is what made
+    // third-party plugins impossible on Windows, in the AppImage, and in every
+    // portable build, which is all of them the KDE CI produces.
+    //
+    // Registering these first is what keeps the guarantee: the id check in the
+    // scan below means a module claiming to be "mozhi" finds the name taken.
     const QList<QStaticPlugin> statics = QPluginLoader::staticPlugins();
     for (const QStaticPlugin &plugin : statics) {
         const QJsonObject root = plugin.metaData();
@@ -239,9 +250,10 @@ void PluginManager::discover()
             break;
         }
     }
-    return;
 #endif
 
+    // On a stock static installation there is nothing here to find and the
+    // whole loop costs one QDir::exists() per family.
     for (const FamilyTraits &traits : familyTraits) {
         const QStringList paths = searchPaths(traits.family);
         for (const QString &path : paths) {

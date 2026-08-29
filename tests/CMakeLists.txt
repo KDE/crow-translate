@@ -441,6 +441,33 @@ target_link_libraries(test_pluginmanager PRIVATE
 )
 add_test(NAME PluginManagerTest COMMAND test_pluginmanager)
 
+# A backend this tree does not ship, built the way one from outside it would
+# be: a MODULE over Crow::Core, deliberately outside crow_add_plugin() and
+# outside CROW_STATIC_PLUGINS. It is the fixture for "a module in the search
+# path is found", which the dynamic build used to demonstrate by accident and
+# the static build did not do at all.
+#
+# In its own root rather than beside the real modules, because CROW_PLUGIN_PATH
+# replaces the search path: the test points at this directory and sees exactly
+# one foreign backend, whatever else the build happens to have produced.
+add_library(test-foreign-plugin MODULE
+    support/foreignplugin/foreignplugin.h
+    support/foreignplugin/foreignplugin.cpp
+)
+target_link_libraries(test-foreign-plugin PRIVATE Crow::Core)
+set_target_properties(test-foreign-plugin PROPERTIES
+    OUTPUT_NAME crow_testforeign
+    PREFIX ""
+    LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/foreign-plugin-root/plugins/crowtranslate/translation
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/foreign-plugin-root/plugins/crowtranslate/translation
+)
+if(UNIX AND NOT APPLE)
+    target_link_options(test-foreign-plugin PRIVATE "LINKER:--no-undefined")
+endif()
+add_dependencies(test_pluginmanager test-foreign-plugin)
+target_compile_definitions(test_pluginmanager PRIVATE
+    CROW_FOREIGN_PLUGIN_ROOT="${CMAKE_CURRENT_BINARY_DIR}/foreign-plugin-root")
+
 # The settings page a backend gets for free. Widgets are built and inspected
 # by object name, never shown - headless OK, same as test_statusstrip.
 add_executable(test_pluginoptionswidget
@@ -513,7 +540,7 @@ endif()
 # configuration (see build.zsh's build-test/build-test-nopiper) still builds
 # and runs them.
 if(NOT BUILD_TESTING)
-    foreach(_test_target IN ITEMS test_pluginmanager test_pluginoptionswidget test_helper_window test_dbus_static_init test_forcedauto_owner test_cli test_widget_free_core test_usernotifier test_translationhtmlformatter test_frontendregistry test_popupwindow_lifetime test_snippingarea_flags test_ttsprovider_isolation test_translation test_localai_provider test_settingsdialog_localai test_llmocr test_llmocr_live test_visionmodelprobe test_translationlogic test_screenwatcher test_languageresolution test_translationsession test_modulestatus test_statusstrip test_snippingarea_terminal test_mainwindow_status test_mainwindow_features test_mainwindow_forcedauto test_appsettings_prompts test_appsettings_region test_translation_provider_contract)
+    foreach(_test_target IN ITEMS test-foreign-plugin test_pluginmanager test_pluginoptionswidget test_helper_window test_dbus_static_init test_forcedauto_owner test_cli test_widget_free_core test_usernotifier test_translationhtmlformatter test_frontendregistry test_popupwindow_lifetime test_snippingarea_flags test_ttsprovider_isolation test_translation test_localai_provider test_settingsdialog_localai test_llmocr test_llmocr_live test_visionmodelprobe test_translationlogic test_screenwatcher test_languageresolution test_translationsession test_modulestatus test_statusstrip test_snippingarea_terminal test_mainwindow_status test_mainwindow_features test_mainwindow_forcedauto test_appsettings_prompts test_appsettings_region test_translation_provider_contract)
         set_target_properties(${_test_target} PROPERTIES EXCLUDE_FROM_ALL TRUE)
     endforeach()
     if(TARGET test_singleapplication_recovery)

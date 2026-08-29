@@ -183,6 +183,42 @@ private slots:
 #endif
     }
 
+    // A backend nobody in this tree compiled, found by scanning - and found in
+    // both link modes.
+    //
+    // Compiling the shipped backends into the application is a statement about
+    // *those* backends: an installer's tree is self-contained and a file in it
+    // that can go missing is not a fallback. It says nothing about a backend
+    // somebody else wrote. Discovery used to stop as soon as it had walked
+    // Qt's static plugin table, which meant that on Windows, in the AppImage
+    // and in every portable build - which is all of them the KDE CI produces -
+    // a third-party module was unreachable wherever it was put.
+    void testAModuleFromOutsideTheTreeIsFoundInEitherLinkMode()
+    {
+        const QByteArray previous = qgetenv(PluginManager::searchPathEnvironmentVariable());
+        qputenv(PluginManager::searchPathEnvironmentVariable(), CROW_FOREIGN_PLUGIN_ROOT);
+        PluginManager::instance()->reload();
+
+        PluginManager *manager = PluginManager::instance();
+        QVERIFY2(manager->contains(PluginFamily::Translation, QStringLiteral("testforeign")),
+                 "a module sitting in the search path was not discovered; in a static build that is discover() stopping at the static plugin table");
+
+        // Identity out of the JSON beside it, without the module having been
+        // loaded to ask.
+        const std::optional<PluginInfo> described = manager->describe(PluginFamily::Translation, QStringLiteral("testforeign"));
+        QVERIFY(described.has_value());
+        QCOMPARE(described->displayName, QStringLiteral("Foreign test backend"));
+
+        // And it builds something. A module that is listed and cannot be
+        // loaded is the failure this is really guarding against.
+        const std::unique_ptr<ATranslationProvider> provider(manager->createTranslationProvider(nullptr, QStringLiteral("testforeign")));
+        QVERIFY(provider != nullptr);
+        QCOMPARE(provider->getProviderType(), QStringLiteral("CopyTranslationProvider"));
+
+        qputenv(PluginManager::searchPathEnvironmentVariable(), previous);
+        PluginManager::instance()->reload();
+    }
+
     // A settings file written by 4.1.0 stored an ordinal into an enum that no
     // longer exists. It has to keep selecting the same backends.
     void testASettingsFileFrom410StillSelectsTheSameBackends()
