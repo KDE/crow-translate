@@ -217,15 +217,27 @@ add_library(crow-core SHARED
     src/tts/voice.cpp
 )
 add_library(Crow::Core ALIAS crow-core)
+# The alias is a build-tree convenience and does not survive install(EXPORT) -
+# an exported crow-core would arrive as Crow::crow-core, and every out-of-tree
+# CMakeLists in the documentation would be wrong. EXPORT_NAME is what makes the
+# imported target spell itself the same way the alias does.
+set_target_properties(crow-core PROPERTIES EXPORT_NAME Core)
 
 generate_export_header(crow-core
     BASE_NAME crow_core
     EXPORT_FILE_NAME crow_core_export.h
 )
 
+# The install interface mirrors src/ under one directory, so that every quoted
+# include a backend already writes - "plugininterfaces/itranslationplugin.h",
+# "translator/atranslationprovider.h" - resolves the same way whether the
+# backend is built in this tree or against an installed prefix. A plugin author
+# copying an in-tree backend as a starting point should not have to edit its
+# includes.
 target_include_directories(crow-core PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/src
-    ${CMAKE_BINARY_DIR}
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
+    $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}>
+    $<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR}/CrowTranslate>
 )
 
 # Where the modules end up, twice over: as an absolute path, for an
@@ -272,12 +284,94 @@ set_target_properties(crow-core PROPERTIES
 
 if(UNIX AND NOT APPLE)
     set_target_properties(crow-core PROPERTIES INSTALL_RPATH "$ORIGIN")
-    install(TARGETS crow-core ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+    install(TARGETS crow-core EXPORT CrowTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 elseif(WIN32)
     # Next to crow.exe: Windows resolves a DLL from the executable's directory
     # and there is no rpath to point anywhere else.
-    install(TARGETS crow-core RUNTIME DESTINATION ${KDE_INSTALL_BINDIR})
+    #
+    # ARCHIVE as well, which is crow-core.lib - the import library. Without it
+    # a DLL is something you can load and nothing you can link, so every
+    # out-of-tree backend on Windows was a non-starter no matter what else was
+    # installed beside it.
+    install(TARGETS crow-core EXPORT CrowTargets
+        RUNTIME DESTINATION ${KDE_INSTALL_BINDIR}
+        ARCHIVE DESTINATION ${KDE_INSTALL_LIBDIR})
+else()
+    # macOS, where nothing was installed at all - which was survivable while
+    # the library was an implementation detail of one bundle, and is not once
+    # somebody is meant to build against it.
+    install(TARGETS crow-core EXPORT CrowTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 endif()
+
+# What a backend needs in order to be one, from outside this tree.
+#
+# Deliberately not the whole of crow-core's headers. Everything installed here
+# is surface that PLUGINS.md then has to keep working, so onlinetranslator.h,
+# the LLM endpoint helpers and the two built-in fallbacks stay in the tree even
+# though backends shipped here use them: a third-party author who needs one is
+# a reason to widen this list on purpose, later, rather than a reason to have
+# published it by accident now.
+install(FILES
+    src/language.h
+    src/provideroptions.h
+    ${CMAKE_BINARY_DIR}/crow_core_export.h
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/CrowTranslate)
+install(FILES
+    src/plugininterfaces/iproviderplugin.h
+    src/plugininterfaces/itranslationplugin.h
+    src/plugininterfaces/ittsplugin.h
+    src/plugininterfaces/iocrplugin.h
+    src/plugininterfaces/provideroptionspec.h
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/CrowTranslate/plugininterfaces)
+install(FILES
+    src/translator/atranslationprovider.h
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/CrowTranslate/translator)
+install(FILES
+    src/tts/attsprovider.h
+    src/tts/voice.h
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/CrowTranslate/tts)
+install(FILES
+    src/ocr/aocrprovider.h
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/CrowTranslate/ocr)
+install(FILES
+    src/core/translationresult.h
+    src/core/usernotifier.h
+    src/core/settingsstore.h
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/CrowTranslate/core)
+
+# find_package(Crow) for whoever is writing the eighth backend.
+#
+# Crow_PLUGIN_INSTALL_DIR and Crow_CORE_LIBRARY_DIR are recorded rather than
+# recomputed because they are answers about *this* installation: which of
+# lib/qt6/plugins and lib64/qt6/plugins this distribution chose, and where the
+# module has to point its rpath to find libcrow-core.so again.
+include(CMakePackageConfigHelpers)
+if(WIN32)
+    set(CROW_PLUGIN_INSTALL_DIR_REL ${KDE_INSTALL_BINDIR}/plugins/crowtranslate)
+else()
+    set(CROW_PLUGIN_INSTALL_DIR_REL ${KDE_INSTALL_PLUGINDIR}/crowtranslate)
+endif()
+configure_package_config_file(cmake/CrowConfig.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/CrowConfig.cmake
+    INSTALL_DESTINATION ${KDE_INSTALL_CMAKEPACKAGEDIR}/Crow
+    PATH_VARS CROW_PLUGIN_INSTALL_DIR_REL KDE_INSTALL_LIBDIR KDE_INSTALL_INCLUDEDIR)
+# SameMinorVersion, not SameMajorVersion. crow-core's ABI moves with the
+# feature releases, and a version file claiming 4.2 and 4.5 interchange would
+# be a promise nobody is keeping. The IID is the runtime gate; this is the one
+# that fires at configure time, while there is still a build log to read.
+write_basic_package_version_file(
+    ${CMAKE_CURRENT_BINARY_DIR}/CrowConfigVersion.cmake
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY SameMinorVersion)
+install(FILES
+    ${CMAKE_CURRENT_BINARY_DIR}/CrowConfig.cmake
+    ${CMAKE_CURRENT_BINARY_DIR}/CrowConfigVersion.cmake
+    cmake/CrowMacros.cmake
+    DESTINATION ${KDE_INSTALL_CMAKEPACKAGEDIR}/Crow)
+install(EXPORT CrowTargets
+    NAMESPACE Crow::
+    FILE CrowTargets.cmake
+    DESTINATION ${KDE_INSTALL_CMAKEPACKAGEDIR}/Crow)
 
 # Create library with all application logic (for reuse by tests)
 add_library(${PROJECT_NAME}-lib STATIC
@@ -711,7 +805,11 @@ if(CROW_STATIC_PLUGINS)
     crow_write_static_plugin_imports(CROW_STATIC_PLUGIN_IMPORTS)
     get_property(CROW_PLUGIN_OBJECT_LIBRARIES GLOBAL PROPERTY CROW_PLUGIN_OBJECT_LIBRARIES)
     target_link_libraries(${PROJECT_NAME}-lib PUBLIC ${CROW_PLUGIN_OBJECT_LIBRARIES})
-    target_compile_definitions(crow-core PUBLIC CROW_STATIC_PLUGINS)
+    # PUBLIC because tests/test_pluginmanager.cpp reads it, BUILD_INTERFACE
+    # because an out-of-tree backend must not: how the backends shipped here
+    # were linked is none of its business, and discovery no longer behaves
+    # differently for it either way.
+    target_compile_definitions(crow-core PUBLIC $<BUILD_INTERFACE:CROW_STATIC_PLUGINS>)
 
     # Compiled into every executable that needs the backends, and not into
     # the archive between them. Q_IMPORT_PLUGIN registers through a static

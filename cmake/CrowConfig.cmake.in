@@ -1,0 +1,35 @@
+#
+# SPDX-FileCopyrightText: 2026 Mauritius Clemens <gitlab@janitor.chat>
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
+# find_package(Crow) - everything needed to build a backend for Crow Translate
+# from outside its source tree.
+#
+#   find_package(Crow REQUIRED)
+#   crow_add_plugin_module(myplugin FAMILY translation SOURCES myplugin.cpp)
+#
+# See PLUGINS.md in the Crow Translate sources for what the interfaces are and
+# what stays put between releases.
+
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+# crow-core's own PUBLIC link list. A backend inherits all of it through
+# Crow::Core, because the abstract bases it implements speak in Qt types -
+# QTextToSpeech::State on the speech side, QImage on the recognition side.
+find_dependency(Qt6 COMPONENTS Core Gui Network Multimedia StateMachine TextToSpeech)
+
+# Where this installation keeps its backends, and where the module has to reach
+# to find libcrow-core again. Recorded at build time rather than guessed here:
+# which of lib/qt6/plugins and lib64/qt6/plugins a distribution chose is not
+# something a config file can work out afterwards.
+set(Crow_PLUGIN_INSTALL_DIR "@PACKAGE_CROW_PLUGIN_INSTALL_DIR_REL@")
+set(Crow_CORE_LIBRARY_DIR "@PACKAGE_KDE_INSTALL_LIBDIR@")
+set_and_check(Crow_INCLUDE_DIR "@PACKAGE_KDE_INSTALL_INCLUDEDIR@/CrowTranslate")
+
+include("${CMAKE_CURRENT_LIST_DIR}/CrowTargets.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/CrowMacros.cmake")
+
+check_required_components(Crow)
