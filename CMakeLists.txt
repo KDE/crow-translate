@@ -94,7 +94,7 @@ list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cma
 include(KDEClangFormat)
 include(CheckSymbolExists)
 include(GenerateExportHeader)
-file(GLOB_RECURSE CLANG_FORMAT_SOURCES src/*.cpp src/*.h tests/*.cpp tests/*.h)
+file(GLOB_RECURSE CLANG_FORMAT_SOURCES src/*.cpp src/*.h tests/*.cpp tests/*.h examples/*.cpp examples/*.h)
 list(FILTER CLANG_FORMAT_SOURCES EXCLUDE REGEX ".*/src/3rdparty/.*" )
 list(FILTER CLANG_FORMAT_SOURCES EXCLUDE REGEX ".*${PROJECT_NAME}_autogen.*" )
 kde_clang_format(${CLANG_FORMAT_SOURCES})

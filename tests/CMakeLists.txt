@@ -479,6 +479,36 @@ target_link_libraries(test_pluginoptionswidget PRIVATE
 )
 add_test(NAME PluginOptionsWidgetTest COMMAND test_pluginoptionswidget)
 
+# The whole of PLUGINS.md, run: install this build to a scratch prefix, build
+# the three templates in examples/plugins/ against it as ordinary out-of-tree
+# CMake projects, install them, and drive crow through each one.
+#
+# Off by default because it installs the project and configures three more
+# builds, which is not what anyone wants from a `ctest` between two edits. It
+# is the thing to turn on before changing anything the plugin interfaces or the
+# exported package touch:
+#
+#   cmake -S . -B build -DBUILD_TESTING=ON -DBUILD_OUT_OF_TREE_PLUGIN_TEST=ON
+#   cmake --build build && ctest --test-dir build -R OutOfTreePlugin
+option(BUILD_OUT_OF_TREE_PLUGIN_TEST "Build the templates in examples/plugins/ against an installed prefix and run them" OFF)
+if(BUILD_OUT_OF_TREE_PLUGIN_TEST)
+    add_test(NAME OutOfTreePluginTest
+        COMMAND ${CMAKE_COMMAND}
+            -DCROW_BUILD_DIR=${CMAKE_BINARY_DIR}
+            -DCROW_EXAMPLES_DIR=${CMAKE_SOURCE_DIR}/examples/plugins
+            -DCROW_SCRATCH_DIR=${CMAKE_CURRENT_BINARY_DIR}/out-of-tree
+            -DCROW_BINDIR=${KDE_INSTALL_BINDIR}
+            -DCROW_EXECUTABLE_SUFFIX=${CMAKE_EXECUTABLE_SUFFIX}
+            -DCROW_TEST_IMAGE=${CMAKE_SOURCE_DIR}/data/icons/app/16-apps-${APPLICATION_ID}.png
+            -DCROW_GENERATOR=${CMAKE_GENERATOR}
+            -DCROW_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+            -DCROW_CXX_COMPILER=${CMAKE_CXX_COMPILER}
+            -P ${CMAKE_CURRENT_SOURCE_DIR}/outoftreeplugintest.cmake)
+    # It installs the project first, so everything the install rules name has
+    # to exist. Building the whole thing from inside a test would be worse.
+    set_tests_properties(OutOfTreePluginTest PROPERTIES TIMEOUT 900)
+endif()
+
 # Test binaries live in tests/, so PluginManager's "beside the executable"
 # path finds nothing. Point every test at the build tree's plugin directory,
 # and make sure the modules are built before any of them runs.
