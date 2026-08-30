@@ -17,26 +17,42 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 26.03.70\n"
 
-#: src/cli.cpp:98
+#: src/cli.cpp:78
+#, fuzzy
+#| msgctxt "MozhiTranslationProvider|"
+#| msgid "translation options:"
+msgctxt "Cli|"
+msgid "translation options:"
+msgstr "翻譯選項："
+
+#: src/cli.cpp:87
+#, fuzzy
+#| msgctxt "MozhiTranslationProvider|"
+#| msgid "examples:"
+msgctxt "Cli|"
+msgid "examples:"
+msgstr "範例："
+
+#: src/cli.cpp:118
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "顯示所有語言代碼。"
 
-#: src/cli.cpp:100
+#: src/cli.cpp:120
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
 msgstr "指定原文語言（不指定時引擎預設會自行嘗試判斷語言）。"
 
-#: src/cli.cpp:104
+#: src/cli.cpp:124
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), split by '+' (by default, the system "
 "language is used)."
 msgstr "指定翻譯語言，以 '+' 分隔（不指定時預設會使用系統語言）。"
 
-#: src/cli.cpp:109
+#: src/cli.cpp:129
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -50,14 +66,14 @@ msgstr ""
 "指定翻譯引擎（'google'、'yandex'、'bing'、'libretranslate' 或 'lingva'），預"
 "設使用 Google。"
 
-#: src/cli.cpp:113
+#: src/cli.cpp:133
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr "指定 Mozhi 實體網址。預設會使用應用程式設定裡指定的實體網址。"
 
-#: src/cli.cpp:117
+#: src/cli.cpp:137
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -70,7 +86,7 @@ msgid ""
 msgstr ""
 "指定翻譯提供者（'copy' 或 'mozhi'）。預設會使用應用程式設定裡指定的提供者。"
 
-#: src/cli.cpp:125
+#: src/cli.cpp:145
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -84,7 +100,7 @@ msgstr ""
 "指定 TTS 提供者（'none'、'mozhi'、'qt' 或 'piper'）。預設會使用應用程式設定裡"
 "指定的提供者。"
 
-#: src/cli.cpp:127
+#: src/cli.cpp:147
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -98,68 +114,90 @@ msgstr ""
 "指定 TTS 提供者（'none'、'mozhi'、'qt' 或 'piper'）。預設會使用應用程式設定裡"
 "指定的提供者。"
 
-#: src/cli.cpp:129
+#: src/cli.cpp:149
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
 
-#: src/cli.cpp:132
+#: src/cli.cpp:152
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "朗讀譯文。"
 
-#: src/cli.cpp:133
+#: src/cli.cpp:153
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "朗讀原文。"
 
-#: src/cli.cpp:134
+#: src/cli.cpp:154
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
 msgstr "從檔案讀取原文。參數將被視為檔案路徑。"
 
-#: src/cli.cpp:135
+#: src/cli.cpp:155
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "將標準輸入文字加入原文。"
 
-#: src/cli.cpp:137
+#: src/cli.cpp:157
+msgctxt "Cli|"
+msgid "Read source text from an image using the configured OCR engine."
+msgstr ""
+
+#: src/cli.cpp:158
+msgctxt "Cli|"
+msgid "path"
+msgstr ""
+
+#: src/cli.cpp:160
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "當使用 --%1 或 --%2 時不輸出任何文字。"
 
-#: src/cli.cpp:138
+#: src/cli.cpp:161
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "只輸出翻譯。"
 
-#: src/cli.cpp:139
+#: src/cli.cpp:162
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "將結果輸出為 JSON 格式。"
 
-#: src/cli.cpp:142
+#: src/cli.cpp:168
+msgctxt "Cli|"
+msgid ""
+"Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
+"argument is given."
+msgstr ""
+
+#: src/cli.cpp:169
+msgctxt "Cli|"
+msgid "frontend"
+msgstr ""
+
+#: src/cli.cpp:173
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
 msgstr "讓您利用各種提供者進行文字翻譯與朗讀的應用程式"
 
-#: src/cli.cpp:143
+#: src/cli.cpp:174
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr "要翻譯的文字。預設將翻譯為系統語言。"
 
-#: src/cli.cpp:168
+#: src/cli.cpp:203
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "錯誤： 必須為 --%1 指定 --%2 和/或--%3 選項"
 
-#: src/cli.cpp:178
+#: src/cli.cpp:213
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: Unknown engine"
@@ -167,57 +205,97 @@ msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
 msgstr "錯誤：未知引擎"
 
-#: src/cli.cpp:193
+#: src/cli.cpp:228
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
 msgstr "錯誤：未知翻譯提供者 '%1'"
 
-#: src/cli.cpp:217
+#: src/cli.cpp:252
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "錯誤：未知原文語言代碼 '%1'"
 
-#: src/cli.cpp:240
+#: src/cli.cpp:271
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "錯誤：未知譯文語言代碼 '%1'"
 
-#: src/cli.cpp:263
+#: src/cli.cpp:295
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "錯誤：沒有要翻譯的文字"
 
-#: src/cli.cpp:268
+#: src/cli.cpp:298
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: --%1 cannot be combined with text arguments"
+msgstr ""
+
+#: src/cli.cpp:303
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr "正在偵測最快的實體"
 
-#: src/cli.cpp:330
+#: src/cli.cpp:366
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
 msgstr "錯誤：未知 TTS 提供者 '%1'"
 
-#: src/cli.cpp:391 src/cli.cpp:445
+#: src/cli.cpp:428
+#, fuzzy, qt-format
+#| msgctxt "Ocr|"
+#| msgid "Unable to initialize Tesseract with %1"
+msgctxt "Cli|"
+msgid "Error: Unable to initialize Tesseract with %1"
+msgstr "無法以 %1 初始化 Tesseract"
+
+#: src/cli.cpp:449
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: Unable to open file: %1"
+msgctxt "Cli|"
+msgid "Error: Unable to read image '%1'"
+msgstr "錯誤：無法開啟檔案：%1"
+
+#: src/cli.cpp:459
+msgctxt "Cli|"
+msgid "Error: No text was recognized in the image"
+msgstr ""
+
+#: src/cli.cpp:467
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: TTS failed"
+msgctxt "Cli|"
+msgid "Error: Recognition failed: %1"
+msgstr "錯誤：TTS 失敗"
+
+#: src/cli.cpp:472
+msgctxt "Cli|"
+msgid "Error: Recognition was cancelled"
+msgstr ""
+
+#: src/cli.cpp:490 src/cli.cpp:542
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "錯誤：%1"
 
-#: src/cli.cpp:393 src/cli.cpp:447
+#: src/cli.cpp:492 src/cli.cpp:544
 msgctxt "Cli|"
 msgid "Translation error occurred"
 msgstr "發生翻譯錯誤"
 
-#: src/cli.cpp:513
+#: src/cli.cpp:613
 msgctxt "Cli|"
 msgid "Unknown error"
 msgstr ""
 
-#: src/cli.cpp:514
+#: src/cli.cpp:614
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: TTS failed"
@@ -225,28 +303,28 @@ msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
 msgstr "錯誤：TTS 失敗"
 
-#: src/cli.cpp:612
+#: src/cli.cpp:721
 msgctxt "Cli|"
 msgid "no provider was created"
 msgstr ""
 
-#: src/cli.cpp:637
+#: src/cli.cpp:746
 msgctxt "Cli|"
 msgid "the engine failed to start"
 msgstr ""
 
-#: src/cli.cpp:642
+#: src/cli.cpp:751
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
 msgstr ""
 
-#: src/cli.cpp:692
+#: src/cli.cpp:809
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
 msgstr ""
 
-#: src/cli.cpp:713
+#: src/cli.cpp:830
 #, fuzzy
 #| msgctxt "LanguagesDialog|"
 #| msgid "Current languages:"
@@ -254,7 +332,7 @@ msgctxt "Cli|"
 msgid "Source languages:"
 msgstr "目前語言："
 
-#: src/cli.cpp:716
+#: src/cli.cpp:833
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Primary translation language:"
@@ -262,19 +340,19 @@ msgctxt "Cli|"
 msgid "Translation languages:"
 msgstr "主要翻譯語言："
 
-#: src/cli.cpp:774
+#: src/cli.cpp:901
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "錯誤：在有 --%2 時不可使用 --%1"
 
-#: src/cli.cpp:786 src/cli.cpp:807
+#: src/cli.cpp:913 src/cli.cpp:934
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "錯誤：檔案不存在：%1"
 
-#: src/cli.cpp:791 src/cli.cpp:812
+#: src/cli.cpp:918 src/cli.cpp:939
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -284,6 +362,60 @@ msgstr "錯誤：無法開啟檔案：%1"
 msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "在 Forvo.com 上搜尋"
+
+#: src/core/translationsession.cpp:350
+msgctxt "TesseractOcr|"
+msgid "OCR is not configured"
+msgstr ""
+
+#: src/core/translationsession.cpp:351
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "You should set at least one OCR language in the application settings"
+msgctxt "TesseractOcr|"
+msgid "Set up the OCR engine in the application settings"
+msgstr "您應該在應用程式中設定至少一種 OCR 語言"
+
+#: src/frontend/frontendregistry.cpp:23
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Main window"
+msgctxt "FrontendRegistry|"
+msgid "Graphical window"
+msgstr "主視窗"
+
+#: src/frontend/frontendregistry.cpp:24
+msgctxt "FrontendRegistry|"
+msgid "Command line"
+msgstr ""
+
+#: src/frontend/guifrontend.cpp:46
+#, qt-format
+msgctxt "D-Bus|"
+msgid "Unable to register D-Bus object for %1"
+msgstr "無法為 %1 註冊 D-Bus 物件"
+
+#: src/frontend/guifrontend.cpp:136
+#, qt-format
+msgctxt "D-Bus|"
+msgid "D-Bus service %1 is already registered by another application"
+msgstr "D-Bus 服務 %1 已經被另一個應用程式註冊"
+
+#: src/gui/translationhtmlformatter.cpp:33
+#, fuzzy
+#| msgctxt "MozhiTranslationProvider|"
+#| msgid "translation options:"
+msgctxt "TranslationHtmlFormatter|"
+msgid "translation options:"
+msgstr "翻譯選項："
+
+#: src/gui/translationhtmlformatter.cpp:47
+#, fuzzy
+#| msgctxt "MozhiTranslationProvider|"
+#| msgid "examples:"
+msgctxt "TranslationHtmlFormatter|"
+msgid "examples:"
+msgstr "範例："
 
 #: src/instancepinger.cpp:65
 #, qt-format
@@ -400,53 +532,60 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "目前語言："
 
-#: src/main.cpp:121
-#, qt-format
-msgctxt "D-Bus|"
-msgid "D-Bus service %1 is already registered by another application"
-msgstr "D-Bus 服務 %1 已經被另一個應用程式註冊"
+#: src/main.cpp:34
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: Unknown engine"
+msgctxt "main|"
+msgid "Error: Unknown frontend '%1'"
+msgstr "錯誤：未知引擎"
 
-#: src/main.cpp:164
-#, qt-format
-msgctxt "D-Bus|"
-msgid "Unable to register D-Bus object for %1"
-msgstr "無法為 %1 註冊 D-Bus 物件"
+#: src/main.cpp:42
+#, fuzzy, qt-format
+#| msgctxt "UpdaterDialog|"
+#| msgid "Available version:"
+msgctxt "main|"
+msgid "Available frontends: %1"
+msgstr "可用版本："
 
-#: src/mainwindow.cpp:444
+#: src/mainwindow.cpp:162
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "Unable to set OCR languages"
+msgctxt "TesseractOcr|"
+msgid "Unable to set OCR languages"
+msgstr "無法設定 OCR 語言"
+
+#: src/mainwindow.cpp:163
+#, fuzzy, qt-format
+#| msgctxt "Ocr|"
+#| msgid "Unable to initialize Tesseract with %1"
+msgctxt "TesseractOcr|"
+msgid "Unable to initialize Tesseract with %1"
+msgstr "無法以 %1 初始化 Tesseract"
+
+#: src/mainwindow.cpp:435
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "OCR"
 
-#: src/mainwindow.cpp:445
+#: src/mainwindow.cpp:436
 msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "OCR 圖片色彩已反轉"
 
-#: src/mainwindow.cpp:445
+#: src/mainwindow.cpp:436
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr "OCR 圖片色彩為原樣"
 
-#: src/mainwindow.cpp:604
-msgctxt "TesseractOcr|"
-msgid "OCR is not configured"
-msgstr ""
-
-#: src/mainwindow.cpp:604
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "You should set at least one OCR language in the application settings"
-msgctxt "TesseractOcr|"
-msgid "Set up the OCR engine in the application settings"
-msgstr "您應該在應用程式中設定至少一種 OCR 語言"
-
-#: src/mainwindow.cpp:866
+#: src/mainwindow.cpp:844
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "這個應用程式使用 %1 來提供翻譯"
 
-#: src/mainwindow.cpp:867
+#: src/mainwindow.cpp:845
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -459,44 +598,28 @@ msgstr ""
 "析您傳送的文字，您目前的實體是 '%1'，但您可以在翻譯設定中變更它。實體細節可以"
 "在上方連結中查看。"
 
-#: src/mainwindow.cpp:874
+#: src/mainwindow.cpp:852
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "不要再顯示"
 
-#: src/mainwindow.cpp:921
+#: src/mainwindow.cpp:899
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "無效的系統匣圖示"
 
-#: src/mainwindow.cpp:921
+#: src/mainwindow.cpp:899
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "指定的圖示 '%1' 無效。將使用預設圖示。"
 
-#: src/mainwindow.cpp:942
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to set OCR languages"
-msgctxt "TesseractOcr|"
-msgid "Unable to set OCR languages"
-msgstr "無法設定 OCR 語言"
-
-#: src/mainwindow.cpp:942
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
-msgctxt "TesseractOcr|"
-msgid "Unable to initialize Tesseract with %1"
-msgstr "無法以 %1 初始化 Tesseract"
-
-#: src/mainwindow.cpp:1085
+#: src/mainwindow.cpp:1028
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr "TTS 錯誤"
 
-#: src/mainwindow.cpp:1085
+#: src/mainwindow.cpp:1028
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -512,7 +635,7 @@ msgstr ""
 "\n"
 "請檢查您的 TTS 設定或是嘗試別的嗓音/地域。"
 
-#: src/mainwindow.cpp:1123 src/mainwindow.cpp:1129
+#: src/mainwindow.cpp:1060 src/mainwindow.cpp:1066
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: %1"
@@ -520,19 +643,19 @@ msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "錯誤：%1"
 
-#: src/mainwindow.cpp:1944
+#: src/mainwindow.cpp:1806
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
 msgstr ""
 
-#: src/mainwindow.cpp:2044
+#: src/mainwindow.cpp:1904
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
 msgstr ""
 
-#: src/mainwindow.cpp:2138 src/mainwindow.cpp:2195
+#: src/mainwindow.cpp:1938 src/mainwindow.cpp:1995
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -540,12 +663,12 @@ msgid ""
 "%1"
 msgstr ""
 
-#: src/mainwindow.cpp:2186 src/mainwindow.cpp:2195
+#: src/mainwindow.cpp:1986 src/mainwindow.cpp:1995
 msgctxt "MainWindow|"
 msgid "Open image"
 msgstr ""
 
-#: src/mainwindow.cpp:2188
+#: src/mainwindow.cpp:1988
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
@@ -769,6 +892,7 @@ msgid "LLM OCR request timed out"
 msgstr ""
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
+#: src/ocr/screengrabbers/abstractscreengrabber.cpp:47
 msgctxt "AbstractScreenGrabber|"
 msgid "Unable to grab screen"
 msgstr "無法進行螢幕截圖"
@@ -3477,12 +3601,12 @@ msgctxt "ATranslationProvider|"
 msgid "Unknown error"
 msgstr ""
 
-#: src/translator/atranslationprovider.cpp:116
+#: src/translator/atranslationprovider.cpp:115
 msgctxt "QObject|"
 msgid "Translation Provider Error"
 msgstr "翻譯提供者錯誤"
 
-#: src/translator/atranslationprovider.cpp:117
+#: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"
 msgid ""
 "The selected translation provider crashed during initialization and has been "
@@ -3492,7 +3616,7 @@ msgstr ""
 "所選的翻譯提供者在初始化時崩潰。已重設為「複製」提供者來防止更多問題發生。您"
 "可以從 設定 → 翻譯 嘗試使用另一個提供者。"
 
-#: src/translator/localaitranslationprovider.cpp:145
+#: src/translator/localaitranslationprovider.cpp:149
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Selected translation language %1 is not supported for %2"
@@ -3500,7 +3624,7 @@ msgctxt "LocalAiTranslationProvider|"
 msgid "Destination language is not supported"
 msgstr "選定的翻譯語言 %1 不支援 %2"
 
-#: src/translator/localaitranslationprovider.cpp:297
+#: src/translator/localaitranslationprovider.cpp:301
 #, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
@@ -3510,7 +3634,7 @@ msgid ""
 "provider, translate less text at once, or pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:305
+#: src/translator/localaitranslationprovider.cpp:309
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
 "The model spent its whole token budget reasoning and never wrote a "
@@ -3518,7 +3642,7 @@ msgid ""
 "text at once, or pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:313
+#: src/translator/localaitranslationprovider.cpp:317
 #, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
@@ -3527,16 +3651,16 @@ msgid ""
 "pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:320
+#: src/translator/localaitranslationprovider.cpp:324
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
 "The model ran out of tokens before writing a translation. Translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:326
-#: src/translator/localaitranslationprovider.cpp:365
-#: src/translator/localaitranslationprovider.cpp:366
+#: src/translator/localaitranslationprovider.cpp:330
+#: src/translator/localaitranslationprovider.cpp:369
+#: src/translator/localaitranslationprovider.cpp:370
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: %1"
@@ -3544,17 +3668,17 @@ msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI error: %1"
 msgstr "錯誤：%1"
 
-#: src/translator/localaitranslationprovider.cpp:329
+#: src/translator/localaitranslationprovider.cpp:333
 msgctxt "LocalAiTranslationProvider|"
 msgid "The model returned an empty response."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:350
+#: src/translator/localaitranslationprovider.cpp:354
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI request timed out"
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:408
+#: src/translator/localaitranslationprovider.cpp:412
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Language detection is not supported for %1"
@@ -3562,7 +3686,7 @@ msgctxt "LocalAiTranslationProvider|"
 msgid "Language detection timed out"
 msgstr "%1 不支援語言偵測"
 
-#: src/translator/localaitranslationprovider.cpp:469
+#: src/translator/localaitranslationprovider.cpp:473
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Operation aborted by user"
@@ -3632,16 +3756,6 @@ msgctxt "MozhiTranslationProvider|"
 msgid "Unknown error: %1"
 msgstr "實體錯誤：%1"
 
-#: src/translator/mozhitranslationprovider.cpp:408
-msgctxt "MozhiTranslationProvider|"
-msgid "translation options:"
-msgstr "翻譯選項："
-
-#: src/translator/mozhitranslationprovider.cpp:422
-msgctxt "MozhiTranslationProvider|"
-msgid "examples:"
-msgstr "範例："
-
 #: src/trayicon.cpp:26 src/trayicon.cpp:65
 msgctxt "TrayIcon|"
 msgid "Show window"
@@ -3667,12 +3781,12 @@ msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "翻譯結果"
 
-#: src/tts/attsprovider.cpp:73
+#: src/tts/attsprovider.cpp:72
 msgctxt "QObject|"
 msgid "TTS Provider Error"
 msgstr "TTS 提供者錯誤"
 
-#: src/tts/attsprovider.cpp:74
+#: src/tts/attsprovider.cpp:73
 msgctxt "QObject|"
 msgid ""
 "The selected TTS provider crashed during initialization and has been reset "
@@ -3732,61 +3846,39 @@ msgctxt "PiperTTSProvider|"
 msgid "Unknown ONNX Runtime initialization error"
 msgstr "未知 ONNX 執行時期初始化錯誤"
 
-#: src/tts/piperttsprovider.cpp:205
+#: src/tts/piperttsprovider.cpp:217
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize espeak-ng"
 msgstr "無法初始化 espeak-ng"
 
-#: src/tts/piperttsprovider.cpp:247
+#: src/tts/piperttsprovider.cpp:259
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime initialization error: %1"
 msgstr "ONNX 執行時期初始化錯誤：%1"
 
-#: src/tts/piperttsprovider.cpp:282
+#: src/tts/piperttsprovider.cpp:300
 msgctxt "PiperTTSProvider|"
-msgid "Privacy Notice - Neural TTS"
-msgstr "隱私權聲明 - Neural TTS"
+msgid "Could not disable neural TTS telemetry"
+msgstr ""
 
-#: src/tts/piperttsprovider.cpp:284
-msgctxt "PiperTTSProvider|"
-msgid "ONNX Runtime Telemetry Information"
-msgstr "ONNX 執行時期遙測資料資訊"
-
-#: src/tts/piperttsprovider.cpp:286
+#: src/tts/piperttsprovider.cpp:301
 msgctxt "PiperTTSProvider|"
 msgid ""
-"Crow Translate uses ONNX Runtime for neural text-to-speech. The Windows "
-"binary includes Microsoft telemetry that collects usage information.\n"
-"\n"
-"Data Collection:\n"
-"• Device and usage data, error reports, performance information\n"
-"• Used by Microsoft to improve product quality and features\n"
-"• Subject to Microsoft Privacy Statement\n"
-"\n"
-"Crow Translate Actions:\n"
-"• Automatically disables telemetry on startup\n"
-"• Uses both environment variables and runtime API calls\n"
-"• Note: Some data may be transmitted during ONNX initialization\n"
-"\n"
-"On Unix systems, telemetry is inactive by default.\n"
-"This notice is shown once per installation."
+"Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
+"of it may report usage data to Microsoft."
 msgstr ""
-"Crow Translate 使用 ONNX 執行時期進行利用神經網路的文字轉語音。它的 Windows "
-"執行檔包含 Microsoft 的遙測資料收集，會收集使用資訊。\n"
+
+#: src/tts/piperttsprovider.cpp:302
+#, qt-format
+msgctxt "PiperTTSProvider|"
+msgid ""
+"Reason: %1\n"
 "\n"
-"資料收集：\n"
-"• 裝置與用量資訊、錯誤回報、效能資訊\n"
-"• 由 Microsoft 用來改善產品品質和功能\n"
-"• 依 Microsoft 隱私權聲明\n"
-"\n"
-"Crow Translate 的應對：\n"
-"• 啟動時自動停用遙測資料\n"
-"• 停用方式包含環境變數和執行時期 API 呼叫\n"
-"• 註：ONNX 初始化時可能還是會傳出一些資料\n"
-"\n"
-"在 Unix 系統上，遙測資料預設即已停用。\n"
-"這個告知每次安裝會顯示一次。"
+"Only Microsoft's own Windows builds of ONNX Runtime have telemetry compiled "
+"in. Builds from source - including the one Crow Translate links statically - "
+"have none, and it is inactive on other platforms."
+msgstr ""
 
 #: src/tts/piperttsprovider.cpp:1033
 msgctxt "PiperTTSProvider|"
@@ -3822,12 +3914,19 @@ msgstr ""
 "目錄</li></ol><p><b>⚠️ 授權警告：</b>某些模型的授權條款可能非自由或不能在商業"
 "情境下使用。商業使用前請查閱各個模型的授權條款。</p>"
 
-#: src/tts/piperttsprovider.cpp:1407
+#: src/tts/piperttsprovider.cpp:1409
 msgctxt "PiperTTSProvider|"
 msgid "Piper Voice Models Required"
 msgstr "需要 Piper 嗓音模型"
 
-#: src/tts/qtttsprovider.cpp:329
+#: src/tts/piperttsprovider.cpp:1410
+msgctxt "PiperTTSProvider|"
+msgid ""
+"No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
+"Piper Voices Path."
+msgstr ""
+
+#: src/tts/qtttsprovider.cpp:325
 #, qt-format
 msgctxt "QtTTSProvider|"
 msgid ""
@@ -3848,10 +3947,60 @@ msgstr ""
 "語音包</li></ol><p><b>⚠️ 關於授權：</b>Crow Translate 目前只支援 Windows TTS "
 "的「基礎語音模型」。「講述人語音」的授權限制與本應用程式不相容。</p>"
 
-#: src/tts/qtttsprovider.cpp:343
+#: src/tts/qtttsprovider.cpp:341
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
 msgstr "Windows TTS 嗓音安裝"
+
+#: src/tts/qtttsprovider.cpp:342
+#, fuzzy, qt-format
+#| msgctxt "QtTTSProvider|"
+#| msgid "Windows TTS Voice Installation"
+msgctxt "QtTTSProvider|"
+msgid "No Windows TTS voice is installed for %1."
+msgstr "Windows TTS 嗓音安裝"
+
+#~ msgctxt "PiperTTSProvider|"
+#~ msgid "Privacy Notice - Neural TTS"
+#~ msgstr "隱私權聲明 - Neural TTS"
+
+#~ msgctxt "PiperTTSProvider|"
+#~ msgid "ONNX Runtime Telemetry Information"
+#~ msgstr "ONNX 執行時期遙測資料資訊"
+
+#~ msgctxt "PiperTTSProvider|"
+#~ msgid ""
+#~ "Crow Translate uses ONNX Runtime for neural text-to-speech. The Windows "
+#~ "binary includes Microsoft telemetry that collects usage information.\n"
+#~ "\n"
+#~ "Data Collection:\n"
+#~ "• Device and usage data, error reports, performance information\n"
+#~ "• Used by Microsoft to improve product quality and features\n"
+#~ "• Subject to Microsoft Privacy Statement\n"
+#~ "\n"
+#~ "Crow Translate Actions:\n"
+#~ "• Automatically disables telemetry on startup\n"
+#~ "• Uses both environment variables and runtime API calls\n"
+#~ "• Note: Some data may be transmitted during ONNX initialization\n"
+#~ "\n"
+#~ "On Unix systems, telemetry is inactive by default.\n"
+#~ "This notice is shown once per installation."
+#~ msgstr ""
+#~ "Crow Translate 使用 ONNX 執行時期進行利用神經網路的文字轉語音。它的 "
+#~ "Windows 執行檔包含 Microsoft 的遙測資料收集，會收集使用資訊。\n"
+#~ "\n"
+#~ "資料收集：\n"
+#~ "• 裝置與用量資訊、錯誤回報、效能資訊\n"
+#~ "• 由 Microsoft 用來改善產品品質和功能\n"
+#~ "• 依 Microsoft 隱私權聲明\n"
+#~ "\n"
+#~ "Crow Translate 的應對：\n"
+#~ "• 啟動時自動停用遙測資料\n"
+#~ "• 停用方式包含環境變數和執行時期 API 呼叫\n"
+#~ "• 註：ONNX 初始化時可能還是會傳出一些資料\n"
+#~ "\n"
+#~ "在 Unix 系統上，遙測資料預設即已停用。\n"
+#~ "這個告知每次安裝會顯示一次。"
 
 #~ msgctxt "Cli|"
 #~ msgid "Error: Lingva engine is not supported"
@@ -4267,10 +4416,6 @@ msgstr "Windows TTS 嗓音安裝"
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Current version:"
 #~ msgstr "當前版本："
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Available version:"
-#~ msgstr "可用版本："
 
 #~ msgctxt "MainWindow|"
 #~ msgid "The application is already running"

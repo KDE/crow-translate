@@ -17,19 +17,35 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 24.12.3\n"
 
-#: src/cli.cpp:98
+#: src/cli.cpp:78
+#, fuzzy
+#| msgctxt "MozhiTranslationProvider|"
+#| msgid "translation options:"
+msgctxt "Cli|"
+msgid "translation options:"
+msgstr "번역 옵션:"
+
+#: src/cli.cpp:87
+#, fuzzy
+#| msgctxt "MozhiTranslationProvider|"
+#| msgid "examples:"
+msgctxt "Cli|"
+msgid "examples:"
+msgstr "예제:"
+
+#: src/cli.cpp:118
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "모든 언어 코드를 표시합니다."
 
-#: src/cli.cpp:100
+#: src/cli.cpp:120
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
 msgstr "원본 언어를 지정합니다(기본값은 엔진에서 자체적으로 언어 결정)."
 
-#: src/cli.cpp:104
+#: src/cli.cpp:124
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -41,7 +57,7 @@ msgid ""
 "language is used)."
 msgstr "'+'로 구분하여 대상 언어를 지정합니다(기본값은 시스템 언어 사용)."
 
-#: src/cli.cpp:109
+#: src/cli.cpp:129
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -55,7 +71,7 @@ msgstr ""
 "번역기 엔진을 지정합니다('google', 'yandex', 'bing', 'libretranslate', "
 "'lingva'). 기본값으로 Google을 사용합니다."
 
-#: src/cli.cpp:113
+#: src/cli.cpp:133
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
@@ -64,7 +80,7 @@ msgstr ""
 "Mozhi 인스턴스 URL을 지정합니다. 기본값은 앱 설정에서 지정한 인스턴스 URL입니"
 "다."
 
-#: src/cli.cpp:117
+#: src/cli.cpp:137
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -78,7 +94,7 @@ msgstr ""
 "Mozhi 인스턴스 URL을 지정합니다. 기본값은 앱 설정에서 지정한 인스턴스 URL입니"
 "다."
 
-#: src/cli.cpp:125
+#: src/cli.cpp:145
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -92,7 +108,7 @@ msgstr ""
 "Mozhi 인스턴스 URL을 지정합니다. 기본값은 앱 설정에서 지정한 인스턴스 URL입니"
 "다."
 
-#: src/cli.cpp:127
+#: src/cli.cpp:147
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -106,49 +122,71 @@ msgstr ""
 "Mozhi 인스턴스 URL을 지정합니다. 기본값은 앱 설정에서 지정한 인스턴스 URL입니"
 "다."
 
-#: src/cli.cpp:129
+#: src/cli.cpp:149
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
 
-#: src/cli.cpp:132
+#: src/cli.cpp:152
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "번역 결과를 읽어 줍니다."
 
-#: src/cli.cpp:133
+#: src/cli.cpp:153
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "원본을 읽어 줍니다."
 
-#: src/cli.cpp:134
+#: src/cli.cpp:154
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
 msgstr "파일에서 원본 텍스트를 읽습니다. 인자는 파일 경로로 해석됩니다."
 
-#: src/cli.cpp:135
+#: src/cli.cpp:155
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "원본 텍스트에 표준 입력 데이터를 추가합니다."
 
-#: src/cli.cpp:137
+#: src/cli.cpp:157
+msgctxt "Cli|"
+msgid "Read source text from an image using the configured OCR engine."
+msgstr ""
+
+#: src/cli.cpp:158
+msgctxt "Cli|"
+msgid "path"
+msgstr ""
+
+#: src/cli.cpp:160
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "--%1 또는 --%2 사용 시 텍스트를 출력하지 않습니다."
 
-#: src/cli.cpp:138
+#: src/cli.cpp:161
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "번역만 출력합니다."
 
-#: src/cli.cpp:139
+#: src/cli.cpp:162
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "JSON 형식으로 출력합니다."
 
-#: src/cli.cpp:142
+#: src/cli.cpp:168
+msgctxt "Cli|"
+msgid ""
+"Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
+"argument is given."
+msgstr ""
+
+#: src/cli.cpp:169
+msgctxt "Cli|"
+msgid "frontend"
+msgstr ""
+
+#: src/cli.cpp:173
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid "Application that allows to translate and speak text using Mozhi"
@@ -157,20 +195,20 @@ msgid ""
 "Application that allows to translate and speak text using various providers"
 msgstr "Mozhi를 사용하여 텍스트를 번역하고 말하는 앱"
 
-#: src/cli.cpp:143
+#: src/cli.cpp:174
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr "번역할 텍스트입니다. 기본값으로 시스템 언어로 번역됩니다."
 
-#: src/cli.cpp:168
+#: src/cli.cpp:203
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "오류: --%1 옵션에는 --%2/--%3 옵션을 지정해야 함"
 
-#: src/cli.cpp:178
+#: src/cli.cpp:213
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: Unknown engine"
@@ -178,7 +216,7 @@ msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
 msgstr "오류: 알 수 없는 엔진"
 
-#: src/cli.cpp:193
+#: src/cli.cpp:228
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: Unknown translation language code '%1'"
@@ -186,29 +224,35 @@ msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
 msgstr "오류: 알 수 없는 번역 언어 코드 '%1'"
 
-#: src/cli.cpp:217
+#: src/cli.cpp:252
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "오류: 알 수 없는 원본 언어 코드 '%1'"
 
-#: src/cli.cpp:240
+#: src/cli.cpp:271
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "오류: 알 수 없는 번역 언어 코드 '%1'"
 
-#: src/cli.cpp:263
+#: src/cli.cpp:295
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "오류: 번역할 텍스트가 없음"
 
-#: src/cli.cpp:268
+#: src/cli.cpp:298
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: --%1 cannot be combined with text arguments"
+msgstr ""
+
+#: src/cli.cpp:303
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr "가장 빠른 인스턴스 확인 중"
 
-#: src/cli.cpp:330
+#: src/cli.cpp:366
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: Unknown source language code '%1'"
@@ -216,13 +260,47 @@ msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
 msgstr "오류: 알 수 없는 원본 언어 코드 '%1'"
 
-#: src/cli.cpp:391 src/cli.cpp:445
+#: src/cli.cpp:428
+#, fuzzy, qt-format
+#| msgctxt "Ocr|"
+#| msgid "Unable to initialize Tesseract with %1"
+msgctxt "Cli|"
+msgid "Error: Unable to initialize Tesseract with %1"
+msgstr "%1(으)로 Tesseract를 초기화할 수 없음"
+
+#: src/cli.cpp:449
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: Unable to open file: %1"
+msgctxt "Cli|"
+msgid "Error: Unable to read image '%1'"
+msgstr "오류: 파일을 열 수 없음: %1"
+
+#: src/cli.cpp:459
+msgctxt "Cli|"
+msgid "Error: No text was recognized in the image"
+msgstr ""
+
+#: src/cli.cpp:467
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: Unable to open file: %1"
+msgctxt "Cli|"
+msgid "Error: Recognition failed: %1"
+msgstr "오류: 파일을 열 수 없음: %1"
+
+#: src/cli.cpp:472
+msgctxt "Cli|"
+msgid "Error: Recognition was cancelled"
+msgstr ""
+
+#: src/cli.cpp:490 src/cli.cpp:542
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "오류: %1"
 
-#: src/cli.cpp:393 src/cli.cpp:447
+#: src/cli.cpp:492 src/cli.cpp:544
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Translation backend:"
@@ -230,12 +308,12 @@ msgctxt "Cli|"
 msgid "Translation error occurred"
 msgstr "번역 백엔드:"
 
-#: src/cli.cpp:513
+#: src/cli.cpp:613
 msgctxt "Cli|"
 msgid "Unknown error"
 msgstr ""
 
-#: src/cli.cpp:514
+#: src/cli.cpp:614
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: Unable to open file: %1"
@@ -243,28 +321,28 @@ msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
 msgstr "오류: 파일을 열 수 없음: %1"
 
-#: src/cli.cpp:612
+#: src/cli.cpp:721
 msgctxt "Cli|"
 msgid "no provider was created"
 msgstr ""
 
-#: src/cli.cpp:637
+#: src/cli.cpp:746
 msgctxt "Cli|"
 msgid "the engine failed to start"
 msgstr ""
 
-#: src/cli.cpp:642
+#: src/cli.cpp:751
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
 msgstr ""
 
-#: src/cli.cpp:692
+#: src/cli.cpp:809
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
 msgstr ""
 
-#: src/cli.cpp:713
+#: src/cli.cpp:830
 #, fuzzy
 #| msgctxt "LanguagesDialog|"
 #| msgid "Current languages:"
@@ -272,7 +350,7 @@ msgctxt "Cli|"
 msgid "Source languages:"
 msgstr "현재 언어:"
 
-#: src/cli.cpp:716
+#: src/cli.cpp:833
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Primary translation language:"
@@ -280,19 +358,19 @@ msgctxt "Cli|"
 msgid "Translation languages:"
 msgstr "기본 번역 언어:"
 
-#: src/cli.cpp:774
+#: src/cli.cpp:901
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "오류: --%1 옵션과 --%2 옵션은 같이 사용할 수 없음"
 
-#: src/cli.cpp:786 src/cli.cpp:807
+#: src/cli.cpp:913 src/cli.cpp:934
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "오류: 파일이 없음: %1"
 
-#: src/cli.cpp:791 src/cli.cpp:812
+#: src/cli.cpp:918 src/cli.cpp:939
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -302,6 +380,60 @@ msgstr "오류: 파일을 열 수 없음: %1"
 msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Forvo.com에서 검색"
+
+#: src/core/translationsession.cpp:350
+msgctxt "TesseractOcr|"
+msgid "OCR is not configured"
+msgstr ""
+
+#: src/core/translationsession.cpp:351
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "You should set at least one OCR language in the application settings"
+msgctxt "TesseractOcr|"
+msgid "Set up the OCR engine in the application settings"
+msgstr "앱 설정에서 OCR 언어를 하나 이상 설정해야 함"
+
+#: src/frontend/frontendregistry.cpp:23
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Main window"
+msgctxt "FrontendRegistry|"
+msgid "Graphical window"
+msgstr "주 창"
+
+#: src/frontend/frontendregistry.cpp:24
+msgctxt "FrontendRegistry|"
+msgid "Command line"
+msgstr ""
+
+#: src/frontend/guifrontend.cpp:46
+#, qt-format
+msgctxt "D-Bus|"
+msgid "Unable to register D-Bus object for %1"
+msgstr "%1의 D-Bus 객체를 등록할 수 없음"
+
+#: src/frontend/guifrontend.cpp:136
+#, qt-format
+msgctxt "D-Bus|"
+msgid "D-Bus service %1 is already registered by another application"
+msgstr "%1 D-Bus 서비스가 다른 앱에서 이미 등록됨"
+
+#: src/gui/translationhtmlformatter.cpp:33
+#, fuzzy
+#| msgctxt "MozhiTranslationProvider|"
+#| msgid "translation options:"
+msgctxt "TranslationHtmlFormatter|"
+msgid "translation options:"
+msgstr "번역 옵션:"
+
+#: src/gui/translationhtmlformatter.cpp:47
+#, fuzzy
+#| msgctxt "MozhiTranslationProvider|"
+#| msgid "examples:"
+msgctxt "TranslationHtmlFormatter|"
+msgid "examples:"
+msgstr "예제:"
 
 #: src/instancepinger.cpp:65
 #, qt-format
@@ -418,24 +550,44 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "현재 언어:"
 
-#: src/main.cpp:121
-#, qt-format
-msgctxt "D-Bus|"
-msgid "D-Bus service %1 is already registered by another application"
-msgstr "%1 D-Bus 서비스가 다른 앱에서 이미 등록됨"
+#: src/main.cpp:34
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: Unknown engine"
+msgctxt "main|"
+msgid "Error: Unknown frontend '%1'"
+msgstr "오류: 알 수 없는 엔진"
 
-#: src/main.cpp:164
-#, qt-format
-msgctxt "D-Bus|"
-msgid "Unable to register D-Bus object for %1"
-msgstr "%1의 D-Bus 객체를 등록할 수 없음"
+#: src/main.cpp:42
+#, fuzzy, qt-format
+#| msgctxt "UpdaterDialog|"
+#| msgid "Available version:"
+msgctxt "main|"
+msgid "Available frontends: %1"
+msgstr "사용 가능한 버전:"
 
-#: src/mainwindow.cpp:444
+#: src/mainwindow.cpp:162
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "Unable to set OCR languages"
+msgctxt "TesseractOcr|"
+msgid "Unable to set OCR languages"
+msgstr "OCR 언어를 설정할 수 없음"
+
+#: src/mainwindow.cpp:163
+#, fuzzy, qt-format
+#| msgctxt "Ocr|"
+#| msgid "Unable to initialize Tesseract with %1"
+msgctxt "TesseractOcr|"
+msgid "Unable to initialize Tesseract with %1"
+msgstr "%1(으)로 Tesseract를 초기화할 수 없음"
+
+#: src/mainwindow.cpp:435
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "OCR"
 
-#: src/mainwindow.cpp:445
+#: src/mainwindow.cpp:436
 #, fuzzy
 #| msgctxt "MainWindow|"
 #| msgid "Toggled OCR image negate"
@@ -443,31 +595,18 @@ msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "OCR 이미지 반전 전환"
 
-#: src/mainwindow.cpp:445
+#: src/mainwindow.cpp:436
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr ""
 
-#: src/mainwindow.cpp:604
-msgctxt "TesseractOcr|"
-msgid "OCR is not configured"
-msgstr ""
-
-#: src/mainwindow.cpp:604
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "You should set at least one OCR language in the application settings"
-msgctxt "TesseractOcr|"
-msgid "Set up the OCR engine in the application settings"
-msgstr "앱 설정에서 OCR 언어를 하나 이상 설정해야 함"
-
-#: src/mainwindow.cpp:866
+#: src/mainwindow.cpp:844
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "이 앱에서는 %1을(를) 사용하여 번역을 제공합니다."
 
-#: src/mainwindow.cpp:867
+#: src/mainwindow.cpp:845
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -481,44 +620,28 @@ msgstr ""
 "스는 '%1'이며, 번역 설정에서 변경할 수 있습니다. 위에 있는 링크에서 인스턴스 "
 "정보를 참조하십시오."
 
-#: src/mainwindow.cpp:874
+#: src/mainwindow.cpp:852
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "다시 표시하지 않기"
 
-#: src/mainwindow.cpp:921
+#: src/mainwindow.cpp:899
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "잘못된 트레이 아이콘"
 
-#: src/mainwindow.cpp:921
+#: src/mainwindow.cpp:899
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "지정한 아이콘 '%1'이(가) 잘못되었습니다. 기본 아이콘이 사용됩니다."
 
-#: src/mainwindow.cpp:942
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to set OCR languages"
-msgctxt "TesseractOcr|"
-msgid "Unable to set OCR languages"
-msgstr "OCR 언어를 설정할 수 없음"
-
-#: src/mainwindow.cpp:942
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
-msgctxt "TesseractOcr|"
-msgid "Unable to initialize Tesseract with %1"
-msgstr "%1(으)로 Tesseract를 초기화할 수 없음"
-
-#: src/mainwindow.cpp:1085
+#: src/mainwindow.cpp:1028
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr ""
 
-#: src/mainwindow.cpp:1085
+#: src/mainwindow.cpp:1028
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -529,7 +652,7 @@ msgid ""
 "Please check your TTS settings or try a different voice/locale."
 msgstr ""
 
-#: src/mainwindow.cpp:1123 src/mainwindow.cpp:1129
+#: src/mainwindow.cpp:1060 src/mainwindow.cpp:1066
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: %1"
@@ -537,19 +660,19 @@ msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "오류: %1"
 
-#: src/mainwindow.cpp:1944
+#: src/mainwindow.cpp:1806
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
 msgstr ""
 
-#: src/mainwindow.cpp:2044
+#: src/mainwindow.cpp:1904
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
 msgstr ""
 
-#: src/mainwindow.cpp:2138 src/mainwindow.cpp:2195
+#: src/mainwindow.cpp:1938 src/mainwindow.cpp:1995
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -557,12 +680,12 @@ msgid ""
 "%1"
 msgstr ""
 
-#: src/mainwindow.cpp:2186 src/mainwindow.cpp:2195
+#: src/mainwindow.cpp:1986 src/mainwindow.cpp:1995
 msgctxt "MainWindow|"
 msgid "Open image"
 msgstr ""
 
-#: src/mainwindow.cpp:2188
+#: src/mainwindow.cpp:1988
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
@@ -786,6 +909,7 @@ msgid "LLM OCR request timed out"
 msgstr ""
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
+#: src/ocr/screengrabbers/abstractscreengrabber.cpp:47
 msgctxt "AbstractScreenGrabber|"
 msgid "Unable to grab screen"
 msgstr "화면 영역을 획득할 수 없음"
@@ -3512,7 +3636,7 @@ msgctxt "ATranslationProvider|"
 msgid "Unknown error"
 msgstr ""
 
-#: src/translator/atranslationprovider.cpp:116
+#: src/translator/atranslationprovider.cpp:115
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Translation mode:"
@@ -3520,7 +3644,7 @@ msgctxt "QObject|"
 msgid "Translation Provider Error"
 msgstr "번역 모드:"
 
-#: src/translator/atranslationprovider.cpp:117
+#: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"
 msgid ""
 "The selected translation provider crashed during initialization and has been "
@@ -3528,7 +3652,7 @@ msgid ""
 "provider in Settings → Translation."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:145
+#: src/translator/localaitranslationprovider.cpp:149
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Selected translation language %1 is not supported for %2"
@@ -3536,7 +3660,7 @@ msgctxt "LocalAiTranslationProvider|"
 msgid "Destination language is not supported"
 msgstr "%2에 대해 선택한 번역 언어 %1이(가) 지원되지 않습니다"
 
-#: src/translator/localaitranslationprovider.cpp:297
+#: src/translator/localaitranslationprovider.cpp:301
 #, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
@@ -3546,7 +3670,7 @@ msgid ""
 "provider, translate less text at once, or pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:305
+#: src/translator/localaitranslationprovider.cpp:309
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
 "The model spent its whole token budget reasoning and never wrote a "
@@ -3554,7 +3678,7 @@ msgid ""
 "text at once, or pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:313
+#: src/translator/localaitranslationprovider.cpp:317
 #, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
@@ -3563,16 +3687,16 @@ msgid ""
 "pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:320
+#: src/translator/localaitranslationprovider.cpp:324
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
 "The model ran out of tokens before writing a translation. Translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:326
-#: src/translator/localaitranslationprovider.cpp:365
-#: src/translator/localaitranslationprovider.cpp:366
+#: src/translator/localaitranslationprovider.cpp:330
+#: src/translator/localaitranslationprovider.cpp:369
+#: src/translator/localaitranslationprovider.cpp:370
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: %1"
@@ -3580,17 +3704,17 @@ msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI error: %1"
 msgstr "오류: %1"
 
-#: src/translator/localaitranslationprovider.cpp:329
+#: src/translator/localaitranslationprovider.cpp:333
 msgctxt "LocalAiTranslationProvider|"
 msgid "The model returned an empty response."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:350
+#: src/translator/localaitranslationprovider.cpp:354
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI request timed out"
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:408
+#: src/translator/localaitranslationprovider.cpp:412
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Language detection is not supported for %1"
@@ -3598,7 +3722,7 @@ msgctxt "LocalAiTranslationProvider|"
 msgid "Language detection timed out"
 msgstr "%1에서 언어 감지를 지원하지 않음"
 
-#: src/translator/localaitranslationprovider.cpp:469
+#: src/translator/localaitranslationprovider.cpp:473
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Operation aborted by user"
@@ -3668,16 +3792,6 @@ msgctxt "MozhiTranslationProvider|"
 msgid "Unknown error: %1"
 msgstr "인스턴스 오류: %1"
 
-#: src/translator/mozhitranslationprovider.cpp:408
-msgctxt "MozhiTranslationProvider|"
-msgid "translation options:"
-msgstr "번역 옵션:"
-
-#: src/translator/mozhitranslationprovider.cpp:422
-msgctxt "MozhiTranslationProvider|"
-msgid "examples:"
-msgstr "예제:"
-
 #: src/trayicon.cpp:26 src/trayicon.cpp:65
 msgctxt "TrayIcon|"
 msgid "Show window"
@@ -3703,12 +3817,12 @@ msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "번역 결과"
 
-#: src/tts/attsprovider.cpp:73
+#: src/tts/attsprovider.cpp:72
 msgctxt "QObject|"
 msgid "TTS Provider Error"
 msgstr ""
 
-#: src/tts/attsprovider.cpp:74
+#: src/tts/attsprovider.cpp:73
 msgctxt "QObject|"
 msgid ""
 "The selected TTS provider crashed during initialization and has been reset "
@@ -3772,7 +3886,7 @@ msgctxt "PiperTTSProvider|"
 msgid "Unknown ONNX Runtime initialization error"
 msgstr ""
 
-#: src/tts/piperttsprovider.cpp:205
+#: src/tts/piperttsprovider.cpp:217
 #, fuzzy
 #| msgctxt "Ocr|"
 #| msgid "Unable to initialize Tesseract with %1"
@@ -3780,40 +3894,33 @@ msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize espeak-ng"
 msgstr "%1(으)로 Tesseract를 초기화할 수 없음"
 
-#: src/tts/piperttsprovider.cpp:247
+#: src/tts/piperttsprovider.cpp:259
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime initialization error: %1"
 msgstr ""
 
-#: src/tts/piperttsprovider.cpp:282
+#: src/tts/piperttsprovider.cpp:300
 msgctxt "PiperTTSProvider|"
-msgid "Privacy Notice - Neural TTS"
+msgid "Could not disable neural TTS telemetry"
 msgstr ""
 
-#: src/tts/piperttsprovider.cpp:284
-msgctxt "PiperTTSProvider|"
-msgid "ONNX Runtime Telemetry Information"
-msgstr ""
-
-#: src/tts/piperttsprovider.cpp:286
+#: src/tts/piperttsprovider.cpp:301
 msgctxt "PiperTTSProvider|"
 msgid ""
-"Crow Translate uses ONNX Runtime for neural text-to-speech. The Windows "
-"binary includes Microsoft telemetry that collects usage information.\n"
+"Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
+"of it may report usage data to Microsoft."
+msgstr ""
+
+#: src/tts/piperttsprovider.cpp:302
+#, qt-format
+msgctxt "PiperTTSProvider|"
+msgid ""
+"Reason: %1\n"
 "\n"
-"Data Collection:\n"
-"• Device and usage data, error reports, performance information\n"
-"• Used by Microsoft to improve product quality and features\n"
-"• Subject to Microsoft Privacy Statement\n"
-"\n"
-"Crow Translate Actions:\n"
-"• Automatically disables telemetry on startup\n"
-"• Uses both environment variables and runtime API calls\n"
-"• Note: Some data may be transmitted during ONNX initialization\n"
-"\n"
-"On Unix systems, telemetry is inactive by default.\n"
-"This notice is shown once per installation."
+"Only Microsoft's own Windows builds of ONNX Runtime have telemetry compiled "
+"in. Builds from source - including the one Crow Translate links statically - "
+"have none, and it is inactive on other platforms."
 msgstr ""
 
 #: src/tts/piperttsprovider.cpp:1033
@@ -3847,12 +3954,19 @@ msgid ""
 "model before commercial use.</p>"
 msgstr ""
 
-#: src/tts/piperttsprovider.cpp:1407
+#: src/tts/piperttsprovider.cpp:1409
 msgctxt "PiperTTSProvider|"
 msgid "Piper Voice Models Required"
 msgstr ""
 
-#: src/tts/qtttsprovider.cpp:329
+#: src/tts/piperttsprovider.cpp:1410
+msgctxt "PiperTTSProvider|"
+msgid ""
+"No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
+"Piper Voices Path."
+msgstr ""
+
+#: src/tts/qtttsprovider.cpp:325
 #, qt-format
 msgctxt "QtTTSProvider|"
 msgid ""
@@ -3867,9 +3981,15 @@ msgid ""
 "with this application.</p>"
 msgstr ""
 
-#: src/tts/qtttsprovider.cpp:343
+#: src/tts/qtttsprovider.cpp:341
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
+msgstr ""
+
+#: src/tts/qtttsprovider.cpp:342
+#, qt-format
+msgctxt "QtTTSProvider|"
+msgid "No Windows TTS voice is installed for %1."
 msgstr ""
 
 #, fuzzy
@@ -4277,10 +4397,6 @@ msgstr ""
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Current version:"
 #~ msgstr "현재 버전:"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Available version:"
-#~ msgstr "사용 가능한 버전:"
 
 #~ msgctxt "QHotkey|"
 #~ msgid "Failed to register %1. Error: %2"

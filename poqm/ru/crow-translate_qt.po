@@ -18,12 +18,28 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 26.04.2\n"
 
-#: src/cli.cpp:98
+#: src/cli.cpp:78
+#, fuzzy
+#| msgctxt "MozhiTranslationProvider|"
+#| msgid "translation options:"
+msgctxt "Cli|"
+msgid "translation options:"
+msgstr "варианты перевода:"
+
+#: src/cli.cpp:87
+#, fuzzy
+#| msgctxt "MozhiTranslationProvider|"
+#| msgid "examples:"
+msgctxt "Cli|"
+msgid "examples:"
+msgstr "примеры:"
+
+#: src/cli.cpp:118
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Показать все языковые коды."
 
-#: src/cli.cpp:100
+#: src/cli.cpp:120
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -32,7 +48,7 @@ msgstr ""
 "Укажите исходный язык (по умолчанию движок попытается определить язык "
 "самостоятельно)."
 
-#: src/cli.cpp:104
+#: src/cli.cpp:124
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), split by '+' (by default, the system "
@@ -41,7 +57,7 @@ msgstr ""
 "Укажите язык(и) перевода, разделённые '+' (по умолчанию используется "
 "системный язык)."
 
-#: src/cli.cpp:109
+#: src/cli.cpp:129
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -55,7 +71,7 @@ msgstr ""
 "Укажите движок переводчика ('google', 'yandex', 'bing', 'libretranslate' или "
 "'lingva'), Google используется по умолчанию."
 
-#: src/cli.cpp:113
+#: src/cli.cpp:133
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
@@ -64,7 +80,7 @@ msgstr ""
 "Указать URL экземпляра Mozhi. По умолчанию будет использоваться URL "
 "экземпляра из настроек приложения."
 
-#: src/cli.cpp:117
+#: src/cli.cpp:137
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -78,7 +94,7 @@ msgstr ""
 "Указать провайдера перевода («copy» или «mozhi»). По умолчанию используется "
 "провайдер из настроек приложения."
 
-#: src/cli.cpp:125
+#: src/cli.cpp:145
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -92,7 +108,7 @@ msgstr ""
 "Указать поставщика TTS («none», «mozhi», «qt» или «piper»). По умолчанию "
 "будет использован поставщик из настроек приложения."
 
-#: src/cli.cpp:127
+#: src/cli.cpp:147
 #, fuzzy
 #| msgctxt "Cli|"
 #| msgid ""
@@ -106,22 +122,22 @@ msgstr ""
 "Указать поставщика TTS («none», «mozhi», «qt» или «piper»). По умолчанию "
 "будет использован поставщик из настроек приложения."
 
-#: src/cli.cpp:129
+#: src/cli.cpp:149
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
 
-#: src/cli.cpp:132
+#: src/cli.cpp:152
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Озвучить перевод."
 
-#: src/cli.cpp:133
+#: src/cli.cpp:153
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Озвучить исходный текст."
 
-#: src/cli.cpp:134
+#: src/cli.cpp:154
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -129,28 +145,50 @@ msgstr ""
 "Считать исходный текст из файлов. Аргументы будут интерпретироваться как "
 "пути к файлам."
 
-#: src/cli.cpp:135
+#: src/cli.cpp:155
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Добавить данные стандартного ввода в исходный текст."
 
-#: src/cli.cpp:137
+#: src/cli.cpp:157
+msgctxt "Cli|"
+msgid "Read source text from an image using the configured OCR engine."
+msgstr ""
+
+#: src/cli.cpp:158
+msgctxt "Cli|"
+msgid "path"
+msgstr ""
+
+#: src/cli.cpp:160
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "Не печатать текст при использовании --%1 или --%2."
 
-#: src/cli.cpp:138
+#: src/cli.cpp:161
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Печатать только переводы."
 
-#: src/cli.cpp:139
+#: src/cli.cpp:162
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Печатать вывод в формате JSON."
 
-#: src/cli.cpp:142
+#: src/cli.cpp:168
+msgctxt "Cli|"
+msgid ""
+"Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
+"argument is given."
+msgstr ""
+
+#: src/cli.cpp:169
+msgctxt "Cli|"
+msgid "frontend"
+msgstr ""
+
+#: src/cli.cpp:173
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
@@ -158,7 +196,7 @@ msgstr ""
 "Приложение для перевода и озвучивания текста с использованием различных "
 "провайдеров"
 
-#: src/cli.cpp:143
+#: src/cli.cpp:174
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
@@ -166,13 +204,13 @@ msgid ""
 msgstr ""
 "Текст для перевода. По умолчанию перевод будет выполнен на язык системы."
 
-#: src/cli.cpp:168
+#: src/cli.cpp:203
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Ошибка: Для --%1 необходимо указать --%2 и/или --%3 параметры"
 
-#: src/cli.cpp:178
+#: src/cli.cpp:213
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: Unknown engine"
@@ -180,57 +218,97 @@ msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
 msgstr "Ошибка: Неизвестный движок"
 
-#: src/cli.cpp:193
+#: src/cli.cpp:228
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
 msgstr "Ошибка: Неизвестный поставщик переводов «%1»"
 
-#: src/cli.cpp:217
+#: src/cli.cpp:252
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "Ошибка: неизвестный код исходного языка «%1»"
 
-#: src/cli.cpp:240
+#: src/cli.cpp:271
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "Ошибка: неизвестный код языка перевода «%1»"
 
-#: src/cli.cpp:263
+#: src/cli.cpp:295
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Ошибка: Нет текста для перевода"
 
-#: src/cli.cpp:268
+#: src/cli.cpp:298
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: --%1 cannot be combined with text arguments"
+msgstr ""
+
+#: src/cli.cpp:303
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr "Поиск самого быстрого экземпляра"
 
-#: src/cli.cpp:330
+#: src/cli.cpp:366
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
 msgstr "Ошибка: неизвестный поставщик TTS «%1»"
 
-#: src/cli.cpp:391 src/cli.cpp:445
+#: src/cli.cpp:428
+#, fuzzy, qt-format
+#| msgctxt "Ocr|"
+#| msgid "Unable to initialize Tesseract with %1"
+msgctxt "Cli|"
+msgid "Error: Unable to initialize Tesseract with %1"
+msgstr "Не удалось инициализировать Tesseract с %1"
+
+#: src/cli.cpp:449
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: Unable to open file: %1"
+msgctxt "Cli|"
+msgid "Error: Unable to read image '%1'"
+msgstr "Ошибка: Невозможно открыть файл: %1"
+
+#: src/cli.cpp:459
+msgctxt "Cli|"
+msgid "Error: No text was recognized in the image"
+msgstr ""
+
+#: src/cli.cpp:467
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: TTS failed"
+msgctxt "Cli|"
+msgid "Error: Recognition failed: %1"
+msgstr "Ошибка: сбой TTS"
+
+#: src/cli.cpp:472
+msgctxt "Cli|"
+msgid "Error: Recognition was cancelled"
+msgstr ""
+
+#: src/cli.cpp:490 src/cli.cpp:542
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Ошибка: %1"
 
-#: src/cli.cpp:393 src/cli.cpp:447
+#: src/cli.cpp:492 src/cli.cpp:544
 msgctxt "Cli|"
 msgid "Translation error occurred"
 msgstr "Ошибка перевода"
 
-#: src/cli.cpp:513
+#: src/cli.cpp:613
 msgctxt "Cli|"
 msgid "Unknown error"
 msgstr ""
 
-#: src/cli.cpp:514
+#: src/cli.cpp:614
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: TTS failed"
@@ -238,28 +316,28 @@ msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
 msgstr "Ошибка: сбой TTS"
 
-#: src/cli.cpp:612
+#: src/cli.cpp:721
 msgctxt "Cli|"
 msgid "no provider was created"
 msgstr ""
 
-#: src/cli.cpp:637
+#: src/cli.cpp:746
 msgctxt "Cli|"
 msgid "the engine failed to start"
 msgstr ""
 
-#: src/cli.cpp:642
+#: src/cli.cpp:751
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
 msgstr ""
 
-#: src/cli.cpp:692
+#: src/cli.cpp:809
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
 msgstr ""
 
-#: src/cli.cpp:713
+#: src/cli.cpp:830
 #, fuzzy
 #| msgctxt "LanguagesDialog|"
 #| msgid "Current languages:"
@@ -267,7 +345,7 @@ msgctxt "Cli|"
 msgid "Source languages:"
 msgstr "Текущие языки:"
 
-#: src/cli.cpp:716
+#: src/cli.cpp:833
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Primary translation language:"
@@ -275,19 +353,19 @@ msgctxt "Cli|"
 msgid "Translation languages:"
 msgstr "Основной язык перевода:"
 
-#: src/cli.cpp:774
+#: src/cli.cpp:901
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Ошибка: вы не можете использовать --%1 с --%2"
 
-#: src/cli.cpp:786 src/cli.cpp:807
+#: src/cli.cpp:913 src/cli.cpp:934
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Ошибка: Файл не существует: %1"
 
-#: src/cli.cpp:791 src/cli.cpp:812
+#: src/cli.cpp:918 src/cli.cpp:939
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -297,6 +375,60 @@ msgstr "Ошибка: Невозможно открыть файл: %1"
 msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Поиск на Forvo.com"
+
+#: src/core/translationsession.cpp:350
+msgctxt "TesseractOcr|"
+msgid "OCR is not configured"
+msgstr ""
+
+#: src/core/translationsession.cpp:351
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "You should set at least one OCR language in the application settings"
+msgctxt "TesseractOcr|"
+msgid "Set up the OCR engine in the application settings"
+msgstr "Вы должны задать хотя бы один язык OCR в настройках приложения"
+
+#: src/frontend/frontendregistry.cpp:23
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Main window"
+msgctxt "FrontendRegistry|"
+msgid "Graphical window"
+msgstr "Главное окно"
+
+#: src/frontend/frontendregistry.cpp:24
+msgctxt "FrontendRegistry|"
+msgid "Command line"
+msgstr ""
+
+#: src/frontend/guifrontend.cpp:46
+#, qt-format
+msgctxt "D-Bus|"
+msgid "Unable to register D-Bus object for %1"
+msgstr "Не удалось зарегистрировать объект D-Bus для %1"
+
+#: src/frontend/guifrontend.cpp:136
+#, qt-format
+msgctxt "D-Bus|"
+msgid "D-Bus service %1 is already registered by another application"
+msgstr "Сервис D-Bus %1 уже зарегистрирован другим приложением"
+
+#: src/gui/translationhtmlformatter.cpp:33
+#, fuzzy
+#| msgctxt "MozhiTranslationProvider|"
+#| msgid "translation options:"
+msgctxt "TranslationHtmlFormatter|"
+msgid "translation options:"
+msgstr "варианты перевода:"
+
+#: src/gui/translationhtmlformatter.cpp:47
+#, fuzzy
+#| msgctxt "MozhiTranslationProvider|"
+#| msgid "examples:"
+msgctxt "TranslationHtmlFormatter|"
+msgid "examples:"
+msgstr "примеры:"
 
 #: src/instancepinger.cpp:65
 #, qt-format
@@ -413,53 +545,60 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Текущие языки:"
 
-#: src/main.cpp:121
-#, qt-format
-msgctxt "D-Bus|"
-msgid "D-Bus service %1 is already registered by another application"
-msgstr "Сервис D-Bus %1 уже зарегистрирован другим приложением"
+#: src/main.cpp:34
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: Unknown engine"
+msgctxt "main|"
+msgid "Error: Unknown frontend '%1'"
+msgstr "Ошибка: Неизвестный движок"
 
-#: src/main.cpp:164
-#, qt-format
-msgctxt "D-Bus|"
-msgid "Unable to register D-Bus object for %1"
-msgstr "Не удалось зарегистрировать объект D-Bus для %1"
+#: src/main.cpp:42
+#, fuzzy, qt-format
+#| msgctxt "UpdaterDialog|"
+#| msgid "Available version:"
+msgctxt "main|"
+msgid "Available frontends: %1"
+msgstr "Доступная версия:"
 
-#: src/mainwindow.cpp:444
+#: src/mainwindow.cpp:162
+#, fuzzy
+#| msgctxt "Ocr|"
+#| msgid "Unable to set OCR languages"
+msgctxt "TesseractOcr|"
+msgid "Unable to set OCR languages"
+msgstr "Не удалось задать языки OCR"
+
+#: src/mainwindow.cpp:163
+#, fuzzy, qt-format
+#| msgctxt "Ocr|"
+#| msgid "Unable to initialize Tesseract with %1"
+msgctxt "TesseractOcr|"
+msgid "Unable to initialize Tesseract with %1"
+msgstr "Не удалось инициализировать Tesseract с %1"
+
+#: src/mainwindow.cpp:435
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "Распознавание текста"
 
-#: src/mainwindow.cpp:445
+#: src/mainwindow.cpp:436
 msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "Изображение OCR инвертировано"
 
-#: src/mainwindow.cpp:445
+#: src/mainwindow.cpp:436
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr "Изображение OCR в норме"
 
-#: src/mainwindow.cpp:604
-msgctxt "TesseractOcr|"
-msgid "OCR is not configured"
-msgstr ""
-
-#: src/mainwindow.cpp:604
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "You should set at least one OCR language in the application settings"
-msgctxt "TesseractOcr|"
-msgid "Set up the OCR engine in the application settings"
-msgstr "Вы должны задать хотя бы один язык OCR в настройках приложения"
-
-#: src/mainwindow.cpp:866
+#: src/mainwindow.cpp:844
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "Для перевода приложение использует %1."
 
-#: src/mainwindow.cpp:867
+#: src/mainwindow.cpp:845
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -473,45 +612,29 @@ msgstr ""
 "вами текст. Сейчас используется экземпляр «%1», но его можно изменить в "
 "настройках перевода. Подробнее об экземплярах см. по ссылке выше."
 
-#: src/mainwindow.cpp:874
+#: src/mainwindow.cpp:852
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "Больше не показывать"
 
-#: src/mainwindow.cpp:921
+#: src/mainwindow.cpp:899
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Недействительный значок для трея"
 
-#: src/mainwindow.cpp:921
+#: src/mainwindow.cpp:899
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr ""
 "Указанный значок '%1' недействителен. Будет использован значок по умолчанию."
 
-#: src/mainwindow.cpp:942
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to set OCR languages"
-msgctxt "TesseractOcr|"
-msgid "Unable to set OCR languages"
-msgstr "Не удалось задать языки OCR"
-
-#: src/mainwindow.cpp:942
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
-msgctxt "TesseractOcr|"
-msgid "Unable to initialize Tesseract with %1"
-msgstr "Не удалось инициализировать Tesseract с %1"
-
-#: src/mainwindow.cpp:1085
+#: src/mainwindow.cpp:1028
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr "Ошибка синтеза речи"
 
-#: src/mainwindow.cpp:1085
+#: src/mainwindow.cpp:1028
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -527,7 +650,7 @@ msgstr ""
 "\n"
 "Проверьте настройки синтеза речи или попробуйте другой голос/регион."
 
-#: src/mainwindow.cpp:1123 src/mainwindow.cpp:1129
+#: src/mainwindow.cpp:1060 src/mainwindow.cpp:1066
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: %1"
@@ -535,19 +658,19 @@ msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Ошибка: %1"
 
-#: src/mainwindow.cpp:1944
+#: src/mainwindow.cpp:1806
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
 msgstr ""
 
-#: src/mainwindow.cpp:2044
+#: src/mainwindow.cpp:1904
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
 msgstr ""
 
-#: src/mainwindow.cpp:2138 src/mainwindow.cpp:2195
+#: src/mainwindow.cpp:1938 src/mainwindow.cpp:1995
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -555,12 +678,12 @@ msgid ""
 "%1"
 msgstr ""
 
-#: src/mainwindow.cpp:2186 src/mainwindow.cpp:2195
+#: src/mainwindow.cpp:1986 src/mainwindow.cpp:1995
 msgctxt "MainWindow|"
 msgid "Open image"
 msgstr ""
 
-#: src/mainwindow.cpp:2188
+#: src/mainwindow.cpp:1988
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
@@ -784,6 +907,7 @@ msgid "LLM OCR request timed out"
 msgstr ""
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
+#: src/ocr/screengrabbers/abstractscreengrabber.cpp:47
 msgctxt "AbstractScreenGrabber|"
 msgid "Unable to grab screen"
 msgstr "Не удалось захватить экран"
@@ -3543,12 +3667,12 @@ msgctxt "ATranslationProvider|"
 msgid "Unknown error"
 msgstr ""
 
-#: src/translator/atranslationprovider.cpp:116
+#: src/translator/atranslationprovider.cpp:115
 msgctxt "QObject|"
 msgid "Translation Provider Error"
 msgstr "Ошибка поставщика переводов"
 
-#: src/translator/atranslationprovider.cpp:117
+#: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"
 msgid ""
 "The selected translation provider crashed during initialization and has been "
@@ -3559,7 +3683,7 @@ msgstr ""
 "сброшен на «Копирование» для предотвращения дальнейших проблем. В настройках "
 "→ Перевод можно выбрать другой модуль."
 
-#: src/translator/localaitranslationprovider.cpp:145
+#: src/translator/localaitranslationprovider.cpp:149
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Selected translation language %1 is not supported for %2"
@@ -3567,7 +3691,7 @@ msgctxt "LocalAiTranslationProvider|"
 msgid "Destination language is not supported"
 msgstr "Выбранный язык перевода %1 не поддерживается для %2"
 
-#: src/translator/localaitranslationprovider.cpp:297
+#: src/translator/localaitranslationprovider.cpp:301
 #, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
@@ -3577,7 +3701,7 @@ msgid ""
 "provider, translate less text at once, or pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:305
+#: src/translator/localaitranslationprovider.cpp:309
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
 "The model spent its whole token budget reasoning and never wrote a "
@@ -3585,7 +3709,7 @@ msgid ""
 "text at once, or pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:313
+#: src/translator/localaitranslationprovider.cpp:317
 #, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
@@ -3594,16 +3718,16 @@ msgid ""
 "pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:320
+#: src/translator/localaitranslationprovider.cpp:324
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
 "The model ran out of tokens before writing a translation. Translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:326
-#: src/translator/localaitranslationprovider.cpp:365
-#: src/translator/localaitranslationprovider.cpp:366
+#: src/translator/localaitranslationprovider.cpp:330
+#: src/translator/localaitranslationprovider.cpp:369
+#: src/translator/localaitranslationprovider.cpp:370
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: %1"
@@ -3611,17 +3735,17 @@ msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI error: %1"
 msgstr "Ошибка: %1"
 
-#: src/translator/localaitranslationprovider.cpp:329
+#: src/translator/localaitranslationprovider.cpp:333
 msgctxt "LocalAiTranslationProvider|"
 msgid "The model returned an empty response."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:350
+#: src/translator/localaitranslationprovider.cpp:354
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI request timed out"
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:408
+#: src/translator/localaitranslationprovider.cpp:412
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Language detection is not supported for %1"
@@ -3629,7 +3753,7 @@ msgctxt "LocalAiTranslationProvider|"
 msgid "Language detection timed out"
 msgstr "Определение языка не поддерживается для %1"
 
-#: src/translator/localaitranslationprovider.cpp:469
+#: src/translator/localaitranslationprovider.cpp:473
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Operation aborted by user"
@@ -3699,16 +3823,6 @@ msgctxt "MozhiTranslationProvider|"
 msgid "Unknown error: %1"
 msgstr "Ошибка экземпляра: %1"
 
-#: src/translator/mozhitranslationprovider.cpp:408
-msgctxt "MozhiTranslationProvider|"
-msgid "translation options:"
-msgstr "варианты перевода:"
-
-#: src/translator/mozhitranslationprovider.cpp:422
-msgctxt "MozhiTranslationProvider|"
-msgid "examples:"
-msgstr "примеры:"
-
 #: src/trayicon.cpp:26 src/trayicon.cpp:65
 msgctxt "TrayIcon|"
 msgid "Show window"
@@ -3734,12 +3848,12 @@ msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Результат перевода"
 
-#: src/tts/attsprovider.cpp:73
+#: src/tts/attsprovider.cpp:72
 msgctxt "QObject|"
 msgid "TTS Provider Error"
 msgstr "Ошибка модуля синтеза речи"
 
-#: src/tts/attsprovider.cpp:74
+#: src/tts/attsprovider.cpp:73
 msgctxt "QObject|"
 msgid ""
 "The selected TTS provider crashed during initialization and has been reset "
@@ -3800,65 +3914,39 @@ msgctxt "PiperTTSProvider|"
 msgid "Unknown ONNX Runtime initialization error"
 msgstr "Неизвестная ошибка инициализации ONNX Runtime"
 
-#: src/tts/piperttsprovider.cpp:205
+#: src/tts/piperttsprovider.cpp:217
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize espeak-ng"
 msgstr "Не удалось инициализировать espeak-ng"
 
-#: src/tts/piperttsprovider.cpp:247
+#: src/tts/piperttsprovider.cpp:259
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime initialization error: %1"
 msgstr "Ошибка инициализации ONNX Runtime: %1"
 
-#: src/tts/piperttsprovider.cpp:282
+#: src/tts/piperttsprovider.cpp:300
 msgctxt "PiperTTSProvider|"
-msgid "Privacy Notice - Neural TTS"
-msgstr "Уведомление о конфиденциальности — нейронный синтез речи"
+msgid "Could not disable neural TTS telemetry"
+msgstr ""
 
-#: src/tts/piperttsprovider.cpp:284
-msgctxt "PiperTTSProvider|"
-msgid "ONNX Runtime Telemetry Information"
-msgstr "Сведения о телеметрии ONNX Runtime"
-
-#: src/tts/piperttsprovider.cpp:286
+#: src/tts/piperttsprovider.cpp:301
 msgctxt "PiperTTSProvider|"
 msgid ""
-"Crow Translate uses ONNX Runtime for neural text-to-speech. The Windows "
-"binary includes Microsoft telemetry that collects usage information.\n"
-"\n"
-"Data Collection:\n"
-"• Device and usage data, error reports, performance information\n"
-"• Used by Microsoft to improve product quality and features\n"
-"• Subject to Microsoft Privacy Statement\n"
-"\n"
-"Crow Translate Actions:\n"
-"• Automatically disables telemetry on startup\n"
-"• Uses both environment variables and runtime API calls\n"
-"• Note: Some data may be transmitted during ONNX initialization\n"
-"\n"
-"On Unix systems, telemetry is inactive by default.\n"
-"This notice is shown once per installation."
+"Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
+"of it may report usage data to Microsoft."
 msgstr ""
-"В Crow Translate для нейронного синтеза речи используется ONNX Runtime. В "
-"версии для Windows включена телеметрия Microsoft, собирающая информацию об "
-"использовании.\n"
+
+#: src/tts/piperttsprovider.cpp:302
+#, qt-format
+msgctxt "PiperTTSProvider|"
+msgid ""
+"Reason: %1\n"
 "\n"
-"Собираемые данные:\n"
-"• Данные об устройстве и использовании, отчёты об ошибках, информация о "
-"производительности;\n"
-"• Используются Microsoft для улучшения качества и функций продукта;\n"
-"• Регулируются «Заявлением о конфиденциальности» Microsoft.\n"
-"\n"
-"Действия Crow Translate:\n"
-"• Автоматически отключает телеметрию при запуске;\n"
-"• Использует как переменные окружения, так и вызовы API во время "
-"выполнения;\n"
-"• Примечание: некоторые данные могут передаваться во время инициализации "
-"ONNX.\n"
-"\n"
-"В системах Unix телеметрия по умолчанию неактивна.\n"
-"Это уведомление показывается один раз при установке."
+"Only Microsoft's own Windows builds of ONNX Runtime have telemetry compiled "
+"in. Builds from source - including the one Crow Translate links statically - "
+"have none, and it is inactive on other platforms."
+msgstr ""
 
 #: src/tts/piperttsprovider.cpp:1033
 msgctxt "PiperTTSProvider|"
@@ -3897,12 +3985,19 @@ msgstr ""
 "использоваться в коммерческих целях. Проверьте лицензию каждой модели перед "
 "коммерческим использованием.</p>"
 
-#: src/tts/piperttsprovider.cpp:1407
+#: src/tts/piperttsprovider.cpp:1409
 msgctxt "PiperTTSProvider|"
 msgid "Piper Voice Models Required"
 msgstr "Требуются голосовые модели Piper"
 
-#: src/tts/qtttsprovider.cpp:329
+#: src/tts/piperttsprovider.cpp:1410
+msgctxt "PiperTTSProvider|"
+msgid ""
+"No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
+"Piper Voices Path."
+msgstr ""
+
+#: src/tts/qtttsprovider.cpp:325
 #, qt-format
 msgctxt "QtTTSProvider|"
 msgid ""
@@ -3927,10 +4022,64 @@ msgstr ""
 "«Рассказчика» действуют лицензионные ограничения, несовместимые с данным "
 "приложением.</p>"
 
-#: src/tts/qtttsprovider.cpp:343
+#: src/tts/qtttsprovider.cpp:341
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
 msgstr "Установка голосов синтеза речи Windows"
+
+#: src/tts/qtttsprovider.cpp:342
+#, fuzzy, qt-format
+#| msgctxt "QtTTSProvider|"
+#| msgid "Windows TTS Voice Installation"
+msgctxt "QtTTSProvider|"
+msgid "No Windows TTS voice is installed for %1."
+msgstr "Установка голосов синтеза речи Windows"
+
+#~ msgctxt "PiperTTSProvider|"
+#~ msgid "Privacy Notice - Neural TTS"
+#~ msgstr "Уведомление о конфиденциальности — нейронный синтез речи"
+
+#~ msgctxt "PiperTTSProvider|"
+#~ msgid "ONNX Runtime Telemetry Information"
+#~ msgstr "Сведения о телеметрии ONNX Runtime"
+
+#~ msgctxt "PiperTTSProvider|"
+#~ msgid ""
+#~ "Crow Translate uses ONNX Runtime for neural text-to-speech. The Windows "
+#~ "binary includes Microsoft telemetry that collects usage information.\n"
+#~ "\n"
+#~ "Data Collection:\n"
+#~ "• Device and usage data, error reports, performance information\n"
+#~ "• Used by Microsoft to improve product quality and features\n"
+#~ "• Subject to Microsoft Privacy Statement\n"
+#~ "\n"
+#~ "Crow Translate Actions:\n"
+#~ "• Automatically disables telemetry on startup\n"
+#~ "• Uses both environment variables and runtime API calls\n"
+#~ "• Note: Some data may be transmitted during ONNX initialization\n"
+#~ "\n"
+#~ "On Unix systems, telemetry is inactive by default.\n"
+#~ "This notice is shown once per installation."
+#~ msgstr ""
+#~ "В Crow Translate для нейронного синтеза речи используется ONNX Runtime. В "
+#~ "версии для Windows включена телеметрия Microsoft, собирающая информацию "
+#~ "об использовании.\n"
+#~ "\n"
+#~ "Собираемые данные:\n"
+#~ "• Данные об устройстве и использовании, отчёты об ошибках, информация о "
+#~ "производительности;\n"
+#~ "• Используются Microsoft для улучшения качества и функций продукта;\n"
+#~ "• Регулируются «Заявлением о конфиденциальности» Microsoft.\n"
+#~ "\n"
+#~ "Действия Crow Translate:\n"
+#~ "• Автоматически отключает телеметрию при запуске;\n"
+#~ "• Использует как переменные окружения, так и вызовы API во время "
+#~ "выполнения;\n"
+#~ "• Примечание: некоторые данные могут передаваться во время инициализации "
+#~ "ONNX.\n"
+#~ "\n"
+#~ "В системах Unix телеметрия по умолчанию неактивна.\n"
+#~ "Это уведомление показывается один раз при установке."
 
 #~ msgctxt "Cli|"
 #~ msgid "Error: Lingva engine is not supported"
@@ -4341,10 +4490,6 @@ msgstr "Установка голосов синтеза речи Windows"
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Current version:"
 #~ msgstr "Текущая версия:"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Available version:"
-#~ msgstr "Доступная версия:"
 
 #~ msgctxt "QHotkey|"
 #~ msgid "Failed to register %1. Error: %2"

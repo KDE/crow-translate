@@ -13,26 +13,42 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 26.04.2\n"
 
-#: src/cli.cpp:98
+#: src/cli.cpp:78
+#, fuzzy
+#| msgctxt "MozhiTranslationProvider|"
+#| msgid "translation options:"
+msgctxt "Cli|"
+msgid "translation options:"
+msgstr "Çeviri seçenekleri:"
+
+#: src/cli.cpp:87
+#, fuzzy
+#| msgctxt "MozhiTranslationProvider|"
+#| msgid "examples:"
+msgctxt "Cli|"
+msgid "examples:"
+msgstr "Örnekler:"
+
+#: src/cli.cpp:118
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Tüm dil kodlarını görüntüle."
 
-#: src/cli.cpp:100
+#: src/cli.cpp:120
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
 msgstr "Kaynak dili belirt (Öntanımlı: Kendiliğinden algılama)."
 
-#: src/cli.cpp:104
+#: src/cli.cpp:124
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), split by '+' (by default, the system "
 "language is used)."
 msgstr "Çeviri dillerini “+” ile ayırıp belirt (Öntanımlı: Sistem dili)."
 
-#: src/cli.cpp:109
+#: src/cli.cpp:129
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
@@ -42,7 +58,7 @@ msgstr ""
 "“libretranslate”, “mymemory” veya “reverso”). Öntanımlı olarak Google "
 "kullanılır."
 
-#: src/cli.cpp:113
+#: src/cli.cpp:133
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
@@ -51,7 +67,7 @@ msgstr ""
 "Mozhi örneği URL’sini belirt. Öntanımlı olarak, uygulama ayarlarındaki örnek "
 "URL’si kullanılır."
 
-#: src/cli.cpp:117
+#: src/cli.cpp:137
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
@@ -60,7 +76,7 @@ msgstr ""
 "Çeviri sağlayıcısını belirt (“copy”, “mozhi” veya “localai”). Öntanımlı "
 "olarak uygulama ayarlarındaki sağlayıcı kullanılır."
 
-#: src/cli.cpp:125
+#: src/cli.cpp:145
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
@@ -69,7 +85,7 @@ msgstr ""
 "Metin Konuşma sağlayıcısını belirt (“none”, “mozhi”, “qt” veya “piper”). "
 "Öntanımlı olarak uygulama ayarlarındaki sağlayıcı kullanılır."
 
-#: src/cli.cpp:127
+#: src/cli.cpp:147
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
@@ -78,51 +94,73 @@ msgstr ""
 "Metin Konuşma sağlayıcısını belirt (“none”, “mozhi” veya “qt”). Öntanımlı "
 "olarak uygulama ayarlarındaki sağlayıcı kullanılır."
 
-#: src/cli.cpp:129
+#: src/cli.cpp:149
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
 "Metin Konuşma sağlayıcısını belirt (“none”). Bu yapıda metin konuşma devre "
 "dışıdır."
 
-#: src/cli.cpp:132
+#: src/cli.cpp:152
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Çeviriyi konuş."
 
-#: src/cli.cpp:133
+#: src/cli.cpp:153
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Kaynağı konuş."
 
-#: src/cli.cpp:134
+#: src/cli.cpp:154
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
 msgstr "Kaynak metni dosyadan oku. Argümanlar, dosya yolu olarak yorumlanır."
 
-#: src/cli.cpp:135
+#: src/cli.cpp:155
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Kaynak metne stdin verisini ekle."
 
-#: src/cli.cpp:137
+#: src/cli.cpp:157
+msgctxt "Cli|"
+msgid "Read source text from an image using the configured OCR engine."
+msgstr ""
+
+#: src/cli.cpp:158
+msgctxt "Cli|"
+msgid "path"
+msgstr ""
+
+#: src/cli.cpp:160
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "--%1 veya --%2 kullanırken herhangi bir metin yazdırma."
 
-#: src/cli.cpp:138
+#: src/cli.cpp:161
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Yalnızca çevirileri yazdır."
 
-#: src/cli.cpp:139
+#: src/cli.cpp:162
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Çıktıyı JSON olarak biçimlendir."
 
-#: src/cli.cpp:142
+#: src/cli.cpp:168
+msgctxt "Cli|"
+msgid ""
+"Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
+"argument is given."
+msgstr ""
+
+#: src/cli.cpp:169
+msgctxt "Cli|"
+msgid "frontend"
+msgstr ""
+
+#: src/cli.cpp:173
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
@@ -130,125 +168,165 @@ msgstr ""
 "Çeşitli sağlayıcıları kullanarak çeviri yapmak ve metin konuşmak için bir "
 "uygulama"
 
-#: src/cli.cpp:143
+#: src/cli.cpp:174
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr "Çevrilecek metin. Öntanımlı olarak çeviri sistem diline yapılacaktır."
 
-#: src/cli.cpp:168
+#: src/cli.cpp:203
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Hata: --%1 için --%2 ve/veya --%3 seçeneklerini belirtmelisiniz."
 
-#: src/cli.cpp:178
+#: src/cli.cpp:213
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
 msgstr "Hata: Bilinmeyen işletke “%1”"
 
-#: src/cli.cpp:193
+#: src/cli.cpp:228
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
 msgstr "Hata: Bilinmeyen çeviri sağlayıcısı “%1”"
 
-#: src/cli.cpp:217
+#: src/cli.cpp:252
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "Hata: Bilinmeyen kaynak dil kodu “%1”"
 
-#: src/cli.cpp:240
+#: src/cli.cpp:271
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "Hata: Bilinmeyen çeviri dili kodu “%1”"
 
-#: src/cli.cpp:263
+#: src/cli.cpp:295
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Hata: Çevrilecek metin yok."
 
-#: src/cli.cpp:268
+#: src/cli.cpp:298
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: --%1 cannot be combined with text arguments"
+msgstr ""
+
+#: src/cli.cpp:303
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr "En hızlı örnek algılanıyor"
 
-#: src/cli.cpp:330
+#: src/cli.cpp:366
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
 msgstr "Hata: Bilinmeyen metin konuşma sağlayıcısı “%1”"
 
-#: src/cli.cpp:391 src/cli.cpp:445
+#: src/cli.cpp:428
+#, fuzzy, qt-format
+#| msgctxt "TesseractOcr|"
+#| msgid "Unable to initialize Tesseract with %1"
+msgctxt "Cli|"
+msgid "Error: Unable to initialize Tesseract with %1"
+msgstr "Tesseract %1 ile ilklendirilemiyor"
+
+#: src/cli.cpp:449
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: Unable to open file: %1"
+msgctxt "Cli|"
+msgid "Error: Unable to read image '%1'"
+msgstr "Hata: Dosya açılamıyor: %1"
+
+#: src/cli.cpp:459
+msgctxt "Cli|"
+msgid "Error: No text was recognized in the image"
+msgstr ""
+
+#: src/cli.cpp:467
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: TTS failed: %1"
+msgctxt "Cli|"
+msgid "Error: Recognition failed: %1"
+msgstr "Hata: Metin konuşma yapılamadı: %1"
+
+#: src/cli.cpp:472
+msgctxt "Cli|"
+msgid "Error: Recognition was cancelled"
+msgstr ""
+
+#: src/cli.cpp:490 src/cli.cpp:542
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Hata: %1"
 
-#: src/cli.cpp:393 src/cli.cpp:447
+#: src/cli.cpp:492 src/cli.cpp:544
 msgctxt "Cli|"
 msgid "Translation error occurred"
 msgstr "Çevirme hatası oluştu"
 
-#: src/cli.cpp:513
+#: src/cli.cpp:613
 msgctxt "Cli|"
 msgid "Unknown error"
 msgstr "Bilinmeyen hata"
 
-#: src/cli.cpp:514
+#: src/cli.cpp:614
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
 msgstr "Hata: Metin konuşma yapılamadı: %1"
 
-#: src/cli.cpp:612
+#: src/cli.cpp:721
 msgctxt "Cli|"
 msgid "no provider was created"
 msgstr "Oluşturulmuş sağlayıcı yok"
 
-#: src/cli.cpp:637
+#: src/cli.cpp:746
 msgctxt "Cli|"
 msgid "the engine failed to start"
 msgstr "İşletke başlatılamadı"
 
-#: src/cli.cpp:642
+#: src/cli.cpp:751
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
 msgstr "Seçili sağlayıcıda kullanılabilir ses yok"
 
-#: src/cli.cpp:692
+#: src/cli.cpp:809
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
 msgstr "Hata: Metin konuşma kullanılamıyor: %1"
 
-#: src/cli.cpp:713
+#: src/cli.cpp:830
 msgctxt "Cli|"
 msgid "Source languages:"
 msgstr "Kaynak diller:"
 
-#: src/cli.cpp:716
+#: src/cli.cpp:833
 msgctxt "Cli|"
 msgid "Translation languages:"
 msgstr "Çeviri dilleri:"
 
-#: src/cli.cpp:774
+#: src/cli.cpp:901
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Hata: --%2 ile --%1 kullanamazsınız."
 
-#: src/cli.cpp:786 src/cli.cpp:807
+#: src/cli.cpp:913 src/cli.cpp:934
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Hata: Dosya yok: %1"
 
-#: src/cli.cpp:791 src/cli.cpp:812
+#: src/cli.cpp:918 src/cli.cpp:939
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -258,6 +336,58 @@ msgstr "Hata: Dosya açılamıyor: %1"
 msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Forvo.com’da Ara"
+
+#: src/core/translationsession.cpp:350
+msgctxt "TesseractOcr|"
+msgid "OCR is not configured"
+msgstr "Optik karakter tanıma yapılandırılmamış"
+
+#: src/core/translationsession.cpp:351
+msgctxt "TesseractOcr|"
+msgid "Set up the OCR engine in the application settings"
+msgstr "Uygulama ayarlarında optik karakter tanıma işletkesini ayarlayın."
+
+#: src/frontend/frontendregistry.cpp:23
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Main window"
+msgctxt "FrontendRegistry|"
+msgid "Graphical window"
+msgstr "Ana pencere"
+
+#: src/frontend/frontendregistry.cpp:24
+msgctxt "FrontendRegistry|"
+msgid "Command line"
+msgstr ""
+
+#: src/frontend/guifrontend.cpp:46
+#, qt-format
+msgctxt "D-Bus|"
+msgid "Unable to register D-Bus object for %1"
+msgstr "%1 için D-Bus nesnesi kaydedilemiyor"
+
+#: src/frontend/guifrontend.cpp:136
+#, qt-format
+msgctxt "D-Bus|"
+msgid "D-Bus service %1 is already registered by another application"
+msgstr ""
+"D-Bus hizmeti %1, hâlihazırda başka bir uygulama tarafından kaydedilmiş"
+
+#: src/gui/translationhtmlformatter.cpp:33
+#, fuzzy
+#| msgctxt "MozhiTranslationProvider|"
+#| msgid "translation options:"
+msgctxt "TranslationHtmlFormatter|"
+msgid "translation options:"
+msgstr "Çeviri seçenekleri:"
+
+#: src/gui/translationhtmlformatter.cpp:47
+#, fuzzy
+#| msgctxt "MozhiTranslationProvider|"
+#| msgid "examples:"
+msgctxt "TranslationHtmlFormatter|"
+msgid "examples:"
+msgstr "Örnekler:"
 
 #: src/instancepinger.cpp:65
 #, qt-format
@@ -359,51 +489,55 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Geçerli diller:"
 
-#: src/main.cpp:121
-#, qt-format
-msgctxt "D-Bus|"
-msgid "D-Bus service %1 is already registered by another application"
-msgstr ""
-"D-Bus hizmeti %1, hâlihazırda başka bir uygulama tarafından kaydedilmiş"
+#: src/main.cpp:34
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid "Error: Unknown engine '%1'"
+msgctxt "main|"
+msgid "Error: Unknown frontend '%1'"
+msgstr "Hata: Bilinmeyen işletke “%1”"
 
-#: src/main.cpp:164
-#, qt-format
-msgctxt "D-Bus|"
-msgid "Unable to register D-Bus object for %1"
-msgstr "%1 için D-Bus nesnesi kaydedilemiyor"
+#: src/main.cpp:42
+#, fuzzy, qt-format
+#| msgctxt "UpdaterDialog|"
+#| msgid "Available version:"
+msgctxt "main|"
+msgid "Available frontends: %1"
+msgstr "Kullanılabilir sürüm:"
 
-#: src/mainwindow.cpp:444
+#: src/mainwindow.cpp:162
+msgctxt "TesseractOcr|"
+msgid "Unable to set OCR languages"
+msgstr "Optik karakter tanıma dilleri ayarlanamıyor"
+
+#: src/mainwindow.cpp:163
+#, qt-format
+msgctxt "TesseractOcr|"
+msgid "Unable to initialize Tesseract with %1"
+msgstr "Tesseract %1 ile ilklendirilemiyor"
+
+#: src/mainwindow.cpp:435
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "Optik Karakter Tanıma"
 
-#: src/mainwindow.cpp:445
+#: src/mainwindow.cpp:436
 msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "Optik karakter tanıma görseli negatiflendi"
 
-#: src/mainwindow.cpp:445
+#: src/mainwindow.cpp:436
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr "Optik karakter tanıma görseli normal"
 
-#: src/mainwindow.cpp:604
-msgctxt "TesseractOcr|"
-msgid "OCR is not configured"
-msgstr "Optik karakter tanıma yapılandırılmamış"
-
-#: src/mainwindow.cpp:604
-msgctxt "TesseractOcr|"
-msgid "Set up the OCR engine in the application settings"
-msgstr "Uygulama ayarlarında optik karakter tanıma işletkesini ayarlayın."
-
-#: src/mainwindow.cpp:866
+#: src/mainwindow.cpp:844
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "Bu uygulama, çeviriler sağlamak için %1 kullanır."
 
-#: src/mainwindow.cpp:867
+#: src/mainwindow.cpp:845
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -417,39 +551,28 @@ msgstr ""
 "Şu anki örneğiniz “%1”; ancak bunu çeviri ayarlarından değiştirebilirsiniz. "
 "Yukarıdaki bağlantıdan örnek ayrıntılarına bakın."
 
-#: src/mainwindow.cpp:874
+#: src/mainwindow.cpp:852
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "Bir daha gösterme"
 
-#: src/mainwindow.cpp:921
+#: src/mainwindow.cpp:899
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Geçersiz tepsi simgesi"
 
-#: src/mainwindow.cpp:921
+#: src/mainwindow.cpp:899
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "Belirtilen simge “%1” geçersiz. Öntanımlı simge kullanılacak."
 
-#: src/mainwindow.cpp:942
-msgctxt "TesseractOcr|"
-msgid "Unable to set OCR languages"
-msgstr "Optik karakter tanıma dilleri ayarlanamıyor"
-
-#: src/mainwindow.cpp:942
-#, qt-format
-msgctxt "TesseractOcr|"
-msgid "Unable to initialize Tesseract with %1"
-msgstr "Tesseract %1 ile ilklendirilemiyor"
-
-#: src/mainwindow.cpp:1085
+#: src/mainwindow.cpp:1028
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr "Metin Konuşma Hatası"
 
-#: src/mainwindow.cpp:1085
+#: src/mainwindow.cpp:1028
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -466,25 +589,25 @@ msgstr ""
 "Metin konuşma ayarlarınızı denetleyin veya başka bir ses veya yerel ayar "
 "seçin."
 
-#: src/mainwindow.cpp:1123 src/mainwindow.cpp:1129
+#: src/mainwindow.cpp:1060 src/mainwindow.cpp:1066
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Hata: %1"
 
-#: src/mainwindow.cpp:1944
+#: src/mainwindow.cpp:1806
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
 msgstr "Görsel pek büyük (%1 MP). En çok %2 MP olabilir."
 
-#: src/mainwindow.cpp:2044
+#: src/mainwindow.cpp:1904
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
 msgstr "Optik karakter tanıma yapılamadı: %1"
 
-#: src/mainwindow.cpp:2138 src/mainwindow.cpp:2195
+#: src/mainwindow.cpp:1938 src/mainwindow.cpp:1995
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -494,12 +617,12 @@ msgstr ""
 "Görsel açılamıyor:\n"
 "%1"
 
-#: src/mainwindow.cpp:2186 src/mainwindow.cpp:2195
+#: src/mainwindow.cpp:1986 src/mainwindow.cpp:1995
 msgctxt "MainWindow|"
 msgid "Open image"
 msgstr "Görsel Aç"
 
-#: src/mainwindow.cpp:2188
+#: src/mainwindow.cpp:1988
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
@@ -708,6 +831,7 @@ msgid "LLM OCR request timed out"
 msgstr "Büyük dil modeli optik karakter tanıma isteği zaman aşımına uğradı"
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
+#: src/ocr/screengrabbers/abstractscreengrabber.cpp:47
 msgctxt "AbstractScreenGrabber|"
 msgid "Unable to grab screen"
 msgstr "Ekran yakalanamıyor"
@@ -3456,12 +3580,12 @@ msgctxt "ATranslationProvider|"
 msgid "Unknown error"
 msgstr "Bilinmeyen hata"
 
-#: src/translator/atranslationprovider.cpp:116
+#: src/translator/atranslationprovider.cpp:115
 msgctxt "QObject|"
 msgid "Translation Provider Error"
 msgstr "Çeviri Sağlayıcısı Hatası"
 
-#: src/translator/atranslationprovider.cpp:117
+#: src/translator/atranslationprovider.cpp:116
 msgctxt "QObject|"
 msgid ""
 "The selected translation provider crashed during initialization and has been "
@@ -3472,12 +3596,12 @@ msgstr ""
 "engellemek adına “Kopya” olarak sıfırlandı. “Ayarlar → Çeviri” altında "
 "farklı bir sağlayıcı seçmeyi deneyebilirsiniz."
 
-#: src/translator/localaitranslationprovider.cpp:145
+#: src/translator/localaitranslationprovider.cpp:149
 msgctxt "LocalAiTranslationProvider|"
 msgid "Destination language is not supported"
 msgstr "Hedef dil desteklenmiyor."
 
-#: src/translator/localaitranslationprovider.cpp:297
+#: src/translator/localaitranslationprovider.cpp:301
 #, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
@@ -3492,7 +3616,7 @@ msgstr ""
 "seçeneğini etkinleştirin, bir kerede daha az metin çevirin veya daha geniş "
 "bir bağlam sunan bir model seçin."
 
-#: src/translator/localaitranslationprovider.cpp:305
+#: src/translator/localaitranslationprovider.cpp:309
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
 "The model spent its whole token budget reasoning and never wrote a "
@@ -3504,7 +3628,7 @@ msgstr ""
 "etkinleştirin, tek kerede daha az metni çevirin veya daha geniş bağlama "
 "sahip bir model seçin."
 
-#: src/translator/localaitranslationprovider.cpp:313
+#: src/translator/localaitranslationprovider.cpp:317
 #, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
@@ -3516,7 +3640,7 @@ msgstr ""
 "sınırının %1 kadarını kullandı. Bir kerede daha az metin çevirin veya daha "
 "geniş bir bağlam sunan bir model seçin."
 
-#: src/translator/localaitranslationprovider.cpp:320
+#: src/translator/localaitranslationprovider.cpp:324
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
 "The model ran out of tokens before writing a translation. Translate less "
@@ -3525,30 +3649,30 @@ msgstr ""
 "Model, çeviri yazmadan önce jetonlarını bitirdi. Bir kerede daha az metin "
 "çevirin veya daha geniş bir bağlam sunan bir model seçin."
 
-#: src/translator/localaitranslationprovider.cpp:326
-#: src/translator/localaitranslationprovider.cpp:365
-#: src/translator/localaitranslationprovider.cpp:366
+#: src/translator/localaitranslationprovider.cpp:330
+#: src/translator/localaitranslationprovider.cpp:369
+#: src/translator/localaitranslationprovider.cpp:370
 #, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI error: %1"
 msgstr "Yerel yapay zekâ hatası: %1"
 
-#: src/translator/localaitranslationprovider.cpp:329
+#: src/translator/localaitranslationprovider.cpp:333
 msgctxt "LocalAiTranslationProvider|"
 msgid "The model returned an empty response."
 msgstr "Model, boş bir yanıt döndürdü."
 
-#: src/translator/localaitranslationprovider.cpp:350
+#: src/translator/localaitranslationprovider.cpp:354
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI request timed out"
 msgstr "Yerel yapay zekâ isteği zaman aşımına uğradı."
 
-#: src/translator/localaitranslationprovider.cpp:408
+#: src/translator/localaitranslationprovider.cpp:412
 msgctxt "LocalAiTranslationProvider|"
 msgid "Language detection timed out"
 msgstr "Dil algılaması zaman aşımına uğradı."
 
-#: src/translator/localaitranslationprovider.cpp:469
+#: src/translator/localaitranslationprovider.cpp:473
 msgctxt "LocalAiTranslationProvider|"
 msgid "Translation aborted by user"
 msgstr "Çeviri, kullanıcı tarafından iptal edildi."
@@ -3600,16 +3724,6 @@ msgctxt "MozhiTranslationProvider|"
 msgid "Unknown error: %1"
 msgstr "Bilinmeyen hata: %1"
 
-#: src/translator/mozhitranslationprovider.cpp:408
-msgctxt "MozhiTranslationProvider|"
-msgid "translation options:"
-msgstr "Çeviri seçenekleri:"
-
-#: src/translator/mozhitranslationprovider.cpp:422
-msgctxt "MozhiTranslationProvider|"
-msgid "examples:"
-msgstr "Örnekler:"
-
 #: src/trayicon.cpp:26 src/trayicon.cpp:65
 msgctxt "TrayIcon|"
 msgid "Show window"
@@ -3635,12 +3749,12 @@ msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Çeviri Sonucu"
 
-#: src/tts/attsprovider.cpp:73
+#: src/tts/attsprovider.cpp:72
 msgctxt "QObject|"
 msgid "TTS Provider Error"
 msgstr "Metin Konuşma Sağlayıcısı Hatası"
 
-#: src/tts/attsprovider.cpp:74
+#: src/tts/attsprovider.cpp:73
 msgctxt "QObject|"
 msgid ""
 "The selected TTS provider crashed during initialization and has been reset "
@@ -3701,63 +3815,39 @@ msgctxt "PiperTTSProvider|"
 msgid "Unknown ONNX Runtime initialization error"
 msgstr "Bilinmeyen ONNX çalışma zamanı ilklendirme hatası"
 
-#: src/tts/piperttsprovider.cpp:205
+#: src/tts/piperttsprovider.cpp:217
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize espeak-ng"
 msgstr "espeak-ng ilklendirilemedi"
 
-#: src/tts/piperttsprovider.cpp:247
+#: src/tts/piperttsprovider.cpp:259
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime initialization error: %1"
 msgstr "ONNX çalışma zaman ilklendirme hatası: %1"
 
-#: src/tts/piperttsprovider.cpp:282
+#: src/tts/piperttsprovider.cpp:300
 msgctxt "PiperTTSProvider|"
-msgid "Privacy Notice - Neural TTS"
-msgstr "Gizlilik Bildirimi — Neural Metin Konuşma"
+msgid "Could not disable neural TTS telemetry"
+msgstr ""
 
-#: src/tts/piperttsprovider.cpp:284
-msgctxt "PiperTTSProvider|"
-msgid "ONNX Runtime Telemetry Information"
-msgstr "ONNX Çalışma Zamanı Telemetri Bilgisi"
-
-#: src/tts/piperttsprovider.cpp:286
+#: src/tts/piperttsprovider.cpp:301
 msgctxt "PiperTTSProvider|"
 msgid ""
-"Crow Translate uses ONNX Runtime for neural text-to-speech. The Windows "
-"binary includes Microsoft telemetry that collects usage information.\n"
-"\n"
-"Data Collection:\n"
-"• Device and usage data, error reports, performance information\n"
-"• Used by Microsoft to improve product quality and features\n"
-"• Subject to Microsoft Privacy Statement\n"
-"\n"
-"Crow Translate Actions:\n"
-"• Automatically disables telemetry on startup\n"
-"• Uses both environment variables and runtime API calls\n"
-"• Note: Some data may be transmitted during ONNX initialization\n"
-"\n"
-"On Unix systems, telemetry is inactive by default.\n"
-"This notice is shown once per installation."
+"Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
+"of it may report usage data to Microsoft."
 msgstr ""
-"Crow Çeviri, sinirsel metin konuşma için ONNX çalışma zamanını kullanır. "
-"Windows ikilisi, kullanım bilgisini toplayan Microsoft telemetrisini "
-"içerir.\n"
+
+#: src/tts/piperttsprovider.cpp:302
+#, qt-format
+msgctxt "PiperTTSProvider|"
+msgid ""
+"Reason: %1\n"
 "\n"
-"Toplanan Veriler:\n"
-"• Aygıt ve kullanım bilgisi, hata raporları, başarım bilgisi\n"
-"• Microsoft tarafından ürün kalitesini ve özelliklerini iyileştirmek için "
-"kullanılır\n"
-"• Microsoft Gizlilik Bildirimi’ne tabidir\n"
-"\n"
-"Crow Çeviri Eylemleri:\n"
-"• Başlangıçta telemetriyi kendiliğinden devre dışı bırakır\n"
-"• Hem çevre değişkenlerini hem de çalışma zamanı API çağrılarını kullanır\n"
-"• Not: ONNX ilklendirmesi sırasında bazı veriler iletiliyor olabilir\n"
-"\n"
-"UNIX sistemlerde telemetri kendiliğinden devre dışıdır.\n"
-"Bu bildiri, her kurulumda yalnızca bir kez gösterilir."
+"Only Microsoft's own Windows builds of ONNX Runtime have telemetry compiled "
+"in. Builds from source - including the one Crow Translate links statically - "
+"have none, and it is inactive on other platforms."
+msgstr ""
 
 #: src/tts/piperttsprovider.cpp:1033
 msgctxt "PiperTTSProvider|"
@@ -3796,12 +3886,19 @@ msgstr ""
 "olabilirler. Ticarî kullanımdan önce her bir modelin lisansına bakmayı "
 "unutmayın.</p>"
 
-#: src/tts/piperttsprovider.cpp:1407
+#: src/tts/piperttsprovider.cpp:1409
 msgctxt "PiperTTSProvider|"
 msgid "Piper Voice Models Required"
 msgstr "Piper Ses Modelleri Gerekli"
 
-#: src/tts/qtttsprovider.cpp:329
+#: src/tts/piperttsprovider.cpp:1410
+msgctxt "PiperTTSProvider|"
+msgid ""
+"No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
+"Piper Voices Path."
+msgstr ""
+
+#: src/tts/qtttsprovider.cpp:325
 #, qt-format
 msgctxt "QtTTSProvider|"
 msgid ""
@@ -3825,10 +3922,63 @@ msgstr ""
 "Konuşma altında yalnızca “Temel ses modelleri”ni destekler. “Seslendirici "
 "sesleri”nde bu uygulama ile uyumsuz lisans kısıtlamaları bulunmaktadır.</p>"
 
-#: src/tts/qtttsprovider.cpp:343
+#: src/tts/qtttsprovider.cpp:341
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
 msgstr "Windows Metin Konuşma Sesi Kurulumu"
+
+#: src/tts/qtttsprovider.cpp:342
+#, fuzzy, qt-format
+#| msgctxt "QtTTSProvider|"
+#| msgid "Windows TTS Voice Installation"
+msgctxt "QtTTSProvider|"
+msgid "No Windows TTS voice is installed for %1."
+msgstr "Windows Metin Konuşma Sesi Kurulumu"
+
+#~ msgctxt "PiperTTSProvider|"
+#~ msgid "Privacy Notice - Neural TTS"
+#~ msgstr "Gizlilik Bildirimi — Neural Metin Konuşma"
+
+#~ msgctxt "PiperTTSProvider|"
+#~ msgid "ONNX Runtime Telemetry Information"
+#~ msgstr "ONNX Çalışma Zamanı Telemetri Bilgisi"
+
+#~ msgctxt "PiperTTSProvider|"
+#~ msgid ""
+#~ "Crow Translate uses ONNX Runtime for neural text-to-speech. The Windows "
+#~ "binary includes Microsoft telemetry that collects usage information.\n"
+#~ "\n"
+#~ "Data Collection:\n"
+#~ "• Device and usage data, error reports, performance information\n"
+#~ "• Used by Microsoft to improve product quality and features\n"
+#~ "• Subject to Microsoft Privacy Statement\n"
+#~ "\n"
+#~ "Crow Translate Actions:\n"
+#~ "• Automatically disables telemetry on startup\n"
+#~ "• Uses both environment variables and runtime API calls\n"
+#~ "• Note: Some data may be transmitted during ONNX initialization\n"
+#~ "\n"
+#~ "On Unix systems, telemetry is inactive by default.\n"
+#~ "This notice is shown once per installation."
+#~ msgstr ""
+#~ "Crow Çeviri, sinirsel metin konuşma için ONNX çalışma zamanını kullanır. "
+#~ "Windows ikilisi, kullanım bilgisini toplayan Microsoft telemetrisini "
+#~ "içerir.\n"
+#~ "\n"
+#~ "Toplanan Veriler:\n"
+#~ "• Aygıt ve kullanım bilgisi, hata raporları, başarım bilgisi\n"
+#~ "• Microsoft tarafından ürün kalitesini ve özelliklerini iyileştirmek için "
+#~ "kullanılır\n"
+#~ "• Microsoft Gizlilik Bildirimi’ne tabidir\n"
+#~ "\n"
+#~ "Crow Çeviri Eylemleri:\n"
+#~ "• Başlangıçta telemetriyi kendiliğinden devre dışı bırakır\n"
+#~ "• Hem çevre değişkenlerini hem de çalışma zamanı API çağrılarını "
+#~ "kullanır\n"
+#~ "• Not: ONNX ilklendirmesi sırasında bazı veriler iletiliyor olabilir\n"
+#~ "\n"
+#~ "UNIX sistemlerde telemetri kendiliğinden devre dışıdır.\n"
+#~ "Bu bildiri, her kurulumda yalnızca bir kez gösterilir."
 
 #~ msgctxt "Cli|"
 #~ msgid "Error: Lingva engine is not supported"
@@ -4320,7 +4470,3 @@ msgstr "Windows Metin Konuşma Sesi Kurulumu"
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Current version:"
 #~ msgstr "Geçerli sürüm:"
-
-#~ msgctxt "UpdaterDialog|"
-#~ msgid "Available version:"
-#~ msgstr "Kullanılabilir sürüm:"
