@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: crow-translate\n"
-"PO-Revision-Date: 2026-08-20 09:59+0200\n"
+"PO-Revision-Date: 2026-08-30 18:39+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,20 +16,14 @@ msgstr ""
 "X-Language: it\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #: src/cli.cpp:78
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "opzioni traduzione:"
 
 #: src/cli.cpp:87
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "esempi:"
@@ -58,18 +52,14 @@ msgstr ""
 "impostazione predefinita verrà usata la lingua di sistema)."
 
 #: src/cli.cpp:129
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify the translator engine ('google', 'yandex', 'bing', "
-#| "'libretranslate' or 'lingva'), Google is used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
 "'libretranslate', 'mymemory' or 'reverso'), Google is used by default."
 msgstr ""
-"Specifica il motore per la traduzione ('google', 'yandex', 'bing', "
-"'libretranslate' o 'lingva'), Google è l'impostazione predefinita."
+"Specifica il motore per la traduzione: 'google', 'yandex', 'bing', 'deepl', "
+"'libretranslate', 'mymemory' o 'reverso', Google è l'impostazione "
+"predefinita."
 
 #: src/cli.cpp:133
 msgctxt "Cli|"
@@ -81,53 +71,41 @@ msgstr ""
 "impostazioni dell'applicazione sarà quella predefinita."
 
 #: src/cli.cpp:137
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy' or 'mozhi'). Provider from app "
-#| "settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
 "app settings will be used by default."
 msgstr ""
-"Specifica il fornitore della traduzione: «copia» o «mozhi». Il fornitore "
-"derivante dalle impostazioni dell'applicazione risulterà quello predefinito."
+"Specifica il fornitore della traduzione: 'copia', 'mozhi' o 'localai'. Il "
+"fornitore derivante dalle impostazioni dell'applicazione risulterà quello "
+"predefinito."
 
 #: src/cli.cpp:145
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
 "settings will be used by default."
 msgstr ""
-"Specifica il fornitore di sintesi vocale (TTS): «nessuno», «mozhi», «qt» o "
-"«piper».  Il fornitore derivante dalle impostazioni dell'applicazione "
+"Specifica il fornitore di sintesi vocale (TTS): 'nessuno', 'mozhi', 'qt' o "
+"'piper'.  Il fornitore derivante dalle impostazioni dell'applicazione "
 "risulterà quello predefinito."
 
 #: src/cli.cpp:147
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
 "will be used by default."
 msgstr ""
-"Specifica il fornitore di sintesi vocale (TTS): «nessuno», «mozhi», «qt» o "
-"«piper».  Il fornitore derivante dalle impostazioni dell'applicazione "
-"risulterà quello predefinito."
+"Specifica il fornitore di sintesi vocale (TTS): 'nessuno', 'mozhi' o 'qt'.  "
+"Il fornitore derivante dalle impostazioni dell'applicazione risulterà quello "
+"predefinito."
 
 #: src/cli.cpp:149
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
+"Specifica il fornitore di sintesi vocale (TTS): 'nessuno'. Questa "
+"compilazione ha la sintesi vocale disabilitata."
 
 #: src/cli.cpp:152
 msgctxt "Cli|"
@@ -156,17 +134,18 @@ msgstr "Aggiungi dati stdin al testo sorgente."
 msgctxt "Cli|"
 msgid "Read source text from an image using the configured OCR engine."
 msgstr ""
+"Leggi il testo sorgente da un'immagine utilizzando il motore OCR configurato."
 
 #: src/cli.cpp:158
 msgctxt "Cli|"
 msgid "path"
-msgstr ""
+msgstr "percorso"
 
 #: src/cli.cpp:160
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
-msgstr "Non stampare il testo quando viene usato %1 - %2."
+msgstr "Non stampare il testo quando viene usato --%1 o --%2."
 
 #: src/cli.cpp:161
 msgctxt "Cli|"
@@ -184,11 +163,13 @@ msgid ""
 "Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
 "argument is given."
 msgstr ""
+"Quale interfaccia eseguire («grafica» o «riga di comando»). Impostata a "
+"«riga di comando» ogni volta che viene fornito un argomento."
 
 #: src/cli.cpp:169
 msgctxt "Cli|"
 msgid "frontend"
-msgstr ""
+msgstr "interfaccia"
 
 #: src/cli.cpp:173
 msgctxt "Cli|"
@@ -214,12 +195,10 @@ msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Errore: per --%1 devi specificare --%2 e/o le opzioni --%3"
 
 #: src/cli.cpp:213
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
-msgstr "Errore: motore traduzione sconosciuto"
+msgstr "Errore: motore «%1» sconosciuto"
 
 #: src/cli.cpp:228
 #, qt-format
@@ -248,7 +227,7 @@ msgstr "Errore: non c'è un testo da tradurre"
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: --%1 cannot be combined with text arguments"
-msgstr ""
+msgstr "Errore: --%1 non può essere combinato con argomenti di testo"
 
 #: src/cli.cpp:303
 msgctxt "Cli|"
@@ -262,38 +241,32 @@ msgid "Error: Unknown TTS provider '%1'"
 msgstr "Errore: fornitore di sintesi vocale sconosciuto «%1»"
 
 #: src/cli.cpp:428
-#, fuzzy, qt-format
-#| msgctxt "TesseractOcr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to initialize Tesseract with %1"
-msgstr "Impossibile inizializzare Tesseract con %1"
+msgstr "Errore: impossibile inizializzare Tesseract con %1"
 
 #: src/cli.cpp:449
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unable to open file: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to read image '%1'"
-msgstr "Errore: impossibile aprire il file %1"
+msgstr "Errore: impossibile leggere l'immagine «%1»"
 
 #: src/cli.cpp:459
 msgctxt "Cli|"
 msgid "Error: No text was recognized in the image"
-msgstr ""
+msgstr "Errore: non è stato riconosciuto alcun testo nell'immagine"
 
 #: src/cli.cpp:467
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Recognition failed: %1"
-msgstr "Errore: sintesi vocale non riuscita"
+msgstr "Errore: riconoscimento non riuscito - %1"
 
 #: src/cli.cpp:472
 msgctxt "Cli|"
 msgid "Error: Recognition was cancelled"
-msgstr ""
+msgstr "Errore: il riconoscimento è stato annullato"
 
 #: src/cli.cpp:490 src/cli.cpp:542
 #, qt-format
@@ -312,49 +285,41 @@ msgid "Unknown error"
 msgstr "Errore sconosciuto"
 
 #: src/cli.cpp:614
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
-msgstr "Errore: sintesi vocale non riuscita"
+msgstr "Errore: sintesi vocale non riuscita - %1"
 
 #: src/cli.cpp:721
 msgctxt "Cli|"
 msgid "no provider was created"
-msgstr ""
+msgstr "non è stato creato alcun fornitore"
 
 #: src/cli.cpp:746
 msgctxt "Cli|"
 msgid "the engine failed to start"
-msgstr ""
+msgstr "il motore non è riuscito a partire"
 
 #: src/cli.cpp:751
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
-msgstr ""
+msgstr "il fornitore selezionato non ha voci disponibili"
 
 #: src/cli.cpp:809
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
-msgstr ""
+msgstr "Errore: sintesi vocale non disponibile - %1"
 
 #: src/cli.cpp:830
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "Cli|"
 msgid "Source languages:"
-msgstr "Lingua attuale:"
+msgstr "Lingue di origine:"
 
 #: src/cli.cpp:833
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Primary translation language:"
 msgctxt "Cli|"
 msgid "Translation languages:"
-msgstr "Lingua principale di traduzione:"
+msgstr "Lingue di traduzione:"
 
 #: src/cli.cpp:901
 #, qt-format
@@ -390,17 +355,14 @@ msgid "Set up the OCR engine in the application settings"
 msgstr "Configura il motore OCR nelle impostazioni dell'applicazione"
 
 #: src/frontend/frontendregistry.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Main window"
 msgctxt "FrontendRegistry|"
 msgid "Graphical window"
-msgstr "Finestra principale"
+msgstr "Finestra grafica"
 
 #: src/frontend/frontendregistry.cpp:24
 msgctxt "FrontendRegistry|"
 msgid "Command line"
-msgstr ""
+msgstr "Riga di comando"
 
 #: src/frontend/guifrontend.cpp:46
 #, qt-format
@@ -415,17 +377,11 @@ msgid "D-Bus service %1 is already registered by another application"
 msgstr "Il servizio D-Bus %1 è già registrato da un'altra applicazione"
 
 #: src/gui/translationhtmlformatter.cpp:33
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "translation options:"
 msgstr "opzioni traduzione:"
 
 #: src/gui/translationhtmlformatter.cpp:47
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "examples:"
 msgstr "esempi:"
@@ -533,20 +489,16 @@ msgid "Current languages:"
 msgstr "Lingua attuale:"
 
 #: src/main.cpp:34
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "main|"
 msgid "Error: Unknown frontend '%1'"
-msgstr "Errore: motore traduzione sconosciuto"
+msgstr "Errore: interfaccia «%1» sconosciuta"
 
 #: src/main.cpp:42
-#, fuzzy, qt-format
-#| msgctxt "UpdaterDialog|"
-#| msgid "Available version:"
+#, qt-format
 msgctxt "main|"
 msgid "Available frontends: %1"
-msgstr "Versione disponibile:"
+msgstr "Interfacce disponibili: %1"
 
 #: src/mainwindow.cpp:162
 msgctxt "TesseractOcr|"
@@ -3870,7 +3822,7 @@ msgstr "Errore inizializzazione runtime ONNX: %1"
 #: src/tts/piperttsprovider.cpp:300
 msgctxt "PiperTTSProvider|"
 msgid "Could not disable neural TTS telemetry"
-msgstr ""
+msgstr "Impossibile disabilitare la telemetria della sintesi vocale neurale"
 
 #: src/tts/piperttsprovider.cpp:301
 msgctxt "PiperTTSProvider|"
@@ -3878,6 +3830,8 @@ msgid ""
 "Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
 "of it may report usage data to Microsoft."
 msgstr ""
+"Crow Translate non ha potuto disattivare la telemetria di ONNX Runtime, "
+"pertanto questa sua copia potrebbe inviare dati sul suo utilizzo a Microsoft."
 
 #: src/tts/piperttsprovider.cpp:302
 #, qt-format
@@ -3889,6 +3843,12 @@ msgid ""
 "in. Builds from source - including the one Crow Translate links statically - "
 "have none, and it is inactive on other platforms."
 msgstr ""
+"Spiegazione: %1\n"
+"\n"
+"Solo le build proprietarie per Windows di ONNX Runtime di Microsoft hanno la "
+"telemetria compilata al loro interno. Le build da codice sorgente - inclusa "
+"quella a cui Crow Translate si collega staticamente - non ne hanno, ed è "
+"inattiva nelle altre piattaforme."
 
 #: src/tts/piperttsprovider.cpp:1033
 msgctxt "PiperTTSProvider|"
@@ -3938,6 +3898,8 @@ msgid ""
 "No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
 "Piper Voices Path."
 msgstr ""
+"Non è stato trovato alcun modello di sintesi vocale Piper. Imposta il "
+"percorso in Impostazioni -> Sintesi vocale -> Percorso voci Piper."
 
 #: src/tts/qtttsprovider.cpp:325
 #, qt-format
@@ -3970,12 +3932,11 @@ msgid "Windows TTS Voice Installation"
 msgstr "Installazione voce sintesi vocale di Windows"
 
 #: src/tts/qtttsprovider.cpp:342
-#, fuzzy, qt-format
-#| msgctxt "QtTTSProvider|"
-#| msgid "Windows TTS Voice Installation"
+#, qt-format
 msgctxt "QtTTSProvider|"
 msgid "No Windows TTS voice is installed for %1."
-msgstr "Installazione voce sintesi vocale di Windows"
+msgstr ""
+"Non è stata installata alcuna voce di sintesi vocale di Windows per %1."
 
 #~ msgctxt "PiperTTSProvider|"
 #~ msgid "Privacy Notice - Neural TTS"

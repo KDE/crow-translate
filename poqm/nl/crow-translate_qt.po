@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-24 10:57+0200\n"
+"PO-Revision-Date: 2026-08-30 14:00+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,20 +15,14 @@ msgstr ""
 "X-Language: nl\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #: src/cli.cpp:78
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "vertaalopties:"
 
 #: src/cli.cpp:87
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "voorbeelden:"
@@ -136,11 +130,13 @@ msgstr "Voeg stdin-data toe aan de brontekst."
 msgctxt "Cli|"
 msgid "Read source text from an image using the configured OCR engine."
 msgstr ""
+"Lees brontekst van een afbeelding met behulp van de geconfigureerde OCR-"
+"engine."
 
 #: src/cli.cpp:158
 msgctxt "Cli|"
 msgid "path"
-msgstr ""
+msgstr "pad"
 
 #: src/cli.cpp:160
 #, qt-format
@@ -164,11 +160,13 @@ msgid ""
 "Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
 "argument is given."
 msgstr ""
+"Welke frontend moet worden gebruikt ('gui' of 'cli'). Standaard wordt 'cli' "
+"gebruikt zodra er een argument wordt opgegeven."
 
 #: src/cli.cpp:169
 msgctxt "Cli|"
 msgid "frontend"
-msgstr ""
+msgstr "frontend"
 
 #: src/cli.cpp:173
 msgctxt "Cli|"
@@ -225,7 +223,7 @@ msgstr "Fout: geen brontekst opgegeven"
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: --%1 cannot be combined with text arguments"
-msgstr ""
+msgstr "Fout: --%1 kan niet worden gecombineerd met tekstargumenten"
 
 #: src/cli.cpp:303
 msgctxt "Cli|"
@@ -239,38 +237,32 @@ msgid "Error: Unknown TTS provider '%1'"
 msgstr "Fout: onbekende TTS-leverancier '%1'"
 
 #: src/cli.cpp:428
-#, fuzzy, qt-format
-#| msgctxt "TesseractOcr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to initialize Tesseract with %1"
-msgstr "Tesseract kan niet worden geïnitialiseerd met %1"
+msgstr "Fout: kan Tesseract niet initialiseren met %1"
 
 #: src/cli.cpp:449
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unable to open file: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to read image '%1'"
-msgstr "Fout: kan bestand niet openen: %1"
+msgstr "Fout: kan afbeelding niet lezen: '%1'"
 
 #: src/cli.cpp:459
 msgctxt "Cli|"
 msgid "Error: No text was recognized in the image"
-msgstr ""
+msgstr "Fout: geen tekst herkend in de afbeelding"
 
 #: src/cli.cpp:467
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Recognition failed: %1"
-msgstr "Fout: TTS is mislukt: %1"
+msgstr "Fout: herkennen is mislukt: %1"
 
 #: src/cli.cpp:472
 msgctxt "Cli|"
 msgid "Error: Recognition was cancelled"
-msgstr ""
+msgstr "Fout: herkennen is geannuleerd"
 
 #: src/cli.cpp:490 src/cli.cpp:542
 #, qt-format
@@ -359,17 +351,14 @@ msgid "Set up the OCR engine in the application settings"
 msgstr "Zet de OCR-engine op in de programma-instellingen"
 
 #: src/frontend/frontendregistry.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Main window"
 msgctxt "FrontendRegistry|"
 msgid "Graphical window"
-msgstr "Hoofdvenster"
+msgstr "Grafisch venster"
 
 #: src/frontend/frontendregistry.cpp:24
 msgctxt "FrontendRegistry|"
 msgid "Command line"
-msgstr ""
+msgstr "Opdrachtregel"
 
 #: src/frontend/guifrontend.cpp:46
 #, qt-format
@@ -384,17 +373,11 @@ msgid "D-Bus service %1 is already registered by another application"
 msgstr "De D-Bus-dienst '%1' is al vastgelegd door een ander programma"
 
 #: src/gui/translationhtmlformatter.cpp:33
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "translation options:"
 msgstr "vertaalopties:"
 
 #: src/gui/translationhtmlformatter.cpp:47
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "examples:"
 msgstr "voorbeelden:"
@@ -501,20 +484,16 @@ msgid "Current languages:"
 msgstr "Gekozen talen:"
 
 #: src/main.cpp:34
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine '%1'"
+#, qt-format
 msgctxt "main|"
 msgid "Error: Unknown frontend '%1'"
-msgstr "Fout: onbekende vertaalmachine '%1'"
+msgstr "Fout: onbekende frontend '%1'"
 
 #: src/main.cpp:42
-#, fuzzy, qt-format
-#| msgctxt "UpdaterDialog|"
-#| msgid "Available version:"
+#, qt-format
 msgctxt "main|"
 msgid "Available frontends: %1"
-msgstr "Beschikbare versie:"
+msgstr "Beschikbare frontends: %1"
 
 #: src/mainwindow.cpp:162
 msgctxt "TesseractOcr|"
@@ -3834,7 +3813,7 @@ msgstr "ONNX runtime initialisatiefout: %1"
 #: src/tts/piperttsprovider.cpp:300
 msgctxt "PiperTTSProvider|"
 msgid "Could not disable neural TTS telemetry"
-msgstr ""
+msgstr "Kon neurale TTS-telemetrie niet uitschakelen"
 
 #: src/tts/piperttsprovider.cpp:301
 msgctxt "PiperTTSProvider|"
@@ -3842,6 +3821,8 @@ msgid ""
 "Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
 "of it may report usage data to Microsoft."
 msgstr ""
+"Crow Translate kon de telemetrie van ONNX Runtime niet uitschakelen; daarom "
+"kan dit exemplaar ervan gebruiksgegevens naar Microsoft doorgeven."
 
 #: src/tts/piperttsprovider.cpp:302
 #, qt-format
@@ -3853,6 +3834,12 @@ msgid ""
 "in. Builds from source - including the one Crow Translate links statically - "
 "have none, and it is inactive on other platforms."
 msgstr ""
+"Reden: %1\n"
+"\n"
+"Alleen de door Microsoft zelf gemaakte Windows-builds van ONNX Runtime "
+"bevatten ingebouwde telemetrie. Builds die vanuit de broncode zijn gemaakt – "
+"waaronder de versie waaraan Crow Translate statisch is gekoppeld – bevatten "
+"dit niet, en op andere platforms is de functie inactief."
 
 #: src/tts/piperttsprovider.cpp:1033
 msgctxt "PiperTTSProvider|"
@@ -3902,6 +3889,8 @@ msgid ""
 "No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
 "Piper Voices Path."
 msgstr ""
+"Er zijn geen Piper TTS-stemmodellen gevonden. Stel het pad in via "
+"Instellingen -> TTS -> Piper Voices Path."
 
 #: src/tts/qtttsprovider.cpp:325
 #, qt-format
@@ -3933,12 +3922,10 @@ msgid "Windows TTS Voice Installation"
 msgstr "Installatie van Windows TTS-stem"
 
 #: src/tts/qtttsprovider.cpp:342
-#, fuzzy, qt-format
-#| msgctxt "QtTTSProvider|"
-#| msgid "Windows TTS Voice Installation"
+#, qt-format
 msgctxt "QtTTSProvider|"
 msgid "No Windows TTS voice is installed for %1."
-msgstr "Installatie van Windows TTS-stem"
+msgstr "Er is geen Windows-TTS-stem geïnstalleerd voor %1."
 
 #~ msgctxt "PiperTTSProvider|"
 #~ msgid "Privacy Notice - Neural TTS"

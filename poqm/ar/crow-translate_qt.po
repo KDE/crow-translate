@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-29 17:53+0400\n"
+"PO-Revision-Date: 2026-08-30 18:11+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -19,17 +19,11 @@ msgstr ""
 "X-Generator: Lokalize 25.12.3\n"
 
 #: src/cli.cpp:78
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "خيارات الترجمة:"
 
 #: src/cli.cpp:87
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "أمثلة:"
@@ -130,11 +124,12 @@ msgstr "إضافة بيانات stdin إلى النص المصدر."
 msgctxt "Cli|"
 msgid "Read source text from an image using the configured OCR engine."
 msgstr ""
+"اقرأ النص المصدر من صورة باستخدام محرك التعرف الضوئي على الحروف المضبوط."
 
 #: src/cli.cpp:158
 msgctxt "Cli|"
 msgid "path"
-msgstr ""
+msgstr "مسار"
 
 #: src/cli.cpp:160
 #, qt-format
@@ -158,11 +153,13 @@ msgid ""
 "Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
 "argument is given."
 msgstr ""
+"أي واجهة أمامية لتشغيلها ('gui' أو 'cli'). المبدئي هو 'cli' كلما وُفرت أي "
+"وسيطة."
 
 #: src/cli.cpp:169
 msgctxt "Cli|"
 msgid "frontend"
-msgstr ""
+msgstr "واجهة أمامية"
 
 #: src/cli.cpp:173
 msgctxt "Cli|"
@@ -216,7 +213,7 @@ msgstr "خطأ: لا يوجد نص للترجمة"
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: --%1 cannot be combined with text arguments"
-msgstr ""
+msgstr "خطأ: لا يمكن دمج --%1 مع وسائط نصية"
 
 #: src/cli.cpp:303
 msgctxt "Cli|"
@@ -230,38 +227,32 @@ msgid "Error: Unknown TTS provider '%1'"
 msgstr "خطأ: مزود تحويل النص إلى كلام غير معروف '%1'"
 
 #: src/cli.cpp:428
-#, fuzzy, qt-format
-#| msgctxt "TesseractOcr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to initialize Tesseract with %1"
-msgstr "تعذّر تهيئة Tesseract مع %1"
+msgstr "خطأ: تعذّر تهيئة Tesseract مع %1"
 
 #: src/cli.cpp:449
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unable to open file: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to read image '%1'"
-msgstr "خطأ: تعذر فتح الملف: %1"
+msgstr "خطأ: تعذّرت قراءة الصورة '%1'"
 
 #: src/cli.cpp:459
 msgctxt "Cli|"
 msgid "Error: No text was recognized in the image"
-msgstr ""
+msgstr "خطأ: لم يُعرَف أي نص في الصورة"
 
 #: src/cli.cpp:467
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Recognition failed: %1"
-msgstr "خطأ: فشل تحويل النص إلى كلام: %1"
+msgstr "خطأ: فشل التعرف: %1"
 
 #: src/cli.cpp:472
 msgctxt "Cli|"
 msgid "Error: Recognition was cancelled"
-msgstr ""
+msgstr "خطأ: أُلغي التعرف"
 
 #: src/cli.cpp:490 src/cli.cpp:542
 #, qt-format
@@ -350,17 +341,14 @@ msgid "Set up the OCR engine in the application settings"
 msgstr "اضبط محرّك التعرّف الضوئي في إعدادات التطبيق"
 
 #: src/frontend/frontendregistry.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Main window"
 msgctxt "FrontendRegistry|"
 msgid "Graphical window"
-msgstr "النافذة الرئيسة"
+msgstr "نافذة رسومية"
 
 #: src/frontend/frontendregistry.cpp:24
 msgctxt "FrontendRegistry|"
 msgid "Command line"
-msgstr ""
+msgstr "سطر الأوامر"
 
 #: src/frontend/guifrontend.cpp:46
 #, qt-format
@@ -375,17 +363,11 @@ msgid "D-Bus service %1 is already registered by another application"
 msgstr "خدمة D-Bus د %1 مسجلة فعلًا بواسطة تطبيق آخر"
 
 #: src/gui/translationhtmlformatter.cpp:33
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "translation options:"
 msgstr "خيارات الترجمة:"
 
 #: src/gui/translationhtmlformatter.cpp:47
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "examples:"
 msgstr "أمثلة:"
@@ -491,20 +473,16 @@ msgid "Current languages:"
 msgstr "اللغات الحالية:"
 
 #: src/main.cpp:34
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine '%1'"
+#, qt-format
 msgctxt "main|"
 msgid "Error: Unknown frontend '%1'"
-msgstr "خطأ: محرك غير معروف «%1»"
+msgstr "خطأ: واجهة أمامية غير معروفة '%1'"
 
 #: src/main.cpp:42
-#, fuzzy, qt-format
-#| msgctxt "UpdaterDialog|"
-#| msgid "Available version:"
+#, qt-format
 msgctxt "main|"
 msgid "Available frontends: %1"
-msgstr "الإصدار المتاح:"
+msgstr "الواجهات الأمامية المتاحة: %1"
 
 #: src/mainwindow.cpp:162
 msgctxt "TesseractOcr|"
@@ -3781,7 +3759,7 @@ msgstr "خطأ تهيئة وقت تشغيل ONNX: %1"
 #: src/tts/piperttsprovider.cpp:300
 msgctxt "PiperTTSProvider|"
 msgid "Could not disable neural TTS telemetry"
-msgstr ""
+msgstr "تعذّر تعطيل القياس عن بُعد للتركيب الصوتي العصبي"
 
 #: src/tts/piperttsprovider.cpp:301
 msgctxt "PiperTTSProvider|"
@@ -3789,6 +3767,8 @@ msgid ""
 "Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
 "of it may report usage data to Microsoft."
 msgstr ""
+"تعذّر على Crow Translate إيقاف القياس عن بُعد الخاص بـ ONNX Runtime، لذا فقد "
+"تُبلغ هذه النسخة منه بيانات الاستخدام إلى Microsoft."
 
 #: src/tts/piperttsprovider.cpp:302
 #, qt-format
@@ -3800,6 +3780,12 @@ msgid ""
 "in. Builds from source - including the one Crow Translate links statically - "
 "have none, and it is inactive on other platforms."
 msgstr ""
+"السبب: %1\n"
+"\n"
+"لا تتضمن سوى إصدارات ONNX Runtime الخاصة بمايكروسوفت ميزات القياس عن بُعد "
+"المُدمجة. أما الإصدارات المُجمَّعة من الكود المصدري — بما في ذلك الإصدار الذي "
+"يرتبط به Crow Translate بشكل ثابت — فلا تحتوي على أي منها، كما أنها غير نشطة "
+"على المنصات الأخرى."
 
 #: src/tts/piperttsprovider.cpp:1033
 msgctxt "PiperTTSProvider|"
@@ -3848,6 +3834,8 @@ msgid ""
 "No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
 "Piper Voices Path."
 msgstr ""
+"لم تُعثر على أي نماذج أصوات Piper للتركيب الصوتي. اضبط المسار في الإعدادات -> "
+"التركيب الصوتي -> مسار أصوات Piper."
 
 #: src/tts/qtttsprovider.cpp:325
 #, qt-format
@@ -3878,12 +3866,10 @@ msgid "Windows TTS Voice Installation"
 msgstr "تثبيت صوت Windows TTS"
 
 #: src/tts/qtttsprovider.cpp:342
-#, fuzzy, qt-format
-#| msgctxt "QtTTSProvider|"
-#| msgid "Windows TTS Voice Installation"
+#, qt-format
 msgctxt "QtTTSProvider|"
 msgid "No Windows TTS voice is installed for %1."
-msgstr "تثبيت صوت Windows TTS"
+msgstr "لا يوجد صوت تركيب صوتي لنظام Windows مثبت لـ %1."
 
 #~ msgctxt "PiperTTSProvider|"
 #~ msgid "Privacy Notice - Neural TTS"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: crow-translate_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"PO-Revision-Date: 2026-08-25 01:24+0100\n"
+"PO-Revision-Date: 2026-08-30 15:45+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -19,20 +19,14 @@ msgstr ""
 "X-Language: es-ES\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #: src/cli.cpp:78
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "opciones de traducción:"
 
 #: src/cli.cpp:87
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "ejemplos:"
@@ -146,7 +140,7 @@ msgstr ""
 #: src/cli.cpp:158
 msgctxt "Cli|"
 msgid "path"
-msgstr ""
+msgstr "ruta"
 
 #: src/cli.cpp:160
 #, qt-format
@@ -174,7 +168,7 @@ msgstr ""
 #: src/cli.cpp:169
 msgctxt "Cli|"
 msgid "frontend"
-msgstr ""
+msgstr "interfaz"
 
 #: src/cli.cpp:173
 msgctxt "Cli|"
@@ -364,17 +358,14 @@ msgid "Set up the OCR engine in the application settings"
 msgstr "Configure el motor OCR en los ajustes de la aplicación"
 
 #: src/frontend/frontendregistry.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Main window"
 msgctxt "FrontendRegistry|"
 msgid "Graphical window"
-msgstr "Ventana principal"
+msgstr "Ventana gráfica"
 
 #: src/frontend/frontendregistry.cpp:24
 msgctxt "FrontendRegistry|"
 msgid "Command line"
-msgstr ""
+msgstr "Línea de órdenes"
 
 #: src/frontend/guifrontend.cpp:46
 #, qt-format
@@ -389,17 +380,11 @@ msgid "D-Bus service %1 is already registered by another application"
 msgstr "El servicio %1 de D-Bus ya está registrado por otra aplicación"
 
 #: src/gui/translationhtmlformatter.cpp:33
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "translation options:"
 msgstr "opciones de traducción:"
 
 #: src/gui/translationhtmlformatter.cpp:47
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "examples:"
 msgstr "ejemplos:"
@@ -515,12 +500,10 @@ msgid "Error: Unknown frontend '%1'"
 msgstr "Error: Motor de traducción «%1» desconocido"
 
 #: src/main.cpp:42
-#, fuzzy, qt-format
-#| msgctxt "LanguagesDialog|"
-#| msgid "Available languages:"
+#, qt-format
 msgctxt "main|"
 msgid "Available frontends: %1"
-msgstr "Idiomas disponibles:"
+msgstr "Interfaces disponibles: %1"
 
 #: src/mainwindow.cpp:162
 msgctxt "TesseractOcr|"
@@ -3962,51 +3945,3 @@ msgstr "Instalación de voces de TTS para Windows"
 msgctxt "QtTTSProvider|"
 msgid "No Windows TTS voice is installed for %1."
 msgstr "Instalación de voces de TTS para Windows"
-
-#~ msgctxt "PiperTTSProvider|"
-#~ msgid "Privacy Notice - Neural TTS"
-#~ msgstr "Aviso de privacidad - TTS neuronal"
-
-#~ msgctxt "PiperTTSProvider|"
-#~ msgid "ONNX Runtime Telemetry Information"
-#~ msgstr "Información de telemetría en tiempo de ejecución ONNX"
-
-#~ msgctxt "PiperTTSProvider|"
-#~ msgid ""
-#~ "Crow Translate uses ONNX Runtime for neural text-to-speech. The Windows "
-#~ "binary includes Microsoft telemetry that collects usage information.\n"
-#~ "\n"
-#~ "Data Collection:\n"
-#~ "• Device and usage data, error reports, performance information\n"
-#~ "• Used by Microsoft to improve product quality and features\n"
-#~ "• Subject to Microsoft Privacy Statement\n"
-#~ "\n"
-#~ "Crow Translate Actions:\n"
-#~ "• Automatically disables telemetry on startup\n"
-#~ "• Uses both environment variables and runtime API calls\n"
-#~ "• Note: Some data may be transmitted during ONNX initialization\n"
-#~ "\n"
-#~ "On Unix systems, telemetry is inactive by default.\n"
-#~ "This notice is shown once per installation."
-#~ msgstr ""
-#~ "Crow Translate usa el sistema en tiempo de ejecución ONNX para texto a "
-#~ "voz neuronal. El binario de Windows incluye telemetría de Microsoft que "
-#~ "recopila información de uso.\n"
-#~ "\n"
-#~ "Recopilación de datos:\n"
-#~ "• Dispositivo y datos de uso, informes de error, información de "
-#~ "rendimiento.\n"
-#~ "• Microsoft usa estos datos para mejorar la calidad y las funciones del "
-#~ "producto.\n"
-#~ "• Está sujeto a la declaración de privacidad de Microsoft.\n"
-#~ "\n"
-#~ "Acciones de Crow Translate:\n"
-#~ "• Desactiva automáticamente la telemetría durante el inicio.\n"
-#~ "• Usa tanto variables de entorno como llamadas a la API del sistema en "
-#~ "tiempo de ejecución.\n"
-#~ "• Nota: Algunos datos se pueden transmitir durante la inicialización de "
-#~ "ONNX.\n"
-#~ "\n"
-#~ "En los sistemas Unix la telemetría está desactivada de forma "
-#~ "predeterminada.\n"
-#~ "Este aviso se muestra solo una vez por instalación."

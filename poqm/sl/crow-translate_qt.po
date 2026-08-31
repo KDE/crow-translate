@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-08-24 07:17+0200\n"
+"PO-Revision-Date: 2026-08-30 09:20+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -17,17 +17,11 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 
 #: src/cli.cpp:78
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "Cli|"
 msgid "translation options:"
-msgstr "možnosti prevajanja:"
+msgstr "možnosti prevoda:"
 
 #: src/cli.cpp:87
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "primeri:"
@@ -132,11 +126,12 @@ msgstr "Izvornemu besedilu dodajte podatke stdin."
 msgctxt "Cli|"
 msgid "Read source text from an image using the configured OCR engine."
 msgstr ""
+"Preberite izvorno besedilo s slike z uporabo konfiguriranega mehanizma OCR."
 
 #: src/cli.cpp:158
 msgctxt "Cli|"
 msgid "path"
-msgstr ""
+msgstr "pot"
 
 #: src/cli.cpp:160
 #, qt-format
@@ -160,11 +155,13 @@ msgid ""
 "Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
 "argument is given."
 msgstr ""
+"Kateri vmesnik naj se zažene ('gui' ali 'cli'). Privzeto je 'cli', kadar "
+"koli je podan argument."
 
 #: src/cli.cpp:169
 msgctxt "Cli|"
 msgid "frontend"
-msgstr ""
+msgstr "ospredje"
 
 #: src/cli.cpp:173
 msgctxt "Cli|"
@@ -220,7 +217,7 @@ msgstr "Napaka: ni besedila za prevod"
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: --%1 cannot be combined with text arguments"
-msgstr ""
+msgstr "Napaka: --%1 ni mogoče kombinirati z besedilnimi argumenti"
 
 #: src/cli.cpp:303
 msgctxt "Cli|"
@@ -234,38 +231,32 @@ msgid "Error: Unknown TTS provider '%1'"
 msgstr "Napaka: Neznan ponudnik pretvorbe besedila v govor '%1'"
 
 #: src/cli.cpp:428
-#, fuzzy, qt-format
-#| msgctxt "TesseractOcr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to initialize Tesseract with %1"
-msgstr "Ni mogoče inicializirati Tesseracta z %1"
+msgstr "Napaka: Ni mogoče inicializirati Tesseracta z %1"
 
 #: src/cli.cpp:449
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unable to open file: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to read image '%1'"
-msgstr "Napaka: datoteke ni mogoče odpreti: %1"
+msgstr "Napaka: Ni mogoče prebrati slike '%1'"
 
 #: src/cli.cpp:459
 msgctxt "Cli|"
 msgid "Error: No text was recognized in the image"
-msgstr ""
+msgstr "Napaka: Na sliki ni bilo prepoznananega besedila"
 
 #: src/cli.cpp:467
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Recognition failed: %1"
-msgstr "Napaka: Pretvorba besedila v govor ni uspela: %1"
+msgstr "Napaka: Prepoznava ni uspela: %1"
 
 #: src/cli.cpp:472
 msgctxt "Cli|"
 msgid "Error: Recognition was cancelled"
-msgstr ""
+msgstr "Napaka: Prepoznava je bila preklicana"
 
 #: src/cli.cpp:490 src/cli.cpp:542
 #, qt-format
@@ -354,17 +345,14 @@ msgid "Set up the OCR engine in the application settings"
 msgstr "Nastavite mehanizem OCR v nastavitvah aplikacije"
 
 #: src/frontend/frontendregistry.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Main window"
 msgctxt "FrontendRegistry|"
 msgid "Graphical window"
-msgstr "Glavno okno"
+msgstr "Grafično okno"
 
 #: src/frontend/frontendregistry.cpp:24
 msgctxt "FrontendRegistry|"
 msgid "Command line"
-msgstr ""
+msgstr "Ukazna vrstica"
 
 #: src/frontend/guifrontend.cpp:46
 #, qt-format
@@ -379,17 +367,11 @@ msgid "D-Bus service %1 is already registered by another application"
 msgstr "Storitev D-Bus %1 je že registrirana v drugi aplikaciji"
 
 #: src/gui/translationhtmlformatter.cpp:33
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "translation options:"
-msgstr "možnosti prevajanja:"
+msgstr "možnosti prevoda:"
 
 #: src/gui/translationhtmlformatter.cpp:47
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "examples:"
 msgstr "primeri:"
@@ -495,19 +477,16 @@ msgid "Current languages:"
 msgstr "Trenutni jeziki:"
 
 #: src/main.cpp:34
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine '%1'"
+#, qt-format
 msgctxt "main|"
 msgid "Error: Unknown frontend '%1'"
-msgstr "Napaka: Neznani stroj '%1'"
+msgstr "Napaka: Neznano ospredje '%1'"
 
 #: src/main.cpp:42
-#, fuzzy, qt-format
-#| msgid "Available version:"
+#, qt-format
 msgctxt "main|"
 msgid "Available frontends: %1"
-msgstr "Razpoložljiva različica:"
+msgstr "Razpoložljiva ospredja: %1"
 
 #: src/mainwindow.cpp:162
 msgctxt "TesseractOcr|"
@@ -3817,7 +3796,7 @@ msgstr "Napaka inicializacije izvajalnega okolja ONNX: %1"
 #: src/tts/piperttsprovider.cpp:300
 msgctxt "PiperTTSProvider|"
 msgid "Could not disable neural TTS telemetry"
-msgstr ""
+msgstr "Ni bilo mogoče onemogočiti nevralne telemetrije TTS"
 
 #: src/tts/piperttsprovider.cpp:301
 msgctxt "PiperTTSProvider|"
@@ -3825,6 +3804,8 @@ msgid ""
 "Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
 "of it may report usage data to Microsoft."
 msgstr ""
+"Crow Translate ni mogel izklopiti telemetrije ONNX Runtime, zato bo ta "
+"kopija morda poročala o uporabi podatkov Microsoftu."
 
 #: src/tts/piperttsprovider.cpp:302
 #, qt-format
@@ -3836,6 +3817,12 @@ msgid ""
 "in. Builds from source - including the one Crow Translate links statically - "
 "have none, and it is inactive on other platforms."
 msgstr ""
+"Razlog: %1\n"
+"\n"
+"Samo Microsoftove lastne različice programa ONNX Runtime za Windows imajo "
+"vgrajeno telemetrijo. Izgradnje iz izvorne kode – vključno s tisto, ki jo "
+"Crow Translate statično povezuje – je nimajo in je na drugih platformah "
+"neaktivna."
 
 #: src/tts/piperttsprovider.cpp:1033
 msgctxt "PiperTTSProvider|"
@@ -3884,6 +3871,8 @@ msgid ""
 "No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
 "Piper Voices Path."
 msgstr ""
+"Glasovnih modelov Piper TTS ni bilo mogoče najti. Nastavite pot v Nastavitve "
+"-> TTS -> Pot do glasov Piper."
 
 #: src/tts/qtttsprovider.cpp:325
 #, qt-format
@@ -3915,12 +3904,12 @@ msgid "Windows TTS Voice Installation"
 msgstr "Namestitev programa za pretvorbo besedila v govor sistema Windows"
 
 #: src/tts/qtttsprovider.cpp:342
-#, fuzzy, qt-format
-#| msgctxt "QtTTSProvider|"
-#| msgid "Windows TTS Voice Installation"
+#, qt-format
 msgctxt "QtTTSProvider|"
 msgid "No Windows TTS voice is installed for %1."
-msgstr "Namestitev programa za pretvorbo besedila v govor sistema Windows"
+msgstr ""
+"V sistemu Windows ni nameščenega nobenega glasu za pretvorbo besedila v "
+"govor za %1."
 
 #~ msgctxt "PiperTTSProvider|"
 #~ msgid "Privacy Notice - Neural TTS"

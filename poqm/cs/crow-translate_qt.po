@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-24 20:38+0200\n"
-"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
+"PO-Revision-Date: 2026-08-30 11:57+0200\n"
+"Last-Translator: Libor Filipek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -15,17 +15,11 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 
 #: src/cli.cpp:78
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "možnosti překladu:"
 
 #: src/cli.cpp:87
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "příklady:"
@@ -132,12 +126,12 @@ msgstr "Přidá data ze standardního vstupu ke zdrojovému textu."
 #: src/cli.cpp:157
 msgctxt "Cli|"
 msgid "Read source text from an image using the configured OCR engine."
-msgstr ""
+msgstr "Přečtěte zdrojový text z obrázku pomocí nakonfigurovaného modulu OCR."
 
 #: src/cli.cpp:158
 msgctxt "Cli|"
 msgid "path"
-msgstr ""
+msgstr "cesta"
 
 #: src/cli.cpp:160
 #, qt-format
@@ -161,11 +155,13 @@ msgid ""
 "Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
 "argument is given."
 msgstr ""
+"Které uživatelské rozhraní spustit ('gui' nebo 'cli'). Pokud je zadán "
+"jakýkoli argument, je výchozí hodnotou 'cli'."
 
 #: src/cli.cpp:169
 msgctxt "Cli|"
 msgid "frontend"
-msgstr ""
+msgstr "Rozhraní"
 
 #: src/cli.cpp:173
 msgctxt "Cli|"
@@ -223,7 +219,7 @@ msgstr "Chyba: Není žádný text k překladu"
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: --%1 cannot be combined with text arguments"
-msgstr ""
+msgstr "Chyba: --%1 nelze kombinovat s textovými argumenty"
 
 #: src/cli.cpp:303
 msgctxt "Cli|"
@@ -237,38 +233,32 @@ msgid "Error: Unknown TTS provider '%1'"
 msgstr "Chyba: Neznámý poskytovatel služby TTS '%1'"
 
 #: src/cli.cpp:428
-#, fuzzy, qt-format
-#| msgctxt "TesseractOcr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to initialize Tesseract with %1"
-msgstr "Nelze inicializovat Tesseract s %1"
+msgstr "Chyba: Nelze inicializovat Tesseract s %1"
 
 #: src/cli.cpp:449
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unable to open file: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to read image '%1'"
-msgstr "Chyba: Nelze otevřít soubor: %1"
+msgstr "Chyba: nelze načíst obrázek: %1"
 
 #: src/cli.cpp:459
 msgctxt "Cli|"
 msgid "Error: No text was recognized in the image"
-msgstr ""
+msgstr "Chyba: V obrázku nebyl nalezen žádný text"
 
 #: src/cli.cpp:467
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Recognition failed: %1"
-msgstr "Chyba: Selhání TTS: %1"
+msgstr "Chyba: Rozpoznání se nezdařilo: %1"
 
 #: src/cli.cpp:472
 msgctxt "Cli|"
 msgid "Error: Recognition was cancelled"
-msgstr ""
+msgstr "Chyba: Rozpoznávání bylo zrušeno"
 
 #: src/cli.cpp:490 src/cli.cpp:542
 #, qt-format
@@ -357,17 +347,14 @@ msgid "Set up the OCR engine in the application settings"
 msgstr "Nastavit modul OCR v nastavení aplikace"
 
 #: src/frontend/frontendregistry.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Main window"
 msgctxt "FrontendRegistry|"
 msgid "Graphical window"
-msgstr "Hlavní okno"
+msgstr "Grafické okno"
 
 #: src/frontend/frontendregistry.cpp:24
 msgctxt "FrontendRegistry|"
 msgid "Command line"
-msgstr ""
+msgstr "Příkazová řádka"
 
 #: src/frontend/guifrontend.cpp:46
 #, qt-format
@@ -382,17 +369,11 @@ msgid "D-Bus service %1 is already registered by another application"
 msgstr "Služba D-Bus %1 je již zaregistrována jinou aplikací"
 
 #: src/gui/translationhtmlformatter.cpp:33
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "translation options:"
 msgstr "možnosti překladu:"
 
 #: src/gui/translationhtmlformatter.cpp:47
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "examples:"
 msgstr "příklady:"
@@ -498,20 +479,16 @@ msgid "Current languages:"
 msgstr "Aktuální jazyky:"
 
 #: src/main.cpp:34
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine '%1'"
+#, qt-format
 msgctxt "main|"
 msgid "Error: Unknown frontend '%1'"
-msgstr "Chyba: Neznámé jádro '%1'"
+msgstr "Chyba: Neznámé rozhraní '%1'"
 
 #: src/main.cpp:42
-#, fuzzy, qt-format
-#| msgctxt "LanguagesDialog|"
-#| msgid "Available languages:"
+#, qt-format
 msgctxt "main|"
 msgid "Available frontends: %1"
-msgstr "Dostupné jazyky:"
+msgstr "Dostupná rozhraní: %1"
 
 #: src/mainwindow.cpp:162
 msgctxt "TesseractOcr|"
@@ -3832,7 +3809,7 @@ msgstr "Chyba inicializace běhového prostředí ONNX: %1"
 #: src/tts/piperttsprovider.cpp:300
 msgctxt "PiperTTSProvider|"
 msgid "Could not disable neural TTS telemetry"
-msgstr ""
+msgstr "Nepodařilo se deaktivovat telemetrii neuronového systému TTS"
 
 #: src/tts/piperttsprovider.cpp:301
 msgctxt "PiperTTSProvider|"
@@ -3840,6 +3817,8 @@ msgid ""
 "Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
 "of it may report usage data to Microsoft."
 msgstr ""
+"Aplikace Crow Translate nedokázala deaktivovat telemetrii ONNX Runtime, "
+"takže tato její kopie může odesílat údaje o používání společnosti Microsoft."
 
 #: src/tts/piperttsprovider.cpp:302
 #, qt-format
@@ -3851,6 +3830,12 @@ msgid ""
 "in. Builds from source - including the one Crow Translate links statically - "
 "have none, and it is inactive on other platforms."
 msgstr ""
+"Důvod: %1\n"
+"\n"
+"Telemetrie je zabudována pouze do verzí ONNX Runtime pro Windows od "
+"společnosti Microsoft. Verze sestavené ze zdrojového kódu – včetně té, na "
+"kterou odkazuje Crow Translate jako na staticky propojenou – ji neobsahují a "
+"na jiných platformách je tato funkce neaktivní."
 
 #: src/tts/piperttsprovider.cpp:1033
 msgctxt "PiperTTSProvider|"
@@ -3900,6 +3885,8 @@ msgid ""
 "No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
 "Piper Voices Path."
 msgstr ""
+"Nebyly nalezeny žádné hlasové modely Piper TTS. Nastavte cestu v nabídce "
+"Nastavení -> TTS -> Cesta k hlasům Piper."
 
 #: src/tts/qtttsprovider.cpp:325
 #, qt-format
@@ -3934,12 +3921,10 @@ msgstr "Instalace hlasu pro funkci TTS ve Windows"
 
 # dialog title for smb installation
 #: src/tts/qtttsprovider.cpp:342
-#, fuzzy, qt-format
-#| msgctxt "QtTTSProvider|"
-#| msgid "Windows TTS Voice Installation"
+#, qt-format
 msgctxt "QtTTSProvider|"
 msgid "No Windows TTS voice is installed for %1."
-msgstr "Instalace hlasu pro funkci TTS ve Windows"
+msgstr "Pro %1 není nainstalován žádný hlas systému Windows TTS."
 
 #~ msgctxt "PiperTTSProvider|"
 #~ msgid "Privacy Notice - Neural TTS"
