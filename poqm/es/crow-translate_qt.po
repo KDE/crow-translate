@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: crow-translate_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"PO-Revision-Date: 2026-08-30 15:45+0100\n"
+"PO-Revision-Date: 2026-08-31 18:25+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -135,7 +135,7 @@ msgstr "Añadir los datos de la entrada estándar al texto original."
 #: src/cli.cpp:157
 msgctxt "Cli|"
 msgid "Read source text from an image using the configured OCR engine."
-msgstr ""
+msgstr "Leer el texto original de una imagen usando el motor OCR configurado."
 
 #: src/cli.cpp:158
 msgctxt "Cli|"
@@ -164,6 +164,8 @@ msgid ""
 "Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
 "argument is given."
 msgstr ""
+"La interfaz que se debe ejecutar («gui» o «cli»). La predeterminada es «cli» "
+"cuando no se indica ninguna."
 
 #: src/cli.cpp:169
 msgctxt "Cli|"
@@ -224,7 +226,7 @@ msgstr "Error: No existe texto para traducir"
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: --%1 cannot be combined with text arguments"
-msgstr ""
+msgstr "Error: --%1 no se puede combinar con argumentos de texto"
 
 #: src/cli.cpp:303
 msgctxt "Cli|"
@@ -238,38 +240,32 @@ msgid "Error: Unknown TTS provider '%1'"
 msgstr "Error: Proveedor de TTS «%1» desconocido"
 
 #: src/cli.cpp:428
-#, fuzzy, qt-format
-#| msgctxt "TesseractOcr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to initialize Tesseract with %1"
-msgstr "No se puede inicializar Tesseract con %1"
+msgstr "Error: No se puede inicializar Tesseract con %1"
 
 #: src/cli.cpp:449
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unable to open file: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to read image '%1'"
-msgstr "Error: No se puede abrir el archivo: %1"
+msgstr "Error: No se puede leer la imagen «%1»"
 
 #: src/cli.cpp:459
 msgctxt "Cli|"
 msgid "Error: No text was recognized in the image"
-msgstr ""
+msgstr "Error: No se ha reconocido ningún texto en la imagen"
 
 #: src/cli.cpp:467
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Recognition failed: %1"
-msgstr "Error: TTS ha fallado: %1"
+msgstr "Error: El reconocimiento ha fallado: %1"
 
 #: src/cli.cpp:472
 msgctxt "Cli|"
 msgid "Error: Recognition was cancelled"
-msgstr ""
+msgstr "Error: El reconocimiento se ha cancelado"
 
 #: src/cli.cpp:490 src/cli.cpp:542
 #, qt-format
@@ -492,12 +488,10 @@ msgid "Current languages:"
 msgstr "Idiomas actuales:"
 
 #: src/main.cpp:34
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine '%1'"
+#, qt-format
 msgctxt "main|"
 msgid "Error: Unknown frontend '%1'"
-msgstr "Error: Motor de traducción «%1» desconocido"
+msgstr "Error: Interfaz «%1» desconocida"
 
 #: src/main.cpp:42
 #, qt-format
@@ -3839,7 +3833,7 @@ msgstr "Error de inicialización en tiempo de ejecución de ONNX: %1"
 #: src/tts/piperttsprovider.cpp:300
 msgctxt "PiperTTSProvider|"
 msgid "Could not disable neural TTS telemetry"
-msgstr ""
+msgstr "No se ha podido desactivar la telemetría de TTS neuronal"
 
 #: src/tts/piperttsprovider.cpp:301
 msgctxt "PiperTTSProvider|"
@@ -3847,6 +3841,8 @@ msgid ""
 "Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
 "of it may report usage data to Microsoft."
 msgstr ""
+"Crow Translate no ha podido desactivar la telemetría de ONNX Runtime, por lo "
+"que esta copia podría enviar datos de uso a Microsoft."
 
 #: src/tts/piperttsprovider.cpp:302
 #, qt-format
@@ -3858,6 +3854,12 @@ msgid ""
 "in. Builds from source - including the one Crow Translate links statically - "
 "have none, and it is inactive on other platforms."
 msgstr ""
+"Motivo: %1\n"
+"\n"
+"Solo las versiones de ONNX Runtime para Windows desarrolladas por Microsoft "
+"incluyen telemetría. Las versiones compiladas a partir del código fuente, "
+"incluida la que Crow Translate enlaza estáticamente, no la incluyen, y esta "
+"función está inactiva en otras plataformas."
 
 #: src/tts/piperttsprovider.cpp:1033
 msgctxt "PiperTTSProvider|"
@@ -3907,6 +3909,8 @@ msgid ""
 "No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
 "Piper Voices Path."
 msgstr ""
+"No se han encontrado modelos de voz TTS de Piper. Defina la ruta en "
+"«Preferencias -> TTS -> Ruta de voces de Piper»."
 
 #: src/tts/qtttsprovider.cpp:325
 #, qt-format
@@ -3939,9 +3943,7 @@ msgid "Windows TTS Voice Installation"
 msgstr "Instalación de voces de TTS para Windows"
 
 #: src/tts/qtttsprovider.cpp:342
-#, fuzzy, qt-format
-#| msgctxt "QtTTSProvider|"
-#| msgid "Windows TTS Voice Installation"
+#, qt-format
 msgctxt "QtTTSProvider|"
 msgid "No Windows TTS voice is installed for %1."
-msgstr "Instalación de voces de TTS para Windows"
+msgstr "No se ha instalado ninguna voz de TTS de Windows para %1."
