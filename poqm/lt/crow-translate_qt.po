@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: src/cli.cpp:78
 #, fuzzy
@@ -23,9 +23,6 @@ msgid "translation options:"
 msgstr "vertimo parinktys:"
 
 #: src/cli.cpp:87
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "pavyzdžiai:"
@@ -382,9 +379,6 @@ msgid "translation options:"
 msgstr "vertimo parinktys:"
 
 #: src/gui/translationhtmlformatter.cpp:47
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "examples:"
 msgstr "pavyzdžiai:"
@@ -464,36 +458,24 @@ msgid "Add to current languages"
 msgstr "Dabartinės kalbos:"
 
 #: src/languagesdialog.ui:38
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Automatic language detection"
 msgctxt "LanguagesDialog|"
 msgid "Move language down"
-msgstr "Automatinis kalbos aptikimas"
+msgstr "Nuleisti kalbą"
 
 #: src/languagesdialog.ui:55
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Remove from current languages"
-msgstr "Dabartinės kalbos:"
+msgstr "Šalinti iš dabartinių kalbų"
 
 #: src/languagesdialog.ui:69
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Swap languages"
 msgctxt "LanguagesDialog|"
 msgid "Search languages"
-msgstr "Apkeisti kalbas"
+msgstr "Ieškoti kalbų"
 
 #: src/languagesdialog.ui:79
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Available languages:"
 msgctxt "LanguagesDialog|"
 msgid "Move language up"
-msgstr "Prieinamos kalbos:"
+msgstr "Pakelti kalbą"
 
 #: src/languagesdialog.ui:109
 msgctxt "LanguagesDialog|"
@@ -613,9 +595,7 @@ msgstr ""
 "balsą/lokalę."
 
 #: src/mainwindow.cpp:1060 src/mainwindow.cpp:1066
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Klaida: %1"
@@ -646,13 +626,12 @@ msgid "Open image"
 msgstr ""
 
 #: src/mainwindow.cpp:1988
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
-msgstr "Paveikslai (*.png *.ico *.svg *.jpg);;Visi failai()"
+msgstr ""
+"Paveikslai (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;Visi failai "
+"(*)"
 
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
@@ -3559,7 +3538,7 @@ msgstr "Reikšmė"
 #: src/statusstrip.cpp:128 src/statusstrip.cpp:143 src/statusstrip.cpp:144
 msgctxt "StatusStrip|"
 msgid "Ready"
-msgstr ""
+msgstr "Pasiruošę"
 
 #: src/translator/atranslationprovider.cpp:57
 msgctxt "ATranslationProvider|"
@@ -3582,7 +3561,7 @@ msgstr "Įjungti vertimo parinktis"
 #: src/translator/atranslationprovider.cpp:65
 msgctxt "ATranslationProvider|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Nežinoma klaida"
 
 #: src/translator/atranslationprovider.cpp:115
 msgctxt "QObject|"
@@ -3657,28 +3636,19 @@ msgid "LocalAI request timed out"
 msgstr ""
 
 #: src/translator/localaitranslationprovider.cpp:412
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Automatic language detection"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Language detection timed out"
-msgstr "Automatinis kalbos aptikimas"
+msgstr "Pasibaigė kalbos aptikimui skirtas laikas"
 
 #: src/translator/localaitranslationprovider.cpp:473
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Naudotojas nutraukė operaciją"
+msgstr "Naudotojas nutraukė vertimą"
 
 #: src/translator/mozhitranslationprovider.cpp:78
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "MozhiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Naudotojas nutraukė operaciją"
+msgstr "Naudotojas nutraukė vertimą"
 
 #: src/translator/mozhitranslationprovider.cpp:139
 #, qt-format
@@ -3693,28 +3663,22 @@ msgid "Source language '%1' is not supported"
 msgstr ""
 
 #: src/translator/mozhitranslationprovider.cpp:204
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Network error: %1"
-msgstr "Egzemplioriaus klaida: %1"
+msgstr "Tinklo klaida: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:208
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Instance error: %1"
 msgstr "Egzemplioriaus klaida: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:212
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Parsing error: %1"
-msgstr "Egzemplioriaus klaida: %1"
+msgstr "Nagrinėjimo klaida: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:216
 #, qt-format
@@ -3723,12 +3687,10 @@ msgid "Unsupported TTS engine: %1"
 msgstr ""
 
 #: src/translator/mozhitranslationprovider.cpp:220
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unknown error: %1"
-msgstr "Egzemplioriaus klaida: %1"
+msgstr "Nežinoma klaida: %1"
 
 #: src/trayicon.cpp:26 src/trayicon.cpp:65
 msgctxt "TrayIcon|"
@@ -3748,7 +3710,7 @@ msgstr "Išjungti"
 #: src/trayicon.cpp:30 src/trayicon.cpp:67
 msgctxt "TrayIcon|"
 msgid "Report Bug…"
-msgstr ""
+msgstr "Pranešti apie klaidą…"
 
 #: src/trayicon.cpp:73
 msgctxt "TrayIcon|"
@@ -3880,6 +3842,16 @@ msgid ""
 "cannot be used in commercial settings. Please check the license of each "
 "model before commercial use.</p>"
 msgstr ""
+"<h3>Nerasti jokie Piper balso modeliai</h3><p>Standartinėse vietose nerasti "
+"jokie Piper garsinio teksto atkūrimo (TTS) balso modeliai.</p><p><b>Norėdami "
+"naudoti Piper garsinį teksto atkūrimą (TTS):</b></p><ol><li>Atsisiųskite "
+"balso modelius iš <a href='https://huggingface.co/rhasspy/piper-"
+"voices'>„HuggingFace“ Piper balsų</a></li><li>Išpakuokite modelius į "
+"katalogą</li><li>Nustatykite kelią, perėję į Nuostatos → Garsinis teksto "
+"atkūrimas → Piper balsų kelias</li></ol><p><b>⚠️ Įspėjimas apie licenciją:</"
+"b> Kai kurie modeliai gali būti nelaisvų licencijų ir negali būti naudojami "
+"komercinėje aplinkoje. Prieš naudodami komercinėje aplinkoje, patikrinkite "
+"kiekvieno modelio licenciją.</p>"
 
 #: src/tts/piperttsprovider.cpp:1409
 msgctxt "PiperTTSProvider|"
