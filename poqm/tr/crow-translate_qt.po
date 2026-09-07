@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-24 19:52+0300\n"
+"PO-Revision-Date: 2026-09-06 19:04+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11,20 +11,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #: src/cli.cpp:78
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "Çeviri seçenekleri:"
 
 #: src/cli.cpp:87
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "Örnekler:"
@@ -125,12 +119,12 @@ msgstr "Kaynak metne stdin verisini ekle."
 #: src/cli.cpp:157
 msgctxt "Cli|"
 msgid "Read source text from an image using the configured OCR engine."
-msgstr ""
+msgstr "Kullanılan OKT işletkesi ile kaynak metni görselden oku."
 
 #: src/cli.cpp:158
 msgctxt "Cli|"
 msgid "path"
-msgstr ""
+msgstr "yol"
 
 #: src/cli.cpp:160
 #, qt-format
@@ -154,11 +148,13 @@ msgid ""
 "Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
 "argument is given."
 msgstr ""
+"Hangi ön ucun kullanılacağı (“gui” veya “cli”). Herhangi bir argüman ile "
+"kendiliğinden “cli” başlatılır."
 
 #: src/cli.cpp:169
 msgctxt "Cli|"
 msgid "frontend"
-msgstr ""
+msgstr "ön uç"
 
 #: src/cli.cpp:173
 msgctxt "Cli|"
@@ -214,7 +210,7 @@ msgstr "Hata: Çevrilecek metin yok."
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: --%1 cannot be combined with text arguments"
-msgstr ""
+msgstr "Hata: --%1, metin argümanlarla kullanılamaz."
 
 #: src/cli.cpp:303
 msgctxt "Cli|"
@@ -228,38 +224,32 @@ msgid "Error: Unknown TTS provider '%1'"
 msgstr "Hata: Bilinmeyen metin konuşma sağlayıcısı “%1”"
 
 #: src/cli.cpp:428
-#, fuzzy, qt-format
-#| msgctxt "TesseractOcr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to initialize Tesseract with %1"
-msgstr "Tesseract %1 ile ilklendirilemiyor"
+msgstr "Hata: Tesseract %1 ile ilklendirilemiyor."
 
 #: src/cli.cpp:449
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unable to open file: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to read image '%1'"
-msgstr "Hata: Dosya açılamıyor: %1"
+msgstr "Hata: “%1” görseli okunamıyor."
 
 #: src/cli.cpp:459
 msgctxt "Cli|"
 msgid "Error: No text was recognized in the image"
-msgstr ""
+msgstr "Hata: Görselde tanımlanabilen metin yok."
 
 #: src/cli.cpp:467
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Recognition failed: %1"
-msgstr "Hata: Metin konuşma yapılamadı: %1"
+msgstr "Hata: Tanıma yapılamadı: %1"
 
 #: src/cli.cpp:472
 msgctxt "Cli|"
 msgid "Error: Recognition was cancelled"
-msgstr ""
+msgstr "Hata: Tanıma iptal edildi."
 
 #: src/cli.cpp:490 src/cli.cpp:542
 #, qt-format
@@ -348,17 +338,14 @@ msgid "Set up the OCR engine in the application settings"
 msgstr "Uygulama ayarlarında optik karakter tanıma işletkesini ayarlayın."
 
 #: src/frontend/frontendregistry.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Main window"
 msgctxt "FrontendRegistry|"
 msgid "Graphical window"
-msgstr "Ana pencere"
+msgstr "Grafiksel pencere"
 
 #: src/frontend/frontendregistry.cpp:24
 msgctxt "FrontendRegistry|"
 msgid "Command line"
-msgstr ""
+msgstr "Komut satırı"
 
 #: src/frontend/guifrontend.cpp:46
 #, qt-format
@@ -374,17 +361,11 @@ msgstr ""
 "D-Bus hizmeti %1, hâlihazırda başka bir uygulama tarafından kaydedilmiş"
 
 #: src/gui/translationhtmlformatter.cpp:33
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "translation options:"
 msgstr "Çeviri seçenekleri:"
 
 #: src/gui/translationhtmlformatter.cpp:47
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "examples:"
 msgstr "Örnekler:"
@@ -490,20 +471,16 @@ msgid "Current languages:"
 msgstr "Geçerli diller:"
 
 #: src/main.cpp:34
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine '%1'"
+#, qt-format
 msgctxt "main|"
 msgid "Error: Unknown frontend '%1'"
-msgstr "Hata: Bilinmeyen işletke “%1”"
+msgstr "Hata: Bilinmeyen ön uç “%1”"
 
 #: src/main.cpp:42
-#, fuzzy, qt-format
-#| msgctxt "UpdaterDialog|"
-#| msgid "Available version:"
+#, qt-format
 msgctxt "main|"
 msgid "Available frontends: %1"
-msgstr "Kullanılabilir sürüm:"
+msgstr "Kullanılabilir ön uçlar: %1"
 
 #: src/mainwindow.cpp:162
 msgctxt "TesseractOcr|"
@@ -3829,7 +3806,7 @@ msgstr "ONNX çalışma zaman ilklendirme hatası: %1"
 #: src/tts/piperttsprovider.cpp:300
 msgctxt "PiperTTSProvider|"
 msgid "Could not disable neural TTS telemetry"
-msgstr ""
+msgstr "Sinirsel metin konuşma telemetrisi devre dışı bırakılamadı."
 
 #: src/tts/piperttsprovider.cpp:301
 msgctxt "PiperTTSProvider|"
@@ -3837,6 +3814,8 @@ msgid ""
 "Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
 "of it may report usage data to Microsoft."
 msgstr ""
+"Crow Çeviri, ONNX çalışma zamanının telemetresini devre dışı bırakamadı; bu "
+"nedenle bu kopyası Microsoft’a kullanım verilerini gönderebilir."
 
 #: src/tts/piperttsprovider.cpp:302
 #, qt-format
@@ -3848,6 +3827,12 @@ msgid ""
 "in. Builds from source - including the one Crow Translate links statically - "
 "have none, and it is inactive on other platforms."
 msgstr ""
+"Gerekçe: %1\n"
+"\n"
+"Yalnızca Microsoft’un kendi Windows yapılarının ONNX çalışma zamanı "
+"telemetriyi derlenmiş bir biçimde sunar. Kaynak kodundan yapılan derlemeler —"
+"Crow Çeviri uygulamasının statik olarak bağlandığı da içerilmek üzere— "
+"bunları içermez ve diğer platformlarda devre dışıdır."
 
 #: src/tts/piperttsprovider.cpp:1033
 msgctxt "PiperTTSProvider|"
@@ -3897,6 +3882,8 @@ msgid ""
 "No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
 "Piper Voices Path."
 msgstr ""
+"Bulunan Piper Metin Konuşma modeli yok. Ayarlar → TTS → Piper Sesleri Yolu "
+"konumunda yolu ayarlayın."
 
 #: src/tts/qtttsprovider.cpp:325
 #, qt-format
@@ -3928,12 +3915,10 @@ msgid "Windows TTS Voice Installation"
 msgstr "Windows Metin Konuşma Sesi Kurulumu"
 
 #: src/tts/qtttsprovider.cpp:342
-#, fuzzy, qt-format
-#| msgctxt "QtTTSProvider|"
-#| msgid "Windows TTS Voice Installation"
+#, qt-format
 msgctxt "QtTTSProvider|"
 msgid "No Windows TTS voice is installed for %1."
-msgstr "Windows Metin Konuşma Sesi Kurulumu"
+msgstr "%1 için hiçbir Windows TTS sesi kurulu değil."
 
 #~ msgctxt "PiperTTSProvider|"
 #~ msgid "Privacy Notice - Neural TTS"
