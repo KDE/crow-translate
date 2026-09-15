@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: crow-translate_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-07 22:21+0100\n"
-"PO-Revision-Date: 2024-11-12 17:02+0100\n"
+"PO-Revision-Date: 2026-09-14 20:10+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
@@ -17,20 +17,14 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 
 #: src/cli.cpp:78
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "Cli|"
 msgid "translation options:"
-msgstr "Preklad"
+msgstr "možnosti prekladu:"
 
 #: src/cli.cpp:87
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "Cli|"
 msgid "examples:"
-msgstr "Príklady"
+msgstr "príklady:"
 
 #: src/cli.cpp:118
 msgctxt "Cli|"
@@ -56,18 +50,13 @@ msgstr ""
 "jazyk)."
 
 #: src/cli.cpp:129
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify the translator engine ('google', 'yandex', 'bing', "
-#| "'libretranslate' or 'lingva'), Google is used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
 "'libretranslate', 'mymemory' or 'reverso'), Google is used by default."
 msgstr ""
-"Zadať prekladový mechanizmus ('google', 'yandex', 'bing', 'libretranslate' "
-"alebo 'lingva'), predvolene sa používa Google."
+"Zadať prekladový mechanizmus ('google', 'yandex', 'bing', 'deepl', "
+"'libretranslate', 'mymemory' alebo 'reverso'), predvolene sa používa Google."
 
 #: src/cli.cpp:133
 msgctxt "Cli|"
@@ -79,25 +68,15 @@ msgstr ""
 "aplikácie."
 
 #: src/cli.cpp:137
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy' or 'mozhi'). Provider from app "
-#| "settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
 "app settings will be used by default."
 msgstr ""
-"Zadať poskytovateľa prekladu ('copy' alebo 'mozhi'). Predvolene sa použije "
-"poskytovateľ z nastavení aplikácie."
+"Zadať poskytovateľa prekladu ('copy', 'mozhi' alebo 'localai'). Predvolene "
+"sa použije poskytovateľ z nastavení aplikácie."
 
 #: src/cli.cpp:145
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
@@ -107,23 +86,20 @@ msgstr ""
 "použije poskytovateľ z nastavení aplikácie."
 
 #: src/cli.cpp:147
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
 "will be used by default."
 msgstr ""
-"Zadať poskytovateľa TTS ('none', 'mozhi', 'qt' alebo 'piper'). Predvolene sa "
-"použije poskytovateľ z nastavení aplikácie."
+"Zadať poskytovateľa TTS ('none', 'mozhi' alebo 'qt'). Predvolene sa použije "
+"poskytovateľ z nastavení aplikácie."
 
 #: src/cli.cpp:149
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
+"Zadať poskytovateľa TTS ('none'). Táto zostava má prevod textu na reč "
+"vypnutý."
 
 #: src/cli.cpp:152
 msgctxt "Cli|"
@@ -151,12 +127,12 @@ msgstr "Pridať dáta zo stdin k zdrojovému textu."
 #: src/cli.cpp:157
 msgctxt "Cli|"
 msgid "Read source text from an image using the configured OCR engine."
-msgstr ""
+msgstr "Načítať zdrojový text z obrázka pomocou nastaveného nástroja OCR."
 
 #: src/cli.cpp:158
 msgctxt "Cli|"
 msgid "path"
-msgstr ""
+msgstr "cesta"
 
 #: src/cli.cpp:160
 #, qt-format
@@ -180,11 +156,13 @@ msgid ""
 "Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
 "argument is given."
 msgstr ""
+"Ktoré rozhranie spustiť ('gui' alebo 'cli'). Predvolene 'cli', kedykoľvek je "
+"zadaný nejaký argument."
 
 #: src/cli.cpp:169
 msgctxt "Cli|"
 msgid "frontend"
-msgstr ""
+msgstr "rozhranie"
 
 #: src/cli.cpp:173
 msgctxt "Cli|"
@@ -208,12 +186,10 @@ msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Chyba: For --%1 you must specify --%2 and/or --%3 options"
 
 #: src/cli.cpp:213
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
-msgstr "Chyba: Unknown engine"
+msgstr "Chyba: Neznámy mechanizmus '%1'"
 
 #: src/cli.cpp:228
 #, qt-format
@@ -242,7 +218,7 @@ msgstr "Chyba: There is no text for translation"
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: --%1 cannot be combined with text arguments"
-msgstr ""
+msgstr "Chyba: --%1 sa nedá kombinovať s textovými argumentmi"
 
 #: src/cli.cpp:303
 msgctxt "Cli|"
@@ -256,38 +232,32 @@ msgid "Error: Unknown TTS provider '%1'"
 msgstr "Chyba: Unknown TTS provider '%1'"
 
 #: src/cli.cpp:428
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to initialize Tesseract with %1"
-msgstr "Nie je možné initialize Tesseract with %1"
+msgstr "Chyba: Nedá sa inicializovať Tesseract s %1"
 
 #: src/cli.cpp:449
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unable to open file: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to read image '%1'"
-msgstr "Chyba: Unable to open file: %1"
+msgstr "Chyba: Nedá sa načítať obrázok '%1'"
 
 #: src/cli.cpp:459
 msgctxt "Cli|"
 msgid "Error: No text was recognized in the image"
-msgstr ""
+msgstr "Chyba: V obrázku sa nerozpoznal žiadny text"
 
 #: src/cli.cpp:467
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Recognition failed: %1"
-msgstr "Chyba: TTS failed"
+msgstr "Chyba: Rozpoznávanie zlyhalo: %1"
 
 #: src/cli.cpp:472
 msgctxt "Cli|"
 msgid "Error: Recognition was cancelled"
-msgstr ""
+msgstr "Chyba: Rozpoznávanie bolo zrušené"
 
 #: src/cli.cpp:490 src/cli.cpp:542
 #, qt-format
@@ -303,52 +273,44 @@ msgstr "Vyskytla sa chyba prekladu"
 #: src/cli.cpp:613
 msgctxt "Cli|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Neznáma chyba"
 
 #: src/cli.cpp:614
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
-msgstr "Chyba: TTS failed"
+msgstr "Chyba: Prevod textu na reč zlyhal: %1"
 
 #: src/cli.cpp:721
 msgctxt "Cli|"
 msgid "no provider was created"
-msgstr ""
+msgstr "nevytvoril sa žiadny poskytovateľ"
 
 #: src/cli.cpp:746
 msgctxt "Cli|"
 msgid "the engine failed to start"
-msgstr ""
+msgstr "mechanizmus sa nepodarilo spustiť"
 
 #: src/cli.cpp:751
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
-msgstr ""
+msgstr "vybraný poskytovateľ nemá dostupné žiadne hlasy"
 
 #: src/cli.cpp:809
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
-msgstr ""
+msgstr "Chyba: prevod textu na reč nie je dostupný: %1"
 
 #: src/cli.cpp:830
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "Cli|"
 msgid "Source languages:"
-msgstr "Aktuálne jazyky:"
+msgstr "Zdrojové jazyky:"
 
 #: src/cli.cpp:833
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Primary translation language:"
 msgctxt "Cli|"
 msgid "Translation languages:"
-msgstr "Primárny jazyk prekladu:"
+msgstr "Jazyky prekladu:"
 
 #: src/cli.cpp:901
 #, qt-format
@@ -376,28 +338,22 @@ msgstr "Hľadať na Forvo.com"
 #: src/core/translationsession.cpp:350
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
-msgstr ""
+msgstr "OCR nie je nastavené"
 
 #: src/core/translationsession.cpp:351
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "You should set at least one OCR language in the application settings"
 msgctxt "TesseractOcr|"
 msgid "Set up the OCR engine in the application settings"
-msgstr "V nastaveniach aplikácie by ste mali nastaviť aspoň jeden jazyk OCR"
+msgstr "Nastavte nástroj OCR v nastaveniach aplikácie"
 
 #: src/frontend/frontendregistry.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Main window"
 msgctxt "FrontendRegistry|"
 msgid "Graphical window"
-msgstr "Hlavné okno"
+msgstr "Grafické okno"
 
 #: src/frontend/frontendregistry.cpp:24
 msgctxt "FrontendRegistry|"
 msgid "Command line"
-msgstr ""
+msgstr "Príkazový riadok"
 
 #: src/frontend/guifrontend.cpp:46
 #, qt-format
@@ -412,20 +368,14 @@ msgid "D-Bus service %1 is already registered by another application"
 msgstr "Služba D-Bus %1 je už zaregistrovaná inou aplikáciou"
 
 #: src/gui/translationhtmlformatter.cpp:33
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "translation options:"
-msgstr "Preklad"
+msgstr "možnosti prekladu:"
 
 #: src/gui/translationhtmlformatter.cpp:47
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "examples:"
-msgstr "Príklady"
+msgstr "príklady:"
 
 #: src/instancepinger.cpp:65
 #, qt-format
@@ -493,44 +443,29 @@ msgid "Edit languages"
 msgstr "Upraviť jazyky"
 
 #: src/languagesdialog.ui:24
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Add to current languages"
-msgstr "Aktuálne jazyky:"
+msgstr "Pridať k aktuálnym jazykom"
 
 #: src/languagesdialog.ui:38
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "LanguagesDialog|"
 msgid "Move language down"
-msgstr "Vynútiť detekciu zdrojového jazyka"
+msgstr "Posunúť jazyk nadol"
 
 #: src/languagesdialog.ui:55
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Remove from current languages"
-msgstr "Aktuálne jazyky:"
+msgstr "Odstrániť z aktuálnych jazykov"
 
 #: src/languagesdialog.ui:69
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Swap languages"
 msgctxt "LanguagesDialog|"
 msgid "Search languages"
-msgstr "Vymeniť jazyky"
+msgstr "Hľadať jazyky"
 
 #: src/languagesdialog.ui:79
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Available languages:"
 msgctxt "LanguagesDialog|"
 msgid "Move language up"
-msgstr "Dostupné jazyky:"
+msgstr "Posunúť jazyk nahor"
 
 #: src/languagesdialog.ui:109
 msgctxt "LanguagesDialog|"
@@ -543,36 +478,27 @@ msgid "Current languages:"
 msgstr "Aktuálne jazyky:"
 
 #: src/main.cpp:34
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "main|"
 msgid "Error: Unknown frontend '%1'"
-msgstr "Chyba: Unknown engine"
+msgstr "Chyba: Neznáme rozhranie '%1'"
 
 #: src/main.cpp:42
-#, fuzzy, qt-format
-#| msgctxt "LanguagesDialog|"
-#| msgid "Available languages:"
+#, qt-format
 msgctxt "main|"
 msgid "Available frontends: %1"
-msgstr "Dostupné jazyky:"
+msgstr "Dostupné rozhrania: %1"
 
 #: src/mainwindow.cpp:162
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to set OCR languages"
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
-msgstr "Nie je možné set OCR languages"
+msgstr "Nedajú sa nastaviť jazyky OCR"
 
 #: src/mainwindow.cpp:163
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
-msgstr "Nie je možné initialize Tesseract with %1"
+msgstr "Nedá sa inicializovať Tesseract s %1"
 
 #: src/mainwindow.cpp:435
 msgctxt "QApplication|"
@@ -647,9 +573,7 @@ msgstr ""
 "Skontrolujte nastavenia TTS alebo skúste iný hlas/miestne nastavenie."
 
 #: src/mainwindow.cpp:1060 src/mainwindow.cpp:1066
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Chyba: %1"
@@ -664,7 +588,7 @@ msgstr "Obrázok je príliš veľký (%1 MP). Maximum je %2 MP."
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
-msgstr ""
+msgstr "OCR zlyhalo: %1"
 
 #: src/mainwindow.cpp:1938 src/mainwindow.cpp:1995
 #, qt-format
@@ -679,16 +603,15 @@ msgstr ""
 #: src/mainwindow.cpp:1986 src/mainwindow.cpp:1995
 msgctxt "MainWindow|"
 msgid "Open image"
-msgstr ""
+msgstr "Otvoriť obrázok"
 
 #: src/mainwindow.cpp:1988
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
-msgstr "Images (*.png *.ico *.svg *.jpg);;All files()"
+msgstr ""
+"Obrázky (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;Všetky súbory "
+"(*)"
 
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
@@ -731,12 +654,9 @@ msgid "Copy source text to the clipboard"
 msgstr "Kopírovať zdrojový text do schránky"
 
 #: src/mainwindow.ui:173 src/mainwindow.ui:176
-#, fuzzy
-#| msgctxt "ShortcutsModel|"
-#| msgid "Recognize text in screen area"
 msgctxt "MainWindow|"
 msgid "Recognize text in an image file"
-msgstr "Rozpoznať text v oblasti obrazovky"
+msgstr "Rozpoznať text v súbore s obrázkom"
 
 #: src/mainwindow.ui:186 src/mainwindow.ui:189
 msgctxt "MainWindow|"
@@ -792,75 +712,57 @@ msgstr "Nastavenia aplikácií"
 #: src/modulestatus.cpp:271
 msgctxt "ModuleStatus|"
 msgid "Waiting for capture"
-msgstr ""
+msgstr "Čaká sa na zachytenie"
 
 #: src/modulestatus.cpp:273
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Select icon"
 msgctxt "ModuleStatus|"
 msgid "Select a region"
-msgstr "Vyberte ikonu"
+msgstr "Vyberte oblasť"
 
 #: src/modulestatus.cpp:275
 msgctxt "ModuleStatus|"
 msgid "Recognizing text"
-msgstr ""
+msgstr "Rozpoznáva sa text"
 
 #: src/modulestatus.cpp:277
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translation"
 msgctxt "ModuleStatus|"
 msgid "Translating"
-msgstr "Preklad"
+msgstr "Prekladanie"
 
 #: src/modulestatus.cpp:279
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Detecting fastest instance"
 msgctxt "ModuleStatus|"
 msgid "Detecting language"
-msgstr "Detekcia najrýchlejšej inštancie"
+msgstr "Zisťuje sa jazyk"
 
 #: src/modulestatus.cpp:281
 msgctxt "ModuleStatus|"
 msgid "Preparing speech"
-msgstr ""
+msgstr "Pripravuje sa reč"
 
 #: src/modulestatus.cpp:283
-#, fuzzy
-#| msgctxt "ShortcutsModel|"
-#| msgid "Stop text speaking"
 msgctxt "ModuleStatus|"
 msgid "Speaking"
-msgstr "Zastaviť čítanie textu"
+msgstr "Číta sa"
 
 #: src/modulestatus.cpp:285
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Capture delay:"
 msgctxt "ModuleStatus|"
 msgid "Capture failed"
-msgstr "Oneskorenie zachytenia:"
+msgstr "Zachytenie zlyhalo"
 
 #: src/modulestatus.cpp:287
 msgctxt "ModuleStatus|"
 msgid "OCR failed"
-msgstr ""
+msgstr "OCR zlyhalo"
 
 #: src/modulestatus.cpp:289
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation backend:"
 msgctxt "ModuleStatus|"
 msgid "Translation failed"
-msgstr "Prekladový backend:"
+msgstr "Preklad zlyhal"
 
 #: src/modulestatus.cpp:291
 msgctxt "ModuleStatus|"
 msgid "Speech error"
-msgstr ""
+msgstr "Chyba reči"
 
 #: src/ocr/llmocr.cpp:259
 msgctxt "LlmOcr|"
@@ -869,6 +771,9 @@ msgid ""
 "reasoning instead. Turn on \"Disable reasoning\" for this provider, or pick "
 "a model with a larger context."
 msgstr ""
+"Modelu došli tokeny skôr, než čokoľvek prepísal – minul ich na uvažovanie. "
+"Zapnite pre tohto poskytovateľa „Vypnúť uvažovanie“ alebo zvoľte model s "
+"väčším kontextom."
 
 #: src/ocr/llmocr.cpp:264
 #, qt-format
@@ -878,6 +783,8 @@ msgid ""
 "of its %2 token limit. Try a smaller region, or a model with a larger "
 "context."
 msgstr ""
+"Modelu došli tokeny skôr, než čokoľvek prepísal: obrázok spotreboval %1 z "
+"jeho limitu %2 tokenov. Skúste menšiu oblasť alebo model s väčším kontextom."
 
 #: src/ocr/llmocr.cpp:269
 msgctxt "LlmOcr|"
@@ -885,24 +792,24 @@ msgid ""
 "The model ran out of tokens before transcribing anything. Try a smaller "
 "region, or a model with a larger context."
 msgstr ""
+"Modelu došli tokeny skôr, než čokoľvek prepísal. Skúste menšiu oblasť alebo "
+"model s väčším kontextom."
 
 #: src/ocr/llmocr.cpp:273 src/ocr/llmocr.cpp:509
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "LlmOcr|"
 msgid "LLM OCR error: %1"
-msgstr "Chyba: %1"
+msgstr "Chyba OCR cez LLM: %1"
 
 #: src/ocr/llmocr.cpp:275
 msgctxt "LlmOcr|"
 msgid "The model returned no text for this image."
-msgstr ""
+msgstr "Model pre tento obrázok nevrátil žiadny text."
 
 #: src/ocr/llmocr.cpp:488
 msgctxt "LlmOcr|"
 msgid "LLM OCR request timed out"
-msgstr ""
+msgstr "Časový limit požiadavky OCR cez LLM vypršal"
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:47
@@ -1117,9 +1024,7 @@ msgstr ""
 "pre informácie o DPI."
 
 #: src/ocr/tesseractocr.cpp:143
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "%1 is not a valid Tesseract parameter name."
+#, qt-format
 msgctxt "TesseractOcr|"
 msgid "%1 is not a valid Tesseract parameter name."
 msgstr "%1 nie je platný názov parametra Tesseract."
@@ -2280,7 +2185,7 @@ msgstr "Kopírovať preklad do schránky"
 #: src/settings/appsettings.cpp:700
 msgctxt "AppSettings|"
 msgid "OpenAI-compatible (custom)"
-msgstr ""
+msgstr "Kompatibilné s OpenAI (vlastné)"
 
 #: src/settings/appsettings.cpp:1538
 #, qt-format
@@ -2399,12 +2304,9 @@ msgid "Timeout:"
 msgstr "Časový limit:"
 
 #: src/settings/settingsdialog.cpp:390 src/settings/settingsdialog.cpp:509
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid " ms"
 msgctxt "SettingsDialog|"
 msgid " s"
-msgstr " ms"
+msgstr " s"
 
 #: src/settings/settingsdialog.cpp:391
 msgctxt "SettingsDialog|"
@@ -2430,25 +2332,22 @@ msgstr "Obnoviť prompt pre Text"
 #: src/settings/settingsdialog.cpp:468
 msgctxt "SettingsDialog|"
 msgid "OCR engine:"
-msgstr ""
+msgstr "Nástroj OCR:"
 
 #: src/settings/settingsdialog.cpp:472
 msgctxt "SettingsDialog|"
 msgid "Tesseract"
-msgstr ""
+msgstr "Tesseract"
 
 #: src/settings/settingsdialog.cpp:473
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Vision model:"
 msgctxt "SettingsDialog|"
 msgid "Vision model (LLM)"
-msgstr "Model pre Obraz:"
+msgstr "Vizuálny model (LLM)"
 
 #: src/settings/settingsdialog.cpp:483
 msgctxt "SettingsDialog|"
 msgid "Tesseract runs locally. Configure languages and parameters below."
-msgstr ""
+msgstr "Tesseract beží lokálne. Jazyky a parametre nastavte nižšie."
 
 #: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:808
 msgctxt "SettingsDialog|"
@@ -2456,40 +2355,36 @@ msgid "Provider:"
 msgstr "Poskytovateľ:"
 
 #: src/settings/settingsdialog.cpp:510
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Maximum time to wait for a translation or detection response."
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a transcription response."
-msgstr "Maximálny čas čakania na odpoveď prekladu alebo detekcie."
+msgstr "Maximálny čas čakania na odpoveď s prepisom."
 
 #: src/settings/settingsdialog.cpp:541
 msgctxt "SettingsDialog|"
 msgid "Model:"
-msgstr ""
+msgstr "Model:"
 
 #: src/settings/settingsdialog.cpp:555
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Reset Text prompt"
 msgctxt "SettingsDialog|"
 msgid "Reset OCR prompt"
-msgstr "Obnoviť prompt pre Text"
+msgstr "Obnoviť prompt pre OCR"
 
 #: src/settings/settingsdialog.cpp:616
 msgctxt "SettingsDialog|"
 msgid "— Server reports image support —"
-msgstr ""
+msgstr "— Server hlási podporu obrázkov —"
 
 #: src/settings/settingsdialog.cpp:620
 msgctxt "SettingsDialog|"
 msgid "— Image support not reported —"
-msgstr ""
+msgstr "— Podpora obrázkov nie je hlásená —"
 
 #: src/settings/settingsdialog.cpp:633
 msgctxt "SettingsDialog|"
 msgid "No models loaded yet — press \"Refresh models\", or type a model name."
 msgstr ""
+"Zatiaľ nie sú načítané žiadne modely – stlačte „Obnoviť modely“ alebo "
+"zadajte názov modelu."
 
 #: src/settings/settingsdialog.cpp:635
 msgctxt "SettingsDialog|"
@@ -2497,6 +2392,8 @@ msgid ""
 "This endpoint does not report model capabilities, so image support cannot be "
 "verified here. Pick a model you know accepts images."
 msgstr ""
+"Tento koncový bod nehlási schopnosti modelov, takže sa tu podpora obrázkov "
+"nedá overiť. Vyberte model, o ktorom viete, že prijíma obrázky."
 
 #: src/settings/settingsdialog.cpp:638
 msgctxt "SettingsDialog|"
@@ -2504,28 +2401,28 @@ msgid ""
 "The server reported no image-capable models. A model listed here may still "
 "work, but recognition will fail if it cannot accept images."
 msgstr ""
+"Server nehlási žiadne modely so schopnosťou spracovať obrázky. Model uvedený "
+"v zozname môže aj tak fungovať, ale rozpoznávanie zlyhá, ak nedokáže prijať "
+"obrázky."
 
 #: src/settings/settingsdialog.cpp:641
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "%n model(s) reported as image-capable."
 msgid_plural "%n model(s) reported as image-capable."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%n model hlásený ako schopný spracovať obrázky."
+msgstr[1] "%n modely hlásené ako schopné spracovať obrázky."
+msgstr[2] "%n modelov hlásených ako schopných spracovať obrázky."
 
 #: src/settings/settingsdialog.cpp:699
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Vision model:"
 msgctxt "SettingsDialog|"
 msgid "Vision model"
-msgstr "Model pre Obraz:"
+msgstr "Vizuálny model"
 
 #: src/settings/settingsdialog.cpp:699
 msgctxt "SettingsDialog|"
 msgid "Enter the endpoint URL first."
-msgstr ""
+msgstr "Najprv zadajte URL koncového bodu."
 
 #: src/settings/settingsdialog.cpp:709 src/settings/settingsdialog.cpp:929
 msgctxt "SettingsDialog|"
@@ -2912,26 +2809,21 @@ msgstr "Vyberte ikonu"
 #: src/settings/settingsdialog.ui:635
 msgctxt "SettingsDialog|"
 msgid "Status bar"
-msgstr ""
+msgstr "Stavový riadok"
 
 #: src/settings/settingsdialog.ui:641
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "<html><head/><body><p>Start application minimized to the system tray</p></"
-#| "body></html>"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/<body><p>Show what the application is currently doing at the "
 "bottom of the main and pop-up windows</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Spustiť aplikáciu minimalizovanú do systémovej lišty</"
-"p></body></html>"
+"<html><head/<body><p>Zobrazovať v dolnej časti hlavného a vyskakovacieho "
+"okna, čo aplikácia práve robí</p></body></html>"
 
 #: src/settings/settingsdialog.ui:644
 msgctxt "SettingsDialog|"
 msgid "Show status bar"
-msgstr ""
+msgstr "Zobraziť stavový riadok"
 
 #: src/settings/settingsdialog.ui:680
 msgctxt "SettingsDialog|"
@@ -3002,6 +2894,9 @@ msgid ""
 "Auto. If no detection model is selected, translation falls back to the "
 "configured primary language above."
 msgstr ""
+"Poskytovateľ a model použité na zistenie zdrojového jazyka, keď je nastavený "
+"na Auto. Ak nie je vybraný žiadny detekčný model, preklad sa vráti k "
+"nastavenému primárnemu jazyku vyššie."
 
 #: src/settings/settingsdialog.ui:771
 msgctxt "SettingsDialog|"
@@ -3118,6 +3013,8 @@ msgid ""
 "Optional. Required by self-hosted LibreTranslate instances and "
 "libretranslate.com; the Mozhi front-end ignores it."
 msgstr ""
+"Voliteľné. Vyžadujú ho vlastné inštancie LibreTranslate a libretranslate."
+"com; rozhranie Mozhi ho ignoruje."
 
 #: src/settings/settingsdialog.ui:984
 msgctxt "SettingsDialog|"
@@ -3125,6 +3022,8 @@ msgid ""
 "Talk the direct LibreTranslate REST API to the instance URL instead of the "
 "Mozhi-compatible API; use this for self-hosted LibreTranslate servers."
 msgstr ""
+"Komunikovať s URL inštancie priamo cez REST API LibreTranslate namiesto API "
+"kompatibilného s Mozhi; použite to pre vlastné servery LibreTranslate."
 
 #: src/settings/settingsdialog.ui:1019
 msgctxt "SettingsDialog|"
@@ -3201,12 +3100,12 @@ msgstr "Previesť konce riadkov"
 #: src/settings/settingsdialog.ui:1131
 msgctxt "SettingsDialog|"
 msgid "Add parameter"
-msgstr ""
+msgstr "Pridať parameter"
 
 #: src/settings/settingsdialog.ui:1141
 msgctxt "SettingsDialog|"
 msgid "Remove parameter"
-msgstr ""
+msgstr "Odstrániť parameter"
 
 #: src/settings/settingsdialog.ui:1177
 msgctxt "SettingsDialog|"
@@ -3622,33 +3521,27 @@ msgstr "Hodnota"
 #: src/statusstrip.cpp:128 src/statusstrip.cpp:143 src/statusstrip.cpp:144
 msgctxt "StatusStrip|"
 msgid "Ready"
-msgstr ""
+msgstr "Pripravené"
 
 #: src/translator/atranslationprovider.cpp:57
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "ATranslationProvider|"
 msgid "Unsupported source language."
-msgstr "Vynútiť detekciu zdrojového jazyka"
+msgstr "Nepodporovaný zdrojový jazyk."
 
 #: src/translator/atranslationprovider.cpp:59
 msgctxt "ATranslationProvider|"
 msgid "Unsupported destination language."
-msgstr ""
+msgstr "Nepodporovaný cieľový jazyk."
 
 #: src/translator/atranslationprovider.cpp:61
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Enable translation options"
 msgctxt "ATranslationProvider|"
 msgid "User aborted translation in progress"
-msgstr "Povoliť možnosti prekladu"
+msgstr "Používateľ prerušil prebiehajúci preklad"
 
 #: src/translator/atranslationprovider.cpp:65
 msgctxt "ATranslationProvider|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Neznáma chyba"
 
 #: src/translator/atranslationprovider.cpp:115
 msgctxt "QObject|"
@@ -3667,12 +3560,9 @@ msgstr ""
 "poskytovateľa v Nastavenia → Preklad."
 
 #: src/translator/localaitranslationprovider.cpp:149
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Error: Lingva engine is not supported"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Destination language is not supported"
-msgstr "Chyba: Lingva engine is not supported"
+msgstr "Cieľový jazyk nie je podporovaný"
 
 #: src/translator/localaitranslationprovider.cpp:301
 #, qt-format
@@ -3683,6 +3573,10 @@ msgid ""
 "reasoning instead of answering. Turn on \"Disable reasoning\" for this "
 "provider, translate less text at once, or pick a model with a larger context."
 msgstr ""
+"Modelu došli tokeny skôr, než napísal preklad: text na preklad spotreboval "
+"%1 z jeho limitu %2 tokenov a zvyšok minul na uvažovanie namiesto odpovede. "
+"Zapnite pre tohto poskytovateľa „Vypnúť uvažovanie“, prekladajte naraz menej "
+"textu alebo zvoľte model s väčším kontextom."
 
 #: src/translator/localaitranslationprovider.cpp:309
 msgctxt "LocalAiTranslationProvider|"
@@ -3691,6 +3585,9 @@ msgid ""
 "translation. Turn on \"Disable reasoning\" for this provider, translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
+"Model minul celý rozpočet tokenov na uvažovanie a preklad nikdy nenapísal. "
+"Zapnite pre tohto poskytovateľa „Vypnúť uvažovanie“, prekladajte naraz menej "
+"textu alebo zvoľte model s väčším kontextom."
 
 #: src/translator/localaitranslationprovider.cpp:317
 #, qt-format
@@ -3700,6 +3597,9 @@ msgid ""
 "translate used %1 of its %2 token limit. Translate less text at once, or "
 "pick a model with a larger context."
 msgstr ""
+"Modelu došli tokeny skôr, než napísal preklad: text na preklad spotreboval "
+"%1 z jeho limitu %2 tokenov. Prekladajte naraz menej textu alebo zvoľte "
+"model s väčším kontextom."
 
 #: src/translator/localaitranslationprovider.cpp:324
 msgctxt "LocalAiTranslationProvider|"
@@ -3707,104 +3607,83 @@ msgid ""
 "The model ran out of tokens before writing a translation. Translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
+"Modelu došli tokeny skôr, než napísal preklad. Prekladajte naraz menej textu "
+"alebo zvoľte model s väčším kontextom."
 
 #: src/translator/localaitranslationprovider.cpp:330
 #: src/translator/localaitranslationprovider.cpp:369
 #: src/translator/localaitranslationprovider.cpp:370
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI error: %1"
-msgstr "Chyba: %1"
+msgstr "Chyba LocalAI: %1"
 
 #: src/translator/localaitranslationprovider.cpp:333
 msgctxt "LocalAiTranslationProvider|"
 msgid "The model returned an empty response."
-msgstr ""
+msgstr "Model vrátil prázdnu odpoveď."
 
 #: src/translator/localaitranslationprovider.cpp:354
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI request timed out"
-msgstr ""
+msgstr "Časový limit požiadavky LocalAI vypršal"
 
 #: src/translator/localaitranslationprovider.cpp:412
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Language detection is not supported for %1"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Language detection timed out"
-msgstr "Language detection is not supported for %1"
+msgstr "Časový limit zisťovania jazyka vypršal"
 
 #: src/translator/localaitranslationprovider.cpp:473
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Operation aborted by user"
+msgstr "Preklad prerušil používateľ"
 
 #: src/translator/mozhitranslationprovider.cpp:78
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "MozhiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Operation aborted by user"
+msgstr "Preklad prerušil používateľ"
 
 #: src/translator/mozhitranslationprovider.cpp:139
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Lingva engine is not supported"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Destination language '%1' is not supported"
-msgstr "Chyba: Lingva engine is not supported"
+msgstr "Cieľový jazyk '%1' nie je podporovaný"
 
 #: src/translator/mozhitranslationprovider.cpp:147
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Lingva engine is not supported"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Source language '%1' is not supported"
-msgstr "Chyba: Lingva engine is not supported"
+msgstr "Zdrojový jazyk '%1' nie je podporovaný"
 
 #: src/translator/mozhitranslationprovider.cpp:204
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Network error: %1"
-msgstr "Instance error: %1"
+msgstr "Chyba siete: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:208
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Instance error: %1"
 msgstr "Instance error: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:212
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Parsing error: %1"
-msgstr "Instance error: %1"
+msgstr "Chyba pri spracovaní: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:216
 #, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unsupported TTS engine: %1"
-msgstr ""
+msgstr "Nepodporovaný nástroj TTS: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:220
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unknown error: %1"
-msgstr "Instance error: %1"
+msgstr "Neznáma chyba: %1"
 
 #: src/trayicon.cpp:26 src/trayicon.cpp:65
 msgctxt "TrayIcon|"
@@ -3824,7 +3703,7 @@ msgstr "Ukončiť"
 #: src/trayicon.cpp:30 src/trayicon.cpp:67
 msgctxt "TrayIcon|"
 msgid "Report Bug…"
-msgstr ""
+msgstr "Nahlásiť chybu…"
 
 #: src/trayicon.cpp:73
 msgctxt "TrayIcon|"
@@ -3911,7 +3790,7 @@ msgstr "Chyba inicializácie ONNX Runtime: %1"
 #: src/tts/piperttsprovider.cpp:300
 msgctxt "PiperTTSProvider|"
 msgid "Could not disable neural TTS telemetry"
-msgstr ""
+msgstr "Nepodarilo sa vypnúť telemetriu neurónového TTS"
 
 #: src/tts/piperttsprovider.cpp:301
 msgctxt "PiperTTSProvider|"
@@ -3919,6 +3798,8 @@ msgid ""
 "Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
 "of it may report usage data to Microsoft."
 msgstr ""
+"Crow Translate nedokázal vypnúť telemetriu ONNX Runtime, takže táto jeho "
+"kópia môže hlásiť údaje o používaní Microsoftu."
 
 #: src/tts/piperttsprovider.cpp:302
 #, qt-format
@@ -3930,6 +3811,11 @@ msgid ""
 "in. Builds from source - including the one Crow Translate links statically - "
 "have none, and it is inactive on other platforms."
 msgstr ""
+"Dôvod: %1\n"
+"\n"
+"Telemetriu majú zakompilovanú len vlastné zostavy ONNX Runtime pre Windows "
+"od Microsoftu. Zostavy zo zdrojového kódu – vrátane tej, ktorú Crow "
+"Translate staticky linkuje – ju nemajú a na iných platformách je neaktívna."
 
 #: src/tts/piperttsprovider.cpp:1033
 msgctxt "PiperTTSProvider|"
@@ -3979,6 +3865,8 @@ msgid ""
 "No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
 "Piper Voices Path."
 msgstr ""
+"Nenašli sa žiadne hlasové modely Piper TTS. Nastavte cestu v Nastavenia -> "
+"TTS -> Cesta k hlasom Piper."
 
 #: src/tts/qtttsprovider.cpp:325
 #, qt-format
@@ -4010,12 +3898,10 @@ msgid "Windows TTS Voice Installation"
 msgstr "Inštalácia hlasu Windows TTS"
 
 #: src/tts/qtttsprovider.cpp:342
-#, fuzzy, qt-format
-#| msgctxt "QtTTSProvider|"
-#| msgid "Windows TTS Voice Installation"
+#, qt-format
 msgctxt "QtTTSProvider|"
 msgid "No Windows TTS voice is installed for %1."
-msgstr "Inštalácia hlasu Windows TTS"
+msgstr "Pre %1 nie je nainštalovaný žiadny hlas Windows TTS."
 
 #~ msgctxt "PiperTTSProvider|"
 #~ msgid "Privacy Notice - Neural TTS"
