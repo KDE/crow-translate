@@ -4,9 +4,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
-"Language-Team: \n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,20 +18,14 @@ msgstr ""
 "X-Generator: Poedit 3.9\n"
 
 #: src/cli.cpp:78
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "translation options:"
 msgctxt "Cli|"
 msgid "translation options:"
-msgstr "تەرجىمە تاللانمىللىرى:"
+msgstr ""
 
 #: src/cli.cpp:87
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "examples:"
 msgctxt "Cli|"
 msgid "examples:"
-msgstr "ئۈلگىلەر:"
+msgstr ""
 
 #: src/cli.cpp:118
 msgctxt "Cli|"
@@ -109,8 +103,6 @@ msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
 msgstr ""
-"ھۆججەتتىن مەنبە تېكىستنى ئوقۇڭ. بۇنىڭدا پارامېتىر ھۆججەت يولى دەپ "
-"ئىزاھلىنىدۇ."
 
 #: src/cli.cpp:155
 msgctxt "Cli|"
@@ -125,7 +117,7 @@ msgstr ""
 #: src/cli.cpp:158
 msgctxt "Cli|"
 msgid "path"
-msgstr ""
+msgstr "يول"
 
 #: src/cli.cpp:160
 #, qt-format
@@ -167,8 +159,6 @@ msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr ""
-"تەرجىمە قىلىدىغان تېكىست. سۈكۈت بويىچە ، تەرجىمە سىستېما تىلىغا ئېلىپ "
-"بېرىلىدۇ."
 
 #: src/cli.cpp:203
 #, qt-format
@@ -177,12 +167,10 @@ msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "خاتالىق:--%1 گە چوقۇم  --%2 ياكى --%3 نى كۆرسىتىشى كىرەك"
 
 #: src/cli.cpp:213
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
-msgstr "خاتالىق: نامەلۇم ماتور"
+msgstr ""
 
 #: src/cli.cpp:228
 #, qt-format
@@ -225,20 +213,16 @@ msgid "Error: Unknown TTS provider '%1'"
 msgstr ""
 
 #: src/cli.cpp:428
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to initialize Tesseract with %1"
-msgstr "Tesseract with نى %1 بىلەن دەسلەپلەشتۈرەلمىدى"
+msgstr ""
 
 #: src/cli.cpp:449
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unable to open file: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to read image '%1'"
-msgstr "خاتالىق:ھۆججەتنى ئاچالمىدى:%1"
+msgstr ""
 
 #: src/cli.cpp:459
 msgctxt "Cli|"
@@ -246,12 +230,10 @@ msgid "Error: No text was recognized in the image"
 msgstr ""
 
 #: src/cli.cpp:467
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unable to open file: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Recognition failed: %1"
-msgstr "خاتالىق:ھۆججەتنى ئاچالمىدى:%1"
+msgstr ""
 
 #: src/cli.cpp:472
 msgctxt "Cli|"
@@ -272,15 +254,13 @@ msgstr ""
 #: src/cli.cpp:613
 msgctxt "Cli|"
 msgid "Unknown error"
-msgstr ""
+msgstr "نامەلۇم خاتالىق"
 
 #: src/cli.cpp:614
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unable to open file: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
-msgstr "خاتالىق:ھۆججەتنى ئاچالمىدى:%1"
+msgstr ""
 
 #: src/cli.cpp:721
 msgctxt "Cli|"
@@ -304,20 +284,14 @@ msgid "Error: text-to-speech is unavailable: %1"
 msgstr ""
 
 #: src/cli.cpp:830
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "Cli|"
 msgid "Source languages:"
-msgstr "ھازىرقى تىللار:"
+msgstr ""
 
 #: src/cli.cpp:833
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Primary translation language:"
 msgctxt "Cli|"
 msgid "Translation languages:"
-msgstr "دەسلەپكى تەرجىمە تىلى:"
+msgstr ""
 
 #: src/cli.cpp:901
 #, qt-format
@@ -348,20 +322,14 @@ msgid "OCR is not configured"
 msgstr ""
 
 #: src/core/translationsession.cpp:351
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "You should set at least one OCR language in the application settings"
 msgctxt "TesseractOcr|"
 msgid "Set up the OCR engine in the application settings"
-msgstr "ئەپ تەڭشىكىدە كامىدا بىر OCR تىلى بىكىتىشڭىز كىرەك"
+msgstr ""
 
 #: src/frontend/frontendregistry.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Main window"
 msgctxt "FrontendRegistry|"
 msgid "Graphical window"
-msgstr "باش كۆزنەك"
+msgstr ""
 
 #: src/frontend/frontendregistry.cpp:24
 msgctxt "FrontendRegistry|"
@@ -381,20 +349,14 @@ msgid "D-Bus service %1 is already registered by another application"
 msgstr "%1 نىڭ D-Bus مۇلازىمىتى باشقا پىروگىرامما تەرپىدىن ئىگەللىۋىلىنغان"
 
 #: src/gui/translationhtmlformatter.cpp:33
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "translation options:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "translation options:"
-msgstr "تەرجىمە تاللانمىللىرى:"
+msgstr ""
 
 #: src/gui/translationhtmlformatter.cpp:47
-#, fuzzy
-#| msgctxt "TranslationEdit|"
-#| msgid "examples:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "examples:"
-msgstr "ئۈلگىلەر:"
+msgstr ""
 
 #: src/instancepinger.cpp:65
 #, qt-format
@@ -460,44 +422,29 @@ msgid "Edit languages"
 msgstr ""
 
 #: src/languagesdialog.ui:24
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Add to current languages"
-msgstr "ھازىرقى تىللار:"
+msgstr ""
 
 #: src/languagesdialog.ui:38
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Automatic language detection"
 msgctxt "LanguagesDialog|"
 msgid "Move language down"
-msgstr "ئاپتوماتىك تىل بايقاش"
+msgstr ""
 
 #: src/languagesdialog.ui:55
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Remove from current languages"
-msgstr "ھازىرقى تىللار:"
+msgstr ""
 
 #: src/languagesdialog.ui:69
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Swap languages"
 msgctxt "LanguagesDialog|"
 msgid "Search languages"
-msgstr "تىل ئالماشتۇرۇش"
+msgstr ""
 
 #: src/languagesdialog.ui:79
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Available languages:"
 msgctxt "LanguagesDialog|"
 msgid "Move language up"
-msgstr "قوللايدىغان تىللار:"
+msgstr ""
 
 #: src/languagesdialog.ui:109
 msgctxt "LanguagesDialog|"
@@ -510,33 +457,24 @@ msgid "Current languages:"
 msgstr "ھازىرقى تىللار:"
 
 #: src/main.cpp:34
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "main|"
 msgid "Error: Unknown frontend '%1'"
-msgstr "خاتالىق: نامەلۇم ماتور"
+msgstr ""
 
 #: src/main.cpp:42
-#, fuzzy, qt-format
-#| msgctxt "UpdaterDialog|"
-#| msgid "Available version:"
+#, qt-format
 msgctxt "main|"
 msgid "Available frontends: %1"
-msgstr "ئىشلەتكىلى بولىدىغان نەشىرى:"
+msgstr ""
 
 #: src/mainwindow.cpp:162
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to set OCR languages"
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "OCR تىلىنى تەڭشىيەلمىدى"
 
 #: src/mainwindow.cpp:163
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "Tesseract with نى %1 بىلەن دەسلەپلەشتۈرەلمىدى"
@@ -586,7 +524,7 @@ msgstr "ئىناۋەتسىز تەخسە سىنبەلگىسى"
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
-msgstr "كۆرسىتىلگەن سىنبەلگە «%1» ئىناۋەتسىز. سۈكۈتتىكى سىنبەلگە ئىشلىتىلىدۇ."
+msgstr ""
 
 #: src/mainwindow.cpp:1028
 msgctxt "MainWindow|"
@@ -605,9 +543,7 @@ msgid ""
 msgstr ""
 
 #: src/mainwindow.cpp:1060 src/mainwindow.cpp:1066
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "خاتالىق: %1"
@@ -638,13 +574,10 @@ msgid "Open image"
 msgstr ""
 
 #: src/mainwindow.cpp:1988
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
-msgstr "رەسىملەر (* .png * .ico * .svg * .jpg) ;; بارلىق ھۆججەتلەر ()"
+msgstr ""
 
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
@@ -687,12 +620,9 @@ msgid "Copy source text to the clipboard"
 msgstr "چاپلاش تاختىسىغا مەنبە تېكىستىنى كۆچۈرۈڭ"
 
 #: src/mainwindow.ui:173 src/mainwindow.ui:176
-#, fuzzy
-#| msgctxt "ShortcutsModel|"
-#| msgid "Recognize text in screen area"
 msgctxt "MainWindow|"
 msgid "Recognize text in an image file"
-msgstr "ئېكران رايونىدىكى تېكىستنى تونۇش"
+msgstr ""
 
 #: src/mainwindow.ui:186 src/mainwindow.ui:189
 msgctxt "MainWindow|"
@@ -751,12 +681,9 @@ msgid "Waiting for capture"
 msgstr ""
 
 #: src/modulestatus.cpp:273
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Select icon"
 msgctxt "ModuleStatus|"
 msgid "Select a region"
-msgstr "سىنبەلگىسى تاللاش"
+msgstr ""
 
 #: src/modulestatus.cpp:275
 msgctxt "ModuleStatus|"
@@ -764,20 +691,14 @@ msgid "Recognizing text"
 msgstr ""
 
 #: src/modulestatus.cpp:277
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translation"
 msgctxt "ModuleStatus|"
 msgid "Translating"
-msgstr "تەرجىمە"
+msgstr ""
 
 #: src/modulestatus.cpp:279
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Unable to detect language"
 msgctxt "ModuleStatus|"
 msgid "Detecting language"
-msgstr "تىلنى بايقىيالمىدى"
+msgstr ""
 
 #: src/modulestatus.cpp:281
 msgctxt "ModuleStatus|"
@@ -785,12 +706,9 @@ msgid "Preparing speech"
 msgstr ""
 
 #: src/modulestatus.cpp:283
-#, fuzzy
-#| msgctxt "ShortcutsModel|"
-#| msgid "Stop text speaking"
 msgctxt "ModuleStatus|"
 msgid "Speaking"
-msgstr "تېكىست ئوقۇشتىن توختا"
+msgstr ""
 
 #: src/modulestatus.cpp:285
 msgctxt "ModuleStatus|"
@@ -803,12 +721,9 @@ msgid "OCR failed"
 msgstr ""
 
 #: src/modulestatus.cpp:289
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translation"
 msgctxt "ModuleStatus|"
 msgid "Translation failed"
-msgstr "تەرجىمە"
+msgstr ""
 
 #: src/modulestatus.cpp:291
 msgctxt "ModuleStatus|"
@@ -840,12 +755,10 @@ msgid ""
 msgstr ""
 
 #: src/ocr/llmocr.cpp:273 src/ocr/llmocr.cpp:509
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "LlmOcr|"
 msgid "LLM OCR error: %1"
-msgstr "خاتالىق: %1"
+msgstr ""
 
 #: src/ocr/llmocr.cpp:275
 msgctxt "LlmOcr|"
@@ -1037,7 +950,7 @@ msgstr ""
 #: src/ocr/snippingarea.cpp:913
 msgctxt "SnippingArea|"
 msgid "Right-click"
-msgstr ""
+msgstr "ئوڭ چېكىش"
 
 #: src/ocr/snippingarea.cpp:916
 msgctxt "SnippingArea|"
@@ -1062,9 +975,7 @@ msgid ""
 msgstr ""
 
 #: src/ocr/tesseractocr.cpp:143
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "%1 is not a valid Tesseract parameter name."
+#, qt-format
 msgctxt "TesseractOcr|"
 msgid "%1 is not a valid Tesseract parameter name."
 msgstr "%1 ئىناۋەتلىك Tesseract پارامېتىر ئىسمى ئەمەس."
@@ -2316,12 +2227,12 @@ msgstr "ئىناۋەتسىز پارامېتىرلارنى تاشلىماقچىم
 #: src/settings/settingsdialog.cpp:351 src/settings/settingsdialog.cpp:521
 msgctxt "SettingsDialog|"
 msgid "URL:"
-msgstr ""
+msgstr "تور ئادرېسى:"
 
 #: src/settings/settingsdialog.cpp:355 src/settings/settingsdialog.cpp:525
 msgctxt "SettingsDialog|"
 msgid "Key:"
-msgstr ""
+msgstr "شىفىرلىق ئاچقۇچ:"
 
 #: src/settings/settingsdialog.cpp:359 src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
@@ -2334,12 +2245,9 @@ msgid "Refresh models"
 msgstr ""
 
 #: src/settings/settingsdialog.cpp:378
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation model:"
-msgstr "تەرجىمە ھالىتى:"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:386 src/settings/settingsdialog.cpp:504
 msgctxt "SettingsDialog|"
@@ -2347,12 +2255,9 @@ msgid "Timeout:"
 msgstr ""
 
 #: src/settings/settingsdialog.cpp:390 src/settings/settingsdialog.cpp:509
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid " ms"
 msgctxt "SettingsDialog|"
 msgid " s"
-msgstr " ms"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:391
 msgctxt "SettingsDialog|"
@@ -2376,12 +2281,9 @@ msgid "Reset Text prompt"
 msgstr ""
 
 #: src/settings/settingsdialog.cpp:468
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Engine:"
 msgctxt "SettingsDialog|"
 msgid "OCR engine:"
-msgstr "ماتور:"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:472
 msgctxt "SettingsDialog|"
@@ -2389,12 +2291,9 @@ msgid "Tesseract"
 msgstr ""
 
 #: src/settings/settingsdialog.cpp:473
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Vision model (LLM)"
-msgstr "تەرجىمە ھالىتى:"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:483
 msgctxt "SettingsDialog|"
@@ -2414,7 +2313,7 @@ msgstr ""
 #: src/settings/settingsdialog.cpp:541
 msgctxt "SettingsDialog|"
 msgid "Model:"
-msgstr ""
+msgstr "ئەندىزە:"
 
 #: src/settings/settingsdialog.cpp:555
 msgctxt "SettingsDialog|"
@@ -2458,12 +2357,9 @@ msgid_plural "%n model(s) reported as image-capable."
 msgstr[0] ""
 
 #: src/settings/settingsdialog.cpp:699
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Vision model"
-msgstr "تەرجىمە ھالىتى:"
+msgstr ""
 
 #: src/settings/settingsdialog.cpp:699
 msgctxt "SettingsDialog|"
@@ -2616,9 +2512,6 @@ msgid ""
 "application is minimized, the main window will always be used.</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>تاللانغان تېكىستنى تەرجىمە قىلىدىغان كۆزنەك. ئەگەر "
-"پىروگرامما كىچىكلىتىلگەن بولسا ، ئاساسىي كۆزنەك ھەمىشە ئىشلىتىلىدۇ.</p></"
-"body></html>"
 
 #: src/settings/settingsdialog.ui:218 src/settings/settingsdialog.ui:367
 msgctxt "SettingsDialog|"
@@ -2851,23 +2744,16 @@ msgid "Status bar"
 msgstr ""
 
 #: src/settings/settingsdialog.ui:641
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "<html><head/><body><p>Start application minimized to the system tray</p></"
-#| "body></html>"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/<body><p>Show what the application is currently doing at the "
 "bottom of the main and pop-up windows</p></body></html>"
 msgstr ""
-"<html><head/><body><p>قوللىنىشچان پىروگراممىنى سىستېما تەخسىگە ئەڭ تۆۋەن "
-"چەككە چۈشۈرۈش</p></body></html>"
 
 #: src/settings/settingsdialog.ui:644
 msgctxt "SettingsDialog|"
 msgid "Show status bar"
-msgstr ""
+msgstr "ھالەت بالداقنى كۆرسەت"
 
 #: src/settings/settingsdialog.ui:680
 msgctxt "SettingsDialog|"
@@ -2938,12 +2824,9 @@ msgid ""
 msgstr ""
 
 #: src/settings/settingsdialog.ui:771
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Detection model:"
-msgstr "تەرجىمە ھالىتى:"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:802
 msgctxt "SettingsDialog|"
@@ -3187,7 +3070,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:1228
 msgctxt "SettingsDialog|"
 msgid " ms"
-msgstr " ms"
+msgstr ""
 
 #: src/settings/settingsdialog.ui:1238
 msgctxt "SettingsDialog|"
@@ -3554,7 +3437,7 @@ msgstr "قىممەت"
 #: src/statusstrip.cpp:128 src/statusstrip.cpp:143 src/statusstrip.cpp:144
 msgctxt "StatusStrip|"
 msgid "Ready"
-msgstr ""
+msgstr "تەييار"
 
 #: src/translator/atranslationprovider.cpp:57
 msgctxt "ATranslationProvider|"
@@ -3567,17 +3450,14 @@ msgid "Unsupported destination language."
 msgstr ""
 
 #: src/translator/atranslationprovider.cpp:61
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Enable translation options"
 msgctxt "ATranslationProvider|"
 msgid "User aborted translation in progress"
-msgstr "تەرجىمە تاللانمىلىرىنى قوزغىتىڭ"
+msgstr ""
 
 #: src/translator/atranslationprovider.cpp:65
 msgctxt "ATranslationProvider|"
 msgid "Unknown error"
-msgstr ""
+msgstr "نامەلۇم خاتالىق"
 
 #: src/translator/atranslationprovider.cpp:115
 msgctxt "QObject|"
@@ -3593,12 +3473,9 @@ msgid ""
 msgstr ""
 
 #: src/translator/localaitranslationprovider.cpp:149
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected translation language %1 is not supported for %2"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Destination language is not supported"
-msgstr "تاللانغان نىشان تىل %1 بولسا  %2 نى قوللىمايدۇ"
+msgstr ""
 
 #: src/translator/localaitranslationprovider.cpp:301
 #, qt-format
@@ -3637,12 +3514,10 @@ msgstr ""
 #: src/translator/localaitranslationprovider.cpp:330
 #: src/translator/localaitranslationprovider.cpp:369
 #: src/translator/localaitranslationprovider.cpp:370
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI error: %1"
-msgstr "خاتالىق: %1"
+msgstr ""
 
 #: src/translator/localaitranslationprovider.cpp:333
 msgctxt "LocalAiTranslationProvider|"
@@ -3655,52 +3530,37 @@ msgid "LocalAI request timed out"
 msgstr ""
 
 #: src/translator/localaitranslationprovider.cpp:412
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Automatic language detection"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Language detection timed out"
-msgstr "ئاپتوماتىك تىل بايقاش"
+msgstr ""
 
 #: src/translator/localaitranslationprovider.cpp:473
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "تەرجىمە ھالىتى:"
+msgstr ""
 
 #: src/translator/mozhitranslationprovider.cpp:78
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "MozhiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "تەرجىمە ھالىتى:"
+msgstr ""
 
 #: src/translator/mozhitranslationprovider.cpp:139
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected translation language %1 is not supported for %2"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Destination language '%1' is not supported"
-msgstr "تاللانغان نىشان تىل %1 بولسا  %2 نى قوللىمايدۇ"
+msgstr ""
 
 #: src/translator/mozhitranslationprovider.cpp:147
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected source language %1 is not supported for %2"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Source language '%1' is not supported"
-msgstr "تاللانغان مەنبە تىل %1 بولسا  %2 نى قوللىمايدۇ"
+msgstr ""
 
 #: src/translator/mozhitranslationprovider.cpp:204
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Network error: %1"
-msgstr "خاتالىق: %1"
+msgstr ""
 
 #: src/translator/mozhitranslationprovider.cpp:208
 #, qt-format
@@ -3709,12 +3569,10 @@ msgid "Instance error: %1"
 msgstr ""
 
 #: src/translator/mozhitranslationprovider.cpp:212
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Parsing error: %1"
-msgstr "خاتالىق: %1"
+msgstr ""
 
 #: src/translator/mozhitranslationprovider.cpp:216
 #, qt-format
@@ -3723,12 +3581,10 @@ msgid "Unsupported TTS engine: %1"
 msgstr ""
 
 #: src/translator/mozhitranslationprovider.cpp:220
-#, fuzzy, qt-format
-#| msgctxt "AppSettings|"
-#| msgid "Unknown language code: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unknown error: %1"
-msgstr "%1 نامەلۇم تىل كودى"
+msgstr ""
 
 #: src/trayicon.cpp:26 src/trayicon.cpp:65
 msgctxt "TrayIcon|"
@@ -3748,7 +3604,7 @@ msgstr "چىكىن"
 #: src/trayicon.cpp:30 src/trayicon.cpp:67
 msgctxt "TrayIcon|"
 msgid "Report Bug…"
-msgstr ""
+msgstr "كەمتۈك مەلۇم قىل…"
 
 #: src/trayicon.cpp:73
 msgctxt "TrayIcon|"
@@ -3922,7 +3778,6 @@ msgstr ""
 #~ msgid "OCR languages are not loaded"
 #~ msgstr "OCR تىلىنى يۈكلىيەلمىدى"
 
-#, fuzzy
 #~| msgctxt "SettingsDialog|"
 #~| msgid "Version:"
 #~ msgctxt "SettingsDialog|"
