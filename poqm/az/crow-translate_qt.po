@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2024 Kheyyam Gojayev
+# SPDX-FileCopyrightText: 2024, 2026 Kheyyam Gojayev
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2025 linux <xxmn77@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-10-05 17:50+0400\n"
-"Last-Translator: linux <xxmn77@gmail.com>\n"
+"PO-Revision-Date: 2026-09-26 00:05+0400\n"
+"Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
@@ -15,20 +15,14 @@ msgstr ""
 "X-Language: az\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: src/cli.cpp:78
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "Cli|"
 msgid "translation options:"
-msgstr "tərcümə parametrləri:"
+msgstr "tərcümə seçimləri:"
 
 #: src/cli.cpp:87
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "nümunələr:"
@@ -57,18 +51,14 @@ msgstr ""
 "dili istifadə olunur)."
 
 #: src/cli.cpp:129
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify the translator engine ('google', 'yandex', 'bing', "
-#| "'libretranslate' or 'lingva'), Google is used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
 "'libretranslate', 'mymemory' or 'reverso'), Google is used by default."
 msgstr ""
-"Tərcümə vasitəsini təyin edin ('google', 'yandex', 'bing', 'libretranslate' "
-"or 'lingva'), İlkin olaraq Google istifadə olunur."
+"Tərcümə mühərrikini təyin edin ('google', 'yandex', 'bing', 'deepl', "
+"'libretranslate', 'mymemory' və ya 'reverso'), İlkin olaraq Google istifadə "
+"olunur."
 
 #: src/cli.cpp:133
 msgctxt "Cli|"
@@ -80,51 +70,38 @@ msgstr ""
 "ünvanı gəstəriləcək."
 
 #: src/cli.cpp:137
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy' or 'mozhi'). Provider from app "
-#| "settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
 "app settings will be used by default."
 msgstr ""
-"Tərcumə təminatçısını göstərin (\"copy\" və ya \"mozhi\"). İlkin olaraq "
-"tətbiq ayarlarındakı təminatçı istifadə olunacaq."
+"Tərcumə təminatçısını göstərin ('copy', 'mozhi' və ya 'localai'). İlkin "
+"olaraq tətbiq ayarlarındakı təminatçı istifadə olunacaq."
 
 #: src/cli.cpp:145
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
 "settings will be used by default."
 msgstr ""
-"TTS təminatçısını göstərin (\"heç biri\", \"mozhi\", \"qt\" və ya \"piper"
-"\"). İlkin olaraq tətbiq ayarlarındakı təminatçı istifadə olunacaq."
+"TTS təminatçısını göstərin ('none', 'mozhi', 'qt' və ya 'piper'). İlkin "
+"olaraq tətbiq ayarlarındakı təminatçı istifadə olunacaq."
 
 #: src/cli.cpp:147
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
 "will be used by default."
 msgstr ""
-"TTS təminatçısını göstərin (\"heç biri\", \"mozhi\", \"qt\" və ya \"piper"
-"\"). İlkin olaraq tətbiq ayarlarındakı təminatçı istifadə olunacaq."
+"TTS təminatçısını göstərin ('none', 'mozhi' və ya 'qt'). İlkin olaraq tətbiq "
+"ayarlarındakı təminatçı istifadə olunacaq."
 
 #: src/cli.cpp:149
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
+"TTS təminatçısını ('none') göstərin. Bu quruluşda mətndən nitqə keçid "
+"söndürülüb."
 
 #: src/cli.cpp:152
 msgctxt "Cli|"
@@ -153,11 +130,12 @@ msgstr "Orijinal mətnə stdinverilənləri əlavə edin."
 msgctxt "Cli|"
 msgid "Read source text from an image using the configured OCR engine."
 msgstr ""
+"Tənzimlənmiş OCR mühərrikindən istifadə edərək şəkildən mənbə mətnini oxuyun."
 
 #: src/cli.cpp:158
 msgctxt "Cli|"
 msgid "path"
-msgstr ""
+msgstr "yol"
 
 #: src/cli.cpp:160
 #, qt-format
@@ -181,11 +159,13 @@ msgid ""
 "Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
 "argument is given."
 msgstr ""
+"Hansı istifadəçi tərəfi xidmətini (frontend) işə salmalı ('gui' və ya "
+"'cli'). İstənilən arqument verildikdə standart olaraq 'cli' olur."
 
 #: src/cli.cpp:169
 msgctxt "Cli|"
 msgid "frontend"
-msgstr ""
+msgstr "istifadəçi tərəfi"
 
 #: src/cli.cpp:173
 msgctxt "Cli|"
@@ -209,12 +189,10 @@ msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Xəta: --%1 üçün --%2 və/və ya --%3 seçimlərini göstərməlisiniz"
 
 #: src/cli.cpp:213
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
-msgstr "Xəta: Bilinməyən mühərrik"
+msgstr "Xəta: Naməlum mühərrik \"%1\""
 
 #: src/cli.cpp:228
 #, qt-format
@@ -243,7 +221,7 @@ msgstr "Xəta: Tərcümə üçün mətn yoxdur"
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: --%1 cannot be combined with text arguments"
-msgstr ""
+msgstr "Xəta:--%1 mətn arqumentləri ilə birləşdirilə bilməz"
 
 #: src/cli.cpp:303
 msgctxt "Cli|"
@@ -257,38 +235,32 @@ msgid "Error: Unknown TTS provider '%1'"
 msgstr "Xəta: \"%1\" TTS təminatçısı məlum deyil"
 
 #: src/cli.cpp:428
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to initialize Tesseract with %1"
-msgstr "%1 ilə Tesseract başladıla bimədi"
+msgstr "Xəta: Tesseract-ı %1 ilə başlatmaq mümkün deyil"
 
 #: src/cli.cpp:449
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unable to open file: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to read image '%1'"
-msgstr "Xəta: Açılması mümkün olmayan fayl: %1"
+msgstr "Xəta:\"%1\" şəkil faylını oxumaq mümkün deyil"
 
 #: src/cli.cpp:459
 msgctxt "Cli|"
 msgid "Error: No text was recognized in the image"
-msgstr ""
+msgstr "Xəta: Şəkildə mətn aşkarlanmadı"
 
 #: src/cli.cpp:467
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Recognition failed: %1"
-msgstr "Xəta: TTS icra edilmədi"
+msgstr "Xəta: Aşkarlanmadı: %1"
 
 #: src/cli.cpp:472
 msgctxt "Cli|"
 msgid "Error: Recognition was cancelled"
-msgstr ""
+msgstr "Xəta: Tanınma ləğv edildi"
 
 #: src/cli.cpp:490 src/cli.cpp:542
 #, qt-format
@@ -304,52 +276,44 @@ msgstr "Tərcümə xətası baş verdi"
 #: src/cli.cpp:613
 msgctxt "Cli|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Naməlum xəta"
 
 #: src/cli.cpp:614
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
-msgstr "Xəta: TTS icra edilmədi"
+msgstr "Xəta: TTS icra edilmədi: %1"
 
 #: src/cli.cpp:721
 msgctxt "Cli|"
 msgid "no provider was created"
-msgstr ""
+msgstr "təminatçı yaradılmayıb"
 
 #: src/cli.cpp:746
 msgctxt "Cli|"
 msgid "the engine failed to start"
-msgstr ""
+msgstr "mühərriki işə salmaq mümkün olmadı"
 
 #: src/cli.cpp:751
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
-msgstr ""
+msgstr "seçilmiş təminatçıda heç bir səs yoxdur"
 
 #: src/cli.cpp:809
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
-msgstr ""
+msgstr "Xəta: mətndən-nitqə əlçatmazdır: %1"
 
 #: src/cli.cpp:830
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "Cli|"
 msgid "Source languages:"
-msgstr "Cari dillər:"
+msgstr "Mənbə dilləri:"
 
 #: src/cli.cpp:833
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Primary translation language:"
 msgctxt "Cli|"
 msgid "Translation languages:"
-msgstr "Ilkin tərcümə dili:"
+msgstr "Tərcümə dilləri:"
 
 #: src/cli.cpp:901
 #, qt-format
@@ -377,28 +341,22 @@ msgstr "Forvo.com_da axtarın"
 #: src/core/translationsession.cpp:350
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
-msgstr ""
+msgstr "OCR ayarlanmayıb"
 
 #: src/core/translationsession.cpp:351
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "You should set at least one OCR language in the application settings"
 msgctxt "TesseractOcr|"
 msgid "Set up the OCR engine in the application settings"
-msgstr "Siz, tətbiq ayarlarında ən az bir OCR dil təyin etməlisiniz"
+msgstr "OCR mühərrikini tətbiq ayarlarında ayarlayın"
 
 #: src/frontend/frontendregistry.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Main window"
 msgctxt "FrontendRegistry|"
 msgid "Graphical window"
-msgstr "Əsas pəncərə"
+msgstr "Qrafik pəncərə"
 
 #: src/frontend/frontendregistry.cpp:24
 msgctxt "FrontendRegistry|"
 msgid "Command line"
-msgstr ""
+msgstr "Əmr sətri"
 
 #: src/frontend/guifrontend.cpp:46
 #, qt-format
@@ -413,17 +371,11 @@ msgid "D-Bus service %1 is already registered by another application"
 msgstr "D-Bus xidməti %1 artıq başqa tətbiq tərəfindən qeydə alınıb"
 
 #: src/gui/translationhtmlformatter.cpp:33
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "translation options:"
-msgstr "tərcümə parametrləri:"
+msgstr "tərcümə seçimləri:"
 
 #: src/gui/translationhtmlformatter.cpp:47
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "examples:"
 msgstr "nümunələr:"
@@ -495,44 +447,29 @@ msgid "Edit languages"
 msgstr "Dilərə düzəliş edin"
 
 #: src/languagesdialog.ui:24
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Add to current languages"
-msgstr "Cari dillər:"
+msgstr "Cari dillərə əlavə edin"
 
 #: src/languagesdialog.ui:38
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "LanguagesDialog|"
 msgid "Move language down"
-msgstr "Orijinal mətnin məcburi aşkarlanması"
+msgstr "Dili aşağı köçürün"
 
 #: src/languagesdialog.ui:55
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Remove from current languages"
-msgstr "Cari dillər:"
+msgstr "Cari dil siyahısından silin"
 
 #: src/languagesdialog.ui:69
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Swap languages"
 msgctxt "LanguagesDialog|"
 msgid "Search languages"
-msgstr "Dilləri dəyişin"
+msgstr "Dilləri axtarın"
 
 #: src/languagesdialog.ui:79
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Available languages:"
 msgctxt "LanguagesDialog|"
 msgid "Move language up"
-msgstr "Mövcud dillər:"
+msgstr "Dili yuxarı köçürün"
 
 #: src/languagesdialog.ui:109
 msgctxt "LanguagesDialog|"
@@ -545,36 +482,27 @@ msgid "Current languages:"
 msgstr "Cari dillər:"
 
 #: src/main.cpp:34
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "main|"
 msgid "Error: Unknown frontend '%1'"
-msgstr "Xəta: Bilinməyən mühərrik"
+msgstr "Xəta: Naməlum \"%1\" istifadəçi tərəfi"
 
 #: src/main.cpp:42
-#, fuzzy, qt-format
-#| msgctxt "UpdaterDialog|"
-#| msgid "Available version:"
+#, qt-format
 msgctxt "main|"
 msgid "Available frontends: %1"
-msgstr "Əlçatan buraxılış:"
+msgstr "Əlçatan istifadəçi tərəfi: %1"
 
 #: src/mainwindow.cpp:162
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to set OCR languages"
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
-msgstr "OCR dillər təyin edilə bilmədi"
+msgstr "OCR dilləri təyin etmək mümkün olmadı"
 
 #: src/mainwindow.cpp:163
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
-msgstr "%1 ilə Tesseract başladıla bimədi"
+msgstr "%1 ilə Tesseract başlatmaq mümkün olmadı"
 
 #: src/mainwindow.cpp:435
 msgctxt "QApplication|"
@@ -650,9 +578,7 @@ msgstr ""
 "TTS ayarlarını yoxlayın və ya başqa səsdən və ya məkandan istifadsə edin"
 
 #: src/mainwindow.cpp:1060 src/mainwindow.cpp:1066
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Xəta: %1"
@@ -661,13 +587,13 @@ msgstr "Xəta: %1"
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
-msgstr ""
+msgstr "Şəkil çox genişdir (%1 MP). Maks %2 MP"
 
 #: src/mainwindow.cpp:1904
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
-msgstr ""
+msgstr "OCR mümkün olmadı: %1"
 
 #: src/mainwindow.cpp:1938 src/mainwindow.cpp:1995
 #, qt-format
@@ -676,20 +602,21 @@ msgid ""
 "Cannot open image:\n"
 "%1"
 msgstr ""
+"Şəkili açmaq mümkün olmadı:\n"
+"%1"
 
 #: src/mainwindow.cpp:1986 src/mainwindow.cpp:1995
 msgctxt "MainWindow|"
 msgid "Open image"
-msgstr ""
+msgstr "Şəkili açın"
 
 #: src/mainwindow.cpp:1988
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
-msgstr "Şəkillər (*.png *.ico *.svg *.jpg);;Bütün fayllar()"
+msgstr ""
+"Şəkillər (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;Bütün fayllar "
+"(*)"
 
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
@@ -719,12 +646,12 @@ msgstr "Imtina"
 #: src/mainwindow.ui:96 src/mainwindow.ui:99
 msgctxt "MainWindow|"
 msgid "Start/pause saying the source text aloud"
-msgstr ""
+msgstr "Mənbə mətninin səslənməsini başladın/dayandırın"
 
 #: src/mainwindow.ui:147 src/mainwindow.ui:150
 msgctxt "MainWindow|"
 msgid "Stop saying the source text aloud"
-msgstr ""
+msgstr "Mənbə mətninin səslənməsini dayandırın"
 
 #: src/mainwindow.ui:160 src/mainwindow.ui:163
 msgctxt "MainWindow|"
@@ -732,12 +659,9 @@ msgid "Copy source text to the clipboard"
 msgstr "Orijinal mətni mübadilə yaddaşına kopyalayın"
 
 #: src/mainwindow.ui:173 src/mainwindow.ui:176
-#, fuzzy
-#| msgctxt "ShortcutsModel|"
-#| msgid "Recognize text in screen area"
 msgctxt "MainWindow|"
 msgid "Recognize text in an image file"
-msgstr "Ekran sahəsindəki mətnin tanınması"
+msgstr "Şəkil faylından mətnin tanınması"
 
 #: src/mainwindow.ui:186 src/mainwindow.ui:189
 msgctxt "MainWindow|"
@@ -763,12 +687,12 @@ msgstr "Tərcümə"
 #: src/mainwindow.ui:256 src/mainwindow.ui:259
 msgctxt "MainWindow|"
 msgid "Start/pause saying the translated text aloud"
-msgstr ""
+msgstr "Tərcümə olunmuş mətni səslənməsini başladın/dayandırın"
 
 #: src/mainwindow.ui:307 src/mainwindow.ui:310
 msgctxt "MainWindow|"
 msgid "Stop saying the translated text aloud"
-msgstr ""
+msgstr "Tərcümə edilmiş mətnin səslənməsini dayandırın"
 
 #: src/mainwindow.ui:400 src/mainwindow.ui:403
 msgctxt "MainWindow|"
@@ -793,75 +717,57 @@ msgstr "Tətbiqin ayarları"
 #: src/modulestatus.cpp:271
 msgctxt "ModuleStatus|"
 msgid "Waiting for capture"
-msgstr ""
+msgstr "Çəkmək üçün gözləyir"
 
 #: src/modulestatus.cpp:273
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Select icon"
 msgctxt "ModuleStatus|"
 msgid "Select a region"
-msgstr "Nişan seçin"
+msgstr "Sahəni seçin"
 
 #: src/modulestatus.cpp:275
 msgctxt "ModuleStatus|"
 msgid "Recognizing text"
-msgstr ""
+msgstr "Mətnin tanınması"
 
 #: src/modulestatus.cpp:277
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translation"
 msgctxt "ModuleStatus|"
 msgid "Translating"
-msgstr "Tərcümə"
+msgstr "Tərcümə olunur"
 
 #: src/modulestatus.cpp:279
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Unable to detect language"
 msgctxt "ModuleStatus|"
 msgid "Detecting language"
-msgstr "Dili aşkar etmək mümkün deyil"
+msgstr "Dil aşkarlanır"
 
 #: src/modulestatus.cpp:281
 msgctxt "ModuleStatus|"
 msgid "Preparing speech"
-msgstr ""
+msgstr "Nitqin hazırlanması"
 
 #: src/modulestatus.cpp:283
-#, fuzzy
-#| msgctxt "ShortcutsModel|"
-#| msgid "Stop text speaking"
 msgctxt "ModuleStatus|"
 msgid "Speaking"
-msgstr "Mətnin səslənməsini dayandırın"
+msgstr "Danışır"
 
 #: src/modulestatus.cpp:285
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Capture delay:"
 msgctxt "ModuleStatus|"
 msgid "Capture failed"
-msgstr "Çəkmə gecikməsi:"
+msgstr "Çəkmək mümkün olmadı"
 
 #: src/modulestatus.cpp:287
 msgctxt "ModuleStatus|"
 msgid "OCR failed"
-msgstr ""
+msgstr "OCR mümkün olmadı"
 
 #: src/modulestatus.cpp:289
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation backend:"
 msgctxt "ModuleStatus|"
 msgid "Translation failed"
-msgstr "Tərcümə modulu:"
+msgstr "Tərcümə alınmadı"
 
 #: src/modulestatus.cpp:291
 msgctxt "ModuleStatus|"
 msgid "Speech error"
-msgstr ""
+msgstr "Nitq xətası"
 
 #: src/ocr/llmocr.cpp:259
 msgctxt "LlmOcr|"
@@ -870,6 +776,9 @@ msgid ""
 "reasoning instead. Turn on \"Disable reasoning\" for this provider, or pick "
 "a model with a larger context."
 msgstr ""
+"Model heç nə transkripsiya etmədən tokenlərini tükətdi, əvəzində onları "
+"mühakimə yürütməyə sərf etdi. Bu təminatçı üçün \"Mühakiməni söndürün\" "
+"funksiyasını aktivləşdirin və ya daha geniş məzmuna malik bir model seçin."
 
 #: src/ocr/llmocr.cpp:264
 #, qt-format
@@ -879,6 +788,9 @@ msgid ""
 "of its %2 token limit. Try a smaller region, or a model with a larger "
 "context."
 msgstr ""
+"Modelin tokenləri heç nə transkripsiya etmədən tükəndi: təsvir özünün %1/%2 "
+"token limitini istifadə etdi. Daha kiçik bir sahəni və ya daha böyük məzmuna "
+"malik modeli sınayın."
 
 #: src/ocr/llmocr.cpp:269
 msgctxt "LlmOcr|"
@@ -886,24 +798,24 @@ msgid ""
 "The model ran out of tokens before transcribing anything. Try a smaller "
 "region, or a model with a larger context."
 msgstr ""
+"Model. tokenlərini heç nə transkripsiya etmədən tükətdi. Daha kiçik sahəni "
+"seçərək yoxlayın və ya daha geniş məzmuna malik bir model sınayın."
 
 #: src/ocr/llmocr.cpp:273 src/ocr/llmocr.cpp:509
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "LlmOcr|"
 msgid "LLM OCR error: %1"
-msgstr "Xəta: %1"
+msgstr "LLM OCR xətası: %1"
 
 #: src/ocr/llmocr.cpp:275
 msgctxt "LlmOcr|"
 msgid "The model returned no text for this image."
-msgstr ""
+msgstr "Bu model, bu şəkildə mətn olmadığını bildirdi."
 
 #: src/ocr/llmocr.cpp:488
 msgctxt "LlmOcr|"
 msgid "LLM OCR request timed out"
-msgstr ""
+msgstr "LLM OCR sorğusunun vaxtı bitdi"
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:47
@@ -1119,9 +1031,7 @@ msgstr ""
 "məlumatları üçün ilkin ekrandan istifadə edin."
 
 #: src/ocr/tesseractocr.cpp:143
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "%1 is not a valid Tesseract parameter name."
+#, qt-format
 msgctxt "TesseractOcr|"
 msgid "%1 is not a valid Tesseract parameter name."
 msgstr "%1, düzgün Tesseract parametri adı deyil."
@@ -2240,9 +2150,6 @@ msgid "Swap languages"
 msgstr "Dilləri dəyişin"
 
 #: src/popupwindow.ui:69 src/popupwindow.ui:72
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translate"
 msgctxt "PopupWindow|"
 msgid "Translate"
 msgstr "Tərcümə"
@@ -2250,12 +2157,12 @@ msgstr "Tərcümə"
 #: src/popupwindow.ui:86 src/popupwindow.ui:89
 msgctxt "PopupWindow|"
 msgid "Start/pause saying the source text aloud"
-msgstr ""
+msgstr "Mənbə mətninin səslənməsini başladın/dayandırın"
 
 #: src/popupwindow.ui:134 src/popupwindow.ui:137
 msgctxt "PopupWindow|"
 msgid "Stop saying the source text aloud"
-msgstr ""
+msgstr "Mənbə mətninin səslənməsini dayandırın"
 
 #: src/popupwindow.ui:144 src/popupwindow.ui:147
 msgctxt "PopupWindow|"
@@ -2265,12 +2172,12 @@ msgstr "Orijinal mətni mübadilə yaddaşına kopyalayın"
 #: src/popupwindow.ui:174 src/popupwindow.ui:177
 msgctxt "PopupWindow|"
 msgid "Start/pause saying the translated text aloud"
-msgstr ""
+msgstr "Tərcümə olunmuş mətni səslənməsini başladın/dayandırın"
 
 #: src/popupwindow.ui:222 src/popupwindow.ui:225
 msgctxt "PopupWindow|"
 msgid "Stop saying the translated text aloud"
-msgstr ""
+msgstr "Tərcümə edilmiş mətnin səslənməsini dayandırın"
 
 #: src/popupwindow.ui:232 src/popupwindow.ui:235
 msgctxt "PopupWindow|"
@@ -2285,7 +2192,7 @@ msgstr "Tərcüməni mübadilə yaddaşına kopyalayın"
 #: src/settings/appsettings.cpp:700
 msgctxt "AppSettings|"
 msgid "OpenAI-compatible (custom)"
-msgstr ""
+msgstr "OpenAI ilə uyğun (fərdi)"
 
 #: src/settings/appsettings.cpp:1538
 #, qt-format
@@ -2377,90 +2284,79 @@ msgstr "Yararsız pararmetrləri ləğv etmək istəyirsiniz?"
 #: src/settings/settingsdialog.cpp:351 src/settings/settingsdialog.cpp:521
 msgctxt "SettingsDialog|"
 msgid "URL:"
-msgstr ""
+msgstr "URL:"
 
 #: src/settings/settingsdialog.cpp:355 src/settings/settingsdialog.cpp:525
 msgctxt "SettingsDialog|"
 msgid "Key:"
-msgstr ""
+msgstr "Açar:"
 
 #: src/settings/settingsdialog.cpp:359 src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
 msgid "optional, e.g. for a cloud endpoint"
-msgstr ""
+msgstr "istəyə görə, məs., bulud son nöqtəsi üçün"
 
 #: src/settings/settingsdialog.cpp:360 src/settings/settingsdialog.cpp:531
 msgctxt "SettingsDialog|"
 msgid "Refresh models"
-msgstr ""
+msgstr "Modelləri yeniləyin"
 
 #: src/settings/settingsdialog.cpp:378
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation model:"
-msgstr "Tərcümə rejimi:"
+msgstr "Tərcümə modeli:"
 
 #: src/settings/settingsdialog.cpp:386 src/settings/settingsdialog.cpp:504
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
 msgctxt "SettingsDialog|"
 msgid "Timeout:"
 msgstr "Bitmə vaxtı:"
 
 #: src/settings/settingsdialog.cpp:390 src/settings/settingsdialog.cpp:509
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid " ms"
 msgctxt "SettingsDialog|"
 msgid " s"
-msgstr " msan"
+msgstr " san"
 
 #: src/settings/settingsdialog.cpp:391
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a translation or detection response."
-msgstr ""
+msgstr "Tərcüməni və ya cavabın aşkarlanmasını gözləmək üçün maksimum vaxt"
 
 #: src/settings/settingsdialog.cpp:396
 msgctxt "SettingsDialog|"
 msgid "Disable reasoning"
-msgstr ""
+msgstr "Mühakiməni söndürün"
 
 #: src/settings/settingsdialog.cpp:403
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Placeholders: %1"
-msgstr ""
+msgstr "Yer tutucular: %1"
 
 #: src/settings/settingsdialog.cpp:406
 msgctxt "SettingsDialog|"
 msgid "Reset Text prompt"
-msgstr ""
+msgstr "Mətn sorğusunu sıfırlayın"
 
 #: src/settings/settingsdialog.cpp:468
 msgctxt "SettingsDialog|"
 msgid "OCR engine:"
-msgstr ""
+msgstr "OCR mühərriki"
 
 #: src/settings/settingsdialog.cpp:472
 msgctxt "SettingsDialog|"
 msgid "Tesseract"
-msgstr ""
+msgstr "Tesseract"
 
 #: src/settings/settingsdialog.cpp:473
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Vision model (LLM)"
-msgstr "Tərcümə rejimi:"
+msgstr "Görüntü modeli (LLM)"
 
 #: src/settings/settingsdialog.cpp:483
 msgctxt "SettingsDialog|"
 msgid "Tesseract runs locally. Configure languages and parameters below."
 msgstr ""
+"Tesseract yerli olaraq başlayır. Dilləri və parametrləri aşağıda tənzimləyin."
 
 #: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:808
 msgctxt "SettingsDialog|"
@@ -2470,27 +2366,27 @@ msgstr "Təminatçı:"
 #: src/settings/settingsdialog.cpp:510
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a transcription response."
-msgstr ""
+msgstr "Transkripsiya cavabı üçün maksimum gözləmə vaxtı."
 
 #: src/settings/settingsdialog.cpp:541
 msgctxt "SettingsDialog|"
 msgid "Model:"
-msgstr ""
+msgstr "Model:"
 
 #: src/settings/settingsdialog.cpp:555
 msgctxt "SettingsDialog|"
 msgid "Reset OCR prompt"
-msgstr ""
+msgstr "OCR sorğusunu sıfırlayın"
 
 #: src/settings/settingsdialog.cpp:616
 msgctxt "SettingsDialog|"
 msgid "— Server reports image support —"
-msgstr ""
+msgstr "— Server şəkili dəstəklədiyini bildirir —"
 
 #: src/settings/settingsdialog.cpp:620
 msgctxt "SettingsDialog|"
 msgid "— Image support not reported —"
-msgstr ""
+msgstr "— Şəklin dəstəklənmədiyi bildirildi —"
 
 #: src/settings/settingsdialog.cpp:633
 msgctxt "SettingsDialog|"
