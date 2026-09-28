@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-09-26 00:05+0400\n"
+"PO-Revision-Date: 2026-09-26 21:39+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
@@ -2392,6 +2392,7 @@ msgstr "— Şəklin dəstəklənmədiyi bildirildi —"
 msgctxt "SettingsDialog|"
 msgid "No models loaded yet — press \"Refresh models\", or type a model name."
 msgstr ""
+"Model hələ yüklənməyib - \"Modelları yeniləyin\" və ya modelin adını yazın."
 
 #: src/settings/settingsdialog.cpp:635
 msgctxt "SettingsDialog|"
@@ -2399,6 +2400,9 @@ msgid ""
 "This endpoint does not report model capabilities, so image support cannot be "
 "verified here. Pick a model you know accepts images."
 msgstr ""
+"Bu son nöqtə model imkanları haqqında məlumat verə bilmir və beləliklə "
+"burada şəklin dəstəklənməsini yoxlamaq mümkün deyil. Şəkilləri dəstəkləyən "
+"model seçin."
 
 #: src/settings/settingsdialog.cpp:638
 msgctxt "SettingsDialog|"
@@ -2406,32 +2410,32 @@ msgid ""
 "The server reported no image-capable models. A model listed here may still "
 "work, but recognition will fail if it cannot accept images."
 msgstr ""
+"Server şəkilləri dəstəkləyən modellərin olmadığını bildirdi. Bu siyahıdakı "
+"model hələ də işləyə bilər, lakin əgər o şəkili dəstəkləmirsə aşkarlanma "
+"mümkün olmayacaq"
 
 #: src/settings/settingsdialog.cpp:641
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "%n model(s) reported as image-capable."
 msgid_plural "%n model(s) reported as image-capable."
-msgstr[0] ""
+msgstr[0] "Şəkil ilə işləyə bilən %n modelin olduğu bildirildi."
 msgstr[1] ""
 
 #: src/settings/settingsdialog.cpp:699
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Vision model"
-msgstr "Tərcümə rejimi:"
+msgstr "Görüntü modeli"
 
 #: src/settings/settingsdialog.cpp:699
 msgctxt "SettingsDialog|"
 msgid "Enter the endpoint URL first."
-msgstr ""
+msgstr "Öncə son nöqtə URL-nu daxil edin."
 
 #: src/settings/settingsdialog.cpp:709 src/settings/settingsdialog.cpp:929
 msgctxt "SettingsDialog|"
 msgid "No models found."
-msgstr ""
+msgstr "Modellər tapılmadı."
 
 #: src/settings/settingsdialog.cpp:722 src/settings/settingsdialog.cpp:916
 #, qt-format
@@ -2440,6 +2444,8 @@ msgid ""
 "Could not reach %1 at %2:\n"
 "%3"
 msgstr ""
+"%2 ünvanında %1 əldə etmək mümkün olmadı:\n"
+"%3"
 
 #: src/settings/settingsdialog.cpp:1000 src/settings/settingsdialog.ui:614
 msgctxt "SettingsDialog|"
@@ -2812,26 +2818,21 @@ msgstr "<html><head/><body><p>Nişanı seçin</p></body></html>"
 #: src/settings/settingsdialog.ui:635
 msgctxt "SettingsDialog|"
 msgid "Status bar"
-msgstr ""
+msgstr "Vəziyyət çubuğu"
 
 #: src/settings/settingsdialog.ui:641
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "<html><head/><body><p>Start application minimized to the system tray</p></"
-#| "body></html>"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/<body><p>Show what the application is currently doing at the "
 "bottom of the main and pop-up windows</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Tətbiqi sistem çubuğuna yığılmış şəkildə başlatmaq</"
-"p></body></html>"
+"<html><head/<body><p>Əsas və ani açılan pəncərələrin aşağı hissəsində "
+"tətbiqin hazırda nə etdiyini göstərin</p></body></html>"
 
 #: src/settings/settingsdialog.ui:644
 msgctxt "SettingsDialog|"
 msgid "Show status bar"
-msgstr ""
+msgstr "Vəziyyət çubuğunu göstərmək"
 
 #: src/settings/settingsdialog.ui:680
 msgctxt "SettingsDialog|"
@@ -2893,12 +2894,9 @@ msgid "Force translation language detection"
 msgstr "Tərcümə mətnin məcburi aşkarlanması"
 
 #: src/settings/settingsdialog.ui:757
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation provider:"
 msgctxt "SettingsDialog|"
 msgid "Detection provider:"
-msgstr "Tərcümə təminatçısı:"
+msgstr "Aşkarlama təminatçısı:"
 
 #: src/settings/settingsdialog.ui:764 src/settings/settingsdialog.ui:781
 msgctxt "SettingsDialog|"
@@ -2907,14 +2905,14 @@ msgid ""
 "Auto. If no detection model is selected, translation falls back to the "
 "configured primary language above."
 msgstr ""
+"Mənbə dilinin aşkarlanması \"Avtomatik\" təyin edildikdə istifadə olunacaq "
+"model və təminatçı. Əgər aşkarlama modeli seçilməyibsə, yuxarıda təyin "
+"edilən ilkin dilə görə tərcümə olunacaq."
 
 #: src/settings/settingsdialog.ui:771
-#, fuzzy
-#| msgctxt "SnippingArea|"
-#| msgid "DPI Detection Error"
 msgctxt "SettingsDialog|"
 msgid "Detection model:"
-msgstr "DPI aşkarlanması xətası"
+msgstr "Aşkarlama modeli:"
 
 #: src/settings/settingsdialog.ui:802
 msgctxt "SettingsDialog|"
@@ -3026,6 +3024,8 @@ msgid ""
 "Optional. Required by self-hosted LibreTranslate instances and "
 "libretranslate.com; the Mozhi front-end ignores it."
 msgstr ""
+"İstəyə görə. Müstəqil LibreTranslate nümunəsi və ya libretranslate.com "
+"tərəfindən tələb olunur. Mozi istifadəçi tərəfi bunu rədd edir."
 
 #: src/settings/settingsdialog.ui:984
 msgctxt "SettingsDialog|"
@@ -3033,6 +3033,9 @@ msgid ""
 "Talk the direct LibreTranslate REST API to the instance URL instead of the "
 "Mozhi-compatible API; use this for self-hosted LibreTranslate servers."
 msgstr ""
+"Mozhi-ilə uyğun API əvəzinə birbaşa LibreTranslate REST API-ni nümunə URL "
+"ünvanına yönləndirin; bunu öz-özünə yerləşdirilən LibreTranslate serverləri "
+"üçün istifadə edin."
 
 #: src/settings/settingsdialog.ui:1019
 msgctxt "SettingsDialog|"
@@ -3040,6 +3043,8 @@ msgid ""
 "Local OpenAI-compatible servers. Set URL, translation model and prompt for "
 "each. Language detection is configured on the Translation page."
 msgstr ""
+"Yerli OpenAI ilə uyğun serverlər. Hər biri üçün URL ünvanı, tərcümə modeli "
+"və sorğunu təyin edin. Dilin aşkarlanması \"Tərcümə\" səhifəsində ayarlanır."
 
 #: src/settings/settingsdialog.ui:1042
 msgctxt "SettingsDialog|"
@@ -3107,12 +3112,12 @@ msgstr "Sətir sonlarının çevrilməsi"
 #: src/settings/settingsdialog.ui:1131
 msgctxt "SettingsDialog|"
 msgid "Add parameter"
-msgstr ""
+msgstr "Parametr əlavə edin"
 
 #: src/settings/settingsdialog.ui:1141
 msgctxt "SettingsDialog|"
 msgid "Remove parameter"
-msgstr ""
+msgstr "Parametri silin"
 
 #: src/settings/settingsdialog.ui:1177
 msgctxt "SettingsDialog|"
@@ -3533,33 +3538,27 @@ msgstr "Dəyər"
 #: src/statusstrip.cpp:128 src/statusstrip.cpp:143 src/statusstrip.cpp:144
 msgctxt "StatusStrip|"
 msgid "Ready"
-msgstr ""
+msgstr "Hazırdır"
 
 #: src/translator/atranslationprovider.cpp:57
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "ATranslationProvider|"
 msgid "Unsupported source language."
-msgstr "Orijinal mətnin məcburi aşkarlanması"
+msgstr "Dəstəklənməyən mənbə dili."
 
 #: src/translator/atranslationprovider.cpp:59
 msgctxt "ATranslationProvider|"
 msgid "Unsupported destination language."
-msgstr ""
+msgstr "Dəstəklənməyən tərcümə dili."
 
 #: src/translator/atranslationprovider.cpp:61
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Enable translation options"
 msgctxt "ATranslationProvider|"
 msgid "User aborted translation in progress"
-msgstr "Tərcümə seçimlərini aktiv edin"
+msgstr "istifadəçi tərcüməni dayandırdı."
 
 #: src/translator/atranslationprovider.cpp:65
 msgctxt "ATranslationProvider|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Bilinməyən xəta"
 
 #: src/translator/atranslationprovider.cpp:115
 msgctxt "QObject|"
@@ -3578,12 +3577,9 @@ msgstr ""
 "Ayarlar → Tərcümə bölməsində başqa təminatçıdan istifadə edə bilərsiniz."
 
 #: src/translator/localaitranslationprovider.cpp:149
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected translation language %1 is not supported for %2"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Destination language is not supported"
-msgstr "Seçilmiş %1 tərcümə dili %2 tərəfindən dəstəklənmir"
+msgstr "Tərcümə dili dəstəklənmir"
 
 #: src/translator/localaitranslationprovider.cpp:301
 #, qt-format
@@ -3594,6 +3590,11 @@ msgid ""
 "reasoning instead of answering. Turn on \"Disable reasoning\" for this "
 "provider, translate less text at once, or pick a model with a larger context."
 msgstr ""
+"Tərcüməni yazmadan modelin tokenləri tükəndi: tərcümə olunacaq mətn %1/%2 "
+"token limitini istifadə etdi və qalanlarını cavab vermək əvəzinə mühakimə "
+"üçün istifadə etdi. Bu təminatçı üçün \"Mühakiməni söndürün\" seçimini aktiv "
+"edin, eyni anda tərcümə üçün az mətndən istifadə edin və ya daha geniş "
+"məzmuna malik  tərcümə modelini seçin."
 
 #: src/translator/localaitranslationprovider.cpp:309
 msgctxt "LocalAiTranslationProvider|"
@@ -3602,6 +3603,10 @@ msgid ""
 "translation. Turn on \"Disable reasoning\" for this provider, translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
+"Model bütün token ehtiyyatını mühakimə üçün istifadə etdi və tərcüməni yaza "
+"bilmədi. Bu  təminatçı üçün \"Mühakiməni söndürün\" aktiv edin, eyni anda "
+"daha az mətn tərcümə edin və ya daha geniş məzmuna malik modeldən istifadə "
+"edin."
 
 #: src/translator/localaitranslationprovider.cpp:317
 #, qt-format
@@ -3611,6 +3616,9 @@ msgid ""
 "translate used %1 of its %2 token limit. Translate less text at once, or "
 "pick a model with a larger context."
 msgstr ""
+"Tərcüməni yazmadan modelin tokenləri tükəndi: tərcümə olunacaq mətn %1/%2 "
+"token limitini istifadə etdi. Eyni anda daha az mətn tərcümə edin və ya daha "
+"geniş məzmuna malik modeli seçin."
 
 #: src/translator/localaitranslationprovider.cpp:324
 msgctxt "LocalAiTranslationProvider|"
@@ -3618,104 +3626,83 @@ msgid ""
 "The model ran out of tokens before writing a translation. Translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
+"Model tərcüməni yazmadan öncə tokenlərini tükətdi. Eyni anda daha az mətn "
+"tərcümə edin və ya daha geniş məzmuna malik modeli seçin."
 
 #: src/translator/localaitranslationprovider.cpp:330
 #: src/translator/localaitranslationprovider.cpp:369
 #: src/translator/localaitranslationprovider.cpp:370
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI error: %1"
-msgstr "Xəta: %1"
+msgstr "LocalAI xətası: %1"
 
 #: src/translator/localaitranslationprovider.cpp:333
 msgctxt "LocalAiTranslationProvider|"
 msgid "The model returned an empty response."
-msgstr ""
+msgstr "Modelin cavabı boşdur."
 
 #: src/translator/localaitranslationprovider.cpp:354
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI request timed out"
-msgstr ""
+msgstr "LocalAI sorğusunun vaxtı bitdi"
 
 #: src/translator/localaitranslationprovider.cpp:412
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Language detection is not supported for %1"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Language detection timed out"
-msgstr "%1 üçün dilin aşkarlançması dəstəklənmir"
+msgstr "Dil aşkarlanmasının vaxtı bitdi"
 
 #: src/translator/localaitranslationprovider.cpp:473
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Əməliyyat istifadəçi tərəfindən ləğv edildi"
+msgstr "Tərcümə istifadəçi tərəfindən ləğv edildi"
 
 #: src/translator/mozhitranslationprovider.cpp:78
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "MozhiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Əməliyyat istifadəçi tərəfindən ləğv edildi"
+msgstr "Tərcümə istifadəçi tərəfindən ləğv edildi"
 
 #: src/translator/mozhitranslationprovider.cpp:139
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected translation language %1 is not supported for %2"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Destination language '%1' is not supported"
-msgstr "Seçilmiş %1 tərcümə dili %2 tərəfindən dəstəklənmir"
+msgstr "Seçilmiş \"%1\" tərcümə dili dəstəklənmir"
 
 #: src/translator/mozhitranslationprovider.cpp:147
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected source language %1 is not supported for %2"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Source language '%1' is not supported"
-msgstr "Seçilmiş tərcümə ediləcək %1 dili, %2 tərfindən dəstəklənmir"
+msgstr "Seçilmiş \"%1\" mənbə dili dəstəklənmir"
 
 #: src/translator/mozhitranslationprovider.cpp:204
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Network error: %1"
-msgstr "Nümunə xətası: %1"
+msgstr "Şəbəkə xətası: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:208
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Instance error: %1"
 msgstr "Nümunə xətası: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:212
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Parsing error: %1"
-msgstr "Nümunə xətası: %1"
+msgstr "Həlletmə xətası: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:216
 #, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unsupported TTS engine: %1"
-msgstr ""
+msgstr "Dəstəklənməyən TTS mühərriki: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:220
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unknown error: %1"
-msgstr "Nümunə xətası: %1"
+msgstr "Bilinməyən xəta: %1"
 
 #: src/trayicon.cpp:26 src/trayicon.cpp:65
 msgctxt "TrayIcon|"
@@ -3735,7 +3722,7 @@ msgstr "Çıxış"
 #: src/trayicon.cpp:30 src/trayicon.cpp:67
 msgctxt "TrayIcon|"
 msgid "Report Bug…"
-msgstr ""
+msgstr "Xətanı bildirin..."
 
 #: src/trayicon.cpp:73
 msgctxt "TrayIcon|"
@@ -3822,7 +3809,7 @@ msgstr "ONNX Runtime-ı başladılmasında xəta: %1"
 #: src/tts/piperttsprovider.cpp:300
 msgctxt "PiperTTSProvider|"
 msgid "Could not disable neural TTS telemetry"
-msgstr ""
+msgstr "TTS telemetriya neyron şəbəkəsini söndürmək mümkün deyil"
 
 #: src/tts/piperttsprovider.cpp:301
 msgctxt "PiperTTSProvider|"
@@ -3830,6 +3817,8 @@ msgid ""
 "Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
 "of it may report usage data to Microsoft."
 msgstr ""
+"Crow Translate ONNX Runtime telemtriyasını söndürə bilmədiyi üçün o, "
+"istifadə məlumatlarını Microsoft-a ötürə bilər."
 
 #: src/tts/piperttsprovider.cpp:302
 #, qt-format
@@ -3841,6 +3830,12 @@ msgid ""
 "in. Builds from source - including the one Crow Translate links statically - "
 "have none, and it is inactive on other platforms."
 msgstr ""
+"Səbəb: %1\n"
+"\n"
+"Yalnız, Microsoft-un özü tərəfindən buraxılan Windows üçün ONNX Runtime "
+"daxili telemetriyaya malikdir. Mənbə kodundan qurulmalarda, o cümlədən "
+"statik Crow Translate keçidləri də daxil olmaqla, telemetriya mövcud deyil, "
+"başqa platformalarda isə o qeyri-aktivdir."
 
 #: src/tts/piperttsprovider.cpp:1033
 msgctxt "PiperTTSProvider|"
@@ -3890,6 +3885,8 @@ msgid ""
 "No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
 "Piper Voices Path."
 msgstr ""
+"Pipet TTS səs modeli tapılmadı. Yolu, Ayarlar -> TTS -> Piper səslərinə yol "
+"bölməsində təyin edin."
 
 #: src/tts/qtttsprovider.cpp:325
 #, qt-format
@@ -3922,12 +3919,10 @@ msgid "Windows TTS Voice Installation"
 msgstr "Windows TTS səs quraşdırılması"
 
 #: src/tts/qtttsprovider.cpp:342
-#, fuzzy, qt-format
-#| msgctxt "QtTTSProvider|"
-#| msgid "Windows TTS Voice Installation"
+#, qt-format
 msgctxt "QtTTSProvider|"
 msgid "No Windows TTS voice is installed for %1."
-msgstr "Windows TTS səs quraşdırılması"
+msgstr "%1 üçün Windows TTS səs quraşdırılmayıb."
 
 #~ msgctxt "PiperTTSProvider|"
 #~ msgid "Privacy Notice - Neural TTS"
