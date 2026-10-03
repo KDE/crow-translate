@@ -1,10 +1,10 @@
 # SPDX-FileCopyrightText: 2024 Oskari Lavinto
 # SPDX-License-Identifier: GPL-3.0-or-later
-# SPDX-FileCopyrightText: 2024, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-11-13 13:37+0200\n"
+"PO-Revision-Date: 2026-09-12 18:03+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -54,18 +54,13 @@ msgstr ""
 "järjestelmän kieltä)."
 
 #: src/cli.cpp:129
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify the translator engine ('google', 'yandex', 'bing', "
-#| "'libretranslate' or 'lingva'), Google is used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
 "'libretranslate', 'mymemory' or 'reverso'), Google is used by default."
 msgstr ""
-"Määritä käännösmoottori (”google”, ”yandex”, ”bing”, ”libretranslate” tai "
-"”lingva”); oletuksena käytetään Googlea."
+"Määritä käännösmoottori (”google”, ”yandex”, ”bing”, ”deepl”, "
+"”libretranslate”, ”mymemory” tai ”reverso”); oletuksena käytetään Googlea."
 
 #: src/cli.cpp:133
 msgctxt "Cli|"
@@ -77,51 +72,38 @@ msgstr ""
 "osoitetta sovelluksen asetuksista."
 
 #: src/cli.cpp:137
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy' or 'mozhi'). Provider from app "
-#| "settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
 "app settings will be used by default."
 msgstr ""
-"Anna käännöstarjoaja (”kopio” tai ”mozhi”). Oletuksena käytetään  tarjoajaa "
-"sovellusasetuksista."
+"Määritä käännöstarjoaja (”kopio”, ”mozhi” tai ”localai”); oletuksena "
+"käytetään  tarjoajaa sovellusasetuksista."
 
 #: src/cli.cpp:145
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
 "settings will be used by default."
 msgstr ""
-"Anna puhesynteesitarjoaja (”ei mitään”, ”mozhi”, ”qt” tai ”piper”). "
-"Oletuksena käytetään tarjoajaa sovellusasetuksista."
+"Määritä puhesynteesitarjoaja (”ei mitään”, ”mozhi”, ”qt” tai ”piper”); "
+"oletuksena käytetään tarjoajaa sovellusasetuksista."
 
 #: src/cli.cpp:147
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi', 'qt', or 'piper'). Provider from "
-#| "app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
 "will be used by default."
 msgstr ""
-"Anna puhesynteesitarjoaja (”ei mitään”, ”mozhi”, ”qt” tai ”piper”). "
-"Oletuksena käytetään tarjoajaa sovellusasetuksista."
+"Anna puhesynteesitarjoaja (”ei mitään”, ”mozhi” tai ”qt”); oletuksena "
+"käytetään tarjoajaa sovellusasetuksista."
 
 #: src/cli.cpp:149
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
+"Valitse puhesynteesintarjoaja (”ei mitään”). Tässä koosteessa puhesynteesi "
+"on poistettu käytöstä."
 
 #: src/cli.cpp:152
 msgctxt "Cli|"
@@ -203,12 +185,10 @@ msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Virhe: --%1 on määritettävä --%2 ja/tai --%3 valinnat"
 
 #: src/cli.cpp:213
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
-msgstr "Virhe: tuntematon puhesyntetisaattori"
+msgstr "Virhe: tuntematon moottori ”%1”"
 
 #: src/cli.cpp:228
 #, qt-format
@@ -298,52 +278,44 @@ msgstr "Tapahtui käännösvirhe"
 #: src/cli.cpp:613
 msgctxt "Cli|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Tuntematon virhe"
 
 #: src/cli.cpp:614
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
-msgstr "Virhe: puhesynteesi epäonnistui"
+msgstr "Virhe: puhesynteesi epäonnistui: %1"
 
 #: src/cli.cpp:721
 msgctxt "Cli|"
 msgid "no provider was created"
-msgstr ""
+msgstr "tarjoajaa ei luotu"
 
 #: src/cli.cpp:746
 msgctxt "Cli|"
 msgid "the engine failed to start"
-msgstr ""
+msgstr "moottorin käynnistäminen epäonnistui"
 
 #: src/cli.cpp:751
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
-msgstr ""
+msgstr "valitulla tarjoajalla ei ole käytettävissä puheääniä"
 
 #: src/cli.cpp:809
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
-msgstr ""
+msgstr "Virhe: puhesynteesi ei ole käytettävissä: %1"
 
 #: src/cli.cpp:830
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "Cli|"
 msgid "Source languages:"
-msgstr "Nykyiset kielet:"
+msgstr "Lähdekielet:"
 
 #: src/cli.cpp:833
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Primary translation language:"
 msgctxt "Cli|"
 msgid "Translation languages:"
-msgstr "Ensisijainen käännöskieli:"
+msgstr "Käännöskielet:"
 
 #: src/cli.cpp:901
 #, qt-format
@@ -371,15 +343,12 @@ msgstr "Etsi Forvo.com-sivustolta"
 #: src/core/translationsession.cpp:350
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
-msgstr ""
+msgstr "Tekstintunnistusta ei ole asetettu"
 
 #: src/core/translationsession.cpp:351
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "You should set at least one OCR language in the application settings"
 msgctxt "TesseractOcr|"
 msgid "Set up the OCR engine in the application settings"
-msgstr "Sovelluksen asetuksissa on määritettävä ainakin yksi OCR-kieli"
+msgstr "Aseta tekstintunnistusmoottori sovellusasetuksissa"
 
 #: src/frontend/frontendregistry.cpp:23
 #, fuzzy
@@ -488,44 +457,29 @@ msgid "Edit languages"
 msgstr "Muokkaa kieliä"
 
 #: src/languagesdialog.ui:24
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Add to current languages"
-msgstr "Nykyiset kielet:"
+msgstr "Lisää nykyisiin kieliin"
 
 #: src/languagesdialog.ui:38
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "LanguagesDialog|"
 msgid "Move language down"
-msgstr "Pakota lähdekielen tunnistus"
+msgstr "Siirrä kieltä alemmas"
 
 #: src/languagesdialog.ui:55
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Current languages:"
 msgctxt "LanguagesDialog|"
 msgid "Remove from current languages"
-msgstr "Nykyiset kielet:"
+msgstr "Poista nykyisistä kielistä"
 
 #: src/languagesdialog.ui:69
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Swap languages"
 msgctxt "LanguagesDialog|"
 msgid "Search languages"
-msgstr "Vaihda kielet"
+msgstr "Etsi kieliä"
 
 #: src/languagesdialog.ui:79
-#, fuzzy
-#| msgctxt "LanguagesDialog|"
-#| msgid "Available languages:"
 msgctxt "LanguagesDialog|"
 msgid "Move language up"
-msgstr "Käytettävissä olevat kielet:"
+msgstr "Siirrä kieltä ylemmäs"
 
 #: src/languagesdialog.ui:109
 msgctxt "LanguagesDialog|"
@@ -554,20 +508,15 @@ msgid "Available frontends: %1"
 msgstr "Saatavilla oleva versio:"
 
 #: src/mainwindow.cpp:162
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to set OCR languages"
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
-msgstr "Ei voi määrittää OCR-kieliä"
+msgstr "Ei voida määrittää tekstintunnistuskieliä"
 
 #: src/mainwindow.cpp:163
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
-msgstr "Tesseract-moottorin alustus parametrilla %1 ei onnistu"
+msgstr "Tesseractin alustus parametrilla %1 ei onnistu"
 
 #: src/mainwindow.cpp:435
 msgctxt "QApplication|"
@@ -642,9 +591,7 @@ msgstr ""
 "Tarkista puhesynteesiasetukset tai kokeile toista ääntä tai maa-asetusta."
 
 #: src/mainwindow.cpp:1060 src/mainwindow.cpp:1066
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Virhe: %1"
@@ -653,13 +600,13 @@ msgstr "Virhe: %1"
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
-msgstr ""
+msgstr "Kuva on liian iso (%1 MP). Enimmäiskoko on %2 MP."
 
 #: src/mainwindow.cpp:1904
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
-msgstr ""
+msgstr "Tekstintunnistus epäonnistui: %1"
 
 #: src/mainwindow.cpp:1938 src/mainwindow.cpp:1995
 #, qt-format
@@ -668,20 +615,21 @@ msgid ""
 "Cannot open image:\n"
 "%1"
 msgstr ""
+"Kuvaa ei voida avata:\n"
+"%1"
 
 #: src/mainwindow.cpp:1986 src/mainwindow.cpp:1995
 msgctxt "MainWindow|"
 msgid "Open image"
-msgstr ""
+msgstr "Avaa kuva"
 
 #: src/mainwindow.cpp:1988
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
-msgstr "Kuvat (*.png *.ico *.svg *.jpg);;Kaikki tiedostot()"
+msgstr ""
+"Kuvat (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;Kaikki tiedostot "
+"(*)"
 
 #: src/mainwindow.ui:14
 msgctxt "MainWindow|"
@@ -711,12 +659,12 @@ msgstr "Peruuta"
 #: src/mainwindow.ui:96 src/mainwindow.ui:99
 msgctxt "MainWindow|"
 msgid "Start/pause saying the source text aloud"
-msgstr ""
+msgstr "Aloita tai keskeytä lähdetekstin puhuminen"
 
 #: src/mainwindow.ui:147 src/mainwindow.ui:150
 msgctxt "MainWindow|"
 msgid "Stop saying the source text aloud"
-msgstr ""
+msgstr "Pysäytä lähdetekstin puhuminen"
 
 #: src/mainwindow.ui:160 src/mainwindow.ui:163
 msgctxt "MainWindow|"
@@ -724,12 +672,9 @@ msgid "Copy source text to the clipboard"
 msgstr "Kopioi lähdeteksti leikepöydälle"
 
 #: src/mainwindow.ui:173 src/mainwindow.ui:176
-#, fuzzy
-#| msgctxt "ShortcutsModel|"
-#| msgid "Recognize text in screen area"
 msgctxt "MainWindow|"
 msgid "Recognize text in an image file"
-msgstr "Tunnista teksti näytön alueelta"
+msgstr "Tunnista teksti kuvatiedostosta"
 
 #: src/mainwindow.ui:186 src/mainwindow.ui:189
 msgctxt "MainWindow|"
@@ -750,17 +695,17 @@ msgstr "Tyhjennä"
 #: src/mainwindow.ui:241 src/mainwindow.ui:247
 msgctxt "MainWindow|"
 msgid "Translation"
-msgstr "Käännös"
+msgstr "Kääntäminen"
 
 #: src/mainwindow.ui:256 src/mainwindow.ui:259
 msgctxt "MainWindow|"
 msgid "Start/pause saying the translated text aloud"
-msgstr ""
+msgstr "Aloita tai keskeytä käännöstekstin puhuminen"
 
 #: src/mainwindow.ui:307 src/mainwindow.ui:310
 msgctxt "MainWindow|"
 msgid "Stop saying the translated text aloud"
-msgstr ""
+msgstr "Pysäytä käännöstekstin puhuminen"
 
 #: src/mainwindow.ui:400 src/mainwindow.ui:403
 msgctxt "MainWindow|"
@@ -785,75 +730,57 @@ msgstr "Sovelluksen asetukset"
 #: src/modulestatus.cpp:271
 msgctxt "ModuleStatus|"
 msgid "Waiting for capture"
-msgstr ""
+msgstr "Odotetaan kaappausta"
 
 #: src/modulestatus.cpp:273
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Select icon"
 msgctxt "ModuleStatus|"
 msgid "Select a region"
-msgstr "Valitse kuvake"
+msgstr "Valitse alue"
 
 #: src/modulestatus.cpp:275
 msgctxt "ModuleStatus|"
 msgid "Recognizing text"
-msgstr ""
+msgstr "Tunnistetaan tekstiä"
 
 #: src/modulestatus.cpp:277
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translation"
 msgctxt "ModuleStatus|"
 msgid "Translating"
-msgstr "Käännös"
+msgstr "Käännetään"
 
 #: src/modulestatus.cpp:279
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Unable to detect language"
 msgctxt "ModuleStatus|"
 msgid "Detecting language"
-msgstr "Ei voi tunnistaa kieltä"
+msgstr "Tunnistetaan kieltä"
 
 #: src/modulestatus.cpp:281
 msgctxt "ModuleStatus|"
 msgid "Preparing speech"
-msgstr ""
+msgstr "Valmistellaan puhetta"
 
 #: src/modulestatus.cpp:283
-#, fuzzy
-#| msgctxt "ShortcutsModel|"
-#| msgid "Stop text speaking"
 msgctxt "ModuleStatus|"
 msgid "Speaking"
-msgstr "Lopeta puhuminen"
+msgstr "Puhutaan"
 
 #: src/modulestatus.cpp:285
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Capture delay:"
 msgctxt "ModuleStatus|"
 msgid "Capture failed"
-msgstr "Kaappauksen viive:"
+msgstr "Kaappaus epäonnistui"
 
 #: src/modulestatus.cpp:287
 msgctxt "ModuleStatus|"
 msgid "OCR failed"
-msgstr ""
+msgstr "Tekstintunnistus epäonnistui"
 
 #: src/modulestatus.cpp:289
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation backend:"
 msgctxt "ModuleStatus|"
 msgid "Translation failed"
-msgstr "Käännösjärjestelmä:"
+msgstr "Kääntäminen epäonnistui"
 
 #: src/modulestatus.cpp:291
 msgctxt "ModuleStatus|"
 msgid "Speech error"
-msgstr ""
+msgstr "Puhevirhe"
 
 #: src/ocr/llmocr.cpp:259
 msgctxt "LlmOcr|"
@@ -862,6 +789,8 @@ msgid ""
 "reasoning instead. Turn on \"Disable reasoning\" for this provider, or pick "
 "a model with a larger context."
 msgstr ""
+"Mallilta loppuivat merkit päättelyyn ennen minkään transkriboimista. Valitse "
+"tälle tarjoajalle ”Poista päättely käytöstä” tai suurempikontekstinen malli."
 
 #: src/ocr/llmocr.cpp:264
 #, qt-format
@@ -871,6 +800,9 @@ msgid ""
 "of its %2 token limit. Try a smaller region, or a model with a larger "
 "context."
 msgstr ""
+"Mallilta loppuivat merkit ennen minkään transkriboimista: kuva käytti %1 "
+"merkkiä %2 merkin rajoituksesta. Valitse pienempi alue tai  "
+"suurempikontekstinen malli."
 
 #: src/ocr/llmocr.cpp:269
 msgctxt "LlmOcr|"
@@ -878,24 +810,24 @@ msgid ""
 "The model ran out of tokens before transcribing anything. Try a smaller "
 "region, or a model with a larger context."
 msgstr ""
+"Mallilta loppuivat merkit ennen minkään transkriboimista. Valitse pienempi "
+"alue tai suurempikontekstinen malli."
 
 #: src/ocr/llmocr.cpp:273 src/ocr/llmocr.cpp:509
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "LlmOcr|"
 msgid "LLM OCR error: %1"
-msgstr "Virhe: %1"
+msgstr "LLM:n tekstintunnistusvirhe: %1"
 
 #: src/ocr/llmocr.cpp:275
 msgctxt "LlmOcr|"
 msgid "The model returned no text for this image."
-msgstr ""
+msgstr "Malli ei palauttanut kuvalle mitään tekstiä."
 
 #: src/ocr/llmocr.cpp:488
 msgctxt "LlmOcr|"
 msgid "LLM OCR request timed out"
-msgstr ""
+msgstr "LLM:n tekstintunnistuspyynnön aikakatkaisu"
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:47
@@ -1033,7 +965,7 @@ msgstr "Tartunta valintalaatikon ulkopuolella"
 #: src/ocr/snippingarea.cpp:903
 msgctxt "SnippingArea|"
 msgid "+ Shift: Magnifier"
-msgstr "+ Shift: Suurennuslasi"
+msgstr "+ Vaihto: Suurennuslasi"
 
 #: src/ocr/snippingarea.cpp:906
 msgctxt "SnippingArea|"
@@ -1053,7 +985,7 @@ msgstr "Nuolinäppäimet"
 #: src/ocr/snippingarea.cpp:907
 msgctxt "SnippingArea|"
 msgid "+ Shift: Move in 1 pixel steps"
-msgstr "+ Shift: Siirrä 1 pikselin askeleissa"
+msgstr "+ Vaihto: Siirrä 1 kuvapisteen askelin"
 
 #: src/ocr/snippingarea.cpp:909
 msgctxt "SnippingArea|"
@@ -1073,7 +1005,7 @@ msgstr "Nuolinäppäimet + Alt"
 #: src/ocr/snippingarea.cpp:910
 msgctxt "SnippingArea|"
 msgid "+ Shift: Resize in 1 pixel steps"
-msgstr "+ Shift: Muuta kokoa 1 pikselin askeleissa"
+msgstr "+ Vaihto: Muuta kokoa 1 kuvapisteen askelin"
 
 #: src/ocr/snippingarea.cpp:912
 msgctxt "SnippingArea|"
@@ -1083,7 +1015,7 @@ msgstr "Tyhjennä valinta:"
 #: src/ocr/snippingarea.cpp:913
 msgctxt "SnippingArea|"
 msgid "Right-click"
-msgstr "Oikea painallus"
+msgstr "Oikea napsautus"
 
 #: src/ocr/snippingarea.cpp:916
 msgctxt "SnippingArea|"
@@ -1110,12 +1042,10 @@ msgstr ""
 "tietoon käytetään ensisijaista näyttöä."
 
 #: src/ocr/tesseractocr.cpp:143
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "%1 is not a valid Tesseract parameter name."
+#, qt-format
 msgctxt "TesseractOcr|"
 msgid "%1 is not a valid Tesseract parameter name."
-msgstr "%1 ei ole oikea Tesseract-moottorin parametrin nimi."
+msgstr "%1 ei ole kelvollinen Tesseract-parametrin nimi."
 
 #: src/onlinetranslator.cpp:273
 #, qt-format
@@ -2231,9 +2161,6 @@ msgid "Swap languages"
 msgstr "Vaihda kielet"
 
 #: src/popupwindow.ui:69 src/popupwindow.ui:72
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Translate"
 msgctxt "PopupWindow|"
 msgid "Translate"
 msgstr "Käännä"
@@ -2241,12 +2168,12 @@ msgstr "Käännä"
 #: src/popupwindow.ui:86 src/popupwindow.ui:89
 msgctxt "PopupWindow|"
 msgid "Start/pause saying the source text aloud"
-msgstr ""
+msgstr "Aloita tai keskeytä lähdetekstin puhuminen"
 
 #: src/popupwindow.ui:134 src/popupwindow.ui:137
 msgctxt "PopupWindow|"
 msgid "Stop saying the source text aloud"
-msgstr ""
+msgstr "Pysäytä lähdetekstin puhuminen"
 
 #: src/popupwindow.ui:144 src/popupwindow.ui:147
 msgctxt "PopupWindow|"
@@ -2256,12 +2183,12 @@ msgstr "Kopioi lähdeteksti leikepöydälle"
 #: src/popupwindow.ui:174 src/popupwindow.ui:177
 msgctxt "PopupWindow|"
 msgid "Start/pause saying the translated text aloud"
-msgstr ""
+msgstr "Aloita tai keskeytä käännöstekstin puhuminen"
 
 #: src/popupwindow.ui:222 src/popupwindow.ui:225
 msgctxt "PopupWindow|"
 msgid "Stop saying the translated text aloud"
-msgstr ""
+msgstr "Pysäytä käännöstekstin puhuminen"
 
 #: src/popupwindow.ui:232 src/popupwindow.ui:235
 msgctxt "PopupWindow|"
@@ -2276,7 +2203,7 @@ msgstr "Kopioi käännös leikepöydälle"
 #: src/settings/appsettings.cpp:700
 msgctxt "AppSettings|"
 msgid "OpenAI-compatible (custom)"
-msgstr ""
+msgstr "OpenAI-yhteensopiva (mukautettu)"
 
 #: src/settings/appsettings.cpp:1538
 #, qt-format
@@ -2357,7 +2284,7 @@ msgstr "Kuvakkeet:"
 #: src/settings/settingsdialog.cpp:217
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
-msgstr "OCR-parametrit eivät voi olla tyhjiä."
+msgstr "Tekstintunnistusparametrit eivät voi olla tyhjiä."
 
 #: src/settings/settingsdialog.cpp:218
 msgctxt "SettingsDialog|"
@@ -2367,90 +2294,78 @@ msgstr "Haluatko hylätä virheelliset parametrit?"
 #: src/settings/settingsdialog.cpp:351 src/settings/settingsdialog.cpp:521
 msgctxt "SettingsDialog|"
 msgid "URL:"
-msgstr ""
+msgstr "Verkko-osoite:"
 
 #: src/settings/settingsdialog.cpp:355 src/settings/settingsdialog.cpp:525
 msgctxt "SettingsDialog|"
 msgid "Key:"
-msgstr ""
+msgstr "Avain:"
 
 #: src/settings/settingsdialog.cpp:359 src/settings/settingsdialog.cpp:530
 msgctxt "SettingsDialog|"
 msgid "optional, e.g. for a cloud endpoint"
-msgstr ""
+msgstr "valinnainen, esim. pilven päätepisteelle"
 
 #: src/settings/settingsdialog.cpp:360 src/settings/settingsdialog.cpp:531
 msgctxt "SettingsDialog|"
 msgid "Refresh models"
-msgstr ""
+msgstr "Virkistä mallit"
 
 #: src/settings/settingsdialog.cpp:378
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Translation model:"
-msgstr "Käännöstila:"
+msgstr "Käännösmalli:"
 
 #: src/settings/settingsdialog.cpp:386 src/settings/settingsdialog.cpp:504
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Show timeout:"
 msgctxt "SettingsDialog|"
 msgid "Timeout:"
-msgstr "Näytä aikakatkaisu:"
+msgstr "Aikakatkaisu:"
 
 #: src/settings/settingsdialog.cpp:390 src/settings/settingsdialog.cpp:509
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid " ms"
 msgctxt "SettingsDialog|"
 msgid " s"
-msgstr " ms"
+msgstr " s"
 
 #: src/settings/settingsdialog.cpp:391
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a translation or detection response."
-msgstr ""
+msgstr "Odottelun enimmäisaika käännös- tai tunnistusvastaukselle."
 
 #: src/settings/settingsdialog.cpp:396
 msgctxt "SettingsDialog|"
 msgid "Disable reasoning"
-msgstr ""
+msgstr "Poista päättely käytöstä"
 
 #: src/settings/settingsdialog.cpp:403
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Placeholders: %1"
-msgstr ""
+msgstr "Paikkamerkit: %1"
 
 #: src/settings/settingsdialog.cpp:406
 msgctxt "SettingsDialog|"
 msgid "Reset Text prompt"
-msgstr ""
+msgstr "Tyhjennä tekstikehote"
 
 #: src/settings/settingsdialog.cpp:468
 msgctxt "SettingsDialog|"
 msgid "OCR engine:"
-msgstr ""
+msgstr "Tekstintunnistusmoottori:"
 
 #: src/settings/settingsdialog.cpp:472
 msgctxt "SettingsDialog|"
 msgid "Tesseract"
-msgstr ""
+msgstr "Tesseract"
 
 #: src/settings/settingsdialog.cpp:473
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Vision model (LLM)"
-msgstr "Käännöstila:"
+msgstr "Vision-malli (LLM)"
 
 #: src/settings/settingsdialog.cpp:483
 msgctxt "SettingsDialog|"
 msgid "Tesseract runs locally. Configure languages and parameters below."
-msgstr ""
+msgstr "Tesseract suoritetaan paikallisena. Aseta kielet ja parametrit alla."
 
 #: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:808
 msgctxt "SettingsDialog|"
@@ -2460,32 +2375,34 @@ msgstr "Tarjoaja:"
 #: src/settings/settingsdialog.cpp:510
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a transcription response."
-msgstr ""
+msgstr "Odottelun enimmäisaika transkriptiovastaukselle."
 
 #: src/settings/settingsdialog.cpp:541
 msgctxt "SettingsDialog|"
 msgid "Model:"
-msgstr ""
+msgstr "Malli:"
 
 #: src/settings/settingsdialog.cpp:555
 msgctxt "SettingsDialog|"
 msgid "Reset OCR prompt"
-msgstr ""
+msgstr "Tyhjennä tekstintunnistuskehote"
 
 #: src/settings/settingsdialog.cpp:616
 msgctxt "SettingsDialog|"
 msgid "— Server reports image support —"
-msgstr ""
+msgstr "– Palvelin ilmoittaa kuvatuesta –"
 
 #: src/settings/settingsdialog.cpp:620
 msgctxt "SettingsDialog|"
 msgid "— Image support not reported —"
-msgstr ""
+msgstr "– Kuvatukea ei ilmoitettu –"
 
 #: src/settings/settingsdialog.cpp:633
 msgctxt "SettingsDialog|"
 msgid "No models loaded yet — press \"Refresh models\", or type a model name."
 msgstr ""
+"Malleja ei ole vielä ladattu: napsauta ”Virkistä mallit” tai anna mallin "
+"nimi."
 
 #: src/settings/settingsdialog.cpp:635
 msgctxt "SettingsDialog|"
@@ -2493,6 +2410,8 @@ msgid ""
 "This endpoint does not report model capabilities, so image support cannot be "
 "verified here. Pick a model you know accepts images."
 msgstr ""
+"Tämä päätepiste ei ilmoita mallin kykyjä, joten kuvatukea ei voi todentaa. "
+"Valitse malli, jonka tiedät hyväksyvän kuvia."
 
 #: src/settings/settingsdialog.cpp:638
 msgctxt "SettingsDialog|"
@@ -2500,32 +2419,32 @@ msgid ""
 "The server reported no image-capable models. A model listed here may still "
 "work, but recognition will fail if it cannot accept images."
 msgstr ""
+"Palvelin ilmoittaa, ettei kuviin kykeneviä malleja ole. Tässä annettu malli "
+"voi silti toimia, mutta tunnistus saattaa epäonnistua, jollei se hyväksykään "
+"kuvia."
 
 #: src/settings/settingsdialog.cpp:641
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "%n model(s) reported as image-capable."
 msgid_plural "%n model(s) reported as image-capable."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%n malli ilmoittaa kykenevänsä kuviin"
+msgstr[1] "%n mallia ilmoittaa kykenevänsä kuviin"
 
 #: src/settings/settingsdialog.cpp:699
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
 msgctxt "SettingsDialog|"
 msgid "Vision model"
-msgstr "Käännöstila:"
+msgstr "Vision-malli"
 
 #: src/settings/settingsdialog.cpp:699
 msgctxt "SettingsDialog|"
 msgid "Enter the endpoint URL first."
-msgstr ""
+msgstr "Anna ensin päätepisteen verkko-osoite."
 
 #: src/settings/settingsdialog.cpp:709 src/settings/settingsdialog.cpp:929
 msgctxt "SettingsDialog|"
 msgid "No models found."
-msgstr ""
+msgstr "Malleja ei löytynyt."
 
 #: src/settings/settingsdialog.cpp:722 src/settings/settingsdialog.cpp:916
 #, qt-format
@@ -2548,7 +2467,7 @@ msgstr "Kuvat (*.png *.ico *.svg *.jpg);;Kaikki tiedostot()"
 #: src/settings/settingsdialog.cpp:1030 src/settings/settingsdialog.ui:1062
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
-msgstr "Valitse OCR-kielten polku"
+msgstr "Valitse tekstintunnistuskielten sijainti"
 
 #: src/settings/settingsdialog.cpp:1045
 msgctxt "SettingsDialog|"
@@ -2588,7 +2507,7 @@ msgstr "Käyttöliittymä"
 #: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:844
 msgctxt "SettingsDialog|"
 msgid "Translation"
-msgstr "Käännös"
+msgstr "Kääntäminen"
 
 #: src/settings/settingsdialog.ui:73
 msgctxt "SettingsDialog|"
@@ -2903,26 +2822,21 @@ msgstr "<html><head/><body><p>Valitse kuvake</p></body></html>"
 #: src/settings/settingsdialog.ui:635
 msgctxt "SettingsDialog|"
 msgid "Status bar"
-msgstr ""
+msgstr "Tilarivi"
 
 #: src/settings/settingsdialog.ui:641
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "<html><head/><body><p>Start application minimized to the system tray</p></"
-#| "body></html>"
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/<body><p>Show what the application is currently doing at the "
 "bottom of the main and pop-up windows</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Käynnistä pienennettynä tehtäväpalkin "
-"ilmoitusalueelle</p></body></html>"
+"<html><head/><body><p>Näytä pää- ja ponnahdusikkunoiden alalaidassa, mitä "
+"sovellus paraikaa tekee</p></body></html>"
 
 #: src/settings/settingsdialog.ui:644
 msgctxt "SettingsDialog|"
 msgid "Show status bar"
-msgstr ""
+msgstr "Näytä tilarivi"
 
 #: src/settings/settingsdialog.ui:680
 msgctxt "SettingsDialog|"
@@ -2983,12 +2897,9 @@ msgid "Force translation language detection"
 msgstr "Pakota käännöskielen tunnistus"
 
 #: src/settings/settingsdialog.ui:757
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation provider:"
 msgctxt "SettingsDialog|"
 msgid "Detection provider:"
-msgstr "Käännöstarjoaja:"
+msgstr "Tunnistuksen tarjoaja:"
 
 #: src/settings/settingsdialog.ui:764 src/settings/settingsdialog.ui:781
 msgctxt "SettingsDialog|"
@@ -2997,14 +2908,14 @@ msgid ""
 "Auto. If no detection model is selected, translation falls back to the "
 "configured primary language above."
 msgstr ""
+"Lähdekielen tunnistamiseen käytettävä tarjoaja ja malli, kun se on asetettu "
+"automaattiseksi. Ellei tunnistusmallia ole valittu, kääntäminen palaa yllä "
+"asetettuun ensisijaiseen kieleen."
 
 #: src/settings/settingsdialog.ui:771
-#, fuzzy
-#| msgctxt "SnippingArea|"
-#| msgid "DPI Detection Error"
 msgctxt "SettingsDialog|"
 msgid "Detection model:"
-msgstr "DPI-tunnistusvirhe"
+msgstr "Tunnistusmalli:"
 
 #: src/settings/settingsdialog.ui:802
 msgctxt "SettingsDialog|"
@@ -3116,6 +3027,8 @@ msgid ""
 "Optional. Required by self-hosted LibreTranslate instances and "
 "libretranslate.com; the Mozhi front-end ignores it."
 msgstr ""
+"Valinnainen. Itse ylläpidetyt LibreTranslate-ilmentymät ja libretranslate."
+"com vaativat tätä; Mozhi-käyttöliittymä ohittaa asetuksen."
 
 #: src/settings/settingsdialog.ui:984
 msgctxt "SettingsDialog|"
@@ -3123,6 +3036,9 @@ msgid ""
 "Talk the direct LibreTranslate REST API to the instance URL instead of the "
 "Mozhi-compatible API; use this for self-hosted LibreTranslate servers."
 msgstr ""
+"Puhu suoraan LibreTranslaten REST-APIlle ilmentymän verkko-osoitteeseen "
+"Mozhi-yhteensopivan APIn sijaan; käytä tätä itse ylläpidetyille "
+"LibreTranslate-palvelimille."
 
 #: src/settings/settingsdialog.ui:1019
 msgctxt "SettingsDialog|"
@@ -3130,6 +3046,8 @@ msgid ""
 "Local OpenAI-compatible servers. Set URL, translation model and prompt for "
 "each. Language detection is configured on the Translation page."
 msgstr ""
+"Paikalliset LocalAI-yhteensopivat palvelimet. Aseta verkko-osoite, "
+"käännösmalli ja kunkin kehote. Kielentunnistus asetetaan Kääntäminen-sivulla."
 
 #: src/settings/settingsdialog.ui:1042
 msgctxt "SettingsDialog|"
@@ -3196,12 +3114,12 @@ msgstr "Muunna rivinvaihdot"
 #: src/settings/settingsdialog.ui:1131
 msgctxt "SettingsDialog|"
 msgid "Add parameter"
-msgstr ""
+msgstr "Lisää parametri"
 
 #: src/settings/settingsdialog.ui:1141
 msgctxt "SettingsDialog|"
 msgid "Remove parameter"
-msgstr ""
+msgstr "Poista parametri"
 
 #: src/settings/settingsdialog.ui:1177
 msgctxt "SettingsDialog|"
@@ -3587,7 +3505,7 @@ msgstr "Lähdeteksti"
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:77
 msgctxt "ShortcutsModel|"
 msgid "Translation"
-msgstr "Käännös"
+msgstr "Kääntäminen"
 
 #: src/settings/shortcutsmodel/shortcutsmodel.cpp:79
 msgctxt "ShortcutsModel|"
@@ -3623,33 +3541,27 @@ msgstr "Arvo"
 #: src/statusstrip.cpp:128 src/statusstrip.cpp:143 src/statusstrip.cpp:144
 msgctxt "StatusStrip|"
 msgid "Ready"
-msgstr ""
+msgstr "Valmis"
 
 #: src/translator/atranslationprovider.cpp:57
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Force source language detection"
 msgctxt "ATranslationProvider|"
 msgid "Unsupported source language."
-msgstr "Pakota lähdekielen tunnistus"
+msgstr "Ei-tuettu lähdekieli."
 
 #: src/translator/atranslationprovider.cpp:59
 msgctxt "ATranslationProvider|"
 msgid "Unsupported destination language."
-msgstr ""
+msgstr "Ei-tuettu kohdekieli."
 
 #: src/translator/atranslationprovider.cpp:61
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Enable translation options"
 msgctxt "ATranslationProvider|"
 msgid "User aborted translation in progress"
-msgstr "Käytä käännösvalintoja"
+msgstr "Käyttäjä keskeytti meneillään olleen kääntämisen"
 
 #: src/translator/atranslationprovider.cpp:65
 msgctxt "ATranslationProvider|"
 msgid "Unknown error"
-msgstr ""
+msgstr "Tuntematon virhe"
 
 #: src/translator/atranslationprovider.cpp:115
 msgctxt "QObject|"
@@ -3668,12 +3580,9 @@ msgstr ""
 "valitsimella asetuksista ”Käännös”."
 
 #: src/translator/localaitranslationprovider.cpp:149
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected translation language %1 is not supported for %2"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Destination language is not supported"
-msgstr "%2 ei tue valittua käännöskieltä %1"
+msgstr "Kohdekieltä ei tueta"
 
 #: src/translator/localaitranslationprovider.cpp:301
 #, qt-format
@@ -3684,6 +3593,10 @@ msgid ""
 "reasoning instead of answering. Turn on \"Disable reasoning\" for this "
 "provider, translate less text at once, or pick a model with a larger context."
 msgstr ""
+"Mallilta loppuivat merkit ennen käännöksen kirjoittamista: käännettävä "
+"teksti käytti %1 %2 merkin rajoituksesta ja jäljellä olevat päättelyyn "
+"vastaamisen sijaan. Valitse tälle tarjoajalle ”Poista päättely käytöstä”, "
+"käännä vähemmän kerrallaan tai valitse suurempikontekstinen malli."
 
 #: src/translator/localaitranslationprovider.cpp:309
 msgctxt "LocalAiTranslationProvider|"
@@ -3692,6 +3605,9 @@ msgid ""
 "translation. Turn on \"Disable reasoning\" for this provider, translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
+"Malli käytti koko merkkimääränsä päättelyyn eikä koskaan kirjoittanut "
+"käännöstä. Valitse tälle tarjoajalle ”Poista päättely käytöstä”, käännä "
+"vähemmän kerrallaan tai valitse suurempikontekstinen malli."
 
 #: src/translator/localaitranslationprovider.cpp:317
 #, qt-format
@@ -3701,6 +3617,9 @@ msgid ""
 "translate used %1 of its %2 token limit. Translate less text at once, or "
 "pick a model with a larger context."
 msgstr ""
+"Mallilta loppuivat merkit ennen käännöksen kirjoittamista: käännettävä "
+"teksti käytti %1 %2 merkin rajoituksesta. Käännä vähemmän kerrallaan tai "
+"valitse suurempikontekstinen malli."
 
 #: src/translator/localaitranslationprovider.cpp:324
 msgctxt "LocalAiTranslationProvider|"
@@ -3708,104 +3627,83 @@ msgid ""
 "The model ran out of tokens before writing a translation. Translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
+"Mallilta loppuivat merkit ennen käännöksen kirjoittamista. Käännä vähemmän "
+"kerrallaan tai valitse suurempikontekstinen malli."
 
 #: src/translator/localaitranslationprovider.cpp:330
 #: src/translator/localaitranslationprovider.cpp:369
 #: src/translator/localaitranslationprovider.cpp:370
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: %1"
+#, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI error: %1"
-msgstr "Virhe: %1"
+msgstr "LocalAI-virhe: %1"
 
 #: src/translator/localaitranslationprovider.cpp:333
 msgctxt "LocalAiTranslationProvider|"
 msgid "The model returned an empty response."
-msgstr ""
+msgstr "Malli palautti tyhjän vastauksen."
 
 #: src/translator/localaitranslationprovider.cpp:354
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI request timed out"
-msgstr ""
+msgstr "LocalAI-pyynnön aikakatkaisu"
 
 #: src/translator/localaitranslationprovider.cpp:412
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Language detection is not supported for %1"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Language detection timed out"
-msgstr "%1 ei tue kielentunnistusta"
+msgstr "Kielentunnistuksen aikakatkaisu"
 
 #: src/translator/localaitranslationprovider.cpp:473
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "LocalAiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Käyttäjä keskeytti toimenpiteen"
+msgstr "Käyttäjä keskeytti kääntämisen"
 
 #: src/translator/mozhitranslationprovider.cpp:78
-#, fuzzy
-#| msgctxt "OnlineTranslator|"
-#| msgid "Operation aborted by user"
 msgctxt "MozhiTranslationProvider|"
 msgid "Translation aborted by user"
-msgstr "Käyttäjä keskeytti toimenpiteen"
+msgstr "Käyttäjä keskeytti kääntämisen"
 
 #: src/translator/mozhitranslationprovider.cpp:139
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected translation language %1 is not supported for %2"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Destination language '%1' is not supported"
-msgstr "%2 ei tue valittua käännöskieltä %1"
+msgstr "Kohdekieltä ”%1” ei tueta"
 
 #: src/translator/mozhitranslationprovider.cpp:147
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Selected source language %1 is not supported for %2"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Source language '%1' is not supported"
-msgstr "%2 ei tue valittua lähdekieltä %1"
+msgstr "Lähdekieltä ”%1” ei tueta"
 
 #: src/translator/mozhitranslationprovider.cpp:204
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Network error: %1"
-msgstr "Ilmentymävirhe: %1"
+msgstr "Verkkovirhe: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:208
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Instance error: %1"
 msgstr "Ilmentymävirhe: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:212
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Parsing error: %1"
-msgstr "Ilmentymävirhe: %1"
+msgstr "Jäsennysvirhe: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:216
 #, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unsupported TTS engine: %1"
-msgstr ""
+msgstr "Ei-tuettu puhesynteesimoottori: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:220
-#, fuzzy, qt-format
-#| msgctxt "OnlineTranslator|"
-#| msgid "Instance error: %1"
+#, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unknown error: %1"
-msgstr "Ilmentymävirhe: %1"
+msgstr "Tuntematon virhe: %1"
 
 #: src/trayicon.cpp:26 src/trayicon.cpp:65
 msgctxt "TrayIcon|"
@@ -3820,17 +3718,17 @@ msgstr "Asetukset"
 #: src/trayicon.cpp:28 src/trayicon.cpp:68
 msgctxt "TrayIcon|"
 msgid "Quit"
-msgstr "Sulje"
+msgstr "Lopeta"
 
 #: src/trayicon.cpp:30 src/trayicon.cpp:67
 msgctxt "TrayIcon|"
 msgid "Report Bug…"
-msgstr ""
+msgstr "Ilmoita viasta…"
 
 #: src/trayicon.cpp:73
 msgctxt "TrayIcon|"
 msgid "Translation result"
-msgstr "Käännöksen tulos"
+msgstr "Käännöstulos"
 
 #: src/tts/attsprovider.cpp:72
 msgctxt "QObject|"
