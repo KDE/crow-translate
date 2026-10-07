@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-09-06 19:04+0300\n"
+"PO-Revision-Date: 2026-10-06 20:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -76,8 +76,8 @@ msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
 "settings will be used by default."
 msgstr ""
-"Metin Konuşma sağlayıcısını belirt (“none”, “mozhi”, “qt” veya “piper”). "
-"Öntanımlı olarak uygulama ayarlarındaki sağlayıcı kullanılır."
+"Konuşma sağlayıcısını belirt (“none”, “mozhi”, “qt” veya “piper”). Öntanımlı "
+"olarak uygulama ayarlarındaki sağlayıcı kullanılır."
 
 #: src/cli.cpp:147
 msgctxt "Cli|"
@@ -85,15 +85,14 @@ msgid ""
 "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
 "will be used by default."
 msgstr ""
-"Metin Konuşma sağlayıcısını belirt (“none”, “mozhi” veya “qt”). Öntanımlı "
-"olarak uygulama ayarlarındaki sağlayıcı kullanılır."
+"Konuşma sağlayıcısını belirt (“none”, “mozhi” veya “qt”). Öntanımlı olarak "
+"uygulama ayarlarındaki sağlayıcı kullanılır."
 
 #: src/cli.cpp:149
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
-"Metin Konuşma sağlayıcısını belirt (“none”). Bu yapıda metin konuşma devre "
-"dışıdır."
+"Konuşma sağlayıcısını belirt (“none”). Bu yapıda konuşma devre dışıdır."
 
 #: src/cli.cpp:152
 msgctxt "Cli|"
@@ -161,8 +160,7 @@ msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
 msgstr ""
-"Çeşitli sağlayıcıları kullanarak çeviri yapmak ve metin konuşmak için bir "
-"uygulama"
+"Çeşitli sağlayıcıları kullanarak çeviri yapmak ve konuşmak için bir uygulama"
 
 #: src/cli.cpp:174
 msgctxt "Cli|"
@@ -221,7 +219,7 @@ msgstr "En hızlı örnek algılanıyor"
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
-msgstr "Hata: Bilinmeyen metin konuşma sağlayıcısı “%1”"
+msgstr "Hata: Bilinmeyen konuşma sağlayıcısı “%1”"
 
 #: src/cli.cpp:428
 #, qt-format
@@ -271,7 +269,7 @@ msgstr "Bilinmeyen hata"
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
-msgstr "Hata: Metin konuşma yapılamadı: %1"
+msgstr "Hata: Konuşma yapılamadı: %1"
 
 #: src/cli.cpp:721
 msgctxt "Cli|"
@@ -292,7 +290,7 @@ msgstr "Seçili sağlayıcıda kullanılabilir ses yok"
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
-msgstr "Hata: Metin konuşma kullanılamıyor: %1"
+msgstr "Hata: Konuşma kullanılamıyor: %1"
 
 #: src/cli.cpp:830
 msgctxt "Cli|"
@@ -547,7 +545,7 @@ msgstr "Belirtilen simge “%1” geçersiz. Öntanımlı simge kullanılacak."
 #: src/mainwindow.cpp:1028
 msgctxt "MainWindow|"
 msgid "TTS Error"
-msgstr "Metin Konuşma Hatası"
+msgstr "Konuşma Hatası"
 
 #: src/mainwindow.cpp:1028
 #, qt-format
@@ -559,12 +557,11 @@ msgid ""
 "\n"
 "Please check your TTS settings or try a different voice/locale."
 msgstr ""
-"Metin konuşma hatası:\n"
+"Konuşma hatası:\n"
 "\n"
 "%1\n"
 "\n"
-"Metin konuşma ayarlarınızı denetleyin veya başka bir ses veya yerel ayar "
-"seçin."
+"Konuşma ayarlarınızı denetleyin veya başka bir ses veya yerel ayar seçin."
 
 #: src/mainwindow.cpp:1060 src/mainwindow.cpp:1066
 #, qt-format
@@ -1041,7 +1038,7 @@ msgstr "İşlem, kullanıcı tarafından durduruldu"
 #, qt-format
 msgctxt "OnlineTranslator|"
 msgid "%1 engine does not support TTS"
-msgstr "%1 işletkesi metin konuşmayı desteklemiyor"
+msgstr "%1 işletkesi konuşmayı desteklemiyor"
 
 #: src/onlinetranslator.cpp:522
 msgctxt "OnlineTranslator|"
@@ -2498,7 +2495,7 @@ msgstr "Çeviri"
 #: src/settings/settingsdialog.ui:73
 msgctxt "SettingsDialog|"
 msgid "Text-To-Speech"
-msgstr "Metin Konuşma"
+msgstr "Konuşma"
 
 #: src/settings/settingsdialog.ui:81
 msgctxt "SettingsDialog|"
@@ -2911,7 +2908,7 @@ msgstr "Algılama modeli:"
 #: src/settings/settingsdialog.ui:802
 msgctxt "SettingsDialog|"
 msgid "Text-to-Speech"
-msgstr "Metin Konuşma"
+msgstr "Konuşma"
 
 #: src/settings/settingsdialog.ui:850
 msgctxt "SettingsDialog|"
@@ -3693,7 +3690,7 @@ msgstr "Ayrıştırma hatası: %1"
 #, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unsupported TTS engine: %1"
-msgstr "Desteklenmeyen metin konuşma işletkesi: %1"
+msgstr "Desteklenmeyen konuşma işletkesi: %1"
 
 #: src/translator/mozhitranslationprovider.cpp:220
 #, qt-format
@@ -3729,7 +3726,7 @@ msgstr "Çeviri Sonucu"
 #: src/tts/attsprovider.cpp:72
 msgctxt "QObject|"
 msgid "TTS Provider Error"
-msgstr "Metin Konuşma Sağlayıcısı Hatası"
+msgstr "Konuşma Sağlayıcısı Hatası"
 
 #: src/tts/attsprovider.cpp:73
 msgctxt "QObject|"
@@ -3738,9 +3735,9 @@ msgid ""
 "to 'None' to prevent further issues. You can try selecting a different "
 "provider in Settings → TTS."
 msgstr ""
-"Seçili metin konuşma sağlayıcısı ilklendirme sırasında çöktü ve daha fazla "
-"sorunu engellemek adına “Yok” olarak sıfırlandı. “Ayarlar → Metin Konuşma” "
-"altında farklı bir sağlayıcı seçmeyi deneyebilirsiniz."
+"Seçili konuşma sağlayıcısı ilklendirme sırasında çöktü ve daha fazla sorunu "
+"engellemek adına “Yok” olarak sıfırlandı. “Ayarlar → Konuşma” altında farklı "
+"bir sağlayıcı seçmeyi deneyebilirsiniz."
 
 #: src/tts/mozhittsprovider.cpp:48
 msgctxt "MozhiTTSProvider|"
@@ -3779,7 +3776,7 @@ msgstr "Mozhi örneği başarısız oldu: %1 (HTTP 4XX istemcisi hatası)"
 #: src/tts/piperttsprovider.cpp:115
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize Piper TTS"
-msgstr "Piper Metin Konuşma ilklendirilemedi"
+msgstr "Piper Konuşma ilklendirilemedi"
 
 #: src/tts/piperttsprovider.cpp:121
 #, qt-format
@@ -3806,7 +3803,7 @@ msgstr "ONNX çalışma zaman ilklendirme hatası: %1"
 #: src/tts/piperttsprovider.cpp:300
 msgctxt "PiperTTSProvider|"
 msgid "Could not disable neural TTS telemetry"
-msgstr "Sinirsel metin konuşma telemetrisi devre dışı bırakılamadı."
+msgstr "Sinirsel konuşma telemetrisi devre dışı bırakılamadı."
 
 #: src/tts/piperttsprovider.cpp:301
 msgctxt "PiperTTSProvider|"
@@ -3862,13 +3859,13 @@ msgid ""
 "model before commercial use.</p>"
 msgstr ""
 "<h3>Piper Ses Modelleri Bulunamadı</h3><p>Standart konumlarda herhangi bir "
-"Piper Metin Konuşma ses modelleri bulunamadı.</p><p><b>Piper metin konuşmayı "
-"kullanmak için:</b></p><ol><li><a href='https://huggingface.co/rhasspy/piper-"
+"Piper Konuşma ses modelleri bulunamadı.</p><p><b>Piper konuşmayı kullanmak "
+"için:</b></p><ol><li><a href='https://huggingface.co/rhasspy/piper-"
 "voices'>HuggingFace Piper Voices</a> konumundan ses modellerini indirin</"
-"li><li>Modelleri bir dizine çıkarın</li><li>“Ayarlar → Metin Konuşma → Piper "
+"li><li>Modelleri bir dizine çıkarın</li><li>“Ayarlar → Konuşma → Piper "
 "sesleri yolu” içinde yolu ayarlayın</li></ol><p><b>⚠️ Lisans uyarısı:</b> "
-"Bazı modellerin lisansı özgür olmayabilir ve ticarî ortamlarda kullanılamaz "
-"olabilirler. Ticarî kullanımdan önce her bir modelin lisansına bakmayı "
+"Bazı modellerin lisansı özgür olmayabilir ve ticârî ortamlarda kullanılamaz "
+"olabilirler. Ticârî kullanımdan önce her bir modelin lisansına bakmayı "
 "unutmayın.</p>"
 
 #: src/tts/piperttsprovider.cpp:1409
@@ -3882,7 +3879,7 @@ msgid ""
 "No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
 "Piper Voices Path."
 msgstr ""
-"Bulunan Piper Metin Konuşma modeli yok. Ayarlar → TTS → Piper Sesleri Yolu "
+"Bulunan Piper Konuşma modeli yok. Ayarlar → Konuşma → Piper Sesleri Yolu "
 "konumunda yolu ayarlayın."
 
 #: src/tts/qtttsprovider.cpp:325
@@ -3899,26 +3896,26 @@ msgid ""
 "TTS. \"Narrator voices\" have licensing restrictions that are incompatible "
 "with this application.</p>"
 msgstr ""
-"<h3>Windows Metin Konuşma Sesi Bulunamadı</h3><p>%1 için herhangi bir "
-"Windows metin konuşma sesi bulunamadı</b>.</p><p><b>Ek diller kurmak için:</"
-"b></p><ol><li><b>Ayarlar → Zaman ve Dil → Dil ve Bölge</b> ayarlarını açın</"
+"<h3>Windows Konuşma Sesi Bulunamadı</h3><p>%1 için herhangi bir Windows "
+"metin konuşma sesi bulunamadı</b>.</p><p><b>Ek diller kurmak için:</b></"
+"p><ol><li><b>Ayarlar → Zaman ve Dil → Dil ve Bölge</b> ayarlarını açın</"
 "li><li><b>Dil ekle</b> seçeneğine tıklayın ve istediğiniz dili seçin</"
 "li><li>Kurulu dile tıklayın ve <b>Dil seçenekleri</b> sayfasını açın</"
 "li><li><b>Konuşma</b> altında, konuşma paketi için <b>İndir</b> düğmesine "
-"tıklayın</li></ol><p><b>⚠️ Lisans notu:</b> Crow Çeviri şu anda Windows Metin "
+"tıklayın</li></ol><p><b>⚠️ Lisans notu:</b> Crow Çeviri şu anda Windows "
 "Konuşma altında yalnızca “Temel ses modelleri”ni destekler. “Seslendirici "
 "sesleri”nde bu uygulama ile uyumsuz lisans kısıtlamaları bulunmaktadır.</p>"
 
 #: src/tts/qtttsprovider.cpp:341
 msgctxt "QtTTSProvider|"
 msgid "Windows TTS Voice Installation"
-msgstr "Windows Metin Konuşma Sesi Kurulumu"
+msgstr "Windows Konuşma Sesi Kurulumu"
 
 #: src/tts/qtttsprovider.cpp:342
 #, qt-format
 msgctxt "QtTTSProvider|"
 msgid "No Windows TTS voice is installed for %1."
-msgstr "%1 için hiçbir Windows TTS sesi kurulu değil."
+msgstr "%1 için hiçbir Windows Konuşma sesi kurulu değil."
 
 #~ msgctxt "PiperTTSProvider|"
 #~ msgid "Privacy Notice - Neural TTS"
