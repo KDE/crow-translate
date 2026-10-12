@@ -1,5 +1,5 @@
 [Desktop Entry]
-Actions=TranslateSelectedText;SpeakSelection;SpeakTranslatedSelection;StopSpeaking;Open;CopyTranslatedSelection;TranslateScreenArea;RecognizeScreenArea;ToggleOcrNegate;
+Actions=TranslateSelectedText;SpeakSelection;SpeakTranslatedSelection;StopSpeaking;Open;CopyTranslatedSelection;TranslateScreenArea;RecognizeScreenArea;ToggleOcrNegate;ClearText;
 Name=Crow Translate
 Name[ar]=غراب
 Name[az]=Crow Translate
@@ -459,3 +459,8 @@ Name[ta]=உரையைக் கண்டறியுமுன் திரை
 Name[tr]=OCR öncesi yakalanan görseli negatife çevirme seçeneğini aç/kapat
 Name[uk]=Увімкнути або вимкнути створення негатива (інвертування) знятого зображення до оптичного розпізнавання
 Name[zh_TW]=切換在 OCR 前是否要反轉剛截取的圖片（負片效果）
+
+[Desktop Action ClearText]
+Exec=@QT_BIN_DIR@/qdbus org.kde.CrowTranslate /org/kde/CrowTranslate/MainWindow clearText
+Name=Clear the source and translation fields
+X-KDE-Shortcuts=Ctrl+Alt+X

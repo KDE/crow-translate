@@ -94,9 +94,9 @@ public slots:
     Q_SCRIPTABLE static void quit();
     Q_SCRIPTABLE void openSettings();
     Q_SCRIPTABLE void toggleOcrNegate();
+    Q_SCRIPTABLE void clearText();
 
 private:
-    Q_SCRIPTABLE void clearText();
     void loadMainWindowSettings();
     void saveMainWindowSettings();
     QHotkey *m_translateSelectionHotkey = nullptr;
