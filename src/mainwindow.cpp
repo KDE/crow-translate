@@ -523,6 +523,7 @@ Q_SCRIPTABLE void MainWindow::speakSelection()
             if (!selectedText.isEmpty() && m_session->tts()) {
                 const Language sourceLanguage = spokenSourceLanguage();
                 m_session->tts()->setLanguage(sourceLanguage);
+                applySelectedVoiceAndSpeaker(true);
                 m_session->tts()->say(selectedText);
             }
             disconnect(*selectionConnection);
@@ -544,6 +545,7 @@ Q_SCRIPTABLE void MainWindow::speakTranslatedSelection()
     if (!translationText.isEmpty() && (m_session->tts() != nullptr)) {
         const Language translationLanguage = spokenTranslationLanguage();
         m_session->tts()->setLanguage(translationLanguage);
+        applySelectedVoiceAndSpeaker(false);
         m_session->tts()->say(translationText);
     }
 }
@@ -1357,6 +1359,33 @@ void MainWindow::updateProviderUI()
 #endif
 }
 
+// The one place that answers "which voice and speaker does the user want".
+void MainWindow::applySelectedVoiceAndSpeaker(bool forSource)
+{
+    if (m_session->tts() == nullptr) {
+        return;
+    }
+
+    const ProviderCapabilities reqs = m_session->tts()->capabilities();
+
+    QComboBox *voiceCombo = forSource ? ui->sourceVoiceComboBox : ui->translationVoiceComboBox;
+    if (reqs.testFlag(ProviderCapability::VoiceSelection) && voiceCombo->currentData().isValid()) {
+        m_session->tts()->setVoice(voiceCombo->currentData().value<Voice>());
+    }
+
+    QComboBox *speakerCombo = forSource ? ui->sourceSpeakerComboBox : ui->translationSpeakerComboBox;
+    if (reqs.testFlag(ProviderCapability::SpeakerSelection) && speakerCombo->count() > 0) {
+        const QString speaker = speakerCombo->currentText();
+        if (!speaker.isEmpty()) {
+            auto options = m_session->options()->createTTSOptionsFromSettings(m_session->tts());
+            if (options) {
+                options->setOption("speaker", speaker);
+                m_session->tts()->applyOptions(*options);
+            }
+        }
+    }
+}
+
 void MainWindow::refreshVoicesForSpokenLanguages()
 {
     if (m_session->tts() == nullptr) {
@@ -1554,23 +1583,7 @@ void MainWindow::sourcePlayPauseClicked()
 
     const Language sourceLanguage = spokenSourceLanguage();
     m_session->tts()->setLanguage(sourceLanguage);
-    const ProviderCapabilities reqs = m_session->tts()->capabilities();
-    if (reqs.testFlag(ProviderCapability::VoiceSelection) && ui->sourceVoiceComboBox->currentData().isValid()) {
-        const Voice voice = ui->sourceVoiceComboBox->currentData().value<Voice>();
-        m_session->tts()->setVoice(voice);
-    }
-
-    // Apply speaker selection for source TTS
-    if (reqs.testFlag(ProviderCapability::SpeakerSelection) && ui->sourceSpeakerComboBox->count() > 0) {
-        const QString speaker = ui->sourceSpeakerComboBox->currentText();
-        if (!speaker.isEmpty()) {
-            auto options = m_session->options()->createTTSOptionsFromSettings(m_session->tts());
-            if (options) {
-                options->setOption("speaker", speaker);
-                m_session->tts()->applyOptions(*options);
-            }
-        }
-    }
+    applySelectedVoiceAndSpeaker(true);
 
     if (m_session->tts()->state() == QTextToSpeech::Speaking) {
         m_session->tts()->pause();
@@ -1601,23 +1614,7 @@ void MainWindow::translationPlayPauseClicked()
 
     const Language translationLanguage = spokenTranslationLanguage();
     m_session->tts()->setLanguage(translationLanguage);
-    const ProviderCapabilities reqs = m_session->tts()->capabilities();
-    if (reqs.testFlag(ProviderCapability::VoiceSelection) && ui->translationVoiceComboBox->currentData().isValid()) {
-        const Voice voice = ui->translationVoiceComboBox->currentData().value<Voice>();
-        m_session->tts()->setVoice(voice);
-    }
-
-    // Apply speaker selection for translation TTS
-    if (reqs.testFlag(ProviderCapability::SpeakerSelection) && ui->translationSpeakerComboBox->count() > 0) {
-        const QString speaker = ui->translationSpeakerComboBox->currentText();
-        if (!speaker.isEmpty()) {
-            auto options = m_session->options()->createTTSOptionsFromSettings(m_session->tts());
-            if (options) {
-                options->setOption("speaker", speaker);
-                m_session->tts()->applyOptions(*options);
-            }
-        }
-    }
+    applySelectedVoiceAndSpeaker(false);
 
     if (m_session->tts()->state() == QTextToSpeech::Speaking) {
         m_session->tts()->pause();

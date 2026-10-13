@@ -211,6 +211,10 @@ private slots:
     void on_copyAllTranslationButton_clicked();
     void on_delayedTranslateScreenAreaButton_clicked();
 
+private:
+    // The one place that answers which voice and speaker the user wants.
+    void applySelectedVoiceAndSpeaker(bool forSource);
+
 protected:
     void closeEvent(QCloseEvent *event) override;
 
