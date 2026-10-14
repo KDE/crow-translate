@@ -619,6 +619,7 @@ private:
      * Also Yandex and Bing requires several requests to get dictionary, transliteration etc.
      * We use state machine to rely async computation with signals and slots.
      */
+    void createStateMachine();
     void buildStateMachine();
     void buildDetectStateMachine();
 

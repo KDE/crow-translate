@@ -258,10 +258,17 @@ const QMap<OnlineTranslator::Language, QString> OnlineTranslator::s_mymemory = {
 
 OnlineTranslator::OnlineTranslator(QObject *parent)
     : QObject(parent)
-    , m_stateMachine(new QStateMachine(this))
     , m_networkManager(new QNetworkAccessManager(this))
 {
+    createStateMachine();
+}
+
+void OnlineTranslator::createStateMachine()
+{
+    m_stateMachine = new QStateMachine(this);
     connect(m_stateMachine, &QStateMachine::finished, this, &OnlineTranslator::finished);
+    // A run that fails stops the machine from resetData(); stopped() is how
+    // that failure reaches the listeners.
     connect(m_stateMachine, &QStateMachine::stopped, this, &OnlineTranslator::finished);
 }
 
@@ -303,15 +310,26 @@ void OnlineTranslator::detectLanguage(const QString &text, Engine engine)
 
 void OnlineTranslator::abort()
 {
+    // Each run gets a machine of its own, and the one being dropped is cut
+    // off from this object before anything else happens. It cannot be
+    // silenced in place: QStateMachine starts and stops when control returns
+    // to the event loop, so a machine stopped here still enters its first
+    // state afterwards and would send a request with the next run's
+    // parameters; its stopped() used to be forwarded as finished() and land
+    // in the next run as its result; and aborting the reply below emits
+    // finished() synchronously, which its parsing state would act on.
+    QStateMachine *dropped = m_stateMachine;
+    createStateMachine();
+    dropped->stop();
+    dropped->disconnect(this);
+    for (QAbstractState *state : dropped->findChildren<QAbstractState *>())
+        state->disconnect(this);
+    dropped->deleteLater();
+
     if (m_currentReply != nullptr) {
         m_currentReply->abort();
         m_currentReply->deleteLater();
         m_currentReply = nullptr;
-    }
-
-    // Force stop the state machine
-    if (m_stateMachine->isRunning()) {
-        m_stateMachine->stop();
     }
 
     // Reset to ensure clean state
