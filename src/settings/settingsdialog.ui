@@ -78,7 +78,7 @@
       </item>
       <item>
        <property name="text">
-        <string>Mozhi</string>
+        <string>Mozhi / LibreTranslate</string>
        </property>
        <property name="icon">
         <iconset theme="preferences-desktop-locale"/>
@@ -910,15 +910,25 @@
             <item>
              <widget class="QGroupBox" name="mozhiGroupBox">
               <property name="title">
-               <string notr="true">Mozhi</string>
+               <string notr="true">Mozhi / LibreTranslate</string>
               </property>
               <layout class="QVBoxLayout" name="mozhiGroupBoxLayout">
+               <item>
+                <widget class="QLabel" name="mozhiHelpLabel">
+                 <property name="text">
+                  <string>Mozhi is a privacy front-end that proxies Google, Yandex, Bing, DeepL, LibreTranslate and other engines; choose the engine in the main window. To use your own LibreTranslate server instead, enter its URL here, enable the direct LibreTranslate API and add the API key if the server requires one.</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
                <item>
                 <layout class="QHBoxLayout" name="instanceRowLayout">
                  <item>
                   <widget class="QLabel" name="mozhiUrlLabel">
                    <property name="text">
-                    <string notr="true">URL:</string>
+                    <string>Instance URL:</string>
                    </property>
                   </widget>
                  </item>
@@ -931,7 +941,7 @@
                     </sizepolicy>
                    </property>
                    <property name="toolTip">
-                    <string>Mozhi instance URL</string>
+                    <string>A Mozhi instance, or the URL of a LibreTranslate server when the direct LibreTranslate API is enabled</string>
                    </property>
                    <property name="editable">
                     <bool>true</bool>
@@ -978,7 +988,7 @@
                  <item>
                   <widget class="QCheckBox" name="mozhiDirectCheckBox">
                    <property name="text">
-                    <string notr="true">Use direct LibreTranslate API</string>
+                    <string>Use direct LibreTranslate API</string>
                    </property>
                    <property name="toolTip">
                     <string>Talk the direct LibreTranslate REST API to the instance URL instead of the Mozhi-compatible API; use this for self-hosted LibreTranslate servers.</string>
@@ -1690,7 +1700,7 @@
                <item row="3" column="1">
                 <widget class="QLabel" name="backendLabel">
                  <property name="text">
-                  <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://codeberg.org/aryak/mozhi&quot;&gt;Mozhi&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://codeberg.org/aryak/mozhi&quot;&gt;Mozhi&lt;/a&gt; / &lt;a href=&quot;https://libretranslate.com&quot;&gt;LibreTranslate&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                  <property name="openExternalLinks">
                   <bool>true</bool>

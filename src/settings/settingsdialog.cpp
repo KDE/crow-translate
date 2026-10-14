@@ -150,7 +150,7 @@ SettingsDialog::SettingsDialog(MainWindow *parent)
 
     // Populate translation providers dynamically
     ui->translationProviderComboBox->addItem(tr("Copy"), QVariant::fromValue(ATranslationProvider::ProviderBackend::Copy));
-    ui->translationProviderComboBox->addItem("Mozhi", QVariant::fromValue(ATranslationProvider::ProviderBackend::Mozhi));
+    ui->translationProviderComboBox->addItem(QStringLiteral("Mozhi / LibreTranslate"), QVariant::fromValue(ATranslationProvider::ProviderBackend::Mozhi));
     ui->translationProviderComboBox->addItem("LocalAI", QVariant::fromValue(ATranslationProvider::ProviderBackend::LocalAI));
 
     // Populate TTS providers dynamically
