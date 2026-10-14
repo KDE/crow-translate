@@ -1343,8 +1343,19 @@ void OnlineTranslator::parseTranslate()
     }
 
     // Read Json
-    m_jsonResponse = QJsonDocument::fromJson(m_currentReply->readAll());
+    const QByteArray body = m_currentReply->readAll();
+    m_jsonResponse = QJsonDocument::fromJson(body);
     const QJsonObject jsonData = m_jsonResponse.object();
+
+    // An instance that is rate limited, has an engine unconfigured, or sits
+    // behind a captcha answers 200 with a plain-text or HTML body. Without
+    // the translation key that would quietly become an empty translation.
+    const QString translationKey = (m_engine == LibreTranslate && m_direct) ? QStringLiteral("translatedText") : QStringLiteral("translated-text");
+    if (!jsonData.contains(translationKey)) {
+        const QString reason = QString::fromUtf8(body.left(200)).simplified();
+        resetData(InstanceError, reason.isEmpty() ? tr("Empty response") : reason);
+        return;
+    }
 
     // LibreTranslate returns { "translatedText", "detectedLanguage": { "language" } }
     // instead of Mozhi's { "translated-text", "detected" }.
