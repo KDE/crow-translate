@@ -11,20 +11,19 @@
 #include <QNetworkReply>
 #include <QTimer>
 
+// The clearnet instances from Mozhi's own list, minus the ones that answer
+// API requests with an HTML page (a captcha or bot check, or a site that no
+// longer runs Mozhi): the pinger would score those as healthy, and a
+// translation through them can only fail.
 const QStringList InstancePinger::s_instances = {
     QStringLiteral("https://mozhi.aryak.me"),
-    QStringLiteral("https://translate.bus-hit.me"),
-    QStringLiteral("https://nyc1.mz.ggtyler.dev"),
     QStringLiteral("https://translate.projectsegfau.lt"),
     QStringLiteral("https://translate.nerdvpn.de"),
     QStringLiteral("https://mozhi.ducks.party"),
-    QStringLiteral("https://mozhi.frontendfriendly.xyz"),
     QStringLiteral("https://mozhi.pussthecat.org"),
-    QStringLiteral("https://mo.zorby.top"),
     QStringLiteral("https://mozhi.adminforge.de"),
-    QStringLiteral("https://translate.privacyredirect.com"),
-    QStringLiteral("https://mozhi.canine.tools"),
-    QStringLiteral("https://mozhi.gitro.xyz"),
+    QStringLiteral("https://mozhi.frontendfriendly.xyz"),
+    QStringLiteral("https://mozhi.catsarch.com"),
 };
 
 InstancePinger::InstancePinger(QObject *parent)
