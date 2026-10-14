@@ -7,6 +7,7 @@
 #include "instancepinger.h"
 #include "languagebuttonswidget.h"
 #include "mainwindow.h"
+#include "modulestatus.h"
 #include "popupwindow.h"
 #include "selection.h"
 #include "singleapplication.h"
@@ -137,6 +138,13 @@ private slots:
 
         QToolButton *translateButton = window.translateButton();
         QVERIFY(translateButton != nullptr);
+        // The button follows sourceEdit's textEdited, debounced 500ms behind
+        // textChanged, so right after typeText() it is still disabled and a
+        // click would be dropped - see testGuiTranslation.
+        QVERIFY(QTest::qWaitFor([translateButton]() {
+            return translateButton->isEnabled();
+        },
+                                3000));
 
         QSignalSpy stateSpy(&window, &MainWindow::translatorStateChangedSignal);
         QTest::mouseClick(translateButton, Qt::LeftButton);
@@ -144,6 +152,12 @@ private slots:
         bool translationCompleted = stateSpy.wait(10000);
         if (!translationCompleted) {
             QSKIP("Network timeout - Mozhi translation failed (network required)");
+        }
+
+        // A third-party instance that answers with an error (rate limited,
+        // engine not configured) is the service's state, not a defect here.
+        if (window.moduleStatus()->activity(ModuleStatus::Module::Translation) == ModuleStatus::Activity::Error) {
+            QSKIP(qPrintable(QStringLiteral("Mozhi instance failed (network required): %1").arg(window.moduleStatus()->detail(ModuleStatus::Module::Translation))));
         }
 
         QString result = window.translationEdit()->toPlainText();

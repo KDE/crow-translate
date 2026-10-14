@@ -149,6 +149,11 @@ void MozhiTranslationProvider::translate(const QString &inputText, const Languag
         return;
     }
 
+    // A standalone detection still in flight is superseded: the translator
+    // drops it below. Its flag must not outlive it, or this translation's
+    // reply would be read as the detection's answer and the translation
+    // swallowed.
+    m_isDetecting = false;
     m_translator->translate(inputText, m_engine, dstLang, srcLang);
 }
 
@@ -164,10 +169,13 @@ void MozhiTranslationProvider::onTranslationFinished()
             const Language detectedLanguage = fromOnlineTranslatorLanguage(detectedLang, m_engine);
             sourceLanguage = detectedLanguage; // Set the detected language
             error = TranslationError::NoError;
-            state = State::Processed;
+            // A detection on its own is not a translation. Reporting Processed
+            // here made the window run its whole "translation finished"
+            // cascade over an empty result. Stay Ready, as LocalAI does, and
+            // let languageDetected carry the answer.
+            state = State::Ready;
 
-            qDebug() << "MozhiTranslationProvider::onTranslationFinished - language detected:" << detectedLanguage.name()
-                     << "new state:" << static_cast<int>(state);
+            qDebug() << "MozhiTranslationProvider::onTranslationFinished - language detected:" << detectedLanguage.name();
             emit languageDetected(detectedLanguage, false); // Detection context only
             emit stateChanged(state);
         } else {
