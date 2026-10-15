@@ -25,6 +25,8 @@
 #include "translationedit.h"
 #include "settings/appsettings.h"
 
+#include <QApplication>
+#include <QLayout>
 #include <QSizeGrip>
 #include <QTest>
 #include <QTimer>
@@ -86,11 +88,21 @@ private slots:
         popup.show();
         QVERIFY(QTest::qWaitForWindowExposed(&popup));
 
-        QVERIFY2(popup.findChild<QSizeGrip *>() != nullptr, "a frameless window needs a grip to be resizable");
-        QCOMPARE(popup.minimumWidth(), 200);
-        QCOMPARE(popup.minimumHeight(), 200);
+        // The grip is not in a layout: unsized, it would be a 100x30 default
+        // widget raised over the buttons in that corner.
+        auto *grip = popup.findChild<QSizeGrip *>();
+        QVERIFY2(grip != nullptr, "a frameless window needs a grip to be resizable");
+        QCOMPARE(grip->size(), grip->sizeHint());
+        QCOMPARE(grip->geometry().bottomRight(), popup.rect().bottomRight());
 
-        popup.resize(700, 420);
+        // The layout's minimum is the floor: an explicit smaller one would let
+        // a drag (or a small configured size) squeeze the controls.
+        const QSize layoutMinimum = popup.layout()->totalMinimumSize();
+        QVERIFY(popup.minimumWidth() >= layoutMinimum.width());
+        QVERIFY(popup.minimumHeight() >= layoutMinimum.height());
+
+        const QSize dragged = popup.size() + QSize(60, 40);
+        popup.resize(dragged);
 
         auto *saveTimer = popup.findChild<QTimer *>(QStringLiteral("popupSizeSaveTimer"));
         QVERIFY2(saveTimer != nullptr, "the size write-out timer should exist");
@@ -98,8 +110,68 @@ private slots:
 
         // Closing before the debounce fires keeps the size the user dragged to.
         popup.close();
-        QCOMPARE(AppSettings().popupWidth(), 700);
-        QCOMPARE(AppSettings().popupHeight(), 420);
+        QCOMPARE(AppSettings().popupWidth(), dragged.width());
+        QCOMPARE(AppSettings().popupHeight(), dragged.height());
+
+        AppSettings().setPopupWidth(AppSettings::defaultPopupWidth());
+        AppSettings().setPopupHeight(AppSettings::defaultPopupHeight());
+    }
+
+    // Only a drag is the user's choice. The resize a pop-up is shown with is the
+    // configured size, or the layout's minimum when that is larger, and opening
+    // the pop-up must not write that back over the setting.
+    void testOpeningThePopupLeavesTheSizeSettingAlone()
+    {
+        const AppSettings settings;
+        const int width = settings.popupWidth();
+        const int height = settings.popupHeight();
+
+        MainWindow window;
+        PopupWindow popup(&window);
+        popup.show();
+        QVERIFY(QTest::qWaitForWindowExposed(&popup));
+
+        auto *saveTimer = popup.findChild<QTimer *>(QStringLiteral("popupSizeSaveTimer"));
+        QVERIFY(saveTimer != nullptr);
+        QVERIFY2(!saveTimer->isActive(), "showing the pop-up is not a resize by the user");
+
+        popup.close();
+        QCOMPARE(AppSettings().popupWidth(), width);
+        QCOMPARE(AppSettings().popupHeight(), height);
+    }
+
+    // The auto-close timeout stops while the pointer is over the pop-up. A resize
+    // pushes back a timeout that is running, so it cannot fire mid-drag, but it
+    // must not start one the pointer has stopped - the window would then close
+    // under the cursor of someone reading it.
+    void testResizingDoesNotStartTheTimeoutWhileHovered()
+    {
+        AppSettings().setPopupWindowTimeout(30);
+
+        MainWindow window;
+        PopupWindow popup(&window);
+        popup.show();
+        QVERIFY(QTest::qWaitForWindowExposed(&popup));
+
+        auto *closeTimer = popup.findChild<QTimer *>(QStringLiteral("popupCloseTimer"));
+        QVERIFY(closeTimer != nullptr);
+
+        QEvent enter(QEvent::Enter);
+        QApplication::sendEvent(&popup, &enter);
+        QVERIFY(!closeTimer->isActive());
+        popup.resize(popup.size() + QSize(20, 20));
+        QVERIFY2(!closeTimer->isActive(), "a resize under the pointer must not start the timeout");
+
+        QEvent leave(QEvent::Leave);
+        QApplication::sendEvent(&popup, &leave);
+        QVERIFY(closeTimer->isActive());
+        popup.resize(popup.size() + QSize(20, 20));
+        QVERIFY2(closeTimer->isActive(), "a running timeout is pushed back, not dropped");
+
+        AppSettings().setPopupWindowTimeout(AppSettings::defaultPopupWindowTimeout());
+        AppSettings().setPopupWidth(AppSettings::defaultPopupWidth());
+        AppSettings().setPopupHeight(AppSettings::defaultPopupHeight());
+        popup.close();
     }
 };
 

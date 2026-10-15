@@ -27,14 +27,6 @@
 
 #include <utility>
 
-namespace
-{
-// The settings dialog offers the same floor for the pop-up's size (200 in
-// settingsdialog.cpp), and a frameless window has no limit of its own somewhere
-// else, so a drag must not be able to collapse it to nothing.
-constexpr int kMinimumPopupSize = 200;
-} // namespace
-
 PopupWindow::PopupWindow(MainWindow *parent)
     : QWidget(parent, Qt::Tool | Qt::FramelessWindowHint)
     , ui(new Ui::PopupWindow)
@@ -46,9 +38,12 @@ PopupWindow::PopupWindow(MainWindow *parent)
 
     // The window is frameless, so it has no edge of its own to grab: a grip drawn
     // over the status strip's corner is the only affordance for resizing it.
-    setMinimumSize(kMinimumPopupSize, kMinimumPopupSize);
+    // The layout's minimum size is what stops a drag from collapsing the window;
+    // an explicit minimum would replace it and let the controls be squeezed.
+    // The grip is not in a layout, so it has to be given its own size.
     m_sizeGrip = new QSizeGrip(this);
     m_sizeGrip->setToolTip(tr("Drag to resize"));
+    m_sizeGrip->resize(m_sizeGrip->sizeHint());
 
     // A drag emits a resize per frame - write the settings once it settles.
     m_sizeSaveTimer = new QTimer(this);
@@ -235,6 +230,7 @@ void PopupWindow::loadSettings()
 
     if (settings.popupWindowTimeout() > 0) {
         m_closeWindowTimer = new QTimer(this);
+        m_closeWindowTimer->setObjectName(QStringLiteral("popupCloseTimer"));
         m_closeWindowTimer->callOnTimeout(this, &PopupWindow::close);
         m_closeWindowTimer->setInterval(settings.popupWindowTimeout() * 1000);
         m_closeWindowTimer->start();
@@ -250,13 +246,17 @@ void PopupWindow::resizeEvent(QResizeEvent *event)
         m_sizeGrip->raise();
     }
 
-    if (m_sizeSaveTimer != nullptr) {
+    // The resize the window is shown with has no old size; it is the settings'
+    // size (or the layout's minimum, if that is larger), not one the user chose.
+    if (m_sizeSaveTimer != nullptr && event->oldSize().isValid()) {
         m_sizeSaveTimer->start();
     }
 
     // Someone manipulating the window is looking at it: the auto-close timeout
-    // would otherwise take it away mid-drag.
-    if (m_closeWindowTimer != nullptr) {
+    // would otherwise take it away mid-drag. Only a timeout that is already
+    // running is pushed back - while the pointer is over the window it is
+    // stopped, and a resize must not start it.
+    if (m_closeWindowTimer != nullptr && m_closeWindowTimer->isActive()) {
         m_closeWindowTimer->start();
     }
 }
