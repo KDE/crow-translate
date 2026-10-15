@@ -30,6 +30,10 @@
 
 #include <cstdlib>
 
+#ifdef Q_OS_WIN
+#include <windows.h>
+#endif
+
 namespace
 {
 // User-facing messages must not go through qCritical()/qInfo(). Qt built with
@@ -51,6 +55,24 @@ QTextStream &errorStream()
 void printError(const QString &message)
 {
     errorStream() << message << Qt::endl;
+}
+
+// QCommandLineParser prints --help, --version and its own errors itself, and
+// on Windows it converts them to the ANSI code page with best-fit
+// replacement: the Polish "Sposób użycia" came out as cp1252 "Spos\xf3b
+// uzycia", while every translation written to the same stream is UTF-8. When
+// the stream is a pipe or a file, write them the way everything else is
+// written. With nowhere to write (a GUI program started from Explorer) or a
+// console, Qt's own handling stays: a message box, or the console's encoding.
+// Elsewhere the local 8-bit encoding is UTF-8, so Qt's output is right as is.
+bool writesUtf8Itself([[maybe_unused]] FILE *stream)
+{
+#ifdef Q_OS_WIN
+    const DWORD type = GetFileType(GetStdHandle(stream == stdout ? STD_OUTPUT_HANDLE : STD_ERROR_HANDLE));
+    return type == FILE_TYPE_PIPE || type == FILE_TYPE_DISK;
+#else
+    return false;
+#endif
 }
 
 // Renders what a backend found for a terminal. The transliterations and the
@@ -172,8 +194,8 @@ void Cli::process(const QCoreApplication &app)
     QCommandLineParser parser;
     parser.setApplicationDescription(tr("Application that allows to translate and speak text using various providers"));
     parser.addPositionalArgument(QStringLiteral("text"), tr("Text to translate. By default, the translation will be done to the system language."));
-    parser.addHelpOption();
-    parser.addVersionOption();
+    const QCommandLineOption helpOption = parser.addHelpOption();
+    const QCommandLineOption versionOption = parser.addVersionOption();
     parser.addOption(codes);
     parser.addOption(source);
     parser.addOption(translation);
@@ -190,6 +212,23 @@ void Cli::process(const QCoreApplication &app)
     parser.addOption(brief);
     parser.addOption(json);
     parser.addOption(frontend);
+    if (!parser.parse(QCoreApplication::arguments())) {
+        if (writesUtf8Itself(stderr)) {
+            printError(QCoreApplication::applicationName() + QStringLiteral(": ") + parser.errorText());
+            ::exit(1);
+        }
+    } else if (writesUtf8Itself(stdout)) {
+        if (parser.isSet(helpOption)) {
+            m_stdout << parser.helpText() << Qt::flush;
+            ::exit(0);
+        }
+        if (parser.isSet(versionOption)) {
+            m_stdout << QCoreApplication::applicationName() << ' ' << QCoreApplication::applicationVersion() << Qt::endl;
+            ::exit(0);
+        }
+    }
+    // Everything else, and --help-all, whose text includes Qt's own options
+    // and is only available this way.
     parser.process(app);
 
     checkIncompatibleOptions(parser, image, file);
