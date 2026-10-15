@@ -89,7 +89,10 @@ std::unique_ptr<ProviderOptions> ProviderOptionsManager::createMozhiTranslationO
     const AppSettings settings;
     auto options = std::make_unique<ProviderOptions>();
 
-    options->setOption("instance", settings.instance());
+    // None is stored until Mozhi is first used (GuiFrontend::run()); until
+    // then the provider's own default instance stands.
+    if (!settings.instance().isEmpty())
+        options->setOption("instance", settings.instance());
     options->setOption("engine", static_cast<int>(settings.currentEngine()));
     options->setOption("apikey", settings.libreTranslateApiKey());
     options->setOption("direct", settings.libreTranslateDirect());
@@ -132,7 +135,8 @@ std::unique_ptr<ProviderOptions> ProviderOptionsManager::createMozhiTTSOptionsFr
     const AppSettings settings;
     auto options = std::make_unique<ProviderOptions>();
 
-    options->setOption("instance", settings.instance());
+    if (!settings.instance().isEmpty())
+        options->setOption("instance", settings.instance());
     options->setOption("engine", static_cast<int>(settings.currentEngine()));
 
     return options;

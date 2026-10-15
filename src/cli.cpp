@@ -299,8 +299,10 @@ void Cli::process(const QCoreApplication &app)
         exitWithUsage(parser, tr("Error: --%1 cannot be combined with text arguments").arg(longOptionName(image)));
     }
 
-    // Set up Mozhi instance for auto-detection (only if no URL specified)
-    if (!parser.isSet(url) && settings.instance().isEmpty()) {
+    // Set up Mozhi instance for auto-detection (only if no URL specified, and
+    // only when the translation goes to Mozhi: the public instances were
+    // pinged whatever the backend)
+    if (!parser.isSet(url) && settings.instance().isEmpty() && m_session->translator()->getProviderType() == QLatin1String("MozhiTranslationProvider")) {
         printError(tr("Detecting fastest instance"));
 
         InstancePinger pinger;

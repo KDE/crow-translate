@@ -116,7 +116,12 @@ int GuiFrontend::run(QCoreApplication &app)
     settings.loadCustomLanguageRegistry(); // Load persisted custom languages
     Language::setCustomLanguageRegistryChangedCallback(&AppSettings::onCustomLanguageRegistryChanged);
     settings.setupLocalization();
-    if (settings.instance().isEmpty()) {
+    // Only for a configuration that will talk to Mozhi. Otherwise every
+    // public instance was pinged at the first start (and at every start
+    // while none answered), however private the backend actually chosen.
+    const bool usesMozhi = settings.translationProviderBackend() == ATranslationProvider::ProviderBackend::Mozhi
+        || settings.ttsProviderBackend() == ATTSProvider::ProviderBackend::Mozhi;
+    if (usesMozhi && settings.instance().isEmpty()) {
         InstancePingerDialog instancePingerDialog;
         instancePingerDialog.exec();
         settings.setInstance(instancePingerDialog.fastestUrl());
