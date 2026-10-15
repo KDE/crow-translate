@@ -70,14 +70,37 @@ void Selection::requestSelection()
         getSelection();
     }
 #elif defined(Q_OS_WIN) // Send Ctrl + C to get selected text
+    // Already waiting for the modifiers of an earlier press; that one copies.
+    if (m_modifierPoll->isActive())
+        return;
+
     // Save the original clipboard
     m_originalClipboardData.reset(new QMimeData);
     const QMimeData *clipboardData = QGuiApplication::clipboard()->mimeData();
     for (const QString &format : clipboardData->formats())
         m_originalClipboardData->setData(format, clipboardData->data(format));
 
-    // Wait until all modifiers will be unpressed (to avoid conflicts with the other shortcuts)
-    while (GetAsyncKeyState(VK_LWIN) || GetAsyncKeyState(VK_RWIN) || GetAsyncKeyState(VK_SHIFT) || GetAsyncKeyState(VK_MENU) || GetAsyncKeyState(VK_CONTROL)) { };
+    // Wait until all modifiers are released (to avoid conflicts with the
+    // other shortcuts). This used to spin on the GUI thread: holding Ctrl+Alt
+    // a moment after the shortcut froze the whole application at full CPU,
+    // and a modifier stuck down after an RDP or KVM switch froze it until
+    // released. Polled from the event loop instead.
+    m_modifierWait.start();
+    sendCopyWhenModifiersReleased();
+#endif
+}
+
+#ifdef Q_OS_WIN
+void Selection::sendCopyWhenModifiersReleased()
+{
+    const bool modifierDown = GetAsyncKeyState(VK_LWIN) || GetAsyncKeyState(VK_RWIN) || GetAsyncKeyState(VK_SHIFT) || GetAsyncKeyState(VK_MENU)
+        || GetAsyncKeyState(VK_CONTROL);
+    // A modifier still down after this long is stuck rather than held; copy
+    // anyway, which is what would eventually have happened on release.
+    if (modifierDown && !m_modifierWait.hasExpired(5000)) {
+        m_modifierPoll->start();
+        return;
+    }
 
     // Generate Ctrl + C input
     INPUT copyText[4];
@@ -108,8 +131,8 @@ void Selection::requestSelection()
     // Wait for the clipboard changes
     connect(QGuiApplication::clipboard(), &QClipboard::dataChanged, this, &Selection::getSelection);
     m_maxSelectionDelay->start();
-#endif
 }
+#endif
 
 #if defined(Q_OS_LINUX)
 Selection::Selection()
@@ -122,7 +145,12 @@ Selection::Selection()
 #elif defined(Q_OS_WIN)
 Selection::Selection()
     : m_maxSelectionDelay(new QTimer(this))
+    , m_modifierPoll(new QTimer(this))
 {
+    m_modifierPoll->setSingleShot(true);
+    m_modifierPoll->setInterval(10ms);
+    m_modifierPoll->callOnTimeout(this, &Selection::sendCopyWhenModifiersReleased);
+
     m_maxSelectionDelay->setSingleShot(true);
     m_maxSelectionDelay->setInterval(1000ms);
 #if QT_VERSION < QT_VERSION_CHECK(5, 12, 0)

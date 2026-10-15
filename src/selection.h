@@ -9,6 +9,9 @@
 #define SELECTION_H
 
 #include <QObject>
+#ifdef Q_OS_WIN
+#include <QElapsedTimer>
+#endif
 
 class QTimer;
 #ifdef Q_OS_WIN
@@ -42,6 +45,9 @@ private slots:
 #if defined(Q_OS_LINUX)
     void onActivationTimeout();
 #endif
+#ifdef Q_OS_WIN
+    void sendCopyWhenModifiersReleased();
+#endif
 
 private:
     QMetaObject::Connection m_activationConnection;
@@ -60,6 +66,8 @@ private:
 #ifdef Q_OS_WIN
     QScopedPointer<QMimeData> m_originalClipboardData;
     QTimer *m_maxSelectionDelay;
+    QTimer *m_modifierPoll;
+    QElapsedTimer m_modifierWait;
 #endif
 };
 
