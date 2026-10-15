@@ -1270,6 +1270,13 @@ void MainWindow::updateAutoLocales()
         return;
     }
 
+    // Detection only ever fills in the "auto" source button. With a source
+    // language chosen it was still asked for, so every pause in typing sent
+    // the text to the server before anyone had pressed Translate.
+    if (!ui->sourceLanguagesWidget->isAutoButtonChecked()) {
+        return;
+    }
+
     // Only do standalone language detection if auto-translation is disabled
     // If auto-translation is enabled, the translation itself will detect the language
     if (ui->autoTranslateCheckBox->isChecked()) {

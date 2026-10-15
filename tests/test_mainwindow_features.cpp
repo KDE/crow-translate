@@ -144,6 +144,7 @@ private slots:
     void testSelectionRespectsSimplifySource();
     void testSelectionKeepsLineBreaksWhenSimplificationIsOff();
     void testRecognizedTextActivatesUiWithoutKeystroke();
+    void testTypingWithAChosenSourceSendsNothing();
     void testTranslateIsAvailableStraightAfterAnEdit();
     void testRecognizedTextAutoTranslatesWhenEnabled();
     void testForcedAutoSpeaksTheResolvedDestinationLanguage();
@@ -497,6 +498,9 @@ void MainWindowFeaturesTest::testRecognizedTextActivatesUiWithoutKeystroke()
     AppSettings settings;
     settings.setDetectProvider(QStringLiteral("openai_custom"));
     settings.setDetectModel(QStringLiteral("mock-model"));
+    // Detection only ever fills in the "auto" source button, so it runs only
+    // with that one checked.
+    settings.setCheckedButton(AppSettings::Source, LanguageButtonsWidget::autoButtonId());
 
     MainWindow window;
     QCheckBox *autoTranslate = window.findChild<QCheckBox *>(QStringLiteral("autoTranslateCheckBox"));
@@ -523,6 +527,28 @@ void MainWindowFeaturesTest::testRecognizedTextActivatesUiWithoutKeystroke()
     },
                             5000));
     QVERIFY(sawDetecting);
+}
+
+// With a source language chosen there is nothing to detect. Every pause in
+// typing used to send the text to the server anyway, before anyone had pressed
+// Translate.
+void MainWindowFeaturesTest::testTypingWithAChosenSourceSendsNothing()
+{
+    MockHttpServer server;
+    server.queueJson(200, chatCompletionJson(QStringLiteral("en")));
+    pinLocalAiSettings(server); // source English, chosen
+    AppSettings settings;
+    settings.setDetectProvider(QStringLiteral("openai_custom"));
+    settings.setDetectModel(QStringLiteral("mock-model"));
+
+    MainWindow window;
+    QCheckBox *autoTranslate = window.findChild<QCheckBox *>(QStringLiteral("autoTranslateCheckBox"));
+    QVERIFY(autoTranslate != nullptr);
+    autoTranslate->setChecked(false);
+
+    typeText(window.sourceEdit(), QStringLiteral("a private draft"));
+    QTest::qWait(1500); // well past the edit debounce
+    QCOMPARE(server.requestCount(), 0);
 }
 
 // Translate's shortcut is the button's, and a disabled button ignores it: the
