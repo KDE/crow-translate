@@ -389,40 +389,11 @@ void MainWindowFeaturesTest::testEscapeCancelsSourceImage()
     QVERIFY(window.sourceLanguageButtons()->isEnabled());
 }
 
-// SettingsDialog accept() must persist the checkbox, restoreDefaults() must
-// reset it - the four-point pattern minus the two UI-only touch points.
 // A selection taken from a PDF arrives with a line break per visual line, and
 // "Simplify source" is the option that folds those into spaces. The request used
 // to carry the raw selection while every other translate path went through the
 // source field's own text, so the option silently did nothing for the case it
 // matters most in.
-// The other half of the same rule: with the option off (the default) a selection
-// keeps its line breaks, so nothing changes for anyone who has not asked for it.
-void MainWindowFeaturesTest::testSelectionKeepsLineBreaksWhenSimplificationIsOff()
-{
-    MockHttpServer server;
-    server.queueJson(200, chatCompletionJson(QStringLiteral("mocked translation")));
-    pinLocalAiSettings(server);
-
-    AppSettings settings;
-    settings.setSimplifySource(false);
-
-    MainWindow window;
-
-    const QString selection = QStringLiteral("Line one\nLine two");
-    putSelectionOnClipboard(selection);
-    window.translateSelection();
-    emit Selection::instance().requestedSelectionAvailable(selection);
-
-    QVERIFY(QTest::qWaitFor([&window]() {
-        return window.translationEdit()->toPlainText() == QStringLiteral("mocked translation");
-    },
-                            5000));
-
-    const QByteArray body = server.requestBody(0);
-    QVERIFY2(body.contains("Line one\\nLine two"), qUtf8Printable(QString::fromUtf8(body)));
-}
-
 void MainWindowFeaturesTest::testSelectionRespectsSimplifySource()
 {
     MockHttpServer server;
@@ -453,6 +424,35 @@ void MainWindowFeaturesTest::testSelectionRespectsSimplifySource()
     settings.setSimplifySource(AppSettings::defaultSimplifySource());
 }
 
+// The other half of the same rule: with the option off (the default) a selection
+// keeps its line breaks, so nothing changes for anyone who has not asked for it.
+void MainWindowFeaturesTest::testSelectionKeepsLineBreaksWhenSimplificationIsOff()
+{
+    MockHttpServer server;
+    server.queueJson(200, chatCompletionJson(QStringLiteral("mocked translation")));
+    pinLocalAiSettings(server);
+
+    AppSettings settings;
+    settings.setSimplifySource(false);
+
+    MainWindow window;
+
+    const QString selection = QStringLiteral("Line one\nLine two");
+    putSelectionOnClipboard(selection);
+    window.translateSelection();
+    emit Selection::instance().requestedSelectionAvailable(selection);
+
+    QVERIFY(QTest::qWaitFor([&window]() {
+        return window.translationEdit()->toPlainText() == QStringLiteral("mocked translation");
+    },
+                            5000));
+
+    const QByteArray body = server.requestBody(0);
+    QVERIFY2(body.contains("Line one\\nLine two"), qUtf8Printable(QString::fromUtf8(body)));
+}
+
+// SettingsDialog accept() must persist the checkbox, restoreDefaults() must
+// reset it - the four-point pattern minus the two UI-only touch points.
 void MainWindowFeaturesTest::testShowStatusBarSettingsRoundTrip()
 {
     MainWindow window;
