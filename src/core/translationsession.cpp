@@ -139,6 +139,7 @@ void TranslationSession::connectTranslator()
         m_languages->setTranslated(m_translator->sourceLanguage, m_translator->translationLanguage);
         Q_EMIT translationStateChanged(newState);
     });
+    connect(m_translator, &ATranslationProvider::partialTranslation, this, &TranslationSession::translationPartial);
     connect(m_translator, &ATranslationProvider::languageDetected, this, [this](const Language &detected, bool isTranslationContext) {
         m_languages->setDetectedSource(detected);
         Q_EMIT languageDetected(detected, isTranslationContext);

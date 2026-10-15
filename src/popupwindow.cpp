@@ -16,7 +16,9 @@
 #include <QCloseEvent>
 #include <QComboBox>
 #include <QDebug>
+#include <QPointer>
 #include <QScreen>
+#include <QScrollBar>
 #include <QShortcut>
 #include <QTimer>
 #include <QToolButton>
@@ -86,7 +88,25 @@ PopupWindow::PopupWindow(MainWindow *parent)
             if (!m_parent.isNull() && ui && ui->translationEdit) {
                 auto *translationEdit = m_parent->translationEdit();
                 if (translationEdit != nullptr) {
+                    // This copy is a whole-document rebuild, which resets the
+                    // view. Hold the pop-up's own position across it only while a
+                    // stream is being read; a fresh result opens at the top, as
+                    // it does in the main window.
+                    if (!m_parent->translationIsStreaming()) {
+                        ui->translationEdit->setHtml(translationEdit->toHtml());
+                        return;
+                    }
+                    QScrollBar *scrollBar = ui->translationEdit->verticalScrollBar();
+                    const int previous = scrollBar->value();
+
                     ui->translationEdit->setHtml(translationEdit->toHtml());
+
+                    QPointer<QScrollBar> bar(scrollBar);
+                    QTimer::singleShot(0, this, [bar, previous]() {
+                        if (bar != nullptr) {
+                            bar->setValue(qMin(previous, bar->maximum()));
+                        }
+                    });
                 }
             }
         });

@@ -48,6 +48,18 @@ QByteArray chatCompletionJson(const QString &content)
     return QJsonDocument(body).toJson(QJsonDocument::Compact);
 }
 
+// One SSE delta, as an OpenAI-compatible endpoint sends it.
+QByteArray sseDelta(const QString &content)
+{
+    QJsonObject delta;
+    delta.insert(QStringLiteral("content"), content);
+    QJsonObject choice;
+    choice.insert(QStringLiteral("delta"), delta);
+    QJsonObject body;
+    body.insert(QStringLiteral("choices"), QJsonArray{choice});
+    return QByteArrayLiteral("data: ") + QJsonDocument(body).toJson(QJsonDocument::Compact) + QByteArrayLiteral("\n\n");
+}
+
 std::unique_ptr<LocalAiTranslationProvider> makeProvider(const QString &baseUrl, int timeoutSeconds = 300)
 {
     auto provider = std::make_unique<LocalAiTranslationProvider>();
@@ -86,6 +98,108 @@ private slots:
         QCOMPARE(provider->result.translation, QStringLiteral("Hola Mundo"));
         QCOMPARE(server.requestCount(), 1);
         QVERIFY(server.requestPath(0).contains(QStringLiteral("/v1/chat/completions")));
+    }
+
+    // Every other test answers with a whole JSON body, which exercises only the
+    // fallback. Here the deltas are what the window paints while the model
+    // writes: they have to reach the frontend before the request finishes, and
+    // add up to the final result. Chunks that carry no content - the "role"
+    // opener, a "usage"-only closer - and "[DONE]" must contribute nothing.
+    void testStreamedAnswerReachesTheFrontendBeforeItFinishes()
+    {
+        MockHttpServer server;
+        Response stream;
+        stream.streamChunks = {
+            QByteArrayLiteral("data: {\"choices\":[{\"delta\":{\"role\":\"assistant\"}}]}\n\n"),
+            sseDelta(QStringLiteral("Hola")),
+            sseDelta(QStringLiteral(" Mundo")),
+            QByteArrayLiteral("data: {\"usage\":{\"total_tokens\":7}}\n\n"),
+            QByteArrayLiteral("data: [DONE]\n\n"),
+        };
+        stream.chunkDelayMs = 20;
+        server.queueResponse(stream);
+
+        auto provider = makeProvider(server.baseUrl());
+
+        QStringList partials;
+        int partialsBeforeProcessed = 0;
+        bool processed = false;
+        QObject::connect(provider.get(), &ATranslationProvider::partialTranslation, provider.get(),
+                         [&partials, &partialsBeforeProcessed, &processed](const QString &text) {
+                             partials.append(text);
+                             if (!processed) {
+                                 ++partialsBeforeProcessed;
+                             }
+                         });
+        QObject::connect(provider.get(), &ATranslationProvider::stateChanged, provider.get(), [&processed](ATranslationProvider::State state) {
+            if (state == ATranslationProvider::State::Processed) {
+                processed = true;
+            }
+        });
+
+        provider->translate(QStringLiteral("Hello World"), Language(QStringLiteral("es")), Language(QStringLiteral("en")));
+
+        QVERIFY(QTest::qWaitFor([&provider]() {
+            return provider->getState() == ATranslationProvider::State::Processed;
+        },
+                                5000));
+
+        QVERIFY2(partialsBeforeProcessed >= 2,
+                 qPrintable(QStringLiteral("partial translations before Processed: %1").arg(partialsBeforeProcessed)));
+        QCOMPARE(partials.last(), QStringLiteral("Hola Mundo"));
+        QCOMPARE(provider->result.translation, QStringLiteral("Hola Mundo"));
+    }
+
+    // A reasoning model that spends its whole budget sends no content deltas,
+    // only reasoning, a "length" finish reason and a usage chunk. The user must
+    // still be told that, not that the model said nothing.
+    void testStreamedReasoningBudgetStillExplainsEmptyAnswer()
+    {
+        MockHttpServer server;
+        Response stream;
+        stream.streamChunks = {
+            QByteArrayLiteral("data: {\"choices\":[{\"delta\":{\"role\":\"assistant\"}}]}\n\n"),
+            QByteArrayLiteral("data: {\"choices\":[{\"delta\":{\"reasoning_content\":\"thinking out loud\"}}]}\n\n"),
+            QByteArrayLiteral("data: {\"choices\":[{\"delta\":{},\"finish_reason\":\"length\"}]}\n\n"),
+            QByteArrayLiteral("data: {\"choices\":[],\"usage\":{\"prompt_tokens\":900,\"completion_tokens\":124,\"total_tokens\":1024}}\n\n"),
+            QByteArrayLiteral("data: [DONE]\n\n"),
+        };
+        stream.chunkDelayMs = 5;
+        server.queueResponse(stream);
+
+        auto provider = makeProvider(server.baseUrl());
+        provider->translate(QStringLiteral("Hello World"), Language(QStringLiteral("es")), Language(QStringLiteral("en")));
+
+        QVERIFY(QTest::qWaitFor([&provider]() {
+            return provider->getState() == ATranslationProvider::State::Finished;
+        },
+                                5000));
+        QVERIFY2(provider->getErrorString().contains(QStringLiteral("reasoning")), qPrintable(provider->getErrorString()));
+    }
+
+    // A server can report a failure as a stream event long after the 200 that
+    // started it. Its message is the only useful one there, so it has to reach
+    // the user instead of the generic "empty response".
+    void testStreamedServerErrorReachesTheUser()
+    {
+        MockHttpServer server;
+        Response stream;
+        stream.streamChunks = {
+            QByteArrayLiteral("data: {\"choices\":[{\"delta\":{\"role\":\"assistant\"}}]}\n\n"),
+            QByteArrayLiteral("data: {\"error\":{\"message\":\"rate limit exceeded\"}}\n\n"),
+            QByteArrayLiteral("data: [DONE]\n\n"),
+        };
+        stream.chunkDelayMs = 5;
+        server.queueResponse(stream);
+
+        auto provider = makeProvider(server.baseUrl());
+        provider->translate(QStringLiteral("Hello World"), Language(QStringLiteral("es")), Language(QStringLiteral("en")));
+
+        QVERIFY(QTest::qWaitFor([&provider]() {
+            return provider->getState() == ATranslationProvider::State::Finished;
+        },
+                                5000));
+        QVERIFY2(provider->getErrorString().contains(QStringLiteral("rate limit exceeded")), qPrintable(provider->getErrorString()));
     }
 
     // Gotcha #1: a request that never responds must not leave the provider

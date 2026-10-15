@@ -17,6 +17,7 @@
 #include "selection.h"
 #include "singleapplication.h"
 #include "statusstrip.h"
+#include "core/translationresult.h"
 #include "core/translationsession.h"
 #include "core/usernotifier.h"
 #include "gui/translationhtmlformatter.h"
@@ -46,11 +47,16 @@
 #include <QLabel>
 #include <QMessageBox>
 #include <QMimeData>
+#include <QPointer>
+#include <QScrollBar>
 #include <QSet>
 #include <QStandardPaths>
 #include <QTimer>
 
 #include <cassert>
+
+// How often a streamed answer may repaint the translation field.
+static constexpr int kStreamRepaintIntervalMs = 100;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -171,6 +177,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_session, &TranslationSession::translatorChanged, this, &MainWindow::onTranslatorChanged);
     connect(m_session, &TranslationSession::ttsProviderChanged, this, &MainWindow::onTtsProviderChanged);
     connect(m_session, &TranslationSession::translationStateChanged, this, &MainWindow::translatorStateChanged);
+    connect(m_session, &TranslationSession::translationPartial, this, &MainWindow::onPartialTranslation);
     connect(m_session, &TranslationSession::ttsStateChanged, this, &MainWindow::ttsStateChanged);
     connect(m_session, &TranslationSession::ttsErrorOccurred, this, &MainWindow::onTTSError);
     connect(m_session, &TranslationSession::languageDetected, this, &MainWindow::onLanguageDetected);
@@ -396,6 +403,11 @@ QTextEdit *MainWindow::translationEdit() const
     return ui->translationEdit;
 }
 
+bool MainWindow::translationIsStreaming() const
+{
+    return m_partialShown;
+}
+
 SourceTextEdit *MainWindow::sourceEdit() const
 {
     return ui->sourceEdit;
@@ -488,7 +500,7 @@ Q_SCRIPTABLE void MainWindow::translateSelection()
                 const Language destinationLanguage = isTranslationAutoChecked ? Language::autoLanguage() : m_destLang;
 
                 if (m_session->translator() && m_session->translator()->getState() == ATranslationProvider::State::Ready) {
-                    emit translationRequested(selectedText, destinationLanguage, sourceLanguage);
+                    requestSelectionTranslation(selectedText, destinationLanguage, sourceLanguage);
                 } else {
                     // Wait for translator to be ready
                     auto connection = std::make_shared<QMetaObject::Connection>();
@@ -497,7 +509,7 @@ Q_SCRIPTABLE void MainWindow::translateSelection()
                                           this,
                                           [this, selectedText, sourceLanguage, destinationLanguage, connection](ATranslationProvider::State state) {
                                               if (state == ATranslationProvider::State::Ready) {
-                                                  emit translationRequested(selectedText, destinationLanguage, sourceLanguage);
+                                                  requestSelectionTranslation(selectedText, destinationLanguage, sourceLanguage);
                                                   disconnect(*connection);
                                               }
                                           });
@@ -508,6 +520,15 @@ Q_SCRIPTABLE void MainWindow::translateSelection()
 
     // Selection class handles Wayland-specific window activation internally
     Selection::instance().requestSelection();
+}
+
+// A selection is translated while its window is already up and mirroring the
+// translation field, so the previous translation goes with the request instead
+// of being what the user reads while the new one is written.
+void MainWindow::requestSelectionTranslation(const QString &text, const Language &destination, const Language &source)
+{
+    ui->translationEdit->clear();
+    emit translationRequested(text, destination, source);
 }
 
 Q_SCRIPTABLE void MainWindow::speakSelection()
@@ -1041,11 +1062,12 @@ void MainWindow::translatorStateChanged(ATranslationProvider::State newState)
     switch (newState) {
     case ATranslationProvider::State::Ready:
     case ATranslationProvider::State::Processing:
+        m_partialShown = false;
         break;
     case ATranslationProvider::State::Processed:
         if (m_session->translator()->error == ATranslationProvider::TranslationError::NoError) {
             if (!m_session->translator()->result.isEmpty()) {
-                ui->translationEdit->setHtml(TranslationHtmlFormatter::format(m_session->translator()->result));
+                setTranslationHtml(TranslationHtmlFormatter::format(m_session->translator()->result));
 
                 showTranslationWindow();
             }
@@ -1070,6 +1092,55 @@ void MainWindow::translatorStateChanged(ATranslationProvider::State newState)
         emit resetTranslator();
         break;
     }
+}
+
+// The answer arriving while the model writes it. Repainting per delta means
+// dozens of whole-document rebuilds a second - once here and once in the pop-up
+// mirroring this field - which is what makes a long answer stutter and fights
+// the reader's scrolling; the complete text arrives through Processed anyway, so
+// an intermediate one can be dropped.
+void MainWindow::onPartialTranslation(const QString &text)
+{
+    if (!m_partialShown) {
+        m_partialShown = true;
+        showTranslationWindow();
+    } else if (m_partialRepaint.isValid() && m_partialRepaint.elapsed() < kStreamRepaintIntervalMs) {
+        return;
+    }
+    m_partialRepaint.start();
+
+    TranslationResult partial;
+    partial.translation = text;
+
+    setTranslationHtml(TranslationHtmlFormatter::format(partial));
+}
+
+// setHtml() rebuilds the document and a rebuild resets the view, so hold the
+// scroll position where the reader put it.
+void MainWindow::setTranslationHtml(const QString &html)
+{
+    if (!m_partialShown) {
+        // A fresh result. Nothing is being read yet, so it opens at the top the
+        // way it always did - only a stream, which is read while it is written,
+        // has a position worth holding on to.
+        ui->translationEdit->setHtml(html);
+        return;
+    }
+
+    QScrollBar *scrollBar = ui->translationEdit->verticalScrollBar();
+    const int previous = scrollBar->value();
+
+    ui->translationEdit->setHtml(html);
+
+    // The scrollbar range is only recomputed when the new layout runs, after
+    // this returns, so restoring the value here would clamp it against the
+    // previous document's range and creep upwards. Wait for that one turn.
+    QPointer<QScrollBar> bar(scrollBar);
+    QTimer::singleShot(0, this, [bar, previous]() {
+        if (bar != nullptr) {
+            bar->setValue(qMin(previous, bar->maximum()));
+        }
+    });
 }
 
 void MainWindow::setOrientation(Qt::ScreenOrientation orientation)

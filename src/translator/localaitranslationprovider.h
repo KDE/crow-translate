@@ -9,6 +9,7 @@
 #include "language.h"
 #include "translator/atranslationprovider.h"
 
+#include <QJsonObject>
 #include <QObject>
 
 #include <memory>
@@ -55,6 +56,7 @@ public slots:
 private slots:
     void onReplyFinished();
     void onDetectFinished();
+    void onStreamData();
 
 private:
     QString buildPrompt(const QString &srcCode, const QString &dstCode, const QString &text) const;
@@ -87,6 +89,24 @@ private:
     bool m_userAborted = false;
     QString m_pendingText;
     QString m_pendingDstCode;
+
+    // Streamed answer: the bytes readyRead() consumed go to m_rawBody too, since
+    // a server that ignores `stream` answers with a whole JSON body and an error
+    // body has to stay readable in onReplyFinished(); m_streamBuffer holds the
+    // bytes of a line that is not complete yet, m_streamText the text so far.
+    QByteArray m_rawBody;
+    QByteArray m_streamBuffer;
+    QString m_streamText;
+    // A stream is the only place some answers exist in: a reasoning model that
+    // spends its budget sends no content at all, only reasoning deltas, a
+    // `finish_reason` and a usage chunk. Keeping those lets onReplyFinished()
+    // build the Completion the whole-body path would have parsed, so
+    // emptyResponseReason() still explains such an answer.
+    bool m_sawStreamData = false;
+    QString m_streamReasoning;
+    QString m_streamFinishReason;
+    QJsonObject m_streamUsage;
+    QString m_streamError;
 
     int m_timeout = 300;
 };

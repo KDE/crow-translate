@@ -209,7 +209,14 @@ void LocalAiTranslationProvider::sendTranslation(const QString &srcCode, const Q
         // default it server-side.
         body.insert(QStringLiteral("max_tokens"), 4096);
     } else {
-        body.insert(QStringLiteral("stream"), false);
+        // A server that ignores this still answers with a whole JSON body, which
+        // onReplyFinished() parses from the bytes onStreamData() kept.
+        body.insert(QStringLiteral("stream"), true);
+        // Ask for the usage block in the stream. A server that only reports
+        // token counts on request would otherwise leave the empty-answer
+        // diagnostics without the numbers they name.
+        body.insert(QStringLiteral("stream_options"),
+                    QJsonObject{{QStringLiteral("include_usage"), true}});
         if (m_disableThinking) {
             body.insert(QStringLiteral("reasoning_effort"), QStringLiteral("none"));
         }
@@ -220,8 +227,96 @@ void LocalAiTranslationProvider::sendTranslation(const QString &srcCode, const Q
     OpenAiEndpoint::setAuthHeaders(request, m_isAnthropic, m_apiKey);
     m_network->setTransferTimeout(m_timeout * 1000);
 
+    m_rawBody.clear();
+    m_streamBuffer.clear();
+    m_streamText.clear();
+    m_sawStreamData = false;
+    m_streamReasoning.clear();
+    m_streamFinishReason.clear();
+    m_streamUsage = QJsonObject();
+    m_streamError.clear();
+
     m_reply = m_network->post(request, QJsonDocument(body).toJson(QJsonDocument::Compact));
     connect(m_reply, &QNetworkReply::finished, this, &LocalAiTranslationProvider::onReplyFinished);
+    if (!m_isAnthropic) {
+        connect(m_reply, &QNetworkReply::readyRead, this, &LocalAiTranslationProvider::onStreamData);
+    }
+}
+
+// One delta of the answer per "data:" line, terminated by "data: [DONE]".
+// Everything read here also lands in m_rawBody: readyRead drains the reply, and
+// a server that ignores `stream` answers with a whole JSON body that
+// onReplyFinished() still has to parse.
+void LocalAiTranslationProvider::onStreamData()
+{
+    auto *reply = qobject_cast<QNetworkReply *>(sender());
+    if (reply == nullptr || reply != m_reply) {
+        return;
+    }
+    if (!reply->isOpen()) {
+        return;
+    }
+
+    const QByteArray incoming = reply->readAll();
+    m_rawBody.append(incoming);
+    m_streamBuffer.append(incoming);
+
+    bool gotText = false;
+    int lineEnd = 0;
+    while ((lineEnd = m_streamBuffer.indexOf('\n')) >= 0) {
+        const QByteArray line = m_streamBuffer.left(lineEnd).trimmed();
+        m_streamBuffer.remove(0, lineEnd + 1);
+        if (!line.startsWith("data:")) {
+            continue;
+        }
+        const QByteArray payload = line.mid(5).trimmed();
+        if (payload.isEmpty() || payload == "[DONE]") {
+            continue;
+        }
+        m_sawStreamData = true;
+        const QJsonObject chunk = QJsonDocument::fromJson(payload).object();
+        // A server error can arrive as a stream event rather than as an HTTP
+        // status; keep its message for onReplyFinished().
+        const QString serverError = chunk.value(QStringLiteral("error")).toObject().value(QStringLiteral("message")).toString();
+        if (!serverError.isEmpty()) {
+            m_streamError = serverError;
+        }
+        // The usage chunk (the one the final "choices": [] carries) is the last
+        // one that arrives, so the last value seen is the right one.
+        const QJsonObject usage = chunk.value(QStringLiteral("usage")).toObject();
+        if (!usage.isEmpty()) {
+            m_streamUsage = usage;
+        }
+        const QJsonArray choices = chunk.value(QStringLiteral("choices")).toArray();
+        if (choices.isEmpty()) {
+            continue;
+        }
+        const QJsonObject choice = choices.first().toObject();
+        const QString finishReason = choice.value(QStringLiteral("finish_reason")).toString();
+        if (!finishReason.isEmpty()) {
+            m_streamFinishReason = finishReason;
+        }
+        const QJsonObject delta = choice.value(QStringLiteral("delta")).toObject();
+        // "reasoning_content" is the OpenAI-compatible spelling, "reasoning" the
+        // one Ollama sends.
+        const QString reasoningContent = delta.value(QStringLiteral("reasoning_content")).toString();
+        const QString reasoning = reasoningContent.isEmpty()
+            ? delta.value(QStringLiteral("reasoning")).toString()
+            : reasoningContent;
+        if (!reasoning.isEmpty()) {
+            m_streamReasoning += reasoning;
+        }
+        const QString piece = delta.value(QStringLiteral("content")).toString();
+        if (piece.isEmpty()) {
+            continue;
+        }
+        m_streamText += piece;
+        gotText = true;
+    }
+
+    if (gotText) {
+        emit partialTranslation(m_streamText);
+    }
 }
 
 static QString detectPrompt()
@@ -358,8 +453,31 @@ void LocalAiTranslationProvider::onReplyFinished()
         return;
     }
 
-    const QByteArray payload = reply->readAll();
-    const OpenAiEndpoint::Completion completion = OpenAiEndpoint::parseCompletion(payload, m_isAnthropic);
+    // Whatever readyRead already consumed plus anything still buffered: a
+    // streamed answer arrives in deltas and leaves only its tail here, while a
+    // server that ignored `stream` put the whole body in m_rawBody. An aborted
+    // reply is closed and reading it only warns.
+    const QByteArray payload = m_rawBody + (reply->isOpen() ? reply->readAll() : QByteArray());
+    OpenAiEndpoint::Completion completion = OpenAiEndpoint::parseCompletion(payload, m_isAnthropic);
+
+    if (!m_isAnthropic && m_sawStreamData) {
+        // The body is a stream, which parseCompletion() cannot read: everything
+        // it would have answered with rode in the deltas instead. A reasoning
+        // model that spends its budget is the case that matters here - it ends
+        // "length" with nothing but reasoning, and the user has to be told that
+        // rather than that the model said nothing.
+        completion.content = m_streamText;
+        completion.reasoning = m_streamReasoning;
+        completion.finishReason = m_streamFinishReason;
+        if (!m_streamError.isEmpty()) {
+            completion.errorMessage = m_streamError;
+        }
+        if (!m_streamUsage.isEmpty()) {
+            completion.promptTokens = m_streamUsage.value(QStringLiteral("prompt_tokens")).toInt(-1);
+            completion.completionTokens = m_streamUsage.value(QStringLiteral("completion_tokens")).toInt(-1);
+            completion.totalTokens = m_streamUsage.value(QStringLiteral("total_tokens")).toInt(-1);
+        }
+    }
 
     if (reply->error() != QNetworkReply::NoError) {
         error = TranslationError::Custom;

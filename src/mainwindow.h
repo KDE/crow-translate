@@ -22,6 +22,7 @@
 #include "tts/attsprovider.h"
 
 #include <QComboBox>
+#include <QElapsedTimer>
 #include <QIcon>
 #include <QKeySequence>
 #include <QLocale>
@@ -73,6 +74,10 @@ public:
     QToolButton *copySourceButton() const;
     QToolButton *copyAllTranslationButton() const;
     QTextEdit *translationEdit() const;
+    // Whether a streamed answer is being painted right now. The pop-up asks so
+    // that it holds the reader's place in a stream while a fresh result still
+    // opens at the top.
+    bool translationIsStreaming() const;
     SourceTextEdit *sourceEdit() const;
     ModuleStatus *moduleStatus() const;
     QToolButton *sourcePlayPauseButton() const;
@@ -148,6 +153,14 @@ private:
     void publishLanguageSelection();
     // The provider reported a detected source, or finished a translation.
     void onLanguageDetected(const Language &detectedLanguage, bool isTranslationContext);
+    // The answer so far, from a streaming provider: shown while the model is
+    // still writing it.
+    void onPartialTranslation(const QString &text);
+    // Clears the translation field and starts the request; see its definition.
+    void requestSelectionTranslation(const QString &text, const Language &destination, const Language &source);
+    // Replaces the translation without moving the reader: every streamed update
+    // rebuilds the document, and a rebuild resets the view.
+    void setTranslationHtml(const QString &html);
     AppSettings::WindowMode m_windowMode;
     TrayIcon *m_trayIcon;
     ScreenWatcher *m_orientationWatcher;
@@ -155,6 +168,11 @@ private:
     Language m_sourceLang = Language::autoLanguage();
     Language m_destLang = Language::autoLanguage();
     bool m_listenForContentChanges = false;
+    // Whether this request's first streamed piece has already brought the
+    // translation window up.
+    bool m_partialShown = false;
+    // When the field was last repainted from a streamed answer.
+    QElapsedTimer m_partialRepaint;
     void setListenForContentChanges(bool listen);
     // Saved Mozhi engine combo items (restored after switching back from LocalAI)
     QStringList m_engineItemsText;

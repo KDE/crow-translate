@@ -84,6 +84,10 @@ protected:
 
 signals:
     void stateChanged(State newState);
+    // The translation so far, as text (rendering is the frontend's job, exactly
+    // as it is for `result`). Emitted between the request and the final
+    // stateChanged(Processed), which carries the complete text.
+    void partialTranslation(const QString &text);
     // A real (asynchronous) language detection has begun. Copy's
     // detectLanguage() is synchronous and never emits this. Terminates via
     // languageDetected() or any stateChanged() (abort/cancel safety net).

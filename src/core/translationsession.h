@@ -156,6 +156,10 @@ signals:
     // Forwarded from whichever provider is current, so a subscriber survives
     // a backend swap without reconnecting.
     void translationStateChanged(ATranslationProvider::State newState);
+    // The answer so far, while the provider is still writing it. Only a
+    // streaming backend emits anything here; the others go straight to
+    // translationStateChanged(Processed) with the complete result.
+    void translationPartial(const QString &text);
     void ttsStateChanged(QTextToSpeech::State newState);
     void ttsErrorOccurred(QTextToSpeech::ErrorReason reason, const QString &errorString);
     void languageDetected(const Language &detectedLanguage, bool isTranslationContext);
