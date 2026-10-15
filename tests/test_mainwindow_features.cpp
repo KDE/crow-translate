@@ -18,6 +18,7 @@
 #include "mockhttpserver.h"
 #include "modulestatus.h"
 #include "popupwindow.h"
+#include "selection.h"
 #include "singleapplication.h"
 #include "sourcetextedit.h"
 #include "testisolation.h"
@@ -43,6 +44,17 @@
 
 namespace
 {
+// Put the text where the app will look for a selection. A session with a
+// clipboard manager answers from the selection buffer; a headless or offscreen
+// one only has the clipboard, so both are filled.
+void putSelectionOnClipboard(const QString &text)
+{
+    QGuiApplication::clipboard()->setText(text, QClipboard::Clipboard);
+    if (QGuiApplication::clipboard()->supportsSelection()) {
+        QGuiApplication::clipboard()->setText(text, QClipboard::Selection);
+    }
+}
+
 QByteArray chatCompletionJson(const QString &content)
 {
     return QStringLiteral(R"({"choices":[{"message":{"role":"assistant","content":"%1"}}]})").arg(content).toUtf8();
@@ -129,6 +141,8 @@ private slots:
     void testPasteImageRecognizeAndAutoTranslate();
     void testEscapeCancelsSourceImage();
     void testShowStatusBarSettingsRoundTrip();
+    void testSelectionRespectsSimplifySource();
+    void testSelectionKeepsLineBreaksWhenSimplificationIsOff();
     void testRecognizedTextActivatesUiWithoutKeystroke();
     void testRecognizedTextAutoTranslatesWhenEnabled();
     void testForcedAutoSpeaksTheResolvedDestinationLanguage();
@@ -377,6 +391,68 @@ void MainWindowFeaturesTest::testEscapeCancelsSourceImage()
 
 // SettingsDialog accept() must persist the checkbox, restoreDefaults() must
 // reset it - the four-point pattern minus the two UI-only touch points.
+// A selection taken from a PDF arrives with a line break per visual line, and
+// "Simplify source" is the option that folds those into spaces. The request used
+// to carry the raw selection while every other translate path went through the
+// source field's own text, so the option silently did nothing for the case it
+// matters most in.
+// The other half of the same rule: with the option off (the default) a selection
+// keeps its line breaks, so nothing changes for anyone who has not asked for it.
+void MainWindowFeaturesTest::testSelectionKeepsLineBreaksWhenSimplificationIsOff()
+{
+    MockHttpServer server;
+    server.queueJson(200, chatCompletionJson(QStringLiteral("mocked translation")));
+    pinLocalAiSettings(server);
+
+    AppSettings settings;
+    settings.setSimplifySource(false);
+
+    MainWindow window;
+
+    const QString selection = QStringLiteral("Line one\nLine two");
+    putSelectionOnClipboard(selection);
+    window.translateSelection();
+    emit Selection::instance().requestedSelectionAvailable(selection);
+
+    QVERIFY(QTest::qWaitFor([&window]() {
+        return window.translationEdit()->toPlainText() == QStringLiteral("mocked translation");
+    },
+                            5000));
+
+    const QByteArray body = server.requestBody(0);
+    QVERIFY2(body.contains("Line one\\nLine two"), qUtf8Printable(QString::fromUtf8(body)));
+}
+
+void MainWindowFeaturesTest::testSelectionRespectsSimplifySource()
+{
+    MockHttpServer server;
+    server.queueJson(200, chatCompletionJson(QStringLiteral("mocked translation")));
+    pinLocalAiSettings(server);
+
+    AppSettings settings;
+    settings.setSimplifySource(true);
+
+    MainWindow window;
+
+    // Deliver the selection both ways: the window reads the clipboard itself when
+    // it can take the selection buffer, and the signal covers the rest.
+    const QString selection = QStringLiteral("Line one\nLine two");
+    putSelectionOnClipboard(selection);
+    window.translateSelection();
+    emit Selection::instance().requestedSelectionAvailable(selection);
+
+    QVERIFY(QTest::qWaitFor([&window]() {
+        return window.translationEdit()->toPlainText() == QStringLiteral("mocked translation");
+    },
+                            5000));
+
+    const QByteArray body = server.requestBody(0);
+    QVERIFY2(body.contains("Line one Line two"), qUtf8Printable(QString::fromUtf8(body)));
+    QVERIFY2(!body.contains("Line one\\nLine two"), qUtf8Printable(QString::fromUtf8(body)));
+
+    settings.setSimplifySource(AppSettings::defaultSimplifySource());
+}
+
 void MainWindowFeaturesTest::testShowStatusBarSettingsRoundTrip()
 {
     MainWindow window;

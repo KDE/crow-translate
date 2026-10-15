@@ -493,6 +493,14 @@ Q_SCRIPTABLE void MainWindow::translateSelection()
                 ui->sourceEdit->setPlainText(selectedText);
                 ui->sourceEdit->stopEditTimer(); // Prevent delayed textEdited signal
 
+                // The selection is in the field now, so ask the field for the text
+                // to translate rather than using the raw selection: that is what
+                // applies the configured whitespace handling ("Simplify source"),
+                // exactly as the window's own translate paths do. A selection taken
+                // from a PDF carries a line break per visual line, which a
+                // translation does not want.
+                const QString requestText = ui->sourceEdit->toSourceText();
+
                 // Use auto-detect for selection text if auto button is checked, otherwise use selected language
                 const bool isSourceAutoChecked = ui->sourceLanguagesWidget->isAutoButtonChecked();
                 const bool isTranslationAutoChecked = ui->translationLanguagesWidget->isAutoButtonChecked();
@@ -500,16 +508,16 @@ Q_SCRIPTABLE void MainWindow::translateSelection()
                 const Language destinationLanguage = isTranslationAutoChecked ? Language::autoLanguage() : m_destLang;
 
                 if (m_session->translator() && m_session->translator()->getState() == ATranslationProvider::State::Ready) {
-                    requestSelectionTranslation(selectedText, destinationLanguage, sourceLanguage);
+                    requestSelectionTranslation(requestText, destinationLanguage, sourceLanguage);
                 } else {
                     // Wait for translator to be ready
                     auto connection = std::make_shared<QMetaObject::Connection>();
                     *connection = connect(m_session->translator(),
                                           &ATranslationProvider::stateChanged,
                                           this,
-                                          [this, selectedText, sourceLanguage, destinationLanguage, connection](ATranslationProvider::State state) {
+                                          [this, requestText, sourceLanguage, destinationLanguage, connection](ATranslationProvider::State state) {
                                               if (state == ATranslationProvider::State::Ready) {
-                                                  requestSelectionTranslation(selectedText, destinationLanguage, sourceLanguage);
+                                                  requestSelectionTranslation(requestText, destinationLanguage, sourceLanguage);
                                                   disconnect(*connection);
                                               }
                                           });
