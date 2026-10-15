@@ -1584,6 +1584,16 @@ void AppSettings::setShowPrivacyPopup(bool show)
     m_settings->setValue(QStringLiteral("MainWindow/ShowPrivacyPopup"), show);
 }
 
+QStringList AppSettings::shownNotices() const
+{
+    return m_settings->value(QStringLiteral("MainWindow/ShownNotices")).toStringList();
+}
+
+void AppSettings::setShownNotices(const QStringList &keys)
+{
+    m_settings->setValue(QStringLiteral("MainWindow/ShownNotices"), keys);
+}
+
 QByteArray AppSettings::mainWindowGeometry() const
 {
     return m_settings->value(QStringLiteral("MainWindow/WindowGeometry")).toByteArray();

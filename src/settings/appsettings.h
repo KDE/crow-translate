@@ -448,6 +448,11 @@ public:
     bool isShowPrivacyPopup() const;
     void setShowPrivacyPopup(bool show);
 
+    // The notices to show only once (UserNotifier::Notification::onceKey)
+    // that have been shown.
+    QStringList shownNotices() const;
+    void setShownNotices(const QStringList &keys);
+
     QByteArray mainWindowGeometry() const;
     void setMainWindowGeometry(const QByteArray &geometry);
 

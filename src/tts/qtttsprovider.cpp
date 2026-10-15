@@ -342,6 +342,10 @@ void QtTTSProvider::showWindowsVoiceInstallationDialog(const Language &language)
     notification.text = tr("No Windows TTS voice is installed for %1.").arg(languageName);
     notification.details = dialogText;
     notification.detailsAreRichText = true;
+    // The voice combos are filled at every start, which is when this is
+    // found out, so it came up at every start until the voice was installed.
+    // Once is enough to know how.
+    notification.onceKey = QStringLiteral("QtTTS/NoVoice/") + languageKey;
     UserNotifier::notify(notification);
 }
 #endif

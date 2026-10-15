@@ -55,6 +55,10 @@ public:
         // - a privacy notice, not a hint. A widget frontend shows it modally;
         // one without windows has nothing to do differently.
         bool requiresAcknowledgement = false;
+        // Set on something worth saying once rather than at every start: a
+        // frontend that keeps settings shows it the first time and remembers
+        // that it did. Empty means every time.
+        QString onceKey;
     };
 
     static UserNotifier *instance();

@@ -22,6 +22,7 @@
 #include "singleapplication.h"
 #include "sourcetextedit.h"
 #include "testisolation.h"
+#include "core/usernotifier.h"
 #include "ocr/llmocr.h"
 #include "settings/appsettings.h"
 #include "settings/settingsdialog.h"
@@ -36,6 +37,7 @@
 #include <QComboBox>
 #include <QKeyEvent>
 #include <QLocale>
+#include <QMessageBox>
 #include <QTest>
 #include <QTextEdit>
 #include <QToolButton>
@@ -146,6 +148,7 @@ private slots:
     void testRecognizedTextActivatesUiWithoutKeystroke();
     void testTypingWithAChosenSourceSendsNothing();
     void testTranslateIsAvailableStraightAfterAnEdit();
+    void testANoticeMarkedOnceIsShownOnce();
     void testRecognizedTextAutoTranslatesWhenEnabled();
     void testForcedAutoSpeaksTheResolvedDestinationLanguage();
     void testVoiceComboOffersTheResolvedLanguagesVoices();
@@ -575,6 +578,46 @@ void MainWindowFeaturesTest::testTranslateIsAvailableStraightAfterAnEdit()
     // The edit's own debounced follow-up has nothing left to do.
     QTest::qWait(1000);
     QCOMPARE(server.requestCount(), 1);
+}
+
+// Something worth saying once - the missing Windows voice is found out at every
+// start, while the voice lists are filled - is shown the first time and then
+// remembered, rather than coming up at every start until it is dealt with.
+void MainWindowFeaturesTest::testANoticeMarkedOnceIsShownOnce()
+{
+    MockHttpServer server;
+    pinLocalAiSettings(server);
+    AppSettings().setShownNotices({});
+
+    UserNotifier::Notification notice;
+    notice.title = QStringLiteral("Said once");
+    notice.text = QStringLiteral("only the first time");
+    notice.onceKey = QStringLiteral("test/said-once");
+
+    auto boxes = [](const MainWindow &window) {
+        QList<QMessageBox *> shown;
+        for (QMessageBox *box : window.findChildren<QMessageBox *>()) {
+            if (box->isVisible() && box->windowTitle() == QStringLiteral("Said once"))
+                shown.append(box);
+        }
+        return shown;
+    };
+
+    {
+        MainWindow window;
+        UserNotifier::notify(notice);
+        QVERIFY(QTest::qWaitFor([&]() {
+            return boxes(window).size() == 1;
+        },
+                                3000));
+        boxes(window).constFirst()->close();
+    }
+    QVERIFY(AppSettings().shownNotices().contains(notice.onceKey));
+
+    MainWindow nextStart;
+    UserNotifier::notify(notice);
+    QTest::qWait(500);
+    QVERIFY(boxes(nextStart).isEmpty());
 }
 
 // Same path with auto-translate on: the recognized text must chain straight

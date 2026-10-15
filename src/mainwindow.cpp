@@ -749,6 +749,15 @@ Q_SCRIPTABLE void MainWindow::quit()
 
 void MainWindow::showNotification(const UserNotifier::Notification &notification)
 {
+    if (!notification.onceKey.isEmpty()) {
+        AppSettings settings;
+        QStringList shown = settings.shownNotices();
+        if (shown.contains(notification.onceKey))
+            return;
+        shown.append(notification.onceKey);
+        settings.setShownNotices(shown);
+    }
+
     // The core says what happened; deciding that it looks like a message box
     // is this frontend's business and nobody else's.
     static const QHash<UserNotifier::Severity, QMessageBox::Icon> icons = {
