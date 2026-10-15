@@ -1102,12 +1102,21 @@ void MainWindow::translatorStateChanged(ATranslationProvider::State newState)
             emit translationAccepted();
         } else {
             ui->translationEdit->setPlainText(tr("Error: %1").arg(m_session->translator()->getErrorString()));
+
+            // Shown the way a result is. A translation started from the global
+            // shortcut while the window was hidden otherwise put its error into
+            // the hidden window, and from the outside nothing happened at all.
+            showTranslationWindow();
         }
 
         break;
     case ATranslationProvider::State::Finished:
         if (m_session->translator()->error != ATranslationProvider::TranslationError::NoError) {
             ui->translationEdit->setPlainText(tr("Error: %1").arg(m_session->translator()->getErrorString()));
+            // Some backends fail straight into Finished; shown as above. Not an
+            // abort, which the user asked for.
+            if (m_session->translator()->error != ATranslationProvider::TranslationError::Aborted)
+                showTranslationWindow();
         }
         emit resetTranslator();
         break;

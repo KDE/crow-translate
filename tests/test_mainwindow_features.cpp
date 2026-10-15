@@ -148,6 +148,7 @@ private slots:
     void testRecognizedTextActivatesUiWithoutKeystroke();
     void testTypingWithAChosenSourceSendsNothing();
     void testTranslateIsAvailableStraightAfterAnEdit();
+    void testAFailedTranslationIsShownLikeAResult();
     void testANoticeMarkedOnceIsShownOnce();
     void testRecognizedTextAutoTranslatesWhenEnabled();
     void testForcedAutoSpeaksTheResolvedDestinationLanguage();
@@ -578,6 +579,38 @@ void MainWindowFeaturesTest::testTranslateIsAvailableStraightAfterAnEdit()
     // The edit's own debounced follow-up has nothing left to do.
     QTest::qWait(1000);
     QCOMPARE(server.requestCount(), 1);
+}
+
+// A translation from the global shortcut while the window is hidden, which
+// fails. The error used to go into the hidden window, and from the outside
+// nothing happened at all.
+void MainWindowFeaturesTest::testAFailedTranslationIsShownLikeAResult()
+{
+    MockHttpServer server;
+    server.queueJson(500, QByteArrayLiteral(R"({"error":{"message":"the model is not loaded"}})"));
+    pinLocalAiSettings(server);
+    AppSettings settings;
+    settings.setWindowMode(AppSettings::PopupWindow);
+
+    MainWindow window;
+    window.hide(); // as it is in pop-up mode, between translations
+
+    // Straight to the session, as the shortcut's selection ends up. Through
+    // the selection itself, Wayland shows the pop-up first to be allowed to
+    // read it, which would hide what this is about.
+    emit window.translationRequested(QStringLiteral("nobody can translate this"), Language(QLocale::Spanish), Language(QLocale::English));
+
+    PopupWindow *popup = nullptr;
+    QVERIFY2(QTest::qWaitFor([&window, &popup]() {
+                 popup = window.findChild<PopupWindow *>();
+                 return popup != nullptr && popup->isVisible();
+             },
+                             10000),
+             qPrintable(QStringLiteral("no pop-up; the hidden window says: %1").arg(window.translationEdit()->toPlainText())));
+    QVERIFY(window.translationEdit()->toPlainText().startsWith(QStringLiteral("Error")));
+    popup->close();
+
+    settings.setWindowMode(AppSettings::defaultWindowMode());
 }
 
 // Something worth saying once - the missing Windows voice is found out at every
