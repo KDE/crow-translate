@@ -14,6 +14,7 @@
 
 class QComboBox;
 class QShortcut;
+class QSizeGrip;
 class QTimer;
 class MainWindow;
 class LanguageButtonsWidget;
@@ -42,13 +43,22 @@ private:
     // changes, because the pop-up outlives the state it was built from.
     void syncFromMainWindow();
     void showEvent(QShowEvent *event) override;
+    void resizeEvent(QResizeEvent *event) override;
+    void closeEvent(QCloseEvent *event) override;
     bool event(QEvent *event) override;
+    // Writes the size this pop-up was left at back to the settings, so the next
+    // one opens the way the user left this one.
+    void saveSizeToSettings();
 
     static void connectLanguageButtons(LanguageButtonsWidget *popupButtons, const LanguageButtonsWidget *mainWindowButtons);
 
     Ui::PopupWindow *ui;
     QShortcut *m_closeWindowsShortcut;
     QTimer *m_closeWindowTimer = nullptr;
+    // The window is frameless, so nothing else offers an edge to drag.
+    QSizeGrip *m_sizeGrip = nullptr;
+    // Coalesces a drag's burst of resize events into one write.
+    QTimer *m_sizeSaveTimer = nullptr;
     QPointer<MainWindow> m_parent;
     QMetaObject::Connection m_textChangedConnection;
     QTimer *m_syncTimer = nullptr;

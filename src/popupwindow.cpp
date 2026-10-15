@@ -17,13 +17,23 @@
 #include <QComboBox>
 #include <QDebug>
 #include <QPointer>
+#include <QResizeEvent>
 #include <QScreen>
 #include <QScrollBar>
 #include <QShortcut>
+#include <QSizeGrip>
 #include <QTimer>
 #include <QToolButton>
 
 #include <utility>
+
+namespace
+{
+// The settings dialog offers the same floor for the pop-up's size (200 in
+// settingsdialog.cpp), and a frameless window has no limit of its own somewhere
+// else, so a drag must not be able to collapse it to nothing.
+constexpr int kMinimumPopupSize = 200;
+} // namespace
 
 PopupWindow::PopupWindow(MainWindow *parent)
     : QWidget(parent, Qt::Tool | Qt::FramelessWindowHint)
@@ -33,6 +43,19 @@ PopupWindow::PopupWindow(MainWindow *parent)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
+
+    // The window is frameless, so it has no edge of its own to grab: a grip drawn
+    // over the status strip's corner is the only affordance for resizing it.
+    setMinimumSize(kMinimumPopupSize, kMinimumPopupSize);
+    m_sizeGrip = new QSizeGrip(this);
+    m_sizeGrip->setToolTip(tr("Drag to resize"));
+
+    // A drag emits a resize per frame - write the settings once it settles.
+    m_sizeSaveTimer = new QTimer(this);
+    m_sizeSaveTimer->setObjectName(QStringLiteral("popupSizeSaveTimer"));
+    m_sizeSaveTimer->setSingleShot(true);
+    m_sizeSaveTimer->setInterval(500);
+    connect(m_sizeSaveTimer, &QTimer::timeout, this, &PopupWindow::saveSizeToSettings);
 
     // Everything the pop-up shows of the main window's controls is a MIRROR,
     // not a snapshot, and the difference has produced three separate bugs.
@@ -216,6 +239,44 @@ void PopupWindow::loadSettings()
         m_closeWindowTimer->setInterval(settings.popupWindowTimeout() * 1000);
         m_closeWindowTimer->start();
     }
+}
+
+void PopupWindow::resizeEvent(QResizeEvent *event)
+{
+    QWidget::resizeEvent(event);
+
+    if (m_sizeGrip != nullptr) {
+        m_sizeGrip->move(width() - m_sizeGrip->width(), height() - m_sizeGrip->height());
+        m_sizeGrip->raise();
+    }
+
+    if (m_sizeSaveTimer != nullptr) {
+        m_sizeSaveTimer->start();
+    }
+
+    // Someone manipulating the window is looking at it: the auto-close timeout
+    // would otherwise take it away mid-drag.
+    if (m_closeWindowTimer != nullptr) {
+        m_closeWindowTimer->start();
+    }
+}
+
+void PopupWindow::closeEvent(QCloseEvent *event)
+{
+    // A quick drag followed by a close must not lose the size.
+    if (m_sizeSaveTimer != nullptr && m_sizeSaveTimer->isActive()) {
+        m_sizeSaveTimer->stop();
+        saveSizeToSettings();
+    }
+
+    QWidget::closeEvent(event);
+}
+
+void PopupWindow::saveSizeToSettings()
+{
+    AppSettings settings;
+    settings.setPopupWidth(width());
+    settings.setPopupHeight(height());
 }
 
 // Move popup to cursor and prevent appearing outside the screen

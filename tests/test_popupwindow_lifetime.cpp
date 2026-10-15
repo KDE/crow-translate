@@ -25,7 +25,9 @@
 #include "translationedit.h"
 #include "settings/appsettings.h"
 
+#include <QSizeGrip>
 #include <QTest>
+#include <QTimer>
 
 class PopupWindowLifetimeTest : public QObject
 {
@@ -67,6 +69,37 @@ private slots:
         delete window;
 
         QVERIFY(true);
+    }
+    // The pop-up is frameless (Qt::Tool | Qt::FramelessWindowHint), so it has no
+    // edge of its own to grab: before this it could only be sized from the
+    // settings dialog, and a size it was dragged to would not have been kept. A
+    // grip over the status strip's corner resizes it, and the size it is left at
+    // goes back to the settings, which is what the next pop-up opens with.
+    //
+    // The write-out is debounced (a drag emits a resize per frame), and the pop-up
+    // closes itself when it loses activation - so the timer is asserted on its own
+    // and the flush is asserted through the close, which a drag cannot beat.
+    void testPopupRemembersTheSizeItWasResizedTo()
+    {
+        MainWindow window;
+        PopupWindow popup(&window);
+        popup.show();
+        QVERIFY(QTest::qWaitForWindowExposed(&popup));
+
+        QVERIFY2(popup.findChild<QSizeGrip *>() != nullptr, "a frameless window needs a grip to be resizable");
+        QCOMPARE(popup.minimumWidth(), 200);
+        QCOMPARE(popup.minimumHeight(), 200);
+
+        popup.resize(700, 420);
+
+        auto *saveTimer = popup.findChild<QTimer *>(QStringLiteral("popupSizeSaveTimer"));
+        QVERIFY2(saveTimer != nullptr, "the size write-out timer should exist");
+        QVERIFY2(saveTimer->isActive(), "resizing should schedule the write-out");
+
+        // Closing before the debounce fires keeps the size the user dragged to.
+        popup.close();
+        QCOMPARE(AppSettings().popupWidth(), 700);
+        QCOMPARE(AppSettings().popupHeight(), 420);
     }
 };
 
