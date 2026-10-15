@@ -193,6 +193,7 @@ add_executable(test_translationsession
 )
 target_link_libraries(test_translationsession PRIVATE
     ${PROJECT_NAME}-lib
+    test-support
     Qt6::Test
 )
 add_test(NAME TranslationSessionTest COMMAND test_translationsession)

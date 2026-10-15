@@ -329,7 +329,9 @@ void TranslationSession::configureLlmOcr()
 {
     const AppSettings settings;
     const QString providerId = settings.ocrLlmProvider();
-    m_llmOcr->setEndpoint(settings.localProviderUrl(providerId), AppSettings::localProviderIsAnthropic(providerId), settings.localProviderApiKey(providerId));
+    // The endpoint from the recognition page. It used to be the translation
+    // one: the address typed on the recognition page was saved and never read.
+    m_llmOcr->setEndpoint(settings.ocrLlmUrl(providerId), AppSettings::localProviderIsAnthropic(providerId), settings.ocrLlmApiKey(providerId));
     m_llmOcr->setModel(settings.ocrLlmModel(providerId));
     m_llmOcr->setTimeout(settings.ocrLlmTimeout(providerId));
     m_llmOcr->setPrompt(settings.ocrLlmPrompt(settings.ocrLlmModel(providerId)));

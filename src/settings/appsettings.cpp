@@ -1294,9 +1294,14 @@ void AppSettings::setOcrLlmProvider(const QString &providerId)
     m_settings->setValue(QStringLiteral("OcrLlm/Provider"), providerId);
 }
 
+// Text recognition has its own endpoint, set on its own settings page. Until
+// that page was first saved, recognition used the translation endpoint for
+// the same provider, so that is what it still inherits rather than the
+// provider's default address: a setup pointed at a remote server keeps
+// working.
 QString AppSettings::ocrLlmUrl(const QString &providerId) const
 {
-    return m_settings->value(QStringLiteral("OcrLlm/") + providerId + QStringLiteral("/Url"), defaultLocalProviderUrl(providerId)).toString();
+    return m_settings->value(QStringLiteral("OcrLlm/") + providerId + QStringLiteral("/Url"), localProviderUrl(providerId)).toString();
 }
 
 void AppSettings::setOcrLlmUrl(const QString &providerId, const QString &url)
@@ -1304,8 +1309,12 @@ void AppSettings::setOcrLlmUrl(const QString &providerId, const QString &url)
     m_settings->setValue(QStringLiteral("OcrLlm/") + providerId + QStringLiteral("/Url"), url);
 }
 
+// The key goes with the endpoint it was given for: inherited only while the
+// endpoint is, never sent to an address of its own.
 QString AppSettings::ocrLlmApiKey(const QString &providerId) const
 {
+    if (!m_settings->contains(QStringLiteral("OcrLlm/") + providerId + QStringLiteral("/Url")))
+        return localProviderApiKey(providerId);
     return m_settings->value(QStringLiteral("OcrLlm/") + providerId + QStringLiteral("/ApiKey")).toString();
 }
 

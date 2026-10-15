@@ -10,6 +10,7 @@
 // could do any of this before.
 
 #include "cmake.h"
+#include "mockhttpserver.h"
 #include "modulestatus.h"
 #include "core/translationsession.h"
 #include "ocr/aocrprovider.h"
@@ -401,6 +402,63 @@ private slots:
 
         QVERIFY(session.prepareOcr());
         QVERIFY(session.llmOcr()->isConfigured());
+    }
+
+    // Recognition has its own endpoint, set on its own settings page. The
+    // address typed there was saved and never read: recognition went to the
+    // translation endpoint, whatever the page said.
+    void testLlmOcrUsesItsOwnEndpoint()
+    {
+        MockHttpServer translation;
+        MockHttpServer recognition;
+        recognition.queueJson(200, QByteArrayLiteral(R"({"choices":[{"message":{"role":"assistant","content":"READ IT"}}]})"));
+        {
+            AppSettings settings;
+            settings.setOcrEngine(AppSettings::OcrEngine::Llm);
+            settings.setOcrLlmProvider(QStringLiteral("openai_custom"));
+            settings.setLocalProviderUrl(QStringLiteral("openai_custom"), translation.baseUrl());
+            settings.setOcrLlmUrl(QStringLiteral("openai_custom"), recognition.baseUrl());
+            settings.setOcrLlmModel(QStringLiteral("openai_custom"), QStringLiteral("mock-model"));
+        }
+
+        TranslationSession session;
+        QVERIFY(session.prepareOcr());
+        QSignalSpy recognized(session.llmOcr(), &AOcrProvider::recognized);
+        QImage image(64, 32, QImage::Format_ARGB32);
+        image.fill(Qt::white);
+        session.llmOcr()->recognize(image, 96);
+
+        QVERIFY(recognized.wait(5000));
+        QCOMPARE(recognized.at(0).at(0).toString(), QStringLiteral("READ IT"));
+        QCOMPARE(recognition.requestCount(), 1);
+        QCOMPARE(translation.requestCount(), 0);
+    }
+
+    // Until the recognition page is first saved, the endpoint is the one
+    // recognition always used, so an existing setup pointed at a remote
+    // server keeps working. Its key goes with it, and only then.
+    void testLlmOcrInheritsTheTranslationEndpointUntilItHasItsOwn()
+    {
+        const QString id = QStringLiteral("openai_custom");
+        {
+            AppSettings settings;
+            QSettings raw;
+            raw.remove(QStringLiteral("OcrLlm/") + id);
+            settings.setLocalProviderUrl(id, QStringLiteral("http://translation.example:1234"));
+            settings.setLocalProviderApiKey(id, QStringLiteral("translation-key"));
+        }
+        {
+            const AppSettings settings;
+            QCOMPARE(settings.ocrLlmUrl(id), QStringLiteral("http://translation.example:1234"));
+            QCOMPARE(settings.ocrLlmApiKey(id), QStringLiteral("translation-key"));
+        }
+        {
+            AppSettings settings;
+            settings.setOcrLlmUrl(id, QStringLiteral("http://recognition.example:5678"));
+        }
+        const AppSettings settings;
+        QCOMPARE(settings.ocrLlmUrl(id), QStringLiteral("http://recognition.example:5678"));
+        QCOMPARE(settings.ocrLlmApiKey(id), QString()); // never sent to an address of its own
     }
 
     // A configuration the user chose and that does not work is worth saying
