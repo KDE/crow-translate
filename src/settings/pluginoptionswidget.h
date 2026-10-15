@@ -12,6 +12,7 @@
 #include <QWidget>
 
 class QFormLayout;
+class QLineEdit;
 
 // The settings a backend declares, drawn without knowing which backend it is.
 //
@@ -42,6 +43,9 @@ public:
     void load();
     void save() const;
     void restoreDefaults();
+    // Hand over a value still being typed, for a dialog that is closing: a
+    // line edit reports its value when editing finishes (see connectEdit()).
+    void commitEdits();
 
 signals:
     // A control changed while the dialog is still open. The dialog forwards
@@ -52,6 +56,8 @@ signals:
 private:
     void clear();
     void addControl(const ProviderOptionSpec &spec);
+    void connectEdit(QLineEdit *edit, const QString &key);
+    void commitEdit(QLineEdit *edit, const QString &key);
 
     QFormLayout *m_layout = nullptr;
     // Needed for the fallback storage key of an option that names none.

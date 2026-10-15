@@ -89,12 +89,12 @@ void PluginOptionsWidget::addControl(const ProviderOptionSpec &spec)
         rowLayout->addWidget(browse);
         connect(browse, &QToolButton::clicked, this, [this, edit, spec]() {
             const QString directory = QFileDialog::getExistingDirectory(this, spec.displayName, edit->text());
-            if (!directory.isEmpty())
+            if (!directory.isEmpty() && directory != edit->text()) {
                 edit->setText(directory);
+                Q_EMIT optionChanged(spec.key, directory);
+            }
         });
-        connect(edit, &QLineEdit::textChanged, this, [this, spec](const QString &value) {
-            Q_EMIT optionChanged(spec.key, value);
-        });
+        connectEdit(edit, spec.key);
         control = row;
         m_controls.insert(spec.key, edit);
         break;
@@ -120,9 +120,7 @@ void PluginOptionsWidget::addControl(const ProviderOptionSpec &spec)
         } else {
             auto *edit = new QLineEdit(this);
             edit->setObjectName(spec.key);
-            connect(edit, &QLineEdit::textChanged, this, [this, spec](const QString &value) {
-                Q_EMIT optionChanged(spec.key, value);
-            });
+            connectEdit(edit, spec.key);
             control = edit;
             m_controls.insert(spec.key, edit);
         }
@@ -132,6 +130,36 @@ void PluginOptionsWidget::addControl(const ProviderOptionSpec &spec)
     if (control != nullptr) {
         control->setToolTip(spec.description);
         m_layout->addRow(spec.displayName, control);
+    }
+}
+
+// A typed value reaches the backend once the user is done with it, not per
+// keystroke - as Piper's voices path did before this widget drew it
+// (editingFinished). Every change is applied to the live backend at once, and
+// for a path that is a rescan: typing C:\Voices rescanned C:\, then C:\V and so
+// on, each on the GUI thread (C:\ alone took 13 s), and each that found nothing
+// raised a "no voice models" box - thirty for one path, and they blocked the
+// dialog's OK.
+void PluginOptionsWidget::connectEdit(QLineEdit *edit, const QString &key)
+{
+    connect(edit, &QLineEdit::editingFinished, this, [this, edit, key]() {
+        commitEdit(edit, key);
+    });
+}
+
+void PluginOptionsWidget::commitEdit(QLineEdit *edit, const QString &key)
+{
+    if (!edit->isModified())
+        return;
+    edit->setModified(false);
+    Q_EMIT optionChanged(key, edit->text());
+}
+
+void PluginOptionsWidget::commitEdits()
+{
+    for (auto control = m_controls.cbegin(); control != m_controls.cend(); ++control) {
+        if (auto *edit = qobject_cast<QLineEdit *>(control.value()))
+            commitEdit(edit, control.key());
     }
 }
 
@@ -182,7 +210,14 @@ void PluginOptionsWidget::restoreDefaults()
             box->setChecked(spec.defaultValue.toBool());
         else if (auto *spin = qobject_cast<QSpinBox *>(control))
             spin->setValue(spec.defaultValue.toInt());
-        else if (auto *edit = qobject_cast<QLineEdit *>(control))
-            edit->setText(spec.defaultValue.toString());
+        else if (auto *edit = qobject_cast<QLineEdit *>(control)) {
+            // Applied at once, like the other controls: there is no typing to
+            // wait for.
+            const QString value = spec.defaultValue.toString();
+            if (edit->text() != value) {
+                edit->setText(value);
+                Q_EMIT optionChanged(spec.key, value);
+            }
+        }
     }
 }

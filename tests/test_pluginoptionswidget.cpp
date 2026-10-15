@@ -107,9 +107,11 @@ private slots:
         QCOMPARE(reopenedEdit->text(), QStringLiteral("/tmp/voices-from-the-dialog"));
     }
 
-    // Typing has to reach a live provider before the dialog is accepted -
-    // that is what the Piper-specific signal this replaced was for.
-    void testEditingReportsTheChangeImmediately()
+    // A typed value reaches a live provider when editing is finished, and not
+    // per keystroke. Reported per keystroke, a voices path was rescanned for
+    // every prefix of what was being typed - C:\ alone took 13 s on the GUI
+    // thread - with a "no voice models" box for each prefix that held none.
+    void testEditingReportsTheChangeWhenItIsFinished()
     {
         PluginOptionsWidget widget;
         widget.setBackend(PluginFamily::Tts, QStringLiteral("piper"));
@@ -119,11 +121,42 @@ private slots:
             QSKIP("The Piper backend is not installed in this build");
 
         QSignalSpy changed(&widget, &PluginOptionsWidget::optionChanged);
-        edit->setText(QStringLiteral("/tmp/elsewhere"));
+        edit->selectAll();
+        for (const QChar c : QStringLiteral("/tmp/elsewhere"))
+            edit->insert(QString(c)); // a keystroke each, as typed
+        QCOMPARE(changed.count(), 0);
 
+        Q_EMIT edit->editingFinished(); // focus moved on, or Return
         QCOMPARE(changed.count(), 1);
         QCOMPARE(changed.constFirst().at(0).toString(), QStringLiteral("voices_path"));
         QCOMPARE(changed.constFirst().at(1).toString(), QStringLiteral("/tmp/elsewhere"));
+
+        // Leaving the field again without touching it is not a change.
+        Q_EMIT edit->editingFinished();
+        QCOMPARE(changed.count(), 1);
+    }
+
+    // A dialog accepted while the value is still being typed hands it over.
+    void testCommitEditsHandsOverAValueStillBeingTyped()
+    {
+        PluginOptionsWidget widget;
+        widget.setBackend(PluginFamily::Tts, QStringLiteral("piper"));
+
+        auto *edit = widget.findChild<QLineEdit *>(QStringLiteral("voices_path"));
+        if (edit == nullptr)
+            QSKIP("The Piper backend is not installed in this build");
+
+        QSignalSpy changed(&widget, &PluginOptionsWidget::optionChanged);
+        edit->selectAll();
+        edit->insert(QStringLiteral("/tmp/typed"));
+        QCOMPARE(changed.count(), 0);
+
+        widget.commitEdits();
+        QCOMPARE(changed.count(), 1);
+        QCOMPARE(changed.constFirst().at(1).toString(), QStringLiteral("/tmp/typed"));
+
+        widget.commitEdits(); // nothing new
+        QCOMPARE(changed.count(), 1);
     }
 };
 

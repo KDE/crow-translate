@@ -316,6 +316,7 @@ void SettingsDialog::accept()
     settings.setConvertLineBreaks(ui->convertLineBreaksCheckBox->isChecked());
     settings.setOcrLanguagesPath(ui->ocrLanguagesPathEdit->text().toLocal8Bit());
     settings.setOcrLanguagesString(ui->ocrLanguagesListWidget->checkedLanguagesString());
+    m_ttsPluginOptions->commitEdits();
     m_ttsPluginOptions->save();
     settings.setRegionRememberType(static_cast<AppSettings::RegionRememberType>(ui->rememberRegionComboBox->currentIndex()));
     settings.setCaptureDelay(ui->captureDelaySpinBox->value());
