@@ -144,6 +144,7 @@ private slots:
     void testSelectionRespectsSimplifySource();
     void testSelectionKeepsLineBreaksWhenSimplificationIsOff();
     void testRecognizedTextActivatesUiWithoutKeystroke();
+    void testTranslateIsAvailableStraightAfterAnEdit();
     void testRecognizedTextAutoTranslatesWhenEnabled();
     void testForcedAutoSpeaksTheResolvedDestinationLanguage();
     void testVoiceComboOffersTheResolvedLanguagesVoices();
@@ -522,6 +523,32 @@ void MainWindowFeaturesTest::testRecognizedTextActivatesUiWithoutKeystroke()
     },
                             5000));
     QVERIFY(sawDetecting);
+}
+
+// Translate's shortcut is the button's, and a disabled button ignores it: the
+// button used to wait for the edit debounce, so Ctrl+Return pressed within half
+// a second of typing did nothing at all.
+void MainWindowFeaturesTest::testTranslateIsAvailableStraightAfterAnEdit()
+{
+    MockHttpServer server;
+    server.queueJson(200, chatCompletionJson(QStringLiteral("mocked translation")));
+    pinLocalAiSettings(server);
+
+    MainWindow window;
+    QCheckBox *autoTranslate = window.findChild<QCheckBox *>(QStringLiteral("autoTranslateCheckBox"));
+    QVERIFY(autoTranslate != nullptr);
+    autoTranslate->setChecked(false);
+
+    typeText(window.sourceEdit(), QStringLiteral("sent at once"));
+    QVERIFY(window.translateButton()->isEnabled());
+    QTest::mouseClick(window.translateButton(), Qt::LeftButton);
+    QVERIFY(QTest::qWaitFor([&window]() {
+        return window.translationEdit()->toPlainText() == QStringLiteral("mocked translation");
+    },
+                            5000));
+    // The edit's own debounced follow-up has nothing left to do.
+    QTest::qWait(1000);
+    QCOMPARE(server.requestCount(), 1);
 }
 
 // Same path with auto-translate on: the recognized text must chain straight

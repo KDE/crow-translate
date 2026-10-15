@@ -203,7 +203,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->translationPlayPauseButton, &QToolButton::clicked, this, &MainWindow::translationPlayPauseClicked);
     connect(ui->translationStopButton, &QToolButton::clicked, this, &MainWindow::translationStopClicked);
     connect(ui->settingsButton, &QToolButton::clicked, this, &MainWindow::openSettings);
-    connect(ui->sourceEdit, &SourceTextEdit::textEdited, this, &MainWindow::updateTranslateButtonState);
+    // At once, not after the edit debounce: Translate's shortcut (Ctrl+Return)
+    // is the button's, and a disabled button ignores it, so a shortcut
+    // pressed within half a second of typing or pasting did nothing at all.
+    connect(ui->sourceEdit, &SourceTextEdit::textChanged, this, &MainWindow::updateTranslateButtonState);
     connect(ui->sourceEdit, &SourceTextEdit::textEdited, this, &MainWindow::updateTTSButtonStates);
     connect(ui->sourceEdit, &SourceTextEdit::textEdited, this, &MainWindow::updateAutoLocales);
     connect(ui->sourceEdit, &SourceTextEdit::textEdited, this, &MainWindow::handleAutoTranslation);
@@ -1728,6 +1731,12 @@ void MainWindow::on_translateButton_clicked()
         m_session->armOcrTranslation(m_session->ocr());
         return;
     }
+
+    // Asked for straight after an edit, the debounced follow-up of that edit
+    // has nothing left to do but detect the language a second time. Its
+    // speech buttons are still due.
+    ui->sourceEdit->stopEditTimer();
+    updateTTSButtonStates();
 
     emit translationRequested(ui->sourceEdit->toSourceText(), destinationLanguage, sourceLanguage);
 }
