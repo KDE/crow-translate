@@ -93,6 +93,9 @@ private:
     QVector<Language> m_translationLanguages;
     Language m_sourceLang;
     int m_currentTranslationIndex = 0;
+    // "-t auto": the destination is the language rule's, and has to be worked
+    // out again once detection has said what the source was.
+    bool m_autoDestination = false;
 
     bool m_speakSource = false;
     bool m_speakTranslation = false;

@@ -264,6 +264,7 @@ void Cli::process(const QCoreApplication &app)
         // - while the window, given the same settings and the same text,
         // translated it into the primary language.
         m_translationLanguages.append(m_session->preferredDestination(m_sourceLang));
+        m_autoDestination = true;
     } else {
         for (const QString &langCode : translationValue.split('+')) {
             const Language language = Language(langCode);
@@ -504,6 +505,23 @@ void Cli::onTranslationStateChanged(ATranslationProvider::State state)
         if (m_sourceLang == Language::autoLanguage() && m_session->translator()->sourceLanguage != Language::autoLanguage()) {
             m_sourceLang = m_session->translator()->sourceLanguage;
             qDebug() << "Auto-detected source language:" << m_sourceLang.name();
+
+            // With an unknown source, "-t auto" could only guess: the rule was
+            // asked about a source nobody knew yet. Now that detection has
+            // answered, ask again and translate once more if the answer moved,
+            // as the window does (MainWindow::onLanguageDetected). Otherwise
+            // English text with English as the primary language came back in
+            // English. The source is known from here on, so this cannot repeat.
+            if (m_autoDestination) {
+                const Language preferred = m_session->preferredDestination(m_sourceLang);
+                if (preferred != m_currentTargetLang) {
+                    qDebug() << "Retranslating to the preferred destination:" << preferred.name();
+                    m_translationLanguages[m_currentTranslationIndex] = preferred;
+                    m_session->acceptTranslation();
+                    processNextTranslation();
+                    return;
+                }
+            }
         }
 
         m_session->acceptTranslation();

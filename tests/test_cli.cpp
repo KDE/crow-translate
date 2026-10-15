@@ -594,6 +594,47 @@ private slots:
         QVERIFY2(server.requestPath(0).contains(QStringLiteral("to=de")),
                  qPrintable(QStringLiteral("auto resolved to the wrong target. request was:\n%1").arg(server.requestPath(0))));
     }
+
+    // Regression: with the source unknown as well, "-t auto" was resolved
+    // once, before detection, and never again. English text on a setup whose
+    // primary language is English went to English and came back unchanged.
+    // The window translates again once detection has answered, and so does
+    // the command line now: to the secondary language, and only that result
+    // is printed.
+    void testAutoTargetFollowsTheDetectedSource()
+    {
+        const QByteArray config = defaultConfig()
+            + QByteArrayLiteral(
+                                      "PrimaryLanguage=en\n"
+                                      "SecondaryLanguage=fr\n");
+
+        MockHttpServer server;
+        server.queueJson(200,
+                         QByteArrayLiteral(R"({"engine":"duckduckgo","detected":"en","translated-text":"good evening",)"
+                                           R"("source_language":"en","target_language":"en"})"));
+        server.queueJson(200,
+                         QByteArrayLiteral(R"({"engine":"duckduckgo","detected":"en","translated-text":"bonsoir",)"
+                                           R"("source_language":"en","target_language":"fr"})"));
+
+        const RunResult result = runCrow({QStringLiteral("-u"),
+                                          server.baseUrl(),
+                                          QStringLiteral("-e"),
+                                          QStringLiteral("duckduckgo"),
+                                          QStringLiteral("-s"),
+                                          QStringLiteral("auto"),
+                                          QStringLiteral("-t"),
+                                          QStringLiteral("auto"),
+                                          QStringLiteral("-b"),
+                                          QStringLiteral("good evening")},
+                                         config);
+
+        QVERIFY2(result.finished, "crow hung translating again after detection");
+        QCOMPARE(result.exitCode, 0);
+        QVERIFY2(server.requestCount() == 2, qPrintable(QStringLiteral("expected two requests, got %1").arg(server.requestCount())));
+        QVERIFY2(server.requestPath(1).contains(QStringLiteral("to=fr")),
+                 qPrintable(QStringLiteral("the second translation went to the wrong target. request was:\n%1").arg(server.requestPath(1))));
+        QCOMPARE(result.out.trimmed(), QStringLiteral("bonsoir"));
+    }
 };
 
 QTEST_GUILESS_MAIN(CliTest)
