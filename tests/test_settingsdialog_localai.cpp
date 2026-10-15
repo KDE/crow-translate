@@ -16,6 +16,7 @@
 #include "settings/settingsdialog.h"
 #include "translator/atranslationprovider.h"
 
+#include <QCheckBox>
 #include <QComboBox>
 #include <QGroupBox>
 #include <QLineEdit>
@@ -119,6 +120,40 @@ private slots:
                                 3000));
         QCOMPARE(modelCombo->itemText(0), QStringLiteral("model-a"));
         QCOMPARE(modelCombo->itemText(1), QStringLiteral("model-b"));
+    }
+
+    // "Simplify source" changes the text a request carries, and it is applied by
+    // the source field for every engine - so it belongs on a page every engine
+    // shows. It used to sit in the Mozhi engine's options group, where a user on
+    // the LLM backend could not find it.
+    void testSourceSimplificationIsReachableForEveryEngine()
+    {
+        AppSettings settings;
+        settings.setTranslationProviderBackend(ATranslationProvider::ProviderBackend::LocalAI);
+
+        MainWindow window;
+        SettingsDialog dialog(&window);
+        dialog.show();
+        QVERIFY(QTest::qWaitForWindowExposed(&dialog));
+
+        auto *simplify = dialog.findChild<QCheckBox *>(QStringLiteral("sourceSimplificationCheckBox"));
+        auto *pagesStack = dialog.findChild<QStackedWidget *>(QStringLiteral("pagesStackedWidget"));
+        auto *pagesList = dialog.findChild<QListWidget *>(QStringLiteral("pagesListWidget"));
+        auto *translationPage = dialog.findChild<QWidget *>(QStringLiteral("translationPage"));
+        QVERIFY(simplify != nullptr);
+        QVERIFY(pagesStack != nullptr);
+        QVERIFY(pagesList != nullptr);
+        QVERIFY(translationPage != nullptr);
+
+        // The page it belongs to, not the one it happens to be shown on.
+        QWidget *page = simplify;
+        while (page != nullptr && page->parentWidget() != pagesStack) {
+            page = page->parentWidget();
+        }
+        QCOMPARE(page, translationPage);
+
+        pagesList->setCurrentRow(pagesStack->indexOf(translationPage));
+        QVERIFY(simplify->isVisible());
     }
 
     // Gotcha #7: switching Copy -> LocalAI -> Mozhi must restore the
