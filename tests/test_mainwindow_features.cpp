@@ -163,6 +163,7 @@ private slots:
     void testAutoDestinationStaysAutoAtStartup();
     void testRetranslateDoesNotClobberNextAutoDestination();
     void testPopupShowsTheTtsControlsTheProviderAskedFor();
+    void testSpeechWithoutVoiceChoiceStillHasPlayButtons();
     void testPopupHidesTtsControlsWhenThereIsNoTtsProvider();
     void testPopupEngineComboFollowsTheActiveBackend();
     void testPopupCombosKeepTrackingTheMainWindowAfterItIsOpen();
@@ -1061,6 +1062,35 @@ void MainWindowFeaturesTest::testPopupShowsTheTtsControlsTheProviderAskedFor()
     // The engine combo was never mirrored either, and Copy has no engine to
     // choose - so the pop-up showed a control the main window hides.
     QVERIFY(!shown("engineComboBox"));
+#endif
+}
+
+// Every backend that speaks gets its play buttons, whatever it lets the user
+// choose. They followed the voice and speaker choosers instead, and Mozhi offers
+// neither, so with Mozhi's speech there was nothing to press.
+void MainWindowFeaturesTest::testSpeechWithoutVoiceChoiceStillHasPlayButtons()
+{
+#ifndef WITH_TTS
+    QSKIP("Built without TTS support - there is no Mozhi speech");
+#else
+    AppSettings settings;
+    settings.setShowPrivacyPopup(false);
+    settings.setTranslationProviderId(QStringLiteral("copy"));
+    settings.setTtsProviderId(QStringLiteral("mozhi"));
+
+    MainWindow window;
+    if (window.findChild<QComboBox *>(QStringLiteral("sourceVoiceComboBox"))->isVisibleTo(&window))
+        QSKIP("This Mozhi backend offers voices; nothing to show here");
+    for (const QString &name : {QStringLiteral("sourcePlayPauseButton"),
+                                QStringLiteral("sourceStopButton"),
+                                QStringLiteral("translationPlayPauseButton"),
+                                QStringLiteral("translationStopButton")}) {
+        auto *button = window.findChild<QToolButton *>(name);
+        QVERIFY2(button != nullptr, qPrintable(name));
+        QVERIFY2(button->isVisibleTo(&window), qPrintable(name + QStringLiteral(" is hidden")));
+    }
+
+    settings.setTtsProviderId(QStringLiteral("none"));
 #endif
 }
 

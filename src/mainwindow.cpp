@@ -28,6 +28,7 @@
 #include "translator/atranslationprovider.h"
 #include "translator/languageresolution.h"
 #include "tts/attsprovider.h"
+#include "tts/noopttsprovider.h"
 #include "tts/voice.h"
 
 #include <QAbstractItemView>
@@ -1596,12 +1597,15 @@ void MainWindow::updateProviderUI()
         ui->sourceSpeakerComboBox->setVisible(hasSpeakers);
         ui->translationSpeakerComboBox->setVisible(hasSpeakers);
 
-        // Hide playback controls entirely when the provider has no TTS UI (e.g. None)
-        const bool hasVoiceUI = hasVoices || hasSpeakers;
-        ui->sourcePlayPauseButton->setVisible(hasVoiceUI);
-        ui->sourceStopButton->setVisible(hasVoiceUI);
-        ui->translationPlayPauseButton->setVisible(hasVoiceUI);
-        ui->translationStopButton->setVisible(hasVoiceUI);
+        // Playback is for every backend that speaks, whatever it lets the user
+        // choose; only "None" has nothing to play. It used to follow the voice
+        // and speaker choosers, which hid it for Mozhi: Mozhi offers neither,
+        // so its speech could not be used at all.
+        const bool speaks = qobject_cast<NoopTTSProvider *>(m_session->tts()) == nullptr;
+        ui->sourcePlayPauseButton->setVisible(speaks);
+        ui->sourceStopButton->setVisible(speaks);
+        ui->translationPlayPauseButton->setVisible(speaks);
+        ui->translationStopButton->setVisible(speaks);
     }
 #ifndef WITH_TTS
     // Built without TTS support: no provider other than "None" exists, hide all TTS UI
