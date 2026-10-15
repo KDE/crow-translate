@@ -29,8 +29,11 @@
 #include <QThread>
 #include <QUrl>
 
-// ONNX Runtime includes
+// ONNX Runtime includes. Initialised by hand, see initializePiper(): this is
+// the only file that includes the C++ API, which the define has to cover.
+#define ORT_API_MANUAL_INIT
 #include <onnxruntime_cxx_api.h>
+#include <stdexcept>
 
 // espeak-ng includes
 #include <espeak-ng/speak_lib.h>
@@ -112,7 +115,10 @@ PiperTTSProvider::PiperTTSProvider(QObject *parent)
         qDebug() << "PiperTTSProvider::constructor - attempting ONNX initialization";
         if (!initializePiper()) {
             qDebug() << "PiperTTSProvider::constructor - initializePiper() failed normally";
-            setError(QTextToSpeech::ErrorReason::Initialization, tr("Failed to initialize Piper TTS"));
+            // Not over a reason initializePiper() already gave: "too old a
+            // runtime" is something a user can act on, "failed" is not.
+            if (m_errorReason == QTextToSpeech::ErrorReason::NoError)
+                setError(QTextToSpeech::ErrorReason::Initialization, tr("Failed to initialize Piper TTS"));
         } else {
             qDebug() << "PiperTTSProvider::constructor - initializePiper() succeeded, m_initialized:" << m_initialized;
         }
@@ -146,6 +152,23 @@ bool PiperTTSProvider::initializePiper()
 #ifdef _WIN32
         handleOnnxTelemetryOnWindows();
 #endif
+
+        // The C++ API calls through a table that OrtGetApiBase() hands out
+        // for one API version, from whichever onnxruntime library the loader
+        // found. Without the copy shipped beside crow, Windows supplies its
+        // own (System32, Windows ML, 1.10 on Windows 10 and 11). That one
+        // predates the version built against, so it returns no table, and the
+        // first call through it crashed crow at startup with an access
+        // violation, which no exception handler here can catch.
+        const OrtApiBase *apiBase = OrtGetApiBase();
+        const OrtApi *api = apiBase->GetApi(ORT_API_VERSION);
+        if (api == nullptr) {
+            throw std::runtime_error(QStringLiteral("the ONNX Runtime library that was loaded (%1) is older than the one this was built against (API %2)")
+                                         .arg(QString::fromUtf8(apiBase->GetVersionString()))
+                                         .arg(ORT_API_VERSION)
+                                         .toStdString());
+        }
+        Ort::InitApi(api);
 
         // Initialize ONNX Runtime environment
         m_ortEnv = std::make_unique<Ort::Env>(ORT_LOGGING_LEVEL_WARNING, "piper");
@@ -310,6 +333,10 @@ void PiperTTSProvider::reportTelemetryNotDisabled(const QString &reason)
 
 bool PiperTTSProvider::loadModel(const QString &modelPath, const QString &configPath)
 {
+    // No runtime to load into: initializePiper() failed, and said why.
+    if (m_ortEnv == nullptr || m_sessionOptions == nullptr)
+        return false;
+
     // Recreating the session destroys the one the synthesis worker may be
     // running against right now. Wait for it before taking the session down.
     waitForSynthesis();
