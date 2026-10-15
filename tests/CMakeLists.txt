@@ -130,6 +130,10 @@ add_executable(test_cli
     test_cli.cpp
 )
 target_compile_definitions(test_cli PRIVATE CROW_BINARY_PATH="$<TARGET_FILE:${PROJECT_NAME}>")
+if(WITH_PORTABLE_MODE)
+    # How the cases give a Windows crow a configuration of their own.
+    target_compile_definitions(test_cli PRIVATE CROW_PORTABLE_MODE)
+endif()
 add_dependencies(test_cli ${PROJECT_NAME})
 target_link_libraries(test_cli PRIVATE
     test-support

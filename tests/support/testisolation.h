@@ -9,6 +9,7 @@
 #include "settings/appsettings.h"
 
 #include <QCoreApplication>
+#include <QSettings>
 #include <QStandardPaths>
 #include <QString>
 #include <QTemporaryDir>
@@ -38,6 +39,14 @@ inline void isolateTestSettings()
 {
     static QTemporaryDir *configDir = new QTemporaryDir();
     qputenv("XDG_CONFIG_HOME", configDir->path().toUtf8());
+#ifdef Q_OS_WIN
+    // XDG_CONFIG_HOME means nothing on Windows, where the native format is
+    // the registry: every run shared one key, HKCU\Software\crow-translate-tests,
+    // with all the leftover state described above. An INI file in the same
+    // directory is as private there as it is here.
+    QSettings::setDefaultFormat(QSettings::IniFormat);
+    QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, configDir->path());
+#endif
 
     QCoreApplication::setOrganizationName(QStringLiteral("crow-translate-tests"));
     QCoreApplication::setApplicationName(QStringLiteral("crow-translate-tests"));

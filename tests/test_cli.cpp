@@ -23,6 +23,7 @@
 
 #include <QDir>
 #include <QFile>
+#include <QFileInfo>
 #include <QImage>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -58,11 +59,52 @@ class CliTest : public QObject
 
 private:
     QTemporaryDir m_configDir;
+#ifdef Q_OS_WIN
+    // Where a Windows crow reads its settings from in these runs. See
+    // writeConfig().
+    QString m_portableConfig;
+#endif
+
+    // An Instance only has to be present, never reached: no case here uses a
+    // network-backed provider without its own -u. Without it Cli::process()
+    // runs InstancePinger against the real public instance list.
+    static QByteArray defaultConfig()
+    {
+        return QByteArrayLiteral(
+            "[MainWindow]\n"
+            "ShowPrivacyPopup=false\n"
+            "\n"
+            "[Translation]\n"
+            "Instance=http://127.0.0.1:1\n");
+    }
+
+    // Puts `contents` where the crow under test reads its settings.
+    //
+    // XDG_CONFIG_HOME moves them on Linux and the BSDs. Windows keeps them in
+    // the registry, which no environment variable moves: a run there read
+    // and wrote the real HKCU\Software\crow-translate of whoever ran it, and
+    // the cases failed on whatever that held. A build with WITH_PORTABLE_MODE
+    // (the default on Windows) takes a settings.ini beside the executable
+    // instead, which is the one private configuration a Windows crow can be
+    // given. Written before every run, since every run may want its own.
+    bool writeConfig(const QString &configHome, const QByteArray &contents) const
+    {
+#ifdef Q_OS_WIN
+        Q_UNUSED(configHome)
+        QFile config(m_portableConfig);
+#else
+        QDir(configHome).mkpath(QStringLiteral("crow-translate"));
+        QFile config(configHome + QStringLiteral("/crow-translate/crow-translate.conf"));
+#endif
+        if (!config.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))
+            return false;
+        return config.write(contents) == contents.size();
+    }
 
     QProcessEnvironment cleanEnvironment(const QString &configDir) const
     {
         QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-        env.insert(QStringLiteral("XDG_CONFIG_HOME"), configDir.isEmpty() ? m_configDir.path() : configDir);
+        env.insert(QStringLiteral("XDG_CONFIG_HOME"), configDir);
         // Qt built with journald support sends categorised logging to the
         // journal instead of stderr. The CLI's user-facing output must not
         // depend on that either way, so pin it off: anything this test sees
@@ -72,11 +114,17 @@ private:
         return env;
     }
 
-    RunResult runCrow(const QStringList &args, const QString &configDir = QString()) const
+    // `config` replaces defaultConfig() for this run only.
+    RunResult runCrow(const QStringList &args, const QByteArray &config = QByteArray()) const
     {
         RunResult result;
+        QTemporaryDir configDir;
+        if (!configDir.isValid() || !writeConfig(configDir.path(), config.isEmpty() ? defaultConfig() : config)) {
+            qWarning("could not write the configuration for this run");
+            return result;
+        }
         QProcess process;
-        process.setProcessEnvironment(cleanEnvironment(configDir));
+        process.setProcessEnvironment(cleanEnvironment(configDir.path()));
         process.start(QStringLiteral(CROW_BINARY_PATH), args);
         if (!process.waitForStarted(5000))
             return result;
@@ -105,19 +153,25 @@ private slots:
     void initTestCase()
     {
         QVERIFY(m_configDir.isValid());
-        QDir(m_configDir.path()).mkpath(QStringLiteral("crow-translate"));
-        QFile config(m_configDir.filePath(QStringLiteral("crow-translate/crow-translate.conf")));
-        QVERIFY(config.open(QIODevice::WriteOnly | QIODevice::Text));
-        // An Instance only has to be present, never reached: no case here
-        // uses a network-backed provider. Without it Cli::process() runs
-        // InstancePinger against the real public instance list.
-        config.write(QByteArrayLiteral(
-            "[MainWindow]\n"
-            "ShowPrivacyPopup=false\n"
-            "\n"
-            "[Translation]\n"
-            "Instance=http://127.0.0.1:1\n"));
-        config.close();
+#ifdef Q_OS_WIN
+#ifndef CROW_PORTABLE_MODE
+        QSKIP("Without WITH_PORTABLE_MODE a Windows crow can only use the real settings in the registry");
+#endif
+        m_portableConfig = QFileInfo(QStringLiteral(CROW_BINARY_PATH)).absolutePath() + QStringLiteral("/settings.ini");
+        if (QFile::exists(m_portableConfig)) {
+            const QString owner = m_portableConfig;
+            m_portableConfig.clear(); // not ours to remove
+            QSKIP(qPrintable(QStringLiteral("%1 already exists, and is somebody's portable configuration").arg(owner)));
+        }
+#endif
+    }
+
+    void cleanupTestCase()
+    {
+#ifdef Q_OS_WIN
+        if (!m_portableConfig.isEmpty())
+            QFile::remove(m_portableConfig);
+#endif
     }
 
     // --version/--help are handled by QCommandLineParser, which exits the
@@ -511,23 +565,13 @@ private slots:
     // the only place the resolved target is observable from outside.
     void testAutoTargetUsesTheConfiguredLanguages()
     {
-        QTemporaryDir configDir;
-        QVERIFY(configDir.isValid());
-        QDir(configDir.path()).mkpath(QStringLiteral("crow-translate"));
-        QFile config(configDir.filePath(QStringLiteral("crow-translate/crow-translate.conf")));
-        QVERIFY(config.open(QIODevice::WriteOnly | QIODevice::Text));
         // Primary German, source English: the primary differs from the source,
         // so the auto rule must pick German - never mind what locale the
         // machine running this test happens to be in.
-        config.write(QByteArrayLiteral(
-            "[MainWindow]\n"
-            "ShowPrivacyPopup=false\n"
-            "\n"
-            "[Translation]\n"
-            "Instance=http://127.0.0.1:1\n"
-            "PrimaryLanguage=de\n"
-            "SecondaryLanguage=en\n"));
-        config.close();
+        const QByteArray config = defaultConfig()
+            + QByteArrayLiteral(
+                                      "PrimaryLanguage=de\n"
+                                      "SecondaryLanguage=en\n");
 
         MockHttpServer server;
         server.queueJson(200,
@@ -543,7 +587,7 @@ private slots:
                                           QStringLiteral("-t"),
                                           QStringLiteral("auto"),
                                           QStringLiteral("good morning")},
-                                         configDir.path());
+                                         config);
 
         QVERIFY2(result.finished, "crow hung resolving the auto target");
         QVERIFY2(server.requestCount() > 0, "no request was made, so no target was resolved");

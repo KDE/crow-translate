@@ -222,7 +222,11 @@ bool AppSettings::defaultAutostartEnabled()
 #ifdef WITH_PORTABLE_MODE
 bool AppSettings::isPortableModeEnabled() const
 {
-    return m_settings->format() == QSettings::IniFormat;
+    // The file, not the format: an INI file elsewhere (the tests use one on
+    // Windows) is not portable mode, and saving the settings dialog would
+    // otherwise turn portable mode on for real.
+    return m_settings->format() == QSettings::IniFormat
+        && QFileInfo(m_settings->fileName()).absoluteFilePath() == QFileInfo(AppSettings::portableConfigName()).absoluteFilePath();
 }
 
 void AppSettings::setPortableModeEnabled(bool enabled)

@@ -97,7 +97,11 @@ private slots:
         QVERIFY(m_configDir.isValid());
         // Written settings must not land in the real profile: this test sets
         // the language preference, and the auto rule is read back out of it.
-        QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, m_configDir.path());
+        // An INI file, because the native format on Windows is the registry,
+        // which setPath() does not move: under the application's own name,
+        // this wrote into the real HKCU\Software\crow-translate.
+        QSettings::setDefaultFormat(QSettings::IniFormat);
+        QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, m_configDir.path());
         QCoreApplication::setOrganizationName(QStringLiteral(PROJECT_NAME));
         QCoreApplication::setApplicationName(QStringLiteral(PROJECT_NAME));
     }
