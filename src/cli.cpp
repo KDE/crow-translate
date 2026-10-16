@@ -131,6 +131,8 @@ Cli::Cli(QObject *parent)
 void Cli::process(const QCoreApplication &app)
 {
     AppSettings settings;
+    // Before anything can go over the network, the instance pinger included.
+    settings.applyNetworkProxy();
 
     // These used to be QMessageBox::exec() calls inside the providers, so in a
     // CLI run they constructed dialogs that no one would ever see - a missing

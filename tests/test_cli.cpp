@@ -33,6 +33,7 @@
 #include <QProcessEnvironment>
 #include <QTemporaryDir>
 #include <QTest>
+#include <QUrl>
 
 #ifndef CROW_BINARY_PATH
 #error "CROW_BINARY_PATH must be defined by CMake to the built crow executable path"
@@ -601,6 +602,44 @@ private slots:
         QVERIFY2(server.requestCount() > 0, "no request was made, so no target was resolved");
         QVERIFY2(server.requestPath(0).contains(QStringLiteral("to=de")),
                  qPrintable(QStringLiteral("auto resolved to the wrong target. request was:\n%1").arg(server.requestPath(0))));
+    }
+
+    // Regression: the proxy from the settings was applied by the window alone,
+    // so a translation from the command line connected directly, past it. The
+    // instance here does not resolve: an answer can only come through the
+    // proxy, which this server plays.
+    void testTheConfiguredProxyIsUsed()
+    {
+        MockHttpServer proxy;
+        proxy.queueJson(200,
+                        QByteArrayLiteral(R"({"engine":"google","detected":"en","translated-text":"durch den Proxy",)"
+                                          R"("source_language":"en","target_language":"de"})"));
+        const QByteArray config = QByteArrayLiteral(
+                                      "[MainWindow]\n"
+                                      "ShowPrivacyPopup=false\n"
+                                      "\n"
+                                      "[Translation]\n"
+                                      "Instance=http://crow-cli-upstream.invalid\n"
+                                      "\n"
+                                      "[Connection]\n"
+                                      "ProxyType=3\n" // QNetworkProxy::HttpProxy
+                                      "ProxyHost=127.0.0.1\n"
+                                      "ProxyPort=")
+            + QByteArray::number(QUrl(proxy.baseUrl()).port()) + QByteArrayLiteral("\n");
+
+        const RunResult result = runCrow({QStringLiteral("-b"),
+                                          QStringLiteral("-s"),
+                                          QStringLiteral("en"),
+                                          QStringLiteral("-t"),
+                                          QStringLiteral("de"),
+                                          QStringLiteral("through the proxy")},
+                                         config);
+
+        QVERIFY2(result.finished, "crow hung");
+        QCOMPARE(result.exitCode, 0);
+        QCOMPARE(proxy.requestCount(), 1);
+        QVERIFY2(proxy.requestPath(0).startsWith(QStringLiteral("http://crow-cli-upstream.invalid/api/translate")), qPrintable(proxy.requestPath(0)));
+        QCOMPARE(result.out.trimmed(), QStringLiteral("durch den Proxy"));
     }
 
     // Regression: with the source unknown as well, "-t auto" was resolved

@@ -969,20 +969,7 @@ void MainWindow::loadAppSettings()
     m_snippingArea->setApplyLightMask(settings.isApplyLightMask());
     m_snippingArea->setNegateOcrImage(settings.isOcrNegate());
 
-    if (const QNetworkProxy::ProxyType proxyType = settings.proxyType(); proxyType == QNetworkProxy::DefaultProxy) {
-        QNetworkProxyFactory::setUseSystemConfiguration(true);
-    } else {
-        QNetworkProxy proxy(proxyType);
-        if (proxyType == QNetworkProxy::HttpProxy || proxyType == QNetworkProxy::Socks5Proxy) {
-            proxy.setHostName(settings.proxyHost());
-            proxy.setPort(settings.proxyPort());
-            if (settings.isProxyAuthEnabled()) {
-                proxy.setUser(settings.proxyUsername());
-                proxy.setPassword(settings.proxyPassword());
-            }
-        }
-        QNetworkProxy::setApplicationProxy(proxy);
-    }
+    settings.applyNetworkProxy();
 
     // Global shortcuts
     if (QHotkey::isPlatformSupported() && settings.isGlobalShortuctsEnabled()) {

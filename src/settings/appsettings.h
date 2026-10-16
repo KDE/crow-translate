@@ -256,6 +256,8 @@ public:
     static QByteArray defaultPiperVoicesPath();
 #endif
     // Connection settings
+    // Puts the Connection page's proxy into effect for this process.
+    void applyNetworkProxy() const;
     QNetworkProxy::ProxyType proxyType() const;
     void setProxyType(QNetworkProxy::ProxyType type);
     static QNetworkProxy::ProxyType defaultProxyType();

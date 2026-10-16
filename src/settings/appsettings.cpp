@@ -884,6 +884,30 @@ void AppSettings::setLocalAiPrompt(const QString &model, const QString &prompt)
     m_settings->setValue(QStringLiteral("LocalAI/Prompts/") + promptKey(model), prompt);
 }
 
+// For everything that goes over the network in this process, whichever
+// frontend it is. It lived in the window's settings loader, so the command
+// line never applied it: `crow text` in a terminal connected directly, past a
+// proxy the user had set, for privacy or because nothing else gets out.
+void AppSettings::applyNetworkProxy() const
+{
+    const QNetworkProxy::ProxyType type = proxyType();
+    if (type == QNetworkProxy::DefaultProxy) {
+        QNetworkProxyFactory::setUseSystemConfiguration(true);
+        return;
+    }
+
+    QNetworkProxy proxy(type);
+    if (type == QNetworkProxy::HttpProxy || type == QNetworkProxy::Socks5Proxy) {
+        proxy.setHostName(proxyHost());
+        proxy.setPort(proxyPort());
+        if (isProxyAuthEnabled()) {
+            proxy.setUser(proxyUsername());
+            proxy.setPassword(proxyPassword());
+        }
+    }
+    QNetworkProxy::setApplicationProxy(proxy);
+}
+
 QNetworkProxy::ProxyType AppSettings::proxyType() const
 {
     return static_cast<QNetworkProxy::ProxyType>(m_settings->value(QStringLiteral("Connection/ProxyType"), defaultProxyType()).toInt());
