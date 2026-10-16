@@ -21,6 +21,7 @@
 #include "mainwindow.h"
 #include "popupwindow.h"
 #include "singleapplication.h"
+#include "testdisplay.h"
 #include "testisolation.h"
 #include "translationedit.h"
 #include "settings/appsettings.h"
@@ -38,7 +39,7 @@ class PopupWindowLifetimeTest : public QObject
 private slots:
     void initTestCase()
     {
-        if (qgetenv("DISPLAY").isEmpty() && qgetenv("WAYLAND_DISPLAY").isEmpty())
+        if (!hasDisplay())
             QSKIP("No display server available - skipping GUI tests");
     }
 

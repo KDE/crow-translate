@@ -21,6 +21,7 @@
 #include "selection.h"
 #include "singleapplication.h"
 #include "sourcetextedit.h"
+#include "testdisplay.h"
 #include "testisolation.h"
 #include "core/usernotifier.h"
 #include "ocr/llmocr.h"
@@ -169,7 +170,7 @@ private:
 
 void MainWindowFeaturesTest::initTestCase()
 {
-    if (qgetenv("DISPLAY").isEmpty() && qgetenv("WAYLAND_DISPLAY").isEmpty()) {
+    if (!hasDisplay()) {
         QSKIP("No display server available - skipping GUI tests");
     }
 

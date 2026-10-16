@@ -14,6 +14,7 @@
 // asserting the always-safe non-Wayland behavior).
 
 #include "singleapplication.h"
+#include "testdisplay.h"
 #include "testisolation.h"
 #include "ocr/snippingarea.h"
 
@@ -28,7 +29,7 @@ class SnippingAreaFlagsTest : public QObject
 private slots:
     void initTestCase()
     {
-        if (qgetenv("DISPLAY").isEmpty() && qgetenv("WAYLAND_DISPLAY").isEmpty())
+        if (!hasDisplay())
             QSKIP("No display server available - skipping GUI tests");
     }
 

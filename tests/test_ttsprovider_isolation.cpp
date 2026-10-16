@@ -22,6 +22,7 @@
 #include "mainwindow.h"
 #include "singleapplication.h"
 #include "sourcetextedit.h"
+#include "testdisplay.h"
 #include "testisolation.h"
 #include "settings/appsettings.h"
 #include "translator/atranslationprovider.h"
@@ -59,7 +60,7 @@ class TTSProviderIsolationTest : public QObject
 private slots:
     void initTestCase()
     {
-        if (qgetenv("DISPLAY").isEmpty() && qgetenv("WAYLAND_DISPLAY").isEmpty())
+        if (!hasDisplay())
             QSKIP("No display server available - skipping GUI tests");
     }
 

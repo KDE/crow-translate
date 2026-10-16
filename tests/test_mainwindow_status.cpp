@@ -22,6 +22,7 @@
 #include "singleapplication.h"
 #include "sourcetextedit.h"
 #include "statusstrip.h"
+#include "testdisplay.h"
 #include "testisolation.h"
 #include "settings/appsettings.h"
 #include "translator/atranslationprovider.h"
@@ -57,7 +58,7 @@ private:
 
 void MainWindowStatusTest::initTestCase()
 {
-    if (qgetenv("DISPLAY").isEmpty() && qgetenv("WAYLAND_DISPLAY").isEmpty()) {
+    if (!hasDisplay()) {
         QSKIP("No display server available - skipping GUI tests");
     }
 

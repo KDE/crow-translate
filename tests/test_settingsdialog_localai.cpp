@@ -11,6 +11,7 @@
 #include "mainwindow.h"
 #include "mockhttpserver.h"
 #include "singleapplication.h"
+#include "testdisplay.h"
 #include "testisolation.h"
 #include "settings/appsettings.h"
 #include "settings/settingsdialog.h"
@@ -35,7 +36,7 @@ class SettingsDialogLocalAiTest : public QObject
 private slots:
     void initTestCase()
     {
-        if (qgetenv("DISPLAY").isEmpty() && qgetenv("WAYLAND_DISPLAY").isEmpty())
+        if (!hasDisplay())
             QSKIP("No display server available - skipping GUI tests");
     }
 

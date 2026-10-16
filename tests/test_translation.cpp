@@ -12,6 +12,7 @@
 #include "selection.h"
 #include "singleapplication.h"
 #include "sourcetextedit.h"
+#include "testdisplay.h"
 #include "testisolation.h"
 #include "ocr/tesseractocr.h"
 #include "settings/appsettings.h"
@@ -54,7 +55,7 @@ class TranslationTest : public QObject
 private slots:
     void initTestCase()
     {
-        if (qgetenv("DISPLAY").isEmpty() && qgetenv("WAYLAND_DISPLAY").isEmpty()) {
+        if (!hasDisplay()) {
             QSKIP("No display server available - skipping GUI tests");
         }
 
