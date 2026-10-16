@@ -463,6 +463,17 @@ void Cli::process(const QCoreApplication &app)
 // spoken and printed exactly as typed text would be.
 void Cli::recognizeImage()
 {
+    // The picture first: a file that cannot be read is the error the user can
+    // act on, and was hidden behind the recognition engine's complaints when
+    // that was set up first and was not usable either.
+    QImage source;
+    if (!TranslationSession::loadImage(m_imagePath, source)) {
+        printError(tr("Error: Unable to read image '%1'").arg(m_imagePath));
+        cleanup();
+        QCoreApplication::exit(1);
+        return;
+    }
+
     // The window does this when it loads its settings; nothing had done it
     // here, so Tesseract had no languages and reported itself unconfigured
     // however well it was actually set up.
@@ -483,14 +494,6 @@ void Cli::recognizeImage()
                 QCoreApplication::exit(1);
             },
             Qt::QueuedConnection);
-        return;
-    }
-
-    QImage source;
-    if (!TranslationSession::loadImage(m_imagePath, source)) {
-        printError(tr("Error: Unable to read image '%1'").arg(m_imagePath));
-        cleanup();
-        QCoreApplication::exit(1);
         return;
     }
 
