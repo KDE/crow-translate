@@ -151,6 +151,7 @@ private slots:
     void testTranslateIsAvailableStraightAfterAnEdit();
     void testAFailedTranslationIsShownLikeAResult();
     void testANoticeMarkedOnceIsShownOnce();
+    void testCopyTranslatedSelectionTranslatesTheSelection();
     void testRecognizedTextAutoTranslatesWhenEnabled();
     void testForcedAutoSpeaksTheResolvedDestinationLanguage();
     void testVoiceComboOffersTheResolvedLanguagesVoices();
@@ -652,6 +653,37 @@ void MainWindowFeaturesTest::testANoticeMarkedOnceIsShownOnce()
     UserNotifier::notify(notice);
     QTest::qWait(500);
     QVERIFY(boxes(nextStart).isEmpty());
+}
+
+// The copy-translated-selection shortcut reads the selection, translates it and
+// puts the translation on the clipboard. It only copied whatever the
+// translation field already held, so over a fresh selection it did nothing.
+void MainWindowFeaturesTest::testCopyTranslatedSelectionTranslatesTheSelection()
+{
+    MockHttpServer server;
+    server.queueJson(200, chatCompletionJson(QStringLiteral("translated selection")));
+    pinLocalAiSettings(server);
+
+    // Shown and active: on Windows, reading the selection sends a real Ctrl+C
+    // to whatever window is in front, and with this one hidden that was the
+    // console running the tests.
+    MainWindow window;
+    window.show();
+    window.activateWindow();
+    QVERIFY(QTest::qWaitForWindowActive(&window));
+    QGuiApplication::clipboard()->setText(QStringLiteral("something else"));
+
+    const QString selection = QStringLiteral("the selected text");
+    putSelectionOnClipboard(selection);
+    window.copyTranslatedSelection();
+    emit Selection::instance().requestedSelectionAvailable(selection);
+
+    QVERIFY2(QTest::qWaitFor([]() {
+                 return QGuiApplication::clipboard()->text() == QStringLiteral("translated selection");
+             },
+                             5000),
+             qPrintable(QStringLiteral("the clipboard holds: %1").arg(QGuiApplication::clipboard()->text())));
+    QVERIFY(server.requestBody(0).contains("the selected text"));
 }
 
 // Same path with auto-translate on: the recognized text must chain straight

@@ -156,8 +156,22 @@ private:
     // The answer so far, from a streaming provider: shown while the model is
     // still writing it.
     void onPartialTranslation(const QString &text);
+    // What a translation of the selection is for: shown as every translation
+    // is, or spoken or copied without a window, which is what the speak- and
+    // copy-translated-selection shortcuts ask for.
+    enum class SelectionUse : uint8_t {
+        Show,
+        Speak,
+        Copy,
+    };
+    // Reads the selection into the source field and translates it, for `use`.
+    void translateSelectionFor(SelectionUse use);
     // Clears the translation field and starts the request; see its definition.
-    void requestSelectionTranslation(const QString &text, const Language &destination, const Language &source);
+    void requestSelectionTranslation(const QString &text, const Language &destination, const Language &source, SelectionUse use);
+    void speakTranslation();
+    void copyTranslation();
+    // The use of the selection translation in flight; Show for everything else.
+    SelectionUse m_selectionUse = SelectionUse::Show;
     // Replaces the translation without moving the reader: every streamed update
     // rebuilds the document, and a rebuild resets the view.
     void setTranslationHtml(const QString &html);

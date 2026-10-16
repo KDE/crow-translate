@@ -54,6 +54,7 @@
 #include <QTimer>
 
 #include <cassert>
+#include <utility>
 
 // How often a streamed answer may repaint the translation field.
 static constexpr int kStreamRepaintIntervalMs = 100;
@@ -481,6 +482,11 @@ Q_SCRIPTABLE void MainWindow::open()
 
 Q_SCRIPTABLE void MainWindow::translateSelection()
 {
+    translateSelectionFor(SelectionUse::Show);
+}
+
+void MainWindow::translateSelectionFor(SelectionUse use)
+{
     AppSettings settings;
     if (settings.isForceSourceAutodetect()) {
         ui->sourceLanguagesWidget->checkAutoButton();
@@ -491,7 +497,7 @@ Q_SCRIPTABLE void MainWindow::translateSelection()
 
     auto selectionConnection = std::make_shared<QMetaObject::Connection>();
     *selectionConnection =
-        connect(&Selection::instance(), &Selection::requestedSelectionAvailable, this, [this, selectionConnection](const QString &selectedText) {
+        connect(&Selection::instance(), &Selection::requestedSelectionAvailable, this, [this, selectionConnection, use](const QString &selectedText) {
             if (!selectedText.isEmpty()) {
                 ui->sourceEdit->setPlainText(selectedText);
                 ui->sourceEdit->stopEditTimer(); // Prevent delayed textEdited signal
@@ -511,16 +517,16 @@ Q_SCRIPTABLE void MainWindow::translateSelection()
                 const Language destinationLanguage = isTranslationAutoChecked ? Language::autoLanguage() : m_destLang;
 
                 if (m_session->translator() && m_session->translator()->getState() == ATranslationProvider::State::Ready) {
-                    requestSelectionTranslation(requestText, destinationLanguage, sourceLanguage);
+                    requestSelectionTranslation(requestText, destinationLanguage, sourceLanguage, use);
                 } else {
                     // Wait for translator to be ready
                     auto connection = std::make_shared<QMetaObject::Connection>();
                     *connection = connect(m_session->translator(),
                                           &ATranslationProvider::stateChanged,
                                           this,
-                                          [this, requestText, sourceLanguage, destinationLanguage, connection](ATranslationProvider::State state) {
+                                          [this, requestText, sourceLanguage, destinationLanguage, use, connection](ATranslationProvider::State state) {
                                               if (state == ATranslationProvider::State::Ready) {
-                                                  requestSelectionTranslation(requestText, destinationLanguage, sourceLanguage);
+                                                  requestSelectionTranslation(requestText, destinationLanguage, sourceLanguage, use);
                                                   disconnect(*connection);
                                               }
                                           });
@@ -536,9 +542,10 @@ Q_SCRIPTABLE void MainWindow::translateSelection()
 // A selection is translated while its window is already up and mirroring the
 // translation field, so the previous translation goes with the request instead
 // of being what the user reads while the new one is written.
-void MainWindow::requestSelectionTranslation(const QString &text, const Language &destination, const Language &source)
+void MainWindow::requestSelectionTranslation(const QString &text, const Language &destination, const Language &source, SelectionUse use)
 {
     ui->translationEdit->clear();
+    m_selectionUse = use;
     emit translationRequested(text, destination, source);
 }
 
@@ -563,16 +570,17 @@ Q_SCRIPTABLE void MainWindow::speakSelection()
     Selection::instance().requestSelection();
 }
 
+// The selection, translated and then spoken: the selection is read and
+// translated like any other, and speaking takes the place of showing it. Since
+// the providers moved behind an abstraction (07bd5196) this spoke whatever the
+// translation field already held, so over a fresh selection it did nothing.
 Q_SCRIPTABLE void MainWindow::speakTranslatedSelection()
 {
-    AppSettings settings;
-    if (settings.isForceSourceAutodetect()) {
-        ui->sourceLanguagesWidget->checkAutoButton();
-    }
-    if (settings.isForceTranslationAutodetect()) {
-        ui->translationLanguagesWidget->checkAutoButton();
-    }
+    translateSelectionFor(SelectionUse::Speak);
+}
 
+void MainWindow::speakTranslation()
+{
     const QString translationText = ui->translationEdit->toPlainText();
     if (!translationText.isEmpty() && (m_session->tts() != nullptr)) {
         const Language translationLanguage = spokenTranslationLanguage();
@@ -602,16 +610,15 @@ Q_SCRIPTABLE void MainWindow::playPauseSpeaking()
     }
 }
 
+// The selection, translated and put on the clipboard, without a window; the
+// same regression as speakTranslatedSelection().
 Q_SCRIPTABLE void MainWindow::copyTranslatedSelection()
 {
-    AppSettings settings;
-    if (settings.isForceSourceAutodetect()) {
-        ui->sourceLanguagesWidget->checkAutoButton();
-    }
-    if (settings.isForceTranslationAutodetect()) {
-        ui->translationLanguagesWidget->checkAutoButton();
-    }
+    translateSelectionFor(SelectionUse::Copy);
+}
 
+void MainWindow::copyTranslation()
+{
     const QString translationText = ui->translationEdit->toPlainText();
     if (!translationText.isEmpty()) {
         QApplication::clipboard()->setText(translationText);
@@ -1086,10 +1093,12 @@ void MainWindow::translatorStateChanged(ATranslationProvider::State newState)
         break;
     case ATranslationProvider::State::Processed:
         if (m_session->translator()->error == ATranslationProvider::TranslationError::NoError) {
+            const SelectionUse use = std::exchange(m_selectionUse, SelectionUse::Show);
             if (!m_session->translator()->result.isEmpty()) {
                 setTranslationHtml(TranslationHtmlFormatter::format(m_session->translator()->result));
 
-                showTranslationWindow();
+                if (use == SelectionUse::Show)
+                    showTranslationWindow();
             }
 
             // The destination "auto" resolves to is only known once the
@@ -1100,7 +1109,13 @@ void MainWindow::translatorStateChanged(ATranslationProvider::State newState)
             refreshVoicesForSpokenLanguages();
 
             emit translationAccepted();
+
+            if (use == SelectionUse::Speak)
+                speakTranslation();
+            else if (use == SelectionUse::Copy)
+                copyTranslation();
         } else {
+            m_selectionUse = SelectionUse::Show;
             ui->translationEdit->setPlainText(tr("Error: %1").arg(m_session->translator()->getErrorString()));
 
             // Shown the way a result is. A translation started from the global
@@ -1112,6 +1127,7 @@ void MainWindow::translatorStateChanged(ATranslationProvider::State newState)
         break;
     case ATranslationProvider::State::Finished:
         if (m_session->translator()->error != ATranslationProvider::TranslationError::NoError) {
+            m_selectionUse = SelectionUse::Show;
             ui->translationEdit->setPlainText(tr("Error: %1").arg(m_session->translator()->getErrorString()));
             // Some backends fail straight into Finished; shown as above. Not an
             // abort, which the user asked for.
@@ -1132,7 +1148,8 @@ void MainWindow::onPartialTranslation(const QString &text)
 {
     if (!m_partialShown) {
         m_partialShown = true;
-        showTranslationWindow();
+        if (m_selectionUse == SelectionUse::Show)
+            showTranslationWindow();
     } else if (m_partialRepaint.isValid() && m_partialRepaint.elapsed() < kStreamRepaintIntervalMs) {
         return;
     }
