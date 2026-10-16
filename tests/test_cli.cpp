@@ -447,11 +447,19 @@ private slots:
         const QString helpText = help.out.simplified();
         QVERIFY(!helpText.isEmpty());
 
+        // Something that answers, for Mozhi's speech. The configured instance is
+        // a closed port, and on Windows a refused connection only fails after
+        // about 22 s of retries in the media backend - past the timeout, for a
+        // case that is only about whether the name is accepted.
+        MockHttpServer server;
+
         for (const char *rawName : {"none", "mozhi", "qt", "piper"}) {
             const QString name = QString::fromLatin1(rawName);
             const bool advertised = helpText.contains(QStringLiteral("'%1'").arg(name));
 
-            const RunResult result = runCrow({QStringLiteral("--tts"),
+            const RunResult result = runCrow({QStringLiteral("-u"),
+                                              server.baseUrl(),
+                                              QStringLiteral("--tts"),
                                               name,
                                               QStringLiteral("--tp"),
                                               QStringLiteral("copy"),
