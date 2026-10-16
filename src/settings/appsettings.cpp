@@ -1051,7 +1051,9 @@ QKeySequence AppSettings::defaultStopSpeakingShortcut()
 
 QKeySequence AppSettings::playPauseSpeakingShortcut() const
 {
-    return m_settings->value(QStringLiteral("Shortcuts/PlayPauseSpeakingSelection"), defaultStopSpeakingShortcut()).value<QKeySequence>();
+    // Its own default: it used to fall back to stop's, so out of the box both
+    // claimed Ctrl+Alt+G (one key firing both) and Ctrl+Alt+D did nothing.
+    return m_settings->value(QStringLiteral("Shortcuts/PlayPauseSpeakingSelection"), defaultPlayPauseSpeakingShortcut()).value<QKeySequence>();
 }
 
 void AppSettings::setPlayPauseSpeakingShortcut(const QKeySequence &shortcut)

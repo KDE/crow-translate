@@ -318,6 +318,17 @@ target_link_libraries(test_appsettings_prompts PRIVATE
 )
 add_test(NAME AppSettingsPromptsTest COMMAND test_appsettings_prompts)
 
+# The global shortcuts' defaults: each its own, no key shared - headless OK.
+add_executable(test_appsettings_shortcuts
+    test_appsettings_shortcuts.cpp
+)
+target_link_libraries(test_appsettings_shortcuts PRIVATE
+    ${PROJECT_NAME}-lib
+    test-support
+    Qt6::Test
+)
+add_test(NAME AppSettingsShortcutsTest COMMAND test_appsettings_shortcuts)
+
 # Generic ATranslationProvider contract - runs the same invariants (state
 # machine, MainWindow's finish()/reset() cascades, the Q_UNREACHABLE()-
 # guarded Processed/NoError pairing) against every backend automatically.
