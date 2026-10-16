@@ -170,6 +170,15 @@ private:
     void requestSelectionTranslation(const QString &text, const Language &destination, const Language &source, SelectionUse use);
     void speakTranslation();
     void copyTranslation();
+    // Which text the speech in progress reads: each side's play button pauses
+    // and resumes its own speech, and starts its own over the other's.
+    enum class SpeechSide : uint8_t {
+        None,
+        Source,
+        Translation,
+    };
+    void playPauseSide(SpeechSide side, const QString &text);
+    SpeechSide m_speechSide = SpeechSide::None;
     // The use of the selection translation in flight; Show for everything else.
     SelectionUse m_selectionUse = SelectionUse::Show;
     // Replaces the translation without moving the reader: every streamed update

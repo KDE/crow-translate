@@ -563,6 +563,7 @@ Q_SCRIPTABLE void MainWindow::speakSelection()
                 const Language sourceLanguage = spokenSourceLanguage();
                 m_session->tts()->setLanguage(sourceLanguage);
                 applySelectedVoiceAndSpeaker(true);
+                m_speechSide = SpeechSide::None;
                 m_session->tts()->say(selectedText);
             }
             disconnect(*selectionConnection);
@@ -586,6 +587,7 @@ void MainWindow::speakTranslation()
         const Language translationLanguage = spokenTranslationLanguage();
         m_session->tts()->setLanguage(translationLanguage);
         applySelectedVoiceAndSpeaker(false);
+        m_speechSide = SpeechSide::None;
         m_session->tts()->say(translationText);
     }
 }
@@ -1681,6 +1683,32 @@ bool MainWindow::isTTSAvailableForLanguage(const Language &language) const
     return false;
 }
 
+// One speech engine, two play buttons. Each pauses and resumes what it started;
+// pressed while the other side is being read, it reads its own text instead.
+// They used to share one play/pause state, so speaking the translation while
+// the source was read paused the source, and pressing again resumed it.
+void MainWindow::playPauseSide(SpeechSide side, const QString &text)
+{
+    ATTSProvider *tts = m_session->tts();
+    const QTextToSpeech::State state = tts->state();
+    if (m_speechSide == side && state == QTextToSpeech::Speaking) {
+        tts->pause();
+        return;
+    }
+    if (m_speechSide == side && state == QTextToSpeech::Paused) {
+        tts->resume();
+        return;
+    }
+
+    if (state == QTextToSpeech::Speaking || state == QTextToSpeech::Paused)
+        tts->stop();
+    const bool source = side == SpeechSide::Source;
+    tts->setLanguage(source ? spokenSourceLanguage() : spokenTranslationLanguage());
+    applySelectedVoiceAndSpeaker(source);
+    m_speechSide = side;
+    tts->say(text);
+}
+
 void MainWindow::sourcePlayPauseClicked()
 {
     if (m_session->tts() == nullptr) {
@@ -1692,17 +1720,7 @@ void MainWindow::sourcePlayPauseClicked()
         return;
     }
 
-    const Language sourceLanguage = spokenSourceLanguage();
-    m_session->tts()->setLanguage(sourceLanguage);
-    applySelectedVoiceAndSpeaker(true);
-
-    if (m_session->tts()->state() == QTextToSpeech::Speaking) {
-        m_session->tts()->pause();
-    } else if (m_session->tts()->state() == QTextToSpeech::Paused) {
-        m_session->tts()->resume();
-    } else {
-        m_session->tts()->say(text);
-    }
+    playPauseSide(SpeechSide::Source, text);
 }
 
 void MainWindow::sourceStopClicked()
@@ -1723,17 +1741,7 @@ void MainWindow::translationPlayPauseClicked()
         return;
     }
 
-    const Language translationLanguage = spokenTranslationLanguage();
-    m_session->tts()->setLanguage(translationLanguage);
-    applySelectedVoiceAndSpeaker(false);
-
-    if (m_session->tts()->state() == QTextToSpeech::Speaking) {
-        m_session->tts()->pause();
-    } else if (m_session->tts()->state() == QTextToSpeech::Paused) {
-        m_session->tts()->resume();
-    } else {
-        m_session->tts()->say(text);
-    }
+    playPauseSide(SpeechSide::Translation, text);
 }
 
 void MainWindow::translationStopClicked()
