@@ -384,12 +384,12 @@ msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Buscar en Forvo.com"
 
-#: src/core/translationsession.cpp:350
+#: src/core/translationsession.cpp:351
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
 msgstr ""
 
-#: src/core/translationsession.cpp:351
+#: src/core/translationsession.cpp:352
 #, fuzzy
 #| msgctxt "Ocr|"
 #| msgid "You should set at least one OCR language in the application settings"
@@ -572,7 +572,7 @@ msgctxt "main|"
 msgid "Available frontends: %1"
 msgstr "Idiomas dispoñíbeis:"
 
-#: src/mainwindow.cpp:162
+#: src/mainwindow.cpp:168
 #, fuzzy
 #| msgctxt "Ocr|"
 #| msgid "Unable to set OCR languages"
@@ -580,7 +580,7 @@ msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "Non é posíbel definir idiomas de OCR."
 
-#: src/mainwindow.cpp:163
+#: src/mainwindow.cpp:169
 #, fuzzy, qt-format
 #| msgctxt "Ocr|"
 #| msgid "Unable to initialize Tesseract with %1"
@@ -588,12 +588,12 @@ msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "Non é posíbel preparar Tesseract con %1."
 
-#: src/mainwindow.cpp:435
+#: src/mainwindow.cpp:447
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr ""
 
-#: src/mainwindow.cpp:436
+#: src/mainwindow.cpp:448
 #, fuzzy
 #| msgctxt "MainWindow|"
 #| msgid "Toggled OCR image negate"
@@ -601,18 +601,18 @@ msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "Conmutar a negación da imaxe de OCR"
 
-#: src/mainwindow.cpp:436
+#: src/mainwindow.cpp:448
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr ""
 
-#: src/mainwindow.cpp:844
+#: src/mainwindow.cpp:875
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "Esta aplicación usa %1 para fornecer traducións."
 
-#: src/mainwindow.cpp:845
+#: src/mainwindow.cpp:876
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -626,28 +626,28 @@ msgstr ""
 "envía. A súa instancia actual é «%1», pero pode cambiala na configuración de "
 "tradución. Consulte os detalles da instancia na ligazón de arriba."
 
-#: src/mainwindow.cpp:852
+#: src/mainwindow.cpp:883
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "Non amosar de novo."
 
-#: src/mainwindow.cpp:899
+#: src/mainwindow.cpp:930
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "A icona da área de notificación non é válida."
 
-#: src/mainwindow.cpp:899
+#: src/mainwindow.cpp:930
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "A icona indicada, «%1», non é válida. Usarase a icona predeterminada."
 
-#: src/mainwindow.cpp:1028
+#: src/mainwindow.cpp:1059
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr ""
 
-#: src/mainwindow.cpp:1028
+#: src/mainwindow.cpp:1059
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -658,7 +658,7 @@ msgid ""
 "Please check your TTS settings or try a different voice/locale."
 msgstr ""
 
-#: src/mainwindow.cpp:1060 src/mainwindow.cpp:1066
+#: src/mainwindow.cpp:1092 src/mainwindow.cpp:1098
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: %1"
@@ -666,19 +666,19 @@ msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Erro: %1"
 
-#: src/mainwindow.cpp:1806
+#: src/mainwindow.cpp:1882
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
 msgstr ""
 
-#: src/mainwindow.cpp:1904
+#: src/mainwindow.cpp:1980
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
 msgstr ""
 
-#: src/mainwindow.cpp:1938 src/mainwindow.cpp:1995
+#: src/mainwindow.cpp:2014 src/mainwindow.cpp:2071
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -686,12 +686,12 @@ msgid ""
 "%1"
 msgstr ""
 
-#: src/mainwindow.cpp:1986 src/mainwindow.cpp:1995
+#: src/mainwindow.cpp:2062 src/mainwindow.cpp:2071
 msgctxt "MainWindow|"
 msgid "Open image"
 msgstr ""
 
-#: src/mainwindow.cpp:1988
+#: src/mainwindow.cpp:2064
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
@@ -2247,6 +2247,11 @@ msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
 msgstr "Erro: non se pode analizar o idioma detectado automaticamente."
 
+#: src/popupwindow.cpp:45
+msgctxt "PopupWindow|"
+msgid "Drag to resize"
+msgstr ""
+
 #: src/popupwindow.ui:32 src/popupwindow.ui:35
 msgctxt "PopupWindow|"
 msgid "Swap languages"
@@ -2478,7 +2483,7 @@ msgctxt "SettingsDialog|"
 msgid "Tesseract runs locally. Configure languages and parameters below."
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:808
+#: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:818
 msgctxt "SettingsDialog|"
 msgid "Provider:"
 msgstr ""
@@ -2617,7 +2622,7 @@ msgctxt "SettingsDialog|"
 msgid "Interface"
 msgstr "Interface"
 
-#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:844
+#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:854
 msgctxt "SettingsDialog|"
 msgid "Translation"
 msgstr "Tradución"
@@ -2974,156 +2979,7 @@ msgctxt "SettingsDialog|"
 msgid "Translation provider:"
 msgstr "Modo de tradución:"
 
-#: src/settings/settingsdialog.ui:703
-msgctxt "SettingsDialog|"
-msgid "Automatic language detection"
-msgstr "Detección automática de idioma"
-
-#: src/settings/settingsdialog.ui:709
-msgctxt "SettingsDialog|"
-msgid "Primary translation language:"
-msgstr "Idioma principal de tradución:"
-
-#: src/settings/settingsdialog.ui:716
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Language to which text will be translated when "
-"autodetecting</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Idioma ao que traducir o texto ao detectar "
-"automaticamente.</p></body></html>"
-
-#: src/settings/settingsdialog.ui:723
-msgctxt "SettingsDialog|"
-msgid "Secondary translation language:"
-msgstr "Idioma secundario de tradución:"
-
-#: src/settings/settingsdialog.ui:730
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Language to which the text will be translated if it is "
-"in the language selected above</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Idioma ao que se traducirá o texto se é o idioma "
-"seleccionado arriba.</p></body></html>"
-
-#: src/settings/settingsdialog.ui:737 src/settings/settingsdialog.ui:747
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Automatically switch to <span style=\" font-style:"
-"italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Cambiar automaticamente a <span style=\" font-style:"
-"italic;\">Automático</span> ao usar OCR e atallos globais.</p></body></html>"
-
-#: src/settings/settingsdialog.ui:740
-msgctxt "SettingsDialog|"
-msgid "Force source language detection"
-msgstr "Forzar a detección do idioma da orixe"
-
-#: src/settings/settingsdialog.ui:750
-msgctxt "SettingsDialog|"
-msgid "Force translation language detection"
-msgstr "Forzar a detección do idioma da tradución"
-
-#: src/settings/settingsdialog.ui:757
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
-msgctxt "SettingsDialog|"
-msgid "Detection provider:"
-msgstr "Modo de tradución:"
-
-#: src/settings/settingsdialog.ui:764 src/settings/settingsdialog.ui:781
-msgctxt "SettingsDialog|"
-msgid ""
-"Provider and model used to detect the source language when it is set to "
-"Auto. If no detection model is selected, translation falls back to the "
-"configured primary language above."
-msgstr ""
-
-#: src/settings/settingsdialog.ui:771
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation mode:"
-msgctxt "SettingsDialog|"
-msgid "Detection model:"
-msgstr "Modo de tradución:"
-
-#: src/settings/settingsdialog.ui:802
-msgctxt "SettingsDialog|"
-msgid "Text-to-Speech"
-msgstr ""
-
-#: src/settings/settingsdialog.ui:850
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Enable or disable source transliteration</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>Activar ou desactivar a transliteración da orixe</p></"
-"body></html>"
-
-#: src/settings/settingsdialog.ui:853
-msgctxt "SettingsDialog|"
-msgid "Enable source transliteration"
-msgstr "Activar a transliteración da orixe"
-
-#: src/settings/settingsdialog.ui:860
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Enable or disable translation transliteration</p></"
-"body></html>"
-msgstr ""
-"<html><head/><body><p>Activar ou desactivar a transliteración da tradución</"
-"p></body></html>"
-
-#: src/settings/settingsdialog.ui:863
-msgctxt "SettingsDialog|"
-msgid "Enable translation transliteration"
-msgstr "Activar a transliteración da tradución"
-
-#: src/settings/settingsdialog.ui:870
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Enable or disable source transcription</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>Activar ou desactivar a transcrición da orixe.</p></"
-"body></html>"
-
-#: src/settings/settingsdialog.ui:873
-msgctxt "SettingsDialog|"
-msgid "Enable source transcription"
-msgstr "Activar a transcrición da orixe"
-
-#: src/settings/settingsdialog.ui:880
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Enable or disable translation options</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Activar ou desactivar as opcións de tradución.</p></"
-"body></html>"
-
-#: src/settings/settingsdialog.ui:883
-msgctxt "SettingsDialog|"
-msgid "Enable translation options"
-msgstr "Activar as opcións de tradución"
-
-#: src/settings/settingsdialog.ui:890
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Enable or disable usage examples</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Activar ou desactivar os exemplos de uso.</p></body></"
-"html>"
-
-#: src/settings/settingsdialog.ui:893
-msgctxt "SettingsDialog|"
-msgid "Enable examples"
-msgstr "Activar os exemplos"
-
-#: src/settings/settingsdialog.ui:900
+#: src/settings/settingsdialog.ui:690
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace each sequence of whitespaces (this includes "
@@ -3134,10 +2990,159 @@ msgstr ""
 "branco (os caracteres ASCII «\\t», «\\n», «\\v», «\\f», «\\r» e « ») cun "
 "único espazo.</p></body></html>"
 
-#: src/settings/settingsdialog.ui:903
+#: src/settings/settingsdialog.ui:693
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
 msgstr "Simplificar a orixe"
+
+#: src/settings/settingsdialog.ui:713
+msgctxt "SettingsDialog|"
+msgid "Automatic language detection"
+msgstr "Detección automática de idioma"
+
+#: src/settings/settingsdialog.ui:719
+msgctxt "SettingsDialog|"
+msgid "Primary translation language:"
+msgstr "Idioma principal de tradución:"
+
+#: src/settings/settingsdialog.ui:726
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Language to which text will be translated when "
+"autodetecting</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Idioma ao que traducir o texto ao detectar "
+"automaticamente.</p></body></html>"
+
+#: src/settings/settingsdialog.ui:733
+msgctxt "SettingsDialog|"
+msgid "Secondary translation language:"
+msgstr "Idioma secundario de tradución:"
+
+#: src/settings/settingsdialog.ui:740
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Language to which the text will be translated if it is "
+"in the language selected above</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Idioma ao que se traducirá o texto se é o idioma "
+"seleccionado arriba.</p></body></html>"
+
+#: src/settings/settingsdialog.ui:747 src/settings/settingsdialog.ui:757
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Automatically switch to <span style=\" font-style:"
+"italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Cambiar automaticamente a <span style=\" font-style:"
+"italic;\">Automático</span> ao usar OCR e atallos globais.</p></body></html>"
+
+#: src/settings/settingsdialog.ui:750
+msgctxt "SettingsDialog|"
+msgid "Force source language detection"
+msgstr "Forzar a detección do idioma da orixe"
+
+#: src/settings/settingsdialog.ui:760
+msgctxt "SettingsDialog|"
+msgid "Force translation language detection"
+msgstr "Forzar a detección do idioma da tradución"
+
+#: src/settings/settingsdialog.ui:767
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Translation mode:"
+msgctxt "SettingsDialog|"
+msgid "Detection provider:"
+msgstr "Modo de tradución:"
+
+#: src/settings/settingsdialog.ui:774 src/settings/settingsdialog.ui:791
+msgctxt "SettingsDialog|"
+msgid ""
+"Provider and model used to detect the source language when it is set to "
+"Auto. If no detection model is selected, translation falls back to the "
+"configured primary language above."
+msgstr ""
+
+#: src/settings/settingsdialog.ui:781
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Translation mode:"
+msgctxt "SettingsDialog|"
+msgid "Detection model:"
+msgstr "Modo de tradución:"
+
+#: src/settings/settingsdialog.ui:812
+msgctxt "SettingsDialog|"
+msgid "Text-to-Speech"
+msgstr ""
+
+#: src/settings/settingsdialog.ui:860
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable source transliteration</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Activar ou desactivar a transliteración da orixe</p></"
+"body></html>"
+
+#: src/settings/settingsdialog.ui:863
+msgctxt "SettingsDialog|"
+msgid "Enable source transliteration"
+msgstr "Activar a transliteración da orixe"
+
+#: src/settings/settingsdialog.ui:870
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable translation transliteration</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>Activar ou desactivar a transliteración da tradución</"
+"p></body></html>"
+
+#: src/settings/settingsdialog.ui:873
+msgctxt "SettingsDialog|"
+msgid "Enable translation transliteration"
+msgstr "Activar a transliteración da tradución"
+
+#: src/settings/settingsdialog.ui:880
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable source transcription</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Activar ou desactivar a transcrición da orixe.</p></"
+"body></html>"
+
+#: src/settings/settingsdialog.ui:883
+msgctxt "SettingsDialog|"
+msgid "Enable source transcription"
+msgstr "Activar a transcrición da orixe"
+
+#: src/settings/settingsdialog.ui:890
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable translation options</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Activar ou desactivar as opcións de tradución.</p></"
+"body></html>"
+
+#: src/settings/settingsdialog.ui:893
+msgctxt "SettingsDialog|"
+msgid "Enable translation options"
+msgstr "Activar as opcións de tradución"
+
+#: src/settings/settingsdialog.ui:900
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable usage examples</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Activar ou desactivar os exemplos de uso.</p></body></"
+"html>"
+
+#: src/settings/settingsdialog.ui:903
+msgctxt "SettingsDialog|"
+msgid "Enable examples"
+msgstr "Activar os exemplos"
 
 #: src/settings/settingsdialog.ui:919
 msgctxt "SettingsDialog|"
@@ -3749,7 +3754,7 @@ msgctxt "LocalAiTranslationProvider|"
 msgid "Destination language is not supported"
 msgstr "Non se permite a detección de idioma con %1."
 
-#: src/translator/localaitranslationprovider.cpp:301
+#: src/translator/localaitranslationprovider.cpp:396
 #, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
@@ -3759,7 +3764,7 @@ msgid ""
 "provider, translate less text at once, or pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:309
+#: src/translator/localaitranslationprovider.cpp:404
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
 "The model spent its whole token budget reasoning and never wrote a "
@@ -3767,7 +3772,7 @@ msgid ""
 "text at once, or pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:317
+#: src/translator/localaitranslationprovider.cpp:412
 #, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
@@ -3776,16 +3781,16 @@ msgid ""
 "pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:324
+#: src/translator/localaitranslationprovider.cpp:419
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
 "The model ran out of tokens before writing a translation. Translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:330
-#: src/translator/localaitranslationprovider.cpp:369
-#: src/translator/localaitranslationprovider.cpp:370
+#: src/translator/localaitranslationprovider.cpp:425
+#: src/translator/localaitranslationprovider.cpp:487
+#: src/translator/localaitranslationprovider.cpp:488
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: %1"
@@ -3793,17 +3798,17 @@ msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI error: %1"
 msgstr "Erro: %1"
 
-#: src/translator/localaitranslationprovider.cpp:333
+#: src/translator/localaitranslationprovider.cpp:428
 msgctxt "LocalAiTranslationProvider|"
 msgid "The model returned an empty response."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:354
+#: src/translator/localaitranslationprovider.cpp:449
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI request timed out"
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:412
+#: src/translator/localaitranslationprovider.cpp:530
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Language detection is not supported for %1"
@@ -3811,7 +3816,7 @@ msgctxt "LocalAiTranslationProvider|"
 msgid "Language detection timed out"
 msgstr "Non se permite a detección de idioma con %1."
 
-#: src/translator/localaitranslationprovider.cpp:473
+#: src/translator/localaitranslationprovider.cpp:591
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Translation mode:"

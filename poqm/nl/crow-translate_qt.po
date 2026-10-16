@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-30 14:00+0200\n"
+"PO-Revision-Date: 2026-10-15 16:18+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Language: nl\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #: src/cli.cpp:78
 msgctxt "Cli|"
@@ -340,12 +340,12 @@ msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Zoeken op Forvo.com"
 
-#: src/core/translationsession.cpp:350
+#: src/core/translationsession.cpp:351
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
 msgstr "OCR is niet geconfigureerd"
 
-#: src/core/translationsession.cpp:351
+#: src/core/translationsession.cpp:352
 msgctxt "TesseractOcr|"
 msgid "Set up the OCR engine in the application settings"
 msgstr "Zet de OCR-engine op in de programma-instellingen"
@@ -495,39 +495,39 @@ msgctxt "main|"
 msgid "Available frontends: %1"
 msgstr "Beschikbare frontends: %1"
 
-#: src/mainwindow.cpp:162
+#: src/mainwindow.cpp:168
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "De ocr-talen kunnen niet worden ingesteld"
 
-#: src/mainwindow.cpp:163
+#: src/mainwindow.cpp:169
 #, qt-format
 msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "Tesseract kan niet worden geïnitialiseerd met %1"
 
-#: src/mainwindow.cpp:435
+#: src/mainwindow.cpp:447
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "Tekstherkenning (OCR)"
 
-#: src/mainwindow.cpp:436
+#: src/mainwindow.cpp:448
 msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "OCR-afbeelding omgeschakeld"
 
-#: src/mainwindow.cpp:436
+#: src/mainwindow.cpp:448
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr "OCR-afbeelding is normaal"
 
-#: src/mainwindow.cpp:844
+#: src/mainwindow.cpp:875
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "Deze toepassing gebruikt %1 om vertalingen te leveren."
 
-#: src/mainwindow.cpp:845
+#: src/mainwindow.cpp:876
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -541,17 +541,17 @@ msgstr ""
 "en analyseren. Uw exemplaar op dit moment is %1, maar u kunt dat wijzigen in "
 "de vertaalinstellingen. Zie details over exemplaar in de koppeling erboven."
 
-#: src/mainwindow.cpp:852
+#: src/mainwindow.cpp:883
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "Niet opnieuw tonen"
 
-#: src/mainwindow.cpp:899
+#: src/mainwindow.cpp:930
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Ongeldig systeemvakpictogram"
 
-#: src/mainwindow.cpp:899
+#: src/mainwindow.cpp:930
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
@@ -559,12 +559,12 @@ msgstr ""
 "Het opgegeven pictogram, %1, is ongeldig. Het standaardpictogram wordt "
 "gebruikt."
 
-#: src/mainwindow.cpp:1028
+#: src/mainwindow.cpp:1059
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr "TTS-fout"
 
-#: src/mainwindow.cpp:1028
+#: src/mainwindow.cpp:1059
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -580,25 +580,25 @@ msgstr ""
 "\n"
 "Controleer uw TTS-instellingen of probeer een andere stem/taalcode."
 
-#: src/mainwindow.cpp:1060 src/mainwindow.cpp:1066
+#: src/mainwindow.cpp:1092 src/mainwindow.cpp:1098
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Fout: %1"
 
-#: src/mainwindow.cpp:1806
+#: src/mainwindow.cpp:1882
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
 msgstr "Afbeelding te groot (%1 MP). Max %2 MP."
 
-#: src/mainwindow.cpp:1904
+#: src/mainwindow.cpp:1980
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
 msgstr "OCR is mislukt: %1"
 
-#: src/mainwindow.cpp:1938 src/mainwindow.cpp:1995
+#: src/mainwindow.cpp:2014 src/mainwindow.cpp:2071
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -608,12 +608,12 @@ msgstr ""
 "Kan afbeelding niet openen:\n"
 "%1"
 
-#: src/mainwindow.cpp:1986 src/mainwindow.cpp:1995
+#: src/mainwindow.cpp:2062 src/mainwindow.cpp:2071
 msgctxt "MainWindow|"
 msgid "Open image"
 msgstr "Afbeelding openen"
 
-#: src/mainwindow.cpp:1988
+#: src/mainwindow.cpp:2064
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
@@ -2145,12 +2145,17 @@ msgstr "Exemplaarfout: %1"
 #: src/onlinetranslator.cpp:1356
 msgctxt "OnlineTranslator|"
 msgid "Empty response"
-msgstr ""
+msgstr "Leeg antwoord"
 
 #: src/onlinetranslator.cpp:1367 src/onlinetranslator.cpp:1383
 msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
 msgstr "Fout: de automatisch vastgestelde taal kan niet worden verwerkt."
+
+#: src/popupwindow.cpp:45
+msgctxt "PopupWindow|"
+msgid "Drag to resize"
+msgstr ""
 
 #: src/popupwindow.ui:32 src/popupwindow.ui:35
 msgctxt "PopupWindow|"
@@ -2364,7 +2369,7 @@ msgctxt "SettingsDialog|"
 msgid "Tesseract runs locally. Configure languages and parameters below."
 msgstr "Tesseract draait lokaal. Configureer hieronder talen en parameters."
 
-#: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:808
+#: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:818
 msgctxt "SettingsDialog|"
 msgid "Provider:"
 msgstr "Leverancier:"
@@ -2504,7 +2509,7 @@ msgctxt "SettingsDialog|"
 msgid "Interface"
 msgstr "Vormgeving"
 
-#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:844
+#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:854
 msgctxt "SettingsDialog|"
 msgid "Translation"
 msgstr "Vertaling"
@@ -2515,12 +2520,9 @@ msgid "Text-To-Speech"
 msgstr "Tekst-naar-spraak"
 
 #: src/settings/settingsdialog.ui:81
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Crow Translate"
 msgctxt "SettingsDialog|"
 msgid "Mozhi / LibreTranslate"
-msgstr "Crow vertalen"
+msgstr "Mozhi / LibreTranslate"
 
 #: src/settings/settingsdialog.ui:105
 msgctxt "SettingsDialog|"
@@ -2852,17 +2854,33 @@ msgctxt "SettingsDialog|"
 msgid "Translation provider:"
 msgstr "Leverancier van vertaling:"
 
-#: src/settings/settingsdialog.ui:703
+#: src/settings/settingsdialog.ui:690
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Replace each sequence of whitespaces (this includes "
+"the ASCII characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' ') with a "
+"single space in queries</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Vervang elke reeks met witruimte (inclusief ASCII- "
+"tekens '\\t', '\\n', '\\v', '\\f', '\\r', en ' ') door een enkele spatie</"
+"p></body></html>"
+
+#: src/settings/settingsdialog.ui:693
+msgctxt "SettingsDialog|"
+msgid "Simplify source"
+msgstr "Brontekst vereenvoudigen"
+
+#: src/settings/settingsdialog.ui:713
 msgctxt "SettingsDialog|"
 msgid "Automatic language detection"
 msgstr "Automatische taalherkenning"
 
-#: src/settings/settingsdialog.ui:709
+#: src/settings/settingsdialog.ui:719
 msgctxt "SettingsDialog|"
 msgid "Primary translation language:"
 msgstr "Voorkeurstaal voor vertalingen:"
 
-#: src/settings/settingsdialog.ui:716
+#: src/settings/settingsdialog.ui:726
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which text will be translated when "
@@ -2871,12 +2889,12 @@ msgstr ""
 "<html><head/><body><p>De taal waarnaar tekst wordt vertaald bij automatische "
 "herkenning</p></body></html>"
 
-#: src/settings/settingsdialog.ui:723
+#: src/settings/settingsdialog.ui:733
 msgctxt "SettingsDialog|"
 msgid "Secondary translation language:"
 msgstr "Secundaire taal voor vertalingen:"
 
-#: src/settings/settingsdialog.ui:730
+#: src/settings/settingsdialog.ui:740
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Language to which the text will be translated if it is "
@@ -2885,7 +2903,7 @@ msgstr ""
 "<html><head/><body><p>De taal waarnaar altijd wordt getracht te vertalen</"
 "p></body></html>"
 
-#: src/settings/settingsdialog.ui:737 src/settings/settingsdialog.ui:747
+#: src/settings/settingsdialog.ui:747 src/settings/settingsdialog.ui:757
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Automatically switch to <span style=\" font-style:"
@@ -2895,22 +2913,22 @@ msgstr ""
 "style:italic;\">Automatisch</span> als gebruik wordt gemaakt van ocr en "
 "algemene sneltoetsen</p></body></html>"
 
-#: src/settings/settingsdialog.ui:740
+#: src/settings/settingsdialog.ui:750
 msgctxt "SettingsDialog|"
 msgid "Force source language detection"
 msgstr "Brontaalherkenning afdwingen"
 
-#: src/settings/settingsdialog.ui:750
+#: src/settings/settingsdialog.ui:760
 msgctxt "SettingsDialog|"
 msgid "Force translation language detection"
 msgstr "Taalherkenning van vertaling afdwingen"
 
-#: src/settings/settingsdialog.ui:757
+#: src/settings/settingsdialog.ui:767
 msgctxt "SettingsDialog|"
 msgid "Detection provider:"
 msgstr "Detectieleverancier:"
 
-#: src/settings/settingsdialog.ui:764 src/settings/settingsdialog.ui:781
+#: src/settings/settingsdialog.ui:774 src/settings/settingsdialog.ui:791
 msgctxt "SettingsDialog|"
 msgid ""
 "Provider and model used to detect the source language when it is set to "
@@ -2922,17 +2940,17 @@ msgstr ""
 "geselecteerd, wordt teruggevallen op de hierboven geconfigureerde primaire "
 "taal."
 
-#: src/settings/settingsdialog.ui:771
+#: src/settings/settingsdialog.ui:781
 msgctxt "SettingsDialog|"
 msgid "Detection model:"
 msgstr "Detectiemodel:"
 
-#: src/settings/settingsdialog.ui:802
+#: src/settings/settingsdialog.ui:812
 msgctxt "SettingsDialog|"
 msgid "Text-to-Speech"
 msgstr "Tekst-naar-spraak"
 
-#: src/settings/settingsdialog.ui:850
+#: src/settings/settingsdialog.ui:860
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transliteration</p></body></"
@@ -2940,12 +2958,12 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Schakel brontransliteratie in of uit</p></body></html>"
 
-#: src/settings/settingsdialog.ui:853
+#: src/settings/settingsdialog.ui:863
 msgctxt "SettingsDialog|"
 msgid "Enable source transliteration"
 msgstr "Brontransliteratie inschakelen"
 
-#: src/settings/settingsdialog.ui:860
+#: src/settings/settingsdialog.ui:870
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation transliteration</p></"
@@ -2954,12 +2972,12 @@ msgstr ""
 "<html><head/><body><p>Schakel vertaaltransliteratie in of uit</p></body></"
 "html>"
 
-#: src/settings/settingsdialog.ui:863
+#: src/settings/settingsdialog.ui:873
 msgctxt "SettingsDialog|"
 msgid "Enable translation transliteration"
 msgstr "Vertalingstransliteratie inschakelen"
 
-#: src/settings/settingsdialog.ui:870
+#: src/settings/settingsdialog.ui:880
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable source transcription</p></body></"
@@ -2967,50 +2985,34 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Schakel brontranscriptie in of uit</p></body></html>"
 
-#: src/settings/settingsdialog.ui:873
+#: src/settings/settingsdialog.ui:883
 msgctxt "SettingsDialog|"
 msgid "Enable source transcription"
 msgstr "Brontranscriptie inschakelen"
 
-#: src/settings/settingsdialog.ui:880
+#: src/settings/settingsdialog.ui:890
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable translation options</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Schakel vertaalopties in of uit</p></body></html>"
 
-#: src/settings/settingsdialog.ui:883
+#: src/settings/settingsdialog.ui:893
 msgctxt "SettingsDialog|"
 msgid "Enable translation options"
 msgstr "Vertaalopties tonen"
 
-#: src/settings/settingsdialog.ui:890
+#: src/settings/settingsdialog.ui:900
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Enable or disable usage examples</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Schakel gebruiksvoorbeelden in of uit</p></body></html>"
 
-#: src/settings/settingsdialog.ui:893
+#: src/settings/settingsdialog.ui:903
 msgctxt "SettingsDialog|"
 msgid "Enable examples"
 msgstr "Voorbeelden tonen"
-
-#: src/settings/settingsdialog.ui:900
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Replace each sequence of whitespaces (this includes "
-"the ASCII characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' ') with a "
-"single space in queries</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Vervang elke reeks met witruimte (inclusief ASCII- "
-"tekens '\\t', '\\n', '\\v', '\\f', '\\r', en ' ') door een enkele spatie</"
-"p></body></html>"
-
-#: src/settings/settingsdialog.ui:903
-msgctxt "SettingsDialog|"
-msgid "Simplify source"
-msgstr "Brontekst vereenvoudigen"
 
 #: src/settings/settingsdialog.ui:919
 msgctxt "SettingsDialog|"
@@ -3020,14 +3022,17 @@ msgid ""
 "use your own LibreTranslate server instead, enter its URL here, enable the "
 "direct LibreTranslate API and add the API key if the server requires one."
 msgstr ""
+"Mozhi is een privacyvriendelijke interface die fungeert als tussenpersoon "
+"(proxy) voor Google, Yandex, Bing, DeepL, LibreTranslate en andere zoek- of "
+"vertaaldiensten; kies de gewenste dienst in het hoofdvenster. Wilt u liever "
+"uw eigen LibreTranslate-server gebruiken? Voer dan hier de URL van die "
+"server in, schakel de directe LibreTranslate-API in en voeg de API-sleutel "
+"toe als de server er een vereist."
 
 #: src/settings/settingsdialog.ui:931
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Mozhi instance URL"
 msgctxt "SettingsDialog|"
 msgid "Instance URL:"
-msgstr "URL van exemplaar van Mozhi"
+msgstr "URL van exemplaar:"
 
 #: src/settings/settingsdialog.ui:944
 msgctxt "SettingsDialog|"
@@ -3035,6 +3040,8 @@ msgid ""
 "A Mozhi instance, or the URL of a LibreTranslate server when the direct "
 "LibreTranslate API is enabled"
 msgstr ""
+"Een Mozhi-exemplaar of de URL van een LibreTranslate-server wanneer de "
+"directe LibreTranslate-API is ingeschakeld"
 
 #: src/settings/settingsdialog.ui:957
 msgctxt "SettingsDialog|"
@@ -3058,7 +3065,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:991
 msgctxt "SettingsDialog|"
 msgid "Use direct LibreTranslate API"
-msgstr ""
+msgstr "Gebruik de directe LibreTranslate-API"
 
 #: src/settings/settingsdialog.ui:994
 msgctxt "SettingsDialog|"
@@ -3616,7 +3623,7 @@ msgctxt "LocalAiTranslationProvider|"
 msgid "Destination language is not supported"
 msgstr "Doeltaal wordt niet ondersteund"
 
-#: src/translator/localaitranslationprovider.cpp:301
+#: src/translator/localaitranslationprovider.cpp:396
 #, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
@@ -3632,7 +3639,7 @@ msgstr ""
 "aanbieder, vertaal minder tekst tegelijk of kies een model met een grotere "
 "context."
 
-#: src/translator/localaitranslationprovider.cpp:309
+#: src/translator/localaitranslationprovider.cpp:404
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
 "The model spent its whole token budget reasoning and never wrote a "
@@ -3644,7 +3651,7 @@ msgstr ""
 "aanbieder, vertaal minder tekst tegelijk of kies een model met een grotere "
 "context."
 
-#: src/translator/localaitranslationprovider.cpp:317
+#: src/translator/localaitranslationprovider.cpp:412
 #, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
@@ -3656,7 +3663,7 @@ msgstr ""
 "voltooid: de te vertalen tekst gebruikte %1 van de limiet van %2 tokens. "
 "Vertaal minder tekst tegelijk of kies een model met een grotere context."
 
-#: src/translator/localaitranslationprovider.cpp:324
+#: src/translator/localaitranslationprovider.cpp:419
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
 "The model ran out of tokens before writing a translation. Translate less "
@@ -3665,30 +3672,30 @@ msgstr ""
 "Het model had geen tokens meer over voordat de vertaling voltooid was. "
 "Vertaal minder tekst tegelijk of kies een model met een grotere context."
 
-#: src/translator/localaitranslationprovider.cpp:330
-#: src/translator/localaitranslationprovider.cpp:369
-#: src/translator/localaitranslationprovider.cpp:370
+#: src/translator/localaitranslationprovider.cpp:425
+#: src/translator/localaitranslationprovider.cpp:487
+#: src/translator/localaitranslationprovider.cpp:488
 #, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI error: %1"
 msgstr "LocalAI-fout: %1"
 
-#: src/translator/localaitranslationprovider.cpp:333
+#: src/translator/localaitranslationprovider.cpp:428
 msgctxt "LocalAiTranslationProvider|"
 msgid "The model returned an empty response."
 msgstr "Het model gaf een leeg antwoord terug."
 
-#: src/translator/localaitranslationprovider.cpp:354
+#: src/translator/localaitranslationprovider.cpp:449
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI request timed out"
 msgstr "LocalAI-verzoek ging over de tijdslimiet"
 
-#: src/translator/localaitranslationprovider.cpp:412
+#: src/translator/localaitranslationprovider.cpp:530
 msgctxt "LocalAiTranslationProvider|"
 msgid "Language detection timed out"
 msgstr "Taaldetectie ging over de tijdslimiet"
 
-#: src/translator/localaitranslationprovider.cpp:473
+#: src/translator/localaitranslationprovider.cpp:591
 msgctxt "LocalAiTranslationProvider|"
 msgid "Translation aborted by user"
 msgstr "Vertaling afgebroken door de gebruiker"

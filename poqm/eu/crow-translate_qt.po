@@ -379,12 +379,12 @@ msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Bilatu Forvo.com-en"
 
-#: src/core/translationsession.cpp:350
+#: src/core/translationsession.cpp:351
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
 msgstr ""
 
-#: src/core/translationsession.cpp:351
+#: src/core/translationsession.cpp:352
 #, fuzzy
 #| msgctxt "Ocr|"
 #| msgid "You should set at least one OCR language in the application settings"
@@ -566,7 +566,7 @@ msgctxt "main|"
 msgid "Available frontends: %1"
 msgstr "Bertsio eskuragarria:"
 
-#: src/mainwindow.cpp:162
+#: src/mainwindow.cpp:168
 #, fuzzy
 #| msgctxt "Ocr|"
 #| msgid "Unable to set OCR languages"
@@ -574,7 +574,7 @@ msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "Ezin dira ezarri OCR hizkuntzak"
 
-#: src/mainwindow.cpp:163
+#: src/mainwindow.cpp:169
 #, fuzzy, qt-format
 #| msgctxt "Ocr|"
 #| msgid "Unable to initialize Tesseract with %1"
@@ -582,28 +582,28 @@ msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "Ezin da Tesseract hasieratu %1-rekin"
 
-#: src/mainwindow.cpp:435
+#: src/mainwindow.cpp:447
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "OCR"
 
-#: src/mainwindow.cpp:436
+#: src/mainwindow.cpp:448
 msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "OCR irudia negatiboan"
 
-#: src/mainwindow.cpp:436
+#: src/mainwindow.cpp:448
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr "OCR irudi arrunta da"
 
-#: src/mainwindow.cpp:844
+#: src/mainwindow.cpp:875
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "Aplikazio honek %1 erabiltzen du itzulpenak emateko."
 
-#: src/mainwindow.cpp:845
+#: src/mainwindow.cpp:876
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -617,29 +617,29 @@ msgstr ""
 "aztertu dezakete. Une honetan zure instantzia '%1' da, baina itzulpen-"
 "ezarpenetan alda dezakezu. Ikusi kasuaren xehetasunak goiko estekan."
 
-#: src/mainwindow.cpp:852
+#: src/mainwindow.cpp:883
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "Ez erakutsi berriro"
 
-#: src/mainwindow.cpp:899
+#: src/mainwindow.cpp:930
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Baliogabeko erretiluko ikonoa"
 
-#: src/mainwindow.cpp:899
+#: src/mainwindow.cpp:930
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr ""
 "Zehaztutako '%1' ikonoa baliogabea da. Lehenetsitako ikonoa erabiliko da."
 
-#: src/mainwindow.cpp:1028
+#: src/mainwindow.cpp:1059
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr "TTS errorea"
 
-#: src/mainwindow.cpp:1028
+#: src/mainwindow.cpp:1059
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -655,7 +655,7 @@ msgstr ""
 "\n"
 "Mesedez, egiaztatu TTS ezarpenak edo probatu beste ahots/tokiko ezarpen bat."
 
-#: src/mainwindow.cpp:1060 src/mainwindow.cpp:1066
+#: src/mainwindow.cpp:1092 src/mainwindow.cpp:1098
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: %1"
@@ -663,19 +663,19 @@ msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Errorea: %1"
 
-#: src/mainwindow.cpp:1806
+#: src/mainwindow.cpp:1882
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
 msgstr ""
 
-#: src/mainwindow.cpp:1904
+#: src/mainwindow.cpp:1980
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
 msgstr ""
 
-#: src/mainwindow.cpp:1938 src/mainwindow.cpp:1995
+#: src/mainwindow.cpp:2014 src/mainwindow.cpp:2071
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -683,12 +683,12 @@ msgid ""
 "%1"
 msgstr ""
 
-#: src/mainwindow.cpp:1986 src/mainwindow.cpp:1995
+#: src/mainwindow.cpp:2062 src/mainwindow.cpp:2071
 msgctxt "MainWindow|"
 msgid "Open image"
 msgstr ""
 
-#: src/mainwindow.cpp:1988
+#: src/mainwindow.cpp:2064
 #, fuzzy
 #| msgctxt "SettingsDialog|"
 #| msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
@@ -2245,6 +2245,11 @@ msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
 msgstr "Errorea: ezin da automatikoki detektatutako hizkuntza analizatu"
 
+#: src/popupwindow.cpp:45
+msgctxt "PopupWindow|"
+msgid "Drag to resize"
+msgstr ""
+
 #: src/popupwindow.ui:32 src/popupwindow.ui:35
 msgctxt "PopupWindow|"
 msgid "Swap languages"
@@ -2472,7 +2477,7 @@ msgctxt "SettingsDialog|"
 msgid "Tesseract runs locally. Configure languages and parameters below."
 msgstr ""
 
-#: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:808
+#: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:818
 msgctxt "SettingsDialog|"
 msgid "Provider:"
 msgstr "Hornitzailea:"
@@ -2605,7 +2610,7 @@ msgctxt "SettingsDialog|"
 msgid "Interface"
 msgstr "Interfazea"
 
-#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:844
+#: src/settings/settingsdialog.ui:65 src/settings/settingsdialog.ui:854
 msgctxt "SettingsDialog|"
 msgid "Translation"
 msgstr "Itzulpena"
@@ -2956,156 +2961,7 @@ msgctxt "SettingsDialog|"
 msgid "Translation provider:"
 msgstr "Itzulpen hornitzailea:"
 
-#: src/settings/settingsdialog.ui:703
-msgctxt "SettingsDialog|"
-msgid "Automatic language detection"
-msgstr "Hizkuntza automatikoki hautematea"
-
-#: src/settings/settingsdialog.ui:709
-msgctxt "SettingsDialog|"
-msgid "Primary translation language:"
-msgstr "Itzulpen hizkuntza nagusia:"
-
-#: src/settings/settingsdialog.ui:716
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Language to which text will be translated when "
-"autodetecting</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Autodetektatutako testua zein hizkuntzatara itzuliko "
-"den</p></body></html>"
-
-#: src/settings/settingsdialog.ui:723
-msgctxt "SettingsDialog|"
-msgid "Secondary translation language:"
-msgstr "Bigarren mailako itzulpen hizkuntza:"
-
-#: src/settings/settingsdialog.ui:730
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Language to which the text will be translated if it is "
-"in the language selected above</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Testua itzuliko den hizkuntza goian hautatutako "
-"hizkuntzan badago</p></body></html>"
-
-#: src/settings/settingsdialog.ui:737 src/settings/settingsdialog.ui:747
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Automatically switch to <span style=\" font-style:"
-"italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Automatikoki aldatu <span style=\" font-style:italic;"
-"\">Automatikora</span> OCR eta lasterbide globalak erabiltzean</p></body></"
-"html>"
-
-#: src/settings/settingsdialog.ui:740
-msgctxt "SettingsDialog|"
-msgid "Force source language detection"
-msgstr "Behartu iturburu-hizkuntza detektatzen"
-
-#: src/settings/settingsdialog.ui:750
-msgctxt "SettingsDialog|"
-msgid "Force translation language detection"
-msgstr "Behartu itzulpen-hizkuntza detektatzen"
-
-#: src/settings/settingsdialog.ui:757
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Translation provider:"
-msgctxt "SettingsDialog|"
-msgid "Detection provider:"
-msgstr "Itzulpen hornitzailea:"
-
-#: src/settings/settingsdialog.ui:764 src/settings/settingsdialog.ui:781
-msgctxt "SettingsDialog|"
-msgid ""
-"Provider and model used to detect the source language when it is set to "
-"Auto. If no detection model is selected, translation falls back to the "
-"configured primary language above."
-msgstr ""
-
-#: src/settings/settingsdialog.ui:771
-#, fuzzy
-#| msgctxt "SnippingArea|"
-#| msgid "DPI Detection Error"
-msgctxt "SettingsDialog|"
-msgid "Detection model:"
-msgstr "DPI antzemate errorea"
-
-#: src/settings/settingsdialog.ui:802
-msgctxt "SettingsDialog|"
-msgid "Text-to-Speech"
-msgstr "Testutik-hizketara"
-
-#: src/settings/settingsdialog.ui:850
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Enable or disable source transliteration</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>Gaitu edo desgaitu iturburu-transliterazioa</p></"
-"body></html>"
-
-#: src/settings/settingsdialog.ui:853
-msgctxt "SettingsDialog|"
-msgid "Enable source transliteration"
-msgstr "Gaitu iturburuaren transliterazioa"
-
-#: src/settings/settingsdialog.ui:860
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Enable or disable translation transliteration</p></"
-"body></html>"
-msgstr ""
-"<html><head/><body><p>Gaitu edo desgaitu itzulpen-transliterazioa</p></"
-"body></html>"
-
-#: src/settings/settingsdialog.ui:863
-msgctxt "SettingsDialog|"
-msgid "Enable translation transliteration"
-msgstr "Gaitu itzulpenaren transliterazioa"
-
-#: src/settings/settingsdialog.ui:870
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Enable or disable source transcription</p></body></"
-"html>"
-msgstr ""
-"<html><head/><body><p>Gaitu edo desgaitu iturburuko transkripzioa</p></"
-"body></html>"
-
-#: src/settings/settingsdialog.ui:873
-msgctxt "SettingsDialog|"
-msgid "Enable source transcription"
-msgstr "Gaitu iturburuaren transkripzioa"
-
-#: src/settings/settingsdialog.ui:880
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Enable or disable translation options</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Gaitu edo desgaitu itzulpen-aukerak</p></body></html>"
-
-#: src/settings/settingsdialog.ui:883
-msgctxt "SettingsDialog|"
-msgid "Enable translation options"
-msgstr "Gaitu itzulpen aukerak"
-
-#: src/settings/settingsdialog.ui:890
-msgctxt "SettingsDialog|"
-msgid ""
-"<html><head/><body><p>Enable or disable usage examples</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Gaitu edo desgaitu erabilera-adibideak</p></body></"
-"html>"
-
-#: src/settings/settingsdialog.ui:893
-msgctxt "SettingsDialog|"
-msgid "Enable examples"
-msgstr "Gaitu adibideak"
-
-#: src/settings/settingsdialog.ui:900
+#: src/settings/settingsdialog.ui:690
 msgctxt "SettingsDialog|"
 msgid ""
 "<html><head/><body><p>Replace each sequence of whitespaces (this includes "
@@ -3116,10 +2972,159 @@ msgstr ""
 "karaktereak eta '\\t', '\\n', '\\v', '\\f', '\\r', eta ' ' barne hartzen "
 "ditu) zuriune barrarekin kontsultetan</p></body></html>"
 
-#: src/settings/settingsdialog.ui:903
+#: src/settings/settingsdialog.ui:693
 msgctxt "SettingsDialog|"
 msgid "Simplify source"
 msgstr "Sinplifikatu iturburua"
+
+#: src/settings/settingsdialog.ui:713
+msgctxt "SettingsDialog|"
+msgid "Automatic language detection"
+msgstr "Hizkuntza automatikoki hautematea"
+
+#: src/settings/settingsdialog.ui:719
+msgctxt "SettingsDialog|"
+msgid "Primary translation language:"
+msgstr "Itzulpen hizkuntza nagusia:"
+
+#: src/settings/settingsdialog.ui:726
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Language to which text will be translated when "
+"autodetecting</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Autodetektatutako testua zein hizkuntzatara itzuliko "
+"den</p></body></html>"
+
+#: src/settings/settingsdialog.ui:733
+msgctxt "SettingsDialog|"
+msgid "Secondary translation language:"
+msgstr "Bigarren mailako itzulpen hizkuntza:"
+
+#: src/settings/settingsdialog.ui:740
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Language to which the text will be translated if it is "
+"in the language selected above</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Testua itzuliko den hizkuntza goian hautatutako "
+"hizkuntzan badago</p></body></html>"
+
+#: src/settings/settingsdialog.ui:747 src/settings/settingsdialog.ui:757
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Automatically switch to <span style=\" font-style:"
+"italic;\">Auto</span> when using OCR and global shortcuts</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Automatikoki aldatu <span style=\" font-style:italic;"
+"\">Automatikora</span> OCR eta lasterbide globalak erabiltzean</p></body></"
+"html>"
+
+#: src/settings/settingsdialog.ui:750
+msgctxt "SettingsDialog|"
+msgid "Force source language detection"
+msgstr "Behartu iturburu-hizkuntza detektatzen"
+
+#: src/settings/settingsdialog.ui:760
+msgctxt "SettingsDialog|"
+msgid "Force translation language detection"
+msgstr "Behartu itzulpen-hizkuntza detektatzen"
+
+#: src/settings/settingsdialog.ui:767
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Translation provider:"
+msgctxt "SettingsDialog|"
+msgid "Detection provider:"
+msgstr "Itzulpen hornitzailea:"
+
+#: src/settings/settingsdialog.ui:774 src/settings/settingsdialog.ui:791
+msgctxt "SettingsDialog|"
+msgid ""
+"Provider and model used to detect the source language when it is set to "
+"Auto. If no detection model is selected, translation falls back to the "
+"configured primary language above."
+msgstr ""
+
+#: src/settings/settingsdialog.ui:781
+#, fuzzy
+#| msgctxt "SnippingArea|"
+#| msgid "DPI Detection Error"
+msgctxt "SettingsDialog|"
+msgid "Detection model:"
+msgstr "DPI antzemate errorea"
+
+#: src/settings/settingsdialog.ui:812
+msgctxt "SettingsDialog|"
+msgid "Text-to-Speech"
+msgstr "Testutik-hizketara"
+
+#: src/settings/settingsdialog.ui:860
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable source transliteration</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Gaitu edo desgaitu iturburu-transliterazioa</p></"
+"body></html>"
+
+#: src/settings/settingsdialog.ui:863
+msgctxt "SettingsDialog|"
+msgid "Enable source transliteration"
+msgstr "Gaitu iturburuaren transliterazioa"
+
+#: src/settings/settingsdialog.ui:870
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable translation transliteration</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>Gaitu edo desgaitu itzulpen-transliterazioa</p></"
+"body></html>"
+
+#: src/settings/settingsdialog.ui:873
+msgctxt "SettingsDialog|"
+msgid "Enable translation transliteration"
+msgstr "Gaitu itzulpenaren transliterazioa"
+
+#: src/settings/settingsdialog.ui:880
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable source transcription</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Gaitu edo desgaitu iturburuko transkripzioa</p></"
+"body></html>"
+
+#: src/settings/settingsdialog.ui:883
+msgctxt "SettingsDialog|"
+msgid "Enable source transcription"
+msgstr "Gaitu iturburuaren transkripzioa"
+
+#: src/settings/settingsdialog.ui:890
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable translation options</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Gaitu edo desgaitu itzulpen-aukerak</p></body></html>"
+
+#: src/settings/settingsdialog.ui:893
+msgctxt "SettingsDialog|"
+msgid "Enable translation options"
+msgstr "Gaitu itzulpen aukerak"
+
+#: src/settings/settingsdialog.ui:900
+msgctxt "SettingsDialog|"
+msgid ""
+"<html><head/><body><p>Enable or disable usage examples</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Gaitu edo desgaitu erabilera-adibideak</p></body></"
+"html>"
+
+#: src/settings/settingsdialog.ui:903
+msgctxt "SettingsDialog|"
+msgid "Enable examples"
+msgstr "Gaitu adibideak"
 
 #: src/settings/settingsdialog.ui:919
 msgctxt "SettingsDialog|"
@@ -3727,7 +3732,7 @@ msgctxt "LocalAiTranslationProvider|"
 msgid "Destination language is not supported"
 msgstr "%2k ez du onartzen hautatutako %1 itzulpen-hizkuntza"
 
-#: src/translator/localaitranslationprovider.cpp:301
+#: src/translator/localaitranslationprovider.cpp:396
 #, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
@@ -3737,7 +3742,7 @@ msgid ""
 "provider, translate less text at once, or pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:309
+#: src/translator/localaitranslationprovider.cpp:404
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
 "The model spent its whole token budget reasoning and never wrote a "
@@ -3745,7 +3750,7 @@ msgid ""
 "text at once, or pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:317
+#: src/translator/localaitranslationprovider.cpp:412
 #, qt-format
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
@@ -3754,16 +3759,16 @@ msgid ""
 "pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:324
+#: src/translator/localaitranslationprovider.cpp:419
 msgctxt "LocalAiTranslationProvider|"
 msgid ""
 "The model ran out of tokens before writing a translation. Translate less "
 "text at once, or pick a model with a larger context."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:330
-#: src/translator/localaitranslationprovider.cpp:369
-#: src/translator/localaitranslationprovider.cpp:370
+#: src/translator/localaitranslationprovider.cpp:425
+#: src/translator/localaitranslationprovider.cpp:487
+#: src/translator/localaitranslationprovider.cpp:488
 #, fuzzy, qt-format
 #| msgctxt "Cli|"
 #| msgid "Error: %1"
@@ -3771,17 +3776,17 @@ msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI error: %1"
 msgstr "Errorea: %1"
 
-#: src/translator/localaitranslationprovider.cpp:333
+#: src/translator/localaitranslationprovider.cpp:428
 msgctxt "LocalAiTranslationProvider|"
 msgid "The model returned an empty response."
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:354
+#: src/translator/localaitranslationprovider.cpp:449
 msgctxt "LocalAiTranslationProvider|"
 msgid "LocalAI request timed out"
 msgstr ""
 
-#: src/translator/localaitranslationprovider.cpp:412
+#: src/translator/localaitranslationprovider.cpp:530
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Language detection is not supported for %1"
@@ -3789,7 +3794,7 @@ msgctxt "LocalAiTranslationProvider|"
 msgid "Language detection timed out"
 msgstr "Hizkuntza hautematea ez da onartzen %1-rentzat"
 
-#: src/translator/localaitranslationprovider.cpp:473
+#: src/translator/localaitranslationprovider.cpp:591
 #, fuzzy
 #| msgctxt "OnlineTranslator|"
 #| msgid "Operation aborted by user"
