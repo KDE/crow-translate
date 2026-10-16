@@ -358,10 +358,16 @@ private slots:
         QToolButton *playButton = window.sourcePlayPauseButton();
         QVERIFY(playButton != nullptr);
 
-        QVERIFY(QTest::qWaitFor([playButton]() {
-            return playButton->isEnabled();
-        },
-                                3000));
+        if (!QTest::qWaitFor([playButton]() {
+                return playButton->isEnabled();
+            },
+                             3000)) {
+            // As for Piper: no voice at all here (on Linux, no speech
+            // dispatcher to ask) is this machine, not the code under test.
+            if (window.sourceVoiceComboBox()->count() == 0)
+                QSKIP("Qt TTS has no voice here");
+            QFAIL("Qt TTS lists voices, but its play button stayed disabled");
+        }
 
         QSignalSpy stateSpy(&window, &MainWindow::ttsStateChangedSignal);
         QTest::mouseClick(playButton, Qt::LeftButton);
@@ -395,10 +401,19 @@ private slots:
         QToolButton *playButton = window.sourcePlayPauseButton();
         QVERIFY(playButton != nullptr);
 
-        QVERIFY(QTest::qWaitFor([playButton]() {
-            return playButton->isEnabled();
-        },
-                                3000));
+        if (!QTest::qWaitFor([playButton]() {
+                return playButton->isEnabled();
+            },
+                             3000)) {
+            // Disabled is right when Piper has nothing to speak with: no voice
+            // model installed here, or no ONNX Runtime it can use. The skip
+            // below meant to cover that, but sits behind a click on this
+            // button, so the case failed instead. With voices listed, a
+            // disabled button is the bug this is looking for.
+            if (window.sourceVoiceComboBox()->count() == 0)
+                QSKIP("Piper has no voice here (no models installed, or no usable ONNX Runtime)");
+            QFAIL("Piper lists voices, but its play button stayed disabled");
+        }
 
         QSignalSpy stateSpy(&window, &MainWindow::ttsStateChangedSignal);
         QTest::mouseClick(playButton, Qt::LeftButton);
