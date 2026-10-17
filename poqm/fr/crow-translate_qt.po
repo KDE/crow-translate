@@ -17,22 +17,22 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Source-Language: en\n"
 
-#: src/cli.cpp:78
+#: src/cli.cpp:100
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "Options de traduction :"
 
-#: src/cli.cpp:87
+#: src/cli.cpp:109
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "Exemples :"
 
-#: src/cli.cpp:118
+#: src/cli.cpp:142
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Afficher tous les codes de langue."
 
-#: src/cli.cpp:120
+#: src/cli.cpp:144
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -41,7 +41,7 @@ msgstr ""
 "Spécifiez la langue source (par défaut, le moteur essaiera de déterminer la "
 "langue par lui-même)."
 
-#: src/cli.cpp:124
+#: src/cli.cpp:148
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), split by '+' (by default, the system "
@@ -50,7 +50,7 @@ msgstr ""
 "Précisez la ou les langue(s) de traduction, avec un signe « + » comme "
 "séparateur (Par défaut, la langue du système est utilisée)."
 
-#: src/cli.cpp:129
+#: src/cli.cpp:153
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
@@ -60,7 +60,7 @@ msgstr ""
 "« Bing », « DeepL »,« LibreTranslate », « mymemory ») ou « Reverso ». Par "
 "défaut, le moteur « Google » est utilisé."
 
-#: src/cli.cpp:133
+#: src/cli.cpp:157
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
@@ -69,7 +69,7 @@ msgstr ""
 "Spécifiez l'URL de l'instance de Mozhi. L'URL d'instance défini dans la "
 "configuration de l'application sera utilisée par défaut."
 
-#: src/cli.cpp:137
+#: src/cli.cpp:161
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
@@ -79,7 +79,7 @@ msgstr ""
 "ou « LocalAI ». Le fournisseur défini dans la configuration de l'application "
 "sera utilisée par défaut."
 
-#: src/cli.cpp:145
+#: src/cli.cpp:169
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
@@ -89,7 +89,7 @@ msgstr ""
 "« Mozhi », « Qt » ou « Piper ». Le fournisseur défini dans la configuration "
 "de l'application sera utilisée par défaut."
 
-#: src/cli.cpp:147
+#: src/cli.cpp:171
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
@@ -99,24 +99,24 @@ msgstr ""
 "« Mozhi » et « Qt ». Le fournisseur défini dans la configuration de "
 "l'application sera utilisée par défaut."
 
-#: src/cli.cpp:149
+#: src/cli.cpp:173
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
 "Veuillez spécifier le fournisseur de synthèse vocale (« Aucun »). Cette "
 "version a désactivée la synthèse vocale."
 
-#: src/cli.cpp:152
+#: src/cli.cpp:176
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Écoutez la traduction."
 
-#: src/cli.cpp:153
+#: src/cli.cpp:177
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Écoutez la source."
 
-#: src/cli.cpp:154
+#: src/cli.cpp:178
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -124,40 +124,40 @@ msgstr ""
 "Lire le texte source à partir de fichiers. Les arguments seront interprétés "
 "comme des emplacements de fichiers."
 
-#: src/cli.cpp:155
+#: src/cli.cpp:179
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Ajouter des données stdin au texte source."
 
-#: src/cli.cpp:157
+#: src/cli.cpp:181
 msgctxt "Cli|"
 msgid "Read source text from an image using the configured OCR engine."
 msgstr ""
 "Lisez le texte source d'une image à l'aide du moteur de reconnaissance "
 "optique de caractères (OCR) configuré."
 
-#: src/cli.cpp:158
+#: src/cli.cpp:182
 msgctxt "Cli|"
 msgid "path"
 msgstr "Emplacement"
 
-#: src/cli.cpp:160
+#: src/cli.cpp:184
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "N'imprimez aucun texte lorsque vous utilisez --%1 ou --%2."
 
-#: src/cli.cpp:161
+#: src/cli.cpp:185
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Imprimer seulement les traductions."
 
-#: src/cli.cpp:162
+#: src/cli.cpp:186
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Imprimer la sortie formatée en JSON."
 
-#: src/cli.cpp:168
+#: src/cli.cpp:192
 msgctxt "Cli|"
 msgid ""
 "Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
@@ -166,12 +166,12 @@ msgstr ""
 "Quelle interface exécuter (« gui » ou « cli »). La valeur par défaut est "
 "« cli » à chaque fois qu'un argument est donné."
 
-#: src/cli.cpp:169
+#: src/cli.cpp:193
 msgctxt "Cli|"
 msgid "frontend"
 msgstr "Interface utilisateur"
 
-#: src/cli.cpp:173
+#: src/cli.cpp:197
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
@@ -179,7 +179,7 @@ msgstr ""
 "Une application permettant la traduction et l'énoncé de texte en utilisant "
 "divers fournisseurs"
 
-#: src/cli.cpp:174
+#: src/cli.cpp:198
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
@@ -187,153 +187,153 @@ msgid ""
 msgstr ""
 "Texte à traduire. Par défaut, la traduction se fera à la langue du système."
 
-#: src/cli.cpp:203
+#: src/cli.cpp:244
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Erreur: Pour --%1 vous devez spécifier --%2 et/ou --%3 en options"
 
-#: src/cli.cpp:213
+#: src/cli.cpp:254
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
 msgstr "Erreur: moteur inconnu « %1 »"
 
-#: src/cli.cpp:228
+#: src/cli.cpp:269
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
 msgstr "Erreur : fournisseur de traduction inconnu « %1 »"
 
-#: src/cli.cpp:252
+#: src/cli.cpp:293
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "Erreur : code de langue source inconnu « %1 »"
 
-#: src/cli.cpp:271
+#: src/cli.cpp:313
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "Erreur : code de langue cible inconnu « %1 »"
 
-#: src/cli.cpp:295
+#: src/cli.cpp:337
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Erreur: Il n'y a pas de texte pour la traduction"
 
-#: src/cli.cpp:298
+#: src/cli.cpp:340
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: --%1 cannot be combined with text arguments"
 msgstr ""
 "Erreur : --il est impossible de combiner %1 avec des arguments de texte"
 
-#: src/cli.cpp:303
+#: src/cli.cpp:347
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr "Détection de l'instance la plus rapide"
 
-#: src/cli.cpp:366
+#: src/cli.cpp:410
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
 msgstr "Erreur : fournisseur inconnu « %1 » de synthèse vocale"
 
-#: src/cli.cpp:428
-#, qt-format
-msgctxt "Cli|"
-msgid "Error: Unable to initialize Tesseract with %1"
-msgstr "Erreur : impossible d'initialiser Tesseract avec %1"
-
-#: src/cli.cpp:449
+#: src/cli.cpp:473
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to read image '%1'"
 msgstr "Erreur : Impossible de lire l'image « %1 »"
 
-#: src/cli.cpp:459
+#: src/cli.cpp:483
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: Unable to initialize Tesseract with %1"
+msgstr "Erreur : impossible d'initialiser Tesseract avec %1"
+
+#: src/cli.cpp:506
 msgctxt "Cli|"
 msgid "Error: No text was recognized in the image"
 msgstr "Erreur : aucun texte n'a été reconnu dans l'image"
 
-#: src/cli.cpp:467
+#: src/cli.cpp:514
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Recognition failed: %1"
 msgstr "Erreur : échec de la reconnaissance : %1"
 
-#: src/cli.cpp:472
+#: src/cli.cpp:519
 msgctxt "Cli|"
 msgid "Error: Recognition was cancelled"
 msgstr "Erreur : la reconnaissance a été annulée"
 
-#: src/cli.cpp:490 src/cli.cpp:542
+#: src/cli.cpp:537 src/cli.cpp:606
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Erreur : %1"
 
-#: src/cli.cpp:492 src/cli.cpp:544
+#: src/cli.cpp:539 src/cli.cpp:608
 msgctxt "Cli|"
 msgid "Translation error occurred"
 msgstr "Une erreur de traduction s'est produite"
 
-#: src/cli.cpp:613
+#: src/cli.cpp:677
 msgctxt "Cli|"
 msgid "Unknown error"
 msgstr "Erreur inconnue"
 
-#: src/cli.cpp:614
+#: src/cli.cpp:678
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
 msgstr "Erreur : échec de la synthèse vocale : %1"
 
-#: src/cli.cpp:721
+#: src/cli.cpp:785
 msgctxt "Cli|"
 msgid "no provider was created"
 msgstr "Aucun fournisseur n'a été créé."
 
-#: src/cli.cpp:746
+#: src/cli.cpp:810
 msgctxt "Cli|"
 msgid "the engine failed to start"
 msgstr "Il a été impossible pour le moteur de démarrer."
 
-#: src/cli.cpp:751
+#: src/cli.cpp:815
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
 msgstr "Le fournisseur sélectionné ne possède aucune voix disponible"
 
-#: src/cli.cpp:809
+#: src/cli.cpp:873
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
 msgstr "Erreur : la synthèse vocale est indisponible : %1"
 
-#: src/cli.cpp:830
+#: src/cli.cpp:894
 msgctxt "Cli|"
 msgid "Source languages:"
 msgstr "Langues source :"
 
-#: src/cli.cpp:833
+#: src/cli.cpp:897
 msgctxt "Cli|"
 msgid "Translation languages:"
 msgstr "Langues de traduction :"
 
-#: src/cli.cpp:901
+#: src/cli.cpp:965
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Erreur: Vous ne pouvez pas utiliser --%1 avec --%2"
 
-#: src/cli.cpp:913 src/cli.cpp:934
+#: src/cli.cpp:977 src/cli.cpp:998
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Erreur: Le fichier n'existe pas: %1"
 
-#: src/cli.cpp:918 src/cli.cpp:939
+#: src/cli.cpp:982 src/cli.cpp:1003
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -344,12 +344,12 @@ msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Rechercher sur Forvo.com"
 
-#: src/core/translationsession.cpp:351
+#: src/core/translationsession.cpp:353
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
 msgstr "L'application OCR n'est pas configuré."
 
-#: src/core/translationsession.cpp:352
+#: src/core/translationsession.cpp:354
 msgctxt "TesseractOcr|"
 msgid "Set up the OCR engine in the application settings"
 msgstr "Paramétrer le moteur OCR dans la configuration de l'application"
@@ -370,7 +370,7 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "Impossible d'inscrire D-Bus objet pour %1"
 
-#: src/frontend/guifrontend.cpp:136
+#: src/frontend/guifrontend.cpp:141
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
@@ -500,39 +500,39 @@ msgctxt "main|"
 msgid "Available frontends: %1"
 msgstr "Interfaces disponibles : %1"
 
-#: src/mainwindow.cpp:168
+#: src/mainwindow.cpp:169
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "Impossible de définir les langues de l'application OCR"
 
-#: src/mainwindow.cpp:169
+#: src/mainwindow.cpp:170
 #, qt-format
 msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "Impossible d'initialiser Tesseract avec %1"
 
-#: src/mainwindow.cpp:447
+#: src/mainwindow.cpp:451
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "OCR"
 
-#: src/mainwindow.cpp:448
+#: src/mainwindow.cpp:452
 msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "Inversion de l'image pour la reconnaissance optique de caractères"
 
-#: src/mainwindow.cpp:448
+#: src/mainwindow.cpp:452
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr "L'image pour reconnaissance optique de caractères (OCR) est normale"
 
-#: src/mainwindow.cpp:875
+#: src/mainwindow.cpp:896
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "Cette application utilise %1 pour fournir des traductions."
 
-#: src/mainwindow.cpp:876
+#: src/mainwindow.cpp:897
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -547,29 +547,29 @@ msgstr ""
 "pouvez la modifier dans la configuration de traduction. Veuillez prendre "
 "connaissance des détails de l'instance dans le lien ci-dessus."
 
-#: src/mainwindow.cpp:883
+#: src/mainwindow.cpp:904
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "Ne plus afficher"
 
-#: src/mainwindow.cpp:930
+#: src/mainwindow.cpp:951
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Icône de la barre d'état non valable"
 
-#: src/mainwindow.cpp:930
+#: src/mainwindow.cpp:951
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr ""
 "L'icône spécifiée « %1 » est non valable. L'icône par défaut sera utilisée."
 
-#: src/mainwindow.cpp:1059
+#: src/mainwindow.cpp:1067
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr "Erreur de synthèse vocale"
 
-#: src/mainwindow.cpp:1059
+#: src/mainwindow.cpp:1067
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -586,25 +586,25 @@ msgstr ""
 "Veuillez vérifier vos paramètres de synthèse vocale ou essayer une autre "
 "voix / paramètres régionaux."
 
-#: src/mainwindow.cpp:1092 src/mainwindow.cpp:1098
+#: src/mainwindow.cpp:1108 src/mainwindow.cpp:1120
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Erreur : %1"
 
-#: src/mainwindow.cpp:1882
+#: src/mainwindow.cpp:1928
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
 msgstr "Image trop volumineuse (%1 Mpix). %2 Mpix maximum."
 
-#: src/mainwindow.cpp:1980
+#: src/mainwindow.cpp:2026
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
 msgstr "Échec de l'application OCR : %1"
 
-#: src/mainwindow.cpp:2014 src/mainwindow.cpp:2071
+#: src/mainwindow.cpp:2060 src/mainwindow.cpp:2117
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -614,12 +614,12 @@ msgstr ""
 "Impossible d'ouvrir l'image :\n"
 "%1"
 
-#: src/mainwindow.cpp:2062 src/mainwindow.cpp:2071
+#: src/mainwindow.cpp:2108 src/mainwindow.cpp:2117
 msgctxt "MainWindow|"
 msgid "Open image"
 msgstr "Ouvrir l'image"
 
-#: src/mainwindow.cpp:2064
+#: src/mainwindow.cpp:2110
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
@@ -2208,12 +2208,12 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Copier la traduction dans le presse-papiers"
 
-#: src/settings/appsettings.cpp:700
+#: src/settings/appsettings.cpp:704
 msgctxt "AppSettings|"
 msgid "OpenAI-compatible (custom)"
 msgstr "Compatible OpenAI (Personnalisé)"
 
-#: src/settings/appsettings.cpp:1538
+#: src/settings/appsettings.cpp:1577
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -3853,39 +3853,39 @@ msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
 msgstr "Erreur d'instance Mozhi : %1 (Erreur client HTTP 4XX)"
 
-#: src/tts/piperttsprovider.cpp:115
+#: src/tts/piperttsprovider.cpp:121
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize Piper TTS"
 msgstr "Impossible d'initialiser la synthèse vocale (TTS) Piper"
 
-#: src/tts/piperttsprovider.cpp:121
+#: src/tts/piperttsprovider.cpp:127
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime exception: %1"
 msgstr "Exception d'exécution « ONNX » : %1"
 
-#: src/tts/piperttsprovider.cpp:124
+#: src/tts/piperttsprovider.cpp:130
 msgctxt "PiperTTSProvider|"
 msgid "Unknown ONNX Runtime initialization error"
 msgstr "Erreur d'initialisation d'un moteur d'exécution « ONNX » inconnu"
 
-#: src/tts/piperttsprovider.cpp:217
+#: src/tts/piperttsprovider.cpp:240
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize espeak-ng"
 msgstr "Impossible d'initialiser le module « espeak-ng »"
 
-#: src/tts/piperttsprovider.cpp:259
+#: src/tts/piperttsprovider.cpp:282
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime initialization error: %1"
 msgstr "Erreur d'initialisation du moteur d'exécution « ONNX » : %1"
 
-#: src/tts/piperttsprovider.cpp:300
+#: src/tts/piperttsprovider.cpp:323
 msgctxt "PiperTTSProvider|"
 msgid "Could not disable neural TTS telemetry"
 msgstr "Impossible de désactiver la télémétrie neuronale de la synthèse vocale"
 
-#: src/tts/piperttsprovider.cpp:301
+#: src/tts/piperttsprovider.cpp:324
 msgctxt "PiperTTSProvider|"
 msgid ""
 "Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
@@ -3895,7 +3895,7 @@ msgstr ""
 "conséquent, cette copie peut donc fournir des données d'utilisation à "
 "Microsoft."
 
-#: src/tts/piperttsprovider.cpp:302
+#: src/tts/piperttsprovider.cpp:325
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid ""
@@ -3911,22 +3911,22 @@ msgstr ""
 "compris celle liée à Crow Translate de manière statique - en sont dépourvues "
 "ont pas et elles sont inactives sur d'autres plates-formes."
 
-#: src/tts/piperttsprovider.cpp:1033
+#: src/tts/piperttsprovider.cpp:1060
 msgctxt "PiperTTSProvider|"
 msgid "No audio data generated"
 msgstr "Aucune donnée audio générée"
 
-#: src/tts/piperttsprovider.cpp:1048
+#: src/tts/piperttsprovider.cpp:1075
 msgctxt "PiperTTSProvider|"
 msgid "Failed to create temporary audio file"
 msgstr "Impossible de créer un fichier audio temporaire"
 
-#: src/tts/piperttsprovider.cpp:1057
+#: src/tts/piperttsprovider.cpp:1084
 msgctxt "PiperTTSProvider|"
 msgid "Failed to write audio data"
 msgstr "Impossible d'écrire les données audio"
 
-#: src/tts/piperttsprovider.cpp:1395
+#: src/tts/piperttsprovider.cpp:1422
 msgctxt "PiperTTSProvider|"
 msgid ""
 "<h3>Piper Voice Models Not Found</h3><p>No Piper TTS voice models were found "
@@ -3950,12 +3950,12 @@ msgstr ""
 "commerciales. Veuillez vérifier la licence de chaque modèle avant une "
 "utilisation commerciale.</p>"
 
-#: src/tts/piperttsprovider.cpp:1409
+#: src/tts/piperttsprovider.cpp:1436
 msgctxt "PiperTTSProvider|"
 msgid "Piper Voice Models Required"
 msgstr "Modèles de voix pour Piper requis"
 
-#: src/tts/piperttsprovider.cpp:1410
+#: src/tts/piperttsprovider.cpp:1437
 msgctxt "PiperTTSProvider|"
 msgid ""
 "No Piper TTS voice models were found. Set the path in Settings -> TTS -> "

@@ -19,22 +19,22 @@ msgstr ""
 "X-Generator: Lokalize 25.04.0\n"
 "X-Qt-Contexts: true\n"
 
-#: src/cli.cpp:78
+#: src/cli.cpp:100
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "opcions de traducció:"
 
-#: src/cli.cpp:87
+#: src/cli.cpp:109
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "exemples:"
 
-#: src/cli.cpp:118
+#: src/cli.cpp:142
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Mostra tots els codis d'idioma."
 
-#: src/cli.cpp:120
+#: src/cli.cpp:144
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -43,7 +43,7 @@ msgstr ""
 "Especifiqueu l'idioma d'origen (de manera predeterminada, el motor intentarà "
 "determinar l'idioma per si mateix)."
 
-#: src/cli.cpp:124
+#: src/cli.cpp:148
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), split by '+' (by default, the system "
@@ -52,7 +52,7 @@ msgstr ""
 "Especifica els idiomes de traducció, separats per «+» (de manera "
 "predeterminada s'utilitza l'idioma del sistema)."
 
-#: src/cli.cpp:129
+#: src/cli.cpp:153
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
@@ -62,7 +62,7 @@ msgstr ""
 "«libretranslate», «mymemory» o «reverso»), s'utilitza Google de manera "
 "predeterminada."
 
-#: src/cli.cpp:133
+#: src/cli.cpp:157
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
@@ -71,7 +71,7 @@ msgstr ""
 "Especifica l'URL de la instància de Mozhi. De manera predeterminada "
 "s'utilitzarà l'URL de la instància a la configuració de l'aplicació."
 
-#: src/cli.cpp:137
+#: src/cli.cpp:161
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
@@ -81,7 +81,7 @@ msgstr ""
 "manera predeterminada s'utilitzarà el proveïdor a partir de la configuració "
 "de l'aplicació."
 
-#: src/cli.cpp:145
+#: src/cli.cpp:169
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
@@ -91,7 +91,7 @@ msgstr ""
 "predeterminada s'utilitzarà el proveïdor a partir de la configuració de "
 "l'aplicació."
 
-#: src/cli.cpp:147
+#: src/cli.cpp:171
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
@@ -101,24 +101,24 @@ msgstr ""
 "predeterminada s'utilitzarà el proveïdor a partir de la configuració de "
 "l'aplicació."
 
-#: src/cli.cpp:149
+#: src/cli.cpp:173
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
 "Especifica el proveïdor de TTS («cap»). Esta construcció té el text a veu "
 "desactivat."
 
-#: src/cli.cpp:152
+#: src/cli.cpp:176
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Llig la traducció."
 
-#: src/cli.cpp:153
+#: src/cli.cpp:177
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Llig l'origen."
 
-#: src/cli.cpp:154
+#: src/cli.cpp:178
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -126,38 +126,38 @@ msgstr ""
 "Llig el text d'origen a partir de fitxers. Els arguments s'interpretaran com "
 "a camins de fitxer."
 
-#: src/cli.cpp:155
+#: src/cli.cpp:179
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Afig les dades de «stdin» al text d'origen."
 
-#: src/cli.cpp:157
+#: src/cli.cpp:181
 msgctxt "Cli|"
 msgid "Read source text from an image using the configured OCR engine."
 msgstr "Llig el text d'origen d'una imatge utilitzant el motor OCR configurat."
 
-#: src/cli.cpp:158
+#: src/cli.cpp:182
 msgctxt "Cli|"
 msgid "path"
 msgstr "camí"
 
-#: src/cli.cpp:160
+#: src/cli.cpp:184
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "No imprimix cap text quan s'utilitza --%1 o --%2."
 
-#: src/cli.cpp:161
+#: src/cli.cpp:185
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Imprimix només les traduccions."
 
-#: src/cli.cpp:162
+#: src/cli.cpp:186
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Imprimix l'eixida amb format JSON."
 
-#: src/cli.cpp:168
+#: src/cli.cpp:192
 msgctxt "Cli|"
 msgid ""
 "Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
@@ -166,19 +166,19 @@ msgstr ""
 "Quin frontal s'ha d'executar («gui» o «cli»). De manera predeterminada és "
 "«cli» quan es dona qualsevol argument."
 
-#: src/cli.cpp:169
+#: src/cli.cpp:193
 msgctxt "Cli|"
 msgid "frontend"
 msgstr "frontal"
 
-#: src/cli.cpp:173
+#: src/cli.cpp:197
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
 msgstr ""
 "Una aplicació que permet traduir i llegir text utilitzant diversos proveïdors"
 
-#: src/cli.cpp:174
+#: src/cli.cpp:198
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
@@ -187,153 +187,153 @@ msgstr ""
 "Text a traduir. De manera predeterminada, la traducció es farà a l'idioma "
 "del sistema."
 
-#: src/cli.cpp:203
+#: src/cli.cpp:244
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr ""
 "S'ha produït un error: Per a --%1 cal especificar les opcions --%2 i/o --%3"
 
-#: src/cli.cpp:213
+#: src/cli.cpp:254
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
 msgstr "S'ha produït un error: Motor desconegut «%1»"
 
-#: src/cli.cpp:228
+#: src/cli.cpp:269
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
 msgstr "S'ha produït un error: Proveïdor de traducció %1 desconegut"
 
-#: src/cli.cpp:252
+#: src/cli.cpp:293
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "S'ha produït un error: Codi d'idioma d'origen %1 desconegut"
 
-#: src/cli.cpp:271
+#: src/cli.cpp:313
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "S'ha produït un error: Codi d'idioma de traducció %1 desconegut"
 
-#: src/cli.cpp:295
+#: src/cli.cpp:337
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "S'ha produït un error: No hi ha text a traduir"
 
-#: src/cli.cpp:298
+#: src/cli.cpp:340
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: --%1 cannot be combined with text arguments"
 msgstr "S'ha produït un error: --%1 no es pot combinar amb arguments de text"
 
-#: src/cli.cpp:303
+#: src/cli.cpp:347
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr "S'està detectant la instància més ràpida"
 
-#: src/cli.cpp:366
+#: src/cli.cpp:410
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
 msgstr "S'ha produït un error: Proveïdor de TTS %1 desconegut"
 
-#: src/cli.cpp:428
-#, qt-format
-msgctxt "Cli|"
-msgid "Error: Unable to initialize Tesseract with %1"
-msgstr "S'ha produït un error: No s'ha pogut restablir Tesseract amb %1"
-
-#: src/cli.cpp:449
+#: src/cli.cpp:473
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to read image '%1'"
 msgstr "S'ha produït un error: No s'ha pogut guardar la imatge «%1»"
 
-#: src/cli.cpp:459
+#: src/cli.cpp:483
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: Unable to initialize Tesseract with %1"
+msgstr "S'ha produït un error: No s'ha pogut restablir Tesseract amb %1"
+
+#: src/cli.cpp:506
 msgctxt "Cli|"
 msgid "Error: No text was recognized in the image"
 msgstr "S'ha produït un error: No s'ha reconegut cap text a la imatge"
 
-#: src/cli.cpp:467
+#: src/cli.cpp:514
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Recognition failed: %1"
 msgstr "S'ha produït un error: Ha fallat el reconeixement: %1"
 
-#: src/cli.cpp:472
+#: src/cli.cpp:519
 msgctxt "Cli|"
 msgid "Error: Recognition was cancelled"
 msgstr "S'ha produït un error: S'ha cancel·lat el reconeixement"
 
-#: src/cli.cpp:490 src/cli.cpp:542
+#: src/cli.cpp:537 src/cli.cpp:606
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "S'ha produït un error: %1"
 
-#: src/cli.cpp:492 src/cli.cpp:544
+#: src/cli.cpp:539 src/cli.cpp:608
 msgctxt "Cli|"
 msgid "Translation error occurred"
 msgstr "S'ha produït un error de traducció"
 
-#: src/cli.cpp:613
+#: src/cli.cpp:677
 msgctxt "Cli|"
 msgid "Unknown error"
 msgstr "S'ha produït un error desconegut"
 
-#: src/cli.cpp:614
+#: src/cli.cpp:678
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
 msgstr "S'ha produït un error: Ha fallat el TTS: %1"
 
-#: src/cli.cpp:721
+#: src/cli.cpp:785
 msgctxt "Cli|"
 msgid "no provider was created"
 msgstr "no s'ha creat cap proveïdor"
 
-#: src/cli.cpp:746
+#: src/cli.cpp:810
 msgctxt "Cli|"
 msgid "the engine failed to start"
 msgstr "el motor ha fallat en iniciar"
 
-#: src/cli.cpp:751
+#: src/cli.cpp:815
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
 msgstr "el proveïdor seleccionat no té cap veu disponible"
 
-#: src/cli.cpp:809
+#: src/cli.cpp:873
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
 msgstr "S'ha produït un error: el text a veu no està disponible: %1"
 
-#: src/cli.cpp:830
+#: src/cli.cpp:894
 msgctxt "Cli|"
 msgid "Source languages:"
 msgstr "Idiomes d'origen:"
 
-#: src/cli.cpp:833
+#: src/cli.cpp:897
 msgctxt "Cli|"
 msgid "Translation languages:"
 msgstr "Idiomes de traducció:"
 
-#: src/cli.cpp:901
+#: src/cli.cpp:965
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "S'ha produït un error: No es pot utilitzar --%1 amb --%2"
 
-#: src/cli.cpp:913 src/cli.cpp:934
+#: src/cli.cpp:977 src/cli.cpp:998
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "S'ha produït un error: El fitxer no existix: %1"
 
-#: src/cli.cpp:918 src/cli.cpp:939
+#: src/cli.cpp:982 src/cli.cpp:1003
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -344,12 +344,12 @@ msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Busca en Forvo.com"
 
-#: src/core/translationsession.cpp:351
+#: src/core/translationsession.cpp:353
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
 msgstr "OCR no està configurat"
 
-#: src/core/translationsession.cpp:352
+#: src/core/translationsession.cpp:354
 msgctxt "TesseractOcr|"
 msgid "Set up the OCR engine in the application settings"
 msgstr "Configureu el motor d'OCR a la configuració de l'aplicació"
@@ -370,7 +370,7 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "No s'ha pogut registrar l'objecte de D-Bus per a %1"
 
-#: src/frontend/guifrontend.cpp:136
+#: src/frontend/guifrontend.cpp:141
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
@@ -500,39 +500,39 @@ msgctxt "main|"
 msgid "Available frontends: %1"
 msgstr "Frontals disponibles: %1"
 
-#: src/mainwindow.cpp:168
+#: src/mainwindow.cpp:169
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "No s'han pogut definir els idiomes d'OCR"
 
-#: src/mainwindow.cpp:169
+#: src/mainwindow.cpp:170
 #, qt-format
 msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "No s'ha pogut restablir Tesseract amb %1"
 
-#: src/mainwindow.cpp:447
+#: src/mainwindow.cpp:451
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "OCR"
 
-#: src/mainwindow.cpp:448
+#: src/mainwindow.cpp:452
 msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "La imatge OCR és en negatiu"
 
-#: src/mainwindow.cpp:448
+#: src/mainwindow.cpp:452
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr "La imatge OCR és normal"
 
-#: src/mainwindow.cpp:875
+#: src/mainwindow.cpp:896
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "Esta aplicació utilitza %1 per a proporcionar traduccions."
 
-#: src/mainwindow.cpp:876
+#: src/mainwindow.cpp:897
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -547,17 +547,17 @@ msgstr ""
 "canviar-la a la configuració de traducció. Vegeu els detalls de les "
 "instàncies a l'enllaç anterior."
 
-#: src/mainwindow.cpp:883
+#: src/mainwindow.cpp:904
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "No ho tornes a mostrar"
 
-#: src/mainwindow.cpp:930
+#: src/mainwindow.cpp:951
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Icona de la safata no vàlida"
 
-#: src/mainwindow.cpp:930
+#: src/mainwindow.cpp:951
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
@@ -565,12 +565,12 @@ msgstr ""
 "La icona especificada «%1» no és vàlida. S'utilitzarà la icona "
 "predeterminada."
 
-#: src/mainwindow.cpp:1059
+#: src/mainwindow.cpp:1067
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr "S'ha produït un error del TTS"
 
-#: src/mainwindow.cpp:1059
+#: src/mainwindow.cpp:1067
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -587,25 +587,25 @@ msgstr ""
 "Comproveu la configuració del TTS o proveu-ho amb una veu/configuració "
 "regional diferent."
 
-#: src/mainwindow.cpp:1092 src/mainwindow.cpp:1098
+#: src/mainwindow.cpp:1108 src/mainwindow.cpp:1120
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "S'ha produït un error: %1"
 
-#: src/mainwindow.cpp:1882
+#: src/mainwindow.cpp:1928
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
 msgstr "Imatge massa gran (%1 MP). Màx. %2 MP."
 
-#: src/mainwindow.cpp:1980
+#: src/mainwindow.cpp:2026
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
 msgstr "No s'ha pogut fer OCR: %1"
 
-#: src/mainwindow.cpp:2014 src/mainwindow.cpp:2071
+#: src/mainwindow.cpp:2060 src/mainwindow.cpp:2117
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -615,12 +615,12 @@ msgstr ""
 "No s'ha pogut obrir la imatge:\n"
 "%1"
 
-#: src/mainwindow.cpp:2062 src/mainwindow.cpp:2071
+#: src/mainwindow.cpp:2108 src/mainwindow.cpp:2117
 msgctxt "MainWindow|"
 msgid "Open image"
 msgstr "Obri una imatge"
 
-#: src/mainwindow.cpp:2064
+#: src/mainwindow.cpp:2110
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
@@ -2212,12 +2212,12 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Copia la traducció al porta-retalls"
 
-#: src/settings/appsettings.cpp:700
+#: src/settings/appsettings.cpp:704
 msgctxt "AppSettings|"
 msgid "OpenAI-compatible (custom)"
 msgstr "Compatible amb OpenAI (personalitzada)"
 
-#: src/settings/appsettings.cpp:1538
+#: src/settings/appsettings.cpp:1577
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -3848,40 +3848,40 @@ msgstr ""
 "S'ha produït un error de la instància de Mozhi: %1 (S'ha produït un error "
 "del client HTTP 4XX)"
 
-#: src/tts/piperttsprovider.cpp:115
+#: src/tts/piperttsprovider.cpp:121
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize Piper TTS"
 msgstr "Ha fallat mentre es restablia Piper TTS"
 
-#: src/tts/piperttsprovider.cpp:121
+#: src/tts/piperttsprovider.cpp:127
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime exception: %1"
 msgstr "Excepció de l'entorn d'execució ONNX: %1"
 
-#: src/tts/piperttsprovider.cpp:124
+#: src/tts/piperttsprovider.cpp:130
 msgctxt "PiperTTSProvider|"
 msgid "Unknown ONNX Runtime initialization error"
 msgstr ""
 "S'ha produït un error desconegut d'inicialització de l'entorn d'execució ONNX"
 
-#: src/tts/piperttsprovider.cpp:217
+#: src/tts/piperttsprovider.cpp:240
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize espeak-ng"
 msgstr "Ha fallat mentre es restablia «espeak-ng»"
 
-#: src/tts/piperttsprovider.cpp:259
+#: src/tts/piperttsprovider.cpp:282
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime initialization error: %1"
 msgstr "S'ha produït un error d'inicialització de l'entorn d'execució ONNX: %1"
 
-#: src/tts/piperttsprovider.cpp:300
+#: src/tts/piperttsprovider.cpp:323
 msgctxt "PiperTTSProvider|"
 msgid "Could not disable neural TTS telemetry"
 msgstr "No s'ha pogut desactivar la telemetria TTS neuronal"
 
-#: src/tts/piperttsprovider.cpp:301
+#: src/tts/piperttsprovider.cpp:324
 msgctxt "PiperTTSProvider|"
 msgid ""
 "Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
@@ -3890,7 +3890,7 @@ msgstr ""
 "Crow Translate no ha pogut desactivar la telemetria d'ONNX Runtime, de "
 "manera que esta còpia pot informar de dades d'ús a Microsoft."
 
-#: src/tts/piperttsprovider.cpp:302
+#: src/tts/piperttsprovider.cpp:325
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid ""
@@ -3907,22 +3907,22 @@ msgstr ""
 "hi la que Crow Translate enllaça estàticament no en tenen, i està inactiu en "
 "altres plataformes."
 
-#: src/tts/piperttsprovider.cpp:1033
+#: src/tts/piperttsprovider.cpp:1060
 msgctxt "PiperTTSProvider|"
 msgid "No audio data generated"
 msgstr "No s'ha generat cap dada d'àudio"
 
-#: src/tts/piperttsprovider.cpp:1048
+#: src/tts/piperttsprovider.cpp:1075
 msgctxt "PiperTTSProvider|"
 msgid "Failed to create temporary audio file"
 msgstr "Ha fallat mentre es creava un fitxer temporal d'àudio"
 
-#: src/tts/piperttsprovider.cpp:1057
+#: src/tts/piperttsprovider.cpp:1084
 msgctxt "PiperTTSProvider|"
 msgid "Failed to write audio data"
 msgstr "Ha fallat mentre s'escrivien les dades d'àudio"
 
-#: src/tts/piperttsprovider.cpp:1395
+#: src/tts/piperttsprovider.cpp:1422
 msgctxt "PiperTTSProvider|"
 msgid ""
 "<h3>Piper Voice Models Not Found</h3><p>No Piper TTS voice models were found "
@@ -3944,12 +3944,12 @@ msgstr ""
 "utilitzar en configuracions comercials. Consulteu la llicència de cada model "
 "abans de l'ús comercial.</p>"
 
-#: src/tts/piperttsprovider.cpp:1409
+#: src/tts/piperttsprovider.cpp:1436
 msgctxt "PiperTTSProvider|"
 msgid "Piper Voice Models Required"
 msgstr "Calen els models de veu de Piper"
 
-#: src/tts/piperttsprovider.cpp:1410
+#: src/tts/piperttsprovider.cpp:1437
 msgctxt "PiperTTSProvider|"
 msgid ""
 "No Piper TTS voice models were found. Set the path in Settings -> TTS -> "

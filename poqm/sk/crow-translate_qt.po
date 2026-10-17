@@ -16,22 +16,22 @@ msgstr ""
 "X-Generator: Lokalize 24.08.3\n"
 "X-Qt-Contexts: true\n"
 
-#: src/cli.cpp:78
+#: src/cli.cpp:100
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "možnosti prekladu:"
 
-#: src/cli.cpp:87
+#: src/cli.cpp:109
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "príklady:"
 
-#: src/cli.cpp:118
+#: src/cli.cpp:142
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Zobraziť všetky kódy jazykov."
 
-#: src/cli.cpp:120
+#: src/cli.cpp:144
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -40,7 +40,7 @@ msgstr ""
 "Zadať zdrojový jazyk (predvolene sa prekladač pokúsi určiť jazyk "
 "automaticky)."
 
-#: src/cli.cpp:124
+#: src/cli.cpp:148
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), split by '+' (by default, the system "
@@ -49,7 +49,7 @@ msgstr ""
 "Zadať cieľový jazyk/jazyky, oddelené '+' (predvolene sa používa systémový "
 "jazyk)."
 
-#: src/cli.cpp:129
+#: src/cli.cpp:153
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
@@ -58,7 +58,7 @@ msgstr ""
 "Zadať prekladový mechanizmus ('google', 'yandex', 'bing', 'deepl', "
 "'libretranslate', 'mymemory' alebo 'reverso'), predvolene sa používa Google."
 
-#: src/cli.cpp:133
+#: src/cli.cpp:157
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
@@ -67,7 +67,7 @@ msgstr ""
 "Zadať URL inštancie Mozhi. Predvolene sa použije URL inštancie z nastavení "
 "aplikácie."
 
-#: src/cli.cpp:137
+#: src/cli.cpp:161
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
@@ -76,7 +76,7 @@ msgstr ""
 "Zadať poskytovateľa prekladu ('copy', 'mozhi' alebo 'localai'). Predvolene "
 "sa použije poskytovateľ z nastavení aplikácie."
 
-#: src/cli.cpp:145
+#: src/cli.cpp:169
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
@@ -85,7 +85,7 @@ msgstr ""
 "Zadať poskytovateľa TTS ('none', 'mozhi', 'qt' alebo 'piper'). Predvolene sa "
 "použije poskytovateľ z nastavení aplikácie."
 
-#: src/cli.cpp:147
+#: src/cli.cpp:171
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
@@ -94,24 +94,24 @@ msgstr ""
 "Zadať poskytovateľa TTS ('none', 'mozhi' alebo 'qt'). Predvolene sa použije "
 "poskytovateľ z nastavení aplikácie."
 
-#: src/cli.cpp:149
+#: src/cli.cpp:173
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
 "Zadať poskytovateľa TTS ('none'). Táto zostava má prevod textu na reč "
 "vypnutý."
 
-#: src/cli.cpp:152
+#: src/cli.cpp:176
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Prečítať preklad."
 
-#: src/cli.cpp:153
+#: src/cli.cpp:177
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Prečítať zdroj."
 
-#: src/cli.cpp:154
+#: src/cli.cpp:178
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -119,38 +119,38 @@ msgstr ""
 "Čítať zdrojový text zo súborov. Argumenty budú interpretované ako cesty k "
 "súborom."
 
-#: src/cli.cpp:155
+#: src/cli.cpp:179
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Pridať dáta zo stdin k zdrojovému textu."
 
-#: src/cli.cpp:157
+#: src/cli.cpp:181
 msgctxt "Cli|"
 msgid "Read source text from an image using the configured OCR engine."
 msgstr "Načítať zdrojový text z obrázka pomocou nastaveného nástroja OCR."
 
-#: src/cli.cpp:158
+#: src/cli.cpp:182
 msgctxt "Cli|"
 msgid "path"
 msgstr "cesta"
 
-#: src/cli.cpp:160
+#: src/cli.cpp:184
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "Nevypisovať žiadny text pri použití --%1 alebo --%2."
 
-#: src/cli.cpp:161
+#: src/cli.cpp:185
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Vypísať iba preklady."
 
-#: src/cli.cpp:162
+#: src/cli.cpp:186
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Vypísať výstup formátovaný ako JSON."
 
-#: src/cli.cpp:168
+#: src/cli.cpp:192
 msgctxt "Cli|"
 msgid ""
 "Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
@@ -159,12 +159,12 @@ msgstr ""
 "Ktoré rozhranie spustiť ('gui' alebo 'cli'). Predvolene 'cli', kedykoľvek je "
 "zadaný nejaký argument."
 
-#: src/cli.cpp:169
+#: src/cli.cpp:193
 msgctxt "Cli|"
 msgid "frontend"
 msgstr "rozhranie"
 
-#: src/cli.cpp:173
+#: src/cli.cpp:197
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
@@ -172,159 +172,159 @@ msgstr ""
 "Aplikácia, ktorá umožňuje prekladať a čítať text pomocou rôznych "
 "poskytovateľov"
 
-#: src/cli.cpp:174
+#: src/cli.cpp:198
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr "Text na preklad. Predvolene sa preloží do systémového jazyka."
 
-#: src/cli.cpp:203
+#: src/cli.cpp:244
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Chyba: For --%1 you must specify --%2 and/or --%3 options"
 
-#: src/cli.cpp:213
+#: src/cli.cpp:254
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
 msgstr "Chyba: Neznámy mechanizmus '%1'"
 
-#: src/cli.cpp:228
+#: src/cli.cpp:269
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
 msgstr "Chyba: Unknown translation provider '%1'"
 
-#: src/cli.cpp:252
+#: src/cli.cpp:293
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "Chyba: Unknown source language code '%1'"
 
-#: src/cli.cpp:271
+#: src/cli.cpp:313
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "Chyba: Unknown translation language code '%1'"
 
-#: src/cli.cpp:295
+#: src/cli.cpp:337
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Chyba: There is no text for translation"
 
-#: src/cli.cpp:298
+#: src/cli.cpp:340
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: --%1 cannot be combined with text arguments"
 msgstr "Chyba: --%1 sa nedá kombinovať s textovými argumentmi"
 
-#: src/cli.cpp:303
+#: src/cli.cpp:347
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr "Detekcia najrýchlejšej inštancie"
 
-#: src/cli.cpp:366
+#: src/cli.cpp:410
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
 msgstr "Chyba: Unknown TTS provider '%1'"
 
-#: src/cli.cpp:428
-#, qt-format
-msgctxt "Cli|"
-msgid "Error: Unable to initialize Tesseract with %1"
-msgstr "Chyba: Nedá sa inicializovať Tesseract s %1"
-
-#: src/cli.cpp:449
+#: src/cli.cpp:473
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to read image '%1'"
 msgstr "Chyba: Nedá sa načítať obrázok '%1'"
 
-#: src/cli.cpp:459
+#: src/cli.cpp:483
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: Unable to initialize Tesseract with %1"
+msgstr "Chyba: Nedá sa inicializovať Tesseract s %1"
+
+#: src/cli.cpp:506
 msgctxt "Cli|"
 msgid "Error: No text was recognized in the image"
 msgstr "Chyba: V obrázku sa nerozpoznal žiadny text"
 
-#: src/cli.cpp:467
+#: src/cli.cpp:514
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Recognition failed: %1"
 msgstr "Chyba: Rozpoznávanie zlyhalo: %1"
 
-#: src/cli.cpp:472
+#: src/cli.cpp:519
 msgctxt "Cli|"
 msgid "Error: Recognition was cancelled"
 msgstr "Chyba: Rozpoznávanie bolo zrušené"
 
-#: src/cli.cpp:490 src/cli.cpp:542
+#: src/cli.cpp:537 src/cli.cpp:606
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Chyba: %1"
 
-#: src/cli.cpp:492 src/cli.cpp:544
+#: src/cli.cpp:539 src/cli.cpp:608
 msgctxt "Cli|"
 msgid "Translation error occurred"
 msgstr "Vyskytla sa chyba prekladu"
 
-#: src/cli.cpp:613
+#: src/cli.cpp:677
 msgctxt "Cli|"
 msgid "Unknown error"
 msgstr "Neznáma chyba"
 
-#: src/cli.cpp:614
+#: src/cli.cpp:678
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
 msgstr "Chyba: Prevod textu na reč zlyhal: %1"
 
-#: src/cli.cpp:721
+#: src/cli.cpp:785
 msgctxt "Cli|"
 msgid "no provider was created"
 msgstr "nevytvoril sa žiadny poskytovateľ"
 
-#: src/cli.cpp:746
+#: src/cli.cpp:810
 msgctxt "Cli|"
 msgid "the engine failed to start"
 msgstr "mechanizmus sa nepodarilo spustiť"
 
-#: src/cli.cpp:751
+#: src/cli.cpp:815
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
 msgstr "vybraný poskytovateľ nemá dostupné žiadne hlasy"
 
-#: src/cli.cpp:809
+#: src/cli.cpp:873
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
 msgstr "Chyba: prevod textu na reč nie je dostupný: %1"
 
-#: src/cli.cpp:830
+#: src/cli.cpp:894
 msgctxt "Cli|"
 msgid "Source languages:"
 msgstr "Zdrojové jazyky:"
 
-#: src/cli.cpp:833
+#: src/cli.cpp:897
 msgctxt "Cli|"
 msgid "Translation languages:"
 msgstr "Jazyky prekladu:"
 
-#: src/cli.cpp:901
+#: src/cli.cpp:965
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Chyba: You can't use --%1 with --%2"
 
-#: src/cli.cpp:913 src/cli.cpp:934
+#: src/cli.cpp:977 src/cli.cpp:998
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Chyba: File does not exist: %1"
 
-#: src/cli.cpp:918 src/cli.cpp:939
+#: src/cli.cpp:982 src/cli.cpp:1003
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -335,12 +335,12 @@ msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Hľadať na Forvo.com"
 
-#: src/core/translationsession.cpp:351
+#: src/core/translationsession.cpp:353
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
 msgstr "OCR nie je nastavené"
 
-#: src/core/translationsession.cpp:352
+#: src/core/translationsession.cpp:354
 msgctxt "TesseractOcr|"
 msgid "Set up the OCR engine in the application settings"
 msgstr "Nastavte nástroj OCR v nastaveniach aplikácie"
@@ -361,7 +361,7 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "Nie je možné register D-Bus object for %1"
 
-#: src/frontend/guifrontend.cpp:136
+#: src/frontend/guifrontend.cpp:141
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
@@ -489,39 +489,39 @@ msgctxt "main|"
 msgid "Available frontends: %1"
 msgstr "Dostupné rozhrania: %1"
 
-#: src/mainwindow.cpp:168
+#: src/mainwindow.cpp:169
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "Nedajú sa nastaviť jazyky OCR"
 
-#: src/mainwindow.cpp:169
+#: src/mainwindow.cpp:170
 #, qt-format
 msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "Nedá sa inicializovať Tesseract s %1"
 
-#: src/mainwindow.cpp:447
+#: src/mainwindow.cpp:451
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "OCR"
 
-#: src/mainwindow.cpp:448
+#: src/mainwindow.cpp:452
 msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "OCR obrázok negovaný"
 
-#: src/mainwindow.cpp:448
+#: src/mainwindow.cpp:452
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr "OCR obrázok je normálny"
 
-#: src/mainwindow.cpp:875
+#: src/mainwindow.cpp:896
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "Táto aplikácia používa %1 na poskytovanie prekladov."
 
-#: src/mainwindow.cpp:876
+#: src/mainwindow.cpp:897
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -535,28 +535,28 @@ msgstr ""
 "inštancia je momentálne '%1', ale môžete ju zmeniť v nastaveniach prekladu. "
 "Podrobnosti o inštancii nájdete na odkaze vyššie."
 
-#: src/mainwindow.cpp:883
+#: src/mainwindow.cpp:904
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "Už nezobrazovať"
 
-#: src/mainwindow.cpp:930
+#: src/mainwindow.cpp:951
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Neplatná ikona v paneli"
 
-#: src/mainwindow.cpp:930
+#: src/mainwindow.cpp:951
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "Zadaná ikona '%1' je neplatná. Bude použitá predvolená ikona."
 
-#: src/mainwindow.cpp:1059
+#: src/mainwindow.cpp:1067
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr "Chyba TTS"
 
-#: src/mainwindow.cpp:1059
+#: src/mainwindow.cpp:1067
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -572,25 +572,25 @@ msgstr ""
 "\n"
 "Skontrolujte nastavenia TTS alebo skúste iný hlas/miestne nastavenie."
 
-#: src/mainwindow.cpp:1092 src/mainwindow.cpp:1098
+#: src/mainwindow.cpp:1108 src/mainwindow.cpp:1120
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Chyba: %1"
 
-#: src/mainwindow.cpp:1882
+#: src/mainwindow.cpp:1928
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
 msgstr "Obrázok je príliš veľký (%1 MP). Maximum je %2 MP."
 
-#: src/mainwindow.cpp:1980
+#: src/mainwindow.cpp:2026
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
 msgstr "OCR zlyhalo: %1"
 
-#: src/mainwindow.cpp:2014 src/mainwindow.cpp:2071
+#: src/mainwindow.cpp:2060 src/mainwindow.cpp:2117
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -600,12 +600,12 @@ msgstr ""
 "Nedá sa otvoriť obrázok:\n"
 "%1"
 
-#: src/mainwindow.cpp:2062 src/mainwindow.cpp:2071
+#: src/mainwindow.cpp:2108 src/mainwindow.cpp:2117
 msgctxt "MainWindow|"
 msgid "Open image"
 msgstr "Otvoriť obrázok"
 
-#: src/mainwindow.cpp:2064
+#: src/mainwindow.cpp:2110
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
@@ -2192,12 +2192,12 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Kopírovať preklad do schránky"
 
-#: src/settings/appsettings.cpp:700
+#: src/settings/appsettings.cpp:704
 msgctxt "AppSettings|"
 msgid "OpenAI-compatible (custom)"
 msgstr "Kompatibilné s OpenAI (vlastné)"
 
-#: src/settings/appsettings.cpp:1538
+#: src/settings/appsettings.cpp:1577
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -3797,39 +3797,39 @@ msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
 msgstr "Chyba inštancie Mozhi: %1 (chyba HTTP klienta 4XX)"
 
-#: src/tts/piperttsprovider.cpp:115
+#: src/tts/piperttsprovider.cpp:121
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize Piper TTS"
 msgstr "Nepodarilo sa initialize Piper TTS"
 
-#: src/tts/piperttsprovider.cpp:121
+#: src/tts/piperttsprovider.cpp:127
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime exception: %1"
 msgstr "Výnimka ONNX Runtime: %1"
 
-#: src/tts/piperttsprovider.cpp:124
+#: src/tts/piperttsprovider.cpp:130
 msgctxt "PiperTTSProvider|"
 msgid "Unknown ONNX Runtime initialization error"
 msgstr "Neznáma chyba inicializácie ONNX Runtime"
 
-#: src/tts/piperttsprovider.cpp:217
+#: src/tts/piperttsprovider.cpp:240
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize espeak-ng"
 msgstr "Nepodarilo sa initialize espeak-ng"
 
-#: src/tts/piperttsprovider.cpp:259
+#: src/tts/piperttsprovider.cpp:282
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime initialization error: %1"
 msgstr "Chyba inicializácie ONNX Runtime: %1"
 
-#: src/tts/piperttsprovider.cpp:300
+#: src/tts/piperttsprovider.cpp:323
 msgctxt "PiperTTSProvider|"
 msgid "Could not disable neural TTS telemetry"
 msgstr "Nepodarilo sa vypnúť telemetriu neurónového TTS"
 
-#: src/tts/piperttsprovider.cpp:301
+#: src/tts/piperttsprovider.cpp:324
 msgctxt "PiperTTSProvider|"
 msgid ""
 "Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
@@ -3838,7 +3838,7 @@ msgstr ""
 "Crow Translate nedokázal vypnúť telemetriu ONNX Runtime, takže táto jeho "
 "kópia môže hlásiť údaje o používaní Microsoftu."
 
-#: src/tts/piperttsprovider.cpp:302
+#: src/tts/piperttsprovider.cpp:325
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid ""
@@ -3854,22 +3854,22 @@ msgstr ""
 "od Microsoftu. Zostavy zo zdrojového kódu – vrátane tej, ktorú Crow "
 "Translate staticky linkuje – ju nemajú a na iných platformách je neaktívna."
 
-#: src/tts/piperttsprovider.cpp:1033
+#: src/tts/piperttsprovider.cpp:1060
 msgctxt "PiperTTSProvider|"
 msgid "No audio data generated"
 msgstr "Neboli vygenerované žiadne zvukové dáta"
 
-#: src/tts/piperttsprovider.cpp:1048
+#: src/tts/piperttsprovider.cpp:1075
 msgctxt "PiperTTSProvider|"
 msgid "Failed to create temporary audio file"
 msgstr "Nepodarilo sa create temporary audio file"
 
-#: src/tts/piperttsprovider.cpp:1057
+#: src/tts/piperttsprovider.cpp:1084
 msgctxt "PiperTTSProvider|"
 msgid "Failed to write audio data"
 msgstr "Nepodarilo sa write audio data"
 
-#: src/tts/piperttsprovider.cpp:1395
+#: src/tts/piperttsprovider.cpp:1422
 msgctxt "PiperTTSProvider|"
 msgid ""
 "<h3>Piper Voice Models Not Found</h3><p>No Piper TTS voice models were found "
@@ -3891,12 +3891,12 @@ msgstr ""
 "komerčné účely. Pred komerčným použitím si overte licenciu každého modelu.</"
 "p>"
 
-#: src/tts/piperttsprovider.cpp:1409
+#: src/tts/piperttsprovider.cpp:1436
 msgctxt "PiperTTSProvider|"
 msgid "Piper Voice Models Required"
 msgstr "Vyžadované hlasové modely Piper"
 
-#: src/tts/piperttsprovider.cpp:1410
+#: src/tts/piperttsprovider.cpp:1437
 msgctxt "PiperTTSProvider|"
 msgid ""
 "No Piper TTS voice models were found. Set the path in Settings -> TTS -> "

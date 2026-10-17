@@ -13,22 +13,22 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Poedit 3.10\n"
 
-#: src/cli.cpp:78
+#: src/cli.cpp:100
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "თარგმანის მორგება:"
 
-#: src/cli.cpp:87
+#: src/cli.cpp:109
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "მაგალითები:"
 
-#: src/cli.cpp:118
+#: src/cli.cpp:142
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "ყველა ენის კოდის ჩვენება."
 
-#: src/cli.cpp:120
+#: src/cli.cpp:144
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -36,7 +36,7 @@ msgid ""
 msgstr ""
 "მიუთითეთ წყარო ენა (ნაგულისხმევად ძრავა ენის დადგენას თვითონ შეეცდება)."
 
-#: src/cli.cpp:124
+#: src/cli.cpp:148
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), split by '+' (by default, the system "
@@ -45,7 +45,7 @@ msgstr ""
 "მიუთითეთ სათარგმნი ენები, '+'-ით გამოყოფილი (ნაგულისხმევად გამოიყენება "
 "სისტემის ენა)."
 
-#: src/cli.cpp:129
+#: src/cli.cpp:153
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
@@ -54,7 +54,7 @@ msgstr ""
 "მიუთითეთ მთარგმნელი ძრავა ('google', 'yandex', 'bing', 'libretranslate' ან "
 "'mymemory', ან 'reverso'). ნაგულისხმევად გამოიყენება Google."
 
-#: src/cli.cpp:133
+#: src/cli.cpp:157
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
@@ -63,7 +63,7 @@ msgstr ""
 "მიუთითეთ Mozhi-ის გაშვებული ასლის ბმული. ნაგულისხმევად გამოყენებული იქნება "
 "ბმული აპის პარამეტრებიდან."
 
-#: src/cli.cpp:137
+#: src/cli.cpp:161
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
@@ -72,7 +72,7 @@ msgstr ""
 "მიუთითეთ თარგმანის მომწოდებელი ('copy', 'mozhi', ან 'localai'). "
 "ნაგულისხმევად გამოყენებული იქნება მომწოდებელი აპის პარამეტრებიდან."
 
-#: src/cli.cpp:145
+#: src/cli.cpp:169
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
@@ -81,7 +81,7 @@ msgstr ""
 "მიუთითეთ TTS-ის მომწოდებელი ('none', 'mozhi', 'qt', ან 'piper'). "
 "ნაგულისხმევად გამოყენებული იქნება მომწოდებელი აპის პარამეტრებიდან."
 
-#: src/cli.cpp:147
+#: src/cli.cpp:171
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
@@ -90,24 +90,24 @@ msgstr ""
 "მიუთითეთ TTS-ის მომწოდებელი ('none', 'mozhi', ან 'qt'). ნაგულისხმევად "
 "გამოყენებული იქნება მომწოდებელი აპის პარამეტრებიდან."
 
-#: src/cli.cpp:149
+#: src/cli.cpp:173
 msgctxt "Cli|"
 msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
 msgstr ""
 "მიუთითეთ TTS-ის მომწოდებელი ('არცერთი'). ამ აგებაში ტექსტის წარმოთქმა "
 "გამორთულია."
 
-#: src/cli.cpp:152
+#: src/cli.cpp:176
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "თარგმანის წარმოთქმა."
 
-#: src/cli.cpp:153
+#: src/cli.cpp:177
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "წყაროს წარმოთქმა."
 
-#: src/cli.cpp:154
+#: src/cli.cpp:178
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -115,39 +115,39 @@ msgstr ""
 "წყარო ტექსტის ფაილებიდან წაკითხვა. არგუმენტები აღქმული იქნება, როგორც ფაილის "
 "ბილიკები."
 
-#: src/cli.cpp:155
+#: src/cli.cpp:179
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "სტანდარტული შეყვანის მონაცემების დამატება წყარო ტექსტზე."
 
-#: src/cli.cpp:157
+#: src/cli.cpp:181
 msgctxt "Cli|"
 msgid "Read source text from an image using the configured OCR engine."
 msgstr ""
 "წყარო ტექსტის წაკითხვა გამოსახულებიდან მორგებული OCR ძრავის გამოყენებით."
 
-#: src/cli.cpp:158
+#: src/cli.cpp:182
 msgctxt "Cli|"
 msgid "path"
 msgstr "ბილიკი"
 
-#: src/cli.cpp:160
+#: src/cli.cpp:184
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "არ გამოიტანო ტექსტი, როცა გამოყენებულია პარამეტრები --%1 ან --%2."
 
-#: src/cli.cpp:161
+#: src/cli.cpp:185
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "მხოლოდ თარგმანების გამოტანა."
 
-#: src/cli.cpp:162
+#: src/cli.cpp:186
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "გამოტანა JSON ფორმატში."
 
-#: src/cli.cpp:168
+#: src/cli.cpp:192
 msgctxt "Cli|"
 msgid ""
 "Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
@@ -156,12 +156,12 @@ msgstr ""
 "რომელი წინაბოლო გაეშვება ('gui', თუ 'cli'). თუ მითითებულია ნებისმიერი სხვა "
 "არგუმენტი, ნაგულისხმევად გამოიყენება 'cli'."
 
-#: src/cli.cpp:169
+#: src/cli.cpp:193
 msgctxt "Cli|"
 msgid "frontend"
 msgstr "წინაბოლო"
 
-#: src/cli.cpp:173
+#: src/cli.cpp:197
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
@@ -169,159 +169,159 @@ msgstr ""
 "აპლიკაცია, რომელიც საშუალებას გაძლევთ, თარგმნოთ და წარმოთქვათ ტექსტი "
 "სხვადასხვა მომწოდებლების გამოყენებით"
 
-#: src/cli.cpp:174
+#: src/cli.cpp:198
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr "სათარგმნი ტექსტის. ნაგულისხმევად თარგმანი სისტემურ ენაზე მოხდება."
 
-#: src/cli.cpp:203
+#: src/cli.cpp:244
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "შეცდომა: პარამეტრისთვის --%1 უნდა მიუთითოთ პარამეტრები --%2 ან/და --%3"
 
-#: src/cli.cpp:213
+#: src/cli.cpp:254
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
 msgstr "შეცდომა: უცნობი ძრავა '%1'"
 
-#: src/cli.cpp:228
+#: src/cli.cpp:269
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
 msgstr "შეცდომა: უცნობი თარგმანის მომწოდებელი '%1'"
 
-#: src/cli.cpp:252
+#: src/cli.cpp:293
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "შეცდომა: წყაროს ენის უცნობი კოდი '%1'"
 
-#: src/cli.cpp:271
+#: src/cli.cpp:313
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "შეცდომა: უცნობი თარგმანის ენის კოდი '%1'"
 
-#: src/cli.cpp:295
+#: src/cli.cpp:337
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "შეცდომა: სათარგმნი ტექსტის გარეშე"
 
-#: src/cli.cpp:298
+#: src/cli.cpp:340
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: --%1 cannot be combined with text arguments"
 msgstr "შეცდომა: პარამეტრს --%1 სხვა ტექსტის არგუმენტებთან ერთად ვერ მიუთითებთ"
 
-#: src/cli.cpp:303
+#: src/cli.cpp:347
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr "უსწრაფესი გაშვებული ასლის გამოვლენა"
 
-#: src/cli.cpp:366
+#: src/cli.cpp:410
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
 msgstr "შეცდომა: უცნობი TTS-ის მომწოდებელი '%1'"
 
-#: src/cli.cpp:428
-#, qt-format
-msgctxt "Cli|"
-msgid "Error: Unable to initialize Tesseract with %1"
-msgstr "შეცდომა: %1-ით Tesseract-ის ინიციალიზაცია შეუძლებელია"
-
-#: src/cli.cpp:449
+#: src/cli.cpp:473
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to read image '%1'"
 msgstr "შეცდომა: წაკითხვის შეცდომა გამოსახულებისთვის %1"
 
-#: src/cli.cpp:459
+#: src/cli.cpp:483
+#, qt-format
+msgctxt "Cli|"
+msgid "Error: Unable to initialize Tesseract with %1"
+msgstr "შეცდომა: %1-ით Tesseract-ის ინიციალიზაცია შეუძლებელია"
+
+#: src/cli.cpp:506
 msgctxt "Cli|"
 msgid "Error: No text was recognized in the image"
 msgstr "შეცდომა: გამოსახულებიდან ტექსტის ამოცნობა შეუძლებელია"
 
-#: src/cli.cpp:467
+#: src/cli.cpp:514
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Recognition failed: %1"
 msgstr "შეცდომა: ამოცნობა ჩავარდა: %1"
 
-#: src/cli.cpp:472
+#: src/cli.cpp:519
 msgctxt "Cli|"
 msgid "Error: Recognition was cancelled"
 msgstr "შეცდომა: ამოცნობა გაუქმდა"
 
-#: src/cli.cpp:490 src/cli.cpp:542
+#: src/cli.cpp:537 src/cli.cpp:606
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "შეცდომა: %1"
 
-#: src/cli.cpp:492 src/cli.cpp:544
+#: src/cli.cpp:539 src/cli.cpp:608
 msgctxt "Cli|"
 msgid "Translation error occurred"
 msgstr "აღმოჩენილია თარგმანის შეცდომა"
 
-#: src/cli.cpp:613
+#: src/cli.cpp:677
 msgctxt "Cli|"
 msgid "Unknown error"
 msgstr "უცნობი შეცდომა"
 
-#: src/cli.cpp:614
+#: src/cli.cpp:678
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
 msgstr "შეცდომა: TTS ჩავარდა: %1"
 
-#: src/cli.cpp:721
+#: src/cli.cpp:785
 msgctxt "Cli|"
 msgid "no provider was created"
 msgstr "მომწოდებელი არ შექმნილა"
 
-#: src/cli.cpp:746
+#: src/cli.cpp:810
 msgctxt "Cli|"
 msgid "the engine failed to start"
 msgstr "ძრავის გაშვების შეცდომა"
 
-#: src/cli.cpp:751
+#: src/cli.cpp:815
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
 msgstr "არჩეულ მომწოდებელს ხმები ხელმისაწვდომი არ აქვს"
 
-#: src/cli.cpp:809
+#: src/cli.cpp:873
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
 msgstr "შეცდომა: ტექსტის წარმოთქმა ხელმიუწვდომელია: %1"
 
-#: src/cli.cpp:830
+#: src/cli.cpp:894
 msgctxt "Cli|"
 msgid "Source languages:"
 msgstr "წყარო ენები:"
 
-#: src/cli.cpp:833
+#: src/cli.cpp:897
 msgctxt "Cli|"
 msgid "Translation languages:"
 msgstr "თარგმანის ენები:"
 
-#: src/cli.cpp:901
+#: src/cli.cpp:965
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "შეცდომა: პარამეტრებს --%1 და --%2 ერთად ვერ გამოიყენებთ"
 
-#: src/cli.cpp:913 src/cli.cpp:934
+#: src/cli.cpp:977 src/cli.cpp:998
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "შეცდომა: ფაილი არ არსებობს: %1"
 
-#: src/cli.cpp:918 src/cli.cpp:939
+#: src/cli.cpp:982 src/cli.cpp:1003
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -332,12 +332,12 @@ msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "ძებნა Forvo.com-ზე"
 
-#: src/core/translationsession.cpp:351
+#: src/core/translationsession.cpp:353
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
 msgstr "OCR მორგებული არაა"
 
-#: src/core/translationsession.cpp:352
+#: src/core/translationsession.cpp:354
 msgctxt "TesseractOcr|"
 msgid "Set up the OCR engine in the application settings"
 msgstr "მოირგეთ OCR-ის ძრავა აპლიკაციის პარამეტრებში"
@@ -358,7 +358,7 @@ msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "%1-სთვის D-Bus-ის ობიექტის რეგისტრაცია შეუძლებელია"
 
-#: src/frontend/guifrontend.cpp:136
+#: src/frontend/guifrontend.cpp:141
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
@@ -486,39 +486,39 @@ msgctxt "main|"
 msgid "Available frontends: %1"
 msgstr "ხელმისაწვდომი წინაბოლოები: %1"
 
-#: src/mainwindow.cpp:168
+#: src/mainwindow.cpp:169
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "OCR-ის ენების დაყენება შეუძლებელია"
 
-#: src/mainwindow.cpp:169
+#: src/mainwindow.cpp:170
 #, qt-format
 msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "%1-ით Tesseract-ის ინიციალიზაცია შეუძლებელია"
 
-#: src/mainwindow.cpp:447
+#: src/mainwindow.cpp:451
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "OCR"
 
-#: src/mainwindow.cpp:448
+#: src/mainwindow.cpp:452
 msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "OCR სურათი ნეგატივია"
 
-#: src/mainwindow.cpp:448
+#: src/mainwindow.cpp:452
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr "OCR გამოსახულება ნორმალურია"
 
-#: src/mainwindow.cpp:875
+#: src/mainwindow.cpp:896
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "ეს აპლიკაცია თარგმანების მოსაწოდებლად %1-ს იყენებს."
 
-#: src/mainwindow.cpp:876
+#: src/mainwindow.cpp:897
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -533,29 +533,29 @@ msgstr ""
 "გაშვებული ასლი ამჟამად არის '%1', მაგრამ მისი შეცვლა თარგმანის პარამეტრებში "
 "შეგიძლიათ. გაშვებული ასლის დეტალები ზემო ბმულში შეგიძლიათ, იხილოთ."
 
-#: src/mainwindow.cpp:883
+#: src/mainwindow.cpp:904
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "მეორედ არ მაჩვენო"
 
-#: src/mainwindow.cpp:930
+#: src/mainwindow.cpp:951
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "არასწორი სისტემური საათის ხატულა"
 
-#: src/mainwindow.cpp:930
+#: src/mainwindow.cpp:951
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr ""
 "მითითებული ხატულა '%1' არასწორია. გამოყენებული იქნება ნაგულისხმევი ხატულა."
 
-#: src/mainwindow.cpp:1059
+#: src/mainwindow.cpp:1067
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr "TTS-ის შეცდომა"
 
-#: src/mainwindow.cpp:1059
+#: src/mainwindow.cpp:1067
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -571,25 +571,25 @@ msgstr ""
 "\n"
 "შეამოწმეთ TTS-ის პარამეტრები, ან სცადეთ სხვა ხმა/ენა."
 
-#: src/mainwindow.cpp:1092 src/mainwindow.cpp:1098
+#: src/mainwindow.cpp:1108 src/mainwindow.cpp:1120
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "შეცდომა: %1"
 
-#: src/mainwindow.cpp:1882
+#: src/mainwindow.cpp:1928
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
 msgstr "გამოსახულება მეტისმეტად დიდია (%1 მპ). მაქს %2 მპ."
 
-#: src/mainwindow.cpp:1980
+#: src/mainwindow.cpp:2026
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
 msgstr "OCR ჩავარდა: %1"
 
-#: src/mainwindow.cpp:2014 src/mainwindow.cpp:2071
+#: src/mainwindow.cpp:2060 src/mainwindow.cpp:2117
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -599,12 +599,12 @@ msgstr ""
 "გამოსახულების გახსნა შეუძლებელია:\n"
 "%1"
 
-#: src/mainwindow.cpp:2062 src/mainwindow.cpp:2071
+#: src/mainwindow.cpp:2108 src/mainwindow.cpp:2117
 msgctxt "MainWindow|"
 msgid "Open image"
 msgstr "გამოსახულების გახსნა"
 
-#: src/mainwindow.cpp:2064
+#: src/mainwindow.cpp:2110
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
@@ -2146,7 +2146,7 @@ msgstr "შეცდომა: ავტომატურად აღმოჩ
 #: src/popupwindow.cpp:45
 msgctxt "PopupWindow|"
 msgid "Drag to resize"
-msgstr ""
+msgstr "ზომის შესაცვლელად გადაათრიეთ"
 
 #: src/popupwindow.ui:32 src/popupwindow.ui:35
 msgctxt "PopupWindow|"
@@ -2193,12 +2193,12 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "თარგმანის კოპირება ბუფერში"
 
-#: src/settings/appsettings.cpp:700
+#: src/settings/appsettings.cpp:704
 msgctxt "AppSettings|"
 msgid "OpenAI-compatible (custom)"
 msgstr "OpenAI-სთან თავსებადი (მორგებული)"
 
-#: src/settings/appsettings.cpp:1538
+#: src/settings/appsettings.cpp:1577
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -3809,39 +3809,39 @@ msgctxt "MozhiTTSProvider|"
 msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
 msgstr "Mozhi-ის გაშვებული ასლის შეცდომა: %1 (HTTP 4XX კლიენტის შეცდომა)"
 
-#: src/tts/piperttsprovider.cpp:115
+#: src/tts/piperttsprovider.cpp:121
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize Piper TTS"
 msgstr "Piper TTS-ის ინიციალიზაცია ჩავარდა"
 
-#: src/tts/piperttsprovider.cpp:121
+#: src/tts/piperttsprovider.cpp:127
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime exception: %1"
 msgstr "ONNX-ის გამონაკლისი გაშვების დროს: %1"
 
-#: src/tts/piperttsprovider.cpp:124
+#: src/tts/piperttsprovider.cpp:130
 msgctxt "PiperTTSProvider|"
 msgid "Unknown ONNX Runtime initialization error"
 msgstr "ONNX-ის გაშვების დროის ინიციალიზაციის უცნობი შეცდომა"
 
-#: src/tts/piperttsprovider.cpp:217
+#: src/tts/piperttsprovider.cpp:240
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize espeak-ng"
 msgstr "espeak-ng-ის ინიციალიზაცია ჩავარდა"
 
-#: src/tts/piperttsprovider.cpp:259
+#: src/tts/piperttsprovider.cpp:282
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid "ONNX Runtime initialization error: %1"
 msgstr "ONNX-ის ინიციალიზაციის შეცდომა %1"
 
-#: src/tts/piperttsprovider.cpp:300
+#: src/tts/piperttsprovider.cpp:323
 msgctxt "PiperTTSProvider|"
 msgid "Could not disable neural TTS telemetry"
 msgstr "ნერვული TTS-ის ტელემეტრიის გათიშვა შეუძლებელია"
 
-#: src/tts/piperttsprovider.cpp:301
+#: src/tts/piperttsprovider.cpp:324
 msgctxt "PiperTTSProvider|"
 msgid ""
 "Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
@@ -3850,7 +3850,7 @@ msgstr ""
 "Crow Translate-მა ვერ გამორთო გაშვების გარემოს ONNX ტელემეტრია. ასე რომ, ამ "
 "ასლს შეუძლია, Microsoft-ს შეატყობინოს, რაში იყენებთ მას."
 
-#: src/tts/piperttsprovider.cpp:302
+#: src/tts/piperttsprovider.cpp:325
 #, qt-format
 msgctxt "PiperTTSProvider|"
 msgid ""
@@ -3866,22 +3866,22 @@ msgstr ""
 "აქვს ჩართული. წყაროდან აგებისას - იმის ჩათვლით, რომელზეც Crow Translate "
 "სტატიკურად უკავშირდება - აქვს ის, მაგრამ ის გამორთულია სხვა პლატფორმებზე."
 
-#: src/tts/piperttsprovider.cpp:1033
+#: src/tts/piperttsprovider.cpp:1060
 msgctxt "PiperTTSProvider|"
 msgid "No audio data generated"
 msgstr "აუდიომონაცემები არ დაგენერირებულა"
 
-#: src/tts/piperttsprovider.cpp:1048
+#: src/tts/piperttsprovider.cpp:1075
 msgctxt "PiperTTSProvider|"
 msgid "Failed to create temporary audio file"
 msgstr "დროებითი აუდიოფაილის შექმნა ცავარდა"
 
-#: src/tts/piperttsprovider.cpp:1057
+#: src/tts/piperttsprovider.cpp:1084
 msgctxt "PiperTTSProvider|"
 msgid "Failed to write audio data"
 msgstr "აუდიომონაცემების ჩაწერა ჩავარდა"
 
-#: src/tts/piperttsprovider.cpp:1395
+#: src/tts/piperttsprovider.cpp:1422
 msgctxt "PiperTTSProvider|"
 msgid ""
 "<h3>Piper Voice Models Not Found</h3><p>No Piper TTS voice models were found "
@@ -3902,12 +3902,12 @@ msgstr ""
 "ზოგიერთ მოდელს, შეიძლება, არაუფასო ლიცენზია ჰქონდეს და მათი გამოყენება "
 "აკრძალული იყოს კომერციული მიზნებით.</p>"
 
-#: src/tts/piperttsprovider.cpp:1409
+#: src/tts/piperttsprovider.cpp:1436
 msgctxt "PiperTTSProvider|"
 msgid "Piper Voice Models Required"
 msgstr "აუცილებელია Piper ხმის მოდელები"
 
-#: src/tts/piperttsprovider.cpp:1410
+#: src/tts/piperttsprovider.cpp:1437
 msgctxt "PiperTTSProvider|"
 msgid ""
 "No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
