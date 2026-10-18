@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-31 15:24+0200\n"
+"PO-Revision-Date: 2026-10-16 18:04+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 "X-Language: fr\n"
 "X-Qt-Contexts: true\n"
 "X-Source-Language: en\n"
@@ -2151,7 +2151,7 @@ msgstr "Erreur d'instance : %1"
 #: src/onlinetranslator.cpp:1356
 msgctxt "OnlineTranslator|"
 msgid "Empty response"
-msgstr ""
+msgstr "Réponse vide"
 
 #: src/onlinetranslator.cpp:1367 src/onlinetranslator.cpp:1383
 msgctxt "OnlineTranslator|"
@@ -2531,12 +2531,9 @@ msgid "Text-To-Speech"
 msgstr "Synthèse vocale"
 
 #: src/settings/settingsdialog.ui:81
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Crow Translate"
 msgctxt "SettingsDialog|"
 msgid "Mozhi / LibreTranslate"
-msgstr "CrowTranslate"
+msgstr "Mozhi / LibreTranslate"
 
 #: src/settings/settingsdialog.ui:105
 msgctxt "SettingsDialog|"
@@ -3045,14 +3042,17 @@ msgid ""
 "use your own LibreTranslate server instead, enter its URL here, enable the "
 "direct LibreTranslate API and add the API key if the server requires one."
 msgstr ""
+"Mozhi est une interface de confidentialité remplaçant Google, Yandex, Bing, "
+"DeepL, LibreTranslate et d'autres moteurs. Veuillez sélectionner le moteur "
+"dans la fenêtre principale. Pour utiliser votre propre serveur "
+"LibreTranslate à la place, veuillez saisir son URL ici, activer l'API "
+"directe de LibreTranslate et ajouter la clé de l'API si le serveur en a "
+"besoin."
 
 #: src/settings/settingsdialog.ui:931
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Mozhi instance URL"
 msgctxt "SettingsDialog|"
 msgid "Instance URL:"
-msgstr "URL de l'instance de Mozhi"
+msgstr "URL de l'instance :"
 
 #: src/settings/settingsdialog.ui:944
 msgctxt "SettingsDialog|"
@@ -3060,6 +3060,8 @@ msgid ""
 "A Mozhi instance, or the URL of a LibreTranslate server when the direct "
 "LibreTranslate API is enabled"
 msgstr ""
+"Une instance Mozhi ou l'URL d'un serveur LibreTranslate lorsque l'API "
+"directe de LibreTranslate est activée."
 
 #: src/settings/settingsdialog.ui:957
 msgctxt "SettingsDialog|"
@@ -3084,7 +3086,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:991
 msgctxt "SettingsDialog|"
 msgid "Use direct LibreTranslate API"
-msgstr ""
+msgstr "Utiliser l'API directe de LibreTranslate"
 
 #: src/settings/settingsdialog.ui:994
 msgctxt "SettingsDialog|"
