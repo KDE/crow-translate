@@ -2135,7 +2135,7 @@ msgstr "Instance error: %1"
 #: src/onlinetranslator.cpp:1356
 msgctxt "OnlineTranslator|"
 msgid "Empty response"
-msgstr ""
+msgstr "Prázdna odpoveď"
 
 #: src/onlinetranslator.cpp:1367 src/onlinetranslator.cpp:1383
 msgctxt "OnlineTranslator|"
@@ -2145,7 +2145,7 @@ msgstr "Error: Unable to parse autodetected language"
 #: src/popupwindow.cpp:45
 msgctxt "PopupWindow|"
 msgid "Drag to resize"
-msgstr ""
+msgstr "Ťahaním zmeníte veľkosť"
 
 #: src/popupwindow.ui:32 src/popupwindow.ui:35
 msgctxt "PopupWindow|"
@@ -2510,12 +2510,9 @@ msgid "Text-To-Speech"
 msgstr "Prevod textu na reč"
 
 #: src/settings/settingsdialog.ui:81
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Crow Translate"
 msgctxt "SettingsDialog|"
 msgid "Mozhi / LibreTranslate"
-msgstr "Preložiť"
+msgstr "Mozhi / LibreTranslate"
 
 #: src/settings/settingsdialog.ui:105
 msgctxt "SettingsDialog|"
@@ -3013,14 +3010,16 @@ msgid ""
 "use your own LibreTranslate server instead, enter its URL here, enable the "
 "direct LibreTranslate API and add the API key if the server requires one."
 msgstr ""
+"Mozhi je front-end chrániaci súkromie, ktorý sprostredkúva Google, Yandex, "
+"Bing, DeepL, LibreTranslate a ďalšie nástroje; nástroj vyberte v hlavnom "
+"okne. Ak chcete namiesto toho použiť vlastný server LibreTranslate, zadajte "
+"sem jeho URL, zapnite priame API LibreTranslate a pridajte API kľúč, ak ho "
+"server vyžaduje."
 
 #: src/settings/settingsdialog.ui:931
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Mozhi instance URL"
 msgctxt "SettingsDialog|"
 msgid "Instance URL:"
-msgstr "URL inštancie Mozhi"
+msgstr "URL inštancie:"
 
 #: src/settings/settingsdialog.ui:944
 msgctxt "SettingsDialog|"
@@ -3028,6 +3027,8 @@ msgid ""
 "A Mozhi instance, or the URL of a LibreTranslate server when the direct "
 "LibreTranslate API is enabled"
 msgstr ""
+"Inštancia Mozhi alebo URL servera LibreTranslate, keď je zapnuté priame API "
+"LibreTranslate"
 
 #: src/settings/settingsdialog.ui:957
 msgctxt "SettingsDialog|"
@@ -3051,7 +3052,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:991
 msgctxt "SettingsDialog|"
 msgid "Use direct LibreTranslate API"
-msgstr ""
+msgstr "Použiť priame API LibreTranslate"
 
 #: src/settings/settingsdialog.ui:994
 msgctxt "SettingsDialog|"

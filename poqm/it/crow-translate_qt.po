@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: crow-translate\n"
-"PO-Revision-Date: 2026-08-30 18:39+0200\n"
+"PO-Revision-Date: 2026-10-22 22:38+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Language: it\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: src/cli.cpp:100
 msgctxt "Cli|"
@@ -2150,7 +2150,7 @@ msgstr "Errore istanza: %1"
 #: src/onlinetranslator.cpp:1356
 msgctxt "OnlineTranslator|"
 msgid "Empty response"
-msgstr ""
+msgstr "Risposta vuota"
 
 #: src/onlinetranslator.cpp:1367 src/onlinetranslator.cpp:1383
 msgctxt "OnlineTranslator|"
@@ -2160,7 +2160,7 @@ msgstr "Errore: impossibile analizzare la lingua rilevata automaticamente"
 #: src/popupwindow.cpp:45
 msgctxt "PopupWindow|"
 msgid "Drag to resize"
-msgstr ""
+msgstr "Trascina per ridimensionare"
 
 #: src/popupwindow.ui:32 src/popupwindow.ui:35
 msgctxt "PopupWindow|"
@@ -2527,17 +2527,14 @@ msgid "Text-To-Speech"
 msgstr "Sintesi vocale"
 
 #: src/settings/settingsdialog.ui:81
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Crow Translate"
 msgctxt "SettingsDialog|"
 msgid "Mozhi / LibreTranslate"
-msgstr "Crow Translate"
+msgstr "Mozhi / LibreTranslate"
 
 #: src/settings/settingsdialog.ui:105
 msgctxt "SettingsDialog|"
 msgid "Connection"
-msgstr "Internet"
+msgstr "Connessione"
 
 #: src/settings/settingsdialog.ui:113
 msgctxt "SettingsDialog|"
@@ -3033,14 +3030,16 @@ msgid ""
 "use your own LibreTranslate server instead, enter its URL here, enable the "
 "direct LibreTranslate API and add the API key if the server requires one."
 msgstr ""
+"Mozhi è un front-end che funge da proxy con Google, Yandex, Bing, DeepL, "
+"LibreTranslate e altri motori; scegli il motore nella finestra principale. "
+"Per utilizzare invece il tuo server LibreTranslate personale, scrivi il tuo "
+"URL qui, abilita l'uso diretto dell'API di LibreTranslate e aggiungi la "
+"chiave dell'API, se il server la richiede."
 
 #: src/settings/settingsdialog.ui:931
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Mozhi instance URL"
 msgctxt "SettingsDialog|"
 msgid "Instance URL:"
-msgstr "URL istanza Mozhi"
+msgstr "URL dell'istanza:"
 
 #: src/settings/settingsdialog.ui:944
 msgctxt "SettingsDialog|"
@@ -3048,6 +3047,8 @@ msgid ""
 "A Mozhi instance, or the URL of a LibreTranslate server when the direct "
 "LibreTranslate API is enabled"
 msgstr ""
+"Un'istanza di Mozhi, oppure l'URL di un server LibreTranslate quando è "
+"abilitato l'uso diretto dell'API di LibreTranslate"
 
 #: src/settings/settingsdialog.ui:957
 msgctxt "SettingsDialog|"
@@ -3071,7 +3072,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:991
 msgctxt "SettingsDialog|"
 msgid "Use direct LibreTranslate API"
-msgstr ""
+msgstr "Uso diretto dell'API di LibreTranslate"
 
 #: src/settings/settingsdialog.ui:994
 msgctxt "SettingsDialog|"
