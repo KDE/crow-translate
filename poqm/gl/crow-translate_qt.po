@@ -567,17 +567,12 @@ msgid "Available frontends: %1"
 msgstr "Idiomas dispoñíbeis:"
 
 #: src/mainwindow.cpp:169
-#, fuzzy
-#| msgctxt "Ocr|"
-#| msgid "Unable to set OCR languages"
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "Non é posíbel definir idiomas de OCR."
 
 #: src/mainwindow.cpp:170
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "Non é posíbel preparar Tesseract con %1."
@@ -1121,9 +1116,7 @@ msgid ""
 msgstr ""
 
 #: src/ocr/tesseractocr.cpp:143
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "%1 is not a valid Tesseract parameter name."
+#, qt-format
 msgctxt "TesseractOcr|"
 msgid "%1 is not a valid Tesseract parameter name."
 msgstr "%1 non é un nome válido de parámetro de Tesseract."
