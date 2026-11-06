@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-30 22:01+0300\n"
+"PO-Revision-Date: 2026-11-05 13:02+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: src/cli.cpp:100
 msgctxt "Cli|"
@@ -2121,7 +2121,7 @@ msgstr "שגיאת עותק: %1"
 #: src/onlinetranslator.cpp:1356
 msgctxt "OnlineTranslator|"
 msgid "Empty response"
-msgstr ""
+msgstr "תגובה ריקה"
 
 #: src/onlinetranslator.cpp:1367 src/onlinetranslator.cpp:1383
 msgctxt "OnlineTranslator|"
@@ -2131,7 +2131,7 @@ msgstr "שגיאה: לא ניתן לפענח שפה לזיהוי אוטומטי"
 #: src/popupwindow.cpp:45
 msgctxt "PopupWindow|"
 msgid "Drag to resize"
-msgstr ""
+msgstr "גרירה לשינוי גודל"
 
 #: src/popupwindow.ui:32 src/popupwindow.ui:35
 msgctxt "PopupWindow|"
@@ -2495,12 +2495,9 @@ msgid "Text-To-Speech"
 msgstr "הקראה"
 
 #: src/settings/settingsdialog.ui:81
-#, fuzzy
-#| msgctxt "MainWindow|"
-#| msgid "Crow Translate"
 msgctxt "SettingsDialog|"
 msgid "Mozhi / LibreTranslate"
-msgstr "Crow Translate"
+msgstr "Mozhi / LibreTranslate"
 
 #: src/settings/settingsdialog.ui:105
 msgctxt "SettingsDialog|"
@@ -2981,14 +2978,15 @@ msgid ""
 "use your own LibreTranslate server instead, enter its URL here, enable the "
 "direct LibreTranslate API and add the API key if the server requires one."
 msgstr ""
+"Mozhi הוא ממשק חזותי ששומר על פרטיות שמתווך אל Google,‏ Yandex,‏ Bing,‏ DeepL,‏ "
+"LibreTranslate ומנועים נוספים; אפשר לבחור את המנוע בחלון הראשי. כדי להשתמש "
+"בשרת LibreTranslate משלך במקום, יש למלא את הכתובת שלו כאן, להפעיל את ה־API "
+"הישיר של LibreTranslate ולהוסיף את מפתח ה־API אם השרת דורש אחד כזה."
 
 #: src/settings/settingsdialog.ui:931
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Mozhi instance URL"
 msgctxt "SettingsDialog|"
 msgid "Instance URL:"
-msgstr "כתובת עותק Mozhi"
+msgstr "כתובת עותק:"
 
 #: src/settings/settingsdialog.ui:944
 msgctxt "SettingsDialog|"
@@ -2996,6 +2994,8 @@ msgid ""
 "A Mozhi instance, or the URL of a LibreTranslate server when the direct "
 "LibreTranslate API is enabled"
 msgstr ""
+"עותק של Mozhi או כתובת לשרת LibreTranslate כאשר ה־API הישיר של "
+"LibreTranslate פעיל"
 
 #: src/settings/settingsdialog.ui:957
 msgctxt "SettingsDialog|"
@@ -3019,7 +3019,7 @@ msgstr ""
 #: src/settings/settingsdialog.ui:991
 msgctxt "SettingsDialog|"
 msgid "Use direct LibreTranslate API"
-msgstr ""
+msgstr "להשתמש ב־API הישיר של LibreTranslate"
 
 #: src/settings/settingsdialog.ui:994
 msgctxt "SettingsDialog|"

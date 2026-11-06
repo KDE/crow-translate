@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-09-12 18:03+0300\n"
+"PO-Revision-Date: 2026-10-29 11:00+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -16,17 +16,11 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 
 #: src/cli.cpp:100
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "käännösvalinnat:"
 
 #: src/cli.cpp:109
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "esimerkkejä:"
@@ -129,12 +123,12 @@ msgstr "Lisää vakiosyötevirran data lähdetekstiin."
 #: src/cli.cpp:181
 msgctxt "Cli|"
 msgid "Read source text from an image using the configured OCR engine."
-msgstr ""
+msgstr "Lue kuvasta lähdeteksti asetetulla tekstintunnistusmoottorilla."
 
 #: src/cli.cpp:182
 msgctxt "Cli|"
 msgid "path"
-msgstr ""
+msgstr "sijainti"
 
 #: src/cli.cpp:184
 #, qt-format
@@ -158,11 +152,13 @@ msgid ""
 "Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
 "argument is given."
 msgstr ""
+"Mitä käyttöliittymää käytetään (”gui” tai ”cli”). Oletus on ”cli”, jos "
+"parametreja on annettu."
 
 #: src/cli.cpp:193
 msgctxt "Cli|"
 msgid "frontend"
-msgstr ""
+msgstr "käyttöliittymä"
 
 #: src/cli.cpp:197
 msgctxt "Cli|"
@@ -217,7 +213,7 @@ msgstr "Virhe: käännettävää tekstiä ei ole"
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: --%1 cannot be combined with text arguments"
-msgstr ""
+msgstr "Virhe: valitsinta --%1 ei voi käyttää tekstiparametrien kanssa"
 
 #: src/cli.cpp:347
 msgctxt "Cli|"
@@ -231,38 +227,32 @@ msgid "Error: Unknown TTS provider '%1'"
 msgstr "Virhe: tuntematon puhesynteesitarjoaja ”%1”"
 
 #: src/cli.cpp:473
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unable to open file: %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to read image '%1'"
-msgstr "Virhe: Ei voi avata tiedostoa %1"
+msgstr "Virhe: Ei voida avata kuvaa ”%1”"
 
 #: src/cli.cpp:483
-#, fuzzy, qt-format
-#| msgctxt "Ocr|"
-#| msgid "Unable to initialize Tesseract with %1"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to initialize Tesseract with %1"
-msgstr "Tesseract-moottorin alustus parametrilla %1 ei onnistu"
+msgstr "Virhe: Tesseractin alustus parametrilla %1 ei onnistu"
 
 #: src/cli.cpp:506
 msgctxt "Cli|"
 msgid "Error: No text was recognized in the image"
-msgstr ""
+msgstr "Virhe: kuvasta ei tunnistettu tekstiä"
 
 #: src/cli.cpp:514
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: TTS failed"
+#, qt-format
 msgctxt "Cli|"
 msgid "Error: Recognition failed: %1"
-msgstr "Virhe: puhesynteesi epäonnistui"
+msgstr "Virhe: tunnistus epäonnistui: %1"
 
 #: src/cli.cpp:519
 msgctxt "Cli|"
 msgid "Error: Recognition was cancelled"
-msgstr ""
+msgstr "Virhe: tunnistus peruttiin"
 
 #: src/cli.cpp:537 src/cli.cpp:606
 #, qt-format
@@ -351,17 +341,14 @@ msgid "Set up the OCR engine in the application settings"
 msgstr "Aseta tekstintunnistusmoottori sovellusasetuksissa"
 
 #: src/frontend/frontendregistry.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Main window"
 msgctxt "FrontendRegistry|"
 msgid "Graphical window"
-msgstr "Pääikkuna"
+msgstr "Graafinen ikkuna"
 
 #: src/frontend/frontendregistry.cpp:24
 msgctxt "FrontendRegistry|"
 msgid "Command line"
-msgstr ""
+msgstr "Komentorivi"
 
 #: src/frontend/guifrontend.cpp:46
 #, qt-format
@@ -376,17 +363,11 @@ msgid "D-Bus service %1 is already registered by another application"
 msgstr "D-Bus -palvelu %1 on jo rekisteröity toiselle sovellukselle"
 
 #: src/gui/translationhtmlformatter.cpp:33
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "translation options:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "translation options:"
 msgstr "käännösvalinnat:"
 
 #: src/gui/translationhtmlformatter.cpp:47
-#, fuzzy
-#| msgctxt "MozhiTranslationProvider|"
-#| msgid "examples:"
 msgctxt "TranslationHtmlFormatter|"
 msgid "examples:"
 msgstr "esimerkkejä:"
@@ -492,20 +473,16 @@ msgid "Current languages:"
 msgstr "Nykyiset kielet:"
 
 #: src/main.cpp:34
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid "Error: Unknown engine"
+#, qt-format
 msgctxt "main|"
 msgid "Error: Unknown frontend '%1'"
-msgstr "Virhe: tuntematon puhesyntetisaattori"
+msgstr "Virhe: tuntematon käyttöliittymä ”%1”"
 
 #: src/main.cpp:42
-#, fuzzy, qt-format
-#| msgctxt "UpdaterDialog|"
-#| msgid "Available version:"
+#, qt-format
 msgctxt "main|"
 msgid "Available frontends: %1"
-msgstr "Saatavilla oleva versio:"
+msgstr "Käytettävissä olevat käyttöliittymät: %1"
 
 #: src/mainwindow.cpp:169
 msgctxt "TesseractOcr|"
@@ -3847,7 +3824,7 @@ msgstr "ONNX-ajonaikaisvalmisteluvirhe: %1"
 #: src/tts/piperttsprovider.cpp:323
 msgctxt "PiperTTSProvider|"
 msgid "Could not disable neural TTS telemetry"
-msgstr ""
+msgstr "Ei voitu poistaa käytöstä neuraalipuhesynteesin telemetriaa"
 
 #: src/tts/piperttsprovider.cpp:324
 msgctxt "PiperTTSProvider|"
@@ -3855,6 +3832,8 @@ msgid ""
 "Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
 "of it may report usage data to Microsoft."
 msgstr ""
+"Crow Translate ei pystynyt poistamaan käytöstä ONNX Runtimen telemetriaa, "
+"joten käyttötiedot raportoidaan Microsoftille."
 
 #: src/tts/piperttsprovider.cpp:325
 #, qt-format
@@ -3866,6 +3845,11 @@ msgid ""
 "in. Builds from source - including the one Crow Translate links statically - "
 "have none, and it is inactive on other platforms."
 msgstr ""
+"Syy: %1\n"
+"\n"
+"Vain Microsoftin omiin Windows-koosteisiin ONNX Runtimesta on telemetria "
+"käännetty mukaan. Lähdekoosteissa – kuten Crow Translaten staattisesti "
+"linkittämä – sitä ei ole, ja muilla alustoilla se on passiivinen."
 
 #: src/tts/piperttsprovider.cpp:1060
 msgctxt "PiperTTSProvider|"
@@ -3913,6 +3897,8 @@ msgid ""
 "No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
 "Piper Voices Path."
 msgstr ""
+"Piper-puhesynteesin äänimalleja ei löytynyt. Aseta sijainti kohdassa "
+"Asetukset → Puhesynteesi → Piper → Äänten sijainti."
 
 #: src/tts/qtttsprovider.cpp:325
 #, qt-format
@@ -3944,12 +3930,10 @@ msgid "Windows TTS Voice Installation"
 msgstr "Windowsin puhesynteesiäänen asennus"
 
 #: src/tts/qtttsprovider.cpp:342
-#, fuzzy, qt-format
-#| msgctxt "QtTTSProvider|"
-#| msgid "Windows TTS Voice Installation"
+#, qt-format
 msgctxt "QtTTSProvider|"
 msgid "No Windows TTS voice is installed for %1."
-msgstr "Windowsin puhesynteesiäänen asennus"
+msgstr "%1: Windowsin puhesynteesiääniä ei ole asennettu."
 
 #~ msgctxt "SettingsDialog|"
 #~ msgid "Mozhi"
