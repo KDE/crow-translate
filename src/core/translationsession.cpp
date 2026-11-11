@@ -202,6 +202,13 @@ Language TranslationSession::preferredDestination(const Language &source) const
                                                   Language(QLocale::system()));
 }
 
+TranslationLogic::ForcedAuto TranslationSession::forcedAutoFor(TranslationLogic::ForcedFlow flow) const
+{
+    const AppSettings settings;
+    const bool engineDetects = m_translator != nullptr && m_translator->supportsAutodetection();
+    return TranslationLogic::forcedAuto(flow, settings.isForceSourceAutodetect(), settings.isForceTranslationAutodetect(), engineDetects);
+}
+
 void TranslationSession::requestTranslation(const QString &text, const Language &destination, const Language &source)
 {
     if (m_translator == nullptr) {

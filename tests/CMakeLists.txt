@@ -112,6 +112,17 @@ target_link_libraries(test_usernotifier PRIVATE
 )
 add_test(NAME UserNotifierTest COMMAND test_usernotifier)
 
+# Source-scan guard: forcing the language buttons to Auto has one owner.
+# No display, no app lib needed.
+add_executable(test_forcedauto_owner
+    test_forcedauto_owner.cpp
+)
+target_compile_definitions(test_forcedauto_owner PRIVATE SRC_DIR="${CMAKE_SOURCE_DIR}/src")
+target_link_libraries(test_forcedauto_owner PRIVATE
+    Qt6::Test
+)
+add_test(NAME ForcedAutoOwnerTest COMMAND test_forcedauto_owner)
+
 # Source-scan guard: QtWidgets must stay out of the headless layers. Needs no
 # app library, like test_dbus_static_init.
 add_executable(test_widget_free_core
@@ -317,6 +328,20 @@ target_link_libraries(test_mainwindow_features PRIVATE
 )
 add_test(NAME MainWindowFeaturesTest COMMAND test_mainwindow_features)
 
+# What the two "force ... language detection" settings do to the window when a
+# global action starts, with both on as installed - Mozhi pointed at
+# MockHttpServer - needs a display.
+add_executable(test_mainwindow_forcedauto
+    test_mainwindow_forcedauto.cpp
+)
+target_compile_definitions(test_mainwindow_forcedauto PRIVATE BUILD_TESTING)
+target_link_libraries(test_mainwindow_forcedauto PRIVATE
+    ${PROJECT_NAME}-lib
+    test-support
+    Qt6::Test
+)
+add_test(NAME MainWindowForcedAutoTest COMMAND test_mainwindow_forcedauto)
+
 # LocalAI prompt resolution: stored-vs-default precedence, including the
 # superseded default that master still persists - headless OK.
 add_executable(test_appsettings_prompts
@@ -359,7 +384,7 @@ add_test(NAME TranslationProviderContractTest COMMAND test_translation_provider_
 # When using static ONNX Runtime, also configure test executables that link
 # the app library (they pull in Piper TTS transitively through it).
 if(WITH_PIPER_TTS AND ONNXRuntime_USE_STATIC)
-    foreach(_test_target IN ITEMS test_usernotifier test_translationhtmlformatter test_frontendregistry test_popupwindow_lifetime test_snippingarea_flags test_ttsprovider_isolation test_translation test_localai_provider test_settingsdialog_localai test_llmocr test_llmocr_live test_visionmodelprobe test_translationlogic test_screenwatcher test_languageresolution test_translationsession test_modulestatus test_statusstrip test_snippingarea_terminal test_mainwindow_status test_mainwindow_features test_appsettings_prompts test_translation_provider_contract)
+    foreach(_test_target IN ITEMS test_usernotifier test_translationhtmlformatter test_frontendregistry test_popupwindow_lifetime test_snippingarea_flags test_ttsprovider_isolation test_translation test_localai_provider test_settingsdialog_localai test_llmocr test_llmocr_live test_visionmodelprobe test_translationlogic test_screenwatcher test_languageresolution test_translationsession test_modulestatus test_statusstrip test_snippingarea_terminal test_mainwindow_status test_mainwindow_features test_mainwindow_forcedauto test_appsettings_prompts test_translation_provider_contract)
         configure_onnxruntime_static(${_test_target})
         add_dependencies(${_test_target} onnxruntime_ready)
     endforeach()
@@ -376,7 +401,7 @@ endif()
 # configuration (see build.zsh's build-test/build-test-nopiper) still builds
 # and runs them.
 if(NOT BUILD_TESTING)
-    foreach(_test_target IN ITEMS test_helper_window test_dbus_static_init test_cli test_widget_free_core test_usernotifier test_translationhtmlformatter test_frontendregistry test_popupwindow_lifetime test_snippingarea_flags test_ttsprovider_isolation test_translation test_localai_provider test_settingsdialog_localai test_llmocr test_llmocr_live test_visionmodelprobe test_translationlogic test_screenwatcher test_languageresolution test_translationsession test_modulestatus test_statusstrip test_snippingarea_terminal test_mainwindow_status test_mainwindow_features test_appsettings_prompts test_translation_provider_contract)
+    foreach(_test_target IN ITEMS test_helper_window test_dbus_static_init test_forcedauto_owner test_cli test_widget_free_core test_usernotifier test_translationhtmlformatter test_frontendregistry test_popupwindow_lifetime test_snippingarea_flags test_ttsprovider_isolation test_translation test_localai_provider test_settingsdialog_localai test_llmocr test_llmocr_live test_visionmodelprobe test_translationlogic test_screenwatcher test_languageresolution test_translationsession test_modulestatus test_statusstrip test_snippingarea_terminal test_mainwindow_status test_mainwindow_features test_mainwindow_forcedauto test_appsettings_prompts test_translation_provider_contract)
         set_target_properties(${_test_target} PROPERTIES EXCLUDE_FROM_ALL TRUE)
     endforeach()
     if(TARGET test_singleapplication_recovery)

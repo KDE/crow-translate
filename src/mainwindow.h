@@ -19,6 +19,7 @@
 #include "ocr/tesseractocr.h"
 #include "settings/appsettings.h"
 #include "translator/atranslationprovider.h"
+#include "translator/translationlogic.h"
 #include "tts/attsprovider.h"
 
 #include <QComboBox>
@@ -166,6 +167,7 @@ private:
     };
     // Reads the selection into the source field and translates it, for `use`.
     void translateSelectionFor(SelectionUse use);
+    void applyForcedAuto(TranslationLogic::ForcedFlow flow);
     // Clears the translation field and starts the request; see its definition.
     void requestSelectionTranslation(const QString &text, const Language &destination, const Language &source, SelectionUse use);
     void speakTranslation();

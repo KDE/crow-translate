@@ -485,15 +485,24 @@ Q_SCRIPTABLE void MainWindow::translateSelection()
     translateSelectionFor(SelectionUse::Show);
 }
 
-void MainWindow::translateSelectionFor(SelectionUse use)
+// The one place a global action switches the language buttons to Auto. Which
+// sides, the session says (TranslationSession::forcedAutoFor): this used to be
+// spelled out in each action, each reading the settings itself, and none of
+// them asked whether the backend can detect a language at all.
+void MainWindow::applyForcedAuto(TranslationLogic::ForcedFlow flow)
 {
-    AppSettings settings;
-    if (settings.isForceSourceAutodetect()) {
+    const TranslationLogic::ForcedAuto forced = m_session->forcedAutoFor(flow);
+    if (forced.source) {
         ui->sourceLanguagesWidget->checkAutoButton();
     }
-    if (settings.isForceTranslationAutodetect()) {
+    if (forced.destination) {
         ui->translationLanguagesWidget->checkAutoButton();
     }
+}
+
+void MainWindow::translateSelectionFor(SelectionUse use)
+{
+    applyForcedAuto(TranslationLogic::ForcedFlow::TranslateSelection);
 
     auto selectionConnection = std::make_shared<QMetaObject::Connection>();
     *selectionConnection =
@@ -551,10 +560,7 @@ void MainWindow::requestSelectionTranslation(const QString &text, const Language
 
 Q_SCRIPTABLE void MainWindow::speakSelection()
 {
-    AppSettings settings;
-    if (settings.isForceSourceAutodetect()) {
-        ui->sourceLanguagesWidget->checkAutoButton();
-    }
+    applyForcedAuto(TranslationLogic::ForcedFlow::SpeakSelection);
 
     auto selectionConnection = std::make_shared<QMetaObject::Connection>();
     *selectionConnection =
@@ -636,13 +642,7 @@ bool MainWindow::prepareOcr()
         return false;
     }
 
-    const AppSettings settings;
-    if (settings.isForceSourceAutodetect()) {
-        ui->sourceLanguagesWidget->checkAutoButton();
-    }
-    if (settings.isForceTranslationAutodetect()) {
-        ui->translationLanguagesWidget->checkAutoButton();
-    }
+    applyForcedAuto(TranslationLogic::ForcedFlow::Recognition);
     return true;
 }
 

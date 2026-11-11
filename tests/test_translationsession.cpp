@@ -12,6 +12,7 @@
 #include "cmake.h"
 #include "mockhttpserver.h"
 #include "modulestatus.h"
+#include "onlinetranslator.h"
 #include "core/translationsession.h"
 #include "ocr/aocrprovider.h"
 #include "ocr/llmocr.h"
@@ -317,6 +318,84 @@ private slots:
         QCOMPARE(started.at(0).at(2).value<Language>(), polish());
         // Source is not the primary, so the rule answers with the primary.
         QCOMPARE(started.at(0).at(1).value<Language>(), english());
+    }
+
+    // ---- which sides a global action switches to Auto ----------------------
+    //
+    // The two settings and the backend, through TranslationLogic::forcedAuto.
+    // The settings are on unless a user turned them off, and that is how these
+    // run: the first test of this that does not switch them off first.
+
+    void testForcingIsOnAsInstalledForABackendThatDetects()
+    {
+        {
+            AppSettings settings;
+            settings.setInstance(QStringLiteral("https://mozhi.example.invalid"));
+            settings.setCurrentEngine(OnlineTranslator::Google);
+            settings.setForceSourceAutodetect(AppSettings::defaultForceSourceAutodetect());
+            settings.setForceTranslationAutodetect(AppSettings::defaultForceTranslationAutodetect());
+        }
+        TranslationSession session;
+        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+
+        using TranslationLogic::ForcedAuto;
+        using TranslationLogic::ForcedFlow;
+        QCOMPARE(session.forcedAutoFor(ForcedFlow::TranslateSelection), (ForcedAuto{true, true}));
+        QCOMPARE(session.forcedAutoFor(ForcedFlow::Recognition), (ForcedAuto{true, true}));
+        QCOMPARE(session.forcedAutoFor(ForcedFlow::SpeakSelection), (ForcedAuto{true, false}));
+    }
+
+    // DeepL through Mozhi cannot find a language out, and neither can Copy:
+    // forcing the source to Auto for them made every global action fail with
+    // "Language detection is not supported". 3.1.0 asked the engine first.
+    void testABackendThatCannotDetectKeepsItsSource()
+    {
+        {
+            AppSettings settings;
+            settings.setInstance(QStringLiteral("https://mozhi.example.invalid"));
+            settings.setCurrentEngine(OnlineTranslator::Deepl);
+            settings.setForceSourceAutodetect(true);
+            settings.setForceTranslationAutodetect(true);
+        }
+        using TranslationLogic::ForcedAuto;
+        using TranslationLogic::ForcedFlow;
+
+        TranslationSession session;
+        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        QVERIFY(!session.translator()->supportsAutodetection());
+        QCOMPARE(session.forcedAutoFor(ForcedFlow::TranslateSelection), (ForcedAuto{false, true}));
+        QCOMPARE(session.forcedAutoFor(ForcedFlow::Recognition), (ForcedAuto{false, true}));
+
+        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Copy);
+        QCOMPARE(session.forcedAutoFor(ForcedFlow::TranslateSelection), (ForcedAuto{false, true}));
+
+        AppSettings().setCurrentEngine(OnlineTranslator::Google);
+    }
+
+    void testTheUserCanTurnEitherSideOff()
+    {
+        {
+            AppSettings settings;
+            settings.setInstance(QStringLiteral("https://mozhi.example.invalid"));
+            settings.setCurrentEngine(OnlineTranslator::Google);
+        }
+        using TranslationLogic::ForcedAuto;
+        using TranslationLogic::ForcedFlow;
+        TranslationSession session;
+        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+
+        AppSettings settings;
+        settings.setForceSourceAutodetect(false);
+        settings.setForceTranslationAutodetect(true);
+        QCOMPARE(session.forcedAutoFor(ForcedFlow::TranslateSelection), (ForcedAuto{false, true}));
+        settings.setForceSourceAutodetect(true);
+        settings.setForceTranslationAutodetect(false);
+        QCOMPARE(session.forcedAutoFor(ForcedFlow::TranslateSelection), (ForcedAuto{true, false}));
+        settings.setForceSourceAutodetect(false);
+        QCOMPARE(session.forcedAutoFor(ForcedFlow::Recognition), (ForcedAuto{false, false}));
+
+        settings.setForceSourceAutodetect(AppSettings::defaultForceSourceAutodetect());
+        settings.setForceTranslationAutodetect(AppSettings::defaultForceTranslationAutodetect());
     }
 
     // ---- an automatic destination, and a source nobody knows yet -----------

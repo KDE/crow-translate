@@ -35,4 +35,13 @@ Language preferredDestination(const Language &source,
     return fallback;
 }
 
+ForcedAuto forcedAuto(ForcedFlow flow, bool forceSource, bool forceDestination, bool engineDetects)
+{
+    ForcedAuto forced;
+    forced.source = forceSource && engineDetects;
+    // Reading a selection out translates nothing: there is no destination.
+    forced.destination = forceDestination && flow != ForcedFlow::SpeakSelection;
+    return forced;
+}
+
 } // namespace TranslationLogic

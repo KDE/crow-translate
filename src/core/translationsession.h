@@ -8,6 +8,7 @@
 
 #include "language.h"
 #include "translator/atranslationprovider.h"
+#include "translator/translationlogic.h"
 #include "tts/attsprovider.h"
 
 #include <QImage>
@@ -96,6 +97,12 @@ public:
 
     // The destination to use when the user asked for auto.
     Language preferredDestination(const Language &source) const;
+
+    // Which sides a global action switches to Auto before it runs: the two
+    // "force ... detection" settings and whether the backend in use can detect
+    // at all, put through TranslationLogic::forcedAuto(). The settings are
+    // read here and by nobody else.
+    TranslationLogic::ForcedAuto forcedAutoFor(TranslationLogic::ForcedFlow flow) const;
 
     // --- translating --------------------------------------------------------
 

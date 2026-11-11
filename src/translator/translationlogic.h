@@ -33,6 +33,34 @@ Language preferredDestination(const Language &source,
                               const Language &secondary,
                               const Language &fallback);
 
+// "Force source language detection" and "Force translation language
+// detection" (both on as installed): a global action switches the source, the
+// destination or both to Auto before it runs, whatever is chosen on the
+// buttons. Which side for which action is decided here and nowhere else - it
+// used to be written out in each action, and the copies drifted.
+enum class ForcedFlow {
+    TranslateSelection, // translate, speak-translated and copy-translated selection
+    SpeakSelection, // read the selection out: nothing is translated
+    Recognition, // every way a recognition starts: screen area, delayed, an image
+};
+
+struct ForcedAuto {
+    bool source = false;
+    bool destination = false;
+
+    bool operator==(const ForcedAuto &other) const
+    {
+        return source == other.source && destination == other.destination;
+    }
+};
+
+// forceSource/forceDestination are the two settings. engineDetects is whether
+// the translation backend in use can find out what language a text is in:
+// one that cannot (DeepL and Reverso through Mozhi, the Copy backend) has no
+// use for an automatic source and fails on it, so the source the user chose
+// is kept - as it was until 4.0.0 dropped the check.
+ForcedAuto forcedAuto(ForcedFlow flow, bool forceSource, bool forceDestination, bool engineDetects);
+
 } // namespace TranslationLogic
 
 #endif // TRANSLATIONLOGIC_H
