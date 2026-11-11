@@ -354,6 +354,29 @@ target_link_libraries(test_appsettings_prompts PRIVATE
 )
 add_test(NAME AppSettingsPromptsTest COMMAND test_appsettings_prompts)
 
+# Autostart without the portal: the desktop file is copied from where the
+# application is installed, not from /usr - headless OK. Unix desktops only;
+# Windows and macOS have their own mechanisms.
+if(UNIX AND NOT APPLE)
+    add_executable(test_autostart
+        test_autostart.cpp
+    )
+    target_link_libraries(test_autostart PRIVATE
+        ${PROJECT_NAME}-lib
+        test-support
+        Qt6::Test
+    )
+    add_test(NAME AutostartTest COMMAND test_autostart)
+    # What the two lists further down do for the targets that exist everywhere.
+    if(WITH_PIPER_TTS AND ONNXRuntime_USE_STATIC)
+        configure_onnxruntime_static(test_autostart)
+        add_dependencies(test_autostart onnxruntime_ready)
+    endif()
+    if(NOT BUILD_TESTING)
+        set_target_properties(test_autostart PROPERTIES EXCLUDE_FROM_ALL TRUE)
+    endif()
+endif()
+
 # The global shortcuts' defaults: each its own, no key shared - headless OK.
 add_executable(test_appsettings_shortcuts
     test_appsettings_shortcuts.cpp

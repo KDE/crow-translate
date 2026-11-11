@@ -42,7 +42,16 @@ void UnixAutostartManager::setAutostartEnabled(bool enabled)
             }
         }
 
-        const QString desktopFileName = QStringLiteral("/usr/share/applications/%1").arg(desktopFileFullName());
+        // The desktop file is where the application was installed, and that
+        // is found the way the desktop finds it: along the XDG data
+        // directories. Only /usr was looked in, so autostart could not be
+        // switched on for an installation under /usr/local or /opt, in a Nix
+        // profile, from an AppImage or out of a build tree. /usr stays the
+        // last resort, and the place the message names when there is none.
+        QString desktopFileName = QStandardPaths::locate(QStandardPaths::ApplicationsLocation, desktopFileFullName());
+        if (desktopFileName.isEmpty()) {
+            desktopFileName = QStringLiteral("/usr/share/applications/%1").arg(desktopFileFullName());
+        }
         if (!QFile::copy(desktopFileName, autostartDir.filePath(desktopFileFullName())))
             showError(tr("Unable to copy %1 to %2").arg(desktopFileName, autostartDir.path()));
 
