@@ -25,6 +25,8 @@
 #include "testisolation.h"
 #include "core/usernotifier.h"
 #include "ocr/llmocr.h"
+#include "ocr/screengrabbers/abstractscreengrabber.h"
+#include "ocr/snippingarea.h"
 #include "settings/appsettings.h"
 #include "settings/settingsdialog.h"
 #include "translator/atranslationprovider.h"
@@ -39,6 +41,7 @@
 #include <QKeyEvent>
 #include <QLocale>
 #include <QMessageBox>
+#include <QPixmap>
 #include <QSignalSpy>
 #include <QTest>
 #include <QTextEdit>
@@ -170,6 +173,8 @@ private slots:
     void testChoosingALanguageInThePopupTranslatesAgain();
     void testNotificationModeShowsTheTranslationAsANotification();
     void testNotificationModeLeavesAnOpenWindowToShowIt();
+    void testARecognitionThatIsNotTranslatedBringsTheWindowUp();
+    void testADelayedCaptureTakesTheWindowOutOfThePicture();
 
 private:
     static void waitForTranslateButton(MainWindow &window);
@@ -1487,6 +1492,75 @@ void MainWindowFeaturesTest::testNotificationModeLeavesAnOpenWindowToShowIt()
     QCOMPARE(notified.count(), 0);
 
     settings.setWindowMode(AppSettings::defaultWindowMode());
+}
+
+namespace
+{
+// The vision engine at the mock, and a delay long enough that nothing is ever
+// captured: the tests say themselves what happened on the overlay.
+void pinRecognitionWithoutCapture(const MockHttpServer &server)
+{
+    pinLlmOcrSettings(server);
+    AppSettings().setCaptureDelay(600000);
+}
+
+// What the overlay reports when a piece of the screen has been picked.
+void snip(MainWindow &window)
+{
+    auto *area = window.findChild<SnippingArea *>();
+    QVERIFY(area != nullptr);
+    QPixmap picked(64, 32);
+    picked.fill(Qt::white);
+    emit area->snipped(picked, 96);
+}
+} // namespace
+
+// "Recognize" from the tray, the window hidden: the text is recognized into
+// the source field, and the window comes up to show it - 3.1.0 opened it when
+// the recognition started. Since 4.0.0 nothing did, and the text arrived in a
+// window nobody was looking at.
+void MainWindowFeaturesTest::testARecognitionThatIsNotTranslatedBringsTheWindowUp()
+{
+    MockHttpServer server;
+    server.queueJson(200, chatCompletionJson(QStringLiteral("RECOGNIZED")));
+    pinLocalAiSettings(server);
+    pinRecognitionWithoutCapture(server);
+
+    MainWindow window;
+    window.hide();
+    window.delayedRecognizeScreenArea();
+    QVERIFY(window.isHidden()); // nothing to show yet
+
+    snip(window);
+    QVERIFY(window.isVisible());
+    QVERIFY(!window.isMinimized());
+}
+
+// The delay is there to give the user time to bring up what is to be
+// captured - a menu, a tooltip. The window that started it gets out of the
+// way meanwhile, and comes back with the text.
+void MainWindowFeaturesTest::testADelayedCaptureTakesTheWindowOutOfThePicture()
+{
+    MockHttpServer server;
+    server.queueJson(200, chatCompletionJson(QStringLiteral("RECOGNIZED")));
+    pinLocalAiSettings(server);
+    pinRecognitionWithoutCapture(server);
+
+    MainWindow window;
+    window.show();
+    QVERIFY(QTest::qWaitForWindowExposed(&window));
+    QVERIFY(!window.isMinimized());
+
+    window.delayedRecognizeScreenArea();
+    QVERIFY(window.isMinimized());
+
+    // The screen has been grabbed - or could not be: either way the wait is
+    // over, and the window is back before the overlay comes up over it.
+    auto *grabber = window.findChild<AbstractScreenGrabber *>();
+    QVERIFY(grabber != nullptr);
+    emit grabber->grabbingFailed();
+    QVERIFY(window.isVisible());
+    QVERIFY(!window.isMinimized());
 }
 
 #include "test_mainwindow_features.moc"

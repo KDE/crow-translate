@@ -169,6 +169,8 @@ private:
     // Reads the selection into the source field and translates it, for `use`.
     void translateSelectionFor(SelectionUse use);
     void applyForcedAuto(TranslationLogic::ForcedFlow flow);
+    void stepAsideForCapture();
+    void comeBackFromCapture();
     // Translates again after the user picked a language, where translating is
     // automatic; see its definition.
     void retranslateForLanguageChange();
@@ -201,6 +203,8 @@ private:
     // True while the window is moving the language buttons itself - forcing,
     // swapping, loading, falling back - which is not the user choosing one.
     bool m_movingLanguagesItself = false;
+    // True while the window is minimized for a delayed capture to wait.
+    bool m_steppedAside = false;
     QMetaObject::Connection m_languageChangeConnection;
     // Whether this request's first streamed piece has already brought the
     // translation window up.

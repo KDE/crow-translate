@@ -131,12 +131,22 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_toggleOcrNegateHotkey, &QHotkey::activated, this, &MainWindow::toggleOcrNegate);
 
     // OCR logic
+    // Before the overlay is shown: see comeBackFromCapture().
+    connect(m_screenGrabber, &AbstractScreenGrabber::grabbed, this, &MainWindow::comeBackFromCapture);
+    connect(m_screenGrabber, &AbstractScreenGrabber::grabbingFailed, this, &MainWindow::comeBackFromCapture);
     connect(m_screenGrabber, &AbstractScreenGrabber::grabbed, m_snippingArea, &SnippingArea::snip);
     connect(m_snippingArea, &SnippingArea::snipped, this, [this](const QPixmap &pixmap, int dpi) {
         // Now there is something to recognize, and the languages are switched
         // for it. Not when the action starts: an overlay left with Escape, or
         // a click without a drag, recognizes nothing and changes nothing.
         applyForcedAuto(TranslationLogic::ForcedFlow::Recognition);
+        // A recognition that is not going to be translated has only this
+        // window to appear in, so the window comes up for it - also from the
+        // tray, also after a delayed capture has put it away. A translation
+        // shows itself where the window mode says, when it is done.
+        if (!m_session->isOcrTranslationArmed()) {
+            open();
+        }
         m_session->ocr()->recognize(pixmap.toImage(), dpi);
     });
     // An abandoned snip must not leave a translation armed for whatever gets
@@ -687,6 +697,29 @@ Q_SCRIPTABLE void MainWindow::translateScreenArea()
     }
 }
 
+// The delay of a delayed capture is the user's time to bring up what is to be
+// captured. The window the capture was started from is in the way of that,
+// and in the picture: it is minimized for the wait, as it was in 3.1.0.
+void MainWindow::stepAsideForCapture()
+{
+    if (isVisible() && !isMinimized()) {
+        m_steppedAside = true;
+        setWindowState(windowState() | Qt::WindowMinimized);
+    }
+}
+
+// The picture is taken, and the window that got out of its way comes back -
+// before the overlay is shown on top of everything. The overlay belongs to
+// this window, and a window whose owner is minimized is not given the
+// keyboard on Windows: it came up, and Escape went somewhere else.
+void MainWindow::comeBackFromCapture()
+{
+    if (m_steppedAside) {
+        m_steppedAside = false;
+        setWindowState(windowState() & ~Qt::WindowMinimized);
+    }
+}
+
 Q_SCRIPTABLE void MainWindow::delayedRecognizeScreenArea()
 {
     if (!prepareOcr()) {
@@ -696,6 +729,7 @@ Q_SCRIPTABLE void MainWindow::delayedRecognizeScreenArea()
     if ((m_screenCaptureTimer != nullptr) && (m_screenGrabber != nullptr)) {
         const AppSettings settings;
         m_screenCaptureTimer->start(settings.captureDelay());
+        stepAsideForCapture();
         connect(
             m_screenCaptureTimer,
             &QTimer::timeout,
@@ -717,6 +751,7 @@ Q_SCRIPTABLE void MainWindow::delayedTranslateScreenArea()
     if ((m_screenCaptureTimer != nullptr) && (m_screenGrabber != nullptr)) {
         const AppSettings settings;
         m_screenCaptureTimer->start(settings.captureDelay());
+        stepAsideForCapture();
         connect(
             m_screenCaptureTimer,
             &QTimer::timeout,
