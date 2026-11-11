@@ -27,7 +27,6 @@
 #include "core/usernotifier.h"
 #include "ocr/screengrabbers/abstractscreengrabber.h"
 #include "ocr/snippingarea.h"
-#include "ocr/snippingarea.h"
 #include "settings/appsettings.h"
 #include "settings/settingsdialog.h"
 #include "translator/atranslationprovider.h"
