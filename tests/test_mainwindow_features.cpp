@@ -173,6 +173,7 @@ private slots:
     void testChoosingALanguageInThePopupTranslatesAgain();
     void testNotificationModeShowsTheTranslationAsANotification();
     void testNotificationModeLeavesAnOpenWindowToShowIt();
+    void testSwappingInThePopupSwapsTheLanguages();
     void testARecognitionThatIsNotTranslatedBringsTheWindowUp();
     void testADelayedCaptureTakesTheWindowOutOfThePicture();
     void testAChangeOfTheInterfaceLanguageReachesTheWindow();
@@ -1493,6 +1494,40 @@ void MainWindowFeaturesTest::testNotificationModeLeavesAnOpenWindowToShowIt()
     QCOMPARE(notified.count(), 0);
 
     settings.setWindowMode(AppSettings::defaultWindowMode());
+}
+
+// "Swap" in the pop-up is the main window's swap, passed on. English to
+// Spanish swapped is Spanish to English, and Spanish has to become a button
+// on the source side for that. The pop-up has a copy of the language buttons
+// which was told when one was checked and not when one was added: it could
+// not check a button it did not have, fell back to Auto - and passed its Auto
+// back to the main window. Swapped from the pop-up, both sides ended on Auto.
+void MainWindowFeaturesTest::testSwappingInThePopupSwapsTheLanguages()
+{
+    MockHttpServer server;
+    pinLocalAiSettings(server); // English on the source side, Spanish on the other
+
+    const Language english(QLocale::English);
+    const Language spanish(QLocale::Spanish);
+
+    MainWindow window;
+    PopupWindow popup(&window);
+    auto *swap = popup.findChild<QToolButton *>(QStringLiteral("swapButton"));
+    QVERIFY(swap != nullptr);
+    QTest::mouseClick(swap, Qt::LeftButton);
+
+    QVERIFY(!window.sourceLanguageButtons()->isAutoButtonChecked());
+    QVERIFY(!window.translationLanguageButtons()->isAutoButtonChecked());
+    QCOMPARE(window.sourceLanguageButtons()->checkedLanguage(), spanish);
+    QCOMPARE(window.translationLanguageButtons()->checkedLanguage(), english);
+
+    // The pop-up shows what the window has.
+    auto *popupSource = popup.findChild<LanguageButtonsWidget *>(QStringLiteral("sourceLanguagesWidget"));
+    auto *popupTranslation = popup.findChild<LanguageButtonsWidget *>(QStringLiteral("translationLanguagesWidget"));
+    QVERIFY(popupSource != nullptr && popupTranslation != nullptr);
+    QCOMPARE(popupSource->checkedLanguage(), spanish);
+    QCOMPARE(popupTranslation->checkedLanguage(), english);
+    QCOMPARE(popupSource->languages(), window.sourceLanguageButtons()->languages());
 }
 
 namespace

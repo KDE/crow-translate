@@ -348,5 +348,15 @@ void PopupWindow::connectLanguageButtons(LanguageButtonsWidget *popupButtons, co
     popupButtons->checkButton(mainWindowButtons->checkedId());
     connect(popupButtons, &LanguageButtonsWidget::buttonChecked, mainWindowButtons, &LanguageButtonsWidget::checkButton);
     connect(popupButtons, &LanguageButtonsWidget::languagesChanged, mainWindowButtons, &LanguageButtonsWidget::setLanguages);
+    // The buttons themselves have to follow the window before a check can: a
+    // swap adds the other side's language as a new button and checks it. Told
+    // of the check alone, the copy here had no such button, fell back to Auto,
+    // and - being mirrored the other way too - put the window on Auto with it.
+    // Connected before the check below, since that is the order they come in.
+    const auto follow = [popupButtons, mainWindowButtons]() {
+        popupButtons->setLanguages(mainWindowButtons->languages());
+    };
+    connect(mainWindowButtons, &LanguageButtonsWidget::languageAdded, popupButtons, follow);
+    connect(mainWindowButtons, &LanguageButtonsWidget::languagesChanged, popupButtons, follow);
     connect(mainWindowButtons, &LanguageButtonsWidget::buttonChecked, popupButtons, &LanguageButtonsWidget::checkButton);
 }
