@@ -1180,8 +1180,11 @@ void MainWindow::setTranslationHtml(const QString &html)
 
 void MainWindow::setOrientation(Qt::ScreenOrientation orientation)
 {
-    if (orientation == Qt::PrimaryOrientation)
-        orientation = screen()->orientation();
+    // QScreen::orientation() is Qt::PrimaryOrientation itself where the platform does not know
+    // how the screen is turned, and the switch below has no case for that: it used to run into
+    // Q_UNREACHABLE(), which left the translation's row of buttons without a direction - every
+    // one of them piled up in the window's corner - and aborts a debug build.
+    orientation = ScreenWatcher::layoutOrientation(orientation, screen()->orientation(), screen()->primaryOrientation());
 
     switch (orientation) {
     case Qt::LandscapeOrientation:

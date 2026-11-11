@@ -22,6 +22,13 @@ public:
 
     static bool isWidthFitScreen(QWidget *widget);
 
+    // The orientation a window is laid out for: the one asked for or, when that is left to the
+    // screen (Qt::PrimaryOrientation), the one the screen reports. A platform that does not
+    // know how its screen is turned reports Qt::PrimaryOrientation as well - the offscreen and
+    // VNC platforms do, and a plain framebuffer - and then the screen's shape decides, which is
+    // what `primary` (QScreen::primaryOrientation()) is. Never answers Qt::PrimaryOrientation.
+    static Qt::ScreenOrientation layoutOrientation(Qt::ScreenOrientation wanted, Qt::ScreenOrientation reported, Qt::ScreenOrientation primary);
+
 signals:
     void screenOrientationChanged(Qt::ScreenOrientation orientation);
 

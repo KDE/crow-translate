@@ -24,6 +24,24 @@ bool ScreenWatcher::isWidthFitScreen(QWidget *widget)
     return widget->frameGeometry().width() <= widget->screen()->availableGeometry().width();
 }
 
+Qt::ScreenOrientation ScreenWatcher::layoutOrientation(Qt::ScreenOrientation wanted, Qt::ScreenOrientation reported, Qt::ScreenOrientation primary)
+{
+    for (const Qt::ScreenOrientation candidate : {wanted, reported}) {
+        switch (candidate) {
+        case Qt::LandscapeOrientation:
+        case Qt::PortraitOrientation:
+        case Qt::InvertedLandscapeOrientation:
+        case Qt::InvertedPortraitOrientation:
+            return candidate;
+        default:
+            // Qt::PrimaryOrientation, or a value that is none of them (the setting is read
+            // from a file): not an answer, ask the next one.
+            break;
+        }
+    }
+    return primary == Qt::PortraitOrientation ? Qt::PortraitOrientation : Qt::LandscapeOrientation;
+}
+
 void ScreenWatcher::listenForOrientationChange(QScreen *screen)
 {
     connect(screen, &QScreen::orientationChanged, [this, screen](Qt::ScreenOrientation orientation) {
