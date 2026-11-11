@@ -476,6 +476,29 @@ QKeySequence MainWindow::closeWindowShortcut() const
     return m_closeWindowsShortcut->key();
 }
 
+// The window's own texts follow the interface language when it is changed in
+// the settings, and the system's when that is what is being followed. The
+// language buttons and the status strip always did; this handler was lost
+// with the rest of the 3.1.0 window, and with it the only caller of
+// TrayIcon::retranslateMenu().
+void MainWindow::changeEvent(QEvent *event)
+{
+    switch (event->type()) {
+    case QEvent::LocaleChange:
+        if (const QLocale locale = AppSettings().locale(); locale == AppSettings::defaultLocale()) {
+            AppSettings::applyLocale(locale);
+        }
+        break;
+    case QEvent::LanguageChange:
+        ui->retranslateUi(this);
+        m_trayIcon->retranslateMenu();
+        break;
+    default:
+        break;
+    }
+    QMainWindow::changeEvent(event);
+}
+
 void MainWindow::setListenForContentChanges(bool listen)
 {
     m_listenForContentChanges = listen;

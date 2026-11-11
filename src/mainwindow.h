@@ -273,6 +273,7 @@ private:
 
 protected:
     void closeEvent(QCloseEvent *event) override;
+    void changeEvent(QEvent *event) override;
 
 signals:
     void translationRequested(const QString &inputText, const Language &translationLang, const Language &sourceLang);

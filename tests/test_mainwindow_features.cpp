@@ -175,6 +175,7 @@ private slots:
     void testNotificationModeLeavesAnOpenWindowToShowIt();
     void testARecognitionThatIsNotTranslatedBringsTheWindowUp();
     void testADelayedCaptureTakesTheWindowOutOfThePicture();
+    void testAChangeOfTheInterfaceLanguageReachesTheWindow();
 
 private:
     static void waitForTranslateButton(MainWindow &window);
@@ -1561,6 +1562,31 @@ void MainWindowFeaturesTest::testADelayedCaptureTakesTheWindowOutOfThePicture()
     emit grabber->grabbingFailed();
     QVERIFY(window.isVisible());
     QVERIFY(!window.isMinimized());
+}
+
+// Choosing another interface language in the settings takes effect at once.
+// The language buttons and the status strip followed; the window's own texts
+// - tooltips, placeholders, the check box - stayed in the old language until
+// the next start, because the window had stopped listening for the change.
+void MainWindowFeaturesTest::testAChangeOfTheInterfaceLanguageReachesTheWindow()
+{
+    MockHttpServer server;
+    pinLocalAiSettings(server);
+
+    MainWindow window;
+    const QString tooltip = window.translateButton()->toolTip();
+    const QString placeholder = window.sourceEdit()->placeholderText();
+    QVERIFY(!tooltip.isEmpty());
+
+    // As if they were still in the language before.
+    window.translateButton()->setToolTip(QStringLiteral("stale"));
+    window.sourceEdit()->setPlaceholderText(QStringLiteral("stale"));
+
+    QEvent languageChange(QEvent::LanguageChange);
+    QApplication::sendEvent(&window, &languageChange);
+
+    QCOMPARE(window.translateButton()->toolTip(), tooltip);
+    QCOMPARE(window.sourceEdit()->placeholderText(), placeholder);
 }
 
 #include "test_mainwindow_features.moc"
