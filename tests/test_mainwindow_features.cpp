@@ -164,6 +164,9 @@ private slots:
     void testPopupCombosKeepTrackingTheMainWindowAfterItIsOpen();
     void testPopupVoicesMatchTheMainWindowAfterARealTranslation();
     void testAutoButtonNamesTheDestinationItResolvedTo();
+    void testChoosingAnotherLanguageTranslatesAgain();
+    void testChoosingALanguageWaitsForTranslateWhenNothingIsAutomatic();
+    void testChoosingALanguageInThePopupTranslatesAgain();
 
 private:
     static void waitForTranslateButton(MainWindow &window);
@@ -1327,6 +1330,109 @@ void MainWindowFeaturesTest::testAutoButtonNamesTheDestinationItResolvedTo()
     QTRY_COMPARE(window.translationLanguageButtons()->language(LanguageButtonsWidget::autoButtonId()), russian);
     // Still auto - naming the resolved destination must not pin it.
     QVERIFY(window.translationLanguageButtons()->isAutoButtonChecked());
+}
+
+// "Translate automatically" is on, a text has been translated, and the user
+// picks another language: the text is there and they have just said which
+// language they want it in. 3.1.0 translated it again; since 4.0.0 nothing
+// happened until Translate was pressed.
+void MainWindowFeaturesTest::testChoosingAnotherLanguageTranslatesAgain()
+{
+    MockHttpServer server;
+    server.queueJson(200, chatCompletionJson(QStringLiteral("uno")));
+    server.queueJson(200, chatCompletionJson(QStringLiteral("eins")));
+    pinLocalAiSettings(server);
+    {
+        AppSettings settings;
+        settings.setLanguages(AppSettings::Translation, {Language(QLocale::Spanish), Language(QLocale::German)});
+    }
+
+    MainWindow window;
+    QCheckBox *autoTranslate = window.findChild<QCheckBox *>(QStringLiteral("autoTranslateCheckBox"));
+    QVERIFY(autoTranslate != nullptr);
+    autoTranslate->setChecked(true);
+
+    typeText(window.sourceEdit(), QStringLiteral("one"));
+    QTRY_COMPARE_WITH_TIMEOUT(window.translationEdit()->toPlainText(), QStringLiteral("uno"), 5000);
+    const int before = server.requestCount();
+
+    window.translationLanguageButtons()->checkButton(1); // what a click on "German" does
+    QTRY_COMPARE_WITH_TIMEOUT(window.translationEdit()->toPlainText(), QStringLiteral("eins"), 5000);
+    QCOMPARE(server.requestCount(), before + 1);
+    QVERIFY2(server.requestBody(before).contains("German"), server.requestBody(before).constData());
+
+    // Once: the choice is not translated a second time by anything it set off.
+    QTest::qWait(1000);
+    QCOMPARE(server.requestCount(), before + 1);
+}
+
+// With nothing automatic the user is the one who says when: the language is
+// chosen, and Translate is still theirs to press.
+void MainWindowFeaturesTest::testChoosingALanguageWaitsForTranslateWhenNothingIsAutomatic()
+{
+    MockHttpServer server;
+    server.queueJson(200, chatCompletionJson(QStringLiteral("uno")));
+    pinLocalAiSettings(server);
+    {
+        AppSettings settings;
+        settings.setLanguages(AppSettings::Translation, {Language(QLocale::Spanish), Language(QLocale::German)});
+        // The translation in the window itself: a pop-up would be the other
+        // place where a choice of language translates.
+        settings.setWindowMode(AppSettings::MainWindow);
+    }
+
+    MainWindow window;
+    QCheckBox *autoTranslate = window.findChild<QCheckBox *>(QStringLiteral("autoTranslateCheckBox"));
+    QVERIFY(autoTranslate != nullptr);
+    autoTranslate->setChecked(false);
+
+    typeText(window.sourceEdit(), QStringLiteral("one"));
+    waitForTranslateButton(window);
+    QTest::mouseClick(window.translateButton(), Qt::LeftButton);
+    QTRY_COMPARE_WITH_TIMEOUT(window.translationEdit()->toPlainText(), QStringLiteral("uno"), 5000);
+    const int before = server.requestCount();
+
+    window.translationLanguageButtons()->checkButton(1);
+    QTest::qWait(1500);
+    QCOMPARE(server.requestCount(), before);
+    QCOMPARE(window.translationEdit()->toPlainText(), QStringLiteral("uno"));
+
+    AppSettings().setWindowMode(AppSettings::defaultWindowMode());
+}
+
+// The pop-up has the language buttons and no "translate automatically": there,
+// picking a language is how the user asks for the text in that language.
+void MainWindowFeaturesTest::testChoosingALanguageInThePopupTranslatesAgain()
+{
+    MockHttpServer server;
+    server.queueJson(200, chatCompletionJson(QStringLiteral("uno")));
+    server.queueJson(200, chatCompletionJson(QStringLiteral("eins")));
+    pinLocalAiSettings(server);
+    {
+        AppSettings settings;
+        settings.setLanguages(AppSettings::Translation, {Language(QLocale::Spanish), Language(QLocale::German)});
+    }
+
+    MainWindow window;
+    QCheckBox *autoTranslate = window.findChild<QCheckBox *>(QStringLiteral("autoTranslateCheckBox"));
+    QVERIFY(autoTranslate != nullptr);
+    autoTranslate->setChecked(false);
+
+    typeText(window.sourceEdit(), QStringLiteral("one"));
+    waitForTranslateButton(window);
+    QTest::mouseClick(window.translateButton(), Qt::LeftButton);
+    QTRY_COMPARE_WITH_TIMEOUT(window.translationEdit()->toPlainText(), QStringLiteral("uno"), 5000);
+    const int before = server.requestCount();
+
+    PopupWindow popup(&window);
+    popup.show();
+    auto *popupLanguages = popup.findChild<LanguageButtonsWidget *>(QStringLiteral("translationLanguagesWidget"));
+    QVERIFY(popupLanguages != nullptr);
+    popupLanguages->checkButton(1);
+
+    QTRY_COMPARE_WITH_TIMEOUT(window.translationEdit()->toPlainText(), QStringLiteral("eins"), 5000);
+    QCOMPARE(server.requestCount(), before + 1);
+    popup.close();
 }
 
 #include "test_mainwindow_features.moc"

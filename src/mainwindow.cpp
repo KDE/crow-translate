@@ -48,6 +48,7 @@
 #include <QMessageBox>
 #include <QMimeData>
 #include <QPointer>
+#include <QScopedValueRollback>
 #include <QScrollBar>
 #include <QSet>
 #include <QStandardPaths>
@@ -496,6 +497,7 @@ Q_SCRIPTABLE void MainWindow::translateSelection()
 // them asked whether the backend can detect a language at all.
 void MainWindow::applyForcedAuto(TranslationLogic::ForcedFlow flow)
 {
+    const QScopedValueRollback<bool> ours(m_movingLanguagesItself, true);
     const TranslationLogic::ForcedAuto forced = m_session->forcedAutoFor(flow);
     if (forced.source) {
         ui->sourceLanguagesWidget->checkAutoButton();
@@ -869,6 +871,8 @@ void MainWindow::showTranslationWindow()
 void MainWindow::loadMainWindowSettings()
 {
     AppSettings settings;
+    // The buttons are put where they were left, not chosen.
+    const QScopedValueRollback<bool> ours(m_movingLanguagesItself, true);
     ui->autoTranslateCheckBox->setChecked(settings.isAutoTranslateEnabled());
     ui->sourceLanguagesWidget->setLanguages(settings.languages(AppSettings::Source));
 
@@ -1227,6 +1231,7 @@ void MainWindow::onSourceLanguageChanged(int id)
     m_sourceLang = ui->sourceLanguagesWidget->language(id);
     publishLanguageSelection();
     updateTTSButtonStates();
+    retranslateForLanguageChange();
 }
 
 void MainWindow::onDestinationLanguageChanged(int id)
@@ -1234,6 +1239,64 @@ void MainWindow::onDestinationLanguageChanged(int id)
     m_destLang = ui->translationLanguagesWidget->language(id);
     publishLanguageSelection();
     updateTTSButtonStates();
+    retranslateForLanguageChange();
+}
+
+bool MainWindow::popupIsOpen() const
+{
+    const QList<PopupWindow *> popups = findChildren<PopupWindow *>();
+    return std::any_of(popups.cbegin(), popups.cend(), [](const PopupWindow *popup) {
+        return popup->isVisible();
+    });
+}
+
+// The user has picked a language while there is a text in the window. Where
+// translating is automatic - "translate automatically" is on, or a pop-up is
+// open, which has the language buttons and nothing else to ask with - the text
+// is translated again, into what was just chosen. 3.1.0 did this; the rewrite
+// for 4.0.0 kept the flag that said when (m_listenForContentChanges) and lost
+// everything that read it.
+//
+// Only the user's own choice counts. The window moves the buttons itself when
+// it forces them to Auto for a global action, swaps the two sides, loads the
+// settings or falls back from a language a backend does not have, and says so
+// through m_movingLanguagesItself: each of those is followed by whatever it
+// was done for, not by a translation of its own.
+void MainWindow::retranslateForLanguageChange()
+{
+    disconnect(m_languageChangeConnection);
+    if (m_movingLanguagesItself || m_hasSourceImage) {
+        return;
+    }
+    if (!ui->autoTranslateCheckBox->isChecked() && !popupIsOpen()) {
+        return;
+    }
+    if (m_session->translator() == nullptr || ui->sourceEdit->toPlainText().isEmpty()) {
+        return;
+    }
+
+    const auto translate = [this]() {
+        // The debounced follow-up of an edit would ask for the same again.
+        ui->sourceEdit->stopEditTimer();
+        const Language source = ui->sourceLanguagesWidget->isAutoButtonChecked() ? Language::autoLanguage() : m_sourceLang;
+        const Language destination = ui->translationLanguagesWidget->isAutoButtonChecked() ? Language::autoLanguage() : m_destLang;
+        emit translationRequested(ui->sourceEdit->toSourceText(), destination, source);
+    };
+
+    if (m_session->translator()->getState() == ATranslationProvider::State::Ready) {
+        translate();
+        return;
+    }
+    // Busy with the translation into the language before: this one follows it.
+    m_languageChangeConnection = connect(m_session->translator(), &ATranslationProvider::stateChanged, this, [this, translate](ATranslationProvider::State state) {
+        if (state != ATranslationProvider::State::Ready) {
+            return;
+        }
+        disconnect(m_languageChangeConnection);
+        if (!ui->sourceEdit->toPlainText().isEmpty()) {
+            translate();
+        }
+    });
 }
 
 void MainWindow::validateLanguageSupport()
@@ -1241,6 +1304,9 @@ void MainWindow::validateLanguageSupport()
     if (m_session->translator() == nullptr) {
         return;
     }
+    // A language the backend does not have is replaced by one it has: the
+    // window's doing, not a choice.
+    const QScopedValueRollback<bool> ours(m_movingLanguagesItself, true);
 
     const QVector<Language> supportedSourceLangs = m_session->translator()->supportedSourceLanguages();
     const QVector<Language> supportedDestLangs = m_session->translator()->supportedDestinationLanguages();
@@ -1797,6 +1863,9 @@ void MainWindow::on_translateButton_clicked()
 
 void MainWindow::on_swapButton_clicked()
 {
+    // The texts change sides with the languages; what follows from that is the
+    // source field's business, as for any other edit.
+    const QScopedValueRollback<bool> ours(m_movingLanguagesItself, true);
     if (m_hasSourceImage) {
         const QString translationText = ui->translationEdit->toPlainText();
         clearSourceImage();

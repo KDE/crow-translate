@@ -212,6 +212,7 @@ private slots:
     void testSwitchedOffNothingIsForced();
     void testASelectionIsReadOutInTheLanguageItIsWrittenIn();
     void testASelectionIsReadOutInTheChosenSourceWithoutAsking();
+    void testForcingIsNotTheUserChoosingALanguage();
 };
 
 void MainWindowForcedAutoTest::initTestCase()
@@ -506,6 +507,42 @@ void MainWindowForcedAutoTest::testASelectionIsReadOutInTheChosenSourceWithoutAs
     const QString request = speechRequests(server).constFirst();
     QVERIFY2(request.contains(QStringLiteral("lang=en")), qPrintable(request));
     QVERIFY2(translationRequests(server).isEmpty(), qPrintable(translationRequests(server).join(QLatin1Char('\n'))));
+}
+
+// With "translate automatically" on, choosing a language translates the text
+// again. A global action switching the buttons to Auto is not the user
+// choosing anything: the text in the window is not sent off once more on its
+// account.
+void MainWindowForcedAutoTest::testForcingIsNotTheUserChoosingALanguage()
+{
+    MockHttpServer server;
+    server.queueJson(200, mozhiAnswer(QStringLiteral("alter Text"), english()));
+    pinMozhi(server, OnlineTranslator::Google);
+    AppSettings().setAutoTranslateEnabled(true);
+
+    MainWindow window;
+    window.sourceEdit()->setPlainText(QStringLiteral("old text"));
+    QTest::mouseClick(window.translateButton(), Qt::LeftButton);
+    QTRY_COMPARE_WITH_TIMEOUT(window.translationEdit()->toPlainText(), QStringLiteral("alter Text"), 5000);
+    QTest::qWait(800); // what the edit itself still had to do
+    // The selection's own language is asked for, which with Mozhi is a request
+    // like a translation's; what must not go out again is the window's text.
+    const auto oldTextRequests = [&server]() {
+        return translationRequests(server).filter(QStringLiteral("old")).size();
+    };
+    const int before = oldTextRequests();
+    QVERIFY(before >= 1);
+
+    // Reading a selection out forces the source to Auto and translates nothing.
+    offerSelection(QStringLiteral("a selection"));
+    window.speakSelection();
+    announceSelection(QStringLiteral("a selection"));
+    QVERIFY(window.sourceLanguageButtons()->isAutoButtonChecked());
+
+    QTest::qWait(1500);
+    QCOMPARE(oldTextRequests(), before);
+
+    AppSettings().setAutoTranslateEnabled(false);
 }
 
 int main(int argc, char *argv[])

@@ -169,6 +169,10 @@ private:
     // Reads the selection into the source field and translates it, for `use`.
     void translateSelectionFor(SelectionUse use);
     void applyForcedAuto(TranslationLogic::ForcedFlow flow);
+    // Translates again after the user picked a language, where translating is
+    // automatic; see its definition.
+    void retranslateForLanguageChange();
+    bool popupIsOpen() const;
     // Clears the translation field and starts the request; see its definition.
     void requestSelectionTranslation(const QString &text, const Language &destination, const Language &source, SelectionUse use);
     void speakTranslation();
@@ -194,6 +198,10 @@ private:
     Language m_sourceLang = Language::autoLanguage();
     Language m_destLang = Language::autoLanguage();
     bool m_listenForContentChanges = false;
+    // True while the window is moving the language buttons itself - forcing,
+    // swapping, loading, falling back - which is not the user choosing one.
+    bool m_movingLanguagesItself = false;
+    QMetaObject::Connection m_languageChangeConnection;
     // Whether this request's first streamed piece has already brought the
     // translation window up.
     bool m_partialShown = false;
