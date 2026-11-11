@@ -36,11 +36,14 @@
 
 #include <QApplication>
 #include <QClipboard>
+#include <QDataStream>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QLocale>
+#include <QMessageBox>
 #include <QTest>
 #include <QTextEdit>
+#include <QTimer>
 
 namespace
 {
@@ -132,6 +135,60 @@ QStringList translationRequests(const MockHttpServer &server)
     }
     return paths;
 }
+
+// A tenth of a second of silence, for the speech server to answer with: the
+// player wants something it can play.
+MockHttpServer::Response silence()
+{
+    const quint32 rate = 8000;
+    const QByteArray samples(static_cast<qsizetype>(rate / 10 * 2), '\0');
+    QByteArray wav;
+    QDataStream out(&wav, QIODevice::WriteOnly);
+    out.setByteOrder(QDataStream::LittleEndian);
+    out.writeRawData("RIFF", 4);
+    out << static_cast<quint32>(36 + samples.size());
+    out.writeRawData("WAVEfmt ", 8);
+    out << static_cast<quint32>(16) << static_cast<quint16>(1) << static_cast<quint16>(1) << rate << rate * 2 << static_cast<quint16>(2)
+        << static_cast<quint16>(16);
+    out.writeRawData("data", 4);
+    out << static_cast<quint32>(samples.size());
+    out.writeRawData(samples.constData(), static_cast<int>(samples.size()));
+
+    MockHttpServer::Response response;
+    response.body = wav;
+    response.headers.insert(QStringLiteral("Content-Type"), QStringLiteral("audio/wav"));
+    return response;
+}
+
+// A machine with nothing to play sound on answers a speech request with a
+// message box, which would wait for somebody to click it. What these tests
+// are about has happened by then - the request went out - so it is closed.
+void dismissMessageBoxes(QObject *owner)
+{
+    auto *timer = new QTimer(owner);
+    QObject::connect(timer, &QTimer::timeout, owner, []() {
+        for (QWidget *widget : QApplication::topLevelWidgets()) {
+            if (auto *box = qobject_cast<QMessageBox *>(widget); box != nullptr && box->isVisible()) {
+                box->close();
+            }
+        }
+    });
+    timer->start(100);
+}
+
+// What was asked of the speech server, which is where Mozhi's speech comes
+// from: the player fetches /api/tts?engine=..&lang=..&text=.. and plays it.
+QStringList speechRequests(const MockHttpServer &server)
+{
+    QStringList paths;
+    for (int i = 0; i < server.requestCount(); ++i) {
+        const QString path = server.requestPath(i);
+        if (path.contains(QStringLiteral("/api/tts"))) {
+            paths << path;
+        }
+    }
+    return paths;
+}
 } // namespace
 
 class MainWindowForcedAutoTest : public QObject
@@ -150,6 +207,8 @@ private slots:
     void testARecognitionSwitchesBothSidesToAuto();
     void testARecognitionKeepsTheChosenSourceOfAnEngineThatCannotDetect();
     void testSwitchedOffNothingIsForced();
+    void testASelectionIsReadOutInTheLanguageItIsWrittenIn();
+    void testASelectionIsReadOutInTheChosenSourceWithoutAsking();
 };
 
 void MainWindowForcedAutoTest::initTestCase()
@@ -338,6 +397,69 @@ void MainWindowForcedAutoTest::testSwitchedOffNothingIsForced()
     QVERIFY(!requests.isEmpty());
     QVERIFY2(requests.constLast().contains(QStringLiteral("from=en")) && requests.constLast().contains(QStringLiteral("to=es")),
              qPrintable(requests.constLast()));
+}
+
+// The speak-selection shortcut over German words, after an English text has
+// been translated. 3.1.0 found out what language the selection was in and
+// then read it; since 4.0.0 it was read at once, in whatever the source side
+// had last come to - English here, with an English voice.
+void MainWindowForcedAutoTest::testASelectionIsReadOutInTheLanguageItIsWrittenIn()
+{
+    MockHttpServer server;
+    pinMozhi(server, OnlineTranslator::Google);
+    AppSettings().setTTSProviderBackend(ATTSProvider::ProviderBackend::Mozhi);
+
+    MainWindow window;
+    server.queueJson(200, mozhiAnswer(QStringLiteral("ein Text"), english()));
+    offerSelection(QStringLiteral("a text"));
+    window.translateSelection();
+    announceSelection(QStringLiteral("a text"));
+    QTRY_COMPARE_WITH_TIMEOUT(window.translationEdit()->toPlainText(), QStringLiteral("ein Text"), 5000);
+    QCOMPARE(window.spokenSourceLanguage(), english());
+    QVERIFY(speechRequests(server).isEmpty());
+
+    server.queueJson(200, mozhiAnswer(QString(), german())); // what language is this?
+    server.queueResponse(silence()); // and the speech
+    dismissMessageBoxes(&window);
+    offerSelection(QStringLiteral("Guten Tag zusammen"));
+    window.speakSelection();
+    announceSelection(QStringLiteral("Guten Tag zusammen"));
+
+    QTRY_VERIFY_WITH_TIMEOUT(!speechRequests(server).isEmpty(), 8000);
+    const QString request = speechRequests(server).constFirst();
+    QVERIFY2(request.contains(QStringLiteral("lang=de")), qPrintable(request));
+    QVERIFY2(request.contains(QStringLiteral("Guten")), qPrintable(request));
+    // The window agrees with what was said: the source is German now, and so
+    // are the voices its play button would use.
+    QCOMPARE(window.spokenSourceLanguage(), german());
+    QCOMPARE(window.voiceComboSourceLanguage(), german());
+    // The translation on screen is still the one into German.
+    QCOMPARE(window.spokenTranslationLanguage(), german());
+}
+
+// With a source chosen and nothing forced there is nothing to find out, and
+// the text goes nowhere but to the speech.
+void MainWindowForcedAutoTest::testASelectionIsReadOutInTheChosenSourceWithoutAsking()
+{
+    MockHttpServer server;
+    pinMozhi(server, OnlineTranslator::Google);
+    {
+        AppSettings settings;
+        settings.setTTSProviderBackend(ATTSProvider::ProviderBackend::Mozhi);
+        settings.setForceSourceAutodetect(false);
+    }
+
+    MainWindow window;
+    server.queueResponse(silence());
+    dismissMessageBoxes(&window);
+    offerSelection(QStringLiteral("a selection"));
+    window.speakSelection();
+    announceSelection(QStringLiteral("a selection"));
+
+    QTRY_VERIFY_WITH_TIMEOUT(!speechRequests(server).isEmpty(), 8000);
+    const QString request = speechRequests(server).constFirst();
+    QVERIFY2(request.contains(QStringLiteral("lang=en")), qPrintable(request));
+    QVERIFY2(translationRequests(server).isEmpty(), qPrintable(translationRequests(server).join(QLatin1Char('\n'))));
 }
 
 int main(int argc, char *argv[])

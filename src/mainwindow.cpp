@@ -182,6 +182,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_session, &TranslationSession::ttsStateChanged, this, &MainWindow::ttsStateChanged);
     connect(m_session, &TranslationSession::ttsErrorOccurred, this, &MainWindow::onTTSError);
     connect(m_session, &TranslationSession::languageDetected, this, &MainWindow::onLanguageDetected);
+    connect(m_session, &TranslationSession::sourceLanguageFound, this, &MainWindow::speakFoundSource);
     connect(m_session, &TranslationSession::engineChanged, this, &MainWindow::refreshLanguageWidgetsWithSupportedLanguages);
     connect(m_session, &TranslationSession::translationStarted, this, [](const QString &text, const Language &destLang, const Language &srcLang) {
         qDebug() << "TranslationSession::translationStarted - text:" << text.left(50) << "srcLang:" << srcLang.name() << "destLang:" << destLang.name();
@@ -566,15 +567,27 @@ Q_SCRIPTABLE void MainWindow::speakSelection()
     *selectionConnection =
         connect(&Selection::instance(), &Selection::requestedSelectionAvailable, this, [this, selectionConnection](const QString &selectedText) {
             if (!selectedText.isEmpty() && m_session->tts()) {
-                const Language sourceLanguage = spokenSourceLanguage();
-                m_session->tts()->setLanguage(sourceLanguage);
-                applySelectedVoiceAndSpeaker(true);
-                m_speechSide = SpeechSide::None;
-                m_session->tts()->say(selectedText);
+                // Read once it is known what language it is in: speakFoundSource().
+                // It used to be read at once, in whatever the source side had
+                // last come to - the language of the text before this one.
+                m_session->findSourceLanguage(selectedText);
             }
             disconnect(*selectionConnection);
         });
     Selection::instance().requestSelection();
+}
+
+// The session's answer to findSourceLanguage(). By now the language model has
+// it too, and the source's voices are the ones for this language.
+void MainWindow::speakFoundSource(const QString &text, const Language &language)
+{
+    if (m_session->tts() == nullptr) {
+        return;
+    }
+    m_session->tts()->setLanguage(language);
+    applySelectedVoiceAndSpeaker(true);
+    m_speechSide = SpeechSide::None;
+    m_session->tts()->say(text);
 }
 
 // The selection, translated and then spoken: the selection is read and

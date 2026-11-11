@@ -413,6 +413,165 @@ private slots:
     // so each of these picks the language to "detect" from where the guess
     // went: one for which the rule gives the other destination.
 
+    // --- the language of a text that is not being translated ----------------
+    //
+    // Reading a selection out. 3.1.0 found out what language it was in and
+    // then spoke; since 4.0.0 it was spoken in whatever the source side had
+    // last come to - the language of the text before it, or the system's.
+
+    // With the source on Auto and a backend that detects, the backend is
+    // asked, once, and what it says is the answer - and what the language
+    // model says the source is from then on, whatever was translated before.
+    void testTheLanguageOfATextIsAskedOfABackendThatDetects()
+    {
+        setPreference(english(), polish());
+        MockHttpServer server;
+        {
+            AppSettings settings;
+            settings.setInstance(server.baseUrl());
+            settings.setCurrentEngine(OnlineTranslator::Google);
+        }
+        TranslationSession session;
+        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        session.setSelectedLanguages(Language::autoLanguage(), Language::autoLanguage());
+
+        // An English text has been translated: that is what the source "is".
+        server.queueJson(200, mozhiAnswer(QStringLiteral("tekst"), english()));
+        session.requestTranslation(QStringLiteral("a text"), Language::autoLanguage(), Language::autoLanguage());
+        QTRY_COMPARE_WITH_TIMEOUT(session.translator()->getState(), ATranslationProvider::State::Processed, 5000);
+        QCOMPARE(session.languages()->effectiveSource(), english());
+        session.resetTranslator();
+        const int before = server.requestCount();
+
+        server.queueJson(200, mozhiAnswer(QString(), german()));
+        QSignalSpy found(&session, &TranslationSession::sourceLanguageFound);
+        Language modelWhenAnswered = Language::autoLanguage();
+        connect(&session, &TranslationSession::sourceLanguageFound, &session, [&session, &modelWhenAnswered]() {
+            modelWhenAnswered = session.languages()->effectiveSource();
+        });
+        session.findSourceLanguage(QStringLiteral("Guten Tag zusammen"));
+        QCOMPARE(found.count(), 0); // it has to be asked
+
+        QTRY_COMPARE_WITH_TIMEOUT(found.count(), 1, 5000);
+        QCOMPARE(found.at(0).at(0).toString(), QStringLiteral("Guten Tag zusammen"));
+        QCOMPARE(found.at(0).at(1).value<Language>(), german());
+        // The language model has it by the time the answer goes out: a
+        // frontend that speaks on hearing it picks its voice from there, and
+        // an English voice reads German no better for being told "German".
+        QCOMPARE(modelWhenAnswered, german());
+        QCOMPARE(session.languages()->effectiveSource(), german());
+        QCOMPARE(server.requestCount(), before + 1);
+        QVERIFY2(server.requestPath(before).contains(QStringLiteral("from=auto")), qPrintable(server.requestPath(before)));
+
+        // One question, one answer.
+        QTest::qWait(300);
+        QCOMPARE(found.count(), 1);
+    }
+
+    // A source the user chose is the answer. Nothing is sent anywhere.
+    void testAChosenSourceIsTheLanguageWithoutAsking()
+    {
+        MockHttpServer server;
+        {
+            AppSettings settings;
+            settings.setInstance(server.baseUrl());
+            settings.setCurrentEngine(OnlineTranslator::Google);
+        }
+        TranslationSession session;
+        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        session.setSelectedLanguages(polish(), english());
+
+        QSignalSpy found(&session, &TranslationSession::sourceLanguageFound);
+        session.findSourceLanguage(QStringLiteral("Guten Tag zusammen"));
+        QCOMPARE(found.count(), 1);
+        QCOMPARE(found.at(0).at(1).value<Language>(), polish());
+        QTest::qWait(200);
+        QCOMPARE(server.requestCount(), 0);
+    }
+
+    // A backend that cannot detect is not asked either: the answer is the
+    // best there is, at once.
+    void testABackendThatCannotDetectIsNotAskedForTheLanguage()
+    {
+        MockHttpServer server;
+        {
+            AppSettings settings;
+            settings.setInstance(server.baseUrl());
+            settings.setCurrentEngine(OnlineTranslator::Deepl);
+        }
+        TranslationSession session;
+        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        session.setSelectedLanguages(Language::autoLanguage(), Language::autoLanguage());
+
+        QSignalSpy found(&session, &TranslationSession::sourceLanguageFound);
+        session.findSourceLanguage(QStringLiteral("Guten Tag zusammen"));
+        QCOMPARE(found.count(), 1);
+        QCOMPARE(found.at(0).at(1).value<Language>(), session.languages()->effectiveSource());
+        QTest::qWait(200);
+        QCOMPARE(server.requestCount(), 0);
+
+        AppSettings().setCurrentEngine(OnlineTranslator::Google);
+    }
+
+    // A backend that is asked and never says - here a detection model that
+    // does not answer in time - must not leave the question open: the text is
+    // still read, in the best language there is.
+    void testALanguageQuestionIsAnsweredWhenTheBackendGivesUp()
+    {
+        setPreference(english(), polish());
+        MockHttpServer server;
+        {
+            AppSettings settings;
+            settings.setActiveLocalProvider(QStringLiteral("ollama"));
+            settings.setLocalProviderUrl(QStringLiteral("ollama"), server.baseUrl());
+            settings.setLocalProviderModel(QStringLiteral("ollama"), QStringLiteral("mock-model"));
+            settings.setLocalAiTimeout(QStringLiteral("ollama"), 1);
+            settings.setDetectProvider(QStringLiteral("ollama"));
+            settings.setDetectModel(QStringLiteral("mock-model"));
+        }
+        TranslationSession session;
+        session.setTranslationBackend(ATranslationProvider::ProviderBackend::LocalAI);
+        session.setSelectedLanguages(Language::autoLanguage(), Language::autoLanguage());
+
+        MockHttpServer::Response silence;
+        silence.hang = true;
+        server.queueResponse(silence);
+
+        QSignalSpy found(&session, &TranslationSession::sourceLanguageFound);
+        session.findSourceLanguage(QStringLiteral("Guten Tag zusammen"));
+        QCOMPARE(found.count(), 0);
+        QTRY_COMPARE_WITH_TIMEOUT(found.count(), 1, 8000);
+        QCOMPARE(found.at(0).at(0).toString(), QStringLiteral("Guten Tag zusammen"));
+        QCOMPARE(found.at(0).at(1).value<Language>(), session.languages()->effectiveSource());
+
+        AppSettings().setLocalAiTimeout(QStringLiteral("ollama"), 300);
+    }
+
+    // The same backend when it does answer.
+    void testADetectionModelSaysWhatLanguageATextIsIn()
+    {
+        setPreference(english(), polish());
+        MockHttpServer server;
+        {
+            AppSettings settings;
+            settings.setActiveLocalProvider(QStringLiteral("ollama"));
+            settings.setLocalProviderUrl(QStringLiteral("ollama"), server.baseUrl());
+            settings.setLocalProviderModel(QStringLiteral("ollama"), QStringLiteral("mock-model"));
+            settings.setDetectProvider(QStringLiteral("ollama"));
+            settings.setDetectModel(QStringLiteral("mock-model"));
+        }
+        TranslationSession session;
+        session.setTranslationBackend(ATranslationProvider::ProviderBackend::LocalAI);
+        session.setSelectedLanguages(Language::autoLanguage(), Language::autoLanguage());
+
+        server.queueJson(200, chatAnswer(QStringLiteral("de")));
+        QSignalSpy found(&session, &TranslationSession::sourceLanguageFound);
+        session.findSourceLanguage(QStringLiteral("Guten Tag zusammen"));
+        QTRY_COMPARE_WITH_TIMEOUT(found.count(), 1, 5000);
+        QCOMPARE(found.at(0).at(1).value<Language>(), german());
+        QCOMPARE(server.requestCount(), 1);
+    }
+
     // Mozhi: the language is detected by the request that translates. The
     // answer that went to the guess is never shown; the frontend hears of one
     // translation, in the language the rule gives.

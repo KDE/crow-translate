@@ -121,6 +121,17 @@ public:
     void acceptTranslation();
     void resetTranslator();
 
+    // --- a text that is read out, not translated ------------------------------
+
+    // Finds out what language `text` is in. With a source language chosen
+    // that is the answer; with the source on Auto the backend is asked, if it
+    // can tell. The answer is sourceLanguageFound(), once per call: before
+    // this returns where nothing has to be asked, when the backend has
+    // answered otherwise - or has given up, since the text is still to be
+    // read then, in the best language there is. A call made before the last
+    // one was answered takes its place.
+    void findSourceLanguage(const QString &text);
+
     // --- recognition --------------------------------------------------------
 
     // Fills Tesseract in from settings. Failure is reported through
@@ -175,6 +186,8 @@ signals:
     void ttsStateChanged(QTextToSpeech::State newState);
     void ttsErrorOccurred(QTextToSpeech::ErrorReason reason, const QString &errorString);
     void languageDetected(const Language &detectedLanguage, bool isTranslationContext);
+    // The answer to findSourceLanguage().
+    void sourceLanguageFound(const QString &text, const Language &language);
     void engineChanged(int engineIndex);
 
     // A request has gone to the provider, with the destination already
@@ -202,6 +215,17 @@ private:
     };
     AutomaticDestination m_automaticDestination;
     void followDetection(const Language &detected);
+
+    // A text whose language somebody asked for (findSourceLanguage()), until
+    // it is answered. `asked` is whether the backend has the question yet: it
+    // is put to it once it is free.
+    struct LanguageQuestion {
+        QString text;
+        bool asked = false;
+    };
+    std::optional<LanguageQuestion> m_languageQuestion;
+    void askLanguageQuestion();
+    void answerLanguageQuestion(const Language &language);
     void connectTranslator();
     void connectTts();
     void configureLlmOcr();

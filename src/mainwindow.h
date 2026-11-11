@@ -154,6 +154,7 @@ private:
     void publishLanguageSelection();
     // The provider reported a detected source, or finished a translation.
     void onLanguageDetected(const Language &detectedLanguage, bool isTranslationContext);
+    void speakFoundSource(const QString &text, const Language &language);
     // The answer so far, from a streaming provider: shown while the model is
     // still writing it.
     void onPartialTranslation(const QString &text);
@@ -286,6 +287,10 @@ public:
     Language voiceComboTranslationLanguage() const
     {
         return m_voiceComboTranslationLang;
+    }
+    Language voiceComboSourceLanguage() const
+    {
+        return m_voiceComboSourceLang;
     }
 #endif
 };

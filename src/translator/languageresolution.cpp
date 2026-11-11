@@ -54,6 +54,11 @@ void LanguageResolution::setDetectedSource(const Language &source)
 {
     emitIfChanged([this, &source]() {
         m_detectedSource = source == Language::autoLanguage() ? std::nullopt : std::optional<Language>(source);
+        // A detection is about the text in the source field now. If that is
+        // the text that was translated, the translation said the same; if it
+        // has replaced it, this is the only fact there is about it, and what
+        // the last translation was from is about a text that is gone.
+        m_detectionIsNewer = m_detectedSource.has_value();
     });
 }
 
@@ -62,6 +67,9 @@ void LanguageResolution::setTranslated(const Language &source, const Language &d
     emitIfChanged([this, &source, &destination]() {
         m_translatedSource = source == Language::autoLanguage() ? std::nullopt : std::optional<Language>(source);
         m_translatedDestination = destination == Language::autoLanguage() ? std::nullopt : std::optional<Language>(destination);
+        if (m_translatedSource.has_value()) {
+            m_detectionIsNewer = false;
+        }
     });
 }
 
@@ -115,6 +123,9 @@ Language LanguageResolution::effectiveSource() const
 {
     if (m_selectedSource != Language::autoLanguage()) {
         return m_selectedSource;
+    }
+    if (m_detectionIsNewer) {
+        return predictedSource();
     }
     return m_translatedSource.value_or(predictedSource());
 }

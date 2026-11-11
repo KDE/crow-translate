@@ -44,7 +44,10 @@ public:
     // from AppSettings so this class is testable without touching settings.
     void setPreference(const Language &primary, const Language &secondary, const Language &fallback);
 
-    // What language detection reported for the current source text.
+    // What language detection reported for the current source text. It is the
+    // newest fact about the source from here on, until the next translation:
+    // the text may no longer be the one the last translation was of. What it
+    // was translated into goes on describing the translation on screen.
     void setDetectedSource(const Language &source);
 
     // What the provider actually translated between. autoLanguage() for either
@@ -94,6 +97,8 @@ private:
     Language m_secondary;
     Language m_fallback = Language(QLocale::system());
     std::optional<Language> m_detectedSource;
+    // Whether m_detectedSource was reported after m_translatedSource.
+    bool m_detectionIsNewer = false;
     std::optional<Language> m_translatedSource;
     std::optional<Language> m_translatedDestination;
 };

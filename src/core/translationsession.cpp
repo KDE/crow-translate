@@ -101,6 +101,8 @@ void TranslationSession::setTranslationBackend(ATranslationProvider::ProviderBac
     if (m_translator != nullptr) {
         m_translator->deleteLater();
     }
+    // A question put to the old backend is not going to be answered by it.
+    const bool unanswered = m_languageQuestion.has_value();
 
     m_translationBackend = backend;
     m_translator = ATranslationProvider::createTranslationProvider(this, backend);
@@ -109,6 +111,10 @@ void TranslationSession::setTranslationBackend(ATranslationProvider::ProviderBac
     applyTranslationOptions();
 
     Q_EMIT translatorChanged();
+
+    if (unanswered) {
+        answerLanguageQuestion(m_languages->effectiveSource());
+    }
 }
 
 void TranslationSession::setTtsBackend(ATTSProvider::ProviderBackend backend)
@@ -138,6 +144,16 @@ void TranslationSession::connectTranslator()
         // current rather than re-reading it from whoever happens to ask.
         m_languages->setTranslated(m_translator->sourceLanguage, m_translator->translationLanguage);
         Q_EMIT translationStateChanged(newState);
+
+        if (m_languageQuestion.has_value()) {
+            if (!m_languageQuestion->asked) {
+                askLanguageQuestion();
+            } else {
+                // Asked, and the backend has moved on without saying: it
+                // timed out, was aborted, or was given something else to do.
+                answerLanguageQuestion(m_languages->effectiveSource());
+            }
+        }
     });
     connect(m_translator, &ATranslationProvider::partialTranslation, this, &TranslationSession::translationPartial);
     connect(m_translator, &ATranslationProvider::languageDetected, this, [this](const Language &detected, bool isTranslationContext) {
@@ -146,6 +162,10 @@ void TranslationSession::connectTranslator()
             followDetection(detected);
         }
         Q_EMIT languageDetected(detected, isTranslationContext);
+
+        if (!isTranslationContext && m_languageQuestion.has_value() && m_languageQuestion->asked) {
+            answerLanguageQuestion(detected);
+        }
     });
     connect(m_translator, &ATranslationProvider::engineChanged, this, &TranslationSession::engineChanged);
 }
@@ -269,6 +289,39 @@ void TranslationSession::followDetection(const Language &detected)
 void TranslationSession::requestTranslationOfSelection(const QString &text)
 {
     requestTranslation(text, m_languages->selectedDestination(), m_languages->selectedSource());
+}
+
+void TranslationSession::findSourceLanguage(const QString &text)
+{
+    m_languageQuestion = LanguageQuestion{text, false};
+
+    const bool automatic = m_languages->selectedSource() == Language::autoLanguage();
+    if (!automatic || text.isEmpty() || m_translator == nullptr || !m_translator->supportsAutodetection()) {
+        answerLanguageQuestion(m_languages->effectiveSource());
+        return;
+    }
+    askLanguageQuestion();
+}
+
+// Puts the question to the backend, if it is free; the state change that says
+// it is comes back here otherwise.
+void TranslationSession::askLanguageQuestion()
+{
+    if (m_translator->getState() != ATranslationProvider::State::Ready) {
+        return;
+    }
+    m_languageQuestion->asked = true;
+    // A copy: a backend that knows at once answers from inside this call, and
+    // the question is gone by the time it returns.
+    const QString text = m_languageQuestion->text;
+    m_translator->detectLanguage(text);
+}
+
+void TranslationSession::answerLanguageQuestion(const Language &language)
+{
+    const QString text = m_languageQuestion->text;
+    m_languageQuestion.reset();
+    Q_EMIT sourceLanguageFound(text, language);
 }
 
 void TranslationSession::abortTranslation()

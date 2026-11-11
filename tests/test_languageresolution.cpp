@@ -120,6 +120,30 @@ private slots:
         QCOMPARE(resolution.effectiveDestination(), russian()); // back to the prediction
     }
 
+    // A detection is about the text that is in the source field now. One that
+    // arrives after a translation is about a newer text than the translation
+    // was of, and is what the source is from then on: the selection read out
+    // after an English text had been translated was read in English, whatever
+    // it was written in. What it was translated *into* still describes the
+    // translation on screen, which stays there until the next one.
+    void testADetectionAfterATranslationIsAboutANewerText()
+    {
+        LanguageResolution resolution;
+        configure(resolution);
+        resolution.setSelected(Language::autoLanguage(), Language::autoLanguage());
+        resolution.setTranslated(english(), russian());
+        QCOMPARE(resolution.effectiveSource(), english());
+
+        resolution.setDetectedSource(german());
+        QCOMPARE(resolution.effectiveSource(), german());
+        QCOMPARE(resolution.effectiveDestination(), russian());
+
+        // ... and the next translation is the newer fact again.
+        resolution.setTranslated(polish(), english());
+        QCOMPARE(resolution.effectiveSource(), polish());
+        QCOMPARE(resolution.effectiveDestination(), english());
+    }
+
     // A provider that has not said yet reports auto, which must not be stored
     // as though it were an answer.
     void testAutoFromTheProviderIsNotAnAnswer()
