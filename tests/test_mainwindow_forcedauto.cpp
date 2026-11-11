@@ -30,6 +30,7 @@
 #include "sourcetextedit.h"
 #include "testdisplay.h"
 #include "testisolation.h"
+#include "ocr/snippingarea.h"
 #include "settings/appsettings.h"
 #include "translator/atranslationprovider.h"
 #include "tts/attsprovider.h"
@@ -41,6 +42,7 @@
 #include <QJsonObject>
 #include <QLocale>
 #include <QMessageBox>
+#include <QPixmap>
 #include <QTest>
 #include <QTextEdit>
 #include <QTimer>
@@ -206,6 +208,7 @@ private slots:
     void testSpeakingASelectionLeavesTheDestinationAlone();
     void testARecognitionSwitchesBothSidesToAuto();
     void testARecognitionKeepsTheChosenSourceOfAnEngineThatCannotDetect();
+    void testAnAbandonedSnipLeavesTheLanguagesAsTheyWere();
     void testSwitchedOffNothingIsForced();
     void testASelectionIsReadOutInTheLanguageItIsWrittenIn();
     void testASelectionIsReadOutInTheChosenSourceWithoutAsking();
@@ -333,22 +336,46 @@ void MainWindowForcedAutoTest::testSpeakingASelectionLeavesTheDestinationAlone()
     announceSelection(QStringLiteral("a selection"));
 }
 
-// A recognition, started the way its shortcut starts it. The delay is there so
-// that nothing is captured: the forcing happens when the action starts, and
-// the window is gone again long before the timer.
-void MainWindowForcedAutoTest::testARecognitionSwitchesBothSidesToAuto()
+namespace
 {
-    MockHttpServer server;
-    pinMozhi(server, OnlineTranslator::Google);
+// The vision engine at the mock, and a delay long enough that nothing is ever
+// captured: the tests below say themselves what the user did on the overlay.
+void pinRecognition(const MockHttpServer &server)
+{
     AppSettings settings;
     settings.setOcrEngine(AppSettings::OcrEngine::Llm);
     settings.setOcrLlmProvider(QStringLiteral("openai_custom"));
     settings.setOcrLlmUrl(QStringLiteral("openai_custom"), server.baseUrl());
     settings.setOcrLlmModel(QStringLiteral("openai_custom"), QStringLiteral("mock-model"));
     settings.setCaptureDelay(600000);
+}
+
+// What the overlay reports when a piece of the screen has been picked.
+void snip(MainWindow &window)
+{
+    auto *area = window.findChild<SnippingArea *>();
+    QVERIFY(area != nullptr);
+    QPixmap picked(64, 32);
+    picked.fill(Qt::white);
+    emit area->snipped(picked, 96);
+}
+} // namespace
+
+// A recognition switches the languages when there is something to recognize:
+// when a piece of the screen has been picked. Starting the action changes
+// nothing yet.
+void MainWindowForcedAutoTest::testARecognitionSwitchesBothSidesToAuto()
+{
+    MockHttpServer server;
+    pinMozhi(server, OnlineTranslator::Google);
+    pinRecognition(server);
 
     MainWindow window;
     window.delayedRecognizeScreenArea();
+    QVERIFY(!window.sourceLanguageButtons()->isAutoButtonChecked());
+    QVERIFY(!window.translationLanguageButtons()->isAutoButtonChecked());
+
+    snip(window);
     QVERIFY(window.sourceLanguageButtons()->isAutoButtonChecked());
     QVERIFY(window.translationLanguageButtons()->isAutoButtonChecked());
 }
@@ -357,18 +384,37 @@ void MainWindowForcedAutoTest::testARecognitionKeepsTheChosenSourceOfAnEngineTha
 {
     MockHttpServer server;
     pinMozhi(server, OnlineTranslator::Deepl);
-    AppSettings settings;
-    settings.setOcrEngine(AppSettings::OcrEngine::Llm);
-    settings.setOcrLlmProvider(QStringLiteral("openai_custom"));
-    settings.setOcrLlmUrl(QStringLiteral("openai_custom"), server.baseUrl());
-    settings.setOcrLlmModel(QStringLiteral("openai_custom"), QStringLiteral("mock-model"));
-    settings.setCaptureDelay(600000);
+    pinRecognition(server);
 
     MainWindow window;
     window.delayedTranslateScreenArea();
+    snip(window);
     QVERIFY(!window.sourceLanguageButtons()->isAutoButtonChecked());
     QCOMPARE(window.sourceLanguageButtons()->checkedId(), 0);
     QVERIFY(window.translationLanguageButtons()->isAutoButtonChecked());
+}
+
+// The action was started and then abandoned: Escape on the overlay, a click
+// without a drag. Nothing was recognized, and the languages the user had
+// chosen are still chosen. They used to be switched when the action started,
+// so giving up left both sides on Auto.
+void MainWindowForcedAutoTest::testAnAbandonedSnipLeavesTheLanguagesAsTheyWere()
+{
+    MockHttpServer server;
+    pinMozhi(server, OnlineTranslator::Google);
+    pinRecognition(server);
+
+    MainWindow window;
+    window.delayedTranslateScreenArea();
+    auto *area = window.findChild<SnippingArea *>();
+    QVERIFY(area != nullptr);
+    emit area->cancelled();
+
+    QVERIFY(!window.sourceLanguageButtons()->isAutoButtonChecked());
+    QCOMPARE(window.sourceLanguageButtons()->checkedId(), 0);
+    QVERIFY(!window.translationLanguageButtons()->isAutoButtonChecked());
+    QCOMPARE(window.translationLanguageButtons()->checkedId(), 0);
+    QCOMPARE(server.requestCount(), 0);
 }
 
 // Both settings off: a global action works with the languages as they are.

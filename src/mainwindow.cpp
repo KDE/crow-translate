@@ -131,6 +131,10 @@ MainWindow::MainWindow(QWidget *parent)
     // OCR logic
     connect(m_screenGrabber, &AbstractScreenGrabber::grabbed, m_snippingArea, &SnippingArea::snip);
     connect(m_snippingArea, &SnippingArea::snipped, this, [this](const QPixmap &pixmap, int dpi) {
+        // Now there is something to recognize, and the languages are switched
+        // for it. Not when the action starts: an overlay left with Escape, or
+        // a click without a drag, recognizes nothing and changes nothing.
+        applyForcedAuto(TranslationLogic::ForcedFlow::Recognition);
         m_session->ocr()->recognize(pixmap.toImage(), dpi);
     });
     // An abandoned snip must not leave a translation armed for whatever gets
@@ -647,16 +651,13 @@ void MainWindow::copyTranslation()
 }
 
 // Whether the engine can run at all is the session's question, and it reports
-// its own answer to the user. What is left here is the part that is genuinely
-// about this window: forcing the language buttons back to auto.
+// its own answer to the user. The languages are not touched here: they are
+// switched to Auto when there is something to recognize - a piece of the
+// screen that was picked, an image that was handed over - see the callers of
+// applyForcedAuto().
 bool MainWindow::prepareOcr()
 {
-    if (!m_session->prepareOcr()) {
-        return false;
-    }
-
-    applyForcedAuto(TranslationLogic::ForcedFlow::Recognition);
-    return true;
+    return m_session->prepareOcr();
 }
 
 Q_SCRIPTABLE void MainWindow::recognizeScreenArea()
@@ -1993,6 +1994,9 @@ void MainWindow::recognizeSourceImage()
         clearSourceImage();
         return;
     }
+    // The image is there: this is the recognition, not the start of an action
+    // that may still be abandoned.
+    applyForcedAuto(TranslationLogic::ForcedFlow::Recognition);
 
     AOcrProvider *engine = m_session->ocr();
 
