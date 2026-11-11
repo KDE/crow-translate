@@ -142,6 +142,9 @@ void TranslationSession::connectTranslator()
     connect(m_translator, &ATranslationProvider::partialTranslation, this, &TranslationSession::translationPartial);
     connect(m_translator, &ATranslationProvider::languageDetected, this, [this](const Language &detected, bool isTranslationContext) {
         m_languages->setDetectedSource(detected);
+        if (isTranslationContext) {
+            followDetection(detected);
+        }
         Q_EMIT languageDetected(detected, isTranslationContext);
     });
     connect(m_translator, &ATranslationProvider::engineChanged, this, &TranslationSession::engineChanged);
@@ -205,17 +208,55 @@ void TranslationSession::requestTranslation(const QString &text, const Language 
         return;
     }
 
+    m_automaticDestination = {};
     Language actualDestination = destination;
     if (destination == Language::autoLanguage()) {
         // A known source answers the preference rule outright. An unknown one
-        // cannot, so this is a placeholder: detection reports the real source
-        // shortly afterwards, and the retranslate path corrects the
-        // destination if the rule then lands somewhere else.
-        actualDestination = preferredDestination(source == Language::autoLanguage() ? Language(QLocale::system()) : source);
+        // cannot, so this is a guess, remembered as one: the provider reports
+        // the real source shortly, and followDetection() puts it right.
+        const bool sourceUnknown = source == Language::autoLanguage();
+        actualDestination = preferredDestination(sourceUnknown ? Language(QLocale::system()) : source);
+        if (sourceUnknown) {
+            m_automaticDestination = {true, text, actualDestination};
+        }
     }
 
     Q_EMIT translationStarted(text, actualDestination, source);
     m_translator->translate(text, actualDestination, source);
+}
+
+// The one place where "the destination is automatic" meets "now we know the
+// source". It was three: the window asked again when a detection arrived with
+// a finished translation, the command line did the same on its own once the
+// translation was through, and a backend that detects before it translates
+// was nobody's business - it went on to the guess, and that was the answer
+// the user got.
+void TranslationSession::followDetection(const Language &detected)
+{
+    if (!m_automaticDestination.pending || m_translator == nullptr) {
+        return;
+    }
+    // The source is known from here on, so this happens once per request.
+    m_automaticDestination.pending = false;
+
+    const Language preferred = preferredDestination(detected);
+    if (preferred == m_automaticDestination.guess) {
+        return;
+    }
+
+    if (m_translator->redirect(preferred)) {
+        // Not asked for yet: it goes to the right language in the first place.
+        m_languages->setTranslated(m_translator->sourceLanguage, m_translator->translationLanguage);
+        return;
+    }
+    if (m_translator->getState() == ATranslationProvider::State::Processed) {
+        // The detection came with the translation, into the guess. Once more.
+        // The provider has not announced that result yet and now will not:
+        // the next thing a frontend hears is this request's.
+        qDebug() << "Retranslating from" << detected.name() << "to preferred destination:" << preferred.name();
+        Q_EMIT translationStarted(m_automaticDestination.text, preferred, detected);
+        m_translator->translate(m_automaticDestination.text, preferred, detected);
+    }
 }
 
 void TranslationSession::requestTranslationOfSelection(const QString &text)
@@ -225,6 +266,7 @@ void TranslationSession::requestTranslationOfSelection(const QString &text)
 
 void TranslationSession::abortTranslation()
 {
+    m_automaticDestination = {};
     if (m_translator != nullptr) {
         m_translator->abort();
     }
@@ -239,6 +281,7 @@ void TranslationSession::acceptTranslation()
 
 void TranslationSession::resetTranslator()
 {
+    m_automaticDestination = {};
     if (m_translator != nullptr) {
         m_translator->reset();
     }

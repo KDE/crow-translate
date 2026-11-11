@@ -26,6 +26,9 @@
 #include "tts/attsprovider.h"
 
 #include <QImage>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QSettings>
 #include <QSignalSpy>
 #include <QTemporaryDir>
@@ -90,6 +93,46 @@ private:
         AppSettings settings;
         settings.setPrimaryLanguage(primary);
         settings.setSecondaryLanguage(secondary);
+    }
+
+    // For the tests of an automatic destination with an unknown source, below.
+    struct Guess {
+        Language guess; // where the request goes before anything is known
+        Language detected; // what the backend will be made to find
+        Language preferred; // where the rule sends that
+    };
+
+    static Guess wrongGuess(const TranslationSession &session)
+    {
+        Guess g;
+        g.guess = session.preferredDestination(Language(QLocale::system()));
+        g.detected = g.guess == english() ? english() : german();
+        g.preferred = session.preferredDestination(g.detected);
+        return g;
+    }
+
+    static QByteArray mozhiAnswer(const QString &translation, const Language &detected)
+    {
+        return QJsonDocument(QJsonObject{{QStringLiteral("translated-text"), translation}, {QStringLiteral("detected"), detected.toCode()}})
+            .toJson(QJsonDocument::Compact);
+    }
+
+    static QByteArray chatAnswer(const QString &content)
+    {
+        const QJsonObject message{{QStringLiteral("role"), QStringLiteral("assistant")}, {QStringLiteral("content"), content}};
+        const QJsonObject choice{{QStringLiteral("index"), 0}, {QStringLiteral("message"), message}, {QStringLiteral("finish_reason"), QStringLiteral("stop")}};
+        return QJsonDocument(QJsonObject{{QStringLiteral("choices"), QJsonArray{choice}}}).toJson(QJsonDocument::Compact);
+    }
+
+    static int processedCount(const QSignalSpy &states)
+    {
+        int count = 0;
+        for (const QList<QVariant> &emission : states) {
+            if (emission.at(0).value<ATranslationProvider::State>() == ATranslationProvider::State::Processed) {
+                ++count;
+            }
+        }
+        return count;
     }
 
 private slots:
@@ -274,6 +317,169 @@ private slots:
         QCOMPARE(started.at(0).at(2).value<Language>(), polish());
         // Source is not the primary, so the rule answers with the primary.
         QCOMPARE(started.at(0).at(1).value<Language>(), english());
+    }
+
+    // ---- an automatic destination, and a source nobody knows yet -----------
+    //
+    // "Auto" on both sides: the destination depends on the language of the
+    // text, which only the provider can find out. The request goes out to a
+    // guess, and what happens when the guess was wrong used to depend on who
+    // asked and of which backend: the window asked again if the detection
+    // arrived with a finished translation, the command line did its own
+    // version of that, and a backend that detects first and translates
+    // afterwards went on to the guess. German text read by someone whose
+    // primary language is English came back in the secondary one.
+    //
+    // The guess is made for the system's language, which a test cannot choose,
+    // so each of these picks the language to "detect" from where the guess
+    // went: one for which the rule gives the other destination.
+
+    // Mozhi: the language is detected by the request that translates. The
+    // answer that went to the guess is never shown; the frontend hears of one
+    // translation, in the language the rule gives.
+    void testAWrongGuessIsAskedAgainWhenTheDetectionComesWithTheTranslation()
+    {
+        setPreference(english(), polish());
+        MockHttpServer server;
+        {
+            AppSettings settings;
+            settings.setInstance(server.baseUrl());
+        }
+        TranslationSession session;
+        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        const Guess g = wrongGuess(session);
+        QVERIFY(g.preferred != g.guess);
+        server.queueJson(200, mozhiAnswer(QStringLiteral("into the guess"), g.detected));
+        server.queueJson(200, mozhiAnswer(QStringLiteral("into the right language"), g.detected));
+
+        QSignalSpy states(&session, &TranslationSession::translationStateChanged);
+        session.requestTranslation(QStringLiteral("some text"), Language::autoLanguage(), Language::autoLanguage());
+
+        QTRY_COMPARE_WITH_TIMEOUT(server.requestCount(), 2, 5000);
+        QTRY_COMPARE_WITH_TIMEOUT(session.translator()->getState(), ATranslationProvider::State::Processed, 5000);
+        QVERIFY2(server.requestPath(0).contains(QStringLiteral("to=") + g.guess.toCode()), qPrintable(server.requestPath(0)));
+        QVERIFY2(server.requestPath(1).contains(QStringLiteral("to=") + g.preferred.toCode()), qPrintable(server.requestPath(1)));
+        QCOMPARE(session.translator()->translationLanguage, g.preferred);
+        QCOMPARE(session.translator()->result.translation, QStringLiteral("into the right language"));
+        QCOMPARE(processedCount(states), 1);
+        // ... and the language model agrees with what was translated.
+        QCOMPARE(session.languages()->effectiveDestination(), g.preferred);
+    }
+
+    // The guess happened to be right: nothing is asked twice.
+    void testARightGuessIsLeftAlone()
+    {
+        setPreference(english(), polish());
+        MockHttpServer server;
+        {
+            AppSettings settings;
+            settings.setInstance(server.baseUrl());
+        }
+        TranslationSession session;
+        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        const Guess g = wrongGuess(session);
+        // The language whose destination is the guess: the other one of the two.
+        const Language confirming = g.detected == english() ? german() : english();
+        QCOMPARE(session.preferredDestination(confirming), g.guess);
+        server.queueJson(200, mozhiAnswer(QStringLiteral("into the guess"), confirming));
+
+        session.requestTranslation(QStringLiteral("some text"), Language::autoLanguage(), Language::autoLanguage());
+
+        QTRY_COMPARE_WITH_TIMEOUT(session.translator()->getState(), ATranslationProvider::State::Processed, 5000);
+        QTest::qWait(200);
+        QCOMPARE(server.requestCount(), 1);
+        QCOMPARE(session.translator()->translationLanguage, g.guess);
+    }
+
+    // A destination the user chose is not the session's to change, whatever
+    // the text turns out to be written in.
+    void testAChosenDestinationIsNotFollowedUp()
+    {
+        setPreference(english(), polish());
+        MockHttpServer server;
+        {
+            AppSettings settings;
+            settings.setInstance(server.baseUrl());
+        }
+        TranslationSession session;
+        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        server.queueJson(200, mozhiAnswer(QStringLiteral("auf Deutsch"), polish()));
+
+        session.requestTranslation(QStringLiteral("some text"), german(), Language::autoLanguage());
+
+        QTRY_COMPARE_WITH_TIMEOUT(session.translator()->getState(), ATranslationProvider::State::Processed, 5000);
+        QTest::qWait(200);
+        QCOMPARE(server.requestCount(), 1);
+        QCOMPARE(session.translator()->translationLanguage, german());
+    }
+
+    // LocalAI with a detection model: it asks which language the text is in
+    // before it asks for the translation. Nothing has gone to the guess yet
+    // when the answer arrives, so nothing has to be asked twice - the one
+    // translation goes where the rule says. It used to go to the guess.
+    void testAWrongGuessIsRedirectedWhenTheBackendDetectsFirst()
+    {
+        setPreference(english(), polish());
+        MockHttpServer server;
+        {
+            AppSettings settings;
+            settings.setActiveLocalProvider(QStringLiteral("ollama"));
+            settings.setLocalProviderUrl(QStringLiteral("ollama"), server.baseUrl());
+            settings.setLocalProviderModel(QStringLiteral("ollama"), QStringLiteral("mock-model"));
+            settings.setDetectProvider(QStringLiteral("ollama"));
+            settings.setDetectModel(QStringLiteral("mock-model"));
+        }
+        TranslationSession session;
+        session.setTranslationBackend(ATranslationProvider::ProviderBackend::LocalAI);
+        const Guess g = wrongGuess(session);
+        QVERIFY(g.preferred != g.guess);
+        server.queueJson(200, chatAnswer(g.detected.name() + QStringLiteral(": ") + g.detected.toCode().toUpper()));
+        server.queueJson(200, chatAnswer(QStringLiteral("the translation")));
+
+        QSignalSpy started(&session, &TranslationSession::translationStarted);
+        session.requestTranslation(QStringLiteral("some text"), Language::autoLanguage(), Language::autoLanguage());
+
+        QTRY_COMPARE_WITH_TIMEOUT(session.translator()->getState(), ATranslationProvider::State::Processed, 5000);
+        QTest::qWait(200);
+        // One detection, one translation, and that one into the right language.
+        QCOMPARE(server.requestCount(), 2);
+        const QString asked = QString::fromUtf8(server.requestBody(1));
+        QVERIFY2(asked.contains(QStringLiteral("(%1)").arg(g.preferred.toCode())), qPrintable(asked));
+        QVERIFY2(!asked.contains(QStringLiteral("(%1)").arg(g.guess.toCode())), qPrintable(asked));
+        QCOMPARE(session.translator()->translationLanguage, g.preferred);
+        QCOMPARE(session.languages()->effectiveDestination(), g.preferred);
+        QCOMPARE(session.translator()->result.translation, QStringLiteral("the translation"));
+    }
+
+    // Aborting forgets the guess: a detection that still arrives afterwards
+    // (or the next, unrelated one) must not start a translation of its own.
+    void testAnAbortedRequestIsNotFollowedUp()
+    {
+        setPreference(english(), polish());
+        MockHttpServer server;
+        {
+            AppSettings settings;
+            settings.setInstance(server.baseUrl());
+        }
+        TranslationSession session;
+        session.setTranslationBackend(ATranslationProvider::ProviderBackend::Mozhi);
+        const Guess g = wrongGuess(session);
+        MockHttpServer::Response held;
+        held.hang = true;
+        server.queueResponse(held);
+
+        session.requestTranslation(QStringLiteral("some text"), Language::autoLanguage(), Language::autoLanguage());
+        QTRY_COMPARE_WITH_TIMEOUT(server.requestCount(), 1, 5000);
+        session.abortTranslation();
+
+        // The same provider, asked by someone who names both languages, and
+        // finding the text to be in the language the guess was wrong for.
+        server.queueJson(200, mozhiAnswer(QStringLiteral("chosen"), g.detected));
+        session.requestTranslation(QStringLiteral("other text"), german(), Language::autoLanguage());
+        QTRY_COMPARE_WITH_TIMEOUT(session.translator()->getState(), ATranslationProvider::State::Processed, 5000);
+        QTest::qWait(200);
+        QCOMPARE(server.requestCount(), 2);
+        QCOMPARE(session.translator()->translationLanguage, german());
     }
 
     // Armed, one recognition translates. The connection is a member rather

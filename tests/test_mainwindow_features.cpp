@@ -954,13 +954,13 @@ void MainWindowFeaturesTest::testAutoDestinationStaysAutoAtStartup()
 void MainWindowFeaturesTest::testRetranslateDoesNotClobberNextAutoDestination()
 {
     MockHttpServer server;
-    // Attempt 1: Polish source. handleTranslationRequest resolves the
-    // destination from the system locale (en -> secondary ru), then detection
-    // discovers Polish and the retranslate corrects it to the primary (en).
+    // Attempt 1: Polish source. The destination is a guess until the language
+    // is known; this backend finds it out before it translates, so the one
+    // translation goes to the primary (en) whatever the guess was. (It used
+    // to be translated into the guess first and then again: three requests.)
     server.queueJson(200, chatCompletionJson(QStringLiteral("pl"))); // detection -> Polish
-    server.queueJson(200, chatCompletionJson(QStringLiteral("RU-A"))); // first translate (ru)
-    server.queueJson(200, chatCompletionJson(QStringLiteral("EN-A"))); // retranslate (en)
-    // Attempt 2: English source. Resolves straight to the secondary (ru).
+    server.queueJson(200, chatCompletionJson(QStringLiteral("EN-A"))); // translate (en)
+    // Attempt 2: English source. To the secondary (ru).
     server.queueJson(200, chatCompletionJson(QStringLiteral("en"))); // detection -> English
     server.queueJson(200, chatCompletionJson(QStringLiteral("RU-B"))); // translate (ru)
     pinLocalAiSettings(server);
@@ -982,7 +982,7 @@ void MainWindowFeaturesTest::testRetranslateDoesNotClobberNextAutoDestination()
     window.sourceLanguageButtons()->checkAutoButton();
     window.translationLanguageButtons()->checkAutoButton();
 
-    // Attempt 1: Polish -> retranslates to the primary (English).
+    // Attempt 1: Polish -> the primary (English).
     typeText(window.sourceEdit(), QStringLiteral("Dzień dobry"));
     waitForTranslateButton(window);
     QTest::mouseClick(window.translateButton(), Qt::LeftButton);

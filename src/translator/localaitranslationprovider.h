@@ -39,6 +39,7 @@ public:
     QVector<Language> supportedSourceLanguages() override;
     QVector<Language> supportedDestinationLanguages() override;
     bool supportsAutodetection() const override;
+    bool redirect(const Language &destination) override;
     Language detectLanguage(const QString &text) override;
     void abort() override;
 
@@ -86,6 +87,9 @@ private:
     // In-flight state
     bool m_sourceWasAuto;
     bool m_detectThenTranslate;
+    // True while the detection of a detect-then-translate request is being
+    // reported and the translation has not been asked for: see redirect().
+    bool m_redirectable = false;
     bool m_userAborted = false;
     QString m_pendingText;
     QString m_pendingDstCode;

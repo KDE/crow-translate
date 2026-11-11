@@ -57,6 +57,18 @@ public:
     virtual Language detectLanguage(const QString &text) = 0;
     virtual QString getErrorString();
 
+    // For whoever asked for the translation, from its languageDetected()
+    // handler: the destination it asked for was chosen before anyone knew what
+    // language the text is in, and now that the source is known it should
+    // have been `destination`.
+    //
+    // A backend that finds the language out first and translates afterwards
+    // (LocalAI with a detection model) has not asked for the translation yet
+    // when it reports the detection: it takes the new destination and answers
+    // true. One whose detection arrives with the translation (Mozhi) has
+    // nothing left to redirect and answers false; the caller asks again.
+    virtual bool redirect(const Language &destination);
+
     // Options system
     virtual void applyOptions(const ProviderOptions &options) = 0;
     virtual std::unique_ptr<ProviderOptions> getDefaultOptions() const = 0;

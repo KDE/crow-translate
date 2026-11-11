@@ -48,6 +48,12 @@ ATranslationProvider *ATranslationProvider::createTranslationProvider(QObject *p
     }
     return nullptr;
 }
+bool ATranslationProvider::redirect(const Language &destination)
+{
+    Q_UNUSED(destination)
+    return false;
+}
+
 QString ATranslationProvider::getErrorString()
 {
     switch (error) {

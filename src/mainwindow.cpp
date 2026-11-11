@@ -1896,21 +1896,11 @@ void MainWindow::onLanguageDetected(const Language &detectedLanguage, bool isTra
         ui->sourceLanguagesWidget->setAutoLanguage(detectedLanguage);
     }
 
-    if (!ui->translationLanguagesWidget->isAutoButtonChecked() || !(isTranslationContext || ui->autoTranslateCheckBox->isChecked())) {
-        return;
-    }
-
-    // Retranslate only when the destination the detection implies is not where
-    // the translation already went. The label is not updated here: the model
-    // moved above, and whoever shows it is subscribed.
-    if (m_session->translator() == nullptr || m_session->translator()->getState() != ATranslationProvider::State::Processed) {
-        return;
-    }
-    const Language preferredDest = m_session->preferredDestination(detectedLanguage);
-    if (m_session->translator()->translationLanguage != preferredDest && !ui->sourceEdit->toPlainText().isEmpty()) {
-        qDebug() << "Retranslating from" << detectedLanguage.name() << "to preferred destination:" << preferredDest.name();
-        m_session->translator()->translate(ui->sourceEdit->toSourceText(), preferredDest, detectedLanguage);
-    }
+    // That is all. Whether the translation has to go somewhere else now that
+    // the source is known is the session's to decide, for every frontend and
+    // every backend (TranslationSession::followDetection); the destination's
+    // label follows the language model, which the session has updated.
+    Q_UNUSED(isTranslationContext)
 }
 
 Language MainWindow::spokenSourceLanguage() const

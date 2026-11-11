@@ -359,6 +359,48 @@ private slots:
         QVERIFY(server.requestPath(0).contains(QStringLiteral("/v1/chat/completions")));
     }
 
+    // With a detection model the provider finds the language out before it
+    // asks for the translation, and between the two it can be told to
+    // translate into another language than it was first given: whoever asked
+    // may have had to choose the destination before the source was known.
+    void testATranslationCanBeRedirectedOnceTheLanguageIsDetected()
+    {
+        MockHttpServer server;
+        server.queueJson(200, chatCompletionJson(QStringLiteral("German: DE")));
+        server.queueJson(200, chatCompletionJson(QStringLiteral("Good day")));
+
+        auto provider = makeProvider(server.baseUrl());
+        ProviderOptions opts = *provider->getDefaultOptions();
+        opts.setOption(QStringLiteral("url"), server.baseUrl());
+        opts.setOption(QStringLiteral("detect_url"), server.baseUrl());
+        opts.setOption(QStringLiteral("detect_model"), QStringLiteral("some-model"));
+        provider->applyOptions(opts);
+
+        // Outside of that moment there is nothing to redirect.
+        QVERIFY(!provider->redirect(Language(QStringLiteral("en"))));
+
+        // The language is reported twice: when it has been found out, which is
+        // the moment in question, and again with the finished translation.
+        QList<bool> redirected;
+        QObject::connect(provider.get(), &ATranslationProvider::languageDetected, provider.get(), [&provider, &redirected](const Language &detected, bool) {
+            QCOMPARE(detected.toCode(), QStringLiteral("de"));
+            redirected.append(provider->redirect(Language(QStringLiteral("en"))));
+        });
+        provider->translate(QStringLiteral("Guten Tag"), Language(QStringLiteral("es")), Language::autoLanguage());
+
+        QVERIFY(QTest::qWaitFor([&provider]() {
+            return provider->getState() == ATranslationProvider::State::Processed;
+        },
+                                5000));
+        QCOMPARE(redirected, (QList<bool>{true, false}));
+        QCOMPARE(server.requestCount(), 2);
+        const QString asked = QString::fromUtf8(server.requestBody(1));
+        QVERIFY2(asked.contains(QStringLiteral("(en)")) && !asked.contains(QStringLiteral("(es)")), qPrintable(asked));
+        QCOMPARE(provider->translationLanguage.toCode(), QStringLiteral("en"));
+        // ... and once it is under way it is too late again.
+        QVERIFY(!provider->redirect(Language(QStringLiteral("fr"))));
+    }
+
     // Without a configured detect model, no real detection is possible:
     // detectLanguage() must fall back to the primary language synchronously
     // and must not make a network call.

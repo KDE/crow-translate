@@ -100,7 +100,12 @@ public:
     // --- translating --------------------------------------------------------
 
     // destination may be Language::autoLanguage(); resolving it is this
-    // class's job, not the caller's.
+    // class's job, not the caller's - all of it. With the source automatic
+    // too, the destination the request goes out with is a guess (nobody knows
+    // yet what language the text is in), and once the provider has found out,
+    // the translation is redirected or asked for again if the guess was wrong.
+    // A frontend sees one translation, in the language the rule gives for the
+    // text; it does not follow the detection itself.
     void requestTranslation(const QString &text, const Language &destination, const Language &source);
     // The same, for the languages currently selected. Auto stays auto.
     void requestTranslationOfSelection(const QString &text);
@@ -181,6 +186,15 @@ signals:
     void ocrLanguagesUnavailable(const QString &languages);
 
 private:
+    // A request whose destination was automatic while its source was unknown:
+    // the text, and where it was sent for want of knowing better.
+    struct AutomaticDestination {
+        bool pending = false;
+        QString text;
+        Language guess = Language::autoLanguage();
+    };
+    AutomaticDestination m_automaticDestination;
+    void followDetection(const Language &detected);
     void connectTranslator();
     void connectTts();
     void configureLlmOcr();

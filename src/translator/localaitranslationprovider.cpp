@@ -67,6 +67,16 @@ bool LocalAiTranslationProvider::supportsAutodetection() const
     return true;
 }
 
+bool LocalAiTranslationProvider::redirect(const Language &destination)
+{
+    if (!m_redirectable || destination == Language::autoLanguage()) {
+        return false;
+    }
+    translationLanguage = destination;
+    m_pendingDstCode = destination.toCode();
+    return true;
+}
+
 // ── Supported languages ───────────────────────────────────────
 
 Language LocalAiTranslationProvider::detectLanguage(const QString &text)
@@ -557,7 +567,14 @@ void LocalAiTranslationProvider::onDetectFinished()
     if (m_detectThenTranslate) {
         m_detectThenTranslate = false;
         const QString srcCode = detected.toCode();
+        // The destination was chosen before this answer existed. Whoever chose
+        // it hears the answer now and may redirect() the translation, which
+        // has not been asked for yet; it used to go to the first choice
+        // regardless, so with an automatic destination German text read by an
+        // English speaker came back in the secondary language.
+        m_redirectable = true;
         emit languageDetected(detected, true);
+        m_redirectable = false;
 
         if (srcCode == m_pendingDstCode) {
             result = formatResult(m_pendingText);

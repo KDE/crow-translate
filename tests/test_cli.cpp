@@ -645,9 +645,14 @@ private slots:
     // Regression: with the source unknown as well, "-t auto" was resolved
     // once, before detection, and never again. English text on a setup whose
     // primary language is English went to English and came back unchanged.
-    // The window translates again once detection has answered, and so does
-    // the command line now: to the secondary language, and only that result
-    // is printed.
+    // It is the session's to follow the detection now, for the window and for
+    // the command line alike: the text ends up in the secondary language, and
+    // only that result is printed.
+    //
+    // Where the first request goes is a guess made for the system's language,
+    // which this test does not choose: on an English system the guess is
+    // already French and one request does it, anywhere else it is English and
+    // the text is translated once more. Either way the last word is French.
     void testAutoTargetFollowsTheDetectedSource()
     {
         const QByteArray config = defaultConfig()
@@ -656,12 +661,13 @@ private slots:
                                       "SecondaryLanguage=fr\n");
 
         MockHttpServer server;
-        server.queueJson(200,
-                         QByteArrayLiteral(R"({"engine":"duckduckgo","detected":"en","translated-text":"good evening",)"
-                                           R"("source_language":"en","target_language":"en"})"));
-        server.queueJson(200,
-                         QByteArrayLiteral(R"({"engine":"duckduckgo","detected":"en","translated-text":"bonsoir",)"
-                                           R"("source_language":"en","target_language":"fr"})"));
+        // The server is asked once or twice and cannot tell here which: both
+        // answers are the French one, and what is checked is what was asked.
+        for (int i = 0; i < 2; ++i) {
+            server.queueJson(200,
+                             QByteArrayLiteral(R"({"engine":"duckduckgo","detected":"en","translated-text":"bonsoir",)"
+                                               R"("source_language":"en","target_language":"fr"})"));
+        }
 
         const RunResult result = runCrow({QStringLiteral("-u"),
                                           server.baseUrl(),
@@ -677,9 +683,15 @@ private slots:
 
         QVERIFY2(result.finished, "crow hung translating again after detection");
         QCOMPARE(result.exitCode, 0);
-        QVERIFY2(server.requestCount() == 2, qPrintable(QStringLiteral("expected two requests, got %1").arg(server.requestCount())));
-        QVERIFY2(server.requestPath(1).contains(QStringLiteral("to=fr")),
-                 qPrintable(QStringLiteral("the second translation went to the wrong target. request was:\n%1").arg(server.requestPath(1))));
+        const int requests = server.requestCount();
+        QVERIFY2(requests == 1 || requests == 2, qPrintable(QStringLiteral("expected one or two requests, got %1").arg(requests)));
+        QVERIFY2(server.requestPath(requests - 1).contains(QStringLiteral("to=fr")),
+                 qPrintable(QStringLiteral("the last translation went to the wrong target. request was:\n%1").arg(server.requestPath(requests - 1))));
+        if (requests == 2) {
+            // The guess that was put right: the primary language, for a text
+            // nobody knew to be in the primary language.
+            QVERIFY2(server.requestPath(0).contains(QStringLiteral("to=en")), qPrintable(server.requestPath(0)));
+        }
         QCOMPARE(result.out.trimmed(), QStringLiteral("bonsoir"));
     }
 };

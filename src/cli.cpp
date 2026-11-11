@@ -304,8 +304,13 @@ void Cli::process(const QCoreApplication &app)
         // English system asked for English to English and got the source back
         // - while the window, given the same settings and the same text,
         // translated it into the primary language.
-        m_translationLanguages.append(m_session->preferredDestination(m_sourceLang));
-        m_autoDestination = true;
+        //
+        // And left to it entirely: it is handed "auto", not a language worked
+        // out here. With an automatic source the language can only be a guess
+        // at this point, and correcting the guess once the text's language is
+        // known is the session's job - done once there, for the window and for
+        // this (TranslationSession::followDetection).
+        m_translationLanguages.append(Language::autoLanguage());
     } else {
         for (const QString &langCode : translationValue.split('+')) {
             const Language language = Language(langCode);
@@ -551,24 +556,12 @@ void Cli::onTranslationStateChanged(ATranslationProvider::State state)
         if (m_sourceLang == Language::autoLanguage() && m_session->translator()->sourceLanguage != Language::autoLanguage()) {
             m_sourceLang = m_session->translator()->sourceLanguage;
             qDebug() << "Auto-detected source language:" << m_sourceLang.name();
-
-            // With an unknown source, "-t auto" could only guess: the rule was
-            // asked about a source nobody knew yet. Now that detection has
-            // answered, ask again and translate once more if the answer moved,
-            // as the window does (MainWindow::onLanguageDetected). Otherwise
-            // English text with English as the primary language came back in
-            // English. The source is known from here on, so this cannot repeat.
-            if (m_autoDestination) {
-                const Language preferred = m_session->preferredDestination(m_sourceLang);
-                if (preferred != m_currentTargetLang) {
-                    qDebug() << "Retranslating to the preferred destination:" << preferred.name();
-                    m_translationLanguages[m_currentTranslationIndex] = preferred;
-                    m_session->acceptTranslation();
-                    processNextTranslation();
-                    return;
-                }
-            }
         }
+
+        // What it was translated into: with "-t auto" that was the session's
+        // to decide, and it may have decided again once the text's language
+        // was known. This is the language that is printed and spoken.
+        m_currentTargetLang = m_session->translator()->translationLanguage;
 
         m_session->acceptTranslation();
 
@@ -690,9 +683,8 @@ void Cli::onTTSStateChanged(QTextToSpeech::State state)
 void Cli::translateText(const QString &text, const Language &sourceLang, const Language &targetLang)
 {
     m_currentTargetLang = targetLang;
-    // Through the session, the same door the window uses. targetLang is
-    // already concrete by this point - "auto" was resolved once, up in
-    // process() - so the resolution inside has nothing left to do here.
+    // Through the session, the same door the window uses - "auto" included,
+    // which only the session resolves.
     m_session->requestTranslation(text, targetLang, sourceLang);
 }
 
