@@ -1476,8 +1476,11 @@ AppSettings::RegionRememberType AppSettings::regionRememberType() const
 void AppSettings::setRegionRememberType(RegionRememberType type)
 {
     m_settings->setValue(QStringLiteral("OCR/RegionRememberType"), type);
+    // The region is kept under OCR/CropRegion. What was removed here was
+    // OCR/RememberedCropRegion, which nothing ever wrote: the region stayed,
+    // and was what "always" started from the next time it was chosen.
     if (type != RememberAlways)
-        m_settings->remove(QStringLiteral("OCR/RememberedCropRegion"));
+        m_settings->remove(QStringLiteral("OCR/CropRegion"));
 }
 
 AppSettings::RegionRememberType AppSettings::defaultRegionRememberType()
@@ -1532,7 +1535,7 @@ bool AppSettings::defaultApplyLightMask()
 
 QRect AppSettings::cropRegion() const
 {
-    return m_settings->value(QStringLiteral("OCR/CropRegion"), defaultRegionRememberType()).toRect();
+    return m_settings->value(QStringLiteral("OCR/CropRegion")).toRect();
 }
 
 void AppSettings::setCropRegion(QRect rect)
