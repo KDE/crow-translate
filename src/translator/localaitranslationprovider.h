@@ -83,6 +83,15 @@ private:
     QString m_detectModel;
     bool m_detectIsAnthropic = false;
     QString m_detectApiKey;
+    bool m_detectReplyIsAnthropic = false;
+
+    struct DetectionEndpoint {
+        QString url;
+        QString model;
+        QString apiKey;
+        bool isAnthropic = false;
+    };
+    DetectionEndpoint detectionEndpoint() const;
 
     // In-flight state
     bool m_sourceWasAuto;

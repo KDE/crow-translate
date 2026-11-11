@@ -79,9 +79,22 @@ bool LocalAiTranslationProvider::redirect(const Language &destination)
 
 // ── Supported languages ───────────────────────────────────────
 
-Language LocalAiTranslationProvider::detectLanguage(const QString &text)
+// Who is asked what language a text is in: the detection model, where one is
+// set up - a small, fast one is the point of that setting - and otherwise the
+// model that translates. Without one, nothing was detected at all: every text
+// was taken to be in the primary language, so with an automatic destination
+// all of them went to the secondary one, whatever they were written in.
+LocalAiTranslationProvider::DetectionEndpoint LocalAiTranslationProvider::detectionEndpoint() const
 {
     if (!m_detectModel.isEmpty()) {
+        return {m_detectUrl, m_detectModel, m_detectApiKey, m_detectIsAnthropic};
+    }
+    return {m_url, m_model, m_apiKey, m_isAnthropic};
+}
+
+Language LocalAiTranslationProvider::detectLanguage(const QString &text)
+{
+    if (!detectionEndpoint().model.isEmpty()) {
         // Real detection is possible: fire it async through the same
         // machinery translate() uses for auto-source detection. This is a
         // detect-only call (no translate follow-up), so make sure that flag
@@ -92,8 +105,8 @@ Language LocalAiTranslationProvider::detectLanguage(const QString &text)
         return Language(QLocale::system()); // placeholder; real result via languageDetected
     }
 
-    // No detection model configured: no real detection is possible right
-    // now, fall back to the configured primary language.
+    // No model at all: there is nobody to ask, fall back to the configured
+    // primary language.
     const Language lang = AppSettings().primaryLanguage();
     sourceLanguage = lang;
     emit languageDetected(lang, false);
@@ -163,10 +176,9 @@ void LocalAiTranslationProvider::translate(const QString &inputText, const Langu
 
     m_sourceWasAuto = (sourceLang == Language::autoLanguage());
 
-    // Detect the source language whenever a detect provider/model is
-    // actually configured (the capability genuinely exists) - the same
-    // machinery detectLanguage() uses.
-    if (m_sourceWasAuto && !m_detectModel.isEmpty()) {
+    // Detect the source language whenever there is a model to ask (see
+    // detectionEndpoint()) - the same machinery detectLanguage() uses.
+    if (m_sourceWasAuto && !detectionEndpoint().model.isEmpty()) {
         m_detectThenTranslate = true;
         m_pendingDstCode = dstCode;
         sendDetection(inputText);
@@ -369,11 +381,16 @@ void LocalAiTranslationProvider::sendDetection(const QString &text)
     QJsonArray messages;
     messages.append(message);
 
+    const DetectionEndpoint endpoint = detectionEndpoint();
+    // The answer is read the way it was asked for; the settings may have
+    // moved by the time it arrives.
+    m_detectReplyIsAnthropic = endpoint.isAnthropic;
+
     QJsonObject body;
-    body.insert(QStringLiteral("model"), m_detectModel);
+    body.insert(QStringLiteral("model"), endpoint.model);
     body.insert(QStringLiteral("messages"), messages);
     body.insert(QStringLiteral("temperature"), 0.0);
-    if (m_detectIsAnthropic) {
+    if (endpoint.isAnthropic) {
         body.insert(QStringLiteral("max_tokens"), 64);
     } else {
         body.insert(QStringLiteral("stream"), false);
@@ -382,9 +399,9 @@ void LocalAiTranslationProvider::sendDetection(const QString &text)
         }
     }
 
-    QNetworkRequest request(QUrl(OpenAiEndpoint::completionsUrl(m_detectUrl, m_detectIsAnthropic)));
+    QNetworkRequest request(QUrl(OpenAiEndpoint::completionsUrl(endpoint.url, endpoint.isAnthropic)));
     request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
-    OpenAiEndpoint::setAuthHeaders(request, m_detectIsAnthropic, m_detectApiKey);
+    OpenAiEndpoint::setAuthHeaders(request, endpoint.isAnthropic, endpoint.apiKey);
     m_network->setTransferTimeout(m_timeout * 1000);
 
     m_detectReply = m_network->post(request, QJsonDocument(body).toJson(QJsonDocument::Compact));
@@ -550,7 +567,7 @@ void LocalAiTranslationProvider::onDetectFinished()
 
     QString code;
     if (reply->error() == QNetworkReply::NoError) {
-        const QString resp = OpenAiEndpoint::parseCompletion(reply->readAll(), m_detectIsAnthropic).content.toLower();
+        const QString resp = OpenAiEndpoint::parseCompletion(reply->readAll(), m_detectReplyIsAnthropic).content.toLower();
         static const QRegularExpression re(QStringLiteral("\\b[a-z]{2,3}([-][A-Za-z0-9]+)*\\b"));
         QRegularExpressionMatchIterator it = re.globalMatch(resp);
         if (it.hasNext()) {

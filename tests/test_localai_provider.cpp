@@ -401,15 +401,103 @@ private slots:
         QVERIFY(!provider->redirect(Language(QStringLiteral("fr"))));
     }
 
-    // Without a configured detect model, no real detection is possible:
-    // detectLanguage() must fall back to the primary language synchronously
-    // and must not make a network call.
-    void testDetectLanguageWithoutDetectModelFallsBackToPrimaryLanguageSynchronously()
+    // No detection model set up - which is how the backend is installed - used
+    // to mean that nothing was detected at all: every text was taken to be in
+    // the primary language, so with an automatic destination everything went
+    // to the secondary one, whatever it was written in. The model that
+    // translates can tell what language a text is in, and is asked.
+    void testWithoutADetectionModelTheTranslationModelIsAsked()
+    {
+        AppSettings().setPrimaryLanguage(Language(QStringLiteral("fr")));
+
+        MockHttpServer server;
+        server.queueJson(200, chatCompletionJson(QStringLiteral("German: DE")));
+        auto provider = makeProvider(server.baseUrl());
+        ProviderOptions opts = *provider->getDefaultOptions();
+        opts.setOption(QStringLiteral("url"), server.baseUrl());
+        opts.setOption(QStringLiteral("model"), QStringLiteral("the-translation-model"));
+        // Where a detection model would be, if there were one: not asked.
+        opts.setOption(QStringLiteral("detect_url"), QStringLiteral("http://127.0.0.1:1"));
+        provider->applyOptions(opts);
+
+        QSignalSpy detectSpy(provider.get(), &ATranslationProvider::languageDetected);
+        provider->detectLanguage(QStringLiteral("Guten Tag zusammen"));
+
+        QVERIFY(detectSpy.wait(5000));
+        QCOMPARE(detectSpy.count(), 1);
+        QCOMPARE(qvariant_cast<Language>(detectSpy.constFirst().at(0)).toCode(), QStringLiteral("de"));
+        QCOMPARE(detectSpy.constFirst().at(1).toBool(), false);
+        QCOMPARE(server.requestCount(), 1);
+        const QJsonObject asked = QJsonDocument::fromJson(server.requestBody(0)).object();
+        QCOMPARE(asked.value(QStringLiteral("model")).toString(), QStringLiteral("the-translation-model"));
+        QVERIFY2(server.requestBody(0).contains("Guten Tag zusammen"), server.requestBody(0).constData());
+    }
+
+    // The same for a translation whose source is automatic: one question, one
+    // translation, and the translation is asked for from the language found -
+    // not from the primary one.
+    void testAnAutomaticSourceIsDetectedByTheTranslationModel()
+    {
+        AppSettings().setPrimaryLanguage(Language(QStringLiteral("fr")));
+
+        MockHttpServer server;
+        server.queueJson(200, chatCompletionJson(QStringLiteral("German: DE")));
+        server.queueJson(200, chatCompletionJson(QStringLiteral("Good day everyone")));
+        auto provider = makeProvider(server.baseUrl());
+        ProviderOptions opts = *provider->getDefaultOptions();
+        opts.setOption(QStringLiteral("url"), server.baseUrl());
+        opts.setOption(QStringLiteral("model"), QStringLiteral("the-translation-model"));
+        opts.setOption(QStringLiteral("prompt"), QStringLiteral("From {source_lang} ({source_code}) to {target_lang} ({target_code}): {text}"));
+        provider->applyOptions(opts);
+
+        QSignalSpy detectSpy(provider.get(), &ATranslationProvider::languageDetected);
+        provider->translate(QStringLiteral("Guten Tag zusammen"), Language(QStringLiteral("en")), Language::autoLanguage());
+
+        QVERIFY(QTest::qWaitFor([&provider]() {
+            return provider->getState() == ATranslationProvider::State::Processed;
+        },
+                                5000));
+        QCOMPARE(provider->result.translation, QStringLiteral("Good day everyone"));
+        QCOMPARE(provider->sourceLanguage.toCode(), QStringLiteral("de"));
+        QCOMPARE(server.requestCount(), 2);
+        const QString translation = QString::fromUtf8(server.requestBody(1));
+        QVERIFY2(translation.contains(QStringLiteral("(de)")) && !translation.contains(QStringLiteral("(fr)")), qPrintable(translation));
+        // Reported when it is found and again with the result, as with a
+        // detection model; German both times.
+        QVERIFY(!detectSpy.isEmpty());
+        QCOMPARE(detectSpy.constFirst().at(1).toBool(), true);
+        for (const QList<QVariant> &report : detectSpy) {
+            QCOMPARE(qvariant_cast<Language>(report.at(0)).toCode(), QStringLiteral("de"));
+        }
+    }
+
+    // An answer that names no language leaves the primary one, as before.
+    void testAnAnswerWithoutALanguageFallsBackToThePrimary()
+    {
+        AppSettings().setPrimaryLanguage(Language(QStringLiteral("fr")));
+
+        MockHttpServer server;
+        server.queueJson(200, chatCompletionJson(QStringLiteral("!!!")));
+        auto provider = makeProvider(server.baseUrl());
+
+        QSignalSpy detectSpy(provider.get(), &ATranslationProvider::languageDetected);
+        provider->detectLanguage(QStringLiteral("Bonjour"));
+        QVERIFY(detectSpy.wait(5000));
+        QCOMPARE(qvariant_cast<Language>(detectSpy.constFirst().at(0)).toCode(), QStringLiteral("fr"));
+    }
+
+    // With no model at all there is nobody to ask: the primary language,
+    // at once, and nothing on the network.
+    void testDetectLanguageWithoutAnyModelFallsBackToPrimaryLanguageSynchronously()
     {
         AppSettings().setPrimaryLanguage(Language(QStringLiteral("fr")));
 
         MockHttpServer server;
         auto provider = makeProvider(server.baseUrl());
+        ProviderOptions opts = *provider->getDefaultOptions();
+        opts.setOption(QStringLiteral("url"), server.baseUrl());
+        opts.setOption(QStringLiteral("model"), QString());
+        provider->applyOptions(opts);
 
         QSignalSpy detectSpy(provider.get(), &ATranslationProvider::languageDetected);
         const Language detected = provider->detectLanguage(QStringLiteral("Bonjour"));
