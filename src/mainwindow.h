@@ -274,6 +274,9 @@ signals:
     void translationRequested(const QString &inputText, const Language &translationLang, const Language &sourceLang);
     void translationAccepted();
     void resetTranslator();
+    // A translation that is to be shown as a notification: the window mode
+    // says so, and no window is open to show it in. The tray icon shows it.
+    void translationNotification(const QString &text);
 
 #ifdef BUILD_TESTING
     // Test observability: Forward provider state changes as signals for QSignalSpy.

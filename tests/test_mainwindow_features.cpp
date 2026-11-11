@@ -39,6 +39,7 @@
 #include <QKeyEvent>
 #include <QLocale>
 #include <QMessageBox>
+#include <QSignalSpy>
 #include <QTest>
 #include <QTextEdit>
 #include <QToolButton>
@@ -167,6 +168,8 @@ private slots:
     void testChoosingAnotherLanguageTranslatesAgain();
     void testChoosingALanguageWaitsForTranslateWhenNothingIsAutomatic();
     void testChoosingALanguageInThePopupTranslatesAgain();
+    void testNotificationModeShowsTheTranslationAsANotification();
+    void testNotificationModeLeavesAnOpenWindowToShowIt();
 
 private:
     static void waitForTranslateButton(MainWindow &window);
@@ -1433,6 +1436,57 @@ void MainWindowFeaturesTest::testChoosingALanguageInThePopupTranslatesAgain()
     QTRY_COMPARE_WITH_TIMEOUT(window.translationEdit()->toPlainText(), QStringLiteral("eins"), 5000);
     QCOMPARE(server.requestCount(), before + 1);
     popup.close();
+}
+
+// "Notification" is the third way a translation asked for from outside the
+// window can be shown, beside the pop-up and the main window: as a message
+// from the tray icon, with no window at all. 3.1.0 did that. Since 4.0.0 the
+// mode could still be chosen and showed nothing - the text was translated and
+// nobody was told.
+void MainWindowFeaturesTest::testNotificationModeShowsTheTranslationAsANotification()
+{
+    MockHttpServer server;
+    server.queueJson(200, chatCompletionJson(QStringLiteral("the translation")));
+    pinLocalAiSettings(server);
+    AppSettings settings;
+    settings.setWindowMode(AppSettings::Notification);
+
+    MainWindow window;
+    window.hide(); // as it is, between translations
+    QSignalSpy notified(&window, &MainWindow::translationNotification);
+
+    emit window.translationRequested(QStringLiteral("some text"), Language(QLocale::Spanish), Language(QLocale::English));
+
+    QTRY_COMPARE_WITH_TIMEOUT(notified.count(), 1, 10000);
+    QCOMPARE(notified.at(0).at(0).toString(), QStringLiteral("the translation"));
+    QVERIFY(window.isHidden());
+    QVERIFY(window.findChild<PopupWindow *>() == nullptr);
+
+    settings.setWindowMode(AppSettings::defaultWindowMode());
+}
+
+// With the main window open the translation is in front of the user already:
+// it is shown there, and not said a second time.
+void MainWindowFeaturesTest::testNotificationModeLeavesAnOpenWindowToShowIt()
+{
+    MockHttpServer server;
+    server.queueJson(200, chatCompletionJson(QStringLiteral("the translation")));
+    pinLocalAiSettings(server);
+    AppSettings settings;
+    settings.setWindowMode(AppSettings::Notification);
+
+    MainWindow window;
+    window.show();
+    QVERIFY(QTest::qWaitForWindowExposed(&window));
+    QSignalSpy notified(&window, &MainWindow::translationNotification);
+
+    emit window.translationRequested(QStringLiteral("some text"), Language(QLocale::Spanish), Language(QLocale::English));
+
+    QTRY_COMPARE_WITH_TIMEOUT(window.translationEdit()->toPlainText(), QStringLiteral("the translation"), 10000);
+    QTest::qWait(300);
+    QCOMPARE(notified.count(), 0);
+
+    settings.setWindowMode(AppSettings::defaultWindowMode());
 }
 
 #include "test_mainwindow_features.moc"

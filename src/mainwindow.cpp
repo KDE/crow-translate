@@ -87,6 +87,7 @@ MainWindow::MainWindow(QWidget *parent)
     // a provider built further down this constructor can still report a
     // failed start and have it reach the user.
     connect(UserNotifier::instance(), &UserNotifier::notified, this, &MainWindow::showNotification);
+    connect(this, &MainWindow::translationNotification, m_trayIcon, &TrayIcon::showTranslationMessage);
 
     ui->setupUi(this);
 
@@ -863,7 +864,11 @@ void MainWindow::showTranslationWindow()
         open();
         break;
     case AppSettings::Notification:
+        // No window: the translation is what the notification says. The mode
+        // could be chosen all along and showed nothing since 4.0.0, which
+        // kept TrayIcon::showTranslationMessage() and stopped calling it.
         qDebug() << "showTranslationWindow: notification mode, not showing window";
+        emit translationNotification(ui->translationEdit->toPlainText());
         break;
     }
 }
