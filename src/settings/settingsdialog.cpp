@@ -1276,8 +1276,15 @@ void SettingsDialog::loadSettings()
     ui->translationOptionsCheckBox->setChecked(settings.isTranslationOptionsEnabled());
     ui->examplesCheckBox->setChecked(settings.isExamplesEnabled());
     ui->sourceSimplificationCheckBox->setChecked(settings.isSimplifySource());
-    ui->primaryLangComboBox->setCurrentIndex(ui->primaryLangComboBox->findData(QVariant::fromValue(settings.primaryLanguage())));
-    ui->secondaryLangComboBox->setCurrentIndex(ui->secondaryLangComboBox->findData(QVariant::fromValue(settings.secondaryLanguage())));
+    for (QComboBox *combo : {ui->primaryLangComboBox, ui->secondaryLangComboBox}) {
+        const Language language = combo == ui->primaryLangComboBox ? settings.primaryLanguage() : settings.secondaryLanguage();
+        int index = combo->findData(QVariant::fromValue(language));
+        if (index < 0 && language.hasQLocaleEquivalent()) {
+            const QLocale plainLocale(language.toQLocale().language());
+            index = combo->findData(QVariant::fromValue(Language(plainLocale)));
+        }
+        combo->setCurrentIndex(index);
+    }
     ui->forceSourceAutodetectCheckBox->setChecked(settings.isForceSourceAutodetect());
     ui->forceTranslationAutodetectCheckBox->setChecked(settings.isForceTranslationAutodetect());
 

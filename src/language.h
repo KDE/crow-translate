@@ -68,6 +68,7 @@ public:
     QString name() const; // Human readable English name
     QString nativeName() const; // Native language name when available
     QString displayName() const; // Full display name with BCP47 code for UI
+    QString storageCode() const; // The full locale identity when it differs from a provider code
 
     // Custom language properties
     QString customCode() const; // Custom provider code

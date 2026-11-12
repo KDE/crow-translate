@@ -6,6 +6,27 @@
 #include "language.h"
 
 #include <QDebug>
+#include <QSet>
+
+namespace
+{
+QString localeIdentity(const QLocale &locale)
+{
+    QString language = QLocale::languageToCode(locale.language(), QLocale::ISO639Part1);
+    if (language.isEmpty())
+        language = locale.name().section(QLatin1Char('_'), 0, 0);
+    const QString script = QLocale::scriptToCode(locale.script());
+    const QString territory = QLocale::territoryToCode(locale.territory());
+    QString result = language;
+    const bool nonDefaultScript = locale.script() != QLocale::AnyScript && locale.script() != QLocale(locale.language()).script();
+    const bool hanScript = locale.script() == QLocale::SimplifiedHanScript || locale.script() == QLocale::TraditionalHanScript;
+    if (nonDefaultScript || hanScript)
+        result += QLatin1Char('-') + script;
+    if (!territory.isEmpty())
+        result += QLatin1Char('-') + territory;
+    return result;
+}
+} // namespace
 
 // Static member initialization
 QHash<QString, Language::CustomLanguageData> Language::s_customLanguages;
@@ -57,17 +78,32 @@ Language::Language(const QString &code)
         return;
     }
 
+    // Preserve the region and script before interpreting a bare language code.
+    if (code.contains(QLatin1Char('-')) || code.contains(QLatin1Char('_'))) {
+        QLocale locale(code);
+        QString normalized = code;
+        normalized.replace(QLatin1Char('_'), QLatin1Char('-'));
+        const QStringList parts = normalized.split(QLatin1Char('-'));
+        QLocale::Script script = QLocale::AnyScript;
+        QLocale::Territory territory = QLocale::AnyTerritory;
+        if (parts.size() == 2) {
+            territory = QLocale::codeToTerritory(parts.constLast());
+        } else if (parts.size() >= 3) {
+            script = QLocale::codeToScript(parts.at(1));
+            territory = QLocale::codeToTerritory(parts.constLast());
+        }
+        if (script != QLocale::AnyScript || territory != QLocale::AnyTerritory)
+            locale = QLocale(QLocale::codeToLanguage(parts.constFirst(), QLocale::AnyLanguageCode), script, territory);
+        if (locale != QLocale::c()) {
+            m_locale = locale;
+            return;
+        }
+    }
+
     // Use QLocale's built-in code conversion
     QLocale::Language lang = QLocale::codeToLanguage(code, QLocale::AnyLanguageCode);
     if (lang != QLocale::AnyLanguage) {
         m_locale = QLocale(lang);
-        return;
-    }
-
-    // Try as full locale string (e.g., "en_US", "zh_CN")
-    QLocale locale(code);
-    if (locale != QLocale::c()) {
-        m_locale = locale;
         return;
     }
 
@@ -261,13 +297,10 @@ QString Language::displayName() const
 {
     QString baseName = name();
 
-    // Always show the most complete code available to ensure uniqueness
     QString fullCode;
     if (hasQLocaleEquivalent()) {
-        // Use full BCP47 name for QLocale-backed languages (includes territory + script)
-        fullCode = toQLocale().bcp47Name();
+        fullCode = localeIdentity(m_locale);
     } else {
-        // For custom languages, use the registered code (most complete available)
         fullCode = toCode();
     }
 
@@ -276,6 +309,13 @@ QString Language::displayName() const
     }
 
     return baseName;
+}
+
+QString Language::storageCode() const
+{
+    if (m_source == QLocaleSource && isValid())
+        return localeIdentity(m_locale);
+    return toCode();
 }
 
 QString Language::customCode() const
@@ -385,10 +425,15 @@ QList<Language> Language::qlocaleLanguages()
     QList<Language> result;
     const auto allLocales = QLocale::matchingLocales(QLocale::AnyLanguage, QLocale::AnyScript, QLocale::AnyTerritory);
 
+    QSet<QString> seen;
     for (const auto &locale : allLocales) {
-        if (locale != QLocale::c()) {
-            result.append(Language(locale));
-        }
+        if (locale == QLocale::c())
+            continue;
+        const QString identity = locale.name();
+        if (seen.contains(identity))
+            continue;
+        seen.insert(identity);
+        result.append(Language(locale));
     }
 
     return result;

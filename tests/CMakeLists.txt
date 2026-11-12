@@ -9,6 +9,10 @@ find_package(Qt6 REQUIRED COMPONENTS Test Widgets Network)
 # compiled MockHttpServer - available to every target in this directory.
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/support)
 
+add_executable(test_languageidentity test_languageidentity.cpp)
+target_link_libraries(test_languageidentity PRIVATE ${PROJECT_NAME}-lib Qt6::Test)
+add_test(NAME LanguageIdentityTest COMMAND test_languageidentity)
+
 # Helper GUI process for e2e/manual selection and OCR scenarios (crow-flake's
 # e2e/ runner drives this via cua-driver; it is no longer spawned in-process
 # by any unit test, since those now drive text entry directly through QTest

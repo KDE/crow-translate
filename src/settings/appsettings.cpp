@@ -475,7 +475,7 @@ Language AppSettings::primaryLanguage() const
 
 void AppSettings::setPrimaryLanguage(const Language &lang)
 {
-    m_settings->setValue(QStringLiteral("Translation/PrimaryLanguage"), lang.toCode());
+    m_settings->setValue(QStringLiteral("Translation/PrimaryLanguage"), lang.storageCode());
 }
 
 QString AppSettings::translationProviderId() const
@@ -523,7 +523,7 @@ Language AppSettings::secondaryLanguage() const
 
 void AppSettings::setSecondaryLanguage(const Language &lang)
 {
-    m_settings->setValue(QStringLiteral("Translation/SecondaryLanguage"), lang.toCode());
+    m_settings->setValue(QStringLiteral("Translation/SecondaryLanguage"), lang.storageCode());
 }
 
 Language AppSettings::defaultSecondaryLanguage()
