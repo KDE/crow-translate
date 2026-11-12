@@ -17,22 +17,22 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 26.08.2\n"
 
-#: src/cli.cpp:100
+#: src/cli.cpp:114
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "vertaalopties:"
 
-#: src/cli.cpp:109
+#: src/cli.cpp:123
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "voorbeelden:"
 
-#: src/cli.cpp:142
+#: src/cli.cpp:156
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Toon alle taalcodes."
 
-#: src/cli.cpp:144
+#: src/cli.cpp:158
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -41,7 +41,7 @@ msgstr ""
 "Geef de brontaal op (standaard probeert de vertaalmachine deze automatisch "
 "te bepalen)."
 
-#: src/cli.cpp:148
+#: src/cli.cpp:162
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), split by '+' (by default, the system "
@@ -50,7 +50,7 @@ msgstr ""
 "Geef de doeltaal/-talen op, gescheiden door '+' (standaard wordt de "
 "systeemtaal gebruikt)."
 
-#: src/cli.cpp:153
+#: src/cli.cpp:167
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
@@ -59,7 +59,7 @@ msgstr ""
 "Kies de vertaalmachine ('google', 'yandex', 'bing', 'deepl', "
 "'libretranslate', 'mymemory' of 'reverso'). Standaard: Google."
 
-#: src/cli.cpp:157
+#: src/cli.cpp:171
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
@@ -68,52 +68,46 @@ msgstr ""
 "URL van Mohzi-exemplaar specificeren. URL-exemplaar van de instelling van de "
 "toepassing zal standaard gebruikt worden."
 
-#: src/cli.cpp:161
+#: src/cli.cpp:175
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid ""
+#| "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider "
+#| "from app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
-"Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
-"app settings will be used by default."
+"Specify translation provider (%1). Provider from app settings will be used "
+"by default."
 msgstr ""
 "Specificeer leverancier van vertaling ('copy', 'mozhi' of 'localai'). "
 "Leverancier van de instellingen van de toepassing zal standaard gebruikt "
 "worden."
 
-#: src/cli.cpp:169
+#: src/cli.cpp:182
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid ""
+#| "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app "
+#| "settings will be used by default."
 msgctxt "Cli|"
 msgid ""
-"Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
-"settings will be used by default."
-msgstr ""
-"Specificeer TTS-leverancier ('geen', 'mozhi', 'qt' of 'piper'). Leverancier "
-"van de instellingen van de toepassing zal standaard gebruikt worden."
-
-#: src/cli.cpp:171
-msgctxt "Cli|"
-msgid ""
-"Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
-"will be used by default."
+"Specify TTS provider (%1). Provider from app settings will be used by "
+"default."
 msgstr ""
 "Specificeer TTS-leverancier ('geen', 'mozhi' of 'qt'). Leverancier van de "
 "instellingen van de toepassing zal standaard gebruikt worden."
 
-#: src/cli.cpp:173
-msgctxt "Cli|"
-msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
-msgstr ""
-"Specificeer TTS leverancier ('none'). Dit exemplaar heeft tekst-naar-spraak "
-"uitgeschakeld."
-
-#: src/cli.cpp:176
+#: src/cli.cpp:185
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Lees de vertaling voor."
 
-#: src/cli.cpp:177
+#: src/cli.cpp:186
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Lees de brontekst voor."
 
-#: src/cli.cpp:178
+#: src/cli.cpp:187
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -121,40 +115,40 @@ msgstr ""
 "Lees de brontekst uit uit bestanden. Aanvullende opties worden opgevat als "
 "bestandspaden."
 
-#: src/cli.cpp:179
+#: src/cli.cpp:188
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Voeg stdin-data toe aan de brontekst."
 
-#: src/cli.cpp:181
+#: src/cli.cpp:190
 msgctxt "Cli|"
 msgid "Read source text from an image using the configured OCR engine."
 msgstr ""
 "Lees brontekst van een afbeelding met behulp van de geconfigureerde OCR-"
 "engine."
 
-#: src/cli.cpp:182
+#: src/cli.cpp:191
 msgctxt "Cli|"
 msgid "path"
 msgstr "pad"
 
-#: src/cli.cpp:184
+#: src/cli.cpp:193
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "Toon geen tekst bij gebruik van --%1 of --%2."
 
-#: src/cli.cpp:185
+#: src/cli.cpp:194
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Toon alleen vertalingen."
 
-#: src/cli.cpp:186
+#: src/cli.cpp:195
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Toon geen met json opgemaakte tekst."
 
-#: src/cli.cpp:192
+#: src/cli.cpp:201
 msgctxt "Cli|"
 msgid ""
 "Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
@@ -163,12 +157,12 @@ msgstr ""
 "Welke frontend moet worden gebruikt ('gui' of 'cli'). Standaard wordt 'cli' "
 "gebruikt zodra er een argument wordt opgegeven."
 
-#: src/cli.cpp:193
+#: src/cli.cpp:202
 msgctxt "Cli|"
 msgid "frontend"
 msgstr "frontend"
 
-#: src/cli.cpp:197
+#: src/cli.cpp:206
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
@@ -176,7 +170,7 @@ msgstr ""
 "Toepassingen die toestaan tekst te vertalen en uit te spreken gebruiken "
 "verschillende leveranciers"
 
-#: src/cli.cpp:198
+#: src/cli.cpp:207
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
@@ -184,152 +178,160 @@ msgid ""
 msgstr ""
 "De te vertalen tekst. Standaard wordt de tekst vertaald naar de systeemtaal."
 
-#: src/cli.cpp:244
+#: src/cli.cpp:253
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Fout: bij --%1 dient u --%2 en/of --%3 op te geven"
 
-#: src/cli.cpp:254
+#: src/cli.cpp:263
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
 msgstr "Fout: onbekende vertaalmachine '%1'"
 
-#: src/cli.cpp:269
+#: src/cli.cpp:275
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
 msgstr "Fout: onbekende leverancier van vertaling '%1'"
 
-#: src/cli.cpp:293
+#: src/cli.cpp:300
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "Fout: onbekende taalcode van bron '%1'"
 
-#: src/cli.cpp:313
+#: src/cli.cpp:325
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "Fout: onbekende taalcode van vertaling '%1'"
 
-#: src/cli.cpp:337
+#: src/cli.cpp:349
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Fout: geen brontekst opgegeven"
 
-#: src/cli.cpp:340
+#: src/cli.cpp:352
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: --%1 cannot be combined with text arguments"
 msgstr "Fout: --%1 kan niet worden gecombineerd met tekstargumenten"
 
-#: src/cli.cpp:347
+#: src/cli.cpp:359
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr "Detecteren van snelste exemplaar"
 
-#: src/cli.cpp:410
+#: src/cli.cpp:403
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
 msgstr "Fout: onbekende TTS-leverancier '%1'"
 
-#: src/cli.cpp:473
+#: src/cli.cpp:452
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to read image '%1'"
 msgstr "Fout: kan afbeelding niet lezen: '%1'"
 
-#: src/cli.cpp:483
+#: src/cli.cpp:462
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to initialize Tesseract with %1"
 msgstr "Fout: kan Tesseract niet initialiseren met %1"
 
-#: src/cli.cpp:506
+#: src/cli.cpp:485
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid "Error: text-to-speech is unavailable: %1"
+msgctxt "Cli|"
+msgid "Error: No OCR engine is available"
+msgstr "Fout: tekst-naar-spraak in niet beschikbaar: %1"
+
+#: src/cli.cpp:493
 msgctxt "Cli|"
 msgid "Error: No text was recognized in the image"
 msgstr "Fout: geen tekst herkend in de afbeelding"
 
-#: src/cli.cpp:514
+#: src/cli.cpp:501
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Recognition failed: %1"
 msgstr "Fout: herkennen is mislukt: %1"
 
-#: src/cli.cpp:519
+#: src/cli.cpp:506
 msgctxt "Cli|"
 msgid "Error: Recognition was cancelled"
 msgstr "Fout: herkennen is geannuleerd"
 
-#: src/cli.cpp:537 src/cli.cpp:606
+#: src/cli.cpp:524 src/cli.cpp:581
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Fout: %1"
 
-#: src/cli.cpp:539 src/cli.cpp:608
+#: src/cli.cpp:526 src/cli.cpp:583
 msgctxt "Cli|"
 msgid "Translation error occurred"
 msgstr "Er deed zich een fout voor bij vertalen"
 
-#: src/cli.cpp:677
+#: src/cli.cpp:652
 msgctxt "Cli|"
 msgid "Unknown error"
 msgstr "Onbekende fout"
 
-#: src/cli.cpp:678
+#: src/cli.cpp:653
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
 msgstr "Fout: TTS is mislukt: %1"
 
-#: src/cli.cpp:785
+#: src/cli.cpp:759
 msgctxt "Cli|"
 msgid "no provider was created"
 msgstr "er is geen leverancier aangemaakt"
 
-#: src/cli.cpp:810
+#: src/cli.cpp:784
 msgctxt "Cli|"
 msgid "the engine failed to start"
 msgstr "starten van de vertaalmachine is mislukt"
 
-#: src/cli.cpp:815
+#: src/cli.cpp:789
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
 msgstr "de geselecteerde leverancier heeft geen stemmen beschikbaar"
 
-#: src/cli.cpp:873
+#: src/cli.cpp:847
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
 msgstr "Fout: tekst-naar-spraak in niet beschikbaar: %1"
 
-#: src/cli.cpp:894
+#: src/cli.cpp:868
 msgctxt "Cli|"
 msgid "Source languages:"
 msgstr "Brontalen:"
 
-#: src/cli.cpp:897
+#: src/cli.cpp:871
 msgctxt "Cli|"
 msgid "Translation languages:"
 msgstr "Vertalingen naar:"
 
-#: src/cli.cpp:965
+#: src/cli.cpp:939
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Fout: u kunt --%1 niet gebruiken in combinatie met --%2"
 
-#: src/cli.cpp:977 src/cli.cpp:998
+#: src/cli.cpp:951 src/cli.cpp:972
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Fout: bestand bestaat niet: %1"
 
-#: src/cli.cpp:982 src/cli.cpp:1003
+#: src/cli.cpp:956 src/cli.cpp:977
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -340,12 +342,76 @@ msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Zoeken op Forvo.com"
 
-#: src/core/translationsession.cpp:353
+#: src/core/pluginmanager.cpp:205
+msgctxt "SettingsDialog|"
+msgid "Copy"
+msgstr "Kopiëren"
+
+#: src/core/pluginmanager.cpp:206
+msgctxt "PluginManager|"
+msgid "Hands the text back unchanged. Always available."
+msgstr ""
+
+#: src/core/pluginmanager.cpp:212
+msgctxt "SettingsDialog|"
+msgid "None"
+msgstr "Geen"
+
+#: src/core/pluginmanager.cpp:213
+msgctxt "PluginManager|"
+msgid "Says nothing. Always available."
+msgstr ""
+
+#: src/core/pluginmanager.cpp:456
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Update available!"
+msgctxt "PluginManager|"
+msgid "Backend unavailable"
+msgstr "Update beschikbaar!"
+
+#: src/core/pluginmanager.cpp:457
+#, qt-format
+msgctxt "PluginManager|"
+msgid ""
+"The backend \"%1\" could not be used (%2). Falling back to the built-in one."
+msgstr ""
+
+#: src/core/pluginmanager.cpp:468 src/core/pluginmanager.cpp:495
+msgctxt "PluginManager|"
+msgid "not installed"
+msgstr ""
+
+#: src/core/pluginmanager.cpp:476 src/core/pluginmanager.cpp:503
+msgctxt "PluginManager|"
+msgid "built nothing"
+msgstr ""
+
+#: src/core/pluginmanager.cpp:484 src/core/pluginmanager.cpp:508
+#: src/core/pluginmanager.cpp:531
+msgctxt "PluginManager|"
+msgid "crashed while starting"
+msgstr ""
+
+#: src/core/translationsession.cpp:447
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "No updates available."
+msgctxt "TranslationSession|"
+msgid "No OCR engine available"
+msgstr "Geen updates beschikbaar."
+
+#: src/core/translationsession.cpp:448
+msgctxt "TranslationSession|"
+msgid "No text recognition plugin is installed."
+msgstr ""
+
+#: src/core/translationsession.cpp:460
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
 msgstr "OCR is niet geconfigureerd"
 
-#: src/core/translationsession.cpp:354
+#: src/core/translationsession.cpp:461
 msgctxt "TesseractOcr|"
 msgid "Set up the OCR engine in the application settings"
 msgstr "Zet de OCR-engine op in de programma-instellingen"
@@ -360,13 +426,13 @@ msgctxt "FrontendRegistry|"
 msgid "Command line"
 msgstr "Opdrachtregel"
 
-#: src/frontend/guifrontend.cpp:46
+#: src/frontend/guifrontend.cpp:45
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "Het D-Bus-object bij %1 kan niet worden vastgelegd"
 
-#: src/frontend/guifrontend.cpp:141
+#: src/frontend/guifrontend.cpp:140
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
@@ -483,6 +549,11 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Gekozen talen:"
 
+#: src/llm/knownendpoints.cpp:31
+msgctxt "AppSettings|"
+msgid "OpenAI-compatible (custom)"
+msgstr "OpenAI-compatibel (aangepast)"
+
 #: src/main.cpp:34
 #, qt-format
 msgctxt "main|"
@@ -495,39 +566,39 @@ msgctxt "main|"
 msgid "Available frontends: %1"
 msgstr "Beschikbare frontends: %1"
 
-#: src/mainwindow.cpp:169
+#: src/mainwindow.cpp:189
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "De ocr-talen kunnen niet worden ingesteld"
 
-#: src/mainwindow.cpp:170
+#: src/mainwindow.cpp:190
 #, qt-format
 msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "Tesseract kan niet worden geïnitialiseerd met %1"
 
-#: src/mainwindow.cpp:451
+#: src/mainwindow.cpp:467
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "Tekstherkenning (OCR)"
 
-#: src/mainwindow.cpp:452
+#: src/mainwindow.cpp:468
 msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "OCR-afbeelding omgeschakeld"
 
-#: src/mainwindow.cpp:452
+#: src/mainwindow.cpp:468
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr "OCR-afbeelding is normaal"
 
-#: src/mainwindow.cpp:896
+#: src/mainwindow.cpp:976
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "Deze toepassing gebruikt %1 om vertalingen te leveren."
 
-#: src/mainwindow.cpp:897
+#: src/mainwindow.cpp:977
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -541,17 +612,17 @@ msgstr ""
 "en analyseren. Uw exemplaar op dit moment is %1, maar u kunt dat wijzigen in "
 "de vertaalinstellingen. Zie details over exemplaar in de koppeling erboven."
 
-#: src/mainwindow.cpp:904
+#: src/mainwindow.cpp:984
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "Niet opnieuw tonen"
 
-#: src/mainwindow.cpp:951
+#: src/mainwindow.cpp:1031
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Ongeldig systeemvakpictogram"
 
-#: src/mainwindow.cpp:951
+#: src/mainwindow.cpp:1031
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
@@ -559,12 +630,12 @@ msgstr ""
 "Het opgegeven pictogram, %1, is ongeldig. Het standaardpictogram wordt "
 "gebruikt."
 
-#: src/mainwindow.cpp:1067
+#: src/mainwindow.cpp:1147
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr "TTS-fout"
 
-#: src/mainwindow.cpp:1067
+#: src/mainwindow.cpp:1147
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -580,25 +651,25 @@ msgstr ""
 "\n"
 "Controleer uw TTS-instellingen of probeer een andere stem/taalcode."
 
-#: src/mainwindow.cpp:1108 src/mainwindow.cpp:1120
+#: src/mainwindow.cpp:1188 src/mainwindow.cpp:1200
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Fout: %1"
 
-#: src/mainwindow.cpp:1928
+#: src/mainwindow.cpp:2068
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
 msgstr "Afbeelding te groot (%1 MP). Max %2 MP."
 
-#: src/mainwindow.cpp:2026
+#: src/mainwindow.cpp:2170
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
 msgstr "OCR is mislukt: %1"
 
-#: src/mainwindow.cpp:2060 src/mainwindow.cpp:2117
+#: src/mainwindow.cpp:2204 src/mainwindow.cpp:2261
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -608,12 +679,12 @@ msgstr ""
 "Kan afbeelding niet openen:\n"
 "%1"
 
-#: src/mainwindow.cpp:2108 src/mainwindow.cpp:2117
+#: src/mainwindow.cpp:2252 src/mainwindow.cpp:2261
 msgctxt "MainWindow|"
 msgid "Open image"
 msgstr "Afbeelding openen"
 
-#: src/mainwindow.cpp:2110
+#: src/mainwindow.cpp:2254
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
@@ -717,108 +788,60 @@ msgctxt "MainWindow|"
 msgid "Application settings"
 msgstr "Programma-instellingen"
 
-#: src/modulestatus.cpp:271
+#: src/modulestatus.cpp:272
 msgctxt "ModuleStatus|"
 msgid "Waiting for capture"
 msgstr "Wacht op opname"
 
-#: src/modulestatus.cpp:273
+#: src/modulestatus.cpp:274
 msgctxt "ModuleStatus|"
 msgid "Select a region"
 msgstr "Selecteer een gebied"
 
-#: src/modulestatus.cpp:275
+#: src/modulestatus.cpp:276
 msgctxt "ModuleStatus|"
 msgid "Recognizing text"
 msgstr "Tekst herkennen"
 
-#: src/modulestatus.cpp:277
+#: src/modulestatus.cpp:278
 msgctxt "ModuleStatus|"
 msgid "Translating"
 msgstr "Vertalen"
 
-#: src/modulestatus.cpp:279
+#: src/modulestatus.cpp:280
 msgctxt "ModuleStatus|"
 msgid "Detecting language"
 msgstr "Taal detecteren"
 
-#: src/modulestatus.cpp:281
+#: src/modulestatus.cpp:282
 msgctxt "ModuleStatus|"
 msgid "Preparing speech"
 msgstr "Spraak voorbereiden"
 
-#: src/modulestatus.cpp:283
+#: src/modulestatus.cpp:284
 msgctxt "ModuleStatus|"
 msgid "Speaking"
 msgstr "Spreken"
 
-#: src/modulestatus.cpp:285
+#: src/modulestatus.cpp:286
 msgctxt "ModuleStatus|"
 msgid "Capture failed"
 msgstr "Opnemen is mislukt"
 
-#: src/modulestatus.cpp:287
+#: src/modulestatus.cpp:288
 msgctxt "ModuleStatus|"
 msgid "OCR failed"
 msgstr "OCR is mislukt"
 
-#: src/modulestatus.cpp:289
+#: src/modulestatus.cpp:290
 msgctxt "ModuleStatus|"
 msgid "Translation failed"
 msgstr "Vertaling is mislukt:"
 
-#: src/modulestatus.cpp:291
+#: src/modulestatus.cpp:292
 msgctxt "ModuleStatus|"
 msgid "Speech error"
 msgstr "Spraakfout"
-
-#: src/ocr/llmocr.cpp:259
-msgctxt "LlmOcr|"
-msgid ""
-"The model ran out of tokens before transcribing anything, having spent them "
-"reasoning instead. Turn on \"Disable reasoning\" for this provider, or pick "
-"a model with a larger context."
-msgstr ""
-"Het model had geen tokens meer over voordat het iets kon transcriberen, "
-"omdat het deze had verbruikt voor redeneren. Schakel \"Redeneren uitschakelen"
-"\" in voor deze aanbieder of kies een model met een grotere context."
-
-#: src/ocr/llmocr.cpp:264
-#, qt-format
-msgctxt "LlmOcr|"
-msgid ""
-"The model ran out of tokens before transcribing anything: the image used %1 "
-"of its %2 token limit. Try a smaller region, or a model with a larger "
-"context."
-msgstr ""
-"Het model had geen tokens meer over voordat er iets werd getranscribeerd: de "
-"afbeelding gebruikte %1 van de limiet van %2 tokens. Probeer een kleiner "
-"gebied of een model met een grotere context."
-
-#: src/ocr/llmocr.cpp:269
-msgctxt "LlmOcr|"
-msgid ""
-"The model ran out of tokens before transcribing anything. Try a smaller "
-"region, or a model with a larger context."
-msgstr ""
-"Het model had geen tokens meer over voordat er iets werd getranscribeerd. "
-"Probeer een kleiner gebied of een model met een grotere context."
-
-#: src/ocr/llmocr.cpp:273 src/ocr/llmocr.cpp:509
-#, qt-format
-msgctxt "LlmOcr|"
-msgid "LLM OCR error: %1"
-msgstr "LLM OCR fout: %1"
-
-#: src/ocr/llmocr.cpp:275
-msgctxt "LlmOcr|"
-msgid "The model returned no text for this image."
-msgstr "Het model heeft geen tekst voor deze afbeelding geretourneerd."
-
-#: src/ocr/llmocr.cpp:488
-msgctxt "LlmOcr|"
-msgid "LLM OCR request timed out"
-msgstr "LLM OCR-verzoek ging over de tijdslimiet"
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:47
@@ -1032,12 +1055,6 @@ msgid ""
 msgstr ""
 "Scherm onder cursor verdween voordat we een dpi ervan kregen. Het primaire "
 "scherm wordt gebruikt voor dpi-informatie."
-
-#: src/ocr/tesseractocr.cpp:143
-#, qt-format
-msgctxt "TesseractOcr|"
-msgid "%1 is not a valid Tesseract parameter name."
-msgstr "‘%1’ is geen geldige Tesseract-optienaam."
 
 #: src/onlinetranslator.cpp:280
 #, qt-format
@@ -2152,6 +2169,454 @@ msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
 msgstr "Fout: de automatisch vastgestelde taal kan niet worden verwerkt."
 
+#: src/plugins/ocr/llm/llmocr.cpp:259
+msgctxt "LlmOcr|"
+msgid ""
+"The model ran out of tokens before transcribing anything, having spent them "
+"reasoning instead. Turn on \"Disable reasoning\" for this provider, or pick "
+"a model with a larger context."
+msgstr ""
+"Het model had geen tokens meer over voordat het iets kon transcriberen, "
+"omdat het deze had verbruikt voor redeneren. Schakel \"Redeneren uitschakelen"
+"\" in voor deze aanbieder of kies een model met een grotere context."
+
+#: src/plugins/ocr/llm/llmocr.cpp:264
+#, qt-format
+msgctxt "LlmOcr|"
+msgid ""
+"The model ran out of tokens before transcribing anything: the image used %1 "
+"of its %2 token limit. Try a smaller region, or a model with a larger "
+"context."
+msgstr ""
+"Het model had geen tokens meer over voordat er iets werd getranscribeerd: de "
+"afbeelding gebruikte %1 van de limiet van %2 tokens. Probeer een kleiner "
+"gebied of een model met een grotere context."
+
+#: src/plugins/ocr/llm/llmocr.cpp:269
+msgctxt "LlmOcr|"
+msgid ""
+"The model ran out of tokens before transcribing anything. Try a smaller "
+"region, or a model with a larger context."
+msgstr ""
+"Het model had geen tokens meer over voordat er iets werd getranscribeerd. "
+"Probeer een kleiner gebied of een model met een grotere context."
+
+#: src/plugins/ocr/llm/llmocr.cpp:273 src/plugins/ocr/llm/llmocr.cpp:509
+#, qt-format
+msgctxt "LlmOcr|"
+msgid "LLM OCR error: %1"
+msgstr "LLM OCR fout: %1"
+
+#: src/plugins/ocr/llm/llmocr.cpp:275
+msgctxt "LlmOcr|"
+msgid "The model returned no text for this image."
+msgstr "Het model heeft geen tekst voor deze afbeelding geretourneerd."
+
+#: src/plugins/ocr/llm/llmocr.cpp:488
+msgctxt "LlmOcr|"
+msgid "LLM OCR request timed out"
+msgstr "LLM OCR-verzoek ging over de tijdslimiet"
+
+#: src/plugins/ocr/tesseract/tesseractocr.cpp:146
+#, qt-format
+msgctxt "TesseractOcr|"
+msgid "%1 is not a valid Tesseract parameter name."
+msgstr "‘%1’ is geen geldige Tesseract-optienaam."
+
+#: src/plugins/ocr/tesseract/tesseractplugin.cpp:23
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Languages"
+msgctxt "TesseractOcrPlugin|"
+msgid "Languages"
+msgstr "Talen"
+
+#: src/plugins/ocr/tesseract/tesseractplugin.cpp:28
+msgctxt "TesseractOcrPlugin|"
+msgid "Language data directory"
+msgstr ""
+
+#: src/plugins/ocr/tesseract/tesseractplugin.cpp:33
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Convert line breaks"
+msgctxt "TesseractOcrPlugin|"
+msgid "Convert line breaks"
+msgstr "Enters omzetten naar spaties"
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:184
+msgctxt "LocalAiTranslationProvider|"
+msgid "Destination language is not supported"
+msgstr "Doeltaal wordt niet ondersteund"
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:435
+#, qt-format
+msgctxt "LocalAiTranslationProvider|"
+msgid ""
+"The model ran out of tokens before writing a translation: the text to "
+"translate used %1 of its %2 token limit, and it spent what was left "
+"reasoning instead of answering. Turn on \"Disable reasoning\" for this "
+"provider, translate less text at once, or pick a model with a larger context."
+msgstr ""
+"Het model had geen tokens meer over voordat de vertaling kon worden "
+"geschreven: de te vertalen tekst gebruikte %1 van de limiet van %2 tokens, "
+"en de resterende tokens werden besteed aan redeneren in plaats van aan het "
+"geven van een antwoord. Schakel \"Redeneren uitschakelen\" in voor deze "
+"aanbieder, vertaal minder tekst tegelijk of kies een model met een grotere "
+"context."
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:443
+msgctxt "LocalAiTranslationProvider|"
+msgid ""
+"The model spent its whole token budget reasoning and never wrote a "
+"translation. Turn on \"Disable reasoning\" for this provider, translate less "
+"text at once, or pick a model with a larger context."
+msgstr ""
+"Het model heeft zijn volledige tokenbudget besteed aan redeneren en heeft "
+"geen vertaling geschreven. Schakel \"Redeneren uitschakelen\" in voor deze "
+"aanbieder, vertaal minder tekst tegelijk of kies een model met een grotere "
+"context."
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:451
+#, qt-format
+msgctxt "LocalAiTranslationProvider|"
+msgid ""
+"The model ran out of tokens before writing a translation: the text to "
+"translate used %1 of its %2 token limit. Translate less text at once, or "
+"pick a model with a larger context."
+msgstr ""
+"Het model had geen tokens meer beschikbaar voordat de vertaling kon worden "
+"voltooid: de te vertalen tekst gebruikte %1 van de limiet van %2 tokens. "
+"Vertaal minder tekst tegelijk of kies een model met een grotere context."
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:458
+msgctxt "LocalAiTranslationProvider|"
+msgid ""
+"The model ran out of tokens before writing a translation. Translate less "
+"text at once, or pick a model with a larger context."
+msgstr ""
+"Het model had geen tokens meer over voordat de vertaling voltooid was. "
+"Vertaal minder tekst tegelijk of kies een model met een grotere context."
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:464
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:526
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:527
+#, qt-format
+msgctxt "LocalAiTranslationProvider|"
+msgid "LocalAI error: %1"
+msgstr "LocalAI-fout: %1"
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:467
+msgctxt "LocalAiTranslationProvider|"
+msgid "The model returned an empty response."
+msgstr "Het model gaf een leeg antwoord terug."
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:488
+msgctxt "LocalAiTranslationProvider|"
+msgid "LocalAI request timed out"
+msgstr "LocalAI-verzoek ging over de tijdslimiet"
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:569
+msgctxt "LocalAiTranslationProvider|"
+msgid "Language detection timed out"
+msgstr "Taaldetectie ging over de tijdslimiet"
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:637
+msgctxt "LocalAiTranslationProvider|"
+msgid "Translation aborted by user"
+msgstr "Vertaling afgebroken door de gebruiker"
+
+#: src/plugins/translation/mozhi/mozhiplugin.cpp:30
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Instance URL:"
+msgctxt "MozhiTranslationPlugin|"
+msgid "Instance URL"
+msgstr "URL van exemplaar:"
+
+#: src/plugins/translation/mozhi/mozhiplugin.cpp:31
+msgctxt "MozhiTranslationPlugin|"
+msgid "The Mozhi instance to send translations through."
+msgstr ""
+
+#: src/plugins/translation/mozhi/mozhiplugin.cpp:40
+msgctxt "MozhiTranslationPlugin|"
+msgid "Engine"
+msgstr ""
+
+#: src/plugins/translation/mozhi/mozhiplugin.cpp:41
+msgctxt "MozhiTranslationPlugin|"
+msgid "Which upstream translator the instance should use."
+msgstr ""
+
+#: src/plugins/translation/mozhi/mozhiplugin.cpp:46
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Use direct LibreTranslate API"
+msgctxt "MozhiTranslationPlugin|"
+msgid "LibreTranslate API key"
+msgstr "Gebruik de directe LibreTranslate-API"
+
+#: src/plugins/translation/mozhi/mozhiplugin.cpp:51
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Mozhi / LibreTranslate"
+msgctxt "MozhiTranslationPlugin|"
+msgid "Contact LibreTranslate directly"
+msgstr "Mozhi / LibreTranslate"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:79
+msgctxt "MozhiTranslationProvider|"
+msgid "Translation aborted by user"
+msgstr "Vertaling afgebroken door de gebruiker"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:140
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Destination language '%1' is not supported"
+msgstr "Doeltaal '%1' wordt niet ondersteund"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:148
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Source language '%1' is not supported"
+msgstr "Brontaal '%1' wordt niet ondersteund"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:213
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Network error: %1"
+msgstr "Netwerkfout: %1"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:217
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Instance error: %1"
+msgstr "Exemplaarfout: %1"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:221
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Parsing error: %1"
+msgstr "Fout in ontleding: %1"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:225
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Unsupported TTS engine: %1"
+msgstr "Niet-ondersteunde TTS-engine: %1"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:229
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Unknown error: %1"
+msgstr "Onbekende fout: %1"
+
+#: src/plugins/tts/mozhi/mozhittsplugin.cpp:27
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Instance URL:"
+msgctxt "MozhiTtsPlugin|"
+msgid "Instance URL"
+msgstr "URL van exemplaar:"
+
+#: src/plugins/tts/mozhi/mozhittsplugin.cpp:32
+msgctxt "MozhiTtsPlugin|"
+msgid "Engine"
+msgstr ""
+
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:48
+msgctxt "MozhiTTSProvider|"
+msgid "Text is empty"
+msgstr "Tekst is leeg"
+
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:81
+msgctxt "MozhiTTSProvider|"
+msgid "No audio URLs generated"
+msgstr "Geen audio-URL's gegenereerd"
+
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:263
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Mozhi instance failed: %1 (HTTP Server Error)"
+msgstr "Mozhi-exemplaar is mislukt: %1 (HTTP-serverfout)"
+
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:265
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:272
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Cannot connect to Mozhi instance: %1"
+msgstr "Kan niet verbinden met Mohzi-exemplaar: %1"
+
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:268
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Mozhi instance failed: %1 (HTTP 500 Internal Server Error)"
+msgstr "Mozhi-exemplaar is mislukt: %1 (HTTP 500 interne serverfout)"
+
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:270
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
+msgstr "Mozhi-exemplaar fout:  %1 (HTTP 4XX clientfout)"
+
+#: src/plugins/tts/piper/piperttsplugin.cpp:19
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Piper voices path:"
+msgctxt "PiperTtsPlugin|"
+msgid "Piper voices path"
+msgstr "Pad van piperstemmen:"
+
+#: src/plugins/tts/piper/piperttsplugin.cpp:20
+msgctxt "PiperTtsPlugin|"
+msgid "Searched before the standard locations for Piper voice models."
+msgstr ""
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:139
+msgctxt "PiperTTSProvider|"
+msgid "Failed to initialize Piper TTS"
+msgstr "Initialisatie van Piper-TTS is mislukt"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:145
+#, qt-format
+msgctxt "PiperTTSProvider|"
+msgid "ONNX Runtime exception: %1"
+msgstr "ONNX Runtime-exceptie: %1"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:148
+msgctxt "PiperTTSProvider|"
+msgid "Unknown ONNX Runtime initialization error"
+msgstr "Onbekende ONNX runtime initialisatiefout"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:258
+msgctxt "PiperTTSProvider|"
+msgid "Failed to initialize espeak-ng"
+msgstr "Initialiseren van espeak-ng is mislukt"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:300
+#, qt-format
+msgctxt "PiperTTSProvider|"
+msgid "ONNX Runtime initialization error: %1"
+msgstr "ONNX runtime initialisatiefout: %1"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:341
+msgctxt "PiperTTSProvider|"
+msgid "Could not disable neural TTS telemetry"
+msgstr "Kon neurale TTS-telemetrie niet uitschakelen"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:342
+msgctxt "PiperTTSProvider|"
+msgid ""
+"Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
+"of it may report usage data to Microsoft."
+msgstr ""
+"Crow Translate kon de telemetrie van ONNX Runtime niet uitschakelen; daarom "
+"kan dit exemplaar ervan gebruiksgegevens naar Microsoft doorgeven."
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:343
+#, qt-format
+msgctxt "PiperTTSProvider|"
+msgid ""
+"Reason: %1\n"
+"\n"
+"Only Microsoft's own Windows builds of ONNX Runtime have telemetry compiled "
+"in. Builds from source - including the one Crow Translate links statically - "
+"have none, and it is inactive on other platforms."
+msgstr ""
+"Reden: %1\n"
+"\n"
+"Alleen de door Microsoft zelf gemaakte Windows-builds van ONNX Runtime "
+"bevatten ingebouwde telemetrie. Builds die vanuit de broncode zijn gemaakt – "
+"waaronder de versie waaraan Crow Translate statisch is gekoppeld – bevatten "
+"dit niet, en op andere platforms is de functie inactief."
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:1092
+msgctxt "PiperTTSProvider|"
+msgid "No audio data generated"
+msgstr "Geen audio-gegevens gegenereerd"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:1107
+msgctxt "PiperTTSProvider|"
+msgid "Failed to create temporary audio file"
+msgstr "Aanmaken van een tijdelijk audio-bestand is mislukt"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:1116
+msgctxt "PiperTTSProvider|"
+msgid "Failed to write audio data"
+msgstr "Schrijven van audio-gegevens is mislukt"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:1453
+msgctxt "PiperTTSProvider|"
+msgid ""
+"<h3>Piper Voice Models Not Found</h3><p>No Piper TTS voice models were found "
+"in the standard locations.</p><p><b>To use Piper TTS:</b></"
+"p><ol><li>Download voice models from <a href='https://huggingface.co/rhasspy/"
+"piper-voices'>HuggingFace Piper Voices</a></li><li>Extract the models to a "
+"directory</li><li>Set the path in Settings → TTS → Piper Voices Path</li></"
+"ol><p><b>⚠️ License Warning:</b> Some models may have non-free licenses and "
+"cannot be used in commercial settings. Please check the license of each "
+"model before commercial use.</p>"
+msgstr ""
+"<h3>Piper Voice modellen niet gevonden</h3><p>Geen Piper TTS voice modellen "
+"op de standaard locaties gevonden.</p><p><b>Om Piper TTS te gebruiken:</b></"
+"p><ol><li>Download de voice-modellen uit <a href='https://huggingface.co/"
+"rhasspy/piper-voices'>HuggingFace Piper Voices</a></li><li>Extraheer de "
+"modellen naar een map</li><li>Zet het pad in Instellingen → TTS → Piper "
+"Voices pad</li></ol><p><b>⚠️ Licentie waarschuwing:</b> Sommige modellen "
+"kunnen niet-vrije licenties hebben en kunnen niet gebruikt worden in "
+"commerciële settings. Controleer de licentie van elk model voor commercieel "
+"gebruik.</p>"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:1467
+msgctxt "PiperTTSProvider|"
+msgid "Piper Voice Models Required"
+msgstr "Piper stemmodellen vereist"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:1468
+msgctxt "PiperTTSProvider|"
+msgid ""
+"No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
+"Piper Voices Path."
+msgstr ""
+"Er zijn geen Piper TTS-stemmodellen gevonden. Stel het pad in via "
+"Instellingen -> TTS -> Piper Voices Path."
+
+#: src/plugins/tts/qt/qtttsprovider.cpp:325
+#, qt-format
+msgctxt "QtTTSProvider|"
+msgid ""
+"<h3>Windows TTS Voice Not Found</h3><p>No Windows TTS voice was found for <b>"
+"%1</b>.</p><p><b>To install additional languages:</b></p><ol><li>Open "
+"<b>Settings → Time & Language → Language & region</b></li><li>Click <b>Add a "
+"language</b> and select your desired language</li><li>Click on the installed "
+"language and select <b>Language options</b></li><li>Under <b>Speech</b>, "
+"click <b>Download</b> for the speech pack</li></ol><p><b>⚠️ License Note:</b> "
+"Crow Translate currently only supports \"Basic voice models\" from Windows "
+"TTS. \"Narrator voices\" have licensing restrictions that are incompatible "
+"with this application.</p>"
+msgstr ""
+"<h3>Windows TTS Voice niet gevonden</h3><p>Geen Windows TTS voice is "
+"gevonden voor <b>%1</b>.</p><p><b>Om extra talen te installeren:</b></"
+"p><ol><li>Open <b>Instellingen → Tijd & Taal → Taal & regio</b></li><li>Klik "
+"<b>Voeg een taal toe</b> en selecteer uw gewenste taal</li><li>Klik op de "
+"geïnstalleerde taal en selecteer <b>Taalopties</b></li><li>Onder <b>Spraak</"
+"b>, klik <b>Download</b> voor het spraakpakket</li></ol><p><b>⚠️ "
+"Licentienotitie:</b> Crow Translate ondersteunt nu alleen \"Basis voice-"
+"modellen\" uit Windows TTS. \"Narrator voices\" hebben licentiebeperkingen "
+"die niet compatibel zijn met deze toepassing.</p>"
+
+#: src/plugins/tts/qt/qtttsprovider.cpp:341
+msgctxt "QtTTSProvider|"
+msgid "Windows TTS Voice Installation"
+msgstr "Installatie van Windows TTS-stem"
+
+#: src/plugins/tts/qt/qtttsprovider.cpp:342
+#, qt-format
+msgctxt "QtTTSProvider|"
+msgid "No Windows TTS voice is installed for %1."
+msgstr "Er is geen Windows-TTS-stem geïnstalleerd voor %1."
+
 #: src/popupwindow.cpp:45
 msgctxt "PopupWindow|"
 msgid "Drag to resize"
@@ -2202,12 +2667,7 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Vertaling kopiëren naar klembord"
 
-#: src/settings/appsettings.cpp:704
-msgctxt "AppSettings|"
-msgid "OpenAI-compatible (custom)"
-msgstr "OpenAI-compatibel (aangepast)"
-
-#: src/settings/appsettings.cpp:1577
+#: src/settings/appsettings.cpp:1524
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -2235,178 +2695,176 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to create %1"
 msgstr "%1 kan niet worden aangemaakt"
 
-#: src/settings/autostartmanager/unixautostartmanager.cpp:47
+#: src/settings/autostartmanager/unixautostartmanager.cpp:56
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to copy %1 to %2"
 msgstr "%1 kan niet worden gekopieerd naar %2"
 
-#: src/settings/autostartmanager/unixautostartmanager.cpp:52
+#: src/settings/autostartmanager/unixautostartmanager.cpp:61
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "%1 kan niet worden verwijderd uit %2"
 
-#: src/settings/settingsdialog.cpp:82
+#: src/settings/pluginoptionswidget.cpp:87
+#, fuzzy
+#| msgctxt "ModuleStatus|"
+#| msgid "Select a region"
+msgctxt "PluginOptionsWidget|"
+msgid "Select a directory"
+msgstr "Selecteer een gebied"
+
+#: src/settings/settingsdialog.cpp:83
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Overdraagbare modus"
 
-#: src/settings/settingsdialog.cpp:95
+#: src/settings/settingsdialog.cpp:96
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Gebruik %1 om instellingen op te slaan"
 
-#: src/settings/settingsdialog.cpp:99
+#: src/settings/settingsdialog.cpp:100
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Systeemtaal>"
 
-#: src/settings/settingsdialog.cpp:103 src/settings/settingsdialog.cpp:104
+#: src/settings/settingsdialog.cpp:104 src/settings/settingsdialog.cpp:105
 msgctxt "SettingsDialog|"
 msgid "<Auto>"
 msgstr "<Automatisch>"
 
-#: src/settings/settingsdialog.cpp:152
-msgctxt "SettingsDialog|"
-msgid "Copy"
-msgstr "Kopiëren"
-
-#: src/settings/settingsdialog.cpp:157
-msgctxt "SettingsDialog|"
-msgid "None"
-msgstr "Geen"
-
-#: src/settings/settingsdialog.cpp:195
+#: src/settings/settingsdialog.cpp:210
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Pictogrammen:"
 
-#: src/settings/settingsdialog.cpp:217
+#: src/settings/settingsdialog.cpp:232
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "De ocr-optievelden mogen niet blanco zijn."
 
-#: src/settings/settingsdialog.cpp:218
+#: src/settings/settingsdialog.cpp:233
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Wilt u de ongeldige opties verwijderen?"
 
-#: src/settings/settingsdialog.cpp:351 src/settings/settingsdialog.cpp:521
+#: src/settings/settingsdialog.cpp:364 src/settings/settingsdialog.cpp:538
 msgctxt "SettingsDialog|"
 msgid "URL:"
 msgstr "URL:"
 
-#: src/settings/settingsdialog.cpp:355 src/settings/settingsdialog.cpp:525
+#: src/settings/settingsdialog.cpp:368 src/settings/settingsdialog.cpp:542
 msgctxt "SettingsDialog|"
 msgid "Key:"
 msgstr "Sleutel:"
 
-#: src/settings/settingsdialog.cpp:359 src/settings/settingsdialog.cpp:530
+#: src/settings/settingsdialog.cpp:372 src/settings/settingsdialog.cpp:547
 msgctxt "SettingsDialog|"
 msgid "optional, e.g. for a cloud endpoint"
 msgstr "optioneel, bijv. voor een cloud-eindpunt"
 
-#: src/settings/settingsdialog.cpp:360 src/settings/settingsdialog.cpp:531
+#: src/settings/settingsdialog.cpp:373 src/settings/settingsdialog.cpp:548
 msgctxt "SettingsDialog|"
 msgid "Refresh models"
 msgstr "Modellen vernieuwen"
 
-#: src/settings/settingsdialog.cpp:378
+#: src/settings/settingsdialog.cpp:391
 msgctxt "SettingsDialog|"
 msgid "Translation model:"
 msgstr "Vertaalmodel:"
 
-#: src/settings/settingsdialog.cpp:386 src/settings/settingsdialog.cpp:504
+#: src/settings/settingsdialog.cpp:399 src/settings/settingsdialog.cpp:521
 msgctxt "SettingsDialog|"
 msgid "Timeout:"
 msgstr "Tijdslimiet:"
 
-#: src/settings/settingsdialog.cpp:390 src/settings/settingsdialog.cpp:509
+#: src/settings/settingsdialog.cpp:403 src/settings/settingsdialog.cpp:526
 msgctxt "SettingsDialog|"
 msgid " s"
 msgstr " s"
 
-#: src/settings/settingsdialog.cpp:391
+#: src/settings/settingsdialog.cpp:404
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a translation or detection response."
 msgstr "Maximum tijd om te wachten op een vertaling of detectierespons."
 
-#: src/settings/settingsdialog.cpp:396
+#: src/settings/settingsdialog.cpp:409
 msgctxt "SettingsDialog|"
 msgid "Disable reasoning"
 msgstr "Redenering uitschakelen"
 
-#: src/settings/settingsdialog.cpp:403
+#: src/settings/settingsdialog.cpp:416
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Placeholders: %1"
 msgstr "Plaatshouders: %1"
 
-#: src/settings/settingsdialog.cpp:406
+#: src/settings/settingsdialog.cpp:419
 msgctxt "SettingsDialog|"
 msgid "Reset Text prompt"
 msgstr "Tekstprompt resetten"
 
-#: src/settings/settingsdialog.cpp:468
+#: src/settings/settingsdialog.cpp:481
 msgctxt "SettingsDialog|"
 msgid "OCR engine:"
 msgstr "OCR-engine:"
 
-#: src/settings/settingsdialog.cpp:472
+#: src/settings/settingsdialog.cpp:489
 msgctxt "SettingsDialog|"
 msgid "Tesseract"
 msgstr "Tesseract"
 
-#: src/settings/settingsdialog.cpp:473
+#: src/settings/settingsdialog.cpp:490
 msgctxt "SettingsDialog|"
 msgid "Vision model (LLM)"
 msgstr "Visiemodel (LLM)"
 
-#: src/settings/settingsdialog.cpp:483
+#: src/settings/settingsdialog.cpp:500
 msgctxt "SettingsDialog|"
 msgid "Tesseract runs locally. Configure languages and parameters below."
 msgstr "Tesseract draait lokaal. Configureer hieronder talen en parameters."
 
-#: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:818
+#: src/settings/settingsdialog.cpp:511 src/settings/settingsdialog.ui:818
 msgctxt "SettingsDialog|"
 msgid "Provider:"
 msgstr "Leverancier:"
 
-#: src/settings/settingsdialog.cpp:510
+#: src/settings/settingsdialog.cpp:527
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a transcription response."
 msgstr "Maximum tijd om te wachten op een vertalingsantwoord."
 
-#: src/settings/settingsdialog.cpp:541
+#: src/settings/settingsdialog.cpp:558
 msgctxt "SettingsDialog|"
 msgid "Model:"
 msgstr "Model:"
 
-#: src/settings/settingsdialog.cpp:555
+#: src/settings/settingsdialog.cpp:572
 msgctxt "SettingsDialog|"
 msgid "Reset OCR prompt"
 msgstr "OCR-prompt resetten"
 
-#: src/settings/settingsdialog.cpp:616
+#: src/settings/settingsdialog.cpp:640
 msgctxt "SettingsDialog|"
 msgid "— Server reports image support —"
 msgstr "— Server rapporteert ondersteuning voor afbeelding —"
 
-#: src/settings/settingsdialog.cpp:620
+#: src/settings/settingsdialog.cpp:644
 msgctxt "SettingsDialog|"
 msgid "— Image support not reported —"
 msgstr "— Ondersteuning voor afbeelding wordt niet gerapporteerd —"
 
-#: src/settings/settingsdialog.cpp:633
+#: src/settings/settingsdialog.cpp:657
 msgctxt "SettingsDialog|"
 msgid "No models loaded yet — press \"Refresh models\", or type a model name."
 msgstr ""
 "Er zijn nog geen modellen geladen — klik op \"Modellen vernieuwen\" of typ "
 "een modelnaam."
 
-#: src/settings/settingsdialog.cpp:635
+#: src/settings/settingsdialog.cpp:659
 msgctxt "SettingsDialog|"
 msgid ""
 "This endpoint does not report model capabilities, so image support cannot be "
@@ -2416,7 +2874,7 @@ msgstr ""
 "afbeeldingen kan hier niet worden geverifieerd. Kies een model waarvan u "
 "weet dat het afbeeldingen accepteert."
 
-#: src/settings/settingsdialog.cpp:638
+#: src/settings/settingsdialog.cpp:662
 msgctxt "SettingsDialog|"
 msgid ""
 "The server reported no image-capable models. A model listed here may still "
@@ -2426,7 +2884,7 @@ msgstr ""
 "Een hier vermeld model werkt mogelijk wel, maar herkenning zal mislukken als "
 "het geen afbeeldingen kan accepteren."
 
-#: src/settings/settingsdialog.cpp:641
+#: src/settings/settingsdialog.cpp:665
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "%n model(s) reported as image-capable."
@@ -2434,22 +2892,22 @@ msgid_plural "%n model(s) reported as image-capable."
 msgstr[0] "%n model(len) gerapporteerd als capabel voor afbeeldingen."
 msgstr[1] "%n model(len) gerapporteerd als capabel voor afbeeldingen."
 
-#: src/settings/settingsdialog.cpp:699
+#: src/settings/settingsdialog.cpp:723
 msgctxt "SettingsDialog|"
 msgid "Vision model"
 msgstr "Visiemodel"
 
-#: src/settings/settingsdialog.cpp:699
+#: src/settings/settingsdialog.cpp:723
 msgctxt "SettingsDialog|"
 msgid "Enter the endpoint URL first."
 msgstr "Voer eerst de eindpunt-URL in."
 
-#: src/settings/settingsdialog.cpp:709 src/settings/settingsdialog.cpp:929
+#: src/settings/settingsdialog.cpp:733 src/settings/settingsdialog.cpp:953
 msgctxt "SettingsDialog|"
 msgid "No models found."
 msgstr "Geen modellen gevonden."
 
-#: src/settings/settingsdialog.cpp:722 src/settings/settingsdialog.cpp:916
+#: src/settings/settingsdialog.cpp:746 src/settings/settingsdialog.cpp:940
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid ""
@@ -2459,37 +2917,22 @@ msgstr ""
 "Kon %1 opt %2 niet bereiken:\n"
 "%3"
 
-#: src/settings/settingsdialog.cpp:1000 src/settings/settingsdialog.ui:614
+#: src/settings/settingsdialog.cpp:1024 src/settings/settingsdialog.ui:614
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Kies een pictogram"
 
-#: src/settings/settingsdialog.cpp:1000
+#: src/settings/settingsdialog.cpp:1024
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Afbeeldingen (*.png *.ico *.svg *.jpg);;Alle bestanden()"
 
-#: src/settings/settingsdialog.cpp:1030 src/settings/settingsdialog.ui:1072
+#: src/settings/settingsdialog.cpp:1054 src/settings/settingsdialog.ui:1072
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Kies het ocr-taalpad"
 
-#: src/settings/settingsdialog.cpp:1045
-msgctxt "SettingsDialog|"
-msgid "Piper voices path:"
-msgstr "Pad van piperstemmen:"
-
-#: src/settings/settingsdialog.cpp:1059
-msgctxt "SettingsDialog|"
-msgid "Directory with voice models"
-msgstr "Map met stemmodellen"
-
-#: src/settings/settingsdialog.cpp:1060 src/settings/settingsdialog.cpp:1079
-msgctxt "SettingsDialog|"
-msgid "Select Piper voices path"
-msgstr "Selecteer pad van piper-stemmen"
-
-#: src/settings/settingsdialog.cpp:1237
+#: src/settings/settingsdialog.cpp:1210
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Terug"
@@ -2929,11 +3372,16 @@ msgid "Detection provider:"
 msgstr "Detectieleverancier:"
 
 #: src/settings/settingsdialog.ui:774 src/settings/settingsdialog.ui:791
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid ""
+#| "Provider and model used to detect the source language when it is set to "
+#| "Auto. If no detection model is selected, translation falls back to the "
+#| "configured primary language above."
 msgctxt "SettingsDialog|"
 msgid ""
 "Provider and model used to detect the source language when it is set to "
-"Auto. If no detection model is selected, translation falls back to the "
-"configured primary language above."
+"Auto. If no detection model is selected, the model that translates is asked."
 msgstr ""
 "De aanbieder en het model die worden gebruikt om de brontaal te detecteren "
 "wanneer de instelling op 'Automatisch' staat. Als er geen detectiemodel is "
@@ -3582,170 +4030,25 @@ msgctxt "StatusStrip|"
 msgid "Ready"
 msgstr "Gereed"
 
-#: src/translator/atranslationprovider.cpp:57
+#: src/translator/atranslationprovider.cpp:20
 msgctxt "ATranslationProvider|"
 msgid "Unsupported source language."
 msgstr "Niet ondersteunde brontaal."
 
-#: src/translator/atranslationprovider.cpp:59
+#: src/translator/atranslationprovider.cpp:22
 msgctxt "ATranslationProvider|"
 msgid "Unsupported destination language."
 msgstr "Niet ondersteunde doeltaal."
 
-#: src/translator/atranslationprovider.cpp:61
+#: src/translator/atranslationprovider.cpp:24
 msgctxt "ATranslationProvider|"
 msgid "User aborted translation in progress"
 msgstr "Gebruiker heeft lopende vertaling afgebroken"
 
-#: src/translator/atranslationprovider.cpp:65
+#: src/translator/atranslationprovider.cpp:28
 msgctxt "ATranslationProvider|"
 msgid "Unknown error"
 msgstr "Onbekende fout"
-
-#: src/translator/atranslationprovider.cpp:115
-msgctxt "QObject|"
-msgid "Translation Provider Error"
-msgstr "Fout van leverancier van vertaling"
-
-#: src/translator/atranslationprovider.cpp:116
-msgctxt "QObject|"
-msgid ""
-"The selected translation provider crashed during initialization and has been "
-"reset to 'Copy' to prevent further issues. You can try selecting a different "
-"provider in Settings → Translation."
-msgstr ""
-"De geselecteerde leverancier van vertaling is gecrasht tijdens initialisatie "
-"en is gereset naar 'Kopiëren' om verdere problemen te voorkomen. U kunt "
-"proberen een andere leverancier in Instellinge → Vertaling."
-
-#: src/translator/localaitranslationprovider.cpp:149
-msgctxt "LocalAiTranslationProvider|"
-msgid "Destination language is not supported"
-msgstr "Doeltaal wordt niet ondersteund"
-
-#: src/translator/localaitranslationprovider.cpp:396
-#, qt-format
-msgctxt "LocalAiTranslationProvider|"
-msgid ""
-"The model ran out of tokens before writing a translation: the text to "
-"translate used %1 of its %2 token limit, and it spent what was left "
-"reasoning instead of answering. Turn on \"Disable reasoning\" for this "
-"provider, translate less text at once, or pick a model with a larger context."
-msgstr ""
-"Het model had geen tokens meer over voordat de vertaling kon worden "
-"geschreven: de te vertalen tekst gebruikte %1 van de limiet van %2 tokens, "
-"en de resterende tokens werden besteed aan redeneren in plaats van aan het "
-"geven van een antwoord. Schakel \"Redeneren uitschakelen\" in voor deze "
-"aanbieder, vertaal minder tekst tegelijk of kies een model met een grotere "
-"context."
-
-#: src/translator/localaitranslationprovider.cpp:404
-msgctxt "LocalAiTranslationProvider|"
-msgid ""
-"The model spent its whole token budget reasoning and never wrote a "
-"translation. Turn on \"Disable reasoning\" for this provider, translate less "
-"text at once, or pick a model with a larger context."
-msgstr ""
-"Het model heeft zijn volledige tokenbudget besteed aan redeneren en heeft "
-"geen vertaling geschreven. Schakel \"Redeneren uitschakelen\" in voor deze "
-"aanbieder, vertaal minder tekst tegelijk of kies een model met een grotere "
-"context."
-
-#: src/translator/localaitranslationprovider.cpp:412
-#, qt-format
-msgctxt "LocalAiTranslationProvider|"
-msgid ""
-"The model ran out of tokens before writing a translation: the text to "
-"translate used %1 of its %2 token limit. Translate less text at once, or "
-"pick a model with a larger context."
-msgstr ""
-"Het model had geen tokens meer beschikbaar voordat de vertaling kon worden "
-"voltooid: de te vertalen tekst gebruikte %1 van de limiet van %2 tokens. "
-"Vertaal minder tekst tegelijk of kies een model met een grotere context."
-
-#: src/translator/localaitranslationprovider.cpp:419
-msgctxt "LocalAiTranslationProvider|"
-msgid ""
-"The model ran out of tokens before writing a translation. Translate less "
-"text at once, or pick a model with a larger context."
-msgstr ""
-"Het model had geen tokens meer over voordat de vertaling voltooid was. "
-"Vertaal minder tekst tegelijk of kies een model met een grotere context."
-
-#: src/translator/localaitranslationprovider.cpp:425
-#: src/translator/localaitranslationprovider.cpp:487
-#: src/translator/localaitranslationprovider.cpp:488
-#, qt-format
-msgctxt "LocalAiTranslationProvider|"
-msgid "LocalAI error: %1"
-msgstr "LocalAI-fout: %1"
-
-#: src/translator/localaitranslationprovider.cpp:428
-msgctxt "LocalAiTranslationProvider|"
-msgid "The model returned an empty response."
-msgstr "Het model gaf een leeg antwoord terug."
-
-#: src/translator/localaitranslationprovider.cpp:449
-msgctxt "LocalAiTranslationProvider|"
-msgid "LocalAI request timed out"
-msgstr "LocalAI-verzoek ging over de tijdslimiet"
-
-#: src/translator/localaitranslationprovider.cpp:530
-msgctxt "LocalAiTranslationProvider|"
-msgid "Language detection timed out"
-msgstr "Taaldetectie ging over de tijdslimiet"
-
-#: src/translator/localaitranslationprovider.cpp:591
-msgctxt "LocalAiTranslationProvider|"
-msgid "Translation aborted by user"
-msgstr "Vertaling afgebroken door de gebruiker"
-
-#: src/translator/mozhitranslationprovider.cpp:78
-msgctxt "MozhiTranslationProvider|"
-msgid "Translation aborted by user"
-msgstr "Vertaling afgebroken door de gebruiker"
-
-#: src/translator/mozhitranslationprovider.cpp:139
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Destination language '%1' is not supported"
-msgstr "Doeltaal '%1' wordt niet ondersteund"
-
-#: src/translator/mozhitranslationprovider.cpp:147
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Source language '%1' is not supported"
-msgstr "Brontaal '%1' wordt niet ondersteund"
-
-#: src/translator/mozhitranslationprovider.cpp:212
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Network error: %1"
-msgstr "Netwerkfout: %1"
-
-#: src/translator/mozhitranslationprovider.cpp:216
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Instance error: %1"
-msgstr "Exemplaarfout: %1"
-
-#: src/translator/mozhitranslationprovider.cpp:220
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Parsing error: %1"
-msgstr "Fout in ontleding: %1"
-
-#: src/translator/mozhitranslationprovider.cpp:224
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Unsupported TTS engine: %1"
-msgstr "Niet-ondersteunde TTS-engine: %1"
-
-#: src/translator/mozhitranslationprovider.cpp:228
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Unknown error: %1"
-msgstr "Onbekende fout: %1"
 
 #: src/trayicon.cpp:26 src/trayicon.cpp:65
 msgctxt "TrayIcon|"
@@ -3772,199 +4075,58 @@ msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Vertaalresultaat"
 
-#: src/tts/attsprovider.cpp:72
-msgctxt "QObject|"
-msgid "TTS Provider Error"
-msgstr "Fout van TTS-leverancier"
+#~ msgctxt "Cli|"
+#~ msgid ""
+#~ "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from "
+#~ "app settings will be used by default."
+#~ msgstr ""
+#~ "Specificeer TTS-leverancier ('geen', 'mozhi', 'qt' of 'piper'). "
+#~ "Leverancier van de instellingen van de toepassing zal standaard gebruikt "
+#~ "worden."
 
-#: src/tts/attsprovider.cpp:73
-msgctxt "QObject|"
-msgid ""
-"The selected TTS provider crashed during initialization and has been reset "
-"to 'None' to prevent further issues. You can try selecting a different "
-"provider in Settings → TTS."
-msgstr ""
-"De geselecteerde TTS-leverancier is gecrasht tijdens initialisatie en is "
-"gereset naar 'Geen' om verdere problemen te voorkomen. U kunt proberen een "
-"andere leverancier in Instellinge → TTS."
+#~ msgctxt "Cli|"
+#~ msgid ""
+#~ "Specify TTS provider ('none'). This build has text-to-speech disabled."
+#~ msgstr ""
+#~ "Specificeer TTS leverancier ('none'). Dit exemplaar heeft tekst-naar-"
+#~ "spraak uitgeschakeld."
 
-#: src/tts/mozhittsprovider.cpp:48
-msgctxt "MozhiTTSProvider|"
-msgid "Text is empty"
-msgstr "Tekst is leeg"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Directory with voice models"
+#~ msgstr "Map met stemmodellen"
 
-#: src/tts/mozhittsprovider.cpp:81
-msgctxt "MozhiTTSProvider|"
-msgid "No audio URLs generated"
-msgstr "Geen audio-URL's gegenereerd"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Select Piper voices path"
+#~ msgstr "Selecteer pad van piper-stemmen"
 
-#: src/tts/mozhittsprovider.cpp:263
-#, qt-format
-msgctxt "MozhiTTSProvider|"
-msgid "Mozhi instance failed: %1 (HTTP Server Error)"
-msgstr "Mozhi-exemplaar is mislukt: %1 (HTTP-serverfout)"
+#~ msgctxt "QObject|"
+#~ msgid "Translation Provider Error"
+#~ msgstr "Fout van leverancier van vertaling"
 
-#: src/tts/mozhittsprovider.cpp:265 src/tts/mozhittsprovider.cpp:272
-#, qt-format
-msgctxt "MozhiTTSProvider|"
-msgid "Cannot connect to Mozhi instance: %1"
-msgstr "Kan niet verbinden met Mohzi-exemplaar: %1"
+#~ msgctxt "QObject|"
+#~ msgid ""
+#~ "The selected translation provider crashed during initialization and has "
+#~ "been reset to 'Copy' to prevent further issues. You can try selecting a "
+#~ "different provider in Settings → Translation."
+#~ msgstr ""
+#~ "De geselecteerde leverancier van vertaling is gecrasht tijdens "
+#~ "initialisatie en is gereset naar 'Kopiëren' om verdere problemen te "
+#~ "voorkomen. U kunt proberen een andere leverancier in Instellinge → "
+#~ "Vertaling."
 
-#: src/tts/mozhittsprovider.cpp:268
-#, qt-format
-msgctxt "MozhiTTSProvider|"
-msgid "Mozhi instance failed: %1 (HTTP 500 Internal Server Error)"
-msgstr "Mozhi-exemplaar is mislukt: %1 (HTTP 500 interne serverfout)"
+#~ msgctxt "QObject|"
+#~ msgid "TTS Provider Error"
+#~ msgstr "Fout van TTS-leverancier"
 
-#: src/tts/mozhittsprovider.cpp:270
-#, qt-format
-msgctxt "MozhiTTSProvider|"
-msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
-msgstr "Mozhi-exemplaar fout:  %1 (HTTP 4XX clientfout)"
-
-#: src/tts/piperttsprovider.cpp:121
-msgctxt "PiperTTSProvider|"
-msgid "Failed to initialize Piper TTS"
-msgstr "Initialisatie van Piper-TTS is mislukt"
-
-#: src/tts/piperttsprovider.cpp:127
-#, qt-format
-msgctxt "PiperTTSProvider|"
-msgid "ONNX Runtime exception: %1"
-msgstr "ONNX Runtime-exceptie: %1"
-
-#: src/tts/piperttsprovider.cpp:130
-msgctxt "PiperTTSProvider|"
-msgid "Unknown ONNX Runtime initialization error"
-msgstr "Onbekende ONNX runtime initialisatiefout"
-
-#: src/tts/piperttsprovider.cpp:240
-msgctxt "PiperTTSProvider|"
-msgid "Failed to initialize espeak-ng"
-msgstr "Initialiseren van espeak-ng is mislukt"
-
-#: src/tts/piperttsprovider.cpp:282
-#, qt-format
-msgctxt "PiperTTSProvider|"
-msgid "ONNX Runtime initialization error: %1"
-msgstr "ONNX runtime initialisatiefout: %1"
-
-#: src/tts/piperttsprovider.cpp:323
-msgctxt "PiperTTSProvider|"
-msgid "Could not disable neural TTS telemetry"
-msgstr "Kon neurale TTS-telemetrie niet uitschakelen"
-
-#: src/tts/piperttsprovider.cpp:324
-msgctxt "PiperTTSProvider|"
-msgid ""
-"Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
-"of it may report usage data to Microsoft."
-msgstr ""
-"Crow Translate kon de telemetrie van ONNX Runtime niet uitschakelen; daarom "
-"kan dit exemplaar ervan gebruiksgegevens naar Microsoft doorgeven."
-
-#: src/tts/piperttsprovider.cpp:325
-#, qt-format
-msgctxt "PiperTTSProvider|"
-msgid ""
-"Reason: %1\n"
-"\n"
-"Only Microsoft's own Windows builds of ONNX Runtime have telemetry compiled "
-"in. Builds from source - including the one Crow Translate links statically - "
-"have none, and it is inactive on other platforms."
-msgstr ""
-"Reden: %1\n"
-"\n"
-"Alleen de door Microsoft zelf gemaakte Windows-builds van ONNX Runtime "
-"bevatten ingebouwde telemetrie. Builds die vanuit de broncode zijn gemaakt – "
-"waaronder de versie waaraan Crow Translate statisch is gekoppeld – bevatten "
-"dit niet, en op andere platforms is de functie inactief."
-
-#: src/tts/piperttsprovider.cpp:1060
-msgctxt "PiperTTSProvider|"
-msgid "No audio data generated"
-msgstr "Geen audio-gegevens gegenereerd"
-
-#: src/tts/piperttsprovider.cpp:1075
-msgctxt "PiperTTSProvider|"
-msgid "Failed to create temporary audio file"
-msgstr "Aanmaken van een tijdelijk audio-bestand is mislukt"
-
-#: src/tts/piperttsprovider.cpp:1084
-msgctxt "PiperTTSProvider|"
-msgid "Failed to write audio data"
-msgstr "Schrijven van audio-gegevens is mislukt"
-
-#: src/tts/piperttsprovider.cpp:1422
-msgctxt "PiperTTSProvider|"
-msgid ""
-"<h3>Piper Voice Models Not Found</h3><p>No Piper TTS voice models were found "
-"in the standard locations.</p><p><b>To use Piper TTS:</b></"
-"p><ol><li>Download voice models from <a href='https://huggingface.co/rhasspy/"
-"piper-voices'>HuggingFace Piper Voices</a></li><li>Extract the models to a "
-"directory</li><li>Set the path in Settings → TTS → Piper Voices Path</li></"
-"ol><p><b>⚠️ License Warning:</b> Some models may have non-free licenses and "
-"cannot be used in commercial settings. Please check the license of each "
-"model before commercial use.</p>"
-msgstr ""
-"<h3>Piper Voice modellen niet gevonden</h3><p>Geen Piper TTS voice modellen "
-"op de standaard locaties gevonden.</p><p><b>Om Piper TTS te gebruiken:</b></"
-"p><ol><li>Download de voice-modellen uit <a href='https://huggingface.co/"
-"rhasspy/piper-voices'>HuggingFace Piper Voices</a></li><li>Extraheer de "
-"modellen naar een map</li><li>Zet het pad in Instellingen → TTS → Piper "
-"Voices pad</li></ol><p><b>⚠️ Licentie waarschuwing:</b> Sommige modellen "
-"kunnen niet-vrije licenties hebben en kunnen niet gebruikt worden in "
-"commerciële settings. Controleer de licentie van elk model voor commercieel "
-"gebruik.</p>"
-
-#: src/tts/piperttsprovider.cpp:1436
-msgctxt "PiperTTSProvider|"
-msgid "Piper Voice Models Required"
-msgstr "Piper stemmodellen vereist"
-
-#: src/tts/piperttsprovider.cpp:1437
-msgctxt "PiperTTSProvider|"
-msgid ""
-"No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
-"Piper Voices Path."
-msgstr ""
-"Er zijn geen Piper TTS-stemmodellen gevonden. Stel het pad in via "
-"Instellingen -> TTS -> Piper Voices Path."
-
-#: src/tts/qtttsprovider.cpp:325
-#, qt-format
-msgctxt "QtTTSProvider|"
-msgid ""
-"<h3>Windows TTS Voice Not Found</h3><p>No Windows TTS voice was found for <b>"
-"%1</b>.</p><p><b>To install additional languages:</b></p><ol><li>Open "
-"<b>Settings → Time & Language → Language & region</b></li><li>Click <b>Add a "
-"language</b> and select your desired language</li><li>Click on the installed "
-"language and select <b>Language options</b></li><li>Under <b>Speech</b>, "
-"click <b>Download</b> for the speech pack</li></ol><p><b>⚠️ License Note:</b> "
-"Crow Translate currently only supports \"Basic voice models\" from Windows "
-"TTS. \"Narrator voices\" have licensing restrictions that are incompatible "
-"with this application.</p>"
-msgstr ""
-"<h3>Windows TTS Voice niet gevonden</h3><p>Geen Windows TTS voice is "
-"gevonden voor <b>%1</b>.</p><p><b>Om extra talen te installeren:</b></"
-"p><ol><li>Open <b>Instellingen → Tijd & Taal → Taal & regio</b></li><li>Klik "
-"<b>Voeg een taal toe</b> en selecteer uw gewenste taal</li><li>Klik op de "
-"geïnstalleerde taal en selecteer <b>Taalopties</b></li><li>Onder <b>Spraak</"
-"b>, klik <b>Download</b> voor het spraakpakket</li></ol><p><b>⚠️ "
-"Licentienotitie:</b> Crow Translate ondersteunt nu alleen \"Basis voice-"
-"modellen\" uit Windows TTS. \"Narrator voices\" hebben licentiebeperkingen "
-"die niet compatibel zijn met deze toepassing.</p>"
-
-#: src/tts/qtttsprovider.cpp:341
-msgctxt "QtTTSProvider|"
-msgid "Windows TTS Voice Installation"
-msgstr "Installatie van Windows TTS-stem"
-
-#: src/tts/qtttsprovider.cpp:342
-#, qt-format
-msgctxt "QtTTSProvider|"
-msgid "No Windows TTS voice is installed for %1."
-msgstr "Er is geen Windows-TTS-stem geïnstalleerd voor %1."
+#~ msgctxt "QObject|"
+#~ msgid ""
+#~ "The selected TTS provider crashed during initialization and has been "
+#~ "reset to 'None' to prevent further issues. You can try selecting a "
+#~ "different provider in Settings → TTS."
+#~ msgstr ""
+#~ "De geselecteerde TTS-leverancier is gecrasht tijdens initialisatie en is "
+#~ "gereset naar 'Geen' om verdere problemen te voorkomen. U kunt proberen "
+#~ "een andere leverancier in Instellinge → TTS."
 
 #~ msgctxt "SettingsDialog|"
 #~ msgid "Mozhi"
@@ -4449,14 +4611,6 @@ msgstr "Er is geen Windows-TTS-stem geïnstalleerd voor %1."
 #~ msgctxt "SettingsDialog|"
 #~ msgid "Checking for updates..."
 #~ msgstr "Bezig met controleren op updates..."
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Update available!"
-#~ msgstr "Update beschikbaar!"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "No updates available."
-#~ msgstr "Geen updates beschikbaar."
 
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Changelog:"

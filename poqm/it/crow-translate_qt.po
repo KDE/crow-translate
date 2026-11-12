@@ -18,22 +18,22 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 26.08.1\n"
 
-#: src/cli.cpp:100
+#: src/cli.cpp:114
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "opzioni traduzione:"
 
-#: src/cli.cpp:109
+#: src/cli.cpp:123
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "esempi:"
 
-#: src/cli.cpp:142
+#: src/cli.cpp:156
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Visualizza tutti i codici lingua."
 
-#: src/cli.cpp:144
+#: src/cli.cpp:158
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
@@ -42,7 +42,7 @@ msgstr ""
 "Specifica la lingua di origine (per impostazione predefinita, il motore di "
 "traduzione tenterà di determinare automaticamente la lingua)."
 
-#: src/cli.cpp:148
+#: src/cli.cpp:162
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), split by '+' (by default, the system "
@@ -51,7 +51,7 @@ msgstr ""
 "Specifica la lingua o le lingue della traduzione, divise da \"+\" (per "
 "impostazione predefinita verrà usata la lingua di sistema)."
 
-#: src/cli.cpp:153
+#: src/cli.cpp:167
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
@@ -61,7 +61,7 @@ msgstr ""
 "'libretranslate', 'mymemory' o 'reverso', Google è l'impostazione "
 "predefinita."
 
-#: src/cli.cpp:157
+#: src/cli.cpp:171
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
@@ -70,54 +70,47 @@ msgstr ""
 "Specifica l'URL dell'istanza Mozhi. L'URL dell'istanza derivante dalle "
 "impostazioni dell'applicazione sarà quella predefinita."
 
-#: src/cli.cpp:161
+#: src/cli.cpp:175
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid ""
+#| "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider "
+#| "from app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
-"Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
-"app settings will be used by default."
+"Specify translation provider (%1). Provider from app settings will be used "
+"by default."
 msgstr ""
 "Specifica il fornitore della traduzione: 'copia', 'mozhi' o 'localai'. Il "
 "fornitore derivante dalle impostazioni dell'applicazione risulterà quello "
 "predefinito."
 
-#: src/cli.cpp:169
+#: src/cli.cpp:182
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid ""
+#| "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app "
+#| "settings will be used by default."
 msgctxt "Cli|"
 msgid ""
-"Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
-"settings will be used by default."
-msgstr ""
-"Specifica il fornitore di sintesi vocale (TTS): 'nessuno', 'mozhi', 'qt' o "
-"'piper'.  Il fornitore derivante dalle impostazioni dell'applicazione "
-"risulterà quello predefinito."
-
-#: src/cli.cpp:171
-msgctxt "Cli|"
-msgid ""
-"Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
-"will be used by default."
+"Specify TTS provider (%1). Provider from app settings will be used by "
+"default."
 msgstr ""
 "Specifica il fornitore di sintesi vocale (TTS): 'nessuno', 'mozhi' o 'qt'.  "
 "Il fornitore derivante dalle impostazioni dell'applicazione risulterà quello "
 "predefinito."
 
-#: src/cli.cpp:173
-msgctxt "Cli|"
-msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
-msgstr ""
-"Specifica il fornitore di sintesi vocale (TTS): 'nessuno'. Questa "
-"compilazione ha la sintesi vocale disabilitata."
-
-#: src/cli.cpp:176
+#: src/cli.cpp:185
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Pronuncia testo traduzione."
 
-#: src/cli.cpp:177
+#: src/cli.cpp:186
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Pronuncia testo sorgente."
 
-#: src/cli.cpp:178
+#: src/cli.cpp:187
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -125,39 +118,39 @@ msgstr ""
 "Legge il testo sorgente dai file. \n"
 "Gli argomenti verranno interpretati come percorsi di file."
 
-#: src/cli.cpp:179
+#: src/cli.cpp:188
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Aggiungi dati stdin al testo sorgente."
 
-#: src/cli.cpp:181
+#: src/cli.cpp:190
 msgctxt "Cli|"
 msgid "Read source text from an image using the configured OCR engine."
 msgstr ""
 "Leggi il testo sorgente da un'immagine utilizzando il motore OCR configurato."
 
-#: src/cli.cpp:182
+#: src/cli.cpp:191
 msgctxt "Cli|"
 msgid "path"
 msgstr "percorso"
 
-#: src/cli.cpp:184
+#: src/cli.cpp:193
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "Non stampare il testo quando viene usato --%1 o --%2."
 
-#: src/cli.cpp:185
+#: src/cli.cpp:194
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Stampa solo la traduzione."
 
-#: src/cli.cpp:186
+#: src/cli.cpp:195
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Stampa output formattato come JSON."
 
-#: src/cli.cpp:192
+#: src/cli.cpp:201
 msgctxt "Cli|"
 msgid ""
 "Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
@@ -166,12 +159,12 @@ msgstr ""
 "Quale interfaccia eseguire («grafica» o «riga di comando»). Impostata a "
 "«riga di comando» ogni volta che viene fornito un argomento."
 
-#: src/cli.cpp:193
+#: src/cli.cpp:202
 msgctxt "Cli|"
 msgid "frontend"
 msgstr "interfaccia"
 
-#: src/cli.cpp:197
+#: src/cli.cpp:206
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
@@ -179,7 +172,7 @@ msgstr ""
 "Applicazione che consente di tradurre e pronunciare testi usando vari "
 "fornitori"
 
-#: src/cli.cpp:198
+#: src/cli.cpp:207
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
@@ -188,152 +181,160 @@ msgstr ""
 "Testo da tradurre. Per impostazione predefinita, la traduzione verrà "
 "effettuata nella lingua del sistema."
 
-#: src/cli.cpp:244
+#: src/cli.cpp:253
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Errore: per --%1 devi specificare --%2 e/o le opzioni --%3"
 
-#: src/cli.cpp:254
+#: src/cli.cpp:263
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
 msgstr "Errore: motore «%1» sconosciuto"
 
-#: src/cli.cpp:269
+#: src/cli.cpp:275
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
 msgstr "Errore: fornitore di traduzione sconosciuto «%1»"
 
-#: src/cli.cpp:293
+#: src/cli.cpp:300
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "Errore: codice lingua di origine sconosciuto «%1»"
 
-#: src/cli.cpp:313
+#: src/cli.cpp:325
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "Errore: codice lingua di traduzione sconosciuto «%1»"
 
-#: src/cli.cpp:337
+#: src/cli.cpp:349
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Errore: non c'è un testo da tradurre"
 
-#: src/cli.cpp:340
+#: src/cli.cpp:352
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: --%1 cannot be combined with text arguments"
 msgstr "Errore: --%1 non può essere combinato con argomenti di testo"
 
-#: src/cli.cpp:347
+#: src/cli.cpp:359
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr "Rilevamento dell'istanza più veloce"
 
-#: src/cli.cpp:410
+#: src/cli.cpp:403
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
 msgstr "Errore: fornitore di sintesi vocale sconosciuto «%1»"
 
-#: src/cli.cpp:473
+#: src/cli.cpp:452
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to read image '%1'"
 msgstr "Errore: impossibile leggere l'immagine «%1»"
 
-#: src/cli.cpp:483
+#: src/cli.cpp:462
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to initialize Tesseract with %1"
 msgstr "Errore: impossibile inizializzare Tesseract con %1"
 
-#: src/cli.cpp:506
+#: src/cli.cpp:485
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid "Error: text-to-speech is unavailable: %1"
+msgctxt "Cli|"
+msgid "Error: No OCR engine is available"
+msgstr "Errore: sintesi vocale non disponibile - %1"
+
+#: src/cli.cpp:493
 msgctxt "Cli|"
 msgid "Error: No text was recognized in the image"
 msgstr "Errore: non è stato riconosciuto alcun testo nell'immagine"
 
-#: src/cli.cpp:514
+#: src/cli.cpp:501
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Recognition failed: %1"
 msgstr "Errore: riconoscimento non riuscito - %1"
 
-#: src/cli.cpp:519
+#: src/cli.cpp:506
 msgctxt "Cli|"
 msgid "Error: Recognition was cancelled"
 msgstr "Errore: il riconoscimento è stato annullato"
 
-#: src/cli.cpp:537 src/cli.cpp:606
+#: src/cli.cpp:524 src/cli.cpp:581
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Errore: %1"
 
-#: src/cli.cpp:539 src/cli.cpp:608
+#: src/cli.cpp:526 src/cli.cpp:583
 msgctxt "Cli|"
 msgid "Translation error occurred"
 msgstr "Si è verificato un errore di traduzione"
 
-#: src/cli.cpp:677
+#: src/cli.cpp:652
 msgctxt "Cli|"
 msgid "Unknown error"
 msgstr "Errore sconosciuto"
 
-#: src/cli.cpp:678
+#: src/cli.cpp:653
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
 msgstr "Errore: sintesi vocale non riuscita - %1"
 
-#: src/cli.cpp:785
+#: src/cli.cpp:759
 msgctxt "Cli|"
 msgid "no provider was created"
 msgstr "non è stato creato alcun fornitore"
 
-#: src/cli.cpp:810
+#: src/cli.cpp:784
 msgctxt "Cli|"
 msgid "the engine failed to start"
 msgstr "il motore non è riuscito a partire"
 
-#: src/cli.cpp:815
+#: src/cli.cpp:789
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
 msgstr "il fornitore selezionato non ha voci disponibili"
 
-#: src/cli.cpp:873
+#: src/cli.cpp:847
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
 msgstr "Errore: sintesi vocale non disponibile - %1"
 
-#: src/cli.cpp:894
+#: src/cli.cpp:868
 msgctxt "Cli|"
 msgid "Source languages:"
 msgstr "Lingue di origine:"
 
-#: src/cli.cpp:897
+#: src/cli.cpp:871
 msgctxt "Cli|"
 msgid "Translation languages:"
 msgstr "Lingue di traduzione:"
 
-#: src/cli.cpp:965
+#: src/cli.cpp:939
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Errore: non puoi usare --%1 con --%2"
 
-#: src/cli.cpp:977 src/cli.cpp:998
+#: src/cli.cpp:951 src/cli.cpp:972
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Errore: il file %1 non esiste"
 
-#: src/cli.cpp:982 src/cli.cpp:1003
+#: src/cli.cpp:956 src/cli.cpp:977
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -344,12 +345,78 @@ msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Cerca su Forvo.com"
 
-#: src/core/translationsession.cpp:353
+#: src/core/pluginmanager.cpp:205
+msgctxt "SettingsDialog|"
+msgid "Copy"
+msgstr "Copia"
+
+#: src/core/pluginmanager.cpp:206
+msgctxt "PluginManager|"
+msgid "Hands the text back unchanged. Always available."
+msgstr ""
+
+#: src/core/pluginmanager.cpp:212
+msgctxt "SettingsDialog|"
+msgid "None"
+msgstr "Nessuno"
+
+#: src/core/pluginmanager.cpp:213
+msgctxt "PluginManager|"
+msgid "Says nothing. Always available."
+msgstr ""
+
+#: src/core/pluginmanager.cpp:456
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Update available!"
+msgctxt "PluginManager|"
+msgid "Backend unavailable"
+msgstr "È disponibile un aggiornamento!"
+
+#: src/core/pluginmanager.cpp:457
+#, qt-format
+msgctxt "PluginManager|"
+msgid ""
+"The backend \"%1\" could not be used (%2). Falling back to the built-in one."
+msgstr ""
+
+#: src/core/pluginmanager.cpp:468 src/core/pluginmanager.cpp:495
+msgctxt "PluginManager|"
+msgid "not installed"
+msgstr ""
+
+#: src/core/pluginmanager.cpp:476 src/core/pluginmanager.cpp:503
+msgctxt "PluginManager|"
+msgid "built nothing"
+msgstr ""
+
+#: src/core/pluginmanager.cpp:484 src/core/pluginmanager.cpp:508
+#: src/core/pluginmanager.cpp:531
+msgctxt "PluginManager|"
+msgid "crashed while starting"
+msgstr ""
+
+#: src/core/translationsession.cpp:447
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "No updates available."
+msgctxt "TranslationSession|"
+msgid "No OCR engine available"
+msgstr ""
+"La versione installata è aggiornata.\n"
+"Nessun aggiornamento disponibile."
+
+#: src/core/translationsession.cpp:448
+msgctxt "TranslationSession|"
+msgid "No text recognition plugin is installed."
+msgstr ""
+
+#: src/core/translationsession.cpp:460
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
 msgstr "L'OCR non è configurato"
 
-#: src/core/translationsession.cpp:354
+#: src/core/translationsession.cpp:461
 msgctxt "TesseractOcr|"
 msgid "Set up the OCR engine in the application settings"
 msgstr "Configura il motore OCR nelle impostazioni dell'applicazione"
@@ -364,13 +431,13 @@ msgctxt "FrontendRegistry|"
 msgid "Command line"
 msgstr "Riga di comando"
 
-#: src/frontend/guifrontend.cpp:46
+#: src/frontend/guifrontend.cpp:45
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "Impossibile registrare oggetto D-Bus per %1"
 
-#: src/frontend/guifrontend.cpp:141
+#: src/frontend/guifrontend.cpp:140
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
@@ -488,6 +555,11 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Lingua attuale:"
 
+#: src/llm/knownendpoints.cpp:31
+msgctxt "AppSettings|"
+msgid "OpenAI-compatible (custom)"
+msgstr "Compatibile con OpenAI (personalizzato)"
+
 #: src/main.cpp:34
 #, qt-format
 msgctxt "main|"
@@ -500,39 +572,39 @@ msgctxt "main|"
 msgid "Available frontends: %1"
 msgstr "Interfacce disponibili: %1"
 
-#: src/mainwindow.cpp:169
+#: src/mainwindow.cpp:189
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "Impossibile impostare lingue OCR"
 
-#: src/mainwindow.cpp:170
+#: src/mainwindow.cpp:190
 #, qt-format
 msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "Impossibile inizializzare Tesseract con %1"
 
-#: src/mainwindow.cpp:451
+#: src/mainwindow.cpp:467
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "OCR"
 
-#: src/mainwindow.cpp:452
+#: src/mainwindow.cpp:468
 msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "Immagine OCR invertita"
 
-#: src/mainwindow.cpp:452
+#: src/mainwindow.cpp:468
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr "L'immagine OCR è normale"
 
-#: src/mainwindow.cpp:896
+#: src/mainwindow.cpp:976
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "Questa applicazione usa %1 per fornire le traduzioni."
 
-#: src/mainwindow.cpp:897
+#: src/mainwindow.cpp:977
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -546,29 +618,29 @@ msgstr ""
 "invii. La tua istanza adesso è «%1», ma puoi cambiarla nelle impostazioni di "
 "traduzione. Vedi i dettagli dell'istanza nel collegamento sopra riportato."
 
-#: src/mainwindow.cpp:904
+#: src/mainwindow.cpp:984
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "Non mostrare più"
 
-#: src/mainwindow.cpp:951
+#: src/mainwindow.cpp:1031
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Icona barra sistema non valida"
 
-#: src/mainwindow.cpp:951
+#: src/mainwindow.cpp:1031
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr ""
 "L'icona specificata '%1' non è valida. Verrà usata l'icona predefinita."
 
-#: src/mainwindow.cpp:1067
+#: src/mainwindow.cpp:1147
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr "Errore di sintesi vocale"
 
-#: src/mainwindow.cpp:1067
+#: src/mainwindow.cpp:1147
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -585,25 +657,25 @@ msgstr ""
 "Verifica le tue impostazioni di sintesi vocale o prova un'impostazione "
 "locale/voce differente."
 
-#: src/mainwindow.cpp:1108 src/mainwindow.cpp:1120
+#: src/mainwindow.cpp:1188 src/mainwindow.cpp:1200
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Errore: %1"
 
-#: src/mainwindow.cpp:1928
+#: src/mainwindow.cpp:2068
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
 msgstr "Immagine troppo grande (%1 MP) Dimensione massima %2 MP."
 
-#: src/mainwindow.cpp:2026
+#: src/mainwindow.cpp:2170
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
 msgstr "OCR non riuscito: %1"
 
-#: src/mainwindow.cpp:2060 src/mainwindow.cpp:2117
+#: src/mainwindow.cpp:2204 src/mainwindow.cpp:2261
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -613,12 +685,12 @@ msgstr ""
 "Impossibile aprire l'immagine:\n"
 "%1"
 
-#: src/mainwindow.cpp:2108 src/mainwindow.cpp:2117
+#: src/mainwindow.cpp:2252 src/mainwindow.cpp:2261
 msgctxt "MainWindow|"
 msgid "Open image"
 msgstr "Apri immagine"
 
-#: src/mainwindow.cpp:2110
+#: src/mainwindow.cpp:2254
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
@@ -722,108 +794,60 @@ msgctxt "MainWindow|"
 msgid "Application settings"
 msgstr "Impostazioni applicazione"
 
-#: src/modulestatus.cpp:271
+#: src/modulestatus.cpp:272
 msgctxt "ModuleStatus|"
 msgid "Waiting for capture"
 msgstr "Attesa acquisizione"
 
-#: src/modulestatus.cpp:273
+#: src/modulestatus.cpp:274
 msgctxt "ModuleStatus|"
 msgid "Select a region"
 msgstr "Seleziona una regione"
 
-#: src/modulestatus.cpp:275
+#: src/modulestatus.cpp:276
 msgctxt "ModuleStatus|"
 msgid "Recognizing text"
 msgstr "Riconoscimento del testo"
 
-#: src/modulestatus.cpp:277
+#: src/modulestatus.cpp:278
 msgctxt "ModuleStatus|"
 msgid "Translating"
 msgstr "Traduzione"
 
-#: src/modulestatus.cpp:279
+#: src/modulestatus.cpp:280
 msgctxt "ModuleStatus|"
 msgid "Detecting language"
 msgstr "Rilevamento della lingua"
 
-#: src/modulestatus.cpp:281
+#: src/modulestatus.cpp:282
 msgctxt "ModuleStatus|"
 msgid "Preparing speech"
 msgstr "Preparazione vocale"
 
-#: src/modulestatus.cpp:283
+#: src/modulestatus.cpp:284
 msgctxt "ModuleStatus|"
 msgid "Speaking"
 msgstr "Pronuncia del testo"
 
-#: src/modulestatus.cpp:285
+#: src/modulestatus.cpp:286
 msgctxt "ModuleStatus|"
 msgid "Capture failed"
 msgstr "Acquisizione non riuscita"
 
-#: src/modulestatus.cpp:287
+#: src/modulestatus.cpp:288
 msgctxt "ModuleStatus|"
 msgid "OCR failed"
 msgstr "OCR non riuscito"
 
-#: src/modulestatus.cpp:289
+#: src/modulestatus.cpp:290
 msgctxt "ModuleStatus|"
 msgid "Translation failed"
 msgstr "Traduzione non riuscita"
 
-#: src/modulestatus.cpp:291
+#: src/modulestatus.cpp:292
 msgctxt "ModuleStatus|"
 msgid "Speech error"
 msgstr "Errore vocale"
-
-#: src/ocr/llmocr.cpp:259
-msgctxt "LlmOcr|"
-msgid ""
-"The model ran out of tokens before transcribing anything, having spent them "
-"reasoning instead. Turn on \"Disable reasoning\" for this provider, or pick "
-"a model with a larger context."
-msgstr ""
-"Il modello ha esaurito i token prima di trascrivere qualcosa, spendendoli "
-"invece per la spiegazione. Attiva «Disabilita la spiegazione» per questo "
-"fornitore, o scegli un modello con un contesto più esteso."
-
-#: src/ocr/llmocr.cpp:264
-#, qt-format
-msgctxt "LlmOcr|"
-msgid ""
-"The model ran out of tokens before transcribing anything: the image used %1 "
-"of its %2 token limit. Try a smaller region, or a model with a larger "
-"context."
-msgstr ""
-"Il modello ha esaurito i token prima di trascrivere qualcosa: l'immagine ha "
-"utilizzato %1 dei suoi %2 token limite. Prova una regione più piccola o un "
-"modello con un contesto più esteso."
-
-#: src/ocr/llmocr.cpp:269
-msgctxt "LlmOcr|"
-msgid ""
-"The model ran out of tokens before transcribing anything. Try a smaller "
-"region, or a model with a larger context."
-msgstr ""
-"Il modello ha esaurito i token prima di trascrivere qualcosa. Prova una "
-"regione più piccola o un modello con un contesto più esteso."
-
-#: src/ocr/llmocr.cpp:273 src/ocr/llmocr.cpp:509
-#, qt-format
-msgctxt "LlmOcr|"
-msgid "LLM OCR error: %1"
-msgstr "Errore OCR LLM: %1"
-
-#: src/ocr/llmocr.cpp:275
-msgctxt "LlmOcr|"
-msgid "The model returned no text for this image."
-msgstr "Il modello non ha restituito alcun testo per questa immagine."
-
-#: src/ocr/llmocr.cpp:488
-msgctxt "LlmOcr|"
-msgid "LLM OCR request timed out"
-msgstr "Richiesta OCR LLM scaduta"
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:47
@@ -1037,12 +1061,6 @@ msgid ""
 msgstr ""
 "Lo schermo sotto il cursore è scomparso prima di ricavare i DPI. Si "
 "utilizzerà lo schermo primario per ottenere tali informazioni."
-
-#: src/ocr/tesseractocr.cpp:143
-#, qt-format
-msgctxt "TesseractOcr|"
-msgid "%1 is not a valid Tesseract parameter name."
-msgstr "%1 non è un nome parametro Tesseract valido."
 
 #: src/onlinetranslator.cpp:280
 #, qt-format
@@ -2157,6 +2175,455 @@ msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
 msgstr "Errore: impossibile analizzare la lingua rilevata automaticamente"
 
+#: src/plugins/ocr/llm/llmocr.cpp:259
+msgctxt "LlmOcr|"
+msgid ""
+"The model ran out of tokens before transcribing anything, having spent them "
+"reasoning instead. Turn on \"Disable reasoning\" for this provider, or pick "
+"a model with a larger context."
+msgstr ""
+"Il modello ha esaurito i token prima di trascrivere qualcosa, spendendoli "
+"invece per la spiegazione. Attiva «Disabilita la spiegazione» per questo "
+"fornitore, o scegli un modello con un contesto più esteso."
+
+#: src/plugins/ocr/llm/llmocr.cpp:264
+#, qt-format
+msgctxt "LlmOcr|"
+msgid ""
+"The model ran out of tokens before transcribing anything: the image used %1 "
+"of its %2 token limit. Try a smaller region, or a model with a larger "
+"context."
+msgstr ""
+"Il modello ha esaurito i token prima di trascrivere qualcosa: l'immagine ha "
+"utilizzato %1 dei suoi %2 token limite. Prova una regione più piccola o un "
+"modello con un contesto più esteso."
+
+#: src/plugins/ocr/llm/llmocr.cpp:269
+msgctxt "LlmOcr|"
+msgid ""
+"The model ran out of tokens before transcribing anything. Try a smaller "
+"region, or a model with a larger context."
+msgstr ""
+"Il modello ha esaurito i token prima di trascrivere qualcosa. Prova una "
+"regione più piccola o un modello con un contesto più esteso."
+
+#: src/plugins/ocr/llm/llmocr.cpp:273 src/plugins/ocr/llm/llmocr.cpp:509
+#, qt-format
+msgctxt "LlmOcr|"
+msgid "LLM OCR error: %1"
+msgstr "Errore OCR LLM: %1"
+
+#: src/plugins/ocr/llm/llmocr.cpp:275
+msgctxt "LlmOcr|"
+msgid "The model returned no text for this image."
+msgstr "Il modello non ha restituito alcun testo per questa immagine."
+
+#: src/plugins/ocr/llm/llmocr.cpp:488
+msgctxt "LlmOcr|"
+msgid "LLM OCR request timed out"
+msgstr "Richiesta OCR LLM scaduta"
+
+#: src/plugins/ocr/tesseract/tesseractocr.cpp:146
+#, qt-format
+msgctxt "TesseractOcr|"
+msgid "%1 is not a valid Tesseract parameter name."
+msgstr "%1 non è un nome parametro Tesseract valido."
+
+#: src/plugins/ocr/tesseract/tesseractplugin.cpp:23
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Languages"
+msgctxt "TesseractOcrPlugin|"
+msgid "Languages"
+msgstr "Lingue"
+
+#: src/plugins/ocr/tesseract/tesseractplugin.cpp:28
+msgctxt "TesseractOcrPlugin|"
+msgid "Language data directory"
+msgstr ""
+
+#: src/plugins/ocr/tesseract/tesseractplugin.cpp:33
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Convert line breaks"
+msgctxt "TesseractOcrPlugin|"
+msgid "Convert line breaks"
+msgstr "Converti ritorni a capo"
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:184
+msgctxt "LocalAiTranslationProvider|"
+msgid "Destination language is not supported"
+msgstr "La lingua di destinazione non è supportata"
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:435
+#, qt-format
+msgctxt "LocalAiTranslationProvider|"
+msgid ""
+"The model ran out of tokens before writing a translation: the text to "
+"translate used %1 of its %2 token limit, and it spent what was left "
+"reasoning instead of answering. Turn on \"Disable reasoning\" for this "
+"provider, translate less text at once, or pick a model with a larger context."
+msgstr ""
+"Il modello ha esaurito i token prima di scrivere una traduzione: il testo da "
+"tradurre ha utilizzato %1 dei suoi %2 token limite, e ha speso quel che gli "
+"era rimasto in spiegazione anziché in risposte. Attiva «Disabilita la "
+"spiegazione» per questo fornitore, traduci meno testo alla volta o scegli un "
+"modello con un contesto più esteso."
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:443
+msgctxt "LocalAiTranslationProvider|"
+msgid ""
+"The model spent its whole token budget reasoning and never wrote a "
+"translation. Turn on \"Disable reasoning\" for this provider, translate less "
+"text at once, or pick a model with a larger context."
+msgstr ""
+"Il modello ha speso il suo intero budget di token in spiegazione e non ha "
+"mai scritto una traduzione. Attiva «Disabilita la spiegazione» per questo "
+"fornitore, traduci meno testo alla volta o scegli un modello con un contesto "
+"più esteso."
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:451
+#, qt-format
+msgctxt "LocalAiTranslationProvider|"
+msgid ""
+"The model ran out of tokens before writing a translation: the text to "
+"translate used %1 of its %2 token limit. Translate less text at once, or "
+"pick a model with a larger context."
+msgstr ""
+"Il modello ha esaurito i token prima di scrivere una traduzione: il testo da "
+"tradurre ha utilizzato %1 dei suoi %2 token limite. Traduci meno testo alla "
+"volta o scegli un modello con un contesto più esteso."
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:458
+msgctxt "LocalAiTranslationProvider|"
+msgid ""
+"The model ran out of tokens before writing a translation. Translate less "
+"text at once, or pick a model with a larger context."
+msgstr ""
+"Il modello ha esaurito i token prima di scrivere una traduzione. Traduci "
+"meno testo alla volta o scegli un modello con un contesto più esteso."
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:464
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:526
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:527
+#, qt-format
+msgctxt "LocalAiTranslationProvider|"
+msgid "LocalAI error: %1"
+msgstr "Errore LocalAI: %1"
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:467
+msgctxt "LocalAiTranslationProvider|"
+msgid "The model returned an empty response."
+msgstr "Il modello ha restituito una risposta vuota."
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:488
+msgctxt "LocalAiTranslationProvider|"
+msgid "LocalAI request timed out"
+msgstr "Richiesta LocalAI scaduta"
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:569
+msgctxt "LocalAiTranslationProvider|"
+msgid "Language detection timed out"
+msgstr "Il rilevamento della lingua è scaduto"
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:637
+msgctxt "LocalAiTranslationProvider|"
+msgid "Translation aborted by user"
+msgstr "Traduzione interrotta dall'utente"
+
+#: src/plugins/translation/mozhi/mozhiplugin.cpp:30
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Instance URL:"
+msgctxt "MozhiTranslationPlugin|"
+msgid "Instance URL"
+msgstr "URL dell'istanza:"
+
+#: src/plugins/translation/mozhi/mozhiplugin.cpp:31
+msgctxt "MozhiTranslationPlugin|"
+msgid "The Mozhi instance to send translations through."
+msgstr ""
+
+#: src/plugins/translation/mozhi/mozhiplugin.cpp:40
+msgctxt "MozhiTranslationPlugin|"
+msgid "Engine"
+msgstr ""
+
+#: src/plugins/translation/mozhi/mozhiplugin.cpp:41
+msgctxt "MozhiTranslationPlugin|"
+msgid "Which upstream translator the instance should use."
+msgstr ""
+
+#: src/plugins/translation/mozhi/mozhiplugin.cpp:46
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Use direct LibreTranslate API"
+msgctxt "MozhiTranslationPlugin|"
+msgid "LibreTranslate API key"
+msgstr "Uso diretto dell'API di LibreTranslate"
+
+#: src/plugins/translation/mozhi/mozhiplugin.cpp:51
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Mozhi / LibreTranslate"
+msgctxt "MozhiTranslationPlugin|"
+msgid "Contact LibreTranslate directly"
+msgstr "Mozhi / LibreTranslate"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:79
+msgctxt "MozhiTranslationProvider|"
+msgid "Translation aborted by user"
+msgstr "Traduzione interrotta dall'utente"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:140
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Destination language '%1' is not supported"
+msgstr "La lingua di destinazione «%1» non è supportata"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:148
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Source language '%1' is not supported"
+msgstr "La lingua di origine «%1» non è supportata"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:213
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Network error: %1"
+msgstr "Errore di rete: %1"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:217
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Instance error: %1"
+msgstr "Errore istanza: %1"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:221
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Parsing error: %1"
+msgstr "Errore di analisi: %1"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:225
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Unsupported TTS engine: %1"
+msgstr "Motore TTS non supportato: %1"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:229
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Unknown error: %1"
+msgstr "Errore sconosciuto: %1"
+
+#: src/plugins/tts/mozhi/mozhittsplugin.cpp:27
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Instance URL:"
+msgctxt "MozhiTtsPlugin|"
+msgid "Instance URL"
+msgstr "URL dell'istanza:"
+
+#: src/plugins/tts/mozhi/mozhittsplugin.cpp:32
+msgctxt "MozhiTtsPlugin|"
+msgid "Engine"
+msgstr ""
+
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:48
+msgctxt "MozhiTTSProvider|"
+msgid "Text is empty"
+msgstr "Il testo è vuoto"
+
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:81
+msgctxt "MozhiTTSProvider|"
+msgid "No audio URLs generated"
+msgstr "Nessun URL sonoro generato"
+
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:263
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Mozhi instance failed: %1 (HTTP Server Error)"
+msgstr "Istanza Mozhi non riuscita: %1 (errore del server HTTP)"
+
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:265
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:272
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Cannot connect to Mozhi instance: %1"
+msgstr "Impossibile collegarsi all'istanza Mozhi: %1"
+
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:268
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Mozhi instance failed: %1 (HTTP 500 Internal Server Error)"
+msgstr "Istanza Mozhi non riuscita: %1 (errore del server interno 500 HTTP)"
+
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:270
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
+msgstr "Errore istanza Mozhi: %1 (errore client 4XX HTTP)"
+
+#: src/plugins/tts/piper/piperttsplugin.cpp:19
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Piper voices path:"
+msgctxt "PiperTtsPlugin|"
+msgid "Piper voices path"
+msgstr "Percorso voci Piper:"
+
+#: src/plugins/tts/piper/piperttsplugin.cpp:20
+msgctxt "PiperTtsPlugin|"
+msgid "Searched before the standard locations for Piper voice models."
+msgstr ""
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:139
+msgctxt "PiperTTSProvider|"
+msgid "Failed to initialize Piper TTS"
+msgstr "Impossibile inizializzare la sintesi vocale Piper"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:145
+#, qt-format
+msgctxt "PiperTTSProvider|"
+msgid "ONNX Runtime exception: %1"
+msgstr "Eccezione runtime ONNX: %1"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:148
+msgctxt "PiperTTSProvider|"
+msgid "Unknown ONNX Runtime initialization error"
+msgstr "Errore inizializzazione sconosciuto runtime ONNX"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:258
+msgctxt "PiperTTSProvider|"
+msgid "Failed to initialize espeak-ng"
+msgstr "Impossibile inizializzare espeak-ng"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:300
+#, qt-format
+msgctxt "PiperTTSProvider|"
+msgid "ONNX Runtime initialization error: %1"
+msgstr "Errore inizializzazione runtime ONNX: %1"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:341
+msgctxt "PiperTTSProvider|"
+msgid "Could not disable neural TTS telemetry"
+msgstr "Impossibile disabilitare la telemetria della sintesi vocale neurale"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:342
+msgctxt "PiperTTSProvider|"
+msgid ""
+"Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
+"of it may report usage data to Microsoft."
+msgstr ""
+"Crow Translate non ha potuto disattivare la telemetria di ONNX Runtime, "
+"pertanto questa sua copia potrebbe inviare dati sul suo utilizzo a Microsoft."
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:343
+#, qt-format
+msgctxt "PiperTTSProvider|"
+msgid ""
+"Reason: %1\n"
+"\n"
+"Only Microsoft's own Windows builds of ONNX Runtime have telemetry compiled "
+"in. Builds from source - including the one Crow Translate links statically - "
+"have none, and it is inactive on other platforms."
+msgstr ""
+"Spiegazione: %1\n"
+"\n"
+"Solo le build proprietarie per Windows di ONNX Runtime di Microsoft hanno la "
+"telemetria compilata al loro interno. Le build da codice sorgente - inclusa "
+"quella a cui Crow Translate si collega staticamente - non ne hanno, ed è "
+"inattiva nelle altre piattaforme."
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:1092
+msgctxt "PiperTTSProvider|"
+msgid "No audio data generated"
+msgstr "Nessun dato audio generato"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:1107
+msgctxt "PiperTTSProvider|"
+msgid "Failed to create temporary audio file"
+msgstr "Creazione del file audio temporaneo non riuscita"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:1116
+msgctxt "PiperTTSProvider|"
+msgid "Failed to write audio data"
+msgstr "Scrittura dei dati audio non riuscita"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:1453
+msgctxt "PiperTTSProvider|"
+msgid ""
+"<h3>Piper Voice Models Not Found</h3><p>No Piper TTS voice models were found "
+"in the standard locations.</p><p><b>To use Piper TTS:</b></"
+"p><ol><li>Download voice models from <a href='https://huggingface.co/rhasspy/"
+"piper-voices'>HuggingFace Piper Voices</a></li><li>Extract the models to a "
+"directory</li><li>Set the path in Settings → TTS → Piper Voices Path</li></"
+"ol><p><b>⚠️ License Warning:</b> Some models may have non-free licenses and "
+"cannot be used in commercial settings. Please check the license of each "
+"model before commercial use.</p>"
+msgstr ""
+"<h3>Modelli voce Piper non trovati</h3><p>Non sono stati trovati i modelli "
+"di sintesi vocale Piper nei percorsi standard.</p><p><b>Per usare la sintesi "
+"vocale Piper:</b></p><ol><li>Scarica i modelli voce da <a href='https://"
+"huggingface.co/rhasspy/piper-voices'>HuggingFace Piper Voices</a></"
+"li><li>Estrai i modelli in una cartella</li><li>Imposta il percorso in "
+"Impostazioni → Sintesi vocale → Percorso voci Piper</li></ol><p><b>⚠️ Avviso "
+"sulla licenza:</b> alcuni modelli potrebbero avere licenze non libere e non "
+"possono essere utilizzati in configurazioni commerciali. Verifica la licenza "
+"di ciascun modello prima del suo utilizzo in ambito commerciale.</p>"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:1467
+msgctxt "PiperTTSProvider|"
+msgid "Piper Voice Models Required"
+msgstr "Modelli voce Piper richiesti"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:1468
+msgctxt "PiperTTSProvider|"
+msgid ""
+"No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
+"Piper Voices Path."
+msgstr ""
+"Non è stato trovato alcun modello di sintesi vocale Piper. Imposta il "
+"percorso in Impostazioni -> Sintesi vocale -> Percorso voci Piper."
+
+#: src/plugins/tts/qt/qtttsprovider.cpp:325
+#, qt-format
+msgctxt "QtTTSProvider|"
+msgid ""
+"<h3>Windows TTS Voice Not Found</h3><p>No Windows TTS voice was found for <b>"
+"%1</b>.</p><p><b>To install additional languages:</b></p><ol><li>Open "
+"<b>Settings → Time & Language → Language & region</b></li><li>Click <b>Add a "
+"language</b> and select your desired language</li><li>Click on the installed "
+"language and select <b>Language options</b></li><li>Under <b>Speech</b>, "
+"click <b>Download</b> for the speech pack</li></ol><p><b>⚠️ License Note:</b> "
+"Crow Translate currently only supports \"Basic voice models\" from Windows "
+"TTS. \"Narrator voices\" have licensing restrictions that are incompatible "
+"with this application.</p>"
+msgstr ""
+"<h3>Voce sintesi vocale Windows non trovata</h3><p>Non è stata trovata la "
+"voce di sintesi vocale Windows per <b>%1</b>.</p><p><b>Per installare lingue "
+"aggiuntive:</b></p><ol><li>Apri <b>Impostazioni → Ora e lingua → Lingua e "
+"regione</b></li><li>Fai clic su <b>Aggiungi una lingua</b> e seleziona la "
+"lingua desiderata</li><li>Fai clic sulla lingua installata e seleziona "
+"<b>Opzioni linguistiche</b></li><li>In <b>Accesso vocale</b>, fai clic su "
+"<b>Scarica</b> per il pacchetto vocale</li></ol><p><b>⚠️ Nota di licenza:</b> "
+"Crow Translate attualmente supporta soltanto i «modelli vocali di base» "
+"dalla sintesi vocale di Windows. Le «voci dei narratori» contengono "
+"restrizioni di licenza e sono incompatibili con questa applicazione.</p>"
+
+#: src/plugins/tts/qt/qtttsprovider.cpp:341
+msgctxt "QtTTSProvider|"
+msgid "Windows TTS Voice Installation"
+msgstr "Installazione voce sintesi vocale di Windows"
+
+#: src/plugins/tts/qt/qtttsprovider.cpp:342
+#, qt-format
+msgctxt "QtTTSProvider|"
+msgid "No Windows TTS voice is installed for %1."
+msgstr ""
+"Non è stata installata alcuna voce di sintesi vocale di Windows per %1."
+
 #: src/popupwindow.cpp:45
 msgctxt "PopupWindow|"
 msgid "Drag to resize"
@@ -2207,12 +2674,7 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Copia traduzione negli Appunti"
 
-#: src/settings/appsettings.cpp:704
-msgctxt "AppSettings|"
-msgid "OpenAI-compatible (custom)"
-msgstr "Compatibile con OpenAI (personalizzato)"
-
-#: src/settings/appsettings.cpp:1577
+#: src/settings/appsettings.cpp:1524
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -2240,180 +2702,178 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to create %1"
 msgstr "Impossibile creare %1"
 
-#: src/settings/autostartmanager/unixautostartmanager.cpp:47
+#: src/settings/autostartmanager/unixautostartmanager.cpp:56
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to copy %1 to %2"
 msgstr "Impossibile copiare %1 in %2"
 
-#: src/settings/autostartmanager/unixautostartmanager.cpp:52
+#: src/settings/autostartmanager/unixautostartmanager.cpp:61
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "Impossibile rimuovere %1 da %2"
 
-#: src/settings/settingsdialog.cpp:82
+#: src/settings/pluginoptionswidget.cpp:87
+#, fuzzy
+#| msgctxt "ModuleStatus|"
+#| msgid "Select a region"
+msgctxt "PluginOptionsWidget|"
+msgid "Select a directory"
+msgstr "Seleziona una regione"
+
+#: src/settings/settingsdialog.cpp:83
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Modo portatile"
 
-#: src/settings/settingsdialog.cpp:95
+#: src/settings/settingsdialog.cpp:96
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Usa %1 per memorizzare le impostazioni"
 
-#: src/settings/settingsdialog.cpp:99
+#: src/settings/settingsdialog.cpp:100
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Lingua sistema>"
 
-#: src/settings/settingsdialog.cpp:103 src/settings/settingsdialog.cpp:104
+#: src/settings/settingsdialog.cpp:104 src/settings/settingsdialog.cpp:105
 msgctxt "SettingsDialog|"
 msgid "<Auto>"
 msgstr "<Automatico>"
 
-#: src/settings/settingsdialog.cpp:152
-msgctxt "SettingsDialog|"
-msgid "Copy"
-msgstr "Copia"
-
-#: src/settings/settingsdialog.cpp:157
-msgctxt "SettingsDialog|"
-msgid "None"
-msgstr "Nessuno"
-
-#: src/settings/settingsdialog.cpp:195
+#: src/settings/settingsdialog.cpp:210
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Icone:"
 
-#: src/settings/settingsdialog.cpp:217
+#: src/settings/settingsdialog.cpp:232
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "Il campo parametri OCR non può essere vuoto."
 
-#: src/settings/settingsdialog.cpp:218
+#: src/settings/settingsdialog.cpp:233
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Vuoi scartare i parametri non validi?"
 
-#: src/settings/settingsdialog.cpp:351 src/settings/settingsdialog.cpp:521
+#: src/settings/settingsdialog.cpp:364 src/settings/settingsdialog.cpp:538
 msgctxt "SettingsDialog|"
 msgid "URL:"
 msgstr "URL:"
 
-#: src/settings/settingsdialog.cpp:355 src/settings/settingsdialog.cpp:525
+#: src/settings/settingsdialog.cpp:368 src/settings/settingsdialog.cpp:542
 msgctxt "SettingsDialog|"
 msgid "Key:"
 msgstr "Tasto:"
 
-#: src/settings/settingsdialog.cpp:359 src/settings/settingsdialog.cpp:530
+#: src/settings/settingsdialog.cpp:372 src/settings/settingsdialog.cpp:547
 msgctxt "SettingsDialog|"
 msgid "optional, e.g. for a cloud endpoint"
 msgstr "facoltativo, es. per un endpoint cloud"
 
-#: src/settings/settingsdialog.cpp:360 src/settings/settingsdialog.cpp:531
+#: src/settings/settingsdialog.cpp:373 src/settings/settingsdialog.cpp:548
 msgctxt "SettingsDialog|"
 msgid "Refresh models"
 msgstr "Aggiorna i modelli"
 
-#: src/settings/settingsdialog.cpp:378
+#: src/settings/settingsdialog.cpp:391
 msgctxt "SettingsDialog|"
 msgid "Translation model:"
 msgstr "Modello di traduzione:"
 
-#: src/settings/settingsdialog.cpp:386 src/settings/settingsdialog.cpp:504
+#: src/settings/settingsdialog.cpp:399 src/settings/settingsdialog.cpp:521
 msgctxt "SettingsDialog|"
 msgid "Timeout:"
 msgstr "Tempo massimo:"
 
-#: src/settings/settingsdialog.cpp:390 src/settings/settingsdialog.cpp:509
+#: src/settings/settingsdialog.cpp:403 src/settings/settingsdialog.cpp:526
 msgctxt "SettingsDialog|"
 msgid " s"
 msgstr " sec."
 
-#: src/settings/settingsdialog.cpp:391
+#: src/settings/settingsdialog.cpp:404
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a translation or detection response."
 msgstr ""
 "Tempo massimo di attesa per una traduzione o una risposta di rilevamento."
 
-#: src/settings/settingsdialog.cpp:396
+#: src/settings/settingsdialog.cpp:409
 msgctxt "SettingsDialog|"
 msgid "Disable reasoning"
 msgstr "Disabilita la spiegazione"
 
-#: src/settings/settingsdialog.cpp:403
+#: src/settings/settingsdialog.cpp:416
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Placeholders: %1"
 msgstr "Segnaposti: %1"
 
-#: src/settings/settingsdialog.cpp:406
+#: src/settings/settingsdialog.cpp:419
 msgctxt "SettingsDialog|"
 msgid "Reset Text prompt"
 msgstr "Azzera richiesta testo"
 
-#: src/settings/settingsdialog.cpp:468
+#: src/settings/settingsdialog.cpp:481
 msgctxt "SettingsDialog|"
 msgid "OCR engine:"
 msgstr "Motore OCR:"
 
-#: src/settings/settingsdialog.cpp:472
+#: src/settings/settingsdialog.cpp:489
 msgctxt "SettingsDialog|"
 msgid "Tesseract"
 msgstr "Tesseract"
 
-#: src/settings/settingsdialog.cpp:473
+#: src/settings/settingsdialog.cpp:490
 msgctxt "SettingsDialog|"
 msgid "Vision model (LLM)"
 msgstr "Modello visione (LLM):"
 
-#: src/settings/settingsdialog.cpp:483
+#: src/settings/settingsdialog.cpp:500
 msgctxt "SettingsDialog|"
 msgid "Tesseract runs locally. Configure languages and parameters below."
 msgstr ""
 "Tesseract viene eseguito localmente. Configura sotto le lingue e i parametri."
 
-#: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:818
+#: src/settings/settingsdialog.cpp:511 src/settings/settingsdialog.ui:818
 msgctxt "SettingsDialog|"
 msgid "Provider:"
 msgstr "Fornitore:"
 
-#: src/settings/settingsdialog.cpp:510
+#: src/settings/settingsdialog.cpp:527
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a transcription response."
 msgstr "Tempo massimo di attesa per una risposta di trascrizione."
 
-#: src/settings/settingsdialog.cpp:541
+#: src/settings/settingsdialog.cpp:558
 msgctxt "SettingsDialog|"
 msgid "Model:"
 msgstr "Modello:"
 
-#: src/settings/settingsdialog.cpp:555
+#: src/settings/settingsdialog.cpp:572
 msgctxt "SettingsDialog|"
 msgid "Reset OCR prompt"
 msgstr "Azzera richiesta OCR"
 
-#: src/settings/settingsdialog.cpp:616
+#: src/settings/settingsdialog.cpp:640
 msgctxt "SettingsDialog|"
 msgid "— Server reports image support —"
 msgstr "— Il server segnala il supporto delle immagini —"
 
-#: src/settings/settingsdialog.cpp:620
+#: src/settings/settingsdialog.cpp:644
 msgctxt "SettingsDialog|"
 msgid "— Image support not reported —"
 msgstr "— Il supporto delle immagini non è segnalato —"
 
-#: src/settings/settingsdialog.cpp:633
+#: src/settings/settingsdialog.cpp:657
 msgctxt "SettingsDialog|"
 msgid "No models loaded yet — press \"Refresh models\", or type a model name."
 msgstr ""
 "Nessun modello ancora caricato — premi «Aggiorna i modelli» o scrivi il nome "
 "di un modello."
 
-#: src/settings/settingsdialog.cpp:635
+#: src/settings/settingsdialog.cpp:659
 msgctxt "SettingsDialog|"
 msgid ""
 "This endpoint does not report model capabilities, so image support cannot be "
@@ -2423,7 +2883,7 @@ msgstr ""
 "delle immagini non può essere verificato qui. Scegli un modello che sai che "
 "accetta immagini."
 
-#: src/settings/settingsdialog.cpp:638
+#: src/settings/settingsdialog.cpp:662
 msgctxt "SettingsDialog|"
 msgid ""
 "The server reported no image-capable models. A model listed here may still "
@@ -2433,7 +2893,7 @@ msgstr ""
 "immagine. Un modello qui elencato potrebbe ancora funzionare, ma il "
 "riconoscimento non funzionerà se non è in grado di accettare immagini."
 
-#: src/settings/settingsdialog.cpp:641
+#: src/settings/settingsdialog.cpp:665
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "%n model(s) reported as image-capable."
@@ -2441,22 +2901,22 @@ msgid_plural "%n model(s) reported as image-capable."
 msgstr[0] "%n modello(i) segnalato(i) con capacità di analisi immagine."
 msgstr[1] "%n modello(i) segnalato(i) con capacità di analisi immagine."
 
-#: src/settings/settingsdialog.cpp:699
+#: src/settings/settingsdialog.cpp:723
 msgctxt "SettingsDialog|"
 msgid "Vision model"
 msgstr "Modello visione"
 
-#: src/settings/settingsdialog.cpp:699
+#: src/settings/settingsdialog.cpp:723
 msgctxt "SettingsDialog|"
 msgid "Enter the endpoint URL first."
 msgstr "Inserisci prima l'URL dell'endpoint."
 
-#: src/settings/settingsdialog.cpp:709 src/settings/settingsdialog.cpp:929
+#: src/settings/settingsdialog.cpp:733 src/settings/settingsdialog.cpp:953
 msgctxt "SettingsDialog|"
 msgid "No models found."
 msgstr "Nessun modello trovato."
 
-#: src/settings/settingsdialog.cpp:722 src/settings/settingsdialog.cpp:916
+#: src/settings/settingsdialog.cpp:746 src/settings/settingsdialog.cpp:940
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid ""
@@ -2466,37 +2926,22 @@ msgstr ""
 "Impossibile raggiungere %1 a %2:\n"
 "%3"
 
-#: src/settings/settingsdialog.cpp:1000 src/settings/settingsdialog.ui:614
+#: src/settings/settingsdialog.cpp:1024 src/settings/settingsdialog.ui:614
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Seleziona icona"
 
-#: src/settings/settingsdialog.cpp:1000
+#: src/settings/settingsdialog.cpp:1024
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Immagini (*.png *.ico *.svg *.jpg);;Tutti i file (*.*)"
 
-#: src/settings/settingsdialog.cpp:1030 src/settings/settingsdialog.ui:1072
+#: src/settings/settingsdialog.cpp:1054 src/settings/settingsdialog.ui:1072
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Seleziona percorso lingue OCR"
 
-#: src/settings/settingsdialog.cpp:1045
-msgctxt "SettingsDialog|"
-msgid "Piper voices path:"
-msgstr "Percorso voci Piper:"
-
-#: src/settings/settingsdialog.cpp:1059
-msgctxt "SettingsDialog|"
-msgid "Directory with voice models"
-msgstr "Cartella con i modelli voce"
-
-#: src/settings/settingsdialog.cpp:1060 src/settings/settingsdialog.cpp:1079
-msgctxt "SettingsDialog|"
-msgid "Select Piper voices path"
-msgstr "Seleziona il percorso voci Piper"
-
-#: src/settings/settingsdialog.cpp:1237
+#: src/settings/settingsdialog.cpp:1210
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Indietro"
@@ -2935,11 +3380,16 @@ msgid "Detection provider:"
 msgstr "Fornitore rilevamento:"
 
 #: src/settings/settingsdialog.ui:774 src/settings/settingsdialog.ui:791
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid ""
+#| "Provider and model used to detect the source language when it is set to "
+#| "Auto. If no detection model is selected, translation falls back to the "
+#| "configured primary language above."
 msgctxt "SettingsDialog|"
 msgid ""
 "Provider and model used to detect the source language when it is set to "
-"Auto. If no detection model is selected, translation falls back to the "
-"configured primary language above."
+"Auto. If no detection model is selected, the model that translates is asked."
 msgstr ""
 "Il fornitore e il modello utilizzati per rilevare la lingua di origine "
 "quando l'opzione è impostata su Automatico. Se non è selezionato alcun "
@@ -3590,169 +4040,25 @@ msgctxt "StatusStrip|"
 msgid "Ready"
 msgstr "Pronto"
 
-#: src/translator/atranslationprovider.cpp:57
+#: src/translator/atranslationprovider.cpp:20
 msgctxt "ATranslationProvider|"
 msgid "Unsupported source language."
 msgstr "Lingua di origine non supportata."
 
-#: src/translator/atranslationprovider.cpp:59
+#: src/translator/atranslationprovider.cpp:22
 msgctxt "ATranslationProvider|"
 msgid "Unsupported destination language."
 msgstr "Lingua di destinazione non supportata."
 
-#: src/translator/atranslationprovider.cpp:61
+#: src/translator/atranslationprovider.cpp:24
 msgctxt "ATranslationProvider|"
 msgid "User aborted translation in progress"
 msgstr "L'utente ha interrotto la traduzione in corso"
 
-#: src/translator/atranslationprovider.cpp:65
+#: src/translator/atranslationprovider.cpp:28
 msgctxt "ATranslationProvider|"
 msgid "Unknown error"
 msgstr "Errore sconosciuto"
-
-#: src/translator/atranslationprovider.cpp:115
-msgctxt "QObject|"
-msgid "Translation Provider Error"
-msgstr "Errore fornitore di traduzione"
-
-#: src/translator/atranslationprovider.cpp:116
-msgctxt "QObject|"
-msgid ""
-"The selected translation provider crashed during initialization and has been "
-"reset to 'Copy' to prevent further issues. You can try selecting a different "
-"provider in Settings → Translation."
-msgstr ""
-"Il fornitore delle traduzioni è andato in blocco durante l'inizializzazione "
-"ed è stato riportato a «Copia» per evitare ulteriori problemi. Puoi provare "
-"a selezionare un fornitore differente in Impostazioni → Traduzione."
-
-#: src/translator/localaitranslationprovider.cpp:149
-msgctxt "LocalAiTranslationProvider|"
-msgid "Destination language is not supported"
-msgstr "La lingua di destinazione non è supportata"
-
-#: src/translator/localaitranslationprovider.cpp:396
-#, qt-format
-msgctxt "LocalAiTranslationProvider|"
-msgid ""
-"The model ran out of tokens before writing a translation: the text to "
-"translate used %1 of its %2 token limit, and it spent what was left "
-"reasoning instead of answering. Turn on \"Disable reasoning\" for this "
-"provider, translate less text at once, or pick a model with a larger context."
-msgstr ""
-"Il modello ha esaurito i token prima di scrivere una traduzione: il testo da "
-"tradurre ha utilizzato %1 dei suoi %2 token limite, e ha speso quel che gli "
-"era rimasto in spiegazione anziché in risposte. Attiva «Disabilita la "
-"spiegazione» per questo fornitore, traduci meno testo alla volta o scegli un "
-"modello con un contesto più esteso."
-
-#: src/translator/localaitranslationprovider.cpp:404
-msgctxt "LocalAiTranslationProvider|"
-msgid ""
-"The model spent its whole token budget reasoning and never wrote a "
-"translation. Turn on \"Disable reasoning\" for this provider, translate less "
-"text at once, or pick a model with a larger context."
-msgstr ""
-"Il modello ha speso il suo intero budget di token in spiegazione e non ha "
-"mai scritto una traduzione. Attiva «Disabilita la spiegazione» per questo "
-"fornitore, traduci meno testo alla volta o scegli un modello con un contesto "
-"più esteso."
-
-#: src/translator/localaitranslationprovider.cpp:412
-#, qt-format
-msgctxt "LocalAiTranslationProvider|"
-msgid ""
-"The model ran out of tokens before writing a translation: the text to "
-"translate used %1 of its %2 token limit. Translate less text at once, or "
-"pick a model with a larger context."
-msgstr ""
-"Il modello ha esaurito i token prima di scrivere una traduzione: il testo da "
-"tradurre ha utilizzato %1 dei suoi %2 token limite. Traduci meno testo alla "
-"volta o scegli un modello con un contesto più esteso."
-
-#: src/translator/localaitranslationprovider.cpp:419
-msgctxt "LocalAiTranslationProvider|"
-msgid ""
-"The model ran out of tokens before writing a translation. Translate less "
-"text at once, or pick a model with a larger context."
-msgstr ""
-"Il modello ha esaurito i token prima di scrivere una traduzione. Traduci "
-"meno testo alla volta o scegli un modello con un contesto più esteso."
-
-#: src/translator/localaitranslationprovider.cpp:425
-#: src/translator/localaitranslationprovider.cpp:487
-#: src/translator/localaitranslationprovider.cpp:488
-#, qt-format
-msgctxt "LocalAiTranslationProvider|"
-msgid "LocalAI error: %1"
-msgstr "Errore LocalAI: %1"
-
-#: src/translator/localaitranslationprovider.cpp:428
-msgctxt "LocalAiTranslationProvider|"
-msgid "The model returned an empty response."
-msgstr "Il modello ha restituito una risposta vuota."
-
-#: src/translator/localaitranslationprovider.cpp:449
-msgctxt "LocalAiTranslationProvider|"
-msgid "LocalAI request timed out"
-msgstr "Richiesta LocalAI scaduta"
-
-#: src/translator/localaitranslationprovider.cpp:530
-msgctxt "LocalAiTranslationProvider|"
-msgid "Language detection timed out"
-msgstr "Il rilevamento della lingua è scaduto"
-
-#: src/translator/localaitranslationprovider.cpp:591
-msgctxt "LocalAiTranslationProvider|"
-msgid "Translation aborted by user"
-msgstr "Traduzione interrotta dall'utente"
-
-#: src/translator/mozhitranslationprovider.cpp:78
-msgctxt "MozhiTranslationProvider|"
-msgid "Translation aborted by user"
-msgstr "Traduzione interrotta dall'utente"
-
-#: src/translator/mozhitranslationprovider.cpp:139
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Destination language '%1' is not supported"
-msgstr "La lingua di destinazione «%1» non è supportata"
-
-#: src/translator/mozhitranslationprovider.cpp:147
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Source language '%1' is not supported"
-msgstr "La lingua di origine «%1» non è supportata"
-
-#: src/translator/mozhitranslationprovider.cpp:212
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Network error: %1"
-msgstr "Errore di rete: %1"
-
-#: src/translator/mozhitranslationprovider.cpp:216
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Instance error: %1"
-msgstr "Errore istanza: %1"
-
-#: src/translator/mozhitranslationprovider.cpp:220
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Parsing error: %1"
-msgstr "Errore di analisi: %1"
-
-#: src/translator/mozhitranslationprovider.cpp:224
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Unsupported TTS engine: %1"
-msgstr "Motore TTS non supportato: %1"
-
-#: src/translator/mozhitranslationprovider.cpp:228
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Unknown error: %1"
-msgstr "Errore sconosciuto: %1"
 
 #: src/trayicon.cpp:26 src/trayicon.cpp:65
 msgctxt "TrayIcon|"
@@ -3779,202 +4085,59 @@ msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Risultato traduzione"
 
-#: src/tts/attsprovider.cpp:72
-msgctxt "QObject|"
-msgid "TTS Provider Error"
-msgstr "Errore fornitore sintesi vocale"
+#~ msgctxt "Cli|"
+#~ msgid ""
+#~ "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from "
+#~ "app settings will be used by default."
+#~ msgstr ""
+#~ "Specifica il fornitore di sintesi vocale (TTS): 'nessuno', 'mozhi', 'qt' "
+#~ "o 'piper'.  Il fornitore derivante dalle impostazioni dell'applicazione "
+#~ "risulterà quello predefinito."
 
-#: src/tts/attsprovider.cpp:73
-msgctxt "QObject|"
-msgid ""
-"The selected TTS provider crashed during initialization and has been reset "
-"to 'None' to prevent further issues. You can try selecting a different "
-"provider in Settings → TTS."
-msgstr ""
-"Il fornitore di sintesi vocale è andato in blocco durante l'inizializzazione "
-"ed è stato riportato a «Nessuno» per evitare ulteriori problemi. Puoi "
-"provare a selezionare un fornitore differente in Impostazioni → Sintesi "
-"vocale."
+#~ msgctxt "Cli|"
+#~ msgid ""
+#~ "Specify TTS provider ('none'). This build has text-to-speech disabled."
+#~ msgstr ""
+#~ "Specifica il fornitore di sintesi vocale (TTS): 'nessuno'. Questa "
+#~ "compilazione ha la sintesi vocale disabilitata."
 
-#: src/tts/mozhittsprovider.cpp:48
-msgctxt "MozhiTTSProvider|"
-msgid "Text is empty"
-msgstr "Il testo è vuoto"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Directory with voice models"
+#~ msgstr "Cartella con i modelli voce"
 
-#: src/tts/mozhittsprovider.cpp:81
-msgctxt "MozhiTTSProvider|"
-msgid "No audio URLs generated"
-msgstr "Nessun URL sonoro generato"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Select Piper voices path"
+#~ msgstr "Seleziona il percorso voci Piper"
 
-#: src/tts/mozhittsprovider.cpp:263
-#, qt-format
-msgctxt "MozhiTTSProvider|"
-msgid "Mozhi instance failed: %1 (HTTP Server Error)"
-msgstr "Istanza Mozhi non riuscita: %1 (errore del server HTTP)"
+#~ msgctxt "QObject|"
+#~ msgid "Translation Provider Error"
+#~ msgstr "Errore fornitore di traduzione"
 
-#: src/tts/mozhittsprovider.cpp:265 src/tts/mozhittsprovider.cpp:272
-#, qt-format
-msgctxt "MozhiTTSProvider|"
-msgid "Cannot connect to Mozhi instance: %1"
-msgstr "Impossibile collegarsi all'istanza Mozhi: %1"
+#~ msgctxt "QObject|"
+#~ msgid ""
+#~ "The selected translation provider crashed during initialization and has "
+#~ "been reset to 'Copy' to prevent further issues. You can try selecting a "
+#~ "different provider in Settings → Translation."
+#~ msgstr ""
+#~ "Il fornitore delle traduzioni è andato in blocco durante "
+#~ "l'inizializzazione ed è stato riportato a «Copia» per evitare ulteriori "
+#~ "problemi. Puoi provare a selezionare un fornitore differente in "
+#~ "Impostazioni → Traduzione."
 
-#: src/tts/mozhittsprovider.cpp:268
-#, qt-format
-msgctxt "MozhiTTSProvider|"
-msgid "Mozhi instance failed: %1 (HTTP 500 Internal Server Error)"
-msgstr "Istanza Mozhi non riuscita: %1 (errore del server interno 500 HTTP)"
+#~ msgctxt "QObject|"
+#~ msgid "TTS Provider Error"
+#~ msgstr "Errore fornitore sintesi vocale"
 
-#: src/tts/mozhittsprovider.cpp:270
-#, qt-format
-msgctxt "MozhiTTSProvider|"
-msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
-msgstr "Errore istanza Mozhi: %1 (errore client 4XX HTTP)"
-
-#: src/tts/piperttsprovider.cpp:121
-msgctxt "PiperTTSProvider|"
-msgid "Failed to initialize Piper TTS"
-msgstr "Impossibile inizializzare la sintesi vocale Piper"
-
-#: src/tts/piperttsprovider.cpp:127
-#, qt-format
-msgctxt "PiperTTSProvider|"
-msgid "ONNX Runtime exception: %1"
-msgstr "Eccezione runtime ONNX: %1"
-
-#: src/tts/piperttsprovider.cpp:130
-msgctxt "PiperTTSProvider|"
-msgid "Unknown ONNX Runtime initialization error"
-msgstr "Errore inizializzazione sconosciuto runtime ONNX"
-
-#: src/tts/piperttsprovider.cpp:240
-msgctxt "PiperTTSProvider|"
-msgid "Failed to initialize espeak-ng"
-msgstr "Impossibile inizializzare espeak-ng"
-
-#: src/tts/piperttsprovider.cpp:282
-#, qt-format
-msgctxt "PiperTTSProvider|"
-msgid "ONNX Runtime initialization error: %1"
-msgstr "Errore inizializzazione runtime ONNX: %1"
-
-#: src/tts/piperttsprovider.cpp:323
-msgctxt "PiperTTSProvider|"
-msgid "Could not disable neural TTS telemetry"
-msgstr "Impossibile disabilitare la telemetria della sintesi vocale neurale"
-
-#: src/tts/piperttsprovider.cpp:324
-msgctxt "PiperTTSProvider|"
-msgid ""
-"Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
-"of it may report usage data to Microsoft."
-msgstr ""
-"Crow Translate non ha potuto disattivare la telemetria di ONNX Runtime, "
-"pertanto questa sua copia potrebbe inviare dati sul suo utilizzo a Microsoft."
-
-#: src/tts/piperttsprovider.cpp:325
-#, qt-format
-msgctxt "PiperTTSProvider|"
-msgid ""
-"Reason: %1\n"
-"\n"
-"Only Microsoft's own Windows builds of ONNX Runtime have telemetry compiled "
-"in. Builds from source - including the one Crow Translate links statically - "
-"have none, and it is inactive on other platforms."
-msgstr ""
-"Spiegazione: %1\n"
-"\n"
-"Solo le build proprietarie per Windows di ONNX Runtime di Microsoft hanno la "
-"telemetria compilata al loro interno. Le build da codice sorgente - inclusa "
-"quella a cui Crow Translate si collega staticamente - non ne hanno, ed è "
-"inattiva nelle altre piattaforme."
-
-#: src/tts/piperttsprovider.cpp:1060
-msgctxt "PiperTTSProvider|"
-msgid "No audio data generated"
-msgstr "Nessun dato audio generato"
-
-#: src/tts/piperttsprovider.cpp:1075
-msgctxt "PiperTTSProvider|"
-msgid "Failed to create temporary audio file"
-msgstr "Creazione del file audio temporaneo non riuscita"
-
-#: src/tts/piperttsprovider.cpp:1084
-msgctxt "PiperTTSProvider|"
-msgid "Failed to write audio data"
-msgstr "Scrittura dei dati audio non riuscita"
-
-#: src/tts/piperttsprovider.cpp:1422
-msgctxt "PiperTTSProvider|"
-msgid ""
-"<h3>Piper Voice Models Not Found</h3><p>No Piper TTS voice models were found "
-"in the standard locations.</p><p><b>To use Piper TTS:</b></"
-"p><ol><li>Download voice models from <a href='https://huggingface.co/rhasspy/"
-"piper-voices'>HuggingFace Piper Voices</a></li><li>Extract the models to a "
-"directory</li><li>Set the path in Settings → TTS → Piper Voices Path</li></"
-"ol><p><b>⚠️ License Warning:</b> Some models may have non-free licenses and "
-"cannot be used in commercial settings. Please check the license of each "
-"model before commercial use.</p>"
-msgstr ""
-"<h3>Modelli voce Piper non trovati</h3><p>Non sono stati trovati i modelli "
-"di sintesi vocale Piper nei percorsi standard.</p><p><b>Per usare la sintesi "
-"vocale Piper:</b></p><ol><li>Scarica i modelli voce da <a href='https://"
-"huggingface.co/rhasspy/piper-voices'>HuggingFace Piper Voices</a></"
-"li><li>Estrai i modelli in una cartella</li><li>Imposta il percorso in "
-"Impostazioni → Sintesi vocale → Percorso voci Piper</li></ol><p><b>⚠️ Avviso "
-"sulla licenza:</b> alcuni modelli potrebbero avere licenze non libere e non "
-"possono essere utilizzati in configurazioni commerciali. Verifica la licenza "
-"di ciascun modello prima del suo utilizzo in ambito commerciale.</p>"
-
-#: src/tts/piperttsprovider.cpp:1436
-msgctxt "PiperTTSProvider|"
-msgid "Piper Voice Models Required"
-msgstr "Modelli voce Piper richiesti"
-
-#: src/tts/piperttsprovider.cpp:1437
-msgctxt "PiperTTSProvider|"
-msgid ""
-"No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
-"Piper Voices Path."
-msgstr ""
-"Non è stato trovato alcun modello di sintesi vocale Piper. Imposta il "
-"percorso in Impostazioni -> Sintesi vocale -> Percorso voci Piper."
-
-#: src/tts/qtttsprovider.cpp:325
-#, qt-format
-msgctxt "QtTTSProvider|"
-msgid ""
-"<h3>Windows TTS Voice Not Found</h3><p>No Windows TTS voice was found for <b>"
-"%1</b>.</p><p><b>To install additional languages:</b></p><ol><li>Open "
-"<b>Settings → Time & Language → Language & region</b></li><li>Click <b>Add a "
-"language</b> and select your desired language</li><li>Click on the installed "
-"language and select <b>Language options</b></li><li>Under <b>Speech</b>, "
-"click <b>Download</b> for the speech pack</li></ol><p><b>⚠️ License Note:</b> "
-"Crow Translate currently only supports \"Basic voice models\" from Windows "
-"TTS. \"Narrator voices\" have licensing restrictions that are incompatible "
-"with this application.</p>"
-msgstr ""
-"<h3>Voce sintesi vocale Windows non trovata</h3><p>Non è stata trovata la "
-"voce di sintesi vocale Windows per <b>%1</b>.</p><p><b>Per installare lingue "
-"aggiuntive:</b></p><ol><li>Apri <b>Impostazioni → Ora e lingua → Lingua e "
-"regione</b></li><li>Fai clic su <b>Aggiungi una lingua</b> e seleziona la "
-"lingua desiderata</li><li>Fai clic sulla lingua installata e seleziona "
-"<b>Opzioni linguistiche</b></li><li>In <b>Accesso vocale</b>, fai clic su "
-"<b>Scarica</b> per il pacchetto vocale</li></ol><p><b>⚠️ Nota di licenza:</b> "
-"Crow Translate attualmente supporta soltanto i «modelli vocali di base» "
-"dalla sintesi vocale di Windows. Le «voci dei narratori» contengono "
-"restrizioni di licenza e sono incompatibili con questa applicazione.</p>"
-
-#: src/tts/qtttsprovider.cpp:341
-msgctxt "QtTTSProvider|"
-msgid "Windows TTS Voice Installation"
-msgstr "Installazione voce sintesi vocale di Windows"
-
-#: src/tts/qtttsprovider.cpp:342
-#, qt-format
-msgctxt "QtTTSProvider|"
-msgid "No Windows TTS voice is installed for %1."
-msgstr ""
-"Non è stata installata alcuna voce di sintesi vocale di Windows per %1."
+#~ msgctxt "QObject|"
+#~ msgid ""
+#~ "The selected TTS provider crashed during initialization and has been "
+#~ "reset to 'None' to prevent further issues. You can try selecting a "
+#~ "different provider in Settings → TTS."
+#~ msgstr ""
+#~ "Il fornitore di sintesi vocale è andato in blocco durante "
+#~ "l'inizializzazione ed è stato riportato a «Nessuno» per evitare ulteriori "
+#~ "problemi. Puoi provare a selezionare un fornitore differente in "
+#~ "Impostazioni → Sintesi vocale."
 
 #~ msgctxt "SettingsDialog|"
 #~ msgid "Mozhi"
@@ -4374,16 +4537,6 @@ msgstr ""
 #~ msgctxt "SettingsDialog|"
 #~ msgid "Checking for updates..."
 #~ msgstr "Controllo aggiornamenti..."
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Update available!"
-#~ msgstr "È disponibile un aggiornamento!"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "No updates available."
-#~ msgstr ""
-#~ "La versione installata è aggiornata.\n"
-#~ "Nessun aggiornamento disponibile."
 
 #~ msgctxt "UpdaterDialog|"
 #~ msgid "Changelog:"

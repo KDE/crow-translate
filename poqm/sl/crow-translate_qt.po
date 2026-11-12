@@ -16,29 +16,29 @@ msgstr ""
 "X-Generator: Poedit 3.9\n"
 "X-Qt-Contexts: true\n"
 
-#: src/cli.cpp:100
+#: src/cli.cpp:114
 msgctxt "Cli|"
 msgid "translation options:"
 msgstr "možnosti prevoda:"
 
-#: src/cli.cpp:109
+#: src/cli.cpp:123
 msgctxt "Cli|"
 msgid "examples:"
 msgstr "primeri:"
 
-#: src/cli.cpp:142
+#: src/cli.cpp:156
 msgctxt "Cli|"
 msgid "Display all language codes."
 msgstr "Prikaži vse jezikovne kode."
 
-#: src/cli.cpp:144
+#: src/cli.cpp:158
 msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
 msgstr "Določi izvorni jezik (privzeto bo stroj poskušal sam določiti jezik)."
 
-#: src/cli.cpp:148
+#: src/cli.cpp:162
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), split by '+' (by default, the system "
@@ -47,7 +47,7 @@ msgstr ""
 "Določi jezik(-e) prevoda, razdeljen s '+' (privzeto je uporabljen sistemski "
 "jezik)."
 
-#: src/cli.cpp:153
+#: src/cli.cpp:167
 msgctxt "Cli|"
 msgid ""
 "Specify the translator engine ('google', 'yandex', 'bing', 'deepl', "
@@ -56,7 +56,7 @@ msgstr ""
 "Določite prevajalski mehanizem ('google', 'yandex', 'bing', 'deepl', "
 "'libretranslate', 'mymemory' or 'reverso'), privzeto se uporablja Google."
 
-#: src/cli.cpp:157
+#: src/cli.cpp:171
 msgctxt "Cli|"
 msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
@@ -65,51 +65,45 @@ msgstr ""
 "Določite URL pojavka Mozhi. Privzeto bo uporabljen URL pojavka iz nastavitev "
 "aplikacije."
 
-#: src/cli.cpp:161
+#: src/cli.cpp:175
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid ""
+#| "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider "
+#| "from app settings will be used by default."
 msgctxt "Cli|"
 msgid ""
-"Specify translation provider ('copy', 'mozhi' or 'localai'). Provider from "
-"app settings will be used by default."
+"Specify translation provider (%1). Provider from app settings will be used "
+"by default."
 msgstr ""
 "Določite ponudnika prevajanja ('copy', 'mozhi' ali 'localai'). Privzeto bo "
 "uporabljen ponudnik iz nastavitev aplikacije."
 
-#: src/cli.cpp:169
+#: src/cli.cpp:182
+#, fuzzy, qt-format
+#| msgctxt "Cli|"
+#| msgid ""
+#| "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app "
+#| "settings will be used by default."
 msgctxt "Cli|"
 msgid ""
-"Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from app "
-"settings will be used by default."
-msgstr ""
-"Določite ponudnika pretvorbe besedila v govor ('none', 'mozhi', 'qt' ali "
-"'piper'). Privzeto uporabljen bo ponudnik iz nastavitev aplikacije."
-
-#: src/cli.cpp:171
-msgctxt "Cli|"
-msgid ""
-"Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app settings "
-"will be used by default."
+"Specify TTS provider (%1). Provider from app settings will be used by "
+"default."
 msgstr ""
 "Določite ponudnika pretvorbe besedila v govor ('none', 'mozhi', 'qt' ali "
 "'piper'). Privzeto bo uporabljen ponudnik iz nastavitev aplikacije."
 
-#: src/cli.cpp:173
-msgctxt "Cli|"
-msgid "Specify TTS provider ('none'). This build has text-to-speech disabled."
-msgstr ""
-"Navedite ponudnika pretvorbe besedila v govor ('none'). Ta različica ima "
-"onemogočeno pretvorbo besedila v govor."
-
-#: src/cli.cpp:176
+#: src/cli.cpp:185
 msgctxt "Cli|"
 msgid "Speak the translation."
 msgstr "Izgovorite prevod."
 
-#: src/cli.cpp:177
+#: src/cli.cpp:186
 msgctxt "Cli|"
 msgid "Speak the source."
 msgstr "Povej vir."
 
-#: src/cli.cpp:178
+#: src/cli.cpp:187
 msgctxt "Cli|"
 msgid ""
 "Read source text from files. Arguments will be interpreted as file paths."
@@ -117,39 +111,39 @@ msgstr ""
 "Branje izvornega besedila iz datotek. Argumenti bodo interpretirani kot poti "
 "do datotek."
 
-#: src/cli.cpp:179
+#: src/cli.cpp:188
 msgctxt "Cli|"
 msgid "Add stdin data to source text."
 msgstr "Izvornemu besedilu dodajte podatke stdin."
 
-#: src/cli.cpp:181
+#: src/cli.cpp:190
 msgctxt "Cli|"
 msgid "Read source text from an image using the configured OCR engine."
 msgstr ""
 "Preberite izvorno besedilo s slike z uporabo konfiguriranega mehanizma OCR."
 
-#: src/cli.cpp:182
+#: src/cli.cpp:191
 msgctxt "Cli|"
 msgid "path"
 msgstr "pot"
 
-#: src/cli.cpp:184
+#: src/cli.cpp:193
 #, qt-format
 msgctxt "Cli|"
 msgid "Do not print any text when using --%1 or --%2."
 msgstr "Pri uporabi --%1 ali --%2 ne natisnite nobenega besedila."
 
-#: src/cli.cpp:185
+#: src/cli.cpp:194
 msgctxt "Cli|"
 msgid "Print only translations."
 msgstr "Natisni samo prevode."
 
-#: src/cli.cpp:186
+#: src/cli.cpp:195
 msgctxt "Cli|"
 msgid "Print output formatted as JSON."
 msgstr "Izpis tiskanja, oblikovan kot JSON."
 
-#: src/cli.cpp:192
+#: src/cli.cpp:201
 msgctxt "Cli|"
 msgid ""
 "Which frontend to run ('gui' or 'cli'). Defaults to 'cli' whenever any "
@@ -158,12 +152,12 @@ msgstr ""
 "Kateri vmesnik naj se zažene ('gui' ali 'cli'). Privzeto je 'cli', kadar "
 "koli je podan argument."
 
-#: src/cli.cpp:193
+#: src/cli.cpp:202
 msgctxt "Cli|"
 msgid "frontend"
 msgstr "ospredje"
 
-#: src/cli.cpp:197
+#: src/cli.cpp:206
 msgctxt "Cli|"
 msgid ""
 "Application that allows to translate and speak text using various providers"
@@ -171,159 +165,167 @@ msgstr ""
 "Aplikacija, ki omogoča prevajanje in izgovorjavo besedila z uporabo "
 "različnih ponudnikov"
 
-#: src/cli.cpp:198
+#: src/cli.cpp:207
 msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
 msgstr "Besedilo za prevod. Privzeto bo prevod izveden v sistemski jezik."
 
-#: src/cli.cpp:244
+#: src/cli.cpp:253
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: For --%1 you must specify --%2 and/or --%3 options"
 msgstr "Napaka: Za --%1 morate podati možnosti --%2 in/ali --%3"
 
-#: src/cli.cpp:254
+#: src/cli.cpp:263
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown engine '%1'"
 msgstr "Napaka: Neznani stroj '%1'"
 
-#: src/cli.cpp:269
+#: src/cli.cpp:275
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation provider '%1'"
 msgstr "Napaka: Neznan ponudnik prevajanja '%1'"
 
-#: src/cli.cpp:293
+#: src/cli.cpp:300
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown source language code '%1'"
 msgstr "Napaka: Koda neznanega izvirnega jezika: '%1'"
 
-#: src/cli.cpp:313
+#: src/cli.cpp:325
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown translation language code '%1'"
 msgstr "Napaka: Koda neznanega jezika prevoda: '%1'"
 
-#: src/cli.cpp:337
+#: src/cli.cpp:349
 msgctxt "Cli|"
 msgid "Error: There is no text for translation"
 msgstr "Napaka: ni besedila za prevod"
 
-#: src/cli.cpp:340
+#: src/cli.cpp:352
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: --%1 cannot be combined with text arguments"
 msgstr "Napaka: --%1 ni mogoče kombinirati z besedilnimi argumenti"
 
-#: src/cli.cpp:347
+#: src/cli.cpp:359
 msgctxt "Cli|"
 msgid "Detecting fastest instance"
 msgstr "Zaznavanje najhitrejšega pojavka"
 
-#: src/cli.cpp:410
+#: src/cli.cpp:403
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unknown TTS provider '%1'"
 msgstr "Napaka: Neznan ponudnik pretvorbe besedila v govor '%1'"
 
-#: src/cli.cpp:473
+#: src/cli.cpp:452
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to read image '%1'"
 msgstr "Napaka: Ni mogoče prebrati slike '%1'"
 
-#: src/cli.cpp:483
+#: src/cli.cpp:462
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to initialize Tesseract with %1"
 msgstr "Napaka: Ni mogoče inicializirati Tesseracta z %1"
 
-#: src/cli.cpp:506
+#: src/cli.cpp:485
+#, fuzzy
+#| msgctxt "Cli|"
+#| msgid "Error: text-to-speech is unavailable: %1"
+msgctxt "Cli|"
+msgid "Error: No OCR engine is available"
+msgstr "Napaka: pretvorba besedila v govor ni na voljo: %1"
+
+#: src/cli.cpp:493
 msgctxt "Cli|"
 msgid "Error: No text was recognized in the image"
 msgstr "Napaka: Na sliki ni bilo prepoznananega besedila"
 
-#: src/cli.cpp:514
+#: src/cli.cpp:501
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Recognition failed: %1"
 msgstr "Napaka: Prepoznava ni uspela: %1"
 
-#: src/cli.cpp:519
+#: src/cli.cpp:506
 msgctxt "Cli|"
 msgid "Error: Recognition was cancelled"
 msgstr "Napaka: Prepoznava je bila preklicana"
 
-#: src/cli.cpp:537 src/cli.cpp:606
+#: src/cli.cpp:524 src/cli.cpp:581
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: %1"
 msgstr "Napaka: %1"
 
-#: src/cli.cpp:539 src/cli.cpp:608
+#: src/cli.cpp:526 src/cli.cpp:583
 msgctxt "Cli|"
 msgid "Translation error occurred"
 msgstr "Prišlo je do napake pri prevajanju"
 
-#: src/cli.cpp:677
+#: src/cli.cpp:652
 msgctxt "Cli|"
 msgid "Unknown error"
 msgstr "Neznana napaka"
 
-#: src/cli.cpp:678
+#: src/cli.cpp:653
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: TTS failed: %1"
 msgstr "Napaka: Pretvorba besedila v govor ni uspela: %1"
 
-#: src/cli.cpp:785
+#: src/cli.cpp:759
 msgctxt "Cli|"
 msgid "no provider was created"
 msgstr "noben ponudnik ni bil ustvarjen"
 
-#: src/cli.cpp:810
+#: src/cli.cpp:784
 msgctxt "Cli|"
 msgid "the engine failed to start"
 msgstr "mehanizem se ni uspel zagnati"
 
-#: src/cli.cpp:815
+#: src/cli.cpp:789
 msgctxt "Cli|"
 msgid "the selected provider has no voices available"
 msgstr "izbrani ponudnik nima na voljo nobenih glasov"
 
-#: src/cli.cpp:873
+#: src/cli.cpp:847
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: text-to-speech is unavailable: %1"
 msgstr "Napaka: pretvorba besedila v govor ni na voljo: %1"
 
-#: src/cli.cpp:894
+#: src/cli.cpp:868
 msgctxt "Cli|"
 msgid "Source languages:"
 msgstr "Izvorni jeziki:"
 
-#: src/cli.cpp:897
+#: src/cli.cpp:871
 msgctxt "Cli|"
 msgid "Translation languages:"
 msgstr "Jeziki prevoda:"
 
-#: src/cli.cpp:965
+#: src/cli.cpp:939
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: You can't use --%1 with --%2"
 msgstr "Napaka: ne morete uporabiti --%1 z --%2"
 
-#: src/cli.cpp:977 src/cli.cpp:998
+#: src/cli.cpp:951 src/cli.cpp:972
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: File does not exist: %1"
 msgstr "Napaka: datoteka ne obstaja: %1"
 
-#: src/cli.cpp:982 src/cli.cpp:1003
+#: src/cli.cpp:956 src/cli.cpp:977
 #, qt-format
 msgctxt "Cli|"
 msgid "Error: Unable to open file: %1"
@@ -334,12 +336,76 @@ msgctxt "ContextMenu|"
 msgid "Search on Forvo.com"
 msgstr "Iščite na Forvo.com"
 
-#: src/core/translationsession.cpp:353
+#: src/core/pluginmanager.cpp:205
+msgctxt "SettingsDialog|"
+msgid "Copy"
+msgstr "Kopiraj"
+
+#: src/core/pluginmanager.cpp:206
+msgctxt "PluginManager|"
+msgid "Hands the text back unchanged. Always available."
+msgstr ""
+
+#: src/core/pluginmanager.cpp:212
+msgctxt "SettingsDialog|"
+msgid "None"
+msgstr "None (noben)"
+
+#: src/core/pluginmanager.cpp:213
+msgctxt "PluginManager|"
+msgid "Says nothing. Always available."
+msgstr ""
+
+#: src/core/pluginmanager.cpp:456
+#, fuzzy
+#| msgid "Update available!"
+msgctxt "PluginManager|"
+msgid "Backend unavailable"
+msgstr "Na voljo je posodobitev!"
+
+#: src/core/pluginmanager.cpp:457
+#, qt-format
+msgctxt "PluginManager|"
+msgid ""
+"The backend \"%1\" could not be used (%2). Falling back to the built-in one."
+msgstr ""
+
+#: src/core/pluginmanager.cpp:468 src/core/pluginmanager.cpp:495
+#, fuzzy
+#| msgid "Install"
+msgctxt "PluginManager|"
+msgid "not installed"
+msgstr "Namesti"
+
+#: src/core/pluginmanager.cpp:476 src/core/pluginmanager.cpp:503
+msgctxt "PluginManager|"
+msgid "built nothing"
+msgstr ""
+
+#: src/core/pluginmanager.cpp:484 src/core/pluginmanager.cpp:508
+#: src/core/pluginmanager.cpp:531
+msgctxt "PluginManager|"
+msgid "crashed while starting"
+msgstr ""
+
+#: src/core/translationsession.cpp:447
+#, fuzzy
+#| msgid "No updates available."
+msgctxt "TranslationSession|"
+msgid "No OCR engine available"
+msgstr "Na voljo ni nobenih posodobitev."
+
+#: src/core/translationsession.cpp:448
+msgctxt "TranslationSession|"
+msgid "No text recognition plugin is installed."
+msgstr ""
+
+#: src/core/translationsession.cpp:460
 msgctxt "TesseractOcr|"
 msgid "OCR is not configured"
 msgstr "Optično prepoznavanje znakov (OCR) ni konfigurirano"
 
-#: src/core/translationsession.cpp:354
+#: src/core/translationsession.cpp:461
 msgctxt "TesseractOcr|"
 msgid "Set up the OCR engine in the application settings"
 msgstr "Nastavite mehanizem OCR v nastavitvah aplikacije"
@@ -354,13 +420,13 @@ msgctxt "FrontendRegistry|"
 msgid "Command line"
 msgstr "Ukazna vrstica"
 
-#: src/frontend/guifrontend.cpp:46
+#: src/frontend/guifrontend.cpp:45
 #, qt-format
 msgctxt "D-Bus|"
 msgid "Unable to register D-Bus object for %1"
 msgstr "Objekta D-Bus ni mogoče registrirati za %1"
 
-#: src/frontend/guifrontend.cpp:141
+#: src/frontend/guifrontend.cpp:140
 #, qt-format
 msgctxt "D-Bus|"
 msgid "D-Bus service %1 is already registered by another application"
@@ -476,6 +542,11 @@ msgctxt "LanguagesDialog|"
 msgid "Current languages:"
 msgstr "Trenutni jeziki:"
 
+#: src/llm/knownendpoints.cpp:31
+msgctxt "AppSettings|"
+msgid "OpenAI-compatible (custom)"
+msgstr "Združljivo z OpenAI (po meri)"
+
 #: src/main.cpp:34
 #, qt-format
 msgctxt "main|"
@@ -488,39 +559,39 @@ msgctxt "main|"
 msgid "Available frontends: %1"
 msgstr "Razpoložljiva ospredja: %1"
 
-#: src/mainwindow.cpp:169
+#: src/mainwindow.cpp:189
 msgctxt "TesseractOcr|"
 msgid "Unable to set OCR languages"
 msgstr "Ni mogoče nastaviti jezikov OCR"
 
-#: src/mainwindow.cpp:170
+#: src/mainwindow.cpp:190
 #, qt-format
 msgctxt "TesseractOcr|"
 msgid "Unable to initialize Tesseract with %1"
 msgstr "Ni mogoče inicializirati Tesseracta z %1"
 
-#: src/mainwindow.cpp:451
+#: src/mainwindow.cpp:467
 msgctxt "QApplication|"
 msgid "OCR"
 msgstr "OCR"
 
-#: src/mainwindow.cpp:452
+#: src/mainwindow.cpp:468
 msgctxt "QApplication|"
 msgid "OCR image negated"
 msgstr "Slika OCR je bila invertirana"
 
-#: src/mainwindow.cpp:452
+#: src/mainwindow.cpp:468
 msgctxt "QApplication|"
 msgid "OCR image is normal"
 msgstr "Slika OCR je normalna"
 
-#: src/mainwindow.cpp:896
+#: src/mainwindow.cpp:976
 #, qt-format
 msgctxt "MainWindow|"
 msgid "This application uses %1 to provide translations."
 msgstr "Ta aplikacija uporablja %1 za zagotavljanje prevodov."
 
-#: src/mainwindow.cpp:897
+#: src/mainwindow.cpp:977
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -534,28 +605,28 @@ msgstr ""
 "ki ga pošljete. Vaš trenutni pojavek je '%1', vendar ga lahko spremenite v "
 "nastavitvah prevajanja. Oglejte si podrobnosti pojavka na zgornji povezavi."
 
-#: src/mainwindow.cpp:904
+#: src/mainwindow.cpp:984
 msgctxt "MainWindow|"
 msgid "Don't show again"
 msgstr "Ne kaži več"
 
-#: src/mainwindow.cpp:951
+#: src/mainwindow.cpp:1031
 msgctxt "TrayIcon|"
 msgid "Invalid tray icon"
 msgstr "Neveljavna ikona v pladnju"
 
-#: src/mainwindow.cpp:951
+#: src/mainwindow.cpp:1031
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
 msgstr "Podana ikona '%1' ni veljavna. Uporabljena bo privzeta ikona."
 
-#: src/mainwindow.cpp:1067
+#: src/mainwindow.cpp:1147
 msgctxt "MainWindow|"
 msgid "TTS Error"
 msgstr "Napaka prevoda besedila v govor"
 
-#: src/mainwindow.cpp:1067
+#: src/mainwindow.cpp:1147
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -572,25 +643,25 @@ msgstr ""
 "Preverite nastavitve pretvorbe besedila v govor ali poskusite z drugim "
 "glasom/jezikom."
 
-#: src/mainwindow.cpp:1108 src/mainwindow.cpp:1120
+#: src/mainwindow.cpp:1188 src/mainwindow.cpp:1200
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Error: %1"
 msgstr "Napaka: %1"
 
-#: src/mainwindow.cpp:1928
+#: src/mainwindow.cpp:2068
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Image too large (%1 MP). Max %2 MP."
 msgstr "Slika je prevelika (%1 MP). Največ %2 MP."
 
-#: src/mainwindow.cpp:2026
+#: src/mainwindow.cpp:2170
 #, qt-format
 msgctxt "MainWindow|"
 msgid "OCR failed: %1"
 msgstr "Spodletelo optično prepoznavanje znakov: %1"
 
-#: src/mainwindow.cpp:2060 src/mainwindow.cpp:2117
+#: src/mainwindow.cpp:2204 src/mainwindow.cpp:2261
 #, qt-format
 msgctxt "MainWindow|"
 msgid ""
@@ -600,12 +671,12 @@ msgstr ""
 "Ni mogoče odpreti slike:\n"
 "%1"
 
-#: src/mainwindow.cpp:2108 src/mainwindow.cpp:2117
+#: src/mainwindow.cpp:2252 src/mainwindow.cpp:2261
 msgctxt "MainWindow|"
 msgid "Open image"
 msgstr "Odpri sliko"
 
-#: src/mainwindow.cpp:2110
+#: src/mainwindow.cpp:2254
 msgctxt "MainWindow|"
 msgid ""
 "Images (*.png *.jpg *.jpeg *.bmp *.gif *.webp *.tif *.tiff);;All files (*)"
@@ -708,108 +779,60 @@ msgctxt "MainWindow|"
 msgid "Application settings"
 msgstr "Nastavitve aplikacije"
 
-#: src/modulestatus.cpp:271
+#: src/modulestatus.cpp:272
 msgctxt "ModuleStatus|"
 msgid "Waiting for capture"
 msgstr "Čakanje na zajem"
 
-#: src/modulestatus.cpp:273
+#: src/modulestatus.cpp:274
 msgctxt "ModuleStatus|"
 msgid "Select a region"
 msgstr "Izberi območje"
 
-#: src/modulestatus.cpp:275
+#: src/modulestatus.cpp:276
 msgctxt "ModuleStatus|"
 msgid "Recognizing text"
 msgstr "Prepoznavanje besedila"
 
-#: src/modulestatus.cpp:277
+#: src/modulestatus.cpp:278
 msgctxt "ModuleStatus|"
 msgid "Translating"
 msgstr "Prevajanje"
 
-#: src/modulestatus.cpp:279
+#: src/modulestatus.cpp:280
 msgctxt "ModuleStatus|"
 msgid "Detecting language"
 msgstr "Zaznavanje jezika"
 
-#: src/modulestatus.cpp:281
+#: src/modulestatus.cpp:282
 msgctxt "ModuleStatus|"
 msgid "Preparing speech"
 msgstr "Pripravljanje govora"
 
-#: src/modulestatus.cpp:283
+#: src/modulestatus.cpp:284
 msgctxt "ModuleStatus|"
 msgid "Speaking"
 msgstr "Govorjenje"
 
-#: src/modulestatus.cpp:285
+#: src/modulestatus.cpp:286
 msgctxt "ModuleStatus|"
 msgid "Capture failed"
 msgstr "Zajem je spodletel"
 
-#: src/modulestatus.cpp:287
+#: src/modulestatus.cpp:288
 msgctxt "ModuleStatus|"
 msgid "OCR failed"
 msgstr "OCR je spodletel"
 
-#: src/modulestatus.cpp:289
+#: src/modulestatus.cpp:290
 msgctxt "ModuleStatus|"
 msgid "Translation failed"
 msgstr "Prevajanje je spodletelo"
 
-#: src/modulestatus.cpp:291
+#: src/modulestatus.cpp:292
 msgctxt "ModuleStatus|"
 msgid "Speech error"
 msgstr "Napaka v govoru"
-
-#: src/ocr/llmocr.cpp:259
-msgctxt "LlmOcr|"
-msgid ""
-"The model ran out of tokens before transcribing anything, having spent them "
-"reasoning instead. Turn on \"Disable reasoning\" for this provider, or pick "
-"a model with a larger context."
-msgstr ""
-"Modelu je zmanjkalo žetonov, preden je karkoli prepisal, saj jih je namesto "
-"tega porabil za sklepanje. Vklopite \"Onemogoči sklepanje\" za tega "
-"ponudnika ali izberite model z večjim kontekstom."
-
-#: src/ocr/llmocr.cpp:264
-#, qt-format
-msgctxt "LlmOcr|"
-msgid ""
-"The model ran out of tokens before transcribing anything: the image used %1 "
-"of its %2 token limit. Try a smaller region, or a model with a larger "
-"context."
-msgstr ""
-"Modelu je zmanjkalo žetonov, preden je karkoli prepisal: slika je porabila "
-"%1 od omejitve žetonov %2. Poskusite z manjšim območjem ali z modelom z "
-"večjim kontekstom."
-
-#: src/ocr/llmocr.cpp:269
-msgctxt "LlmOcr|"
-msgid ""
-"The model ran out of tokens before transcribing anything. Try a smaller "
-"region, or a model with a larger context."
-msgstr ""
-"Modelu je zmanjkalo žetonov, preden je karkoli prepisal. Poskusite z manjšo "
-"regijo ali z modelom z večjim kontekstom."
-
-#: src/ocr/llmocr.cpp:273 src/ocr/llmocr.cpp:509
-#, qt-format
-msgctxt "LlmOcr|"
-msgid "LLM OCR error: %1"
-msgstr "Napaka LLM OCR: %1"
-
-#: src/ocr/llmocr.cpp:275
-msgctxt "LlmOcr|"
-msgid "The model returned no text for this image."
-msgstr "Model za to sliko ni vrnil besedila."
-
-#: src/ocr/llmocr.cpp:488
-msgctxt "LlmOcr|"
-msgid "LLM OCR request timed out"
-msgstr "Časovna omejitev zahteve za LLM OCR je potekla"
 
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:46
 #: src/ocr/screengrabbers/abstractscreengrabber.cpp:47
@@ -1023,12 +1046,6 @@ msgid ""
 msgstr ""
 "Zaslon pod kazalko je izginil, preden smo pridobili podatke o ločljivosti "
 "dpi. Za informacije o ločljivosti dpi uporabljamo primarni zaslon."
-
-#: src/ocr/tesseractocr.cpp:143
-#, qt-format
-msgctxt "TesseractOcr|"
-msgid "%1 is not a valid Tesseract parameter name."
-msgstr "%1 ni veljavno ime parametra Tesseract."
 
 #: src/onlinetranslator.cpp:280
 #, qt-format
@@ -2143,6 +2160,453 @@ msgctxt "OnlineTranslator|"
 msgid "Error: Unable to parse autodetected language"
 msgstr "Napaka: samodejno zaznanega jezika ni mogoče razčleniti"
 
+#: src/plugins/ocr/llm/llmocr.cpp:259
+msgctxt "LlmOcr|"
+msgid ""
+"The model ran out of tokens before transcribing anything, having spent them "
+"reasoning instead. Turn on \"Disable reasoning\" for this provider, or pick "
+"a model with a larger context."
+msgstr ""
+"Modelu je zmanjkalo žetonov, preden je karkoli prepisal, saj jih je namesto "
+"tega porabil za sklepanje. Vklopite \"Onemogoči sklepanje\" za tega "
+"ponudnika ali izberite model z večjim kontekstom."
+
+#: src/plugins/ocr/llm/llmocr.cpp:264
+#, qt-format
+msgctxt "LlmOcr|"
+msgid ""
+"The model ran out of tokens before transcribing anything: the image used %1 "
+"of its %2 token limit. Try a smaller region, or a model with a larger "
+"context."
+msgstr ""
+"Modelu je zmanjkalo žetonov, preden je karkoli prepisal: slika je porabila "
+"%1 od omejitve žetonov %2. Poskusite z manjšim območjem ali z modelom z "
+"večjim kontekstom."
+
+#: src/plugins/ocr/llm/llmocr.cpp:269
+msgctxt "LlmOcr|"
+msgid ""
+"The model ran out of tokens before transcribing anything. Try a smaller "
+"region, or a model with a larger context."
+msgstr ""
+"Modelu je zmanjkalo žetonov, preden je karkoli prepisal. Poskusite z manjšo "
+"regijo ali z modelom z večjim kontekstom."
+
+#: src/plugins/ocr/llm/llmocr.cpp:273 src/plugins/ocr/llm/llmocr.cpp:509
+#, qt-format
+msgctxt "LlmOcr|"
+msgid "LLM OCR error: %1"
+msgstr "Napaka LLM OCR: %1"
+
+#: src/plugins/ocr/llm/llmocr.cpp:275
+msgctxt "LlmOcr|"
+msgid "The model returned no text for this image."
+msgstr "Model za to sliko ni vrnil besedila."
+
+#: src/plugins/ocr/llm/llmocr.cpp:488
+msgctxt "LlmOcr|"
+msgid "LLM OCR request timed out"
+msgstr "Časovna omejitev zahteve za LLM OCR je potekla"
+
+#: src/plugins/ocr/tesseract/tesseractocr.cpp:146
+#, qt-format
+msgctxt "TesseractOcr|"
+msgid "%1 is not a valid Tesseract parameter name."
+msgstr "%1 ni veljavno ime parametra Tesseract."
+
+#: src/plugins/ocr/tesseract/tesseractplugin.cpp:23
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Languages"
+msgctxt "TesseractOcrPlugin|"
+msgid "Languages"
+msgstr "Jeziki"
+
+#: src/plugins/ocr/tesseract/tesseractplugin.cpp:28
+msgctxt "TesseractOcrPlugin|"
+msgid "Language data directory"
+msgstr ""
+
+#: src/plugins/ocr/tesseract/tesseractplugin.cpp:33
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Convert line breaks"
+msgctxt "TesseractOcrPlugin|"
+msgid "Convert line breaks"
+msgstr "Pretvori prelome vrstic"
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:184
+msgctxt "LocalAiTranslationProvider|"
+msgid "Destination language is not supported"
+msgstr "Ciljni jezik ni podprt"
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:435
+#, qt-format
+msgctxt "LocalAiTranslationProvider|"
+msgid ""
+"The model ran out of tokens before writing a translation: the text to "
+"translate used %1 of its %2 token limit, and it spent what was left "
+"reasoning instead of answering. Turn on \"Disable reasoning\" for this "
+"provider, translate less text at once, or pick a model with a larger context."
+msgstr ""
+"Modelu je pred pisanjem prevoda zmanjkalo žetonov: besedilo za prevod je "
+"porabilo %1 svoje omejitve žetonov %2 in tisto, kar je ostalo, je porabilo "
+"za sklepanje namesto za odgovor. Vklopite \"Onemogoči sklepanje\" za tega "
+"ponudnika, prevedite manj besedila hkrati ali izberite model z večjim "
+"kontekstom."
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:443
+msgctxt "LocalAiTranslationProvider|"
+msgid ""
+"The model spent its whole token budget reasoning and never wrote a "
+"translation. Turn on \"Disable reasoning\" for this provider, translate less "
+"text at once, or pick a model with a larger context."
+msgstr ""
+"Model je porabil celotno proračun žetonov za sklepanje in ni nikoli napisal "
+"prevoda. Za tega ponudnika vklopite \"Onemogoči sklepanje\", prevedite manj "
+"besedila hkrati ali izberite model z večjim kontekstom."
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:451
+#, qt-format
+msgctxt "LocalAiTranslationProvider|"
+msgid ""
+"The model ran out of tokens before writing a translation: the text to "
+"translate used %1 of its %2 token limit. Translate less text at once, or "
+"pick a model with a larger context."
+msgstr ""
+"Modelu je zmanjkalo žetonov, preden je napisal prevod: besedilo za prevod je "
+"porabilo %1 od omejitve žetonov %2. Prevedite manj besedila naenkrat ali "
+"izberite model z večjim kontekstom."
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:458
+msgctxt "LocalAiTranslationProvider|"
+msgid ""
+"The model ran out of tokens before writing a translation. Translate less "
+"text at once, or pick a model with a larger context."
+msgstr ""
+"Modelu je zmanjkalo žetonov, pred pisanjem prevoda. Prevedite manj besedila "
+"naenkrat ali izberite model z večjim kontekstom."
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:464
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:526
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:527
+#, qt-format
+msgctxt "LocalAiTranslationProvider|"
+msgid "LocalAI error: %1"
+msgstr "Napaka LocalAI: %1"
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:467
+msgctxt "LocalAiTranslationProvider|"
+msgid "The model returned an empty response."
+msgstr "Model je vrnil prazen odgovor."
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:488
+msgctxt "LocalAiTranslationProvider|"
+msgid "LocalAI request timed out"
+msgstr "Časovna omejitev zahteve LocalAI je potekla"
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:569
+msgctxt "LocalAiTranslationProvider|"
+msgid "Language detection timed out"
+msgstr "Časovna omejitev zaznavanja jezika je potekla"
+
+#: src/plugins/translation/localai/localaitranslationprovider.cpp:637
+msgctxt "LocalAiTranslationProvider|"
+msgid "Translation aborted by user"
+msgstr "Uporabnik je prekinil prevajanje"
+
+#: src/plugins/translation/mozhi/mozhiplugin.cpp:30
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Instance URL:"
+msgctxt "MozhiTranslationPlugin|"
+msgid "Instance URL"
+msgstr "URL pojavka:"
+
+#: src/plugins/translation/mozhi/mozhiplugin.cpp:31
+msgctxt "MozhiTranslationPlugin|"
+msgid "The Mozhi instance to send translations through."
+msgstr ""
+
+#: src/plugins/translation/mozhi/mozhiplugin.cpp:40
+msgctxt "MozhiTranslationPlugin|"
+msgid "Engine"
+msgstr ""
+
+#: src/plugins/translation/mozhi/mozhiplugin.cpp:41
+msgctxt "MozhiTranslationPlugin|"
+msgid "Which upstream translator the instance should use."
+msgstr ""
+
+#: src/plugins/translation/mozhi/mozhiplugin.cpp:46
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Use direct LibreTranslate API"
+msgctxt "MozhiTranslationPlugin|"
+msgid "LibreTranslate API key"
+msgstr "Uporabi neposredni API LibreTranslate"
+
+#: src/plugins/translation/mozhi/mozhiplugin.cpp:51
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Mozhi / LibreTranslate"
+msgctxt "MozhiTranslationPlugin|"
+msgid "Contact LibreTranslate directly"
+msgstr "Mozhi / LibreTranslate"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:79
+msgctxt "MozhiTranslationProvider|"
+msgid "Translation aborted by user"
+msgstr "Uporabnik je prekinil prevajanje"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:140
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Destination language '%1' is not supported"
+msgstr "Ciljni jezik '%1' ni podprt"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:148
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Source language '%1' is not supported"
+msgstr "Izvorni jezik '%1' ni podprt"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:213
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Network error: %1"
+msgstr "Napaka omrežja: %1"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:217
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Instance error: %1"
+msgstr "Napaka pojavka: %1"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:221
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Parsing error: %1"
+msgstr "Napaka razčlenjevanja: %1"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:225
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Unsupported TTS engine: %1"
+msgstr "Nepodprt mehanizem za pretvorbo besedila v govor: %1"
+
+#: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:229
+#, qt-format
+msgctxt "MozhiTranslationProvider|"
+msgid "Unknown error: %1"
+msgstr "Neznana napaka: %1"
+
+#: src/plugins/tts/mozhi/mozhittsplugin.cpp:27
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Instance URL:"
+msgctxt "MozhiTtsPlugin|"
+msgid "Instance URL"
+msgstr "URL pojavka:"
+
+#: src/plugins/tts/mozhi/mozhittsplugin.cpp:32
+msgctxt "MozhiTtsPlugin|"
+msgid "Engine"
+msgstr ""
+
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:48
+msgctxt "MozhiTTSProvider|"
+msgid "Text is empty"
+msgstr "Besedilo je prazno"
+
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:81
+msgctxt "MozhiTTSProvider|"
+msgid "No audio URLs generated"
+msgstr "Ni generiranih URL-jev zvoka"
+
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:263
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Mozhi instance failed: %1 (HTTP Server Error)"
+msgstr "Pojavek Mozhi ni uspel: %1 (napaka strežnika HTTP)"
+
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:265
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:272
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Cannot connect to Mozhi instance: %1"
+msgstr "Ni mogoče vzpostaviti povezave s pojavkom Mozhi: %1"
+
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:268
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Mozhi instance failed: %1 (HTTP 500 Internal Server Error)"
+msgstr "Pojavek Mozhi ni uspel: %1 (interna napaka strežnika HTTP 500)"
+
+#: src/plugins/tts/mozhi/mozhittsprovider.cpp:270
+#, qt-format
+msgctxt "MozhiTTSProvider|"
+msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
+msgstr "Napaka pojavka Mozhi: %1 (napaka odjemalca HTTP 4XX)"
+
+#: src/plugins/tts/piper/piperttsplugin.cpp:19
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid "Piper voices path:"
+msgctxt "PiperTtsPlugin|"
+msgid "Piper voices path"
+msgstr "Pot glasov Piperja:"
+
+#: src/plugins/tts/piper/piperttsplugin.cpp:20
+msgctxt "PiperTtsPlugin|"
+msgid "Searched before the standard locations for Piper voice models."
+msgstr ""
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:139
+msgctxt "PiperTTSProvider|"
+msgid "Failed to initialize Piper TTS"
+msgstr "Inicializacija Piper TTS ni uspela"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:145
+#, qt-format
+msgctxt "PiperTTSProvider|"
+msgid "ONNX Runtime exception: %1"
+msgstr "Izjema izvajalnega okolja ONNX: %1"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:148
+msgctxt "PiperTTSProvider|"
+msgid "Unknown ONNX Runtime initialization error"
+msgstr "Neznana napaka inicializacije izvajalnega okolja ONNX"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:258
+msgctxt "PiperTTSProvider|"
+msgid "Failed to initialize espeak-ng"
+msgstr "Inicializacija espeak-ng ni uspela"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:300
+#, qt-format
+msgctxt "PiperTTSProvider|"
+msgid "ONNX Runtime initialization error: %1"
+msgstr "Napaka inicializacije izvajalnega okolja ONNX: %1"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:341
+msgctxt "PiperTTSProvider|"
+msgid "Could not disable neural TTS telemetry"
+msgstr "Ni bilo mogoče onemogočiti nevralne telemetrije TTS"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:342
+msgctxt "PiperTTSProvider|"
+msgid ""
+"Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
+"of it may report usage data to Microsoft."
+msgstr ""
+"Crow Translate ni mogel izklopiti telemetrije ONNX Runtime, zato bo ta "
+"kopija morda poročala o uporabi podatkov Microsoftu."
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:343
+#, qt-format
+msgctxt "PiperTTSProvider|"
+msgid ""
+"Reason: %1\n"
+"\n"
+"Only Microsoft's own Windows builds of ONNX Runtime have telemetry compiled "
+"in. Builds from source - including the one Crow Translate links statically - "
+"have none, and it is inactive on other platforms."
+msgstr ""
+"Razlog: %1\n"
+"\n"
+"Samo Microsoftove lastne različice programa ONNX Runtime za Windows imajo "
+"vgrajeno telemetrijo. Izgradnje iz izvorne kode – vključno s tisto, ki jo "
+"Crow Translate statično povezuje – je nimajo in je na drugih platformah "
+"neaktivna."
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:1092
+msgctxt "PiperTTSProvider|"
+msgid "No audio data generated"
+msgstr "Ni ustvarjenih zvočnih podatkov"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:1107
+msgctxt "PiperTTSProvider|"
+msgid "Failed to create temporary audio file"
+msgstr "Začasne zvočne datoteke ni bilo mogoče ustvariti"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:1116
+msgctxt "PiperTTSProvider|"
+msgid "Failed to write audio data"
+msgstr "Zapisovanje zvočnih podatkov ni uspelo"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:1453
+msgctxt "PiperTTSProvider|"
+msgid ""
+"<h3>Piper Voice Models Not Found</h3><p>No Piper TTS voice models were found "
+"in the standard locations.</p><p><b>To use Piper TTS:</b></"
+"p><ol><li>Download voice models from <a href='https://huggingface.co/rhasspy/"
+"piper-voices'>HuggingFace Piper Voices</a></li><li>Extract the models to a "
+"directory</li><li>Set the path in Settings → TTS → Piper Voices Path</li></"
+"ol><p><b>⚠️ License Warning:</b> Some models may have non-free licenses and "
+"cannot be used in commercial settings. Please check the license of each "
+"model before commercial use.</p>"
+msgstr ""
+"<h3>Modeli glasov Piper niso bili najdeni</h3><p>Na standardnih lokacijah ni "
+"bilo najdenih nobenih modelov glasov Piper TTS.</p><p><b>Za uporabo Piper "
+"TTS:</b></p><ol><li>Prenesite modele glasov iz <a href='https://huggingface."
+"co/rhasspy/piper-voices'>HuggingFace Piper Voices</a></li><li>Izvlecite "
+"modele v imenik</li><li>Nastavite pot v Nastavitve → TTS → Pot do glasov "
+"Piper</li></ol><p><b>⚠️ Opozorilo o licenci:</b> Nekateri modeli imajo morda "
+"ne-proste licence in jih ni mogoče uporabljati za komercialno rabo. Pred "
+"komercialno uporabo preverite licenco vsakega modela.</p>"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:1467
+msgctxt "PiperTTSProvider|"
+msgid "Piper Voice Models Required"
+msgstr "Zahtevani modeli Piper Voice"
+
+#: src/plugins/tts/piper/piperttsprovider.cpp:1468
+msgctxt "PiperTTSProvider|"
+msgid ""
+"No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
+"Piper Voices Path."
+msgstr ""
+"Glasovnih modelov Piper TTS ni bilo mogoče najti. Nastavite pot v Nastavitve "
+"-> TTS -> Pot do glasov Piper."
+
+#: src/plugins/tts/qt/qtttsprovider.cpp:325
+#, qt-format
+msgctxt "QtTTSProvider|"
+msgid ""
+"<h3>Windows TTS Voice Not Found</h3><p>No Windows TTS voice was found for <b>"
+"%1</b>.</p><p><b>To install additional languages:</b></p><ol><li>Open "
+"<b>Settings → Time & Language → Language & region</b></li><li>Click <b>Add a "
+"language</b> and select your desired language</li><li>Click on the installed "
+"language and select <b>Language options</b></li><li>Under <b>Speech</b>, "
+"click <b>Download</b> for the speech pack</li></ol><p><b>⚠️ License Note:</b> "
+"Crow Translate currently only supports \"Basic voice models\" from Windows "
+"TTS. \"Narrator voices\" have licensing restrictions that are incompatible "
+"with this application.</p>"
+msgstr ""
+"<h3>Glas Windows TTS ni bil najden</h3><p>Za <b>%1</b> ni bil najden glas "
+"Windows TTS.</p><p><b>Za namestitev dodatnih jezikov:</b></p><ol><li>Odprite "
+"<b>Nastavitve → Čas in jezik → Jezik in regija</b></li><li>Kliknite <b>Dodaj "
+"jezik</b> in izberite želeni jezik</li><li>Kliknite nameščen jezik in "
+"izberite <b>Možnosti jezika</b></li><li>V razdelku <b>Govor</b> kliknite "
+"<b>Prenesi</b> za paket govora</li></ol><p><b>⚠️ Opomba o licenci:</b> Crow "
+"Translate trenutno podpira samo osnovne modele - \"Basic voice models\" iz "
+"sistema Windows TTS. \"Glasovi pripovedovalca\" imajo licenčne omejitve, ki "
+"niso združljive s to aplikacijo.</p>"
+
+#: src/plugins/tts/qt/qtttsprovider.cpp:341
+msgctxt "QtTTSProvider|"
+msgid "Windows TTS Voice Installation"
+msgstr "Namestitev programa za pretvorbo besedila v govor sistema Windows"
+
+#: src/plugins/tts/qt/qtttsprovider.cpp:342
+#, qt-format
+msgctxt "QtTTSProvider|"
+msgid "No Windows TTS voice is installed for %1."
+msgstr ""
+"V sistemu Windows ni nameščenega nobenega glasu za pretvorbo besedila v "
+"govor za %1."
+
 #: src/popupwindow.cpp:45
 msgctxt "PopupWindow|"
 msgid "Drag to resize"
@@ -2193,12 +2657,7 @@ msgctxt "PopupWindow|"
 msgid "Copy translation to the clipboard"
 msgstr "Kopiraj prevod na odložišče"
 
-#: src/settings/appsettings.cpp:704
-msgctxt "AppSettings|"
-msgid "OpenAI-compatible (custom)"
-msgstr "Združljivo z OpenAI (po meri)"
-
-#: src/settings/appsettings.cpp:1577
+#: src/settings/appsettings.cpp:1524
 #, qt-format
 msgctxt "AppSettings|"
 msgid "Unknown language code: %1"
@@ -2226,178 +2685,176 @@ msgctxt "UnixAutostartManager|"
 msgid "Unable to create %1"
 msgstr "Ni mogoče ustvariti %1"
 
-#: src/settings/autostartmanager/unixautostartmanager.cpp:47
+#: src/settings/autostartmanager/unixautostartmanager.cpp:56
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to copy %1 to %2"
 msgstr "Ni mogoče kopirati %1 v %2"
 
-#: src/settings/autostartmanager/unixautostartmanager.cpp:52
+#: src/settings/autostartmanager/unixautostartmanager.cpp:61
 #, qt-format
 msgctxt "UnixAutostartManager|"
 msgid "Unable to remove %1 from %2"
 msgstr "Ni mogoče odstraniti %1 iz %2"
 
-#: src/settings/settingsdialog.cpp:82
+#: src/settings/pluginoptionswidget.cpp:87
+#, fuzzy
+#| msgctxt "ModuleStatus|"
+#| msgid "Select a region"
+msgctxt "PluginOptionsWidget|"
+msgid "Select a directory"
+msgstr "Izberi območje"
+
+#: src/settings/settingsdialog.cpp:83
 msgctxt "SettingsDialog|"
 msgid "Portable mode"
 msgstr "Prenosni način"
 
-#: src/settings/settingsdialog.cpp:95
+#: src/settings/settingsdialog.cpp:96
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Use %1 to store settings"
 msgstr "Za shranjevanje nastavitev uporabite %1"
 
-#: src/settings/settingsdialog.cpp:99
+#: src/settings/settingsdialog.cpp:100
 msgctxt "SettingsDialog|"
 msgid "<System language>"
 msgstr "<Sistemski jezik>"
 
-#: src/settings/settingsdialog.cpp:103 src/settings/settingsdialog.cpp:104
+#: src/settings/settingsdialog.cpp:104 src/settings/settingsdialog.cpp:105
 msgctxt "SettingsDialog|"
 msgid "<Auto>"
 msgstr "<Auto>"
 
-#: src/settings/settingsdialog.cpp:152
-msgctxt "SettingsDialog|"
-msgid "Copy"
-msgstr "Kopiraj"
-
-#: src/settings/settingsdialog.cpp:157
-msgctxt "SettingsDialog|"
-msgid "None"
-msgstr "None (noben)"
-
-#: src/settings/settingsdialog.cpp:195
+#: src/settings/settingsdialog.cpp:210
 msgctxt "SettingsDialog|"
 msgid "Icons:"
 msgstr "Ikone:"
 
-#: src/settings/settingsdialog.cpp:217
+#: src/settings/settingsdialog.cpp:232
 msgctxt "SettingsDialog|"
 msgid "The OCR parameter fields can not be empty."
 msgstr "Polja parametrov OCR ne smejo biti prazna."
 
-#: src/settings/settingsdialog.cpp:218
+#: src/settings/settingsdialog.cpp:233
 msgctxt "SettingsDialog|"
 msgid "Do you want to discard the invalid parameters?"
 msgstr "Ali želite zavreči neveljavne parametre?"
 
-#: src/settings/settingsdialog.cpp:351 src/settings/settingsdialog.cpp:521
+#: src/settings/settingsdialog.cpp:364 src/settings/settingsdialog.cpp:538
 msgctxt "SettingsDialog|"
 msgid "URL:"
 msgstr "URL:"
 
-#: src/settings/settingsdialog.cpp:355 src/settings/settingsdialog.cpp:525
+#: src/settings/settingsdialog.cpp:368 src/settings/settingsdialog.cpp:542
 msgctxt "SettingsDialog|"
 msgid "Key:"
 msgstr "Ključ:"
 
-#: src/settings/settingsdialog.cpp:359 src/settings/settingsdialog.cpp:530
+#: src/settings/settingsdialog.cpp:372 src/settings/settingsdialog.cpp:547
 msgctxt "SettingsDialog|"
 msgid "optional, e.g. for a cloud endpoint"
 msgstr "neobvezno, npr. za končno točko oblaka"
 
-#: src/settings/settingsdialog.cpp:360 src/settings/settingsdialog.cpp:531
+#: src/settings/settingsdialog.cpp:373 src/settings/settingsdialog.cpp:548
 msgctxt "SettingsDialog|"
 msgid "Refresh models"
 msgstr "Osveži modele"
 
-#: src/settings/settingsdialog.cpp:378
+#: src/settings/settingsdialog.cpp:391
 msgctxt "SettingsDialog|"
 msgid "Translation model:"
 msgstr "Model prevajanja:"
 
-#: src/settings/settingsdialog.cpp:386 src/settings/settingsdialog.cpp:504
+#: src/settings/settingsdialog.cpp:399 src/settings/settingsdialog.cpp:521
 msgctxt "SettingsDialog|"
 msgid "Timeout:"
 msgstr "Časovna omejitev:"
 
-#: src/settings/settingsdialog.cpp:390 src/settings/settingsdialog.cpp:509
+#: src/settings/settingsdialog.cpp:403 src/settings/settingsdialog.cpp:526
 msgctxt "SettingsDialog|"
 msgid " s"
 msgstr " s"
 
-#: src/settings/settingsdialog.cpp:391
+#: src/settings/settingsdialog.cpp:404
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a translation or detection response."
 msgstr "Najdaljši čas čakanja na odgovor prevoda ali odziva."
 
-#: src/settings/settingsdialog.cpp:396
+#: src/settings/settingsdialog.cpp:409
 msgctxt "SettingsDialog|"
 msgid "Disable reasoning"
 msgstr "Onemogoči sklepanje"
 
-#: src/settings/settingsdialog.cpp:403
+#: src/settings/settingsdialog.cpp:416
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "Placeholders: %1"
 msgstr "Nadomestni znaki: %1"
 
-#: src/settings/settingsdialog.cpp:406
+#: src/settings/settingsdialog.cpp:419
 msgctxt "SettingsDialog|"
 msgid "Reset Text prompt"
 msgstr "Ponastavi besedilni poziv"
 
-#: src/settings/settingsdialog.cpp:468
+#: src/settings/settingsdialog.cpp:481
 msgctxt "SettingsDialog|"
 msgid "OCR engine:"
 msgstr "Mehanizem OCR:"
 
-#: src/settings/settingsdialog.cpp:472
+#: src/settings/settingsdialog.cpp:489
 msgctxt "SettingsDialog|"
 msgid "Tesseract"
 msgstr "Tesseract"
 
-#: src/settings/settingsdialog.cpp:473
+#: src/settings/settingsdialog.cpp:490
 msgctxt "SettingsDialog|"
 msgid "Vision model (LLM)"
 msgstr "Model vida (LLM)"
 
-#: src/settings/settingsdialog.cpp:483
+#: src/settings/settingsdialog.cpp:500
 msgctxt "SettingsDialog|"
 msgid "Tesseract runs locally. Configure languages and parameters below."
 msgstr "Tesseract teče lokalno. Spodaj konfigurirajte jezike in parametre."
 
-#: src/settings/settingsdialog.cpp:494 src/settings/settingsdialog.ui:818
+#: src/settings/settingsdialog.cpp:511 src/settings/settingsdialog.ui:818
 msgctxt "SettingsDialog|"
 msgid "Provider:"
 msgstr "Ponudnik:"
 
-#: src/settings/settingsdialog.cpp:510
+#: src/settings/settingsdialog.cpp:527
 msgctxt "SettingsDialog|"
 msgid "Maximum time to wait for a transcription response."
 msgstr "Najdaljši čas čakanja na odgovor na prepis."
 
-#: src/settings/settingsdialog.cpp:541
+#: src/settings/settingsdialog.cpp:558
 msgctxt "SettingsDialog|"
 msgid "Model:"
 msgstr "Model:"
 
-#: src/settings/settingsdialog.cpp:555
+#: src/settings/settingsdialog.cpp:572
 msgctxt "SettingsDialog|"
 msgid "Reset OCR prompt"
 msgstr "Ponastavi poziv OCR"
 
-#: src/settings/settingsdialog.cpp:616
+#: src/settings/settingsdialog.cpp:640
 msgctxt "SettingsDialog|"
 msgid "— Server reports image support —"
 msgstr "— Strežnik poroča podporo sliki —"
 
-#: src/settings/settingsdialog.cpp:620
+#: src/settings/settingsdialog.cpp:644
 msgctxt "SettingsDialog|"
 msgid "— Image support not reported —"
 msgstr "— Podpora sliki ni poročana —"
 
-#: src/settings/settingsdialog.cpp:633
+#: src/settings/settingsdialog.cpp:657
 msgctxt "SettingsDialog|"
 msgid "No models loaded yet — press \"Refresh models\", or type a model name."
 msgstr ""
 "Modeli še niso naloženi – pritisnite \"Osveži modele\" ali vnesite ime "
 "modela."
 
-#: src/settings/settingsdialog.cpp:635
+#: src/settings/settingsdialog.cpp:659
 msgctxt "SettingsDialog|"
 msgid ""
 "This endpoint does not report model capabilities, so image support cannot be "
@@ -2407,7 +2864,7 @@ msgstr ""
 "preveriti podpore za sliko. Izberite model, za katerega veste, da sprejema "
 "slike."
 
-#: src/settings/settingsdialog.cpp:638
+#: src/settings/settingsdialog.cpp:662
 msgctxt "SettingsDialog|"
 msgid ""
 "The server reported no image-capable models. A model listed here may still "
@@ -2417,7 +2874,7 @@ msgstr ""
 "morda še vedno deluje, vendar prepoznavanje ne bo uspelo, če ne more "
 "sprejeti slik."
 
-#: src/settings/settingsdialog.cpp:641
+#: src/settings/settingsdialog.cpp:665
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid "%n model(s) reported as image-capable."
@@ -2427,22 +2884,22 @@ msgstr[1] "%n modela sta poročana kot zmožna za obdelavo slik."
 msgstr[2] "%n modeli so poročani kot zmožni za obdelavo slik."
 msgstr[3] "%n modelov je poročanih kot zmožnih za obdelavo slik."
 
-#: src/settings/settingsdialog.cpp:699
+#: src/settings/settingsdialog.cpp:723
 msgctxt "SettingsDialog|"
 msgid "Vision model"
 msgstr "Model vida"
 
-#: src/settings/settingsdialog.cpp:699
+#: src/settings/settingsdialog.cpp:723
 msgctxt "SettingsDialog|"
 msgid "Enter the endpoint URL first."
 msgstr "Najprej vnesite URL končne točke."
 
-#: src/settings/settingsdialog.cpp:709 src/settings/settingsdialog.cpp:929
+#: src/settings/settingsdialog.cpp:733 src/settings/settingsdialog.cpp:953
 msgctxt "SettingsDialog|"
 msgid "No models found."
 msgstr "Ni najdenih modelov."
 
-#: src/settings/settingsdialog.cpp:722 src/settings/settingsdialog.cpp:916
+#: src/settings/settingsdialog.cpp:746 src/settings/settingsdialog.cpp:940
 #, qt-format
 msgctxt "SettingsDialog|"
 msgid ""
@@ -2452,37 +2909,22 @@ msgstr ""
 "Ni bilo mogoče doseči %1 pri %2:\n"
 "%3"
 
-#: src/settings/settingsdialog.cpp:1000 src/settings/settingsdialog.ui:614
+#: src/settings/settingsdialog.cpp:1024 src/settings/settingsdialog.ui:614
 msgctxt "SettingsDialog|"
 msgid "Select icon"
 msgstr "Izberi ikono"
 
-#: src/settings/settingsdialog.cpp:1000
+#: src/settings/settingsdialog.cpp:1024
 msgctxt "SettingsDialog|"
 msgid "Images (*.png *.ico *.svg *.jpg);;All files()"
 msgstr "Slike (*.png *.ico *.svg *.jpg);;Vse datoteke()"
 
-#: src/settings/settingsdialog.cpp:1030 src/settings/settingsdialog.ui:1072
+#: src/settings/settingsdialog.cpp:1054 src/settings/settingsdialog.ui:1072
 msgctxt "SettingsDialog|"
 msgid "Select OCR languages path"
 msgstr "Izberite pot jezikov OCR"
 
-#: src/settings/settingsdialog.cpp:1045
-msgctxt "SettingsDialog|"
-msgid "Piper voices path:"
-msgstr "Pot glasov Piperja:"
-
-#: src/settings/settingsdialog.cpp:1059
-msgctxt "SettingsDialog|"
-msgid "Directory with voice models"
-msgstr "Imenik z modeli glasov"
-
-#: src/settings/settingsdialog.cpp:1060 src/settings/settingsdialog.cpp:1079
-msgctxt "SettingsDialog|"
-msgid "Select Piper voices path"
-msgstr "Izberite pot glasov Piper"
-
-#: src/settings/settingsdialog.cpp:1237
+#: src/settings/settingsdialog.cpp:1210
 msgctxt "SettingsDialog|"
 msgid "Back"
 msgstr "Nazaj"
@@ -2918,11 +3360,16 @@ msgid "Detection provider:"
 msgstr "Ponudnik zaznavanja:"
 
 #: src/settings/settingsdialog.ui:774 src/settings/settingsdialog.ui:791
+#, fuzzy
+#| msgctxt "SettingsDialog|"
+#| msgid ""
+#| "Provider and model used to detect the source language when it is set to "
+#| "Auto. If no detection model is selected, translation falls back to the "
+#| "configured primary language above."
 msgctxt "SettingsDialog|"
 msgid ""
 "Provider and model used to detect the source language when it is set to "
-"Auto. If no detection model is selected, translation falls back to the "
-"configured primary language above."
+"Auto. If no detection model is selected, the model that translates is asked."
 msgstr ""
 "Ponudnik in model, ki se uporabljata za zaznavanje izvornega jezika, ko je "
 "nastavljeno na Samodejno. Če ni izbran noben model zaznavanja, se prevajanje "
@@ -3566,168 +4013,25 @@ msgctxt "StatusStrip|"
 msgid "Ready"
 msgstr "Pripravljen"
 
-#: src/translator/atranslationprovider.cpp:57
+#: src/translator/atranslationprovider.cpp:20
 msgctxt "ATranslationProvider|"
 msgid "Unsupported source language."
 msgstr "Nepodprt izvorni jezik."
 
-#: src/translator/atranslationprovider.cpp:59
+#: src/translator/atranslationprovider.cpp:22
 msgctxt "ATranslationProvider|"
 msgid "Unsupported destination language."
 msgstr "Nepodprt ciljni jezik."
 
-#: src/translator/atranslationprovider.cpp:61
+#: src/translator/atranslationprovider.cpp:24
 msgctxt "ATranslationProvider|"
 msgid "User aborted translation in progress"
 msgstr "Uporabnik je prekinil prevajanje v teku"
 
-#: src/translator/atranslationprovider.cpp:65
+#: src/translator/atranslationprovider.cpp:28
 msgctxt "ATranslationProvider|"
 msgid "Unknown error"
 msgstr "Neznana napaka"
-
-#: src/translator/atranslationprovider.cpp:115
-msgctxt "QObject|"
-msgid "Translation Provider Error"
-msgstr "Napaka ponudnika prevodov"
-
-#: src/translator/atranslationprovider.cpp:116
-msgctxt "QObject|"
-msgid ""
-"The selected translation provider crashed during initialization and has been "
-"reset to 'Copy' to prevent further issues. You can try selecting a different "
-"provider in Settings → Translation."
-msgstr ""
-"Izbrani ponudnik prevajanja se je med inicializacijo sesul in je bil "
-"ponastavljen na 'Kopiraj', da se preprečijo nadaljnje težave. Lahko "
-"poskusite izbrati drugega ponudnika v Nastavitvah → Prevajanje."
-
-#: src/translator/localaitranslationprovider.cpp:149
-msgctxt "LocalAiTranslationProvider|"
-msgid "Destination language is not supported"
-msgstr "Ciljni jezik ni podprt"
-
-#: src/translator/localaitranslationprovider.cpp:396
-#, qt-format
-msgctxt "LocalAiTranslationProvider|"
-msgid ""
-"The model ran out of tokens before writing a translation: the text to "
-"translate used %1 of its %2 token limit, and it spent what was left "
-"reasoning instead of answering. Turn on \"Disable reasoning\" for this "
-"provider, translate less text at once, or pick a model with a larger context."
-msgstr ""
-"Modelu je pred pisanjem prevoda zmanjkalo žetonov: besedilo za prevod je "
-"porabilo %1 svoje omejitve žetonov %2 in tisto, kar je ostalo, je porabilo "
-"za sklepanje namesto za odgovor. Vklopite \"Onemogoči sklepanje\" za tega "
-"ponudnika, prevedite manj besedila hkrati ali izberite model z večjim "
-"kontekstom."
-
-#: src/translator/localaitranslationprovider.cpp:404
-msgctxt "LocalAiTranslationProvider|"
-msgid ""
-"The model spent its whole token budget reasoning and never wrote a "
-"translation. Turn on \"Disable reasoning\" for this provider, translate less "
-"text at once, or pick a model with a larger context."
-msgstr ""
-"Model je porabil celotno proračun žetonov za sklepanje in ni nikoli napisal "
-"prevoda. Za tega ponudnika vklopite \"Onemogoči sklepanje\", prevedite manj "
-"besedila hkrati ali izberite model z večjim kontekstom."
-
-#: src/translator/localaitranslationprovider.cpp:412
-#, qt-format
-msgctxt "LocalAiTranslationProvider|"
-msgid ""
-"The model ran out of tokens before writing a translation: the text to "
-"translate used %1 of its %2 token limit. Translate less text at once, or "
-"pick a model with a larger context."
-msgstr ""
-"Modelu je zmanjkalo žetonov, preden je napisal prevod: besedilo za prevod je "
-"porabilo %1 od omejitve žetonov %2. Prevedite manj besedila naenkrat ali "
-"izberite model z večjim kontekstom."
-
-#: src/translator/localaitranslationprovider.cpp:419
-msgctxt "LocalAiTranslationProvider|"
-msgid ""
-"The model ran out of tokens before writing a translation. Translate less "
-"text at once, or pick a model with a larger context."
-msgstr ""
-"Modelu je zmanjkalo žetonov, pred pisanjem prevoda. Prevedite manj besedila "
-"naenkrat ali izberite model z večjim kontekstom."
-
-#: src/translator/localaitranslationprovider.cpp:425
-#: src/translator/localaitranslationprovider.cpp:487
-#: src/translator/localaitranslationprovider.cpp:488
-#, qt-format
-msgctxt "LocalAiTranslationProvider|"
-msgid "LocalAI error: %1"
-msgstr "Napaka LocalAI: %1"
-
-#: src/translator/localaitranslationprovider.cpp:428
-msgctxt "LocalAiTranslationProvider|"
-msgid "The model returned an empty response."
-msgstr "Model je vrnil prazen odgovor."
-
-#: src/translator/localaitranslationprovider.cpp:449
-msgctxt "LocalAiTranslationProvider|"
-msgid "LocalAI request timed out"
-msgstr "Časovna omejitev zahteve LocalAI je potekla"
-
-#: src/translator/localaitranslationprovider.cpp:530
-msgctxt "LocalAiTranslationProvider|"
-msgid "Language detection timed out"
-msgstr "Časovna omejitev zaznavanja jezika je potekla"
-
-#: src/translator/localaitranslationprovider.cpp:591
-msgctxt "LocalAiTranslationProvider|"
-msgid "Translation aborted by user"
-msgstr "Uporabnik je prekinil prevajanje"
-
-#: src/translator/mozhitranslationprovider.cpp:78
-msgctxt "MozhiTranslationProvider|"
-msgid "Translation aborted by user"
-msgstr "Uporabnik je prekinil prevajanje"
-
-#: src/translator/mozhitranslationprovider.cpp:139
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Destination language '%1' is not supported"
-msgstr "Ciljni jezik '%1' ni podprt"
-
-#: src/translator/mozhitranslationprovider.cpp:147
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Source language '%1' is not supported"
-msgstr "Izvorni jezik '%1' ni podprt"
-
-#: src/translator/mozhitranslationprovider.cpp:212
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Network error: %1"
-msgstr "Napaka omrežja: %1"
-
-#: src/translator/mozhitranslationprovider.cpp:216
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Instance error: %1"
-msgstr "Napaka pojavka: %1"
-
-#: src/translator/mozhitranslationprovider.cpp:220
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Parsing error: %1"
-msgstr "Napaka razčlenjevanja: %1"
-
-#: src/translator/mozhitranslationprovider.cpp:224
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Unsupported TTS engine: %1"
-msgstr "Nepodprt mehanizem za pretvorbo besedila v govor: %1"
-
-#: src/translator/mozhitranslationprovider.cpp:228
-#, qt-format
-msgctxt "MozhiTranslationProvider|"
-msgid "Unknown error: %1"
-msgstr "Neznana napaka: %1"
 
 #: src/trayicon.cpp:26 src/trayicon.cpp:65
 msgctxt "TrayIcon|"
@@ -3754,201 +4058,57 @@ msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Rezultat prevoda"
 
-#: src/tts/attsprovider.cpp:72
-msgctxt "QObject|"
-msgid "TTS Provider Error"
-msgstr "Napaka ponudnika pretvorbe besedila v govor"
+#~ msgctxt "Cli|"
+#~ msgid ""
+#~ "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from "
+#~ "app settings will be used by default."
+#~ msgstr ""
+#~ "Določite ponudnika pretvorbe besedila v govor ('none', 'mozhi', 'qt' ali "
+#~ "'piper'). Privzeto uporabljen bo ponudnik iz nastavitev aplikacije."
 
-#: src/tts/attsprovider.cpp:73
-msgctxt "QObject|"
-msgid ""
-"The selected TTS provider crashed during initialization and has been reset "
-"to 'None' to prevent further issues. You can try selecting a different "
-"provider in Settings → TTS."
-msgstr ""
-"Izbrani ponudnik pretvorbe besedila v govor se je med inicializacijo sesul "
-"in je bil ponastavljen na 'Noben', da se preprečijo nadaljnje težave. Lahko "
-"poskusite izbrati drugega ponudnika v Nastavitve → Pretvorba besedila v "
-"govor."
+#~ msgctxt "Cli|"
+#~ msgid ""
+#~ "Specify TTS provider ('none'). This build has text-to-speech disabled."
+#~ msgstr ""
+#~ "Navedite ponudnika pretvorbe besedila v govor ('none'). Ta različica ima "
+#~ "onemogočeno pretvorbo besedila v govor."
 
-#: src/tts/mozhittsprovider.cpp:48
-msgctxt "MozhiTTSProvider|"
-msgid "Text is empty"
-msgstr "Besedilo je prazno"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Directory with voice models"
+#~ msgstr "Imenik z modeli glasov"
 
-#: src/tts/mozhittsprovider.cpp:81
-msgctxt "MozhiTTSProvider|"
-msgid "No audio URLs generated"
-msgstr "Ni generiranih URL-jev zvoka"
+#~ msgctxt "SettingsDialog|"
+#~ msgid "Select Piper voices path"
+#~ msgstr "Izberite pot glasov Piper"
 
-#: src/tts/mozhittsprovider.cpp:263
-#, qt-format
-msgctxt "MozhiTTSProvider|"
-msgid "Mozhi instance failed: %1 (HTTP Server Error)"
-msgstr "Pojavek Mozhi ni uspel: %1 (napaka strežnika HTTP)"
+#~ msgctxt "QObject|"
+#~ msgid "Translation Provider Error"
+#~ msgstr "Napaka ponudnika prevodov"
 
-#: src/tts/mozhittsprovider.cpp:265 src/tts/mozhittsprovider.cpp:272
-#, qt-format
-msgctxt "MozhiTTSProvider|"
-msgid "Cannot connect to Mozhi instance: %1"
-msgstr "Ni mogoče vzpostaviti povezave s pojavkom Mozhi: %1"
+#~ msgctxt "QObject|"
+#~ msgid ""
+#~ "The selected translation provider crashed during initialization and has "
+#~ "been reset to 'Copy' to prevent further issues. You can try selecting a "
+#~ "different provider in Settings → Translation."
+#~ msgstr ""
+#~ "Izbrani ponudnik prevajanja se je med inicializacijo sesul in je bil "
+#~ "ponastavljen na 'Kopiraj', da se preprečijo nadaljnje težave. Lahko "
+#~ "poskusite izbrati drugega ponudnika v Nastavitvah → Prevajanje."
 
-#: src/tts/mozhittsprovider.cpp:268
-#, qt-format
-msgctxt "MozhiTTSProvider|"
-msgid "Mozhi instance failed: %1 (HTTP 500 Internal Server Error)"
-msgstr "Pojavek Mozhi ni uspel: %1 (interna napaka strežnika HTTP 500)"
+#~ msgctxt "QObject|"
+#~ msgid "TTS Provider Error"
+#~ msgstr "Napaka ponudnika pretvorbe besedila v govor"
 
-#: src/tts/mozhittsprovider.cpp:270
-#, qt-format
-msgctxt "MozhiTTSProvider|"
-msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
-msgstr "Napaka pojavka Mozhi: %1 (napaka odjemalca HTTP 4XX)"
-
-#: src/tts/piperttsprovider.cpp:121
-msgctxt "PiperTTSProvider|"
-msgid "Failed to initialize Piper TTS"
-msgstr "Inicializacija Piper TTS ni uspela"
-
-#: src/tts/piperttsprovider.cpp:127
-#, qt-format
-msgctxt "PiperTTSProvider|"
-msgid "ONNX Runtime exception: %1"
-msgstr "Izjema izvajalnega okolja ONNX: %1"
-
-#: src/tts/piperttsprovider.cpp:130
-msgctxt "PiperTTSProvider|"
-msgid "Unknown ONNX Runtime initialization error"
-msgstr "Neznana napaka inicializacije izvajalnega okolja ONNX"
-
-#: src/tts/piperttsprovider.cpp:240
-msgctxt "PiperTTSProvider|"
-msgid "Failed to initialize espeak-ng"
-msgstr "Inicializacija espeak-ng ni uspela"
-
-#: src/tts/piperttsprovider.cpp:282
-#, qt-format
-msgctxt "PiperTTSProvider|"
-msgid "ONNX Runtime initialization error: %1"
-msgstr "Napaka inicializacije izvajalnega okolja ONNX: %1"
-
-#: src/tts/piperttsprovider.cpp:323
-msgctxt "PiperTTSProvider|"
-msgid "Could not disable neural TTS telemetry"
-msgstr "Ni bilo mogoče onemogočiti nevralne telemetrije TTS"
-
-#: src/tts/piperttsprovider.cpp:324
-msgctxt "PiperTTSProvider|"
-msgid ""
-"Crow Translate could not switch off ONNX Runtime's telemetry, so this copy "
-"of it may report usage data to Microsoft."
-msgstr ""
-"Crow Translate ni mogel izklopiti telemetrije ONNX Runtime, zato bo ta "
-"kopija morda poročala o uporabi podatkov Microsoftu."
-
-#: src/tts/piperttsprovider.cpp:325
-#, qt-format
-msgctxt "PiperTTSProvider|"
-msgid ""
-"Reason: %1\n"
-"\n"
-"Only Microsoft's own Windows builds of ONNX Runtime have telemetry compiled "
-"in. Builds from source - including the one Crow Translate links statically - "
-"have none, and it is inactive on other platforms."
-msgstr ""
-"Razlog: %1\n"
-"\n"
-"Samo Microsoftove lastne različice programa ONNX Runtime za Windows imajo "
-"vgrajeno telemetrijo. Izgradnje iz izvorne kode – vključno s tisto, ki jo "
-"Crow Translate statično povezuje – je nimajo in je na drugih platformah "
-"neaktivna."
-
-#: src/tts/piperttsprovider.cpp:1060
-msgctxt "PiperTTSProvider|"
-msgid "No audio data generated"
-msgstr "Ni ustvarjenih zvočnih podatkov"
-
-#: src/tts/piperttsprovider.cpp:1075
-msgctxt "PiperTTSProvider|"
-msgid "Failed to create temporary audio file"
-msgstr "Začasne zvočne datoteke ni bilo mogoče ustvariti"
-
-#: src/tts/piperttsprovider.cpp:1084
-msgctxt "PiperTTSProvider|"
-msgid "Failed to write audio data"
-msgstr "Zapisovanje zvočnih podatkov ni uspelo"
-
-#: src/tts/piperttsprovider.cpp:1422
-msgctxt "PiperTTSProvider|"
-msgid ""
-"<h3>Piper Voice Models Not Found</h3><p>No Piper TTS voice models were found "
-"in the standard locations.</p><p><b>To use Piper TTS:</b></"
-"p><ol><li>Download voice models from <a href='https://huggingface.co/rhasspy/"
-"piper-voices'>HuggingFace Piper Voices</a></li><li>Extract the models to a "
-"directory</li><li>Set the path in Settings → TTS → Piper Voices Path</li></"
-"ol><p><b>⚠️ License Warning:</b> Some models may have non-free licenses and "
-"cannot be used in commercial settings. Please check the license of each "
-"model before commercial use.</p>"
-msgstr ""
-"<h3>Modeli glasov Piper niso bili najdeni</h3><p>Na standardnih lokacijah ni "
-"bilo najdenih nobenih modelov glasov Piper TTS.</p><p><b>Za uporabo Piper "
-"TTS:</b></p><ol><li>Prenesite modele glasov iz <a href='https://huggingface."
-"co/rhasspy/piper-voices'>HuggingFace Piper Voices</a></li><li>Izvlecite "
-"modele v imenik</li><li>Nastavite pot v Nastavitve → TTS → Pot do glasov "
-"Piper</li></ol><p><b>⚠️ Opozorilo o licenci:</b> Nekateri modeli imajo morda "
-"ne-proste licence in jih ni mogoče uporabljati za komercialno rabo. Pred "
-"komercialno uporabo preverite licenco vsakega modela.</p>"
-
-#: src/tts/piperttsprovider.cpp:1436
-msgctxt "PiperTTSProvider|"
-msgid "Piper Voice Models Required"
-msgstr "Zahtevani modeli Piper Voice"
-
-#: src/tts/piperttsprovider.cpp:1437
-msgctxt "PiperTTSProvider|"
-msgid ""
-"No Piper TTS voice models were found. Set the path in Settings -> TTS -> "
-"Piper Voices Path."
-msgstr ""
-"Glasovnih modelov Piper TTS ni bilo mogoče najti. Nastavite pot v Nastavitve "
-"-> TTS -> Pot do glasov Piper."
-
-#: src/tts/qtttsprovider.cpp:325
-#, qt-format
-msgctxt "QtTTSProvider|"
-msgid ""
-"<h3>Windows TTS Voice Not Found</h3><p>No Windows TTS voice was found for <b>"
-"%1</b>.</p><p><b>To install additional languages:</b></p><ol><li>Open "
-"<b>Settings → Time & Language → Language & region</b></li><li>Click <b>Add a "
-"language</b> and select your desired language</li><li>Click on the installed "
-"language and select <b>Language options</b></li><li>Under <b>Speech</b>, "
-"click <b>Download</b> for the speech pack</li></ol><p><b>⚠️ License Note:</b> "
-"Crow Translate currently only supports \"Basic voice models\" from Windows "
-"TTS. \"Narrator voices\" have licensing restrictions that are incompatible "
-"with this application.</p>"
-msgstr ""
-"<h3>Glas Windows TTS ni bil najden</h3><p>Za <b>%1</b> ni bil najden glas "
-"Windows TTS.</p><p><b>Za namestitev dodatnih jezikov:</b></p><ol><li>Odprite "
-"<b>Nastavitve → Čas in jezik → Jezik in regija</b></li><li>Kliknite <b>Dodaj "
-"jezik</b> in izberite želeni jezik</li><li>Kliknite nameščen jezik in "
-"izberite <b>Možnosti jezika</b></li><li>V razdelku <b>Govor</b> kliknite "
-"<b>Prenesi</b> za paket govora</li></ol><p><b>⚠️ Opomba o licenci:</b> Crow "
-"Translate trenutno podpira samo osnovne modele - \"Basic voice models\" iz "
-"sistema Windows TTS. \"Glasovi pripovedovalca\" imajo licenčne omejitve, ki "
-"niso združljive s to aplikacijo.</p>"
-
-#: src/tts/qtttsprovider.cpp:341
-msgctxt "QtTTSProvider|"
-msgid "Windows TTS Voice Installation"
-msgstr "Namestitev programa za pretvorbo besedila v govor sistema Windows"
-
-#: src/tts/qtttsprovider.cpp:342
-#, qt-format
-msgctxt "QtTTSProvider|"
-msgid "No Windows TTS voice is installed for %1."
-msgstr ""
-"V sistemu Windows ni nameščenega nobenega glasu za pretvorbo besedila v "
-"govor za %1."
+#~ msgctxt "QObject|"
+#~ msgid ""
+#~ "The selected TTS provider crashed during initialization and has been "
+#~ "reset to 'None' to prevent further issues. You can try selecting a "
+#~ "different provider in Settings → TTS."
+#~ msgstr ""
+#~ "Izbrani ponudnik pretvorbe besedila v govor se je med inicializacijo "
+#~ "sesul in je bil ponastavljen na 'Noben', da se preprečijo nadaljnje "
+#~ "težave. Lahko poskusite izbrati drugega ponudnika v Nastavitve → "
+#~ "Pretvorba besedila v govor."
 
 #~ msgctxt "SettingsDialog|"
 #~ msgid "Mozhi"
@@ -4439,12 +4599,6 @@ msgstr ""
 #~ msgid "Checking for updates..."
 #~ msgstr "Iskanje posodobitev ..."
 
-#~ msgid "Update available!"
-#~ msgstr "Na voljo je posodobitev!"
-
-#~ msgid "No updates available."
-#~ msgstr "Na voljo ni nobenih posodobitev."
-
 #~ msgctxt "src/settings/settingsdialog.cpp:720"
 #~ msgid "Unable to detect language"
 #~ msgstr "Jezika ni mogoče zaznati"
@@ -4506,9 +4660,6 @@ msgstr ""
 
 #~ msgid "Exit the program and run the installer"
 #~ msgstr "Zapri program in zaženi namestitveni program"
-
-#~ msgid "Install"
-#~ msgstr "Namesti"
 
 #~ msgid "Download the installer to the Downloads folder"
 #~ msgstr "Prenesi namestitveni program v mapo Prenosi"
