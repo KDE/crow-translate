@@ -69,7 +69,7 @@ if(WIN32)
 else()
     option(WITH_PORTABLE_MODE "Enable portable functionality" OFF)
 endif()
-option(WITH_KWAYLAND "Use KWayland for better Wayland integration" ON)
+option(WITH_KWINDOWSYSTEM "Use KWindowSystem to name the window a desktop portal request comes from on Wayland" ON)
 option(WITH_KICONTHEMES "Use KIconThemes for proper icon theme fallback" ON)
 
 option(WITH_PIPER_TTS "Enable Piper neural TTS provider (requires onnxruntime and espeak-ng)" ON)
@@ -114,8 +114,8 @@ if(UNIX)
     find_package(Qt6 REQUIRED COMPONENTS DBus)
     if(NOT APPLE)
         find_package(XCB REQUIRED COMPONENTS XCB)
-        if(WITH_KWAYLAND)
-            find_package(KWayland REQUIRED COMPONENTS Client)
+        if(WITH_KWINDOWSYSTEM)
+            find_package(KF6 REQUIRED COMPONENTS WindowSystem)
         endif()
     endif()
 endif()
@@ -475,12 +475,6 @@ if(UNIX AND NOT APPLE)
         src/settings/autostartmanager/portalautostartmanager.h
         src/settings/autostartmanager/portalautostartmanager.cpp
     )
-    if(WITH_KWAYLAND)
-        target_sources(${PROJECT_NAME}-lib PRIVATE
-          src/waylandhelper.h
-          src/waylandhelper.cpp
-        )
-    endif(WITH_KWAYLAND)
 elseif(APPLE)
     ecm_add_app_icon(MACOS_ICON ICONS ${APP_ICONS})
 
@@ -891,9 +885,9 @@ if(UNIX)
         target_link_libraries(${PROJECT_NAME}-lib PUBLIC
             XCB::XCB
         )
-        if(WITH_KWAYLAND)
-            target_link_libraries(${PROJECT_NAME}-lib PUBLIC Plasma::KWaylandClient)
-            target_compile_definitions(${PROJECT_NAME}-lib PUBLIC WITH_KWAYLAND)
+        if(WITH_KWINDOWSYSTEM)
+            target_link_libraries(${PROJECT_NAME}-lib PUBLIC KF6::WindowSystem)
+            target_compile_definitions(${PROJECT_NAME}-lib PUBLIC WITH_KWINDOWSYSTEM)
         endif()
     endif()
 endif()

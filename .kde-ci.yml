@@ -9,7 +9,7 @@ Dependencies:
 
 - 'on': ['Linux', 'FreeBSD']
   'require':
-    'plasma/kwayland': '@stable-kf6'
+    'frameworks/kwindowsystem': '@stable-kf6'
 
 Options:
   cmake-options: '-D WITH_PORTABLE_MODE=ON -D CMAKE_COMPILE_WARNING_AS_ERROR=ON -D WITH_PIPER_TTS=ON'

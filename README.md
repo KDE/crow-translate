@@ -205,7 +205,7 @@ You can manually download models from the [tessdata_fast](https://github.com/tes
 
 - [ONNX Runtime](https://onnxruntime.ai/) 1.22+ (for Piper neural TTS)
 - [espeak-ng](https://github.com/espeak-ng/espeak-ng) (bundled as submodule for Piper phonemization)
-- [KWayland](https://invent.kde.org/frameworks/kwayland)
+- [KWindowSystem](https://invent.kde.org/frameworks/kwindowsystem) (Linux, for naming Crow's window to the desktop portal on Wayland)
 
 ### External libraries
 
@@ -282,7 +282,7 @@ craft crow-translate
 ### Build parameters
 
 - `WITH_PORTABLE_MODE` - Enable portable functionality. If you create file named `settings.ini` in the app folder and Crow will store the configuration in it. It also adds the “Portable Mode” option to the application settings, which does the same.
-- `WITH_KWAYLAND` - Find and use KWayland library for better Wayland integration.
+- `WITH_KWINDOWSYSTEM` - Find and use KWindowSystem (default ON, Linux). On Wayland it gives the desktop portal the window a request comes from, so that the portal's dialogs belong to it; without it the requests are made without a parent window.
 - `WITH_TTS` - Build the text-to-speech engines and their UI (default ON). Turning it off removes the speech providers, the play/pause/stop buttons and the voice selection.
 - `WITH_PIPER_TTS` - Enable Piper neural TTS provider (requires ONNX Runtime and espeak-ng, and `WITH_TTS`).
 - `CROW_STATIC_PLUGINS` - Compile the translation, speech and recognition backends into the application instead of installing them as loadable modules. On by default for Windows and portable builds, where the shipped tree is self-contained. Either way Crow still loads third-party backends it finds; see [PLUGINS.md](PLUGINS.md).

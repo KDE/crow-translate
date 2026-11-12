@@ -61,6 +61,13 @@ target_link_libraries(test_snippingarea_flags PRIVATE
 )
 add_test(NAME SnippingAreaFlagsTest COMMAND test_snippingarea_flags)
 
+if(UNIX AND NOT APPLE)
+    # The parent window of a desktop portal request: by platform, see the test.
+    add_executable(test_xdgdesktopportal test_xdgdesktopportal.cpp)
+    target_link_libraries(test_xdgdesktopportal PRIVATE ${PROJECT_NAME}-lib Qt6::Test)
+    add_test(NAME XdgDesktopPortalTest COMMAND test_xdgdesktopportal)
+endif()
+
 add_executable(test_ttsprovider_isolation
     test_ttsprovider_isolation.cpp
 )

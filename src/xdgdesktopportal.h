@@ -16,6 +16,9 @@ namespace XdgDesktopPortal
 {
 // Retrieve parent window in string form according to
 // https://flatpak.github.io/xdg-desktop-portal/#parent_window
+// Empty where the window cannot be named - no window, a platform that has
+// no way of naming one, a Wayland build without KWindowSystem - which a
+// portal takes as "no parent".
 QString parentWindow(QWindow *activeWindow);
 }
 
