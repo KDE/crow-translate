@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: crow-translate\n"
-"PO-Revision-Date: 2026-10-16 08:43+0200\n"
+"PO-Revision-Date: 2026-11-12 09:59+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -72,34 +72,24 @@ msgstr ""
 "s'utilitzarà l'URL de la instància a la configuració de l'aplicació."
 
 #: src/cli.cpp:175
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider "
-#| "from app settings will be used by default."
+#, qt-format
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider (%1). Provider from app settings will be used "
 "by default."
 msgstr ""
-"Especifica el proveïdor de traducció («copy», «mozhi» o «localai»). De "
-"manera predeterminada s'utilitzarà el proveïdor a partir de la configuració "
-"de l'aplicació."
+"Especifica el proveïdor de traducció (%1). De manera predeterminada "
+"s'utilitzarà el proveïdor a partir de la configuració de l'aplicació."
 
 #: src/cli.cpp:182
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app "
-#| "settings will be used by default."
+#, qt-format
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider (%1). Provider from app settings will be used by "
 "default."
 msgstr ""
-"Especifica el proveïdor de TTS («cap», «mozhi» o «qt»). De manera "
-"predeterminada s'utilitzarà el proveïdor a partir de la configuració de "
-"l'aplicació."
+"Especifica el proveïdor de TTS (%1). De manera predeterminada s'utilitzarà "
+"el proveïdor a partir de la configuració de l'aplicació."
 
 #: src/cli.cpp:185
 msgctxt "Cli|"
@@ -127,7 +117,8 @@ msgstr "Afig les dades de «stdin» al text d'origen."
 #: src/cli.cpp:190
 msgctxt "Cli|"
 msgid "Read source text from an image using the configured OCR engine."
-msgstr "Llig el text d'origen d'una imatge utilitzant el motor OCR configurat."
+msgstr ""
+"Llig el text d'origen d'una imatge utilitzant el motor d'OCR configurat."
 
 #: src/cli.cpp:191
 msgctxt "Cli|"
@@ -246,12 +237,9 @@ msgid "Error: Unable to initialize Tesseract with %1"
 msgstr "S'ha produït un error: No s'ha pogut restablir Tesseract amb %1"
 
 #: src/cli.cpp:485
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Error: text-to-speech is unavailable: %1"
 msgctxt "Cli|"
 msgid "Error: No OCR engine is available"
-msgstr "S'ha produït un error: el text a veu no està disponible: %1"
+msgstr "S'ha produït un error: no hi ha cap motor d'OCR disponible"
 
 #: src/cli.cpp:493
 msgctxt "Cli|"
@@ -353,7 +341,7 @@ msgstr "Copia"
 #: src/core/pluginmanager.cpp:206
 msgctxt "PluginManager|"
 msgid "Hands the text back unchanged. Always available."
-msgstr ""
+msgstr "Retorna el text sense canvis. Sempre disponible."
 
 #: src/core/pluginmanager.cpp:212
 msgctxt "SettingsDialog|"
@@ -363,45 +351,45 @@ msgstr "Cap"
 #: src/core/pluginmanager.cpp:213
 msgctxt "PluginManager|"
 msgid "Says nothing. Always available."
-msgstr ""
+msgstr "No diu res. Sempre disponible."
 
 #: src/core/pluginmanager.cpp:456
 msgctxt "PluginManager|"
 msgid "Backend unavailable"
-msgstr ""
+msgstr "Dorsal no disponible"
 
 #: src/core/pluginmanager.cpp:457
 #, qt-format
 msgctxt "PluginManager|"
 msgid ""
 "The backend \"%1\" could not be used (%2). Falling back to the built-in one."
-msgstr ""
+msgstr "No s'ha pogut utilitzar el dorsal «%1» (%2). Es torna a l'integrat."
 
 #: src/core/pluginmanager.cpp:468 src/core/pluginmanager.cpp:495
 msgctxt "PluginManager|"
 msgid "not installed"
-msgstr ""
+msgstr "no instal·lat"
 
 #: src/core/pluginmanager.cpp:476 src/core/pluginmanager.cpp:503
 msgctxt "PluginManager|"
 msgid "built nothing"
-msgstr ""
+msgstr "no s'ha construït res"
 
 #: src/core/pluginmanager.cpp:484 src/core/pluginmanager.cpp:508
 #: src/core/pluginmanager.cpp:531
 msgctxt "PluginManager|"
 msgid "crashed while starting"
-msgstr ""
+msgstr "ha fallat mentre s'iniciava"
 
 #: src/core/translationsession.cpp:447
 msgctxt "TranslationSession|"
 msgid "No OCR engine available"
-msgstr ""
+msgstr "No hi ha disponible cap motor d'OCR"
 
 #: src/core/translationsession.cpp:448
 msgctxt "TranslationSession|"
 msgid "No text recognition plugin is installed."
-msgstr ""
+msgstr "No hi ha instal·lat cap connector de reconeixement de text."
 
 #: src/core/translationsession.cpp:460
 msgctxt "TesseractOcr|"
@@ -2227,9 +2215,6 @@ msgid "%1 is not a valid Tesseract parameter name."
 msgstr "%1 no és un nom vàlid de paràmetre Tesseract."
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Languages"
 msgctxt "TesseractOcrPlugin|"
 msgid "Languages"
 msgstr "Idiomes"
@@ -2237,12 +2222,9 @@ msgstr "Idiomes"
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:28
 msgctxt "TesseractOcrPlugin|"
 msgid "Language data directory"
-msgstr ""
+msgstr "Directori de dades d'idiomes"
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:33
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Convert line breaks"
 msgctxt "TesseractOcrPlugin|"
 msgid "Convert line breaks"
 msgstr "Convertix els salts de línia"
@@ -2328,43 +2310,34 @@ msgid "Translation aborted by user"
 msgstr "L'usuari ha interromput la traducció"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:30
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Instance URL"
-msgstr "URL de la instància:"
+msgstr "URL de la instància"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:31
 msgctxt "MozhiTranslationPlugin|"
 msgid "The Mozhi instance to send translations through."
-msgstr ""
+msgstr "La instància de Mozhi per enviar traduccions."
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:40
 msgctxt "MozhiTranslationPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "Motor"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:41
 msgctxt "MozhiTranslationPlugin|"
 msgid "Which upstream translator the instance should use."
-msgstr ""
+msgstr "Quin traductor principal ha d'utilitzar la instància."
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:46
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Use direct LibreTranslate API"
 msgctxt "MozhiTranslationPlugin|"
 msgid "LibreTranslate API key"
-msgstr "Utilitza l'API directa de LibreTranslate"
+msgstr "Clau de l'API de LibreTranslate"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:51
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Mozhi / LibreTranslate"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Contact LibreTranslate directly"
-msgstr "Mozhi / LibreTranslate"
+msgstr "Contacta directament LibreTranslate"
 
 #: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:79
 msgctxt "MozhiTranslationProvider|"
@@ -2414,17 +2387,14 @@ msgid "Unknown error: %1"
 msgstr "S'ha produït un error desconegut: %1"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:27
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTtsPlugin|"
 msgid "Instance URL"
-msgstr "URL de la instància:"
+msgstr "URL de la instància"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:32
 msgctxt "MozhiTtsPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "Motor"
 
 #: src/plugins/tts/mozhi/mozhittsprovider.cpp:48
 msgctxt "MozhiTTSProvider|"
@@ -2465,17 +2435,15 @@ msgstr ""
 "del client HTTP 4XX)"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:19
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Piper voices path:"
 msgctxt "PiperTtsPlugin|"
 msgid "Piper voices path"
-msgstr "Camí cap a les veus de Piper:"
+msgstr "Camí cap a les veus de Piper"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:20
 msgctxt "PiperTtsPlugin|"
 msgid "Searched before the standard locations for Piper voice models."
 msgstr ""
+"Es busca abans de les ubicacions estàndard per als models de veu de Piper."
 
 #: src/plugins/tts/piper/piperttsprovider.cpp:139
 msgctxt "PiperTTSProvider|"
@@ -2714,12 +2682,9 @@ msgid "Unable to remove %1 from %2"
 msgstr "No s'ha pogut eliminar %1 de %2"
 
 #: src/settings/pluginoptionswidget.cpp:87
-#, fuzzy
-#| msgctxt "ModuleStatus|"
-#| msgid "Select a region"
 msgctxt "PluginOptionsWidget|"
 msgid "Select a directory"
-msgstr "Trieu una regió"
+msgstr "Trieu un directori"
 
 #: src/settings/settingsdialog.cpp:83
 msgctxt "SettingsDialog|"
@@ -2816,7 +2781,7 @@ msgstr "Reinicia l'indicador de text"
 #: src/settings/settingsdialog.cpp:481
 msgctxt "SettingsDialog|"
 msgid "OCR engine:"
-msgstr "Motor OCR:"
+msgstr "Motor d'OCR:"
 
 #: src/settings/settingsdialog.cpp:489
 msgctxt "SettingsDialog|"
@@ -3384,20 +3349,14 @@ msgid "Detection provider:"
 msgstr "Proveïdor de detecció:"
 
 #: src/settings/settingsdialog.ui:774 src/settings/settingsdialog.ui:791
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "Provider and model used to detect the source language when it is set to "
-#| "Auto. If no detection model is selected, translation falls back to the "
-#| "configured primary language above."
 msgctxt "SettingsDialog|"
 msgid ""
 "Provider and model used to detect the source language when it is set to "
 "Auto. If no detection model is selected, the model that translates is asked."
 msgstr ""
 "El proveïdor i el model utilitzat per detectar l'idioma d'origen quan "
-"s'establix a automàtic. Si no s'ha seleccionat cap model de detecció, la "
-"traducció es tornarà a l'idioma principal configurat anteriorment."
+"s'establix a automàtic. Si no hi ha seleccionat cap model de detecció, es "
+"demanarà el model que traduïsca."
 
 #: src/settings/settingsdialog.ui:781
 msgctxt "SettingsDialog|"
@@ -3753,7 +3712,7 @@ msgstr "No utilitza cap servidor intermediari"
 #: src/settings/settingsdialog.ui:1366
 msgctxt "SettingsDialog|"
 msgid "Host:"
-msgstr "Amfitrió:"
+msgstr "Servidor:"
 
 #: src/settings/settingsdialog.ui:1376
 msgctxt "SettingsDialog|"
@@ -4093,57 +4052,3 @@ msgstr "Informeu d'un error…"
 msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Resultat de la traducció"
-
-#~ msgctxt "Cli|"
-#~ msgid ""
-#~ "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from "
-#~ "app settings will be used by default."
-#~ msgstr ""
-#~ "Especifica el proveïdor de TTS («cap», «mozhi», «qt» o «piper»). De "
-#~ "manera predeterminada s'utilitzarà el proveïdor a partir de la "
-#~ "configuració de l'aplicació."
-
-#~ msgctxt "Cli|"
-#~ msgid ""
-#~ "Specify TTS provider ('none'). This build has text-to-speech disabled."
-#~ msgstr ""
-#~ "Especifica el proveïdor de TTS («cap»). Esta construcció té el text a veu "
-#~ "desactivat."
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Directory with voice models"
-#~ msgstr "Directori amb els models de veus"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Select Piper voices path"
-#~ msgstr "Trieu el camí cap a les veus de Piper"
-
-#~ msgctxt "QObject|"
-#~ msgid "Translation Provider Error"
-#~ msgstr "S'ha produït un error del proveïdor de traduccions"
-
-# skip-rule: common-diferent_a
-#~ msgctxt "QObject|"
-#~ msgid ""
-#~ "The selected translation provider crashed during initialization and has "
-#~ "been reset to 'Copy' to prevent further issues. You can try selecting a "
-#~ "different provider in Settings → Translation."
-#~ msgstr ""
-#~ "El proveïdor de traducció seleccionat ha fallat durant la inicialització "
-#~ "i s'ha reinicialitzat a «Copia» per a evitar més problemes. Podeu "
-#~ "intentar de seleccionar un proveïdor diferent a Configuració → Traducció."
-
-#~ msgctxt "QObject|"
-#~ msgid "TTS Provider Error"
-#~ msgstr "S'ha produït un error del proveïdor de TTS"
-
-# skip-rule: common-diferent_a
-#~ msgctxt "QObject|"
-#~ msgid ""
-#~ "The selected TTS provider crashed during initialization and has been "
-#~ "reset to 'None' to prevent further issues. You can try selecting a "
-#~ "different provider in Settings → TTS."
-#~ msgstr ""
-#~ "El proveïdor TTS seleccionat ha fallat durant la inicialització i s'ha "
-#~ "reinicialitzat a «Cap» per a evitar més problemes. Podeu intentar de "
-#~ "seleccionar un proveïdor diferent a Configuració → TTS."

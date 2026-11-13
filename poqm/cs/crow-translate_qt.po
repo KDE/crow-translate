@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-10-17 00:51+0200\n"
+"PO-Revision-Date: 2026-11-12 11:28+0100\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.08.2\n"
+"X-Generator: Lokalize 26.08.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/cli.cpp:114
@@ -35,7 +35,7 @@ msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
 msgstr ""
-"Zadejte zdrojový jazyk (ve výchozím nastavení se modul pokusí jazyk určit "
+"Zadejte zdrojový jazyk (ve výchozím nastavení se jádro pokusí jazyk určit "
 "sám)."
 
 #: src/cli.cpp:162
@@ -67,32 +67,24 @@ msgstr ""
 "nastavení aplikace."
 
 #: src/cli.cpp:175
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider "
-#| "from app settings will be used by default."
+#, qt-format
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider (%1). Provider from app settings will be used "
 "by default."
 msgstr ""
-"Zadejte poskytovatele překladu ('copy', 'mozhi' nebo 'localai'). Ve výchozím "
-"nastavení se použije poskytovatel z nastavení aplikace."
+"Zadejte poskytovatele překladu (%1). Ve výchozím nastavení se použije "
+"poskytovatel z nastavení aplikace."
 
 #: src/cli.cpp:182
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app "
-#| "settings will be used by default."
+#, qt-format
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider (%1). Provider from app settings will be used by "
 "default."
 msgstr ""
-"Zadejte poskytovatele služby TTS ('none', 'mozhi' nebo 'qt'). Ve výchozím "
-"nastavení se použije poskytovatel z nastavení aplikace."
+"Zadejte poskytovatele služby TTS (%1). Ve výchozím nastavení se použije "
+"poskytovatel z nastavení aplikace."
 
 #: src/cli.cpp:185
 msgctxt "Cli|"
@@ -120,7 +112,7 @@ msgstr "Přidá data ze standardního vstupu ke zdrojovému textu."
 #: src/cli.cpp:190
 msgctxt "Cli|"
 msgid "Read source text from an image using the configured OCR engine."
-msgstr "Přečtěte zdrojový text z obrázku pomocí nakonfigurovaného modulu OCR."
+msgstr "Přečtěte zdrojový text z obrázku pomocí nakonfigurovaného jádra OCR."
 
 #: src/cli.cpp:191
 msgctxt "Cli|"
@@ -239,12 +231,9 @@ msgid "Error: Unable to initialize Tesseract with %1"
 msgstr "Chyba: Nelze inicializovat Tesseract s %1"
 
 #: src/cli.cpp:485
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Error: text-to-speech is unavailable: %1"
 msgctxt "Cli|"
 msgid "Error: No OCR engine is available"
-msgstr "Chyba: funkce převodu textu na řeč není k dispozici: %1"
+msgstr "Chyba: Jádro OCR není dostupné."
 
 #: src/cli.cpp:493
 msgctxt "Cli|"
@@ -346,7 +335,7 @@ msgstr "Kopírovat"
 #: src/core/pluginmanager.cpp:206
 msgctxt "PluginManager|"
 msgid "Hands the text back unchanged. Always available."
-msgstr ""
+msgstr "Vrátí text beze změn. Vždy k dispozici."
 
 # žádné parametry funkce v inspektoru funkcí
 #: src/core/pluginmanager.cpp:212
@@ -357,12 +346,12 @@ msgstr "Nic"
 #: src/core/pluginmanager.cpp:213
 msgctxt "PluginManager|"
 msgid "Says nothing. Always available."
-msgstr ""
+msgstr "Nic neříká. Vždy k dispozici."
 
 #: src/core/pluginmanager.cpp:456
 msgctxt "PluginManager|"
 msgid "Backend unavailable"
-msgstr ""
+msgstr "Podpůrná vrstva není dostupná"
 
 #: src/core/pluginmanager.cpp:457
 #, qt-format
@@ -370,32 +359,34 @@ msgctxt "PluginManager|"
 msgid ""
 "The backend \"%1\" could not be used (%2). Falling back to the built-in one."
 msgstr ""
+"Podpůrnou vrstvu \"%1\" nebylo možné použít (%2). Použije se vestavěná "
+"podpůrná vrstva."
 
 #: src/core/pluginmanager.cpp:468 src/core/pluginmanager.cpp:495
 msgctxt "PluginManager|"
 msgid "not installed"
-msgstr ""
+msgstr "není nainstalováno"
 
 #: src/core/pluginmanager.cpp:476 src/core/pluginmanager.cpp:503
 msgctxt "PluginManager|"
 msgid "built nothing"
-msgstr ""
+msgstr "není sestaveno"
 
 #: src/core/pluginmanager.cpp:484 src/core/pluginmanager.cpp:508
 #: src/core/pluginmanager.cpp:531
 msgctxt "PluginManager|"
 msgid "crashed while starting"
-msgstr ""
+msgstr "došlo k selhání při spouštění"
 
 #: src/core/translationsession.cpp:447
 msgctxt "TranslationSession|"
 msgid "No OCR engine available"
-msgstr ""
+msgstr "Není k dispozici žádný jádro OCR"
 
 #: src/core/translationsession.cpp:448
 msgctxt "TranslationSession|"
 msgid "No text recognition plugin is installed."
-msgstr ""
+msgstr "Není nainstalován žádný modul pro rozpoznávání textu."
 
 #: src/core/translationsession.cpp:460
 msgctxt "TesseractOcr|"
@@ -405,7 +396,7 @@ msgstr "OCR není nastaveno"
 #: src/core/translationsession.cpp:461
 msgctxt "TesseractOcr|"
 msgid "Set up the OCR engine in the application settings"
-msgstr "Nastavit modul OCR v nastavení aplikace"
+msgstr "Nastavit jádro OCR v nastavení aplikace"
 
 #: src/frontend/frontendregistry.cpp:23
 msgctxt "FrontendRegistry|"
@@ -2223,9 +2214,6 @@ msgid "%1 is not a valid Tesseract parameter name."
 msgstr "%1 není platný název parametru Tesseract."
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Languages"
 msgctxt "TesseractOcrPlugin|"
 msgid "Languages"
 msgstr "Jazyky"
@@ -2233,12 +2221,9 @@ msgstr "Jazyky"
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:28
 msgctxt "TesseractOcrPlugin|"
 msgid "Language data directory"
-msgstr ""
+msgstr "Adresář jazykových dat"
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:33
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Convert line breaks"
 msgctxt "TesseractOcrPlugin|"
 msgid "Convert line breaks"
 msgstr "Převést konce řádků"
@@ -2326,43 +2311,34 @@ msgid "Translation aborted by user"
 msgstr "Překlad byl uživatelem přerušen"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:30
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Instance URL"
-msgstr "URL instance:"
+msgstr "URL instance"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:31
 msgctxt "MozhiTranslationPlugin|"
 msgid "The Mozhi instance to send translations through."
-msgstr ""
+msgstr "Instance Mozhi, přes kterou se mají odesílat překlady."
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:40
 msgctxt "MozhiTranslationPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "Jádro"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:41
 msgctxt "MozhiTranslationPlugin|"
 msgid "Which upstream translator the instance should use."
-msgstr ""
+msgstr "Který překladač na vstupní straně má instance použít."
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:46
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Use direct LibreTranslate API"
 msgctxt "MozhiTranslationPlugin|"
 msgid "LibreTranslate API key"
-msgstr "Použít přímé rozhraní API LibreTranslate"
+msgstr "API klíč LibreTranslate"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:51
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Mozhi / LibreTranslate"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Contact LibreTranslate directly"
-msgstr "Mozhi / LibreTranslate"
+msgstr "Kontaktovat LibreTranslate přímo"
 
 #: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:79
 msgctxt "MozhiTranslationProvider|"
@@ -2403,7 +2379,7 @@ msgstr "Chyba zpracování: %1"
 #, qt-format
 msgctxt "MozhiTranslationProvider|"
 msgid "Unsupported TTS engine: %1"
-msgstr "Nepodporovaný modul TTS: %1"
+msgstr "Nepodporované jádro TTS: %1"
 
 #: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:229
 #, qt-format
@@ -2412,17 +2388,14 @@ msgid "Unknown error: %1"
 msgstr "Neznámá chyba: %1"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:27
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTtsPlugin|"
 msgid "Instance URL"
-msgstr "URL instance:"
+msgstr "URL instance"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:32
 msgctxt "MozhiTtsPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "Jádro"
 
 #: src/plugins/tts/mozhi/mozhittsprovider.cpp:48
 msgctxt "MozhiTTSProvider|"
@@ -2460,17 +2433,14 @@ msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
 msgstr "Chyba instance Mozhi: %1 (Chyba klienta HTTP 4XX)"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:19
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Piper voices path:"
 msgctxt "PiperTtsPlugin|"
 msgid "Piper voices path"
-msgstr "Cesta k hlasům:"
+msgstr "Cesta k hlasům Piper:"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:20
 msgctxt "PiperTtsPlugin|"
 msgid "Searched before the standard locations for Piper voice models."
-msgstr ""
+msgstr "Prohledat před nejběžnějšími umístěními hlasových modelů Piper."
 
 #: src/plugins/tts/piper/piperttsprovider.cpp:139
 msgctxt "PiperTTSProvider|"
@@ -2711,12 +2681,9 @@ msgid "Unable to remove %1 from %2"
 msgstr "Nelze odstranit %1 z %2"
 
 #: src/settings/pluginoptionswidget.cpp:87
-#, fuzzy
-#| msgctxt "ModuleStatus|"
-#| msgid "Select a region"
 msgctxt "PluginOptionsWidget|"
 msgid "Select a directory"
-msgstr "Vyberte oblast"
+msgstr "Vybrat adresář"
 
 #: src/settings/settingsdialog.cpp:83
 msgctxt "SettingsDialog|"
@@ -2813,7 +2780,7 @@ msgstr "Obnovit textový prompt"
 #: src/settings/settingsdialog.cpp:481
 msgctxt "SettingsDialog|"
 msgid "OCR engine:"
-msgstr "Nástroj OCR:"
+msgstr "Jádro OCR:"
 
 #: src/settings/settingsdialog.cpp:489
 msgctxt "SettingsDialog|"
@@ -3370,20 +3337,14 @@ msgid "Detection provider:"
 msgstr "Poskytovatel detekce:"
 
 #: src/settings/settingsdialog.ui:774 src/settings/settingsdialog.ui:791
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "Provider and model used to detect the source language when it is set to "
-#| "Auto. If no detection model is selected, translation falls back to the "
-#| "configured primary language above."
 msgctxt "SettingsDialog|"
 msgid ""
 "Provider and model used to detect the source language when it is set to "
 "Auto. If no detection model is selected, the model that translates is asked."
 msgstr ""
 "Poskytovatel a model používané k rozpoznání zdrojového jazyka, je-li "
-"nastaveno \"Automaticky\". Pokud není vybrán žádný model pro rozpoznávání, "
-"překlad se provede do výše nastaveného primárního jazyka."
+"nastaveno na Automaticky. Není-li vybrán žádný model pro rozpoznávání, je "
+"dotázán model, který provádí překlad."
 
 #: src/settings/settingsdialog.ui:781
 msgctxt "SettingsDialog|"

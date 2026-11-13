@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-10-16 11:34+0300\n"
+"PO-Revision-Date: 2026-11-12 13:06+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -70,32 +70,24 @@ msgstr ""
 "із параметрів програми."
 
 #: src/cli.cpp:175
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider "
-#| "from app settings will be used by default."
+#, qt-format
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider (%1). Provider from app settings will be used "
 "by default."
 msgstr ""
-"Вкажіть надавача даних перекладу ('copy', 'mozhi' або 'localai'). Типово "
-"буде використано надавача з параметрів програми."
+"Вкажіть надавача даних перекладу (%1). Типово буде використано надавача з "
+"параметрів програми."
 
 #: src/cli.cpp:182
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app "
-#| "settings will be used by default."
+#, qt-format
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider (%1). Provider from app settings will be used by "
 "default."
 msgstr ""
-"Вказати надавача даних озвучення тексту ('none', 'mozhi' або 'qt'). Типово "
-"буде використано надавача даних, якого вказано у параметрах програми."
+"Вказати надавача даних озвучення тексту (%1). Типово буде використано "
+"надавача даних, якого вказано у параметрах програми."
 
 #: src/cli.cpp:185
 msgctxt "Cli|"
@@ -242,12 +234,9 @@ msgid "Error: Unable to initialize Tesseract with %1"
 msgstr "Помилка: не вдалося ініціалізувати Tesseract з %1"
 
 #: src/cli.cpp:485
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Error: text-to-speech is unavailable: %1"
 msgctxt "Cli|"
 msgid "Error: No OCR engine is available"
-msgstr "Помилка: озвучення тексту недоступне: %1"
+msgstr "Помилка: немає доступних рушіїв для оптичного розпізнавання тексту"
 
 #: src/cli.cpp:493
 msgctxt "Cli|"
@@ -349,7 +338,7 @@ msgstr "Копіювати"
 #: src/core/pluginmanager.cpp:206
 msgctxt "PluginManager|"
 msgid "Hands the text back unchanged. Always available."
-msgstr ""
+msgstr "Повертає незмінений текст. Доступне завжди."
 
 #: src/core/pluginmanager.cpp:212
 msgctxt "SettingsDialog|"
@@ -359,15 +348,12 @@ msgstr "Немає"
 #: src/core/pluginmanager.cpp:213
 msgctxt "PluginManager|"
 msgid "Says nothing. Always available."
-msgstr ""
+msgstr "Нічого не говорить. Доступне завжди."
 
 #: src/core/pluginmanager.cpp:456
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Update available!"
 msgctxt "PluginManager|"
 msgid "Backend unavailable"
-msgstr "Є оновлення!"
+msgstr "Модуль недоступний"
 
 #: src/core/pluginmanager.cpp:457
 #, qt-format
@@ -375,35 +361,34 @@ msgctxt "PluginManager|"
 msgid ""
 "The backend \"%1\" could not be used (%2). Falling back to the built-in one."
 msgstr ""
+"Не вдалося використати модуль «%1» (%2). Повертаємося до резервного "
+"вбудованого варіанта."
 
 #: src/core/pluginmanager.cpp:468 src/core/pluginmanager.cpp:495
 msgctxt "PluginManager|"
 msgid "not installed"
-msgstr ""
+msgstr "не встановлено"
 
 #: src/core/pluginmanager.cpp:476 src/core/pluginmanager.cpp:503
 msgctxt "PluginManager|"
 msgid "built nothing"
-msgstr ""
+msgstr "нічого не зібрано"
 
 #: src/core/pluginmanager.cpp:484 src/core/pluginmanager.cpp:508
 #: src/core/pluginmanager.cpp:531
 msgctxt "PluginManager|"
 msgid "crashed while starting"
-msgstr ""
+msgstr "аварія під час запуску"
 
 #: src/core/translationsession.cpp:447
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "No updates available."
 msgctxt "TranslationSession|"
 msgid "No OCR engine available"
-msgstr "Нема доступних оновлень."
+msgstr "Немає доступного рушія для оптичного розпізнавання тексту"
 
 #: src/core/translationsession.cpp:448
 msgctxt "TranslationSession|"
 msgid "No text recognition plugin is installed."
-msgstr ""
+msgstr "Не встановлено додатка розпізнавання тексту."
 
 #: src/core/translationsession.cpp:460
 msgctxt "TesseractOcr|"
@@ -2223,9 +2208,6 @@ msgid "%1 is not a valid Tesseract parameter name."
 msgstr "%1 не є допустимим ім'ям параметру Tesseract."
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Languages"
 msgctxt "TesseractOcrPlugin|"
 msgid "Languages"
 msgstr "Мови"
@@ -2233,12 +2215,9 @@ msgstr "Мови"
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:28
 msgctxt "TesseractOcrPlugin|"
 msgid "Language data directory"
-msgstr ""
+msgstr "Каталог даних мови"
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:33
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Convert line breaks"
 msgctxt "TesseractOcrPlugin|"
 msgid "Convert line breaks"
 msgstr "Перетворювати перенесення рядків"
@@ -2324,43 +2303,35 @@ msgid "Translation aborted by user"
 msgstr "Переклад перервано користувачем"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:30
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Instance URL"
-msgstr "Адреса екземпляра:"
+msgstr "Адреса екземпляра"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:31
 msgctxt "MozhiTranslationPlugin|"
 msgid "The Mozhi instance to send translations through."
-msgstr ""
+msgstr "Екземпляр Mozhi, через який слід надсилати переклади."
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:40
 msgctxt "MozhiTranslationPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "Рушій"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:41
 msgctxt "MozhiTranslationPlugin|"
 msgid "Which upstream translator the instance should use."
 msgstr ""
+"Варіант перекладача основної гілки, який має бути використано в екземплярі."
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:46
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Use direct LibreTranslate API"
 msgctxt "MozhiTranslationPlugin|"
 msgid "LibreTranslate API key"
-msgstr "Використати безпосередній програмний інтерфейс LibreTranslate"
+msgstr "Ключ до програмного інтерфейсу LibreTranslate"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:51
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Mozhi / LibreTranslate"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Contact LibreTranslate directly"
-msgstr "Mozhi / LibreTranslate"
+msgstr "Безпосередній зв'язок LibreTranslate"
 
 #: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:79
 msgctxt "MozhiTranslationProvider|"
@@ -2410,17 +2381,14 @@ msgid "Unknown error: %1"
 msgstr "Невідома помилка: %1"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:27
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTtsPlugin|"
 msgid "Instance URL"
-msgstr "Адреса екземпляра:"
+msgstr "Адреса екземпляра"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:32
 msgctxt "MozhiTtsPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "Рушій"
 
 #: src/plugins/tts/mozhi/mozhittsprovider.cpp:48
 msgctxt "MozhiTTSProvider|"
@@ -2459,17 +2427,14 @@ msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
 msgstr "Помилка екземпляра Mozhi: %1 (помилка клієнта 4XX HTTP)"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:19
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Piper voices path:"
 msgctxt "PiperTtsPlugin|"
 msgid "Piper voices path"
-msgstr "Шлях до дикторів Piper:"
+msgstr "Шлях до дикторів Piper"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:20
 msgctxt "PiperTtsPlugin|"
 msgid "Searched before the standard locations for Piper voice models."
-msgstr ""
+msgstr "Місце пошуку до стандартних місць для голосових моделей Piper."
 
 #: src/plugins/tts/piper/piperttsprovider.cpp:139
 msgctxt "PiperTTSProvider|"
@@ -2709,12 +2674,9 @@ msgid "Unable to remove %1 from %2"
 msgstr "Не вдалося видалити %1 з %2"
 
 #: src/settings/pluginoptionswidget.cpp:87
-#, fuzzy
-#| msgctxt "ModuleStatus|"
-#| msgid "Select a region"
 msgctxt "PluginOptionsWidget|"
 msgid "Select a directory"
-msgstr "Виберіть регіон"
+msgstr "Вибір каталогу"
 
 #: src/settings/settingsdialog.cpp:83
 msgctxt "SettingsDialog|"
@@ -3373,12 +3335,6 @@ msgid "Detection provider:"
 msgstr "Надавач виявлення:"
 
 #: src/settings/settingsdialog.ui:774 src/settings/settingsdialog.ui:791
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "Provider and model used to detect the source language when it is set to "
-#| "Auto. If no detection model is selected, translation falls back to the "
-#| "configured primary language above."
 msgctxt "SettingsDialog|"
 msgid ""
 "Provider and model used to detect the source language when it is set to "
@@ -3386,7 +3342,8 @@ msgid ""
 msgstr ""
 "Постачальник і модель, що використовуються для визначення початкової мови, "
 "якщо встановлено значення «Автоматично». Якщо модель визначення не вибрано, "
-"переклад повертається до налаштованої вище основної мови."
+"програма надішле запит щодо визначення моделі, за допомогою якої буде "
+"виконано переклад."
 
 #: src/settings/settingsdialog.ui:781
 msgctxt "SettingsDialog|"

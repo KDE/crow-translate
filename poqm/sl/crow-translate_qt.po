@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-10-16 06:57+0200\n"
+"PO-Revision-Date: 2026-11-12 07:44+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
 "%100<=4 ? 2 : 3);\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 3.10\n"
 "X-Qt-Contexts: true\n"
 
 #: src/cli.cpp:114
@@ -66,32 +66,24 @@ msgstr ""
 "aplikacije."
 
 #: src/cli.cpp:175
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider "
-#| "from app settings will be used by default."
+#, qt-format
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider (%1). Provider from app settings will be used "
 "by default."
 msgstr ""
-"Določite ponudnika prevajanja ('copy', 'mozhi' ali 'localai'). Privzeto bo "
-"uporabljen ponudnik iz nastavitev aplikacije."
+"Določite ponudnika prevajanja (%1). Privzeto bo uporabljen ponudnik iz "
+"nastavitev aplikacije."
 
 #: src/cli.cpp:182
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app "
-#| "settings will be used by default."
+#, qt-format
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider (%1). Provider from app settings will be used by "
 "default."
 msgstr ""
-"Določite ponudnika pretvorbe besedila v govor ('none', 'mozhi', 'qt' ali "
-"'piper'). Privzeto bo uporabljen ponudnik iz nastavitev aplikacije."
+"Določite ponudnika pretvorbe besedila v govor (%1). Privzeto bo uporabljen "
+"ponudnik iz nastavitev aplikacije."
 
 #: src/cli.cpp:185
 msgctxt "Cli|"
@@ -237,12 +229,9 @@ msgid "Error: Unable to initialize Tesseract with %1"
 msgstr "Napaka: Ni mogoče inicializirati Tesseracta z %1"
 
 #: src/cli.cpp:485
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Error: text-to-speech is unavailable: %1"
 msgctxt "Cli|"
 msgid "Error: No OCR engine is available"
-msgstr "Napaka: pretvorba besedila v govor ni na voljo: %1"
+msgstr "Napaka: optično prepoznavanje znakov ni na voljo"
 
 #: src/cli.cpp:493
 msgctxt "Cli|"
@@ -344,7 +333,7 @@ msgstr "Kopiraj"
 #: src/core/pluginmanager.cpp:206
 msgctxt "PluginManager|"
 msgid "Hands the text back unchanged. Always available."
-msgstr ""
+msgstr "Vrne besedilo nespremenjeno. Vedno na voljo."
 
 #: src/core/pluginmanager.cpp:212
 msgctxt "SettingsDialog|"
@@ -354,14 +343,12 @@ msgstr "None (noben)"
 #: src/core/pluginmanager.cpp:213
 msgctxt "PluginManager|"
 msgid "Says nothing. Always available."
-msgstr ""
+msgstr "Ničesar ne reče. Vedno na voljo."
 
 #: src/core/pluginmanager.cpp:456
-#, fuzzy
-#| msgid "Update available!"
 msgctxt "PluginManager|"
 msgid "Backend unavailable"
-msgstr "Na voljo je posodobitev!"
+msgstr "Zaledni sistem ni na voljo"
 
 #: src/core/pluginmanager.cpp:457
 #, qt-format
@@ -369,36 +356,34 @@ msgctxt "PluginManager|"
 msgid ""
 "The backend \"%1\" could not be used (%2). Falling back to the built-in one."
 msgstr ""
+"Zaledja \"%1\" ni bilo mogoče uporabiti (%2). Namesto tega bo uporabljeno "
+"vgrajeno zaledje."
 
 #: src/core/pluginmanager.cpp:468 src/core/pluginmanager.cpp:495
-#, fuzzy
-#| msgid "Install"
 msgctxt "PluginManager|"
 msgid "not installed"
-msgstr "Namesti"
+msgstr "ni nameščeno"
 
 #: src/core/pluginmanager.cpp:476 src/core/pluginmanager.cpp:503
 msgctxt "PluginManager|"
 msgid "built nothing"
-msgstr ""
+msgstr "nič ni izgradilo"
 
 #: src/core/pluginmanager.cpp:484 src/core/pluginmanager.cpp:508
 #: src/core/pluginmanager.cpp:531
 msgctxt "PluginManager|"
 msgid "crashed while starting"
-msgstr ""
+msgstr "se je sesulo ob zagonu"
 
 #: src/core/translationsession.cpp:447
-#, fuzzy
-#| msgid "No updates available."
 msgctxt "TranslationSession|"
 msgid "No OCR engine available"
-msgstr "Na voljo ni nobenih posodobitev."
+msgstr "Na voljo optičnega prepoznavanja znakov"
 
 #: src/core/translationsession.cpp:448
 msgctxt "TranslationSession|"
 msgid "No text recognition plugin is installed."
-msgstr ""
+msgstr "Vtičnik za prepoznavanje besedila ni nameščen."
 
 #: src/core/translationsession.cpp:460
 msgctxt "TesseractOcr|"
@@ -2215,9 +2200,6 @@ msgid "%1 is not a valid Tesseract parameter name."
 msgstr "%1 ni veljavno ime parametra Tesseract."
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Languages"
 msgctxt "TesseractOcrPlugin|"
 msgid "Languages"
 msgstr "Jeziki"
@@ -2225,12 +2207,9 @@ msgstr "Jeziki"
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:28
 msgctxt "TesseractOcrPlugin|"
 msgid "Language data directory"
-msgstr ""
+msgstr "Imenik jezikovnih podatkov"
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:33
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Convert line breaks"
 msgctxt "TesseractOcrPlugin|"
 msgid "Convert line breaks"
 msgstr "Pretvori prelome vrstic"
@@ -2316,43 +2295,34 @@ msgid "Translation aborted by user"
 msgstr "Uporabnik je prekinil prevajanje"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:30
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Instance URL"
-msgstr "URL pojavka:"
+msgstr "URL pojavka"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:31
 msgctxt "MozhiTranslationPlugin|"
 msgid "The Mozhi instance to send translations through."
-msgstr ""
+msgstr "Instanca Mozhi, prek katere se pošiljajo prevodi."
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:40
 msgctxt "MozhiTranslationPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "Stroj"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:41
 msgctxt "MozhiTranslationPlugin|"
 msgid "Which upstream translator the instance should use."
-msgstr ""
+msgstr "Kateri nadrejeni prevajalnik naj pojavek uporablja."
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:46
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Use direct LibreTranslate API"
 msgctxt "MozhiTranslationPlugin|"
 msgid "LibreTranslate API key"
-msgstr "Uporabi neposredni API LibreTranslate"
+msgstr "Kjuč API za LibreTranslate"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:51
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Mozhi / LibreTranslate"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Contact LibreTranslate directly"
-msgstr "Mozhi / LibreTranslate"
+msgstr "Stopi v neposredni stik z LibreTranslate"
 
 #: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:79
 msgctxt "MozhiTranslationProvider|"
@@ -2402,17 +2372,14 @@ msgid "Unknown error: %1"
 msgstr "Neznana napaka: %1"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:27
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTtsPlugin|"
 msgid "Instance URL"
-msgstr "URL pojavka:"
+msgstr "URL pojavka"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:32
 msgctxt "MozhiTtsPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "Stroj"
 
 #: src/plugins/tts/mozhi/mozhittsprovider.cpp:48
 msgctxt "MozhiTTSProvider|"
@@ -2450,17 +2417,14 @@ msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
 msgstr "Napaka pojavka Mozhi: %1 (napaka odjemalca HTTP 4XX)"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:19
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Piper voices path:"
 msgctxt "PiperTtsPlugin|"
 msgid "Piper voices path"
-msgstr "Pot glasov Piperja:"
+msgstr "Pot glasov Piperja"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:20
 msgctxt "PiperTtsPlugin|"
 msgid "Searched before the standard locations for Piper voice models."
-msgstr ""
+msgstr "Preiskana običajna mesta, kjer se nahajajo glasovni modeli za Piper."
 
 #: src/plugins/tts/piper/piperttsprovider.cpp:139
 msgctxt "PiperTTSProvider|"
@@ -2698,12 +2662,9 @@ msgid "Unable to remove %1 from %2"
 msgstr "Ni mogoče odstraniti %1 iz %2"
 
 #: src/settings/pluginoptionswidget.cpp:87
-#, fuzzy
-#| msgctxt "ModuleStatus|"
-#| msgid "Select a region"
 msgctxt "PluginOptionsWidget|"
 msgid "Select a directory"
-msgstr "Izberi območje"
+msgstr "Izberi imenik"
 
 #: src/settings/settingsdialog.cpp:83
 msgctxt "SettingsDialog|"
@@ -3360,20 +3321,14 @@ msgid "Detection provider:"
 msgstr "Ponudnik zaznavanja:"
 
 #: src/settings/settingsdialog.ui:774 src/settings/settingsdialog.ui:791
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "Provider and model used to detect the source language when it is set to "
-#| "Auto. If no detection model is selected, translation falls back to the "
-#| "configured primary language above."
 msgctxt "SettingsDialog|"
 msgid ""
 "Provider and model used to detect the source language when it is set to "
 "Auto. If no detection model is selected, the model that translates is asked."
 msgstr ""
-"Ponudnik in model, ki se uporabljata za zaznavanje izvornega jezika, ko je "
-"nastavljeno na Samodejno. Če ni izbran noben model zaznavanja, se prevajanje "
-"vrne na zgoraj konfigurirani primarni jezik."
+"Ponudnik in model, ki se uporabljata za zaznavanje izvornega jezika, kadar "
+"je nastavljena možnost »Auto«. Če ni izbran noben model za zaznavanje, se "
+"povpraša model, ki izvaja prevajanje."
 
 #: src/settings/settingsdialog.ui:781
 msgctxt "SettingsDialog|"
