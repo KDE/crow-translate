@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: crow-translate_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"PO-Revision-Date: 2026-10-17 00:12+0100\n"
+"PO-Revision-Date: 2026-11-13 02:23+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Language: es-ES\n"
 "X-Source-Language: en\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 26.08.2\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #: src/cli.cpp:114
 msgctxt "Cli|"
@@ -2220,9 +2220,6 @@ msgid "%1 is not a valid Tesseract parameter name."
 msgstr "%1 no es un nombre de parámetro de Tesseract válido."
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Languages"
 msgctxt "TesseractOcrPlugin|"
 msgid "Languages"
 msgstr "Idiomas"
@@ -2230,12 +2227,9 @@ msgstr "Idiomas"
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:28
 msgctxt "TesseractOcrPlugin|"
 msgid "Language data directory"
-msgstr ""
+msgstr "Directorio de datos del idioma"
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:33
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Convert line breaks"
 msgctxt "TesseractOcrPlugin|"
 msgid "Convert line breaks"
 msgstr "Convertir saltos de línea"
@@ -2322,12 +2316,9 @@ msgid "Translation aborted by user"
 msgstr "Traducción interrumpida por el usuario"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:30
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Instance URL"
-msgstr "URL de la instancia:"
+msgstr "URL de la instancia"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:31
 msgctxt "MozhiTranslationPlugin|"
@@ -2337,7 +2328,7 @@ msgstr ""
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:40
 msgctxt "MozhiTranslationPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "Motor"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:41
 msgctxt "MozhiTranslationPlugin|"
@@ -2345,12 +2336,9 @@ msgid "Which upstream translator the instance should use."
 msgstr ""
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:46
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Use direct LibreTranslate API"
 msgctxt "MozhiTranslationPlugin|"
 msgid "LibreTranslate API key"
-msgstr "Usar API directa de LibreTranslate"
+msgstr "Clave API de LibreTranslate"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:51
 #, fuzzy
@@ -2408,17 +2396,14 @@ msgid "Unknown error: %1"
 msgstr "Error desconocido: %1"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:27
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTtsPlugin|"
 msgid "Instance URL"
-msgstr "URL de la instancia:"
+msgstr "URL de la instancia"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:32
 msgctxt "MozhiTtsPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "Motor"
 
 #: src/plugins/tts/mozhi/mozhittsprovider.cpp:48
 msgctxt "MozhiTTSProvider|"
@@ -2457,12 +2442,9 @@ msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
 msgstr "Error de la instancia de Mozhi: %1 (HTTP 4XX Error del cliente)"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:19
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Piper voices path:"
 msgctxt "PiperTtsPlugin|"
 msgid "Piper voices path"
-msgstr "Ruta a las voces de Piper:"
+msgstr "Ruta a las voces de Piper"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:20
 msgctxt "PiperTtsPlugin|"
@@ -2706,12 +2688,9 @@ msgid "Unable to remove %1 from %2"
 msgstr "No se puede eliminar %1 de %2"
 
 #: src/settings/pluginoptionswidget.cpp:87
-#, fuzzy
-#| msgctxt "ModuleStatus|"
-#| msgid "Select a region"
 msgctxt "PluginOptionsWidget|"
 msgid "Select a directory"
-msgstr "Seleccione una región"
+msgstr "Seleccione un directorio"
 
 #: src/settings/settingsdialog.cpp:83
 msgctxt "SettingsDialog|"
@@ -4087,56 +4066,3 @@ msgstr "Informar de fallo…"
 msgctxt "TrayIcon|"
 msgid "Translation result"
 msgstr "Resultado de la traducción"
-
-#~ msgctxt "Cli|"
-#~ msgid ""
-#~ "Specify TTS provider ('none', 'mozhi', 'qt' or 'piper'). Provider from "
-#~ "app settings will be used by default."
-#~ msgstr ""
-#~ "Especificar el proveedor de TTS («ninguno», «mozhi», «qt» o «piper»). Se "
-#~ "usará de forma predeterminada el proveedor de las preferencias de la "
-#~ "aplicación."
-
-#~ msgctxt "Cli|"
-#~ msgid ""
-#~ "Specify TTS provider ('none'). This build has text-to-speech disabled."
-#~ msgstr ""
-#~ "Especificar el proveedor de TTS («ninguno»). Esta compilación tiene "
-#~ "desactivado «texto a voz»."
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Directory with voice models"
-#~ msgstr "Directorio con modelos de voz"
-
-#~ msgctxt "SettingsDialog|"
-#~ msgid "Select Piper voices path"
-#~ msgstr "Seleccionar ruta de voces de Piper"
-
-#~ msgctxt "QObject|"
-#~ msgid "Translation Provider Error"
-#~ msgstr "Error de proveedor de traducción"
-
-#~ msgctxt "QObject|"
-#~ msgid ""
-#~ "The selected translation provider crashed during initialization and has "
-#~ "been reset to 'Copy' to prevent further issues. You can try selecting a "
-#~ "different provider in Settings → Translation."
-#~ msgstr ""
-#~ "El proveedor de traducción seleccionado ha fallado durante la "
-#~ "inicialización y se ha reiniciado a «Copiar» para evitar más problemas. "
-#~ "Puede probar a seleccionar un proveedor distinto en Preferencias → "
-#~ "Traducción."
-
-#~ msgctxt "QObject|"
-#~ msgid "TTS Provider Error"
-#~ msgstr "Error de proveedor de TTS"
-
-#~ msgctxt "QObject|"
-#~ msgid ""
-#~ "The selected TTS provider crashed during initialization and has been "
-#~ "reset to 'None' to prevent further issues. You can try selecting a "
-#~ "different provider in Settings → TTS."
-#~ msgstr ""
-#~ "El proveedor de TTS seleccionado ha fallado durante la inicialización y "
-#~ "se ha reiniciado a «Ninguno» para evitar más problemas. Puede probar a "
-#~ "seleccionar un proveedor distinto en Preferencias → Traducción."

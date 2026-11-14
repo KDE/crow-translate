@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-11-05 13:02+0200\n"
+"PO-Revision-Date: 2026-11-13 14:09+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: צוות התרגום של KDE ישראל\n"
+"Language-Team: Hebrew <kde-l10n-he@kde.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #: src/cli.cpp:114
 msgctxt "Cli|"
@@ -62,32 +62,20 @@ msgid ""
 msgstr "ציון כתובת עותק Mozhi. ברירת המחדל היא הכתובת המופיעה בהגדרות היישום."
 
 #: src/cli.cpp:175
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider "
-#| "from app settings will be used by default."
+#, qt-format
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider (%1). Provider from app settings will be used "
 "by default."
-msgstr ""
-"בחירת ספק התרגום (‚copy’,‏ ‚mozhi’ או ‚localai’). ברירת המחדל היא הספק "
-"מהגדרות היישום."
+msgstr "בחירת ספק התרגום (%1). ברירת המחדל היא הספק מהגדרות היישום."
 
 #: src/cli.cpp:182
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app "
-#| "settings will be used by default."
+#, qt-format
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider (%1). Provider from app settings will be used by "
 "default."
-msgstr ""
-"בחירת ספק הקראה (‚none’,‏ ‚mozhi’,‏ או ‚qt’). הספק מהגדרות היישום יכהן כברירת "
-"המחדל."
+msgstr "בחירת ספק הקראה (%1). הספק מהגדרות היישום יכהן כברירת המחדל."
 
 #: src/cli.cpp:185
 msgctxt "Cli|"
@@ -228,12 +216,9 @@ msgid "Error: Unable to initialize Tesseract with %1"
 msgstr "שגיאה: לא ניתן לאתחל את Tessarect עם %1"
 
 #: src/cli.cpp:485
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Error: text-to-speech is unavailable: %1"
 msgctxt "Cli|"
 msgid "Error: No OCR engine is available"
-msgstr "שגיאה: הקראה לא זמינה: %1"
+msgstr "שגיאה: אין מנגנון זיהוי תווים אופטי זמין"
 
 #: src/cli.cpp:493
 msgctxt "Cli|"
@@ -335,7 +320,7 @@ msgstr "העתקה"
 #: src/core/pluginmanager.cpp:206
 msgctxt "PluginManager|"
 msgid "Hands the text back unchanged. Always available."
-msgstr ""
+msgstr "מחזיר את הטקסט ללא שינוי. זמין תמיד."
 
 #: src/core/pluginmanager.cpp:212
 msgctxt "SettingsDialog|"
@@ -345,45 +330,45 @@ msgstr "ללא"
 #: src/core/pluginmanager.cpp:213
 msgctxt "PluginManager|"
 msgid "Says nothing. Always available."
-msgstr ""
+msgstr "לא אומר כלום. זמין תמיד."
 
 #: src/core/pluginmanager.cpp:456
 msgctxt "PluginManager|"
 msgid "Backend unavailable"
-msgstr ""
+msgstr "המנגנון לא זמין"
 
 #: src/core/pluginmanager.cpp:457
 #, qt-format
 msgctxt "PluginManager|"
 msgid ""
 "The backend \"%1\" could not be used (%2). Falling back to the built-in one."
-msgstr ""
+msgstr "לא ניתן להשתמש במנגנון „%1” (%2). תבוצע נסיגה למנגנון המובנה."
 
 #: src/core/pluginmanager.cpp:468 src/core/pluginmanager.cpp:495
 msgctxt "PluginManager|"
 msgid "not installed"
-msgstr ""
+msgstr "לא מותקן"
 
 #: src/core/pluginmanager.cpp:476 src/core/pluginmanager.cpp:503
 msgctxt "PluginManager|"
 msgid "built nothing"
-msgstr ""
+msgstr "לא נבנה כלום"
 
 #: src/core/pluginmanager.cpp:484 src/core/pluginmanager.cpp:508
 #: src/core/pluginmanager.cpp:531
 msgctxt "PluginManager|"
 msgid "crashed while starting"
-msgstr ""
+msgstr "קרס עם העלייה"
 
 #: src/core/translationsession.cpp:447
 msgctxt "TranslationSession|"
 msgid "No OCR engine available"
-msgstr ""
+msgstr "אין מנגנון זיהוי תווים אופטי זמין"
 
 #: src/core/translationsession.cpp:448
 msgctxt "TranslationSession|"
 msgid "No text recognition plugin is installed."
-msgstr ""
+msgstr "לא מותקן תוסף זיהוי טקסט."
 
 #: src/core/translationsession.cpp:460
 msgctxt "TesseractOcr|"
@@ -2196,9 +2181,6 @@ msgid "%1 is not a valid Tesseract parameter name."
 msgstr "%1 הוא לא שם תקף של משתנה Tessarect."
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Languages"
 msgctxt "TesseractOcrPlugin|"
 msgid "Languages"
 msgstr "שפות"
@@ -2206,12 +2188,9 @@ msgstr "שפות"
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:28
 msgctxt "TesseractOcrPlugin|"
 msgid "Language data directory"
-msgstr ""
+msgstr "תיקיית נתוני שפה"
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:33
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Convert line breaks"
 msgctxt "TesseractOcrPlugin|"
 msgid "Convert line breaks"
 msgstr "המרת מעברי שורות"
@@ -2294,43 +2273,34 @@ msgid "Translation aborted by user"
 msgstr "התרגום נקטע על ידי המשתמש"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:30
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Instance URL"
-msgstr "כתובת עותק:"
+msgstr "כתובת עותק"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:31
 msgctxt "MozhiTranslationPlugin|"
 msgid "The Mozhi instance to send translations through."
-msgstr ""
+msgstr "עותק ה־Mozhi דרכו לשלוח תרגומים."
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:40
 msgctxt "MozhiTranslationPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "מנגנון"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:41
 msgctxt "MozhiTranslationPlugin|"
 msgid "Which upstream translator the instance should use."
-msgstr ""
+msgstr "באיזה מתרגם מקור צריך העותק להשתמש."
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:46
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Use direct LibreTranslate API"
 msgctxt "MozhiTranslationPlugin|"
 msgid "LibreTranslate API key"
-msgstr "להשתמש ב־API הישיר של LibreTranslate"
+msgstr "מפתח ה־API של LibreTranslate"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:51
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Mozhi / LibreTranslate"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Contact LibreTranslate directly"
-msgstr "Mozhi / LibreTranslate"
+msgstr "יצירת קשר עם LibreTranslate ישירות"
 
 #: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:79
 msgctxt "MozhiTranslationProvider|"
@@ -2380,17 +2350,14 @@ msgid "Unknown error: %1"
 msgstr "שגיאה לא ידועה: %1"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:27
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTtsPlugin|"
 msgid "Instance URL"
-msgstr "כתובת עותק:"
+msgstr "כתובת עותק"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:32
 msgctxt "MozhiTtsPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "מנגנון"
 
 #: src/plugins/tts/mozhi/mozhittsprovider.cpp:48
 msgctxt "MozhiTTSProvider|"
@@ -2428,12 +2395,9 @@ msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
 msgstr "שגיאת עותק Mozhi‏: %1 (שגיאת לקוח HTTP 4XX)"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:19
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Piper voices path:"
 msgctxt "PiperTtsPlugin|"
 msgid "Piper voices path"
-msgstr "נתיב לקולות Piper:"
+msgstr "נתיב לקולות Piper"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:20
 msgctxt "PiperTtsPlugin|"
@@ -2670,12 +2634,9 @@ msgid "Unable to remove %1 from %2"
 msgstr "לא ניתן להסיר את %1 מתוך %2"
 
 #: src/settings/pluginoptionswidget.cpp:87
-#, fuzzy
-#| msgctxt "ModuleStatus|"
-#| msgid "Select a region"
 msgctxt "PluginOptionsWidget|"
 msgid "Select a directory"
-msgstr "בחירת אזור"
+msgstr "בחירת תיקייה"
 
 #: src/settings/settingsdialog.cpp:83
 msgctxt "SettingsDialog|"

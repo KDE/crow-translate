@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-11-12 18:43+0300\n"
+"PO-Revision-Date: 2026-11-13 19:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -221,12 +221,9 @@ msgid "Error: Unable to initialize Tesseract with %1"
 msgstr "Hata: Tesseract %1 ile ilklendirilemiyor."
 
 #: src/cli.cpp:485
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Error: text-to-speech is unavailable: %1"
 msgctxt "Cli|"
 msgid "Error: No OCR engine is available"
-msgstr "Hata: Konuşma kullanılamıyor: %1"
+msgstr "Hata: Kullanılabilir optik karakter tanıma işletkesi yok"
 
 #: src/cli.cpp:493
 msgctxt "Cli|"
@@ -328,7 +325,7 @@ msgstr "Kopya"
 #: src/core/pluginmanager.cpp:206
 msgctxt "PluginManager|"
 msgid "Hands the text back unchanged. Always available."
-msgstr ""
+msgstr "Metni değişmeden geri verir. Her zaman kullanılabilirdirb"
 
 #: src/core/pluginmanager.cpp:212
 msgctxt "SettingsDialog|"
@@ -338,51 +335,45 @@ msgstr "Yok"
 #: src/core/pluginmanager.cpp:213
 msgctxt "PluginManager|"
 msgid "Says nothing. Always available."
-msgstr ""
+msgstr "Bir şey demez. Her zaman kullanılabilirdir."
 
 #: src/core/pluginmanager.cpp:456
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Update available!"
 msgctxt "PluginManager|"
 msgid "Backend unavailable"
-msgstr "Güncelleme kullanılabilir!"
+msgstr "Arka Uç Kullanılamıyor"
 
 #: src/core/pluginmanager.cpp:457
 #, qt-format
 msgctxt "PluginManager|"
 msgid ""
 "The backend \"%1\" could not be used (%2). Falling back to the built-in one."
-msgstr ""
+msgstr "“%1” arka ucu kullanılamadı (%2). Yerleşik olana geri dönülüyor."
 
 #: src/core/pluginmanager.cpp:468 src/core/pluginmanager.cpp:495
 msgctxt "PluginManager|"
 msgid "not installed"
-msgstr ""
+msgstr "kurulu değil"
 
 #: src/core/pluginmanager.cpp:476 src/core/pluginmanager.cpp:503
 msgctxt "PluginManager|"
 msgid "built nothing"
-msgstr ""
+msgstr "bir şey yapmadı"
 
 #: src/core/pluginmanager.cpp:484 src/core/pluginmanager.cpp:508
 #: src/core/pluginmanager.cpp:531
 msgctxt "PluginManager|"
 msgid "crashed while starting"
-msgstr ""
+msgstr "başlarken çöktü"
 
 #: src/core/translationsession.cpp:447
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "No updates available."
 msgctxt "TranslationSession|"
 msgid "No OCR engine available"
-msgstr "Kullanılabilir güncelleme yok."
+msgstr "Kullanılabilir optik karakter tanıma işletkesi yok"
 
 #: src/core/translationsession.cpp:448
 msgctxt "TranslationSession|"
 msgid "No text recognition plugin is installed."
-msgstr ""
+msgstr "Kurulu metin tanıma eklentisi yok"
 
 #: src/core/translationsession.cpp:460
 msgctxt "TesseractOcr|"
@@ -2201,9 +2192,6 @@ msgid "%1 is not a valid Tesseract parameter name."
 msgstr "%1, geçerli bir Tesseract parametresi adı değil"
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Languages"
 msgctxt "TesseractOcrPlugin|"
 msgid "Languages"
 msgstr "Diller"
@@ -2211,12 +2199,9 @@ msgstr "Diller"
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:28
 msgctxt "TesseractOcrPlugin|"
 msgid "Language data directory"
-msgstr ""
+msgstr "Dil verisi dizini"
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:33
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Convert line breaks"
 msgctxt "TesseractOcrPlugin|"
 msgid "Convert line breaks"
 msgstr "Satır sonlarını dönüştür"
@@ -2303,43 +2288,34 @@ msgid "Translation aborted by user"
 msgstr "Çeviri, kullanıcı tarafından iptal edildi."
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:30
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Instance URL"
-msgstr "Örnek URL’si:"
+msgstr "Örnek URL’si"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:31
 msgctxt "MozhiTranslationPlugin|"
 msgid "The Mozhi instance to send translations through."
-msgstr ""
+msgstr "Çevirilerin gönderileceği Mozhi örneği"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:40
 msgctxt "MozhiTranslationPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "İşletke"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:41
 msgctxt "MozhiTranslationPlugin|"
 msgid "Which upstream translator the instance should use."
-msgstr ""
+msgstr "Örneğin kullanması gereken üst kaynak çevirmen"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:46
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Use direct LibreTranslate API"
 msgctxt "MozhiTranslationPlugin|"
 msgid "LibreTranslate API key"
-msgstr "Doğrudan LibreTranslate API’sini kullan"
+msgstr "LibreTranslate API anahtarı"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:51
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Mozhi / LibreTranslate"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Contact LibreTranslate directly"
-msgstr "Mozhi / LibreTranslate"
+msgstr "LibreTranslate’e doğrudan erişin"
 
 #: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:79
 msgctxt "MozhiTranslationProvider|"
@@ -2389,17 +2365,14 @@ msgid "Unknown error: %1"
 msgstr "Bilinmeyen hata: %1"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:27
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTtsPlugin|"
 msgid "Instance URL"
-msgstr "Örnek URL’si:"
+msgstr "Örnek URL’si"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:32
 msgctxt "MozhiTtsPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "İşletke"
 
 #: src/plugins/tts/mozhi/mozhittsprovider.cpp:48
 msgctxt "MozhiTTSProvider|"
@@ -2437,22 +2410,19 @@ msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
 msgstr "Mozhi örneği başarısız oldu: %1 (HTTP 4XX istemcisi hatası)"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:19
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Piper voices path:"
 msgctxt "PiperTtsPlugin|"
 msgid "Piper voices path"
-msgstr "Piper sesleri yolu:"
+msgstr "Piper sesleri yolu"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:20
 msgctxt "PiperTtsPlugin|"
 msgid "Searched before the standard locations for Piper voice models."
-msgstr ""
+msgstr "Piper ses modellerinin standart konumundan önce arandı."
 
 #: src/plugins/tts/piper/piperttsprovider.cpp:139
 msgctxt "PiperTTSProvider|"
 msgid "Failed to initialize Piper TTS"
-msgstr "Piper Konuşma ilklendirilemedi"
+msgstr "Piper Konuşma ilklendirilemedi."
 
 #: src/plugins/tts/piper/piperttsprovider.cpp:145
 #, qt-format
@@ -2686,12 +2656,9 @@ msgid "Unable to remove %1 from %2"
 msgstr "%2 içinden %1 kaldırılamıyor."
 
 #: src/settings/pluginoptionswidget.cpp:87
-#, fuzzy
-#| msgctxt "ModuleStatus|"
-#| msgid "Select a region"
 msgctxt "PluginOptionsWidget|"
 msgid "Select a directory"
-msgstr "Bir bölge seçin"
+msgstr "Bir dizin seçin"
 
 #: src/settings/settingsdialog.cpp:83
 msgctxt "SettingsDialog|"
@@ -3351,20 +3318,14 @@ msgid "Detection provider:"
 msgstr "Algılama sağlayıcısı:"
 
 #: src/settings/settingsdialog.ui:774 src/settings/settingsdialog.ui:791
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "Provider and model used to detect the source language when it is set to "
-#| "Auto. If no detection model is selected, translation falls back to the "
-#| "configured primary language above."
 msgctxt "SettingsDialog|"
 msgid ""
 "Provider and model used to detect the source language when it is set to "
 "Auto. If no detection model is selected, the model that translates is asked."
 msgstr ""
-"Otomatik olarak ayarlandığında kaynak dili algılamak için kullanılan "
-"sağlayıcı ve model. Herhangi bir algılama modeli seçilmezse çeviri, yukarıda "
-"yapılandırılmış birincil dile geri döner."
+"Kendiliğinden olarak ayarlandığında, kaynak dili algılamak için kullanılan "
+"sağlayıcı ve model. Herhangi bir algılama modeli seçilmemişse çeviriyi yapan "
+"model sorulur."
 
 #: src/settings/settingsdialog.ui:781
 msgctxt "SettingsDialog|"

@@ -64,32 +64,24 @@ msgstr ""
 "ბმული აპის პარამეტრებიდან."
 
 #: src/cli.cpp:175
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider "
-#| "from app settings will be used by default."
+#, qt-format
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider (%1). Provider from app settings will be used "
 "by default."
 msgstr ""
-"მიუთითეთ თარგმანის მომწოდებელი ('copy', 'mozhi', ან 'localai'). "
-"ნაგულისხმევად გამოყენებული იქნება მომწოდებელი აპის პარამეტრებიდან."
+"მიუთითეთ თარგმანის მომწოდებელი (%1). ნაგულისხმევად გამოყენებული იქნება "
+"მომწოდებელი აპის პარამეტრებიდან."
 
 #: src/cli.cpp:182
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app "
-#| "settings will be used by default."
+#, qt-format
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider (%1). Provider from app settings will be used by "
 "default."
 msgstr ""
-"მიუთითეთ TTS-ის მომწოდებელი ('none', 'mozhi', ან 'qt'). ნაგულისხმევად "
-"გამოყენებული იქნება მომწოდებელი აპის პარამეტრებიდან."
+"მიუთითეთ TTS-ის მომწოდებელი (%1). ნაგულისხმევად გამოყენებული იქნება "
+"მომწოდებელი აპის პარამეტრებიდან."
 
 #: src/cli.cpp:185
 msgctxt "Cli|"
@@ -235,12 +227,9 @@ msgid "Error: Unable to initialize Tesseract with %1"
 msgstr "შეცდომა: %1-ით Tesseract-ის ინიციალიზაცია შეუძლებელია"
 
 #: src/cli.cpp:485
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Error: text-to-speech is unavailable: %1"
 msgctxt "Cli|"
 msgid "Error: No OCR engine is available"
-msgstr "შეცდომა: ტექსტის წარმოთქმა ხელმიუწვდომელია: %1"
+msgstr "შეცდომა: OCR-ის ძრავა ხელმისაწვდომი არაა"
 
 #: src/cli.cpp:493
 msgctxt "Cli|"
@@ -342,7 +331,7 @@ msgstr "კოპირება"
 #: src/core/pluginmanager.cpp:206
 msgctxt "PluginManager|"
 msgid "Hands the text back unchanged. Always available."
-msgstr ""
+msgstr "დააბრუნებს ტექსტს უცვლელად. ყოველთვის ხელმისაწვდომია."
 
 #: src/core/pluginmanager.cpp:212
 msgctxt "SettingsDialog|"
@@ -352,45 +341,45 @@ msgstr "არცერთი"
 #: src/core/pluginmanager.cpp:213
 msgctxt "PluginManager|"
 msgid "Says nothing. Always available."
-msgstr ""
+msgstr "არაფერს ამბობს. ყოველთვის ხელმისაწვდომია."
 
 #: src/core/pluginmanager.cpp:456
 msgctxt "PluginManager|"
 msgid "Backend unavailable"
-msgstr ""
+msgstr "უკანაბოლო ხელმისაწვდომია"
 
 #: src/core/pluginmanager.cpp:457
 #, qt-format
 msgctxt "PluginManager|"
 msgid ""
 "The backend \"%1\" could not be used (%2). Falling back to the built-in one."
-msgstr ""
+msgstr "უკანაბოლოს \"%1\" გამოყენება შეუძლებელია (%2). დაბრუნება ჩაშენებულზე."
 
 #: src/core/pluginmanager.cpp:468 src/core/pluginmanager.cpp:495
 msgctxt "PluginManager|"
 msgid "not installed"
-msgstr ""
+msgstr "დაყენებული არაა"
 
 #: src/core/pluginmanager.cpp:476 src/core/pluginmanager.cpp:503
 msgctxt "PluginManager|"
 msgid "built nothing"
-msgstr ""
+msgstr "აგებულია არაფერია"
 
 #: src/core/pluginmanager.cpp:484 src/core/pluginmanager.cpp:508
 #: src/core/pluginmanager.cpp:531
 msgctxt "PluginManager|"
 msgid "crashed while starting"
-msgstr ""
+msgstr "ავარიულად დასრულდა გაშვებისას"
 
 #: src/core/translationsession.cpp:447
 msgctxt "TranslationSession|"
 msgid "No OCR engine available"
-msgstr ""
+msgstr "OCR-ის ძრავები ხელმისაწვდომი არაა"
 
 #: src/core/translationsession.cpp:448
 msgctxt "TranslationSession|"
 msgid "No text recognition plugin is installed."
-msgstr ""
+msgstr "ტექსტის ამოცნობის დამატება დაყენებული არაა."
 
 #: src/core/translationsession.cpp:460
 msgctxt "TesseractOcr|"
@@ -2209,9 +2198,6 @@ msgid "%1 is not a valid Tesseract parameter name."
 msgstr "%1 Tesseract-ის სწორი პარამეტრის სახელი არაა."
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Languages"
 msgctxt "TesseractOcrPlugin|"
 msgid "Languages"
 msgstr "ენები"
@@ -2219,12 +2205,9 @@ msgstr "ენები"
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:28
 msgctxt "TesseractOcrPlugin|"
 msgid "Language data directory"
-msgstr ""
+msgstr "ენის მონაცემების საქაღალდე"
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:33
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Convert line breaks"
 msgctxt "TesseractOcrPlugin|"
 msgid "Convert line breaks"
 msgstr "ხაზის გადატანების გადაყვანა"
@@ -2309,43 +2292,34 @@ msgid "Translation aborted by user"
 msgstr "თარგმანი შეწყდა მომხმარებლის მიერ"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:30
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Instance URL"
-msgstr "გაშვებული ასლის URL:"
+msgstr "გაშვებული ასლის URL"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:31
 msgctxt "MozhiTranslationPlugin|"
 msgid "The Mozhi instance to send translations through."
-msgstr ""
+msgstr "Mozhi-ის გაშვებული ასლი თარგმანების გასაგზავნად."
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:40
 msgctxt "MozhiTranslationPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "ძრავა"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:41
 msgctxt "MozhiTranslationPlugin|"
 msgid "Which upstream translator the instance should use."
-msgstr ""
+msgstr "გაშვებული ასლის რომელი აღმავალი მთარგმნელის გამოყენება გნებავთ."
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:46
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Use direct LibreTranslate API"
 msgctxt "MozhiTranslationPlugin|"
 msgid "LibreTranslate API key"
-msgstr "პირდაპირ LibreTranslate API-ის გამოყენება"
+msgstr "LibreTranslate API-ის გასაღები"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:51
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Mozhi / LibreTranslate"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Contact LibreTranslate directly"
-msgstr "Mozhi / LibreTranslate"
+msgstr "დაუკავშირდით LibreTranslate-ს პირდაპირ"
 
 #: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:79
 msgctxt "MozhiTranslationProvider|"
@@ -2395,17 +2369,14 @@ msgid "Unknown error: %1"
 msgstr "უცნობი შეცდომა: %1"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:27
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTtsPlugin|"
 msgid "Instance URL"
-msgstr "გაშვებული ასლის URL:"
+msgstr "გაშვებული ასლის URL"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:32
 msgctxt "MozhiTtsPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "ძრავა"
 
 #: src/plugins/tts/mozhi/mozhittsprovider.cpp:48
 msgctxt "MozhiTTSProvider|"
@@ -2443,17 +2414,14 @@ msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
 msgstr "Mozhi-ის გაშვებული ასლის შეცდომა: %1 (HTTP 4XX კლიენტის შეცდომა)"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:19
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Piper voices path:"
 msgctxt "PiperTtsPlugin|"
 msgid "Piper voices path"
-msgstr "Piper ხმები ბილიკი:"
+msgstr "Piper-ის ხმების ბილიკი"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:20
 msgctxt "PiperTtsPlugin|"
 msgid "Searched before the standard locations for Piper voice models."
-msgstr ""
+msgstr "სტანდარტულ მდებარეობამდე ვეძებდი Piper-ის ხმის მოდელებს."
 
 #: src/plugins/tts/piper/piperttsprovider.cpp:139
 msgctxt "PiperTTSProvider|"
@@ -2689,12 +2657,9 @@ msgid "Unable to remove %1 from %2"
 msgstr "%1-ის წაშლა %2-დან შეუძლებელია"
 
 #: src/settings/pluginoptionswidget.cpp:87
-#, fuzzy
-#| msgctxt "ModuleStatus|"
-#| msgid "Select a region"
 msgctxt "PluginOptionsWidget|"
 msgid "Select a directory"
-msgstr "აირჩიეთ რეგიონი"
+msgstr "აირჩიეთ საქაღალდე"
 
 #: src/settings/settingsdialog.cpp:83
 msgctxt "SettingsDialog|"
@@ -3350,20 +3315,14 @@ msgid "Detection provider:"
 msgstr "დადგენის მომწოდებელი:"
 
 #: src/settings/settingsdialog.ui:774 src/settings/settingsdialog.ui:791
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "Provider and model used to detect the source language when it is set to "
-#| "Auto. If no detection model is selected, translation falls back to the "
-#| "configured primary language above."
 msgctxt "SettingsDialog|"
 msgid ""
 "Provider and model used to detect the source language when it is set to "
 "Auto. If no detection model is selected, the model that translates is asked."
 msgstr ""
 "წყარო ენის ამოცნობისთვის გამოყენებული მომწოდებელი და მოდელი ავტომატურზეა "
-"დაყენებული. თუ ამოცნობის მოდელი არჩეული არაა, თარგმანი ზემოთ არჩეულ ძირითად "
-"ენაზე გადაერთვება."
+"დაყენებული. თუ ამოცნობის მოდელი არჩეული არაა, კითხვა მთარგმნელ მოდელს "
+"დაესმება."
 
 #: src/settings/settingsdialog.ui:781
 msgctxt "SettingsDialog|"
