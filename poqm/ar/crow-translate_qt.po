@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-10-31 19:39+0400\n"
+"PO-Revision-Date: 2026-11-14 17:08+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -66,32 +66,21 @@ msgstr ""
 "بشكل مبدئي."
 
 #: src/cli.cpp:175
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider "
-#| "from app settings will be used by default."
+#, qt-format
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider (%1). Provider from app settings will be used "
 "by default."
-msgstr ""
-"حدد مزود الترجمة ('copy' أو 'mozhi' أو 'localai'). سيُستخدم المزود من إعدادات "
-"التطبيق مبدئيًا."
+msgstr "حدد مزود الترجمة (%1). سيُستخدم المزود من إعدادات التطبيق مبدئيًا."
 
 #: src/cli.cpp:182
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app "
-#| "settings will be used by default."
+#, qt-format
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider (%1). Provider from app settings will be used by "
 "default."
 msgstr ""
-"حدد مزود تحويل النص إلى كلام ('none' أو 'mozhi' أو 'qt'). سيُستخدم المزود من "
-"إعدادات التطبيق مبدئيًا."
+"حدد مزود تحويل النص إلى كلام (%1). سيُستخدم المزود من إعدادات التطبيق مبدئيًا."
 
 #: src/cli.cpp:185
 msgctxt "Cli|"
@@ -233,12 +222,9 @@ msgid "Error: Unable to initialize Tesseract with %1"
 msgstr "خطأ: تعذّر تهيئة Tesseract مع %1"
 
 #: src/cli.cpp:485
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Error: text-to-speech is unavailable: %1"
 msgctxt "Cli|"
 msgid "Error: No OCR engine is available"
-msgstr "خطأ: تحويل النص إلى كلام غير متاح: %1"
+msgstr "خطأ: لا يتوفر محرك تعرف ضوئي على المحارف"
 
 #: src/cli.cpp:493
 msgctxt "Cli|"
@@ -340,7 +326,7 @@ msgstr "انسخ"
 #: src/core/pluginmanager.cpp:206
 msgctxt "PluginManager|"
 msgid "Hands the text back unchanged. Always available."
-msgstr ""
+msgstr "يعيد النص دون تغيير. متاح دائمًا."
 
 #: src/core/pluginmanager.cpp:212
 msgctxt "SettingsDialog|"
@@ -350,51 +336,45 @@ msgstr "لا شيء"
 #: src/core/pluginmanager.cpp:213
 msgctxt "PluginManager|"
 msgid "Says nothing. Always available."
-msgstr ""
+msgstr "لا يقول شيئًا. متاح دائمًا."
 
 #: src/core/pluginmanager.cpp:456
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Update available!"
 msgctxt "PluginManager|"
 msgid "Backend unavailable"
-msgstr "تحديث متوفر!"
+msgstr "الواجهة الخلفية غير متوفرة"
 
 #: src/core/pluginmanager.cpp:457
 #, qt-format
 msgctxt "PluginManager|"
 msgid ""
 "The backend \"%1\" could not be used (%2). Falling back to the built-in one."
-msgstr ""
+msgstr "تعذر استخدام الواجهة الخلفية \"%1\" (%2). سيُرجَع إلى الواجهة المدمجة."
 
 #: src/core/pluginmanager.cpp:468 src/core/pluginmanager.cpp:495
 msgctxt "PluginManager|"
 msgid "not installed"
-msgstr ""
+msgstr "غير مثبّت"
 
 #: src/core/pluginmanager.cpp:476 src/core/pluginmanager.cpp:503
 msgctxt "PluginManager|"
 msgid "built nothing"
-msgstr ""
+msgstr "لم يُبنَ شيء"
 
 #: src/core/pluginmanager.cpp:484 src/core/pluginmanager.cpp:508
 #: src/core/pluginmanager.cpp:531
 msgctxt "PluginManager|"
 msgid "crashed while starting"
-msgstr ""
+msgstr "انهار أثناء البدء"
 
 #: src/core/translationsession.cpp:447
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "No updates available."
 msgctxt "TranslationSession|"
 msgid "No OCR engine available"
-msgstr "لا توجد تحديثات متاحة."
+msgstr "لا يتوفر محرك تعرف ضوئي على المحارف"
 
 #: src/core/translationsession.cpp:448
 msgctxt "TranslationSession|"
 msgid "No text recognition plugin is installed."
-msgstr ""
+msgstr "لا توجد أي ملحقات للتعرف على النصوص مثبتة."
 
 #: src/core/translationsession.cpp:460
 msgctxt "TesseractOcr|"
@@ -2204,9 +2184,6 @@ msgid "%1 is not a valid Tesseract parameter name."
 msgstr "%1 ليس اسم معامل Tesseract صالحًا."
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Languages"
 msgctxt "TesseractOcrPlugin|"
 msgid "Languages"
 msgstr "اللغات"
@@ -2214,12 +2191,9 @@ msgstr "اللغات"
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:28
 msgctxt "TesseractOcrPlugin|"
 msgid "Language data directory"
-msgstr ""
+msgstr "دليل بيانات اللغة"
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:33
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Convert line breaks"
 msgctxt "TesseractOcrPlugin|"
 msgid "Convert line breaks"
 msgstr "تحويل فواصل الخط"
@@ -2303,43 +2277,34 @@ msgid "Translation aborted by user"
 msgstr "أُلغيت الترجمة بواسطة المستخدم"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:30
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Instance URL"
-msgstr "عنوان النسخة:"
+msgstr "عنوان النسخة"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:31
 msgctxt "MozhiTranslationPlugin|"
 msgid "The Mozhi instance to send translations through."
-msgstr ""
+msgstr "نسخة Mozhi التي تُرسَل الترجمات عبرها."
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:40
 msgctxt "MozhiTranslationPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "المحرك"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:41
 msgctxt "MozhiTranslationPlugin|"
 msgid "Which upstream translator the instance should use."
-msgstr ""
+msgstr "أي مترجم أعلى النهر ينبغي أن تستخدمه النسخة."
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:46
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Use direct LibreTranslate API"
 msgctxt "MozhiTranslationPlugin|"
 msgid "LibreTranslate API key"
-msgstr "استخدم واجهة LibreTranslate API المباشرة"
+msgstr "مفتاح واجهة برمجة تطبيقات LibreTranslate"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:51
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Mozhi / LibreTranslate"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Contact LibreTranslate directly"
-msgstr "Mozhi / LibreTranslate"
+msgstr "اتصل بـ LibreTranslate مباشرة"
 
 #: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:79
 msgctxt "MozhiTranslationProvider|"
@@ -2389,17 +2354,14 @@ msgid "Unknown error: %1"
 msgstr "خطأ غير معروف: %1"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:27
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTtsPlugin|"
 msgid "Instance URL"
-msgstr "عنوان النسخة:"
+msgstr "عنوان النسخة"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:32
 msgctxt "MozhiTtsPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "المحرك"
 
 #: src/plugins/tts/mozhi/mozhittsprovider.cpp:48
 msgctxt "MozhiTTSProvider|"
@@ -2437,17 +2399,14 @@ msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
 msgstr "خطأ في نسخة Mozhi: %1 (خطأ من عميل HTTP 4XX)"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:19
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Piper voices path:"
 msgctxt "PiperTtsPlugin|"
 msgid "Piper voices path"
-msgstr "مسار أصوات Piper:"
+msgstr "مسار أصوات Piper"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:20
 msgctxt "PiperTtsPlugin|"
 msgid "Searched before the standard locations for Piper voice models."
-msgstr ""
+msgstr "يُبحث فيه قبل المواقع القياسية لنماذج أصوات Piper."
 
 #: src/plugins/tts/piper/piperttsprovider.cpp:139
 msgctxt "PiperTTSProvider|"
@@ -2682,12 +2641,9 @@ msgid "Unable to remove %1 from %2"
 msgstr "غير قادر على إزالة %1 من %2"
 
 #: src/settings/pluginoptionswidget.cpp:87
-#, fuzzy
-#| msgctxt "ModuleStatus|"
-#| msgid "Select a region"
 msgctxt "PluginOptionsWidget|"
 msgid "Select a directory"
-msgstr "حدّد منطقة"
+msgstr "اختر دليلًا"
 
 #: src/settings/settingsdialog.cpp:83
 msgctxt "SettingsDialog|"
@@ -3340,19 +3296,13 @@ msgid "Detection provider:"
 msgstr "اكتشاف المزود:"
 
 #: src/settings/settingsdialog.ui:774 src/settings/settingsdialog.ui:791
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "Provider and model used to detect the source language when it is set to "
-#| "Auto. If no detection model is selected, translation falls back to the "
-#| "configured primary language above."
 msgctxt "SettingsDialog|"
 msgid ""
 "Provider and model used to detect the source language when it is set to "
 "Auto. If no detection model is selected, the model that translates is asked."
 msgstr ""
-"المزوّد والنموذج المستخدمان لكشف لغة المصدر عندما تكون مضبوطة على تلقائي. إذا "
-"لم يُحدد نموذج كشف، يتراجع الترجمة إلى اللغة الأساسية المضبوطة أعلاه."
+"المزود والنموذج المستخدمان لكشف لغة المصدر عندما تكون مضبوطة على تلقائي. إذا "
+"لم يُحدَّد نموذج كشف، يُسأل النموذج الذي يترجم."
 
 #: src/settings/settingsdialog.ui:781
 msgctxt "SettingsDialog|"
