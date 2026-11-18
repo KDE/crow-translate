@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: crow-translate_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"PO-Revision-Date: 2026-11-13 02:23+0100\n"
+"PO-Revision-Date: 2026-11-17 19:30+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -74,33 +74,24 @@ msgstr ""
 "predeterminada la URL de instancia de las preferencias de la aplicación."
 
 #: src/cli.cpp:175
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider "
-#| "from app settings will be used by default."
+#, qt-format
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider (%1). Provider from app settings will be used "
 "by default."
 msgstr ""
-"Especificar el proveedor de traducción («copiar», «mozhi» o «localai»). Se "
-"usará de forma predeterminada el proveedor de las preferencias de la "
-"aplicación."
+"Especificar el proveedor de traducción (%1). Se usará de forma "
+"predeterminada el proveedor de las preferencias de la aplicación."
 
 #: src/cli.cpp:182
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app "
-#| "settings will be used by default."
+#, qt-format
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider (%1). Provider from app settings will be used by "
 "default."
 msgstr ""
-"Especificar el proveedor de TTS («ninguno», «mozhi» o «qt»). Se usará de "
-"forma predeterminada el proveedor de las preferencias de la aplicación."
+"Especificar el proveedor de TTS (%1). Se usará de forma predeterminada el "
+"proveedor de las preferencias de la aplicación."
 
 #: src/cli.cpp:185
 msgctxt "Cli|"
@@ -245,12 +236,9 @@ msgid "Error: Unable to initialize Tesseract with %1"
 msgstr "Error: No se puede inicializar Tesseract con %1"
 
 #: src/cli.cpp:485
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Error: text-to-speech is unavailable: %1"
 msgctxt "Cli|"
 msgid "Error: No OCR engine is available"
-msgstr "Error: texto a voz no está disponible: %1"
+msgstr "Error: No hay disponible ningún motor OCR"
 
 #: src/cli.cpp:493
 msgctxt "Cli|"
@@ -352,7 +340,7 @@ msgstr "Copiar"
 #: src/core/pluginmanager.cpp:206
 msgctxt "PluginManager|"
 msgid "Hands the text back unchanged. Always available."
-msgstr ""
+msgstr "Devuelve el texto sin cambios. Siempre disponible."
 
 #: src/core/pluginmanager.cpp:212
 msgctxt "SettingsDialog|"
@@ -362,12 +350,12 @@ msgstr "Ninguno"
 #: src/core/pluginmanager.cpp:213
 msgctxt "PluginManager|"
 msgid "Says nothing. Always available."
-msgstr ""
+msgstr "No dice nada. Siempre disponible."
 
 #: src/core/pluginmanager.cpp:456
 msgctxt "PluginManager|"
 msgid "Backend unavailable"
-msgstr ""
+msgstr "Motor no disponible"
 
 #: src/core/pluginmanager.cpp:457
 #, qt-format
@@ -375,32 +363,33 @@ msgctxt "PluginManager|"
 msgid ""
 "The backend \"%1\" could not be used (%2). Falling back to the built-in one."
 msgstr ""
+"El motor «%1» no se puede usar (%2). En su lugar se usa el motor integrado."
 
 #: src/core/pluginmanager.cpp:468 src/core/pluginmanager.cpp:495
 msgctxt "PluginManager|"
 msgid "not installed"
-msgstr ""
+msgstr "no instalado"
 
 #: src/core/pluginmanager.cpp:476 src/core/pluginmanager.cpp:503
 msgctxt "PluginManager|"
 msgid "built nothing"
-msgstr ""
+msgstr "no se ha construido nada"
 
 #: src/core/pluginmanager.cpp:484 src/core/pluginmanager.cpp:508
 #: src/core/pluginmanager.cpp:531
 msgctxt "PluginManager|"
 msgid "crashed while starting"
-msgstr ""
+msgstr "ha fallado durante el inicio"
 
 #: src/core/translationsession.cpp:447
 msgctxt "TranslationSession|"
 msgid "No OCR engine available"
-msgstr ""
+msgstr "Ningún motor OCR disponible"
 
 #: src/core/translationsession.cpp:448
 msgctxt "TranslationSession|"
 msgid "No text recognition plugin is installed."
-msgstr ""
+msgstr "No se ha instalado ningún complemento de reconocimiento de texto."
 
 #: src/core/translationsession.cpp:460
 msgctxt "TesseractOcr|"
@@ -2323,7 +2312,7 @@ msgstr "URL de la instancia"
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:31
 msgctxt "MozhiTranslationPlugin|"
 msgid "The Mozhi instance to send translations through."
-msgstr ""
+msgstr "Instancia de Mozhi a través de la que se envían las traducciones."
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:40
 msgctxt "MozhiTranslationPlugin|"
@@ -2333,7 +2322,7 @@ msgstr "Motor"
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:41
 msgctxt "MozhiTranslationPlugin|"
 msgid "Which upstream translator the instance should use."
-msgstr ""
+msgstr "Traductor ascendente que debe usar la instancia."
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:46
 msgctxt "MozhiTranslationPlugin|"
@@ -2341,12 +2330,9 @@ msgid "LibreTranslate API key"
 msgstr "Clave API de LibreTranslate"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:51
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Mozhi / LibreTranslate"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Contact LibreTranslate directly"
-msgstr "Mozhi / LibreTranslate"
+msgstr "Contactar con LibreTranslate directamente"
 
 #: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:79
 msgctxt "MozhiTranslationProvider|"
@@ -2450,6 +2436,7 @@ msgstr "Ruta a las voces de Piper"
 msgctxt "PiperTtsPlugin|"
 msgid "Searched before the standard locations for Piper voice models."
 msgstr ""
+"Se ha buscado en las ubicaciones estándares de los modelos de voz Piper."
 
 #: src/plugins/tts/piper/piperttsprovider.cpp:139
 msgctxt "PiperTTSProvider|"
@@ -3359,12 +3346,6 @@ msgid "Detection provider:"
 msgstr "Proveedor de detección:"
 
 #: src/settings/settingsdialog.ui:774 src/settings/settingsdialog.ui:791
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "Provider and model used to detect the source language when it is set to "
-#| "Auto. If no detection model is selected, translation falls back to the "
-#| "configured primary language above."
 msgctxt "SettingsDialog|"
 msgid ""
 "Provider and model used to detect the source language when it is set to "
@@ -3372,7 +3353,7 @@ msgid ""
 msgstr ""
 "Proveedor y modelo que se usan para detectar el idioma de la fuente cuando "
 "se define como «automático». Si no se selecciona ningún modelo de detección, "
-"la traducción usará el idioma principal configurado anteriormente."
+"se solicitará el modelo que realizará la traducción."
 
 #: src/settings/settingsdialog.ui:781
 msgctxt "SettingsDialog|"
