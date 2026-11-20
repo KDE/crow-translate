@@ -68,32 +68,24 @@ msgstr ""
 "aplikácie."
 
 #: src/cli.cpp:175
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify translation provider ('copy', 'mozhi' or 'localai'). Provider "
-#| "from app settings will be used by default."
+#, qt-format
 msgctxt "Cli|"
 msgid ""
 "Specify translation provider (%1). Provider from app settings will be used "
 "by default."
 msgstr ""
-"Zadať poskytovateľa prekladu ('copy', 'mozhi' alebo 'localai'). Predvolene "
-"sa použije poskytovateľ z nastavení aplikácie."
+"Zadať poskytovateľa prekladu (%1). Predvolene sa použije poskytovateľ z "
+"nastavení aplikácie."
 
 #: src/cli.cpp:182
-#, fuzzy, qt-format
-#| msgctxt "Cli|"
-#| msgid ""
-#| "Specify TTS provider ('none', 'mozhi' or 'qt'). Provider from app "
-#| "settings will be used by default."
+#, qt-format
 msgctxt "Cli|"
 msgid ""
 "Specify TTS provider (%1). Provider from app settings will be used by "
 "default."
 msgstr ""
-"Zadať poskytovateľa TTS ('none', 'mozhi' alebo 'qt'). Predvolene sa použije "
-"poskytovateľ z nastavení aplikácie."
+"Zadať poskytovateľa TTS (%1). Predvolene sa použije poskytovateľ z nastavení "
+"aplikácie."
 
 #: src/cli.cpp:185
 msgctxt "Cli|"
@@ -238,12 +230,9 @@ msgid "Error: Unable to initialize Tesseract with %1"
 msgstr "Chyba: Nedá sa inicializovať Tesseract s %1"
 
 #: src/cli.cpp:485
-#, fuzzy
-#| msgctxt "Cli|"
-#| msgid "Error: text-to-speech is unavailable: %1"
 msgctxt "Cli|"
 msgid "Error: No OCR engine is available"
-msgstr "Chyba: prevod textu na reč nie je dostupný: %1"
+msgstr "Chyba: nie je dostupný žiadny nástroj OCR"
 
 #: src/cli.cpp:493
 msgctxt "Cli|"
@@ -345,7 +334,7 @@ msgstr "Kopírovať"
 #: src/core/pluginmanager.cpp:206
 msgctxt "PluginManager|"
 msgid "Hands the text back unchanged. Always available."
-msgstr ""
+msgstr "Vráti text nezmenený. Vždy dostupné."
 
 #: src/core/pluginmanager.cpp:212
 msgctxt "SettingsDialog|"
@@ -355,45 +344,45 @@ msgstr "Žiadne"
 #: src/core/pluginmanager.cpp:213
 msgctxt "PluginManager|"
 msgid "Says nothing. Always available."
-msgstr ""
+msgstr "Nepovie nič. Vždy dostupné."
 
 #: src/core/pluginmanager.cpp:456
 msgctxt "PluginManager|"
 msgid "Backend unavailable"
-msgstr ""
+msgstr "Backend nie je dostupný"
 
 #: src/core/pluginmanager.cpp:457
 #, qt-format
 msgctxt "PluginManager|"
 msgid ""
 "The backend \"%1\" could not be used (%2). Falling back to the built-in one."
-msgstr ""
+msgstr "Backend „%1“ sa nedal použiť (%2). Použije sa vstavaný."
 
 #: src/core/pluginmanager.cpp:468 src/core/pluginmanager.cpp:495
 msgctxt "PluginManager|"
 msgid "not installed"
-msgstr ""
+msgstr "nenainštalované"
 
 #: src/core/pluginmanager.cpp:476 src/core/pluginmanager.cpp:503
 msgctxt "PluginManager|"
 msgid "built nothing"
-msgstr ""
+msgstr "nič nevytvoril"
 
 #: src/core/pluginmanager.cpp:484 src/core/pluginmanager.cpp:508
 #: src/core/pluginmanager.cpp:531
 msgctxt "PluginManager|"
 msgid "crashed while starting"
-msgstr ""
+msgstr "spadol pri spúšťaní"
 
 #: src/core/translationsession.cpp:447
 msgctxt "TranslationSession|"
 msgid "No OCR engine available"
-msgstr ""
+msgstr "Nie je dostupný žiadny nástroj OCR"
 
 #: src/core/translationsession.cpp:448
 msgctxt "TranslationSession|"
 msgid "No text recognition plugin is installed."
-msgstr ""
+msgstr "Nie je nainštalovaný žiadny zásuvný modul na rozpoznávanie textu."
 
 #: src/core/translationsession.cpp:460
 msgctxt "TesseractOcr|"
@@ -2208,9 +2197,6 @@ msgid "%1 is not a valid Tesseract parameter name."
 msgstr "%1 nie je platný názov parametra Tesseract."
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:23
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Languages"
 msgctxt "TesseractOcrPlugin|"
 msgid "Languages"
 msgstr "Jazyky"
@@ -2218,12 +2204,9 @@ msgstr "Jazyky"
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:28
 msgctxt "TesseractOcrPlugin|"
 msgid "Language data directory"
-msgstr ""
+msgstr "Adresár s jazykovými údajmi"
 
 #: src/plugins/ocr/tesseract/tesseractplugin.cpp:33
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Convert line breaks"
 msgctxt "TesseractOcrPlugin|"
 msgid "Convert line breaks"
 msgstr "Previesť konce riadkov"
@@ -2308,43 +2291,34 @@ msgid "Translation aborted by user"
 msgstr "Preklad prerušil používateľ"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:30
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Instance URL"
-msgstr "URL inštancie:"
+msgstr "URL inštancie"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:31
 msgctxt "MozhiTranslationPlugin|"
 msgid "The Mozhi instance to send translations through."
-msgstr ""
+msgstr "Inštancia Mozhi, cez ktorú sa posielajú preklady."
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:40
 msgctxt "MozhiTranslationPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "Nástroj"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:41
 msgctxt "MozhiTranslationPlugin|"
 msgid "Which upstream translator the instance should use."
-msgstr ""
+msgstr "Ktorý zdrojový prekladač má inštancia použiť."
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:46
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Use direct LibreTranslate API"
 msgctxt "MozhiTranslationPlugin|"
 msgid "LibreTranslate API key"
-msgstr "Použiť priame API LibreTranslate"
+msgstr "API kľúč LibreTranslate"
 
 #: src/plugins/translation/mozhi/mozhiplugin.cpp:51
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Mozhi / LibreTranslate"
 msgctxt "MozhiTranslationPlugin|"
 msgid "Contact LibreTranslate directly"
-msgstr "Mozhi / LibreTranslate"
+msgstr "Pripájať sa priamo k LibreTranslate"
 
 #: src/plugins/translation/mozhi/mozhitranslationprovider.cpp:79
 msgctxt "MozhiTranslationProvider|"
@@ -2394,17 +2368,14 @@ msgid "Unknown error: %1"
 msgstr "Neznáma chyba: %1"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:27
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Instance URL:"
 msgctxt "MozhiTtsPlugin|"
 msgid "Instance URL"
-msgstr "URL inštancie:"
+msgstr "URL inštancie"
 
 #: src/plugins/tts/mozhi/mozhittsplugin.cpp:32
 msgctxt "MozhiTtsPlugin|"
 msgid "Engine"
-msgstr ""
+msgstr "Nástroj"
 
 #: src/plugins/tts/mozhi/mozhittsprovider.cpp:48
 msgctxt "MozhiTTSProvider|"
@@ -2442,17 +2413,14 @@ msgid "Mozhi instance error: %1 (HTTP 4XX Client Error)"
 msgstr "Chyba inštancie Mozhi: %1 (chyba HTTP klienta 4XX)"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:19
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid "Piper voices path:"
 msgctxt "PiperTtsPlugin|"
 msgid "Piper voices path"
-msgstr "Cesta k hlasom Piper:"
+msgstr "Cesta k hlasom Piper"
 
 #: src/plugins/tts/piper/piperttsplugin.cpp:20
 msgctxt "PiperTtsPlugin|"
 msgid "Searched before the standard locations for Piper voice models."
-msgstr ""
+msgstr "Prehľadáva sa pred štandardnými umiestneniami hlasových modelov Piper."
 
 #: src/plugins/tts/piper/piperttsprovider.cpp:139
 msgctxt "PiperTTSProvider|"
@@ -2688,12 +2656,9 @@ msgid "Unable to remove %1 from %2"
 msgstr "Nie je možné remove %1 from %2"
 
 #: src/settings/pluginoptionswidget.cpp:87
-#, fuzzy
-#| msgctxt "ModuleStatus|"
-#| msgid "Select a region"
 msgctxt "PluginOptionsWidget|"
 msgid "Select a directory"
-msgstr "Vyberte oblasť"
+msgstr "Vyberte adresár"
 
 #: src/settings/settingsdialog.cpp:83
 msgctxt "SettingsDialog|"
@@ -3347,20 +3312,14 @@ msgid "Detection provider:"
 msgstr "Poskytovateľ detekcie:"
 
 #: src/settings/settingsdialog.ui:774 src/settings/settingsdialog.ui:791
-#, fuzzy
-#| msgctxt "SettingsDialog|"
-#| msgid ""
-#| "Provider and model used to detect the source language when it is set to "
-#| "Auto. If no detection model is selected, translation falls back to the "
-#| "configured primary language above."
 msgctxt "SettingsDialog|"
 msgid ""
 "Provider and model used to detect the source language when it is set to "
 "Auto. If no detection model is selected, the model that translates is asked."
 msgstr ""
 "Poskytovateľ a model použité na zistenie zdrojového jazyka, keď je nastavený "
-"na Auto. Ak nie je vybraný žiadny detekčný model, preklad sa vráti k "
-"nastavenému primárnemu jazyku vyššie."
+"na Auto. Ak nie je vybraný žiadny model na zisťovanie, použije sa model, "
+"ktorý prekladá."
 
 #: src/settings/settingsdialog.ui:781
 msgctxt "SettingsDialog|"
