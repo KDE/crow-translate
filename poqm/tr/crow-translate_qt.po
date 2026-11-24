@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-11-15 20:03+0300\n"
+"PO-Revision-Date: 2026-11-23 18:11+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -33,14 +33,14 @@ msgctxt "Cli|"
 msgid ""
 "Specify the source language (by default, engine will try to determine the "
 "language on its own)."
-msgstr "Kaynak dili belirt (Öntanımlı: Kendiliğinden algılama)."
+msgstr "Kaynak dili belirt (Varsayılan: Kendiliğinden algılama)."
 
 #: src/cli.cpp:162
 msgctxt "Cli|"
 msgid ""
 "Specify the translation language(s), split by '+' (by default, the system "
 "language is used)."
-msgstr "Çeviri dillerini “+” ile ayırıp belirt (Öntanımlı: Sistem dili)."
+msgstr "Çeviri dillerini “+” ile ayırıp belirt (Varsayılan: Sistem dili)."
 
 #: src/cli.cpp:167
 msgctxt "Cli|"
@@ -49,7 +49,7 @@ msgid ""
 "'libretranslate', 'mymemory' or 'reverso'), Google is used by default."
 msgstr ""
 "Çeviri işletkesini belirt (“google”, “yandex”, “bing”, “deepl”, "
-"“libretranslate”, “mymemory” veya “reverso”). Öntanımlı olarak Google "
+"“libretranslate”, “mymemory” veya “reverso”). Varsayılan olarak Google "
 "kullanılır."
 
 #: src/cli.cpp:171
@@ -58,8 +58,8 @@ msgid ""
 "Specify Mozhi instance URL. Instance URL from the app settings will be used "
 "by default."
 msgstr ""
-"Mozhi örneği URL’sini belirt. Öntanımlı olarak, uygulama ayarlarındaki örnek "
-"URL’si kullanılır."
+"Mozhi örneği URL’sini belirt. Varsayılan olarak, uygulama ayarlarındaki "
+"örnek URL’si kullanılır."
 
 #: src/cli.cpp:175
 #, qt-format
@@ -68,7 +68,7 @@ msgid ""
 "Specify translation provider (%1). Provider from app settings will be used "
 "by default."
 msgstr ""
-"Çeviri sağlayıcısını belirt (%1). Öntanımlı olarak uygulama ayarlarındaki "
+"Çeviri sağlayıcısını belirt (%1). Varsayılan olarak uygulama ayarlarındaki "
 "sağlayıcı kullanılır."
 
 #: src/cli.cpp:182
@@ -78,7 +78,7 @@ msgid ""
 "Specify TTS provider (%1). Provider from app settings will be used by "
 "default."
 msgstr ""
-"Konuşma sağlayıcısını belirt (%1). Öntanımlı olarak uygulama ayarlarındaki "
+"Konuşma sağlayıcısını belirt (%1). Varsayılan olarak uygulama ayarlarındaki "
 "sağlayıcı kullanılır."
 
 #: src/cli.cpp:185
@@ -154,7 +154,7 @@ msgctxt "Cli|"
 msgid ""
 "Text to translate. By default, the translation will be done to the system "
 "language."
-msgstr "Çevrilecek metin. Öntanımlı olarak çeviri sistem diline yapılacaktır."
+msgstr "Çevrilecek metin. Varsayılan olarak çeviri sistem diline yapılacaktır."
 
 #: src/cli.cpp:253
 #, qt-format
@@ -595,7 +595,7 @@ msgstr "Geçersiz tepsi simgesi"
 #, qt-format
 msgctxt "TrayIcon|"
 msgid "The specified icon '%1' is invalid. The default icon will be used."
-msgstr "Belirtilen simge “%1” geçersiz. Öntanımlı simge kullanılacak."
+msgstr "Belirtilen simge “%1” geçersiz. Varsayılan simge kullanılacak."
 
 #: src/mainwindow.cpp:1147
 msgctxt "MainWindow|"
@@ -3187,7 +3187,7 @@ msgstr "<html><head/><body><p>Sistem tepsisi simgesi</p></body></html>"
 #: src/settings/settingsdialog.ui:557
 msgctxt "SettingsDialog|"
 msgid "Default"
-msgstr "Öntanımlı"
+msgstr "Varsayılan"
 
 #: src/settings/settingsdialog.ui:565
 msgctxt "SettingsDialog|"
@@ -3764,7 +3764,7 @@ msgstr "Global kısayolları etkinleştir"
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset all shortcuts to defaults</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Tüm kısayolları öntanımlılarına sıfırlayın.</p></"
+"<html><head/><body><p>Tüm kısayolları varsayılanlarına sıfırlayın.</p></"
 "body></html>"
 
 #: src/settings/settingsdialog.ui:1548
@@ -3814,7 +3814,7 @@ msgstr "Temizle"
 msgctxt "SettingsDialog|"
 msgid "<html><head/><body><p>Reset shortcut to default</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Kısayolu öntanımlı değere sıfırla</p></body></html>"
+"<html><head/><body><p>Kısayolu varsayılan değere sıfırla</p></body></html>"
 
 #: src/settings/settingsdialog.ui:1607
 msgctxt "SettingsDialog|"
